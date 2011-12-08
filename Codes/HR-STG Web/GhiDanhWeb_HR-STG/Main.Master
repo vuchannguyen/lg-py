@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="GhiDanhWeb_HR_STG.Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ghi danh Trực tuyến - STG Software</title>
+    <link href="Styles/Main.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="Header" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="bgColor">
+        &nbsp;</div>
+    <div class="header">
+        <img src="Resources/header.png" width="607" height="142" />
+    </div>
+    <div class="bgColor">
+        &nbsp;</div>
+    <div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="footer">
+        <img src="Resources/print_footer.PNG" width="241" height="63" />
+    </div>
+    </form>
+</body>
+</html>

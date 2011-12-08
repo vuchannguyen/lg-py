@@ -1,0 +1,27 @@
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\BUS\obj\Debug\BUS.pdb
+D:\Backup 27-03-11\HR-STG for Client\BUS\bin\Debug\BUS.dll
+D:\Backup 27-03-11\HR-STG for Client\BUS\bin\Debug\BUS.pdb
+D:\Backup 27-03-11\HR-STG for Client\BUS\bin\Debug\DAO.dll
+D:\Backup 27-03-11\HR-STG for Client\BUS\bin\Debug\DTO.dll
+D:\Backup 27-03-11\HR-STG for Client\BUS\bin\Debug\DAO.pdb
+D:\Backup 27-03-11\HR-STG for Client\BUS\bin\Debug\DTO.pdb
+D:\Backup 27-03-11\HR-STG for Client\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Backup 27-03-11\HR-STG for Client\BUS\obj\Debug\BUS.dll
+D:\Backup 27-03-11\HR-STG for Client\BUS\obj\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\BUS\obj\Debug\BUS.pdb

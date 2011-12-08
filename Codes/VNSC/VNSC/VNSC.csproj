@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DB2B4CEE-278A-4D5A-B236-D5A7D03EA47E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VNSC</RootNamespace>
+    <AssemblyName>VNSC</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>128hrstgicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PluginInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\PluginInterface\PluginInterface\bin\Debug\PluginInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CryptoFunction\Crypto.cs" />
+    <Compile Include="CryptoFunction\MyFileCryptography.cs" />
+    <Compile Include="CryptoFunction\MyHashAlgorithm.cs" />
+    <Compile Include="CryptoFunction\MyHexHash.cs" />
+    <Compile Include="CryptoFunction\MyRSAAlgorithm.cs" />
+    <Compile Include="CryptoFunction\MyTripleDES.cs" />
+    <Compile Include="CryptoFunction\PrivateKeyCrypto.cs" />
+    <Compile Include="Form_Print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Print.Designer.cs">
+      <DependentUpon>Form_Print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Convert_Function.cs" />
+    <Compile Include="Function\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Function\Office_Function.cs" />
+    <Compile Include="Function\Plugin_Function.cs" />
+    <Compile Include="Function\XML_Function.cs" />
+    <Compile Include="UC_CongCuHoTro\Form_CongCuHoTro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC_CongCuHoTro\Form_CongCuHoTro.Designer.cs">
+      <DependentUpon>Form_CongCuHoTro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ExportExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ExportExcel.Designer.cs">
+      <DependentUpon>UC_ExportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_HeThong\UC_Plugin\HoSo_DAO.cs" />
+    <Compile Include="UC_HeThong\UC_Plugin\HoSo_DTO.cs" />
+    <Compile Include="UC_HeThong\UC_HeThong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_HeThong\UC_HeThong.Designer.cs">
+      <DependentUpon>UC_HeThong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_HeThong\UC_Plugin\UC_Plugin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_HeThong\UC_Plugin\UC_Plugin.Designer.cs">
+      <DependentUpon>UC_Plugin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_HoSoThamDu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_HoSoThamDu.Designer.cs">
+      <DependentUpon>UC_HoSoThamDu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_HeThong\UC_Plugin\UC_ListViewEx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_HeThong\UC_Plugin\UC_ListViewEx.Designer.cs">
+      <DependentUpon>UC_ListViewEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\Form_DieuPhoi\Form_DieuPhoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\Form_DieuPhoi\Form_DieuPhoi.Designer.cs">
+      <DependentUpon>Form_DieuPhoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\Form_HoSoThamDu\Form_HoSoThamDu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\Form_HoSoThamDu\Form_HoSoThamDu.Designer.cs">
+      <DependentUpon>Form_HoSoThamDu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\File_Function.cs" />
+    <Compile Include="Form\Form_Confirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_Confirm.Designer.cs">
+      <DependentUpon>Form_Confirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form_DB_Definition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_DB_Definition.Designer.cs">
+      <DependentUpon>Form_DB_Definition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form_Notice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_Notice.Designer.cs">
+      <DependentUpon>Form_Notice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Search_Function.cs" />
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_ChiTietSuKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_ChiTietSuKien.Designer.cs">
+      <DependentUpon>UC_ChiTietSuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_DonViHanhChanh\UC_DonViHanhChanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_DonViHanhChanh\UC_DonViHanhChanh.Designer.cs">
+      <DependentUpon>UC_DonViHanhChanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\Form_Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\Form_Detail.Designer.cs">
+      <DependentUpon>Form_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form_Restore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_Restore.Designer.cs">
+      <DependentUpon>Form_Restore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\ListViewSortColumn.cs" />
+    <Compile Include="Function\SQL_Funtion.cs" />
+    <Compile Include="Function\Image_Function.cs" />
+    <Compile Include="UC_QuanLySuKien\UC_NhomLoaiHinh\UC_NhomLoaiHinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_NhomLoaiHinh\UC_NhomLoaiHinh.Designer.cs">
+      <DependentUpon>UC_NhomLoaiHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_LoaiHinh\UC_LoaiHinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_LoaiHinh\UC_LoaiHinh.Designer.cs">
+      <DependentUpon>UC_LoaiHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_IDV\UC_IDV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_IDV\UC_IDV.Designer.cs">
+      <DependentUpon>UC_IDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\UC_HuanLuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\UC_HuanLuyen.Designer.cs">
+      <DependentUpon>UC_HuanLuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_NhomTrachVu\UC_NhomTrachVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_NhomTrachVu\UC_NhomTrachVu.Designer.cs">
+      <DependentUpon>UC_NhomTrachVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Fade.cs" />
+    <Compile Include="Function\MyReturnCode.cs" />
+    <Compile Include="Function\Startup.cs" />
+    <Compile Include="Function\SubFunction.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\UC_HoSoCaNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\UC_HoSoCaNhan.Designer.cs">
+      <DependentUpon>UC_HoSoCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_QuanLyNhanSu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_QuanLyNhanSu.Designer.cs">
+      <DependentUpon>UC_QuanLyNhanSu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_TrachVu\UC_TrachVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyNhanSu\UC_TrachVu\UC_TrachVu.Designer.cs">
+      <DependentUpon>UC_TrachVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_QuanLySuKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_QuanLySuKien.Designer.cs">
+      <DependentUpon>UC_QuanLySuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\Form_HoSoThamDu\UC_SuKien_HoSoThamDu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\Form_HoSoThamDu\UC_SuKien_HoSoThamDu.Designer.cs">
+      <DependentUpon>UC_SuKien_HoSoThamDu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_SuKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_SuKien.Designer.cs">
+      <DependentUpon>UC_SuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_TrachVuSuKien\UC_TrachVuSuKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien\UC_TrachVuSuKien\UC_TrachVuSuKien.Designer.cs">
+      <DependentUpon>UC_TrachVuSuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_TraCuu\UC_TraCuu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_TraCuu\UC_TraCuu.Designer.cs">
+      <DependentUpon>UC_TraCuu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\Form_Confirm.resx">
+      <DependentUpon>Form_Confirm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Form_DB_Definition.resx">
+      <DependentUpon>Form_DB_Definition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Form_Notice.resx">
+      <DependentUpon>Form_Notice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Print.resx">
+      <DependentUpon>Form_Print.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_CongCuHoTro\Form_CongCuHoTro.resx">
+      <DependentUpon>Form_CongCuHoTro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ExportExcel.resx">
+      <DependentUpon>UC_ExportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_HeThong\UC_HeThong.resx">
+      <DependentUpon>UC_HeThong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_HeThong\UC_Plugin\UC_Plugin.resx">
+      <DependentUpon>UC_Plugin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_HoSoThamDu.resx">
+      <DependentUpon>UC_HoSoThamDu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_HeThong\UC_Plugin\UC_ListViewEx.resx">
+      <DependentUpon>UC_ListViewEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\Form_DieuPhoi\Form_DieuPhoi.resx">
+      <DependentUpon>Form_DieuPhoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\Form_HoSoThamDu\Form_HoSoThamDu.resx">
+      <DependentUpon>Form_HoSoThamDu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\UC_ChiTietSuKien.resx">
+      <DependentUpon>UC_ChiTietSuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\UC_DonViHanhChanh\UC_DonViHanhChanh.resx">
+      <DependentUpon>UC_DonViHanhChanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\Form_Detail.resx">
+      <DependentUpon>Form_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Form_Restore.resx">
+      <DependentUpon>Form_Restore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_NhomLoaiHinh\UC_NhomLoaiHinh.resx">
+      <DependentUpon>UC_NhomLoaiHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_LoaiHinh\UC_LoaiHinh.resx">
+      <DependentUpon>UC_LoaiHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_IDV\UC_IDV.resx">
+      <DependentUpon>UC_IDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\UC_HuanLuyen.resx">
+      <DependentUpon>UC_HuanLuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_NhomTrachVu\UC_NhomTrachVu.resx">
+      <DependentUpon>UC_NhomTrachVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_HoSoCaNhan\UC_HoSoCaNhan.resx">
+      <DependentUpon>UC_HoSoCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_QuanLyNhanSu.resx">
+      <DependentUpon>UC_QuanLyNhanSu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyNhanSu\UC_TrachVu\UC_TrachVu.resx">
+      <DependentUpon>UC_TrachVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_QuanLySuKien.resx">
+      <DependentUpon>UC_QuanLySuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\Form_HoSoThamDu\UC_SuKien_HoSoThamDu.resx">
+      <DependentUpon>UC_SuKien_HoSoThamDu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\UC_SuKien.resx">
+      <DependentUpon>UC_SuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien\UC_TrachVuSuKien\UC_TrachVuSuKien.resx">
+      <DependentUpon>UC_TrachVuSuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_TraCuu\UC_TraCuu.resx">
+      <DependentUpon>UC_TraCuu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\database_def.jpg" />
+    <Content Include="128hrstgicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{B9008DE4-6242-4ACE-990A-7B587B777AB5}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{D24230BE-9F3C-456C-9440-1887348B1722}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

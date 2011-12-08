@@ -1,0 +1,35 @@
+﻿.titlenote
+{
+    font-family: "Myriad Pro" , "Myriad Pro Cond" , "Myriad Pro Light" , "Mystic Thin" , "Mystic Wide";
+    font-size: 12px;
+    text-align: center;
+}
+
+.headerText
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FF9935;
+}
+
+.event
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: bold;
+    color: #060;
+    text-align: center;
+}
+
+.menuContent
+{
+    width: 250px;
+    text-align: right;
+}
+
+.center
+{
+    text-align: center
+}
