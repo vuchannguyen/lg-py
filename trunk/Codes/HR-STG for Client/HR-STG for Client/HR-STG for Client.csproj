@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB82B8EC-DFDE-4717-8300-EB942D64F6D1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HR_STG_for_Client</RootNamespace>
+    <AssemblyName>HR-STG for Client</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>128hrstgicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CryptoFunction\Crypto.cs" />
+    <Compile Include="CryptoFunction\MyFileCryptography.cs" />
+    <Compile Include="CryptoFunction\MyHashAlgorithm.cs" />
+    <Compile Include="CryptoFunction\MyHexHash.cs" />
+    <Compile Include="CryptoFunction\MyRSAAlgorithm.cs" />
+    <Compile Include="CryptoFunction\MyTripleDES.cs" />
+    <Compile Include="CryptoFunction\PrivateKeyCrypto.cs" />
+    <Compile Include="Form\Form_Confirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_Confirm.designer.cs">
+      <DependentUpon>Form_Confirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form_Notice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_Notice.designer.cs">
+      <DependentUpon>Form_Notice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\Form_DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\Form_DangNhap.Designer.cs">
+      <DependentUpon>Form_DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\Convert_Function.cs" />
+    <Compile Include="Function\Fade.cs" />
+    <Compile Include="Function\File_Function.cs" />
+    <Compile Include="Function\Image_Function.cs" />
+    <Compile Include="Function\ListViewSortColumn.cs" />
+    <Compile Include="Function\Startup.cs" />
+    <Compile Include="Function\SubFuntion.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_QuanLySuKien\UC_HoSoThamDu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_HoSoThamDu.Designer.cs">
+      <DependentUpon>UC_HoSoThamDu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyHoSo\UC_HoSoCaNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyHoSo\UC_HoSoCaNhan.Designer.cs">
+      <DependentUpon>UC_HoSoCaNhan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLyHoSo\UC_HuanLuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLyHoSo\UC_HuanLuyen.designer.cs">
+      <DependentUpon>UC_HuanLuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_TongQuanSuKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_TongQuanSuKien.Designer.cs">
+      <DependentUpon>UC_TongQuanSuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_QuanLySuKien\UC_SuKien.Designer.cs">
+      <DependentUpon>UC_SuKien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\XML_Function.cs" />
+    <EmbeddedResource Include="Form\Form_Confirm.resx">
+      <DependentUpon>Form_Confirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Form_Notice.resx">
+      <DependentUpon>Form_Notice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\Form_DangNhap.resx">
+      <DependentUpon>Form_DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_HoSoThamDu.resx">
+      <DependentUpon>UC_HoSoThamDu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyHoSo\UC_HoSoCaNhan.resx">
+      <DependentUpon>UC_HoSoCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLyHoSo\UC_HuanLuyen.resx">
+      <DependentUpon>UC_HuanLuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_TongQuanSuKien.resx">
+      <DependentUpon>UC_TongQuanSuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_QuanLySuKien\UC_SuKien.resx">
+      <DependentUpon>UC_SuKien.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="128hrstgicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{B37138D9-C991-4225-86BD-B884A918D200}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{8F722FA9-8798-4845-9F81-0FB4E0F81192}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{A2F98D84-7BF0-45E5-86E3-C55EBD02A5C5}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

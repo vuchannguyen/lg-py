@@ -1,0 +1,11 @@
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\GhiDanhWeb_HR-STG.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\GhiDanhWeb_HR-STG.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\obj\Debug\GhiDanhWeb_HR-STG.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\obj\Debug\GhiDanhWeb_HR-STG.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\BUS.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\DTO.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\DAO.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\BUS.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\DTO.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\GhiDanhWeb_HR-STG\bin\DAO.pdb

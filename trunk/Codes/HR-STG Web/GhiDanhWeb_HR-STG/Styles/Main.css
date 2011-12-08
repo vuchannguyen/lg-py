@@ -1,0 +1,28 @@
+﻿body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 16px;
+	color: #000;
+	line-height: 20px;
+}
+
+.header 
+{    
+	height: 200;
+	background-image: url(../Resources/bg_orange.JPG);
+	text-align: center;
+}
+
+.footer 
+{    
+	background-color: #4F1E00;
+	text-align: center;
+}
+
+.bgColor 
+{
+    background-color: #4F1E00;
+}

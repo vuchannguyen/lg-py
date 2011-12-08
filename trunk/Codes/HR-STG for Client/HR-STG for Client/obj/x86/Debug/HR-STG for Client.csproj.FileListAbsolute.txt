@@ -1,0 +1,45 @@
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\HR-STG for Client.exe
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\HR-STG for Client.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_Main.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Properties.Resources.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR-STG for Client.exe
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR-STG for Client.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_HoSoCaNhan.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_Confirm.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_Notice.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_HuanLuyen.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_DangNhap.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_TongQuanSuKien.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_SuKien.resources
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\HR-STG for Client\bin\Debug\DTO.pdb
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR-STG for Client.exe
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR-STG for Client.pdb
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_Confirm.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_Notice.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_DangNhap.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Form_Main.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.Properties.Resources.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_HoSoCaNhan.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_HuanLuyen.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_TongQuanSuKien.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_SuKien.resources
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\HR-STG for Client.exe
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\HR-STG for Client.pdb
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\BUS.dll
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\DAO.dll
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\DTO.dll
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\BUS.pdb
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\DAO.pdb
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\bin\Debug\DTO.pdb
+D:\Backup 27-03-11\HR-STG for Client\HR-STG for Client\obj\x86\Debug\HR_STG_for_Client.UC_HoSoThamDu.resources

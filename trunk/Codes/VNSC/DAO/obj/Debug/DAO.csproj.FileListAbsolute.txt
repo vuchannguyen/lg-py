@@ -1,0 +1,30 @@
+C:\Users\CONAN\Desktop\VNSC\DAO\bin\Debug\DAO.dll.config
+C:\Users\CONAN\Desktop\VNSC\DAO\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\VNSC\DAO\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\VNSC\DAO\obj\Debug\DAO.dll
+C:\Users\CONAN\Desktop\VNSC\DAO\obj\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\DAO\bin\Debug\DAO.dll.config
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\DAO\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\DAO\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\DAO\obj\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\DAO\obj\Debug\DAO.pdb
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\DAO\bin\Debug\DAO.dll.config
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\DAO\bin\Debug\DAO.dll
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\DAO\bin\Debug\DAO.pdb
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\DAO\obj\Debug\DAO.dll
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\DAO\obj\Debug\DAO.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\DAO\bin\Debug\DAO.dll.config
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\DAO\bin\Debug\DAO.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\DAO\bin\Debug\DAO.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\DAO\obj\Debug\DAO.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\DAO\obj\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Documents\VNSC\DAO\bin\Debug\DAO.dll.config
+C:\Users\CONAN\Desktop\Documents\VNSC\DAO\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Documents\VNSC\DAO\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Documents\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Documents\VNSC\DAO\obj\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Documents\VNSC\DAO\obj\Debug\DAO.pdb

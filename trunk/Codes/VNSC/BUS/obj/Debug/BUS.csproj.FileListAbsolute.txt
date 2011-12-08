@@ -1,0 +1,35 @@
+C:\Users\CONAN\Desktop\VNSC\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\VNSC\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\VNSC\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\VNSC\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\VNSC\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\VNSC\BUS\obj\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\BUS\obj\Debug\BUS.pdb
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\bin\Debug\BUS.dll
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\bin\Debug\BUS.pdb
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\bin\Debug\DAO.dll
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\bin\Debug\DAO.pdb
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\obj\Debug\BUS.dll
+C:\Users\Nguyen\Desktop\Project VNSC\Tuc\VNSC\BUS\obj\Debug\BUS.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\BUS.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\BUS.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\DAO.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\bin\Debug\DAO.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\obj\Debug\BUS.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\BUS\obj\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Documents\VNSC\BUS\obj\Debug\BUS.pdb

@@ -1,0 +1,15 @@
+C:\Users\CONAN\Desktop\HR-STG for Client\DTO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\HR-STG for Client\DTO\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\DTO\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\HR-STG for Client\DTO\obj\Debug\DTO.dll
+C:\Users\CONAN\Desktop\HR-STG for Client\DTO\obj\Debug\DTO.pdb
+D:\Backup 27-03-11\HR-STG for Client\DTO\bin\Debug\DTO.dll
+D:\Backup 27-03-11\HR-STG for Client\DTO\bin\Debug\DTO.pdb
+D:\Backup 27-03-11\HR-STG for Client\DTO\obj\Debug\ResolveAssemblyReference.cache
+D:\Backup 27-03-11\HR-STG for Client\DTO\obj\Debug\DTO.dll
+D:\Backup 27-03-11\HR-STG for Client\DTO\obj\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\DTO\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\DTO\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\DTO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\DTO\obj\Debug\DTO.dll
+C:\Users\CONAN\Desktop\GhiDanhWeb_HR-STG\DTO\obj\Debug\DTO.pdb

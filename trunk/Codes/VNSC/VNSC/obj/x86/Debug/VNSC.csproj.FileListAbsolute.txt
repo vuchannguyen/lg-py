@@ -1,0 +1,126 @@
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\VNSC.exe
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\VNSC.pdb
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Confirm.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DB_Definition.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Notice.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Detail.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Restore.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_LoaiHinh.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HuanLuyen.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Main.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Properties.Resources.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoCaNhan.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLyNhanSu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLySuKien.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.exe
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.exe
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\VNSC.exe
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\VNSC.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Confirm.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DB_Definition.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Notice.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Detail.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Restore.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_KhuVuc.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_LoaiHinh.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ID.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HuanLuyen.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_DoiTuong.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Main.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Properties.Resources.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoCaNhan.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLyNhanSu.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVu.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLySuKien.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ChiTietSuKien.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_DonViHanhChanh.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TraCuu.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVuSuKien.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_HoSoThamDu.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien_HoSoThamDu.resources
+C:\Users\CONAN\Desktop\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DieuPhoi.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.csproj.ResolveComReference.cache
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Confirm.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DB_Definition.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Notice.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ListViewEx.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DieuPhoi.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_HoSoThamDu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ChiTietSuKien.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_DonViHanhChanh.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Detail.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Restore.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_LoaiHinh.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HuanLuyen.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_NhomTrachVu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Main.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Properties.Resources.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoCaNhan.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLyNhanSu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLySuKien.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien_HoSoThamDu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVuSuKien.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TraCuu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\VNSC.exe
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\VNSC.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\BUS.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\DAO.dll
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\BUS.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\bin\Debug\DAO.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.exe
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.pdb
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_IDV.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_NhomLoaiHinh.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Print.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ExportExcel.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoThamDu.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_Plugin.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HeThong.resources
+D:\Backup 27-03-11\Tuc_Nguyen\Tuc\VNSC\VNSC\obj\x86\Debug\VNSC.Form_CongCuHoTro.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.csproj.ResolveComReference.cache
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Print.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_CongCuHoTro.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ExportExcel.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HeThong.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_Plugin.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoThamDu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ListViewEx.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DieuPhoi.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.Form_HoSoThamDu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ChiTietSuKien.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_DonViHanhChanh.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_NhomLoaiHinh.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_IDV.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_NhomTrachVu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien_HoSoThamDu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVuSuKien.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TraCuu.resources
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\PluginInterface.dll
+C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\PluginInterface.pdb
+C:\Users\CONAN\Desktop\Documents\VNSC\VNSC\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Documents\VNSC\VNSC\obj\x86\Debug\VNSC.exe
+C:\Users\CONAN\Desktop\Documents\VNSC\VNSC\obj\x86\Debug\VNSC.pdb

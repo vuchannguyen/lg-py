@@ -1,0 +1,21 @@
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\bin\Debug\Co Lau 711.exe
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\bin\Debug\Co Lau 711.pdb
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.Properties.Resources.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co Lau 711.exe
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co Lau 711.pdb
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.Form_Main.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.UC_DoanHinh.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.UC_DoanSo.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Function.UC_CountDownTimer.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.Form_ThongDiep.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.UC_MatThu.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\About.Form_About.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\GenerateResource.write.91.tlog
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\GenerateResource.read.120.tlog
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\GenerateResource.write.120.tlog
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\GenerateResource.write.148.tlog
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.UC_HelpDoanHinh.resources
+C:\Users\CONAN\Desktop\Co Lau 711\Co Lau 711\obj\x86\Debug\Co_Lau_711.UC_HelpDoanSo.resources
