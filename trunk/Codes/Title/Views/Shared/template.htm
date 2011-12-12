@@ -1,0 +1,1461 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CRM - Template</title>
+    <meta name="author" content="Administrator" />
+    <meta name="description" content="CRM - Corporate Resource Management" />
+    <meta name="keywords" content="CRM" />
+    <meta name="Generator" content="" />
+    <meta name="robots" content="index, follow" />
+    <link rel="shortcut icon" href="../../Content/Images/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="../../Content/Css/Core.css" rel="stylesheet" />
+    <link type="text/css" href="../../Content/Css/Default.css" rel="stylesheet" />
+    <link type="text/css" href="../../Content/Css/Users.css" rel="stylesheet" />
+    <!--[if IE]>
+		<link type="text/css" href="../../Content/Css/Fixie.css" rel="stylesheet" />
+	<![endif]-->
+    <!--[if IE 6]>
+		<link type="text/css" href="../../Content/Css/FixieIE6.css" rel="stylesheet" />
+	<![endif]-->
+    <script src="../../Scripts/Grid/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../../Scripts/Menu/ddsmoothmenu.css" />
+    <script type="text/javascript" src="../../Scripts/Menu/ddsmoothmenu.js"></script>
+    <script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.autocomplete.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../../Scripts/grid/themes/basic/grid.css"
+        media="screen" />
+    <script src="../../Scripts/grid/jquery.jqGrid.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.tooltip.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="../../Scripts/CRM.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="cheader">
+                <div id="header">
+                    <div id="hlft" class="fl">
+                        <div class="appname">
+                            Module Name</div>
+                    </div>
+                    <div id="hrgh" class="fr">
+                        <a href="#" class="logout">Logout</a>[Huy Ly]</div>
+                </div>
+            </div>
+            <div id="cmenu" class="ddsmoothmenu">
+                <link rel="stylesheet" type="text/css" href="..../../Scripts/Menu/ddsmoothmenu.css" />
+                <script type="text/javascript" src="..../../Scripts/Menu/ddsmoothmenu.js"></script>
+                <ul>
+                    <li><a href="#">Homepage</a></li>
+                    <li><a href="#">Resource</a>
+                        <ul>
+                            <li><a href="#">Reource Master List</a></li>
+                            <li><a href="#">Skill Set Management</a></li>
+                            <li><a href="#">Reource Master List</a></li>
+                            <li><a href="#">Skill Set Management</a></li>
+                            <li><a href="#">Reource Master List</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Project</a>
+                        <ul>
+                            <li><a href="#">Reource Master List</a></li>
+                            <li><a href="#">Skill Set Management</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="ctitle">
+                <div id="tpage">
+                    <div id="ctlft" class="fl">
+                        Title Page</div>
+                    <div id="ctrgh" class="fr">
+                        <div id="csearch">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="30">
+                                <tr>
+                                    <td class="ctsear">
+                                        <input type="text" value="Enter Keyword..." class="txtsear" />
+                                    </td>
+                                    <td>
+                                        <input type="button" value="" class="btnsear" onclick="alert('search function')" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ccontent">
+                <link href="../../Scripts/AutoComplete/autoSuggest.css" rel="stylesheet" type="text/css" />
+                <ul class="as-selections" id="as-selections">
+                    <li id="div0" hidvalue="phihung.nguyen" class="as-selection-item">
+                        <a id="Title3" class="as-close" onclick='removeLi("div0")'>×</a>phihung.nguyen</li>
+                    <li id="div1" hidvalue="huy.l" class="as-selection-item">
+                        <a id="Title3" class="as-close" onclick='removeLi("div1")'>×</a>huy.l</li>
+                    <li id="div2" hidvalue="duyhung.nguyen" class="as-selection-item">
+                        <a id="Title3" class="as-close" onclick='removeLi("div2")'>×</a>duyhung.nguyen</li>
+                    <li class="as-original" id="as-original">
+                        <input class="ac_input" autocomplete="off" id="fieldCC" name="fieldCC" value="" type="text"></li>
+                </ul>                
+                <br /><br /><br />
+                <div>
+                    <button class="button" onclick="CRM.loading();">
+                        Test Function Loadding</button></div>
+                <div>
+                    <button class="button" onclick="CRM.completed();">
+                        Test Function Completed</button></div>
+                <table width="50%" border="0" cellspacing="0" cellpadding="0" class="grid">
+                    <tbody>
+                        <tr>
+                            <th width="1%">
+                                <input type="checkbox" />
+                            </th>
+                            <th>
+                                Resource Name
+                            </th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                PM
+                            </th>
+                            <th>
+                                Birthday
+                            </th>
+                        </tr>
+                        <tr class="odd">
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>
+                                Huy Lý
+                            </td>
+                            <td>
+                                Software Developer
+                            </td>
+                            <td>
+                                Ko co
+                            </td>
+                            <td>
+                                01/01/1984
+                            </td>
+                        </tr>
+                        <tr class="even">
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>
+                                Huy Lý
+                            </td>
+                            <td>
+                                Software Developer
+                            </td>
+                            <td>
+                                Ko co
+                            </td>
+                            <td>
+                                01/01/1984
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" class="form">
+                    <tr>
+                        <td class="label required">
+                            Username <span>*</span>
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label required">
+                            Password <span>*</span>
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label required">
+                            Confirm Password <span>*</span>
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label required">
+                            Email <span>*</span>
+                        </td>
+                        <td>
+                            <input type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <input type="button" class="save" value="" />
+                            <input type="button" class="cancel" value="" />
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <div id="pbox" class="pbox" style="display: block; cursor: default">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class="ptl">
+                                <img src="../../Content/Images/Popup/pl.png" />
+                            </td>
+                            <td class="ptc">
+                                <div class="fr" id="pclose">
+                                    <a title="close"></a>
+                                </div>
+                                <h2 id="cptitle">
+                                    Title</h2>
+                            </td>
+                            <td class="ptr">
+                                <img src="../../Content/Images/Popup/pr.png" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pl">
+                            </td>
+                            <td class="pc">
+                                <div id="summary" style="display: none">
+                                </div>
+                                <div id="cpcontent">
+                                    Content</div>
+                            </td>
+                            <td class="pr">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pbl">
+                            </td>
+                            <td class="pbc">
+                            </td>
+                            <td class="pbr">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br />
+                <!--Employee Form-->
+                <table cellspacing="0" cellpadding="0" border="0" class="gbox" width="950">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="conbox">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <h2>
+                                                    Personal Info</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="260" valign="top">
+                                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="90px">
+                                                                                First Name
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                VN Name
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Place of Origin
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Issue Date
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Married Status
+                                                                            </td>
+                                                                            <td>
+                                                                                <select name="D2" style="width: 136px">
+                                                                                    <option>Single</option>
+                                                                                    <option>Married</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td width="260" valign="top">
+                                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="90px">
+                                                                                Middle Name
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Date of Birth
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Nationality
+                                                                            </td>
+                                                                            <td>
+                                                                                <select style="width: 136px">
+                                                                                    <option>Vietnam</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Gender
+                                                                            </td>
+                                                                            <td>
+                                                                                <select name="D1" style="width: 136px">
+                                                                                    <option>Male</option>
+                                                                                    <option>Female</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Current Status
+                                                                            </td>
+                                                                            <td>
+                                                                                <select name="D3" style="width: 136px">
+                                                                                    <option>Active</option>
+                                                                                    <option>Resign</option>
+                                                                                </select>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td width="260" valign="top">
+                                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="90px">
+                                                                                Last Name
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Place of Birth
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                ID Number
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Religion
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" value="" style="width: 130px" />
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                    <tr>
+                                                                        <td valign="top" width="130">
+                                                                            <img src="../../Content/Images/Common/nopic.gif" alt="" />
+                                                                        </td>
+                                                                        <td valign="top">
+                                                                            <input type="button" class="upload_image" value="" title="Upload Photo" />
+                                                                            <input type="button" class="upload_cv" value="" title="Upload CV" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <div>
+                    <table cellspacing="0" cellpadding="0" border="0" class="gbox">
+                        <tbody>
+                            <tr>
+                                <td width="310px" valign="top" class="pr">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" class="conbox">
+                                        <tbody>
+                                            <tr>
+                                                <td class="ctbox">
+                                                    <h2>
+                                                        At Company</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="ccbox">
+                                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Employee ID
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    JR #
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    JR Approval #
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Start Date
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    ContractedDate
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Department
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Job Title
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Project
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Manager
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Labor Union
+                                                                </td>
+                                                                <td>
+                                                                    <input type="checkbox" value="" />&nbsp;
+                                                                    <input type="text" value="Join date" style="width: 111px" />
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" class="conbox">
+                                        <tbody>
+                                            <tr>
+                                                <td class="ctbox">
+                                                    <h2>
+                                                        Bank Account</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="ccbox">
+                                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Bank Name
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Bank Account
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td width="310px" valign="top" class="pr">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" class="conbox">
+                                        <tbody>
+                                            <tr>
+                                                <td class="ctbox">
+                                                    <h2>
+                                                        Contact</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="ccbox">
+                                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Home Phone
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Cell Phone
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Floor
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Ext Number
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Seat Code
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    SkypeID
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    YahooID
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Personal Email
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Office Email
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <b>Emergency Contact</b>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Contact Name
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Phone
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="110px">
+                                                                    Relationship
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" value="" style="width: 130px" />
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td width="310px" valign="top">
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" class="conbox">
+                                        <tbody>
+                                            <tr>
+                                                <td class="ctbox">
+                                                    <h2>
+                                                        Address</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="ccbox">
+                                                    <div>
+                                                        <b>Permanent Address</b></div>
+                                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" value="Address" style="width: 140px" />
+                                                                <span class="fsep"></span>
+                                                                <input type="text" value="Area" style="width: 80px" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" value="Dist." style="width: 70px" />
+                                                                <span class="fsep"></span>
+                                                                <input type="text" value="City/Prov" style="width: 50px" />
+                                                                <span class="fsep"></span>
+                                                                <select style="width: 86px">
+                                                                    <option value="">Country</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div>
+                                                        <b>Temp Address</b></div>
+                                                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" value="Address" style="width: 140px" />
+                                                                <span style="padding-left: 10px;"></span>
+                                                                <input type="text" value="Area" style="width: 80px" />
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" value="Dist." style="width: 70px" />
+                                                                <span style="padding-left: 10px;"></span>
+                                                                <input type="text" value="City/Prov" style="width: 50px" />
+                                                                <span style="padding-left: 10px;"></span>
+                                                                <select style="width: 86px">
+                                                                    <option value="">Country</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                    <table cellspacing="0" cellpadding="0" border="0" width="100%" class="conbox">
+                                        <tbody>
+                                            <tr>
+                                                <td class="ctbox">
+                                                    <h2>
+                                                        Remarks</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" class="ccbox">
+                                                    <textarea style="width: 290px; height: 127px;"></textarea>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                    <div class="form" style="text-align: right">
+                                        <input type="button" class="save" value="" />
+                                        <input type="button" class="cancel" value="" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <!--Employee Profile-->
+                <hr />
+                <div id="cactionbutton" style="width: 950px">
+                    <a href="javascript:void()" onclick="" class="button resign">Resign</a> <a href="javascript:void()"
+                        onclick="" class="button contract">Contract Renewal</a> <a href="javascript:void()"
+                            onclick="" class="button preview">Performance Review</a> <a href="javascript:void()"
+                                onclick="" class="button history">History</a>
+                    <button class="button resign">
+                        Resign</button>
+                    <button class="button preview">
+                        Performance Review</button>
+                    <button>
+                        Performance Review</button>
+                </div>
+                <h1>
+                    1461 - HUY LY</h1>
+                <br />
+                <table cellspacing="0" cellpadding="0" border="0" class="gpbox" width="950">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="profile">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <span class="fr action"><a title="action" href="">Edit</a></span><h2>
+                                                    Personal Info</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="260" valign="top">
+                                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="120px">
+                                                                                First Name
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Huy Ly
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                POB
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Đồng Nai
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                ID Number
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                1234567890
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Religion
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                No
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td width="260" valign="top">
+                                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="120px">
+                                                                                VN Name
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Lý Huy
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                POO
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Trung Hoa
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Issue Date
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                25-Sep-1995
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Married Status
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Single
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td width="260" valign="top">
+                                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td width="120px">
+                                                                                DOB
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                20-Oct-1984
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Nationality
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Viet Nam
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Gender
+                                                                            </td>
+                                                                            <td class="plabel">
+                                                                                Male
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                Current Status
+                                                                            </td>
+                                                                            <td>
+                                                                                <span class="sactive">Active</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                    <tr>
+                                                                        <td valign="top" width="130">
+                                                                            <img src="../../Content/Images/Common/nopic.gif" alt="" />
+                                                                        </td>
+                                                                        <td valign="top">
+                                                                            <input type="button" class="upload_image" value="" title="Change Photo" />
+                                                                            <input type="button" class="remove_image" value="" title="Remove Photo" />
+                                                                            <input type="button" class="upload_cv" value="" title="Upload CV" />
+                                                                            <input type="button" class="download_cv" value="" title="Download CV" />
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <table cellspacing="0" cellpadding="0" border="0" class="gpbox">
+                    <tbody>
+                        <tr>
+                            <td width="300px" valign="top" class="pr">
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="profile">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <span class="fr action"><a title="action" href="">Edit</a></span><h2>
+                                                    At Company</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="110px">
+                                                                Employee ID
+                                                            </td>
+                                                            <td class="plabel">
+                                                                1461
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                JR #
+                                                            </td>
+                                                            <td class="plabel">
+                                                                1234
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                JR Approval #
+                                                            </td>
+                                                            <td class="plabel">
+                                                                1234
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Start Date
+                                                            </td>
+                                                            <td class="plabel">
+                                                                10-Oct-2008
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                ContractedDate
+                                                            </td>
+                                                            <td class="plabel">
+                                                                10-Oct-2008
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Department
+                                                            </td>
+                                                            <td class="plabel">
+                                                                RnD
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Job Title
+                                                            </td>
+                                                            <td class="plabel">
+                                                                Software Developer
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Project
+                                                            </td>
+                                                            <td class="plabel">
+                                                                Tùm Lum
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Manager
+                                                            </td>
+                                                            <td class="plabel">
+                                                                Tuan Truong
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Labor Union
+                                                            </td>
+                                                            <td class="plabel">
+                                                                No
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td width="300px" valign="top" class="pr">
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="profile">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <span class="fr action"><a title="action" href="">Edit</a></span><h2>
+                                                    Contact</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="110px">
+                                                                Home Phone
+                                                            </td>
+                                                            <td class="plabel">
+                                                                081234567
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Cell Phone
+                                                            </td>
+                                                            <td class="plabel">
+                                                                0908433302
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Floor
+                                                            </td>
+                                                            <td class="plabel">
+                                                                3
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Ext Number
+                                                            </td>
+                                                            <td class="plabel">
+                                                                1
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Seat Code
+                                                            </td>
+                                                            <td class="plabel">
+                                                                327
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                SkypeID
+                                                            </td>
+                                                            <td class="plabel">
+                                                                huydeny
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                YahooID
+                                                            </td>
+                                                            <td class="plabel">
+                                                                huydeny
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Personal Email
+                                                            </td>
+                                                            <td class="plabel">
+                                                                huydeny@gmail.com
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Office Email
+                                                            </td>
+                                                            <td class="plabel">
+                                                                huy.l@logigear.com
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <b>Emergency Contact</b>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Contact Name
+                                                            </td>
+                                                            <td class="plabel">
+                                                                Huy
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Phone
+                                                            </td>
+                                                            <td class="plabel">
+                                                                0908433302
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Relationship
+                                                            </td>
+                                                            <td class="plabel">
+                                                                Tui
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td width="300px" valign="top">
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="profile">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <span class="fr action"><a title="action" href="">Edit</a></span><h2>
+                                                    Address</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                <div>
+                                                    <b>Permanent Address</b></div>
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td>
+                                                            1A Phan Xich Long, Ward 2, Phu Nhuan District, HCMC, Vietnam
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div>
+                                                    <b>Temp Address</b></div>
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td>
+                                                            1A Phan Xich Long, Ward 2, Phu Nhuan District, HCMC, Vietnam
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br />
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="profile">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <span class="fr action"><a title="action" href="">Edit</a></span><h2>
+                                                    Bank Account</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="110px">
+                                                                Bank Name
+                                                            </td>
+                                                            <td class="plabel">
+                                                                Vietcombank
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Bank Account
+                                                            </td>
+                                                            <td class="plabel">
+                                                                123456789
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br />
+                                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="profile">
+                                    <tbody>
+                                        <tr>
+                                            <td class="ctbox">
+                                                <span class="fr action"><a title="action" href="">Edit</a></span><h2>
+                                                    Remarks</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" class="ccbox">
+                                                remarks remarks remarks remarks remarks remarks remarks remarks remarks remarks
+                                                remarks remarks remarks remarks remarks remarks remarks remarks
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <hr />
+                <div id="navigation" style="width: 950px">
+                    <input type="button" class="button last" value="Last" onclick="alert('first')" />
+                    <input type="button" class="button next" value="Next" onclick="alert('first')" />
+                    <input type="button" class="button prev" value="Prev" onclick="alert('first')" />
+                    <input type="button" class="button first" value="First" onclick="alert('first')" />
+                </div>
+                <br />
+                <div>
+                    <div>
+                        <ul class="ctabs" style="width: 950px;">
+                            <li class="active"><a href="javascript:void(0)" name="#profile">Profile History</a></li>
+                            <li class=""><a href="javascript:void(0)" name="#payroll">Payroll History</a></li>
+                        </ul>
+                    </div>
+                    <div class="ctcontainer" style="width: 950px;">
+                        <div class="ctcontent" id="profile" style="display: block;">
+                            <table border="0" cellspacing="0" cellpadding="0" class="grid">
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            Date
+                                        </th>
+                                        <th>
+                                            Department
+                                        </th>
+                                        <th>
+                                            Job Title
+                                        </th>
+                                        <th>
+                                            Project
+                                        </th>
+                                        <th>
+                                            Manager
+                                        </th>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>
+                                            10-Oct-2010
+                                        </td>
+                                        <td class="changed">
+                                            R&D
+                                        </td>
+                                        <td class="changed">
+                                            Software Developer
+                                        </td>
+                                        <td class="changed">
+                                            CRM
+                                        </td>
+                                        <td class="changed">
+                                            Tuan Truong
+                                        </td>
+                                    </tr>
+                                    <tr class="even">
+                                        <td>
+                                            10-Oct-2009
+                                        </td>
+                                        <td>
+                                            ES
+                                        </td>
+                                        <td class="changed">
+                                            TE4
+                                        </td>
+                                        <td>
+                                            Disney
+                                        </td>
+                                        <td>
+                                            Hieu Duong
+                                        </td>
+                                    </tr>
+                                    <tr class="odd">
+                                        <td>
+                                            10-Oct-2008
+                                        </td>
+                                        <td>
+                                            ES
+                                        </td>
+                                        <td>
+                                            TE3
+                                        </td>
+                                        <td>
+                                            Disney
+                                        </td>
+                                        <td>
+                                            Hieu Duong
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ctcontent" id="payroll" style="display: none;">
+                            Series</div>
+                    </div>
+                    <br clear="left" />
+                </div>
+                <br />
+                <div id="cnavigation">
+                    <button class="last last_on">
+                    </button>
+                    <button class="last last_off">
+                    </button>
+                    <button class="next next_on">
+                    </button>
+                    <button class="next next_off">
+                    </button>
+                    <span>(1 - 5 of 14)</span>
+                    <button class="prev prev_on">
+                    </button>
+                    <button class="prev prev_off">
+                    </button>
+                    <button class="first first_on">
+                    </button>
+                    <button class="first first_off" onclick="alert('first off')">
+                    </button>
+                </div>
+                <br />
+                <div>
+                    <button class="icon calendar_off" onclick="alert('calendar')">
+                    </button>
+                    <button class="icon calendar">
+                    </button>
+                    <button class="icon select_off">
+                    </button>
+                    <button class="icon select">
+                    </button>
+                    <button class="icon remove_off">
+                    </button>
+                    <button class="icon remove">
+                    </button>
+                    <button class="icon plus_off">
+                    </button>
+                    <button class="icon plus">
+                    </button>
+                    <button class="icon minus_off">
+                    </button>
+                    <button class="icon minus">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="cfooter">
+            <div class="hori">
+            </div>
+            <div id="footer">
+                <div id="flft" class="fl">
+                    <div class="copy">
+                        © LogiGear Corporation. All rights reserved.</div>
+                </div>
+                <div id="frgh" class="fr">
+                    <a href="#">Return to Portal</a></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function px2Int(str) {
+            return parseFloat(str.replace(/px/, ""));
+        }
+        function resizeccr() {
+            h_chead = $("#cheader").height();
+            h_cmenu = $("#cmenu").height();
+            br_cmenu = px2Int($("#cmenu").css("border-top-width")) + px2Int($("#cmenu").css("border-bottom-width"));
+            h_content = px2Int($("#ccontent").css("padding-top")) + px2Int($("#ccontent").css("padding-bottom"));
+            h_foot = $("#cfooter").height() + px2Int($("#cfooter").css("margin-top"));
+
+            totalHeight = h_chead + h_cmenu + br_cmenu + h_content + h_foot + 32;
+            $("#ccontent").css("height", $(window).height() - totalHeight);
+        }
+        $(document).ready(function () {
+            ddsmoothmenu.init({
+                mainmenuid: "cmenu", orientation: 'h', classname: 'ddsmoothmenu', contentsource: "markup"
+            })
+            resizeccr();
+            $(window).resize(function () {
+                resizeccr();
+            });
+
+            //When page loads...
+            $(".ctcontent").hide(); //Hide all content
+            $("ul.ctabs li:first").addClass("active").show(); //Activate first tab
+            $(".ctcontent:first").show(); //Show first tab content
+
+            //On Click Event
+            $("ul.ctabs li").click(function () {
+
+                $("ul.ctabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".ctcontent").hide(); //Hide all tab content                            
+                var activeTab = $(this).find("a").attr("name"); //Find the href attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active ID content
+                return false;
+            });
+        });	
+    </script>
+</body>
+</html>

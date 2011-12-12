@@ -28,3 +28,9 @@ C:\Users\CONAN\Desktop\Documents\VNSC\DAO\bin\Debug\DAO.pdb
 C:\Users\CONAN\Desktop\Documents\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\CONAN\Desktop\Documents\VNSC\DAO\obj\Debug\DAO.dll
 C:\Users\CONAN\Desktop\Documents\VNSC\DAO\obj\Debug\DAO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\DAO\bin\Debug\DAO.dll.config
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\DAO\bin\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\DAO\bin\Debug\DAO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\DAO\obj\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\DAO\obj\Debug\DAO.pdb

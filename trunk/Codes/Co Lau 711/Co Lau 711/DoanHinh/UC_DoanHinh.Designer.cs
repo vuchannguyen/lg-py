@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnMain = new System.Windows.Forms.Panel();
+            this.uC_HelpDoanHinh1 = new Co_Lau_711.UC_HelpDoanHinh();
             this.gbTime = new System.Windows.Forms.GroupBox();
             this.lbError_Play = new System.Windows.Forms.Label();
             this.pnPics = new System.Windows.Forms.Panel();
@@ -45,7 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer_ShowTime = new System.Windows.Forms.Timer(this.components);
             this.lbTroChoi = new System.Windows.Forms.Label();
-            this.uC_HelpDoanHinh1 = new Co_Lau_711.UC_HelpDoanHinh();
             this.pnMain.SuspendLayout();
             this.pnPics.SuspendLayout();
             this.gbSettings.SuspendLayout();
@@ -61,6 +61,15 @@
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(666, 422);
             this.pnMain.TabIndex = 10;
+            // 
+            // uC_HelpDoanHinh1
+            // 
+            this.uC_HelpDoanHinh1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_HelpDoanHinh1.Location = new System.Drawing.Point(4, 198);
+            this.uC_HelpDoanHinh1.Margin = new System.Windows.Forms.Padding(4);
+            this.uC_HelpDoanHinh1.Name = "uC_HelpDoanHinh1";
+            this.uC_HelpDoanHinh1.Size = new System.Drawing.Size(155, 190);
+            this.uC_HelpDoanHinh1.TabIndex = 69;
             // 
             // gbTime
             // 
@@ -221,21 +230,12 @@
             // lbTroChoi
             // 
             this.lbTroChoi.AutoSize = true;
-            this.lbTroChoi.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTroChoi.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTroChoi.Location = new System.Drawing.Point(300, 3);
             this.lbTroChoi.Name = "lbTroChoi";
-            this.lbTroChoi.Size = new System.Drawing.Size(117, 27);
+            this.lbTroChoi.Size = new System.Drawing.Size(102, 22);
             this.lbTroChoi.TabIndex = 18;
             this.lbTroChoi.Text = "TINH MẮT";
-            // 
-            // uC_HelpDoanHinh1
-            // 
-            this.uC_HelpDoanHinh1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_HelpDoanHinh1.Location = new System.Drawing.Point(4, 198);
-            this.uC_HelpDoanHinh1.Margin = new System.Windows.Forms.Padding(4);
-            this.uC_HelpDoanHinh1.Name = "uC_HelpDoanHinh1";
-            this.uC_HelpDoanHinh1.Size = new System.Drawing.Size(155, 190);
-            this.uC_HelpDoanHinh1.TabIndex = 69;
             // 
             // UC_DoanHinh
             // 

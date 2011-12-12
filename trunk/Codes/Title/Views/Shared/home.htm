@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CRM - Template</title>
+    <meta name="author" content="Administrator" />
+    <meta name="description" content="CRM - Corporate Resource Management" />
+    <meta name="keywords" content="CRM" />
+    <meta name="Generator" content="" />
+    <meta name="robots" content="index, follow" />
+    <link rel="shortcut icon" href="../../Content/Images/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" href="../../Content/Css/Core.css" rel="stylesheet" />
+    <link type="text/css" href="../../Content/Css/Default.css" rel="stylesheet" />
+    <link type="text/css" href="../../Content/Css/Users.css" rel="stylesheet" />
+    <!--[if IE]>
+		<link type="text/css" href="../../Content/Css/Fixie.css" rel="stylesheet" />
+	<![endif]-->
+    <!--[if IE 6]>
+		<link type="text/css" href="../../Content/Css/FixieIE6.css" rel="stylesheet" />
+	<![endif]-->
+    <script src="../../Scripts/Grid/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-ui-1.7.2.custom.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../../Scripts/Menu/ddsmoothmenu.css" />
+    <script type="text/javascript" src="../../Scripts/Menu/ddsmoothmenu.js"></script>
+    <script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.autocomplete.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../../Scripts/grid/themes/basic/grid.css" media="screen" />
+    <script src="../../Scripts/grid/jquery.jqGrid.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.tooltip.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="../../Scripts/CRM.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="container">
+            <div id="cheader">
+                <div id="header">
+                    <div id="hlft" class="fl">
+                        <div class="appname">
+                            Module Name</div>
+                    </div>
+                    <div id="hrgh" class="fr">
+                        <a href="#" class="logout">Logout</a>[Huy Ly]</div>
+                </div>
+            </div>
+            <div id="menu">
+                <link rel="stylesheet" type="text/css" href="../../Scripts/Menu/ddsmoothmenu.css" />
+                <script type="text/javascript" src="../../Scripts/Menu/ddsmoothmenu.js"></script>
+                <div id="cmenu" class="ddsmoothmenu">
+                    <ul id="mmenu" style="margin-left: 10px;">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="javascript:;">Employee</a>
+                            <ul>
+                                <li><a href="javascript:;">Employee 1</a></li>
+                                <li><a href="javascript:;">Employee 2</a></li>
+                                <li><a href="javascript:;">Employee 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:;">Job Request</a>
+                            <ul>
+                                <li><a href="javascript:;">Job Request List</a></li>
+                            </ul>
+                        </li>                        
+                    </ul>
+                    <script type="text/javascript">
+                        var check = false;
+                        var menuids = "mmenu";
+                        var active_li;
+                        //document.getElementById(menuids).style.visibility="visible";
+
+                        //Set active for menu  
+                        var atags = document.getElementById(menuids).getElementsByTagName("a");
+                        for (t = 0; t < atags.length; t++) {
+                            fnode = atags[t].href.substr(7).split('/');
+                            if (fnode[1] != '') {
+                                if (window.location.href.indexOf(atags[t].href) != -1) {
+                                    //Get root li
+                                    getLiTag(atags[t].parentNode);
+                                    active_li.className = "active";
+                                    check = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (!check) {
+                            if (document.getElementById(menuids) != null) {
+                                document.getElementById(menuids).getElementsByTagName("li")[0].className = "active";
+                            }
+                        }
+
+                        function getUlTag(li) {
+                            if (li.parentNode != null) {
+                                return li.parentNode;
+                            }
+                            return null;
+                        }
+                        function getLiTag(li) {
+                            ul = getUlTag(li)
+                            if (ul != null) {
+                                if (ul.id == menuids) {
+                                    active_li = li;
+                                    return;
+                                }
+                                else {
+                                    active_li = ul.parentNode;
+                                }
+                            }
+                            else {
+                                return;
+                            }
+                            getLiTag(active_li);
+                        }
+                    </script>
+                </div>
+            </div>            
+            <div id="ctitle">
+                <div id="tpage">
+                    <div id="ctlft" class="fl">
+                        Title Page</div>
+                    <div id="ctrgh" class="fr">
+                        <div id="csearch">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="30">
+                                <tr>
+                                    <td class="ctsear">
+                                        <input type="text" value="Enter Keyword..." class="txtsear" />
+                                    </td>
+                                    <td>
+                                        <input type="button" value="" class="btnsear" onclick="alert('search function')" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ccontent">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="chlft">
+                            <ul>
+                                <li><a href="#" class="prm"></a></li>
+                                <li><a href="#" class="ems"></a></li>
+                                <li><a href="#" class="moving"></a></li>
+                                <li><a href="#" class="time"></a></li>
+                                <li><a href="#" class="payroll"></a></li>
+                                <li><a href="#" class="asset"></a></li>
+                                <li><a href="#" class="skillset"></a></li>
+                                <li><a href="#" class="hiring"></a></li>
+                            </ul>
+                        </td>
+                        <td class="chrgh">
+                            <div id="accordion">
+                                <div class="panel">
+                                    <div class="pntitle">
+                                        <span class="pndown"></span>
+                                        <span class="pntext">Welcome to CRM</span>
+                                    </div>
+                                    <div class="pncontent">dsadsa<br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="panel">
+                                    <div class="pntitle">
+                                        <span class="pndown"></span>
+                                        <span class="pntext">Logined in Users</span>
+                                    </div>
+                                    <div class="pncontent">dsadsadsad<br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>                            
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>        
+        <div id="cfooter">
+            <div class="hori"></div>
+            <div id="footer">
+                <div id="flft" class="fl">
+                    <div class="copy">
+                        © LogiGear Corporation. All rights reserved.</div>
+                </div>
+                <div id="frgh" class="fr">
+                    <a href="#">Return to Portal</a></div>
+            </div>
+        </div>        
+    </div>    
+    <script type="text/javascript">
+        function px2Int(str) {
+            return parseFloat(str.replace(/px/, ""));
+        }
+        function resizeccr() {
+            h_chead = $("#cheader").height();
+            h_cmenu = $("#cmenu").height();
+            br_cmenu = px2Int($("#cmenu").css("border-top-width")) + px2Int($("#cmenu").css("border-bottom-width"));
+            h_content = px2Int($("#ccontent").css("padding-top")) + px2Int($("#ccontent").css("padding-bottom"));
+            h_foot = $("#cfooter").height() + px2Int($("#cfooter").css("margin-top"));
+
+            totalHeight = h_chead + h_cmenu + br_cmenu + h_content + h_foot + 32;
+            $("#ccontent").css("height", $(window).height() - totalHeight);
+        }
+        $(document).ready(function () {
+            ddsmoothmenu.init({
+                mainmenuid: "cmenu", orientation: 'h', classname: 'ddsmoothmenu', contentsource: "markup"
+            })
+            resizeccr();
+            $(window).resize(function () {
+                resizeccr();
+            });
+
+            //When page loads...
+            $(".ctcontent").hide(); //Hide all content
+            $("ul.ctabs li:first").addClass("active").show(); //Activate first tab
+            $(".ctcontent:first").show(); //Show first tab content
+
+            //On Click Event
+            $("ul.ctabs li").click(function () {
+
+                $("ul.ctabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".ctcontent").hide(); //Hide all tab content                            
+                var activeTab = $(this).find("a").attr("name"); //Find the href attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active ID content
+                return false;
+            });
+
+            $(function () {
+                // Ẩn tất cả .accordion trừ accordion đầu tiên
+                $("#accordion .pncontent:not(:first)").hide();
+                $("#accordion .panel .pntitle").children().first().attr('class', 'pnup');
+                // Áp dụng sự kiện click vào thẻ h3
+                $("#accordion .pntitle").click(function () {
+                    // chọn .accordion (do phần tử đi đi ngay sau phần tử h3 nên ta dùng .next())                
+                    $accordion = $(this).next();
+                    // Kiểm tra nếu đang ẩn thì sẽ hiện và ẩn các phần tử khác
+                    // Nếu đang hiện thì click vào h3 sẽ ẩn
+                    if ($accordion.is(':hidden') === true) {
+                        $("#accordion .pncontent").slideUp();                        
+                        $("#accordion .pnup").attr('class', 'pndown');
+                        $accordion.slideDown();
+                        $(this).children().first().attr('class', 'pnup');                        
+                    } else {
+                        $accordion.slideUp();
+                        $(this).children().first().attr('class', 'pndown');
+                    }
+                });
+            });
+        });	
+    </script>    
+</body>
+</html>
