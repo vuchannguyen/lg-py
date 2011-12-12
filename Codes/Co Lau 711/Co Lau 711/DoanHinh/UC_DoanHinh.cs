@@ -259,11 +259,15 @@ namespace Co_Lau_711
             if (bCorrect)
             {
                 iCount++;
+
                 if (iCount == iPics / 2)
                 {
-                    gbTime.Enabled = false;
+                    SubFunction.SetError(lbError_Play, lbError_Play.Location.Y, gbTime.Size, "Xin chúc mừng!");
 
-                    this.Dispose();
+                    gbTime.Enabled = false;
+                    pnPics.Enabled = false;
+
+                    //this.Dispose();
                 }
 
                 pbBegin.Dispose();

@@ -110,10 +110,10 @@
             // lbTroChoi
             // 
             this.lbTroChoi.AutoSize = true;
-            this.lbTroChoi.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTroChoi.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTroChoi.Location = new System.Drawing.Point(300, 3);
             this.lbTroChoi.Name = "lbTroChoi";
-            this.lbTroChoi.Size = new System.Drawing.Size(108, 27);
+            this.lbTroChoi.Size = new System.Drawing.Size(100, 22);
             this.lbTroChoi.TabIndex = 19;
             this.lbTroChoi.Text = "MẬT THƯ";
             // 

@@ -33,3 +33,10 @@ C:\Users\CONAN\Desktop\Documents\VNSC\BUS\bin\Debug\DAO.pdb
 C:\Users\CONAN\Desktop\Documents\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\CONAN\Desktop\Documents\VNSC\BUS\obj\Debug\BUS.dll
 C:\Users\CONAN\Desktop\Documents\VNSC\BUS\obj\Debug\BUS.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\bin\Debug\BUS.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\bin\Debug\BUS.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\bin\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\bin\Debug\DAO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\obj\Debug\BUS.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\BUS\obj\Debug\BUS.pdb

@@ -124,3 +124,47 @@ C:\Users\CONAN\Desktop\VNSC\VNSC\bin\Debug\PluginInterface.pdb
 C:\Users\CONAN\Desktop\Documents\VNSC\VNSC\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\CONAN\Desktop\Documents\VNSC\VNSC\obj\x86\Debug\VNSC.exe
 C:\Users\CONAN\Desktop\Documents\VNSC\VNSC\obj\x86\Debug\VNSC.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\VNSC.exe
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\VNSC.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\BUS.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\BUS.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\DAO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\bin\Debug\PluginInterface.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.csproj.ResolveComReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Confirm.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DB_Definition.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Notice.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Print.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_CongCuHoTro.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ExportExcel.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HeThong.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_Plugin.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoThamDu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ListViewEx.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_DieuPhoi.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_HoSoThamDu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_ChiTietSuKien.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_DonViHanhChanh.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Detail.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Restore.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_NhomLoaiHinh.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_LoaiHinh.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_IDV.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HuanLuyen.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_NhomTrachVu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Form_Main.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.Properties.Resources.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_HoSoCaNhan.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLyNhanSu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_QuanLySuKien.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien_HoSoThamDu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_SuKien.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TrachVuSuKien.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.UC_TraCuu.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.exe
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\VNSC\VNSC\obj\x86\Debug\VNSC.pdb
