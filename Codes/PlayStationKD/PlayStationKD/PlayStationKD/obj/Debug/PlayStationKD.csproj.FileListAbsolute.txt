@@ -1,0 +1,64 @@
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\PlayStationKD.exe
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\PlayStationKD.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.About.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.BaoGioTheoThoiGian.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.BaoGioTheoTien.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.PlayStationKD.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.Properties.Resources.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TimesUp.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TinhTien.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TinhTienTraSau.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.csproj.GenerateResource.Cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.exe
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.exe
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\PlayStationKD.exe
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\PlayStationKD.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.About.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.BaoGioTheoThoiGian.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.BaoGioTheoTien.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.PlayStationKD.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.Properties.Resources.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TimesUp.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TinhTien.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TinhTienTraSau.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.exe
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\PlayStationKD.exe
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\PlayStationKD.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.About.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.BaoGioTheoThoiGian.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.BaoGioTheoTien.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.PlayStationKD.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.Properties.Resources.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TimesUp.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TinhTien.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.TinhTienTraSau.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\GenerateResource-ResGen.read.1.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\GenerateResource-ResGen.write.1.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.UC_DoanhThu.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Debug\PlayStationKD.Sound.resources

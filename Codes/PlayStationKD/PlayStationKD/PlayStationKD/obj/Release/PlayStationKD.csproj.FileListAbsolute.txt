@@ -1,0 +1,46 @@
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\PlayStationKD.exe
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\PlayStationKD.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\BUS.dll
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\BUS.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\bin\Release\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.About.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.BaoGioTheoThoiGian.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.BaoGioTheoTien.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.PlayStationKD.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.Properties.Resources.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.TimesUp.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.TinhTien.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.TinhTienTraSau.resources
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\GenerateResource-ResGen.read.1.tlog
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\GenerateResource-ResGen.write.1.tlog
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.exe
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\PlayStationKD\obj\Release\GenerateResource.write.232.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.exe
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\PlayStationKD.exe
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\PlayStationKD.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\bin\Release\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.About.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.BaoGioTheoThoiGian.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.BaoGioTheoTien.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.PlayStationKD.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.Properties.Resources.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.TimesUp.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.TinhTien.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.TinhTienTraSau.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\GenerateResource-ResGen.read.1.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\GenerateResource-ResGen.write.1.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\GenerateResource.write.232.tlog
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.UC_DoanhThu.resources
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\PlayStationKD\obj\Release\PlayStationKD.Sound.resources

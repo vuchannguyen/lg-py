@@ -1,0 +1,27 @@
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Release\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Release\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Release\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\obj\Release\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\obj\Release\BUS.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Release\BUS.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Release\BUS.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Release\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Release\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Release\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Release\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\obj\Release\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\obj\Release\BUS.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\obj\Release\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Release\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Release\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Release\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\obj\Release\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\obj\Release\BUS.pdb
