@@ -1,0 +1,21 @@
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Release\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\obj\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\obj\Release\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Release\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Release\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Release\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Release\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\obj\Release\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\obj\Release\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\obj\Release\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Release\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\obj\Release\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\obj\Release\DAO.pdb

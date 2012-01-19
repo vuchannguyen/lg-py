@@ -1,0 +1,15 @@
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DTO\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DTO\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DTO\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DTO\obj\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DTO\obj\Release\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DTO\bin\Release\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DTO\bin\Release\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DTO\obj\Release\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\DTO\obj\Release\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DTO\obj\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DTO\bin\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DTO\bin\Release\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DTO\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DTO\obj\Release\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DTO\obj\Release\DTO.pdb

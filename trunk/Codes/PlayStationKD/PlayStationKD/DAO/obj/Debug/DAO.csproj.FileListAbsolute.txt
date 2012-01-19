@@ -1,0 +1,28 @@
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\obj\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\DAO\obj\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\obj\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\DAO\obj\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\obj\Debug\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\DAO\obj\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\obj\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\DAO\obj\Debug\DAO.pdb

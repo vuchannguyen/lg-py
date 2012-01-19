@@ -1,0 +1,36 @@
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\obj\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\Backup\BUS\obj\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\bin\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\bin\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\obj\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\BUS\obj\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\PlayStationKD\BUS\obj\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Debug\BUS.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Debug\DAO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Debug\DTO.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Debug\DAO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\bin\Debug\DTO.pdb
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\obj\Debug\BUS.dll
+D:\TH2007\Phan tich thiet ke PM\PlayStationKD\PlayStationKD\BUS\obj\Debug\BUS.pdb
