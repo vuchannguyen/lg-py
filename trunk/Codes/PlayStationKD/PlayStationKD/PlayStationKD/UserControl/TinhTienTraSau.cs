@@ -253,15 +253,19 @@ namespace PlayStationKD
         private void setTime(int iHours, int iMinutes)
         {
             //lTien = ((iHours * 60) + iMinutes) / 3 * 200 + 200; //3 phut = 200d
-            lTien = ((iHours * 60) + iMinutes) * 100; //1 phut = 100d
+            //lTien = ((iHours * 60) + iMinutes) * 100; //1 phut = 100d
+            int totalTime = (iHours * 60) + iMinutes;
+
+            lTien = ((iHours * 60) + iMinutes) * 8000 / 60; //1 phut ~ 133d
+
             long iTemp = lTien;
-            if (iTemp % 500 > 250)
+            if (iTemp % 1000 >= 300)
             {
-                iTemp = lTien - (lTien % 500) + 500;
+                iTemp = lTien - (lTien % 1000) + 1000;
             }
             else
             {
-                iTemp = lTien - (lTien % 500);
+                iTemp = lTien - (lTien % 1000);
             }
 
             tbTien.Text = iTemp.ToString();

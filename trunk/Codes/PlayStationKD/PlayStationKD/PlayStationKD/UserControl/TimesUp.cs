@@ -17,6 +17,8 @@ namespace PlayStationKD
         private double iTime = 0;
         private string Sound;
 
+        private SoundPlayer RingTone;
+
         public TimesUp()
         {
             InitializeComponent();
@@ -34,6 +36,9 @@ namespace PlayStationKD
 
             if (bRing)
             {
+                RingTone = new SoundPlayer(Sound);
+                RingTone.PlayLooping();
+
                 timerRing.Enabled = true;
             }
         }
@@ -52,6 +57,7 @@ namespace PlayStationKD
 
         private void btOk_Click(object sender, EventArgs e)
         {
+            RingTone.Stop();
             this.Dispose();
         }
 
@@ -64,24 +70,25 @@ namespace PlayStationKD
 
         private void timerRing_Tick(object sender, EventArgs e)
         {
-            if (n > 60 || !this.Enabled)
+            if (n >= 60 || !this.Enabled)
             {
+                RingTone.Stop();
                 this.Dispose();
             }
             else
             {
-                if (n < 60 && n % 3 == 0)
-                {
-                    try
-                    {
-                        SoundPlayer RingTone = new SoundPlayer(Sound);
-                        RingTone.Play();
-                    }
-                    catch
-                    { 
-                        //
-                    }
-                }
+                //if (n < 60 && n % 3 == 0)
+                //{
+                //    try
+                //    {
+                //        SoundPlayer RingTone = new SoundPlayer(Sound);
+                //        RingTone.PlayLooping();
+                //    }
+                //    catch
+                //    { 
+                //        //
+                //    }
+                //}
             }
 
             n++;
