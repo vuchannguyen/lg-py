@@ -168,7 +168,8 @@ namespace PlayStationKD
                     }
 
                     //iTime = iTien / 500 * 450; //450s = 7.5p -> 500d
-                    iTime = iTien / 500 * 300; //300s = 5p -> 500d
+                    //iTime = iTien / 500 * 300; //300s = 5p -> 500d
+                    iTime = iTien / 1000 * 450; //450s = 7.5p -> 1000d
                     hours = (int)iTime / 3600;
                     if (hours > 23)
                     {

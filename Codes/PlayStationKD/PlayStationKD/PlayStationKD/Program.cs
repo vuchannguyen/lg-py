@@ -13,7 +13,8 @@ namespace PlayStationKD
         [STAThread]
         static void Main()
         {
-            if (Process.GetProcessesByName("6000_PlayStationKD_V4.0").Length > 1)
+            string currentProcess = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcessesByName(currentProcess).Length > 1)
             {
                 MessageBox.Show("Chương trình PlayStationKD đang chạy!");
             }
