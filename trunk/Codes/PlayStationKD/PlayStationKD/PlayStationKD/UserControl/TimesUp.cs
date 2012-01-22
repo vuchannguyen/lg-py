@@ -36,8 +36,15 @@ namespace PlayStationKD
 
             if (bRing)
             {
-                RingTone = new SoundPlayer(Sound);
-                RingTone.PlayLooping();
+                try
+                {
+                    RingTone = new SoundPlayer(Sound);
+                    RingTone.PlayLooping();
+                }
+                catch
+                { 
+                    //
+                }
 
                 timerRing.Enabled = true;
             }
@@ -57,7 +64,11 @@ namespace PlayStationKD
 
         private void btOk_Click(object sender, EventArgs e)
         {
-            RingTone.Stop();
+            if (RingTone != null)
+            {
+                RingTone.Stop();
+            }
+
             this.Dispose();
         }
 
@@ -72,7 +83,11 @@ namespace PlayStationKD
         {
             if (n >= 60 || !this.Enabled)
             {
-                RingTone.Stop();
+                if (RingTone != null)
+                {
+                    RingTone.Stop();
+                }
+
                 this.Dispose();
             }
             else
