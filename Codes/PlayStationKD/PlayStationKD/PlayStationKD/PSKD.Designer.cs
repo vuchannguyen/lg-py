@@ -32,6 +32,8 @@
             this.menuKD = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chuôngHếtGiờToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabAll = new System.Windows.Forms.TabControl();
@@ -143,8 +145,6 @@
             this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbGameTK = new System.Windows.Forms.TextBox();
             this.lbTenGame = new System.Windows.Forms.Label();
-            this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chuôngHếtGiờToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuKD.SuspendLayout();
             this.tabAll.SuspendLayout();
             this.tabTinhTien.SuspendLayout();
@@ -188,9 +188,24 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // optionToolStripMenuItem
+            // 
+            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.chuôngHếtGiờToolStripMenuItem});
+            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionToolStripMenuItem.Text = "&Options";
+            // 
+            // chuôngHếtGiờToolStripMenuItem
+            // 
+            this.chuôngHếtGiờToolStripMenuItem.Name = "chuôngHếtGiờToolStripMenuItem";
+            this.chuôngHếtGiờToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.chuôngHếtGiờToolStripMenuItem.Text = "&Chuông hết giờ";
+            this.chuôngHếtGiờToolStripMenuItem.Click += new System.EventHandler(this.chuôngHếtGiờToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -203,7 +218,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -1295,21 +1310,6 @@
             this.lbTenGame.TabIndex = 44;
             this.lbTenGame.Text = "Tên Game:";
             // 
-            // optionToolStripMenuItem
-            // 
-            this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.chuôngHếtGiờToolStripMenuItem});
-            this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionToolStripMenuItem.Text = "&Options";
-            // 
-            // chuôngHếtGiờToolStripMenuItem
-            // 
-            this.chuôngHếtGiờToolStripMenuItem.Name = "chuôngHếtGiờToolStripMenuItem";
-            this.chuôngHếtGiờToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.chuôngHếtGiờToolStripMenuItem.Text = "&Chuông hết giờ";
-            this.chuôngHếtGiờToolStripMenuItem.Click += new System.EventHandler(this.chuôngHếtGiờToolStripMenuItem_Click);
-            // 
             // PlayStationKD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1323,7 +1323,7 @@
             this.MainMenuStrip = this.menuKD;
             this.Name = "PlayStationKD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Play Station Kim Dung _ V4.0";
+            this.Text = "8000_Play Station Kim Dung _ V1.0";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PlayStationKD_FormClosing);
             this.Load += new System.EventHandler(this.PlayStationKD_Load);
             this.SizeChanged += new System.EventHandler(this.PlayStationKD_SizeChanged);
