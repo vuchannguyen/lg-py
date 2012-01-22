@@ -252,8 +252,7 @@ namespace PlayStationKD
 
         private void setTime(int iHours, int iMinutes)
         {
-            //lTien = ((iHours * 60) + iMinutes) / 3 * 200 + 200; //3 phut = 200d
-            //lTien = ((iHours * 60) + iMinutes) * 100; //1 phut = 100d
+            //8k tieng
             int totalTime = (iHours * 60) + iMinutes;
 
             lTien = ((iHours * 60) + iMinutes) * 8000 / 60; //1 phut ~ 133d
@@ -269,6 +268,23 @@ namespace PlayStationKD
             }
 
             tbTien.Text = iTemp.ToString();
+
+
+
+            ////6k tieng
+            ////lTien = ((iHours * 60) + iMinutes) / 3 * 200 + 200; //3 phut = 200d
+            //lTien = ((iHours * 60) + iMinutes) * 100; //1 phut = 100d
+            //long iTemp = lTien;
+            //if (iTemp % 500 > 250)
+            //{
+            //    iTemp = lTien - (lTien % 500) + 500;
+            //}
+            //else
+            //{
+            //    iTemp = lTien - (lTien % 500);
+            //}
+
+            //tbTien.Text = iTemp.ToString();
         }
 
         private void timerCountDown_Tick(object sender, EventArgs e)
