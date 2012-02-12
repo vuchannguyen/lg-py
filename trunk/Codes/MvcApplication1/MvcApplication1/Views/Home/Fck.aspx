@@ -5,13 +5,13 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <script type="text/javascript" src="../../Content/Javascript/fckeditor/fckeditor.js"></script>
-    <script type="text/javascript" src="../../Content/Javascript/fckeditorapi.js"></script>
+    <script type="text/javascript" src="../../Scripts/FckEditor/fckeditor/fckeditor.js"></script>
+    <script type="text/javascript" src="../../Scripts/FckEditor/fckeditorapi.js"></script>
     
     <script type="text/javascript">
         window.onload = function () {
             var oFCKeditor = new FCKeditor('content');
-            oFCKeditor.BasePath = "/Content/Javascript/fckeditor/";
+            oFCKeditor.BasePath = "/fckeditor/";
             oFCKeditor.Height = 300;
             oFCKeditor.ReplaceTextarea();
         }

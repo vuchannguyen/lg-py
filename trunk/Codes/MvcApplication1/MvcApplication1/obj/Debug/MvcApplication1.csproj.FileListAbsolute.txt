@@ -3,3 +3,8 @@ D:\Project\MvcApplication1\MvcApplication1\bin\MvcApplication1.pdb
 D:\Project\MvcApplication1\MvcApplication1\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.dll
 D:\Project\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.pdb
+C:\Users\CONAN\Desktop\MvcApplication1\MvcApplication1\bin\MvcApplication1.dll
+C:\Users\CONAN\Desktop\MvcApplication1\MvcApplication1\bin\MvcApplication1.pdb
+C:\Users\CONAN\Desktop\MvcApplication1\MvcApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.dll
+C:\Users\CONAN\Desktop\MvcApplication1\MvcApplication1\obj\Debug\MvcApplication1.pdb
