@@ -9,6 +9,14 @@ namespace MvcApplication1.Controllers
     [HandleError]
     public class HomeController : Controller
     {
+        public ActionResult Test(string sTest)
+        {
+            //Blah!  
+            //....  
+            Session.Remove("header");
+            return Json(sTest, JsonRequestBehavior.AllowGet);
+        }  
+
         public ActionResult Index()
         {
             ViewData["Message"] = "Welcome to ASP.NET MVC!";
