@@ -5,11 +5,8 @@
 // Set this to the server side language you wish to use.
 var lang = 'aspx'; // options: lasso, php, py, aspx
 
-//// Set this to the directory you wish to manage.
-//var fileRoot = '/uploads/';
-
-var am = document.location.pathname.substring(1, document.location.pathname
-  .lastIndexOf('/') + 1);
+// Set this to the directory you wish to manage.
+var fileRoot = 'Empty';
 
 function getQuerystring(key, default_) {
     if (default_ == null) default_ = "";
@@ -22,16 +19,9 @@ function getQuerystring(key, default_) {
         return qs[1];
 }
 
-// Set this to the directory you wish to manage.
-var fileRoot = '/uploads/';
-
 var value = getQuerystring('location');
-if (value == 'user1') {
-    var fileRoot = '/uploads/Image/';
-}
-
-if (value == 'user2') {
-    var fileRoot = '/uploads/My Folder/';
+if (value == 'LOT') {
+    var fileRoot = '/FileUpload/LOT/';
 }
 
 // Show image previews in grid views?

@@ -23,40 +23,40 @@ var setDimensions = function(){
 // Sets the folder status, upload, and new folder functions 
 // to the path specified. Called on initial page load and 
 // whenever a new directory is selected.
-var setUploader = function(path){
-	$('#currentpath').val(path);
-	$('#uploader h1').text('Current Folder: ' + path);
+var setUploader = function (path) {
+    $('#currentpath').val(path);
+    $('#uploader h1').text('Current Folder: ' + path);
 
-	$('#newfolder').unbind().click(function(){
-		// var foldername = prompt('Enter the name of the new folder:', 'My Folder');
-		var foldername = 'My Folder';
-		var msg = 'Enter the name of the new folder: <input id="fname" name="fname" type="text" value="' + foldername + '" />';
-		
-		var getFolderName = function(v, m){
-			if(v != 1) return false;		
-			var fname = m.children('#fname').val();		
+    $('#newfolder').unbind().click(function () {
+        // var foldername = prompt('Enter the name of the new folder:', 'My Folder');
+        var foldername = 'My Folder';
+        var msg = 'Enter the name of the new folder: <input id="fname" name="fname" type="text" value="' + foldername + '" />';
 
-			if(fname != ''){
-				foldername = fname;
+        var getFolderName = function (v, m) {
+            if (v != 1) return false;
+            var fname = m.children('#fname').val();
 
-				$.getJSON(fileConnector + '?mode=addfolder&path=' + $('#currentpath').val() + '&name=' + foldername, function(result){
-					if(result['Code'] == 0){
-						addFolder(result['Parent'], result['Name']);
-						getFolderInfo(result['Parent']);
-					} else {
-						$.prompt(result['Error']);
-					}				
-				});
-			} else {
-				$.prompt('No folder name was provided.');
-			}
-		}
-		
-		$.prompt(msg, {
-			callback: getFolderName,
-			buttons: { 'Create Folder': 1, 'Cancel': 0 }
-		});		
-	});	
+            if (fname != '') {
+                foldername = fname;
+
+                $.getJSON(fileConnector + '?mode=addfolder&path=' + $('#currentpath').val() + '&name=' + foldername, function (result) {
+                    if (result['Code'] == 0) {
+                        addFolder(result['Parent'], result['Name']);
+                        getFolderInfo(result['Parent']);
+                    } else {
+                        $.prompt(result['Error']);
+                    }
+                });
+            } else {
+                $.prompt('No folder name was provided.');
+            }
+        }
+
+        $.prompt(msg, {
+            callback: getFolderName,
+            buttons: { 'Create Folder': 1, 'Cancel': 0 }
+        });
+    });
 }
 
 // Binds specific actions to the toolbar in detail views.
@@ -102,13 +102,13 @@ var formatBytes = function(bytes){
 
 // function to retrieve GET params
 $.urlParam = function(name){
-    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    //return results[1] || 0;
-    if (results != null) {
-        return results[1];
-    } else {
-        return 0;
-    }
+	var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	//return results[1] || 0;
+	if (results != null) {
+	    return results[1];
+	} else {
+	    return 0;
+	}
 }
 
 
@@ -549,6 +549,7 @@ $(function(){
 
 	// Provide initial values for upload form, status, etc.
 	setUploader(fileRoot);
+	getFolderInfo($('#currentpath').val());
 
 	$('#uploader').attr('action', fileConnector);
 
