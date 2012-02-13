@@ -1,21 +1,10 @@
-﻿/* Connector for aspx
- * LDTECH ,.JSC 2010
- * http://www.ldtech.com.vn
- * Written by Toan Nguyen 
- */
-
-using System;
-//using System.Collections;
-//using System.Configuration;
-//using System.Data;
-//using System.Web;
-//using System.Web.Security;
-//using System.Web.UI;
-//using System.Web.UI.HtmlControls;
-//using System.Web.UI.WebControls;
-//using System.Web.UI.WebControls.WebParts;
+﻿using System;
 using System.Text;
 using System.IO;
+using CRM.Library.Common;
+using CRM.Models;
+using System.Web;
+using System.Web.Security;
 
 public partial class filemanager : System.Web.UI.Page
 {
@@ -62,31 +51,33 @@ public partial class filemanager : System.Web.UI.Page
     #region properties
     public string BaseUrl = "";
     public string BaseInstall = "";
+    public static bool isRoot = true;
     #endregion
 
     public bool CheckAuthentication()
     {
-        //return (Session["SUCCESSFULLOGINED"] != null && Session["SUCCESSFULLOGINED"].ToString() == "Yes"); //return false;
-        return true;
+        HttpCookie cookie = Request.RequestContext.HttpContext.Request.Cookies[Constants.COOKIE_CRM];
+
+        if (cookie != null)
+        {
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+            FormsIdentity identity = new FormsIdentity(ticket);
+            UserData udata = UserData.CreateUserData(ticket.UserData);
+            AuthenticationProjectPrincipal principal = new AuthenticationProjectPrincipal(identity, udata);
+
+            //return CommonFunc.CheckAuthorized(190, (int)Modules.Question, (int)Permissions.Read);
+            return CommonFunc.CheckAuthorized(principal.UserData.UserID, (int)Modules.Question, (int)Permissions.Read);
+        }
+
+        return false;
     }
 
     public void SetConfig()
     {
-
-        //The base URL used to reach files in CKFinder through the browser.
-        //if (Session["LDT_SITE_ID"] == null)
-        //{
-        //    Response.Write("No session value");
-        //    Response.End();
-        //    return;
-        //}
-
-        //string strSiteValues = Session["LDT_SITE_ID"].ToString(); // LdSpace.Security.Decrypt(Request.QueryString["site"]);        
-        //string id = Request.UrlReferrer.Query;
         BaseUrl = ""; //Note: not have '/' at the end
-
+        //Session.Remove("header");
         //The installation location that we place FileManager files
-        BaseInstall = "/FileManager/";
+        BaseInstall = "/Scripts/CRMFilemanager/";
     }
 
     private string GetInfo(string path, string fullPhysicalPath)
@@ -459,7 +450,6 @@ public partial class filemanager : System.Web.UI.Page
         if (!File.Exists(fullPhysicalPath)) return;
 
         string name = GetShortFileName(fullPhysicalPath);
-        //name = Uri.EscapeDataString(name);
 
         Response.ClearContent();
         Response.ContentType = "application/x-download";
@@ -481,6 +471,7 @@ public partial class filemanager : System.Web.UI.Page
 
         return;
     }
+
     public void Page_Load()
     {
         if (!CheckAuthentication())
@@ -488,6 +479,7 @@ public partial class filemanager : System.Web.UI.Page
             Response.Write(CreateError("No Permission"));
             return;
         }
+
         SetConfig();
 
         string mode = "";

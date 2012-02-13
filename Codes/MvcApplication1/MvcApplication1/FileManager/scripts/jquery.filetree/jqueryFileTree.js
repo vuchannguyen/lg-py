@@ -33,10 +33,10 @@
 if(jQuery) (function($){
 	
 	$.extend($.fn, {
-		fileTree: function(o, h) {
+	    fileTree: function (o, h) {
 			// Defaults
 			if( !o ) var o = {};
-			if( o.root == undefined ) o.root = '/uploads/';
+			if( o.root == undefined ) o.root = 'Empty';
 			if( o.script == undefined ) o.script = 'jqueryFileTree.aspx';
 			if( o.folderEvent == undefined ) o.folderEvent = 'click';
 			if( o.expandSpeed == undefined ) o.expandSpeed= 500;
