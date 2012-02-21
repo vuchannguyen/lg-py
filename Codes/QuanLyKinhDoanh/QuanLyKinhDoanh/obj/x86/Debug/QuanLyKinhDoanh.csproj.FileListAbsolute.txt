@@ -1,0 +1,9 @@
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\QuanLyKinhDoanh.exe
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\QuanLyKinhDoanh.pdb
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Form_Main.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Properties.Resources.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.exe
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.pdb
