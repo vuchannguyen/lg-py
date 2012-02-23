@@ -37,7 +37,7 @@
     <ApplicationIcon>iconCD.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_Main.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Main.Designer.cs">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\CommonFunction\Convert_Function.cs" />
     <Compile Include="Library\CommonFunction\Fade.cs" />
@@ -72,10 +72,37 @@
     <Compile Include="Library\CommonFunction\Startup.cs" />
     <Compile Include="Library\CommonFunction\SubFunction.cs" />
     <Compile Include="Library\CommonFunction\XML_Function.cs" />
+    <Compile Include="Main\Ban\UcBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Ban\UcBan.Designer.cs">
+      <DependentUpon>UcBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Mua\UcMua.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Mua\UcMua.Designer.cs">
+      <DependentUpon>UcMua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\QuanLyUser\UcQuanLyUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\QuanLyUser\UcQuanLyUser.Designer.cs">
+      <DependentUpon>UcQuanLyUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form_Main.resx">
-      <DependentUpon>Form_Main.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Ban\UcBan.resx">
+      <DependentUpon>UcBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Mua\UcMua.resx">
+      <DependentUpon>UcMua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\QuanLyUser\UcQuanLyUser.resx">
+      <DependentUpon>UcQuanLyUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,6 +125,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconCD.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Main\ThuChi\" />
+    <Folder Include="Main\TimKiem\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
