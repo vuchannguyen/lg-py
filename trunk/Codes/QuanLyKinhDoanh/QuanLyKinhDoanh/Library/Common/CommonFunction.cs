@@ -173,10 +173,5 @@ namespace Library
                 return false;
             }
         }
-
-        public static void SetNewUc(Control.ControlCollection controls, UserControl uc, Size parentSize)
-        {
-            controls.Add(uc);
-        }
     }
 }

@@ -21,8 +21,8 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
         {
             try
             {
-                pbHuy.Image = Image.FromFile(@"Resources\ChucNang\icon_cancel.png");
-                pbHoanTat.Image = Image.FromFile(@"Resources\ChucNang\icon_ok.png");
+                pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
             }
             catch
             {
@@ -35,9 +35,11 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
         {
             LoadResource();
 
-            //this.Dock = DockStyle.Fill;
-            pnInfo.Size = new System.Drawing.Size(580, 440);
-            //pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
+            this.Dock = DockStyle.Fill;
+            pnInfo.Size = new System.Drawing.Size(580, 500);
+            pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
+
+            pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
             this.BringToFront();
         }
 
@@ -48,12 +50,12 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
 
         private void pbHuy_MouseEnter(object sender, EventArgs e)
         {
-
+            pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL_MOUSEOVER);
         }
 
         private void pbHuy_MouseLeave(object sender, EventArgs e)
         {
-
+            pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
         }
 
         private void pbHoanTat_Click(object sender, EventArgs e)
@@ -63,12 +65,12 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
 
         private void pbHoanTat_MouseEnter(object sender, EventArgs e)
         {
-
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_MOUSEOVER);
         }
 
         private void pbHoanTat_MouseLeave(object sender, EventArgs e)
         {
-
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
     }
 }

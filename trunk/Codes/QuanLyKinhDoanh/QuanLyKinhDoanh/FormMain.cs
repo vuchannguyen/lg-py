@@ -52,20 +52,20 @@ namespace QuanLyKinhDoanh
             try
             {
                 //this.BackgroundImage = Image.FromFile(@"Resources\background.jpg");
-                pnTopBar.BackgroundImage = Image.FromFile(@"Resources\Main\topbar.png");
-                pbMinimize.Image = Image.FromFile(@"Resources\ChucNang\button_minimize.png");
-                pbExit.Image = Image.FromFile(@"Resources\ChucNang\button_exit.png");
+                pnTopBar.BackgroundImage = Image.FromFile(ConstantResource.MAIN_TOP_BAR);
+                pbMinimize.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_MINIMIZE);
+                pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT);
 
                 //pbHeader.Image = Image.FromFile(@"Resources\Main\brand.png");
-                pbHorizonline.Image = Image.FromFile(@"Resources\Main\horizonline.png");
+                pbHorizonline.Image = Image.FromFile(ConstantResource.MAIN_HORIZONLINE);
 
-                pbQuanLyUser.Image = Image.FromFile(@"Resources\User\icon_user.png");
+                pbQuanLyUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
                 //pbBanHang.Image = Image.FromFile(@"Resources\icon_qlhoso.png");
                 //pbMuaHang.Image = Image.FromFile(@"Resources\icon_qlsukien.png");
                 //pbThuChi.Image = Image.FromFile(@"Resources\top_system.png");
                 //pbTimKiem.Image = Image.FromFile(@"Resources\button_plugins.png");
 
-                pnAbout.BackgroundImage = Image.FromFile(@"Resources\Main\bottom_horizonline.png");
+                pnAbout.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
             }
             catch
             {
@@ -149,12 +149,12 @@ namespace QuanLyKinhDoanh
 
         private void pbQuanLyUser_MouseEnter(object sender, EventArgs e)
         {
-            pbQuanLyUser.Image = Image.FromFile(@"Resources\User\icon_user_mouseover.png");
+            pbQuanLyUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
         }
 
         private void pbQuanLyUser_MouseLeave(object sender, EventArgs e)
         {
-            pbQuanLyUser.Image = Image.FromFile(@"Resources\User\icon_user.png");
+            pbQuanLyUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
         }
         #endregion
 
@@ -165,12 +165,12 @@ namespace QuanLyKinhDoanh
 
         private void pbMinimize_MouseEnter(object sender, EventArgs e)
         {
-            pbMinimize.Image = Image.FromFile(@"Resources\ChucNang\button_minimize_mouseover.png");
+            pbMinimize.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_MINIMIZE_MOUSEOVER);
         }
 
         private void pbMinimize_MouseLeave(object sender, EventArgs e)
         {
-            pbMinimize.Image = Image.FromFile(@"Resources\ChucNang\button_minimize.png");
+            pbMinimize.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_MINIMIZE);
         }
 
         private void pbExit_Click(object sender, EventArgs e)
@@ -180,12 +180,12 @@ namespace QuanLyKinhDoanh
 
         private void pbExit_MouseEnter(object sender, EventArgs e)
         {
-            pbExit.Image = Image.FromFile(@"Resources\ChucNang\button_exit_mouseover.png");
+            pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT_MOUSEOVER);
         }
 
         private void pbExit_MouseLeave(object sender, EventArgs e)
         {
-            pbExit.Image = Image.FromFile(@"Resources\ChucNang\button_exit.png");
+            pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT);
         }
     }
 }
