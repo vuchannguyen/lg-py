@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnTitle = new System.Windows.Forms.Panel();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
@@ -59,11 +62,9 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lbSelect = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.pbTitle = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.pnTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
@@ -80,19 +81,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).BeginInit();
             this.pnPage.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.pnTitle);
             this.panel1.Controls.Add(this.pnSelect);
             this.panel1.Controls.Add(this.pnQuanLy);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(757, 547);
             this.panel1.TabIndex = 3;
+            // 
+            // pnTitle
+            // 
+            this.pnTitle.Controls.Add(this.lbTitle);
+            this.pnTitle.Controls.Add(this.pbTitle);
+            this.pnTitle.Location = new System.Drawing.Point(403, 15);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(340, 38);
+            this.pnTitle.TabIndex = 47;
+            // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.ForeColor = System.Drawing.Color.Gray;
+            this.lbTitle.Location = new System.Drawing.Point(52, 8);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(151, 22);
+            this.lbTitle.TabIndex = 2;
+            this.lbTitle.Text = "QUẢN LÝ USER";
+            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // pbTitle
+            // 
+            this.pbTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbTitle.Location = new System.Drawing.Point(10, 0);
+            this.pbTitle.Name = "pbTitle";
+            this.pbTitle.Size = new System.Drawing.Size(36, 36);
+            this.pbTitle.TabIndex = 1;
+            this.pbTitle.TabStop = false;
             // 
             // pnSelect
             // 
@@ -132,6 +161,8 @@
             this.pbThem.TabIndex = 1;
             this.pbThem.TabStop = false;
             this.pbThem.Click += new System.EventHandler(this.pbThem_Click);
+            this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
+            this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
             // 
             // panel3
             // 
@@ -155,11 +186,15 @@
             // pbSua
             // 
             this.pbSua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSua.Enabled = false;
             this.pbSua.Location = new System.Drawing.Point(10, 0);
             this.pbSua.Name = "pbSua";
             this.pbSua.Size = new System.Drawing.Size(50, 50);
             this.pbSua.TabIndex = 1;
             this.pbSua.TabStop = false;
+            this.pbSua.Click += new System.EventHandler(this.pbSua_Click);
+            this.pbSua.MouseEnter += new System.EventHandler(this.pbSua_MouseEnter);
+            this.pbSua.MouseLeave += new System.EventHandler(this.pbSua_MouseLeave);
             // 
             // panel4
             // 
@@ -183,11 +218,15 @@
             // pbXoa
             // 
             this.pbXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXoa.Enabled = false;
             this.pbXoa.Location = new System.Drawing.Point(10, 0);
             this.pbXoa.Name = "pbXoa";
             this.pbXoa.Size = new System.Drawing.Size(50, 50);
             this.pbXoa.TabIndex = 1;
             this.pbXoa.TabStop = false;
+            this.pbXoa.Click += new System.EventHandler(this.pbXoa_Click);
+            this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
+            this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
             // 
             // pnQuanLy
             // 
@@ -370,48 +409,6 @@
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.lbSelect);
-            this.panel5.Controls.Add(this.lbTitle);
-            this.panel5.Controls.Add(this.pbTitle);
-            this.panel5.Location = new System.Drawing.Point(403, 15);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(340, 38);
-            this.panel5.TabIndex = 47;
-            // 
-            // lbSelect
-            // 
-            this.lbSelect.AutoSize = true;
-            this.lbSelect.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelect.ForeColor = System.Drawing.Color.Orange;
-            this.lbSelect.Location = new System.Drawing.Point(50, 8);
-            this.lbSelect.Name = "lbSelect";
-            this.lbSelect.Size = new System.Drawing.Size(66, 22);
-            this.lbSelect.TabIndex = 1;
-            this.lbSelect.Text = "THÊM";
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lbTitle.Location = new System.Drawing.Point(122, 8);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(151, 22);
-            this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "QUẢN LÝ USER";
-            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // pbTitle
-            // 
-            this.pbTitle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTitle.Location = new System.Drawing.Point(10, 0);
-            this.pbTitle.Name = "pbTitle";
-            this.pbTitle.Size = new System.Drawing.Size(36, 36);
-            this.pbTitle.TabIndex = 1;
-            this.pbTitle.TabStop = false;
-            // 
             // UcQuanLyUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -422,6 +419,9 @@
             this.Size = new System.Drawing.Size(800, 600);
             this.Load += new System.EventHandler(this.UcQuanLyUser_Load);
             this.panel1.ResumeLayout(false);
+            this.pnTitle.ResumeLayout(false);
+            this.pnTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -443,9 +443,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).EndInit();
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,8 +480,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lbSelect;
+        private System.Windows.Forms.Panel pnTitle;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pbTitle;
 

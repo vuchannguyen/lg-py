@@ -32,6 +32,7 @@
             this.pnMain = new System.Windows.Forms.Panel();
             this.pnAbout = new System.Windows.Forms.Panel();
             this.lbAbout = new System.Windows.Forms.Label();
+            this.pnBody = new System.Windows.Forms.Panel();
             this.pnTopBar = new System.Windows.Forms.Panel();
             this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.pnHello = new System.Windows.Forms.Panel();
@@ -51,7 +52,8 @@
             this.pbMuaHang = new System.Windows.Forms.PictureBox();
             this.pbQuanLyUser = new System.Windows.Forms.PictureBox();
             this.pbBanHang = new System.Windows.Forms.PictureBox();
-            this.pnBody = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
@@ -66,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMuaHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbQuanLyUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -76,7 +79,7 @@
             this.pnMain.Controls.Add(this.pnHeaderAndMainMenu);
             this.pnMain.Location = new System.Drawing.Point(12, 12);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(811, 498);
+            this.pnMain.Size = new System.Drawing.Size(901, 498);
             this.pnMain.TabIndex = 11;
             this.pnMain.Visible = false;
             // 
@@ -88,7 +91,7 @@
             this.pnAbout.Location = new System.Drawing.Point(0, 478);
             this.pnAbout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnAbout.Name = "pnAbout";
-            this.pnAbout.Size = new System.Drawing.Size(811, 20);
+            this.pnAbout.Size = new System.Drawing.Size(901, 20);
             this.pnAbout.TabIndex = 9;
             // 
             // lbAbout
@@ -104,6 +107,13 @@
             this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD. | About Software | About ST" +
                 "G";
             // 
+            // pnBody
+            // 
+            this.pnBody.Location = new System.Drawing.Point(12, 185);
+            this.pnBody.Name = "pnBody";
+            this.pnBody.Size = new System.Drawing.Size(794, 286);
+            this.pnBody.TabIndex = 10;
+            // 
             // pnTopBar
             // 
             this.pnTopBar.BackColor = System.Drawing.Color.Transparent;
@@ -115,7 +125,7 @@
             this.pnTopBar.Location = new System.Drawing.Point(0, 0);
             this.pnTopBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnTopBar.Name = "pnTopBar";
-            this.pnTopBar.Size = new System.Drawing.Size(811, 26);
+            this.pnTopBar.Size = new System.Drawing.Size(901, 26);
             this.pnTopBar.TabIndex = 0;
             this.pnTopBar.Visible = false;
             // 
@@ -124,7 +134,7 @@
             this.pbMinimize.BackColor = System.Drawing.Color.Transparent;
             this.pbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbMinimize.Location = new System.Drawing.Point(765, 0);
+            this.pbMinimize.Location = new System.Drawing.Point(855, 0);
             this.pbMinimize.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbMinimize.Name = "pbMinimize";
             this.pbMinimize.Size = new System.Drawing.Size(21, 26);
@@ -173,7 +183,7 @@
             this.pbExit.BackColor = System.Drawing.Color.Transparent;
             this.pbExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbExit.Location = new System.Drawing.Point(786, 0);
+            this.pbExit.Location = new System.Drawing.Point(876, 0);
             this.pbExit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbExit.Name = "pbExit";
             this.pbExit.Size = new System.Drawing.Size(25, 26);
@@ -186,6 +196,8 @@
             // pnHeaderAndMainMenu
             // 
             this.pnHeaderAndMainMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnHeaderAndMainMenu.Controls.Add(this.label3);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pictureBox1);
             this.pnHeaderAndMainMenu.Controls.Add(this.label7);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbTimKiem);
             this.pnHeaderAndMainMenu.Controls.Add(this.label6);
@@ -200,7 +212,7 @@
             this.pnHeaderAndMainMenu.Controls.Add(this.pbBanHang);
             this.pnHeaderAndMainMenu.Location = new System.Drawing.Point(12, 55);
             this.pnHeaderAndMainMenu.Name = "pnHeaderAndMainMenu";
-            this.pnHeaderAndMainMenu.Size = new System.Drawing.Size(794, 118);
+            this.pnHeaderAndMainMenu.Size = new System.Drawing.Size(864, 118);
             this.pnHeaderAndMainMenu.TabIndex = 6;
             // 
             // label7
@@ -208,11 +220,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(373, 68);
+            this.label7.Location = new System.Drawing.Point(382, 68);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 14);
+            this.label7.Size = new System.Drawing.Size(26, 14);
             this.label7.TabIndex = 22;
-            this.label7.Text = "Tìm kiếm";
+            this.label7.Text = "Bán";
             // 
             // pbTimKiem
             // 
@@ -228,11 +240,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(281, 68);
+            this.label6.Location = new System.Drawing.Point(292, 68);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 14);
+            this.label6.Size = new System.Drawing.Size(27, 14);
             this.label6.TabIndex = 20;
-            this.label6.Text = "Thu chi";
+            this.label6.Text = "Mua";
             // 
             // pbThuChi
             // 
@@ -246,7 +258,7 @@
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pbHeader.Location = new System.Drawing.Point(470, 3);
+            this.pbHeader.Location = new System.Drawing.Point(542, 3);
             this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
             this.pbHeader.Size = new System.Drawing.Size(318, 69);
@@ -258,22 +270,22 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(190, 68);
+            this.label5.Location = new System.Drawing.Point(189, 68);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 14);
+            this.label5.Size = new System.Drawing.Size(55, 14);
             this.label5.TabIndex = 18;
-            this.label5.Text = "Mua hàng";
+            this.label5.Text = "Sản phẩm";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(100, 68);
+            this.label4.Location = new System.Drawing.Point(94, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 14);
+            this.label4.Size = new System.Drawing.Size(65, 14);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Bán hàng";
+            this.label4.Text = "Khách hàng";
             // 
             // label24
             // 
@@ -292,7 +304,7 @@
             this.pbHorizonline.Location = new System.Drawing.Point(4, 83);
             this.pbHorizonline.Margin = new System.Windows.Forms.Padding(4);
             this.pbHorizonline.Name = "pbHorizonline";
-            this.pbHorizonline.Size = new System.Drawing.Size(784, 31);
+            this.pbHorizonline.Size = new System.Drawing.Size(856, 31);
             this.pbHorizonline.TabIndex = 8;
             this.pbHorizonline.TabStop = false;
             // 
@@ -327,12 +339,25 @@
             this.pbBanHang.TabIndex = 12;
             this.pbBanHang.TabStop = false;
             // 
-            // pnBody
+            // label3
             // 
-            this.pnBody.Location = new System.Drawing.Point(12, 185);
-            this.pnBody.Name = "pnBody";
-            this.pnBody.Size = new System.Drawing.Size(794, 286);
-            this.pnBody.TabIndex = 10;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(463, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 14);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Thu chi";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Location = new System.Drawing.Point(454, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 67);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // FormMain
             // 
@@ -366,6 +391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbMuaHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbQuanLyUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,6 +421,8 @@
         private System.Windows.Forms.PictureBox pbQuanLyUser;
         private System.Windows.Forms.PictureBox pbBanHang;
         private System.Windows.Forms.Panel pnBody;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

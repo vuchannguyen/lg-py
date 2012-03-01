@@ -59,6 +59,8 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\Common\Constant.cs" />
+    <Compile Include="Library\Common\ConstantResource.cs" />
+    <Compile Include="Library\Common\ConstantTitle.cs" />
     <Compile Include="Library\Common\Convert_Function.cs" />
     <Compile Include="Library\Common\Fade.cs" />
     <Compile Include="Library\Common\File_Function.cs" />

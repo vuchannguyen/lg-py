@@ -12,6 +12,8 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
 {
     public partial class UcQuanLyUser : UserControl
     {
+        UserControl uc;
+
         public UcQuanLyUser()
         {
             InitializeComponent();
@@ -21,18 +23,18 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
         {
             try
             {
-                pbThem.Image = Image.FromFile(@"Resources\ChucNang\icon_them.png");
-                pbXoa.Image = Image.FromFile(@"Resources\ChucNang\icon_xoa_disable.png");
-                pbSua.Image = Image.FromFile(@"Resources\ChucNang\icon_sua_disable.png");
+                pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
+                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+                pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
 
-                pbTraCuu.Image = Image.FromFile(@"Resources\ChucNang\icon_searchtextbox.png");
-                pbOk.Image = Image.FromFile(@"Resources\ChucNang\button_ok_disable.png");
-                pbTotalPage.Image = Image.FromFile(@"Resources\ChucNang\icon_totalpagenumber.png");
+                pbTraCuu.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEARCH);
+                pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
+                pbTotalPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_TOTALPAGE);
 
-                pbBackPage.Image = Image.FromFile(@"Resources\ChucNang\button_back.png");
-                pbNextPage.Image = Image.FromFile(@"Resources\ChucNang\button_next.png");
+                pbBackPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_BACK_PAGE);
+                pbNextPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_NEXT_PAGE);
             }
             catch
             {
@@ -41,30 +43,73 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
             }
         }
 
-        private void pbThem_Click(object sender, EventArgs e)
-        {
-            //tbDienGiai_TextChanged(sender, e);
-
-            pnQuanLy.Visible = false;
-            pnSelect.Visible = false;
-
-            lbTitle.Text = "THÊM USER";
-            lbSelect.Text = "THÊM";
-
-            this.Controls.Add(new UcInfo());
-        }
-
         private void UcQuanLyUser_Load(object sender, EventArgs e)
         {
             LoadResource();
-
-            lbTitle.Left = lbSelect.Left;
-            lbSelect.Text = "";
 
             pnQuanLy.Size = new System.Drawing.Size(670, 390);
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             //tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
+        }
+
+        private void Refresh()
+        { 
+            //
+        }
+
+        private void uc_Disposed(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void pbThem_Click(object sender, EventArgs e)
+        {
+            //tbDienGiai_TextChanged(sender, e);
+
+            uc = new UcInfo();
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
+        }      
+
+        private void pbThem_MouseEnter(object sender, EventArgs e)
+        {
+            pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
+        }
+
+        private void pbThem_MouseLeave(object sender, EventArgs e)
+        {
+            pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
+        }
+
+        private void pbXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbXoa_MouseEnter(object sender, EventArgs e)
+        {
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
+        }
+
+        private void pbXoa_MouseLeave(object sender, EventArgs e)
+        {
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+        }
+
+        private void pbSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbSua_MouseEnter(object sender, EventArgs e)
+        {
+            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_MOUSEROVER);
+        }
+
+        private void pbSua_MouseLeave(object sender, EventArgs e)
+        {
+            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
         }
     }
 }
