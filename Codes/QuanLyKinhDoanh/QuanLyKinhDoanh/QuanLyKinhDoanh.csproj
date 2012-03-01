@@ -58,31 +58,44 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Library\CommonFunction\Convert_Function.cs" />
-    <Compile Include="Library\CommonFunction\Fade.cs" />
-    <Compile Include="Library\CommonFunction\File_Function.cs" />
-    <Compile Include="Library\CommonFunction\Image_Function.cs" />
-    <Compile Include="Library\CommonFunction\ListViewEx.cs">
+    <Compile Include="Library\Common\Constant.cs" />
+    <Compile Include="Library\Common\Convert_Function.cs" />
+    <Compile Include="Library\Common\Fade.cs" />
+    <Compile Include="Library\Common\File_Function.cs" />
+    <Compile Include="Library\Common\Image_Function.cs" />
+    <Compile Include="Library\Common\ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Library\CommonFunction\ListViewSortColumn.cs" />
-    <Compile Include="Library\CommonFunction\MyReturnCode.cs" />
-    <Compile Include="Library\CommonFunction\Office_Function.cs" />
-    <Compile Include="Library\CommonFunction\SQL_Funtion.cs" />
-    <Compile Include="Library\CommonFunction\Startup.cs" />
-    <Compile Include="Library\CommonFunction\SubFunction.cs" />
-    <Compile Include="Library\CommonFunction\XML_Function.cs" />
+    <Compile Include="Library\Common\ListViewSortColumn.cs" />
+    <Compile Include="Library\Common\MyReturnCode.cs" />
+    <Compile Include="Library\Common\Office_Function.cs" />
+    <Compile Include="Library\Common\SQL_Funtion.cs" />
+    <Compile Include="Library\Common\Startup.cs" />
+    <Compile Include="Library\Common\CommonFunction.cs" />
+    <Compile Include="Library\Common\XML_Function.cs" />
     <Compile Include="Main\Ban\UcBan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\Ban\UcBan.Designer.cs">
       <DependentUpon>UcBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Mua\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Mua\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Mua\UcMua.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\Mua\UcMua.Designer.cs">
       <DependentUpon>UcMua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\QuanLyUser\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\QuanLyUser\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\QuanLyUser\UcQuanLyUser.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Mua\UcMua.resx">
       <DependentUpon>UcMua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\QuanLyUser\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\QuanLyUser\UcQuanLyUser.resx">
       <DependentUpon>UcQuanLyUser.cs</DependentUpon>

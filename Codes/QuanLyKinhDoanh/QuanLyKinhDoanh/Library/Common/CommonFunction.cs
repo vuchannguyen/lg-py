@@ -6,9 +6,9 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Security.Cryptography;
 
-namespace CommonFunction
+namespace Library
 {
-    class SubFunction
+    class CommonFunc
     {
         static bool bEnter = false;
 
@@ -172,6 +172,11 @@ namespace CommonFunction
             {
                 return false;
             }
+        }
+
+        public static void SetNewUc(Control.ControlCollection controls, UserControl uc, Size parentSize)
+        {
+            controls.Add(uc);
         }
     }
 }
