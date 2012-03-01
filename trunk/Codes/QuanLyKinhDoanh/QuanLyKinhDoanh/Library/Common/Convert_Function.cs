@@ -5,7 +5,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace CommonFunction
+namespace Library
 {
     public class Convert_Function
     {

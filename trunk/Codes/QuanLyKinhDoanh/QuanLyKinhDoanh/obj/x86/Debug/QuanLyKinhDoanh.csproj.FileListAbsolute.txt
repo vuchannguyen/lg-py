@@ -1,7 +1,6 @@
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\QuanLyKinhDoanh.exe
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\QuanLyKinhDoanh.pdb
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Form_Main.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Properties.Resources.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\GenerateResource.write.1.tlog
@@ -19,3 +18,8 @@ C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKin
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.QuanLyUser.UCQuanLyUser.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.Mua.UcMua.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.Ban.UcBan.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormMain.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.Ban.UcBan.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.Mua.UcMua.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.QuanLyUser.UcQuanLyUser.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.QuanLyUser.UcInfo.resources

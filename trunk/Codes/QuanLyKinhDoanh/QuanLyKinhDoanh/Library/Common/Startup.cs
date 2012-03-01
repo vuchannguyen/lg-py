@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Timers;
 
-namespace CommonFunction
+namespace Library
 {
     class Startup
     {

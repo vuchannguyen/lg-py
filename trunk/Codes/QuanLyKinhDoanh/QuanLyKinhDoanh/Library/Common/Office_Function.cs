@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using COMExcel = Microsoft.Office.Interop.Excel;
 
-namespace CommonFunction
+namespace Library
 {
     class Office_Function
     {

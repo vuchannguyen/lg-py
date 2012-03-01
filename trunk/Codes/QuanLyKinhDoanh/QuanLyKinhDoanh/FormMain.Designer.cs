@@ -51,6 +51,7 @@
             this.pbMuaHang = new System.Windows.Forms.PictureBox();
             this.pbQuanLyUser = new System.Windows.Forms.PictureBox();
             this.pbBanHang = new System.Windows.Forms.PictureBox();
+            this.pnBody = new System.Windows.Forms.Panel();
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
@@ -70,6 +71,7 @@
             // pnMain
             // 
             this.pnMain.Controls.Add(this.pnAbout);
+            this.pnMain.Controls.Add(this.pnBody);
             this.pnMain.Controls.Add(this.pnTopBar);
             this.pnMain.Controls.Add(this.pnHeaderAndMainMenu);
             this.pnMain.Location = new System.Drawing.Point(12, 12);
@@ -95,11 +97,12 @@
             this.lbAbout.BackColor = System.Drawing.Color.Transparent;
             this.lbAbout.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAbout.ForeColor = System.Drawing.Color.Gray;
-            this.lbAbout.Location = new System.Drawing.Point(237, 2);
+            this.lbAbout.Location = new System.Drawing.Point(197, 2);
             this.lbAbout.Name = "lbAbout";
-            this.lbAbout.Size = new System.Drawing.Size(401, 14);
+            this.lbAbout.Size = new System.Drawing.Size(434, 14);
             this.lbAbout.TabIndex = 8;
-            this.lbAbout.Text = "Phần mềm Quản Lý Nhân Sự - STG giữ toàn quyền. | About Software | About STG";
+            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD. | About Software | About ST" +
+                "G";
             // 
             // pnTopBar
             // 
@@ -114,6 +117,7 @@
             this.pnTopBar.Name = "pnTopBar";
             this.pnTopBar.Size = new System.Drawing.Size(811, 26);
             this.pnTopBar.TabIndex = 0;
+            this.pnTopBar.Visible = false;
             // 
             // pbMinimize
             // 
@@ -323,7 +327,14 @@
             this.pbBanHang.TabIndex = 12;
             this.pbBanHang.TabStop = false;
             // 
-            // Form_Main
+            // pnBody
+            // 
+            this.pnBody.Location = new System.Drawing.Point(12, 185);
+            this.pnBody.Name = "pnBody";
+            this.pnBody.Size = new System.Drawing.Size(794, 286);
+            this.pnBody.TabIndex = 10;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -332,11 +343,11 @@
             this.ClientSize = new System.Drawing.Size(1008, 732);
             this.Controls.Add(this.pnMain);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form_Main";
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ BÁN HÀNG 1.0";
+            this.Text = "QUẢN LÝ KINH DOANH 1.0";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.pnMain.ResumeLayout(false);
             this.pnAbout.ResumeLayout(false);
@@ -383,6 +394,7 @@
         private System.Windows.Forms.PictureBox pbMuaHang;
         private System.Windows.Forms.PictureBox pbQuanLyUser;
         private System.Windows.Forms.PictureBox pbBanHang;
+        private System.Windows.Forms.Panel pnBody;
     }
 }
 

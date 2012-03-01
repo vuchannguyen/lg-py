@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
 
-namespace CommonFunction
+namespace Library
 {
     class File_Function
     {

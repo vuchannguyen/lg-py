@@ -7,7 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace CommonFunction
+namespace Library
 {
     class Image_Function
     {
