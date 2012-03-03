@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanh.Main.QuanLyUser
+﻿namespace QuanLyKinhDoanh
 {
     partial class UcQuanLyUser
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
@@ -43,14 +42,13 @@
             this.label28 = new System.Windows.Forms.Label();
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lvThongTin = new System.Windows.Forms.ListView();
+            this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chHoTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chNhom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -62,7 +60,6 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -73,7 +70,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
             this.pnQuanLy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnTraCuu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNextPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackPage)).BeginInit();
@@ -83,21 +79,11 @@
             this.pnPage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pnTitle);
-            this.panel1.Controls.Add(this.pnSelect);
-            this.panel1.Controls.Add(this.pnQuanLy);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(757, 547);
-            this.panel1.TabIndex = 3;
-            // 
             // pnTitle
             // 
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(403, 15);
+            this.pnTitle.Location = new System.Drawing.Point(521, 6);
             this.pnTitle.Name = "pnTitle";
             this.pnTitle.Size = new System.Drawing.Size(340, 38);
             this.pnTitle.TabIndex = 47;
@@ -128,7 +114,7 @@
             this.pnSelect.Controls.Add(this.panel2);
             this.pnSelect.Controls.Add(this.panel3);
             this.pnSelect.Controls.Add(this.panel4);
-            this.pnSelect.Location = new System.Drawing.Point(22, 12);
+            this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(235, 78);
             this.pnSelect.TabIndex = 46;
@@ -230,74 +216,65 @@
             // 
             // pnQuanLy
             // 
-            this.pnQuanLy.Controls.Add(this.dataGridView1);
+            this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(66, 118);
+            this.pnQuanLy.Location = new System.Drawing.Point(146, 87);
             this.pnQuanLy.Name = "pnQuanLy";
-            this.pnQuanLy.Size = new System.Drawing.Size(677, 407);
+            this.pnQuanLy.Size = new System.Drawing.Size(710, 480);
             this.pnQuanLy.TabIndex = 43;
             // 
-            // dataGridView1
+            // lvThongTin
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.HoTen,
-            this.Type,
-            this.UserName,
-            this.DienThoai,
-            this.Email,
-            this.GhiChu});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(662, 344);
-            this.dataGridView1.TabIndex = 47;
+            this.lvThongTin.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chMa,
+            this.chSTT,
+            this.chHoTen,
+            this.chNhom,
+            this.chDienThoai,
+            this.chEmail});
+            this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvThongTin.FullRowSelect = true;
+            this.lvThongTin.GridLines = true;
+            this.lvThongTin.Location = new System.Drawing.Point(3, 3);
+            this.lvThongTin.Name = "lvThongTin";
+            this.lvThongTin.Size = new System.Drawing.Size(700, 430);
+            this.lvThongTin.TabIndex = 86;
+            this.lvThongTin.UseCompatibleStateImageBehavior = false;
+            this.lvThongTin.View = System.Windows.Forms.View.Details;
             // 
-            // Id
+            // chMa
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            this.chMa.Text = "Mã";
+            this.chMa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chMa.Width = 0;
             // 
-            // HoTen
+            // chSTT
             // 
-            this.HoTen.HeaderText = "Họ và tên";
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
+            this.chSTT.Text = "STT";
+            this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chSTT.Width = 39;
             // 
-            // Type
+            // chHoTen
             // 
-            this.Type.HeaderText = "Nhóm";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
+            this.chHoTen.Text = "Họ và tên";
+            this.chHoTen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chHoTen.Width = 139;
             // 
-            // UserName
+            // chNhom
             // 
-            this.UserName.HeaderText = "Tên đăng nhập";
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
+            this.chNhom.Text = "Nhóm";
+            this.chNhom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chNhom.Width = 66;
             // 
-            // DienThoai
+            // chDienThoai
             // 
-            this.DienThoai.HeaderText = "Điện thoại";
-            this.DienThoai.Name = "DienThoai";
-            this.DienThoai.ReadOnly = true;
+            this.chDienThoai.Text = "Điện thoại";
+            this.chDienThoai.Width = 112;
             // 
-            // Email
+            // chEmail
             // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.HeaderText = "Ghi chú";
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
+            this.chEmail.Text = "Email";
+            this.chEmail.Width = 75;
             // 
             // pnTraCuu
             // 
@@ -310,14 +287,14 @@
             this.pnTraCuu.Controls.Add(this.tbSearch);
             this.pnTraCuu.Controls.Add(this.pbTraCuu);
             this.pnTraCuu.Controls.Add(this.pnPage);
-            this.pnTraCuu.Location = new System.Drawing.Point(3, 353);
+            this.pnTraCuu.Location = new System.Drawing.Point(3, 439);
             this.pnTraCuu.Name = "pnTraCuu";
-            this.pnTraCuu.Size = new System.Drawing.Size(662, 33);
+            this.pnTraCuu.Size = new System.Drawing.Size(700, 33);
             this.pnTraCuu.TabIndex = 85;
             // 
             // tbPage
             // 
-            this.tbPage.Location = new System.Drawing.Point(383, 6);
+            this.tbPage.Location = new System.Drawing.Point(421, 6);
             this.tbPage.MaxLength = 3;
             this.tbPage.Name = "tbPage";
             this.tbPage.Size = new System.Drawing.Size(40, 23);
@@ -330,7 +307,7 @@
             this.lbTotalPage.AutoSize = true;
             this.lbTotalPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbTotalPage.Location = new System.Drawing.Point(477, 6);
+            this.lbTotalPage.Location = new System.Drawing.Point(515, 6);
             this.lbTotalPage.Name = "lbTotalPage";
             this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
             this.lbTotalPage.TabIndex = 2;
@@ -339,7 +316,7 @@
             // pbNextPage
             // 
             this.pbNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNextPage.Location = new System.Drawing.Point(637, 0);
+            this.pbNextPage.Location = new System.Drawing.Point(675, 0);
             this.pbNextPage.Name = "pbNextPage";
             this.pbNextPage.Size = new System.Drawing.Size(25, 32);
             this.pbNextPage.TabIndex = 88;
@@ -348,7 +325,7 @@
             // pbBackPage
             // 
             this.pbBackPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBackPage.Location = new System.Drawing.Point(572, 0);
+            this.pbBackPage.Location = new System.Drawing.Point(610, 0);
             this.pbBackPage.Name = "pbBackPage";
             this.pbBackPage.Size = new System.Drawing.Size(25, 32);
             this.pbBackPage.TabIndex = 87;
@@ -357,7 +334,7 @@
             // pbTotalPage
             // 
             this.pbTotalPage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTotalPage.Location = new System.Drawing.Point(439, 0);
+            this.pbTotalPage.Location = new System.Drawing.Point(477, 0);
             this.pbTotalPage.Name = "pbTotalPage";
             this.pbTotalPage.Size = new System.Drawing.Size(32, 33);
             this.pbTotalPage.TabIndex = 86;
@@ -392,7 +369,7 @@
             // pnPage
             // 
             this.pnPage.Controls.Add(this.lbPage);
-            this.pnPage.Location = new System.Drawing.Point(595, 5);
+            this.pnPage.Location = new System.Drawing.Point(633, 5);
             this.pnPage.Name = "pnPage";
             this.pnPage.Size = new System.Drawing.Size(45, 22);
             this.pnPage.TabIndex = 86;
@@ -413,12 +390,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnTitle);
+            this.Controls.Add(this.pnSelect);
+            this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcQuanLyUser";
-            this.Size = new System.Drawing.Size(800, 600);
+            this.Size = new System.Drawing.Size(1000, 600);
             this.Load += new System.EventHandler(this.UcQuanLyUser_Load);
-            this.panel1.ResumeLayout(false);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
@@ -433,7 +411,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
             this.pnQuanLy.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnTraCuu.ResumeLayout(false);
             this.pnTraCuu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNextPage)).EndInit();
@@ -449,7 +426,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnSelect;
         private System.Windows.Forms.Panel pnQuanLy;
         private System.Windows.Forms.Panel pnTraCuu;
@@ -472,17 +448,16 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.PictureBox pbXoa;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
         private System.Windows.Forms.Panel pnTitle;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.ListView lvThongTin;
+        private System.Windows.Forms.ColumnHeader chMa;
+        private System.Windows.Forms.ColumnHeader chSTT;
+        private System.Windows.Forms.ColumnHeader chHoTen;
+        private System.Windows.Forms.ColumnHeader chNhom;
+        private System.Windows.Forms.ColumnHeader chDienThoai;
+        private System.Windows.Forms.ColumnHeader chEmail;
 
     }
 }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
-using QuanLyKinhDoanh.Main.QuanLyUser;
 
 namespace QuanLyKinhDoanh
 {
@@ -30,8 +29,6 @@ namespace QuanLyKinhDoanh
         {
             LoadResource();
 
-            this.Size = new System.Drawing.Size(1014, 758);
-
             pnMain.BackColor = Color.White;
             pnMain.Visible = true;
             pnMain.Dock = DockStyle.Fill;
@@ -42,7 +39,7 @@ namespace QuanLyKinhDoanh
             lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
 
             pnBody.Width = pnMain.Width;
-            pnBody.Height = pnMain.Height - Constant.TOP_HEIGHT_DEFAULT - Constant.BOT_HEIGHT_DEFAULT;
+            pnBody.Height = pnMain.Height - 100 - Constant.BOT_HEIGHT_DEFAULT;
 
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.TOP_HEIGHT_DEFAULT);
         }
@@ -59,11 +56,13 @@ namespace QuanLyKinhDoanh
                 //pbHeader.Image = Image.FromFile(@"Resources\Main\brand.png");
                 pbHorizonline.Image = Image.FromFile(ConstantResource.MAIN_HORIZONLINE);
 
-                pbQuanLyUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
-                //pbBanHang.Image = Image.FromFile(@"Resources\icon_qlhoso.png");
-                //pbMuaHang.Image = Image.FromFile(@"Resources\icon_qlsukien.png");
-                //pbThuChi.Image = Image.FromFile(@"Resources\top_system.png");
-                //pbTimKiem.Image = Image.FromFile(@"Resources\button_plugins.png");
+                pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
+                pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
+                pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
+                pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN);
+                pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA);
+                pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
+                pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
 
                 pnAbout.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
             }
@@ -74,87 +73,20 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void NewVal()
-        {
-            uc = new UcQuanLyUser();
-        }
-
-        private void RemoveOldControl()
-        {
-            try
-            {
-                pnBody.Controls.Remove(uc);
-            }
-            catch
-            {
-                //Khong lam gi het
-            }
-        }
-
-        private void NewControls(int i)
-        {
-            //if (i == 0)
-            //{
-            //    RemoveOldControl();
-
-            //    ucQuanLyUser = new UcQuanLyUser();
-            //    SetNewUC(ucQuanLyUser);
-            //}
-
-            //if (i == 1)
-            //{
-            //    RemoveOldControl();
-
-            //    uc_QuanLyNhanSu = new UC_QuanLyNhanSu();
-            //    SetNewUC(uc_QuanLyNhanSu);
-            //}
-
-            //if (i == 2)
-            //{
-            //    RemoveOldControl();
-
-            //    uc_QuanLySuKien = new UC_QuanLySuKien();
-            //    SetNewUC(uc_QuanLySuKien);
-            //}
-
-            //if (i == 3)
-            //{
-            //    RemoveOldControl();
-
-            //    uc_HeThong = new UC_HeThong();
-            //    SetNewUC(uc_HeThong);
-            //}
-
-            //if (i == 4)
-            //{
-            //    Form_Main.form_Fade(Image_Function.PrintScreen());
-            //    frm_CongCuHoTro = new Form_CongCuHoTro(Form_Main.list_Plugin, Form_Main.list_Export);
-            //    frm_CongCuHoTro.FormClosed += new FormClosedEventHandler(frm_CongCuHoTro_FormClosed);
-            //    frm_CongCuHoTro.ShowDialog();
-            //    Form_Main.form_Normal();
-            //}
-        }
-
         #region Image Button
-        private void pbQuanLyUser_Click(object sender, EventArgs e)
+        private void pbUser_Click(object sender, EventArgs e)
         {
-            pnBody.Controls.Remove(uc);
-            uc = new UcQuanLyUser();
-            uc.Location = CommonFunc.SetWidthCenter(this.Size, uc.Size, 0);
-            pnBody.Controls.Add(uc);
-            //CommonFunc.SetNewUc(pnBody.Controls, uc, this.Size);
-
-            //SetNewUc(new UcQuanLyUser(), true);
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcQuanLyUser());
         }
 
-        private void pbQuanLyUser_MouseEnter(object sender, EventArgs e)
+        private void pbUser_MouseEnter(object sender, EventArgs e)
         {
-            pbQuanLyUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
+            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
         }
 
-        private void pbQuanLyUser_MouseLeave(object sender, EventArgs e)
+        private void pbUser_MouseLeave(object sender, EventArgs e)
         {
-            pbQuanLyUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
+            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
         }
         #endregion
 
@@ -186,6 +118,96 @@ namespace QuanLyKinhDoanh
         private void pbExit_MouseLeave(object sender, EventArgs e)
         {
             pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT);
+        }
+
+        private void pbKhachHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbKhachHang_MouseEnter(object sender, EventArgs e)
+        {
+            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
+        }
+
+        private void pbKhachHang_MouseLeave(object sender, EventArgs e)
+        {
+            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
+        }
+
+        private void pbSanPham_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbSanPham_MouseEnter(object sender, EventArgs e)
+        {
+            pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
+        }
+
+        private void pbSanPham_MouseLeave(object sender, EventArgs e)
+        {
+            pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
+        }
+
+        private void pbMua_Click(object sender, EventArgs e)
+        {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMua());
+        }
+
+        private void pbMua_MouseEnter(object sender, EventArgs e)
+        {
+            pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA_MOUSEOVER);
+        }
+
+        private void pbMua_MouseLeave(object sender, EventArgs e)
+        {
+            pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA);
+        }
+
+        private void pbBan_Click(object sender, EventArgs e)
+        {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcBan());
+        }
+
+        private void pbBan_MouseEnter(object sender, EventArgs e)
+        {
+            pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN_MOUSEOVER);
+        }
+
+        private void pbBan_MouseLeave(object sender, EventArgs e)
+        {
+            pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN);
+        }
+
+        private void pbKhoHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbKhoHang_MouseEnter(object sender, EventArgs e)
+        {
+            pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
+        }
+
+        private void pbKhoHang_MouseLeave(object sender, EventArgs e)
+        {
+            pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
+        }
+
+        private void pbThuChi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbThuChi_MouseEnter(object sender, EventArgs e)
+        {
+            pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
+        }
+
+        private void pbThuChi_MouseLeave(object sender, EventArgs e)
+        {
+            pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
         }
     }
 }
