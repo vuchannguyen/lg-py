@@ -173,5 +173,14 @@ namespace Library
                 return false;
             }
         }
+
+        public static void NewControl(Control.ControlCollection controls, ref UserControl oldControl, UserControl newControl)
+        {
+            int n = controls.Count;
+            controls.Remove(oldControl);
+            n = controls.Count;
+            oldControl = newControl;
+            controls.Add(oldControl);
+        }
     }
 }

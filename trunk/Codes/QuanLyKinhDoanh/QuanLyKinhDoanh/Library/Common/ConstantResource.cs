@@ -44,6 +44,23 @@ namespace Library
 
         public const string USER_ICON_USER = @"Resources\User\icon_user.png";
         public const string USER_ICON_USER_MOUSEOVER = @"Resources\User\icon_user_mouseover.png";
-        
+
+        public const string KHACHHANG_ICON_KHACHHANG = @"Resources\KhachHang\icon_khachhang.png";
+        public const string KHACHHANG_ICON_KHACHHANG_MOUSEOVER = @"Resources\KhachHang\icon_khachhang_mouseover.png";
+
+        public const string SANPHAM_ICON_SANPHAM = @"Resources\SanPham\icon_sanpham.png";
+        public const string SANPHAM_ICON_SANPHAM_MOUSEOVER = @"Resources\SanPham\icon_sanpham_mouseover.png";
+
+        public const string MUA_ICON_MUA = @"Resources\Mua\icon_mua.png";
+        public const string MUA_ICON_MUA_MOUSEOVER = @"Resources\Mua\icon_mua_mouseover.png";
+
+        public const string BAN_ICON_BAN = @"Resources\Ban\icon_ban.png";
+        public const string BAN_ICON_BAN_MOUSEOVER = @"Resources\Ban\icon_ban_mouseover.png";
+
+        public const string KHOHANG_ICON_KHOHANG = @"Resources\KhoHang\icon_khohang.png";
+        public const string KHOHANG_ICON_KHOHANG_MOUSEOVER = @"Resources\KhoHang\icon_khohang_mouseover.png";
+
+        public const string THUCHI_ICON_THUCHI = @"Resources\ThuChi\icon_thuchi.png";
+        public const string THUCHI_ICON_THUCHI_MOUSEOVER = @"Resources\ThuChi\icon_thuchi_mouseover.png";
     }
 }

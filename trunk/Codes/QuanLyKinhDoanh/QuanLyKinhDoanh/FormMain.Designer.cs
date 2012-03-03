@@ -40,20 +40,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.pnHeaderAndMainMenu = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pbTimKiem = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pbKhoHang = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pbThuChi = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pbBan = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pbMua = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.pbHorizonline = new System.Windows.Forms.PictureBox();
-            this.pbMuaHang = new System.Windows.Forms.PictureBox();
-            this.pbQuanLyUser = new System.Windows.Forms.PictureBox();
-            this.pbBanHang = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbSanPham = new System.Windows.Forms.PictureBox();
+            this.pbUser = new System.Windows.Forms.PictureBox();
+            this.pbKhachHang = new System.Windows.Forms.PictureBox();
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
@@ -61,14 +63,15 @@
             this.pnHello.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.pnHeaderAndMainMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTimKiem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHorizonline)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMuaHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbQuanLyUser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -79,7 +82,7 @@
             this.pnMain.Controls.Add(this.pnHeaderAndMainMenu);
             this.pnMain.Location = new System.Drawing.Point(12, 12);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(901, 498);
+            this.pnMain.Size = new System.Drawing.Size(973, 498);
             this.pnMain.TabIndex = 11;
             this.pnMain.Visible = false;
             // 
@@ -91,7 +94,7 @@
             this.pnAbout.Location = new System.Drawing.Point(0, 478);
             this.pnAbout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnAbout.Name = "pnAbout";
-            this.pnAbout.Size = new System.Drawing.Size(901, 20);
+            this.pnAbout.Size = new System.Drawing.Size(973, 20);
             this.pnAbout.TabIndex = 9;
             // 
             // lbAbout
@@ -125,7 +128,7 @@
             this.pnTopBar.Location = new System.Drawing.Point(0, 0);
             this.pnTopBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnTopBar.Name = "pnTopBar";
-            this.pnTopBar.Size = new System.Drawing.Size(901, 26);
+            this.pnTopBar.Size = new System.Drawing.Size(973, 26);
             this.pnTopBar.TabIndex = 0;
             this.pnTopBar.Visible = false;
             // 
@@ -134,7 +137,7 @@
             this.pbMinimize.BackColor = System.Drawing.Color.Transparent;
             this.pbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbMinimize.Location = new System.Drawing.Point(855, 0);
+            this.pbMinimize.Location = new System.Drawing.Point(927, 0);
             this.pbMinimize.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbMinimize.Name = "pbMinimize";
             this.pbMinimize.Size = new System.Drawing.Size(21, 26);
@@ -183,7 +186,7 @@
             this.pbExit.BackColor = System.Drawing.Color.Transparent;
             this.pbExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbExit.Location = new System.Drawing.Point(876, 0);
+            this.pbExit.Location = new System.Drawing.Point(948, 0);
             this.pbExit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pbExit.Name = "pbExit";
             this.pbExit.Size = new System.Drawing.Size(25, 26);
@@ -196,24 +199,74 @@
             // pnHeaderAndMainMenu
             // 
             this.pnHeaderAndMainMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnHeaderAndMainMenu.Controls.Add(this.label8);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbKhoHang);
             this.pnHeaderAndMainMenu.Controls.Add(this.label3);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pictureBox1);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label7);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbTimKiem);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label6);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbThuChi);
+            this.pnHeaderAndMainMenu.Controls.Add(this.label7);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbBan);
+            this.pnHeaderAndMainMenu.Controls.Add(this.label6);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbMua);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbHeader);
             this.pnHeaderAndMainMenu.Controls.Add(this.label5);
             this.pnHeaderAndMainMenu.Controls.Add(this.label4);
             this.pnHeaderAndMainMenu.Controls.Add(this.label24);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbHorizonline);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbMuaHang);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbQuanLyUser);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbBanHang);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbSanPham);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbUser);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbKhachHang);
             this.pnHeaderAndMainMenu.Location = new System.Drawing.Point(12, 55);
             this.pnHeaderAndMainMenu.Name = "pnHeaderAndMainMenu";
-            this.pnHeaderAndMainMenu.Size = new System.Drawing.Size(864, 118);
+            this.pnHeaderAndMainMenu.Size = new System.Drawing.Size(958, 118);
             this.pnHeaderAndMainMenu.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(461, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 14);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Kho hàng";
+            // 
+            // pbKhoHang
+            // 
+            this.pbKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbKhoHang.Location = new System.Drawing.Point(454, 3);
+            this.pbKhoHang.Name = "pbKhoHang";
+            this.pbKhoHang.Size = new System.Drawing.Size(65, 67);
+            this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbKhoHang.TabIndex = 25;
+            this.pbKhoHang.TabStop = false;
+            this.pbKhoHang.Click += new System.EventHandler(this.pbKhoHang_Click);
+            this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
+            this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(555, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 14);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Thu chi";
+            // 
+            // pbThuChi
+            // 
+            this.pbThuChi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbThuChi.Location = new System.Drawing.Point(544, 3);
+            this.pbThuChi.Name = "pbThuChi";
+            this.pbThuChi.Size = new System.Drawing.Size(65, 67);
+            this.pbThuChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbThuChi.TabIndex = 23;
+            this.pbThuChi.TabStop = false;
+            this.pbThuChi.Click += new System.EventHandler(this.pbThuChi_Click);
+            this.pbThuChi.MouseEnter += new System.EventHandler(this.pbThuChi_MouseEnter);
+            this.pbThuChi.MouseLeave += new System.EventHandler(this.pbThuChi_MouseLeave);
             // 
             // label7
             // 
@@ -226,14 +279,18 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Bán";
             // 
-            // pbTimKiem
+            // pbBan
             // 
-            this.pbTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbTimKiem.Location = new System.Drawing.Point(364, 3);
-            this.pbTimKiem.Name = "pbTimKiem";
-            this.pbTimKiem.Size = new System.Drawing.Size(65, 67);
-            this.pbTimKiem.TabIndex = 21;
-            this.pbTimKiem.TabStop = false;
+            this.pbBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBan.Location = new System.Drawing.Point(364, 3);
+            this.pbBan.Name = "pbBan";
+            this.pbBan.Size = new System.Drawing.Size(65, 67);
+            this.pbBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBan.TabIndex = 21;
+            this.pbBan.TabStop = false;
+            this.pbBan.Click += new System.EventHandler(this.pbBan_Click);
+            this.pbBan.MouseEnter += new System.EventHandler(this.pbBan_MouseEnter);
+            this.pbBan.MouseLeave += new System.EventHandler(this.pbBan_MouseLeave);
             // 
             // label6
             // 
@@ -246,19 +303,23 @@
             this.label6.TabIndex = 20;
             this.label6.Text = "Mua";
             // 
-            // pbThuChi
+            // pbMua
             // 
-            this.pbThuChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThuChi.Location = new System.Drawing.Point(274, 3);
-            this.pbThuChi.Name = "pbThuChi";
-            this.pbThuChi.Size = new System.Drawing.Size(65, 67);
-            this.pbThuChi.TabIndex = 19;
-            this.pbThuChi.TabStop = false;
+            this.pbMua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMua.Location = new System.Drawing.Point(274, 3);
+            this.pbMua.Name = "pbMua";
+            this.pbMua.Size = new System.Drawing.Size(65, 67);
+            this.pbMua.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMua.TabIndex = 19;
+            this.pbMua.TabStop = false;
+            this.pbMua.Click += new System.EventHandler(this.pbMua_Click);
+            this.pbMua.MouseEnter += new System.EventHandler(this.pbMua_MouseEnter);
+            this.pbMua.MouseLeave += new System.EventHandler(this.pbMua_MouseLeave);
             // 
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pbHeader.Location = new System.Drawing.Point(542, 3);
+            this.pbHeader.Location = new System.Drawing.Point(636, 3);
             this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
             this.pbHeader.Size = new System.Drawing.Size(318, 69);
@@ -292,11 +353,11 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Gray;
-            this.label24.Location = new System.Drawing.Point(2, 68);
+            this.label24.Location = new System.Drawing.Point(22, 68);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(70, 14);
+            this.label24.Size = new System.Drawing.Size(30, 14);
             this.label24.TabIndex = 16;
-            this.label24.Text = "Quản lý User";
+            this.label24.Text = "User";
             // 
             // pbHorizonline
             // 
@@ -304,60 +365,49 @@
             this.pbHorizonline.Location = new System.Drawing.Point(4, 83);
             this.pbHorizonline.Margin = new System.Windows.Forms.Padding(4);
             this.pbHorizonline.Name = "pbHorizonline";
-            this.pbHorizonline.Size = new System.Drawing.Size(856, 31);
+            this.pbHorizonline.Size = new System.Drawing.Size(950, 31);
+            this.pbHorizonline.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHorizonline.TabIndex = 8;
             this.pbHorizonline.TabStop = false;
             // 
-            // pbMuaHang
+            // pbSanPham
             // 
-            this.pbMuaHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMuaHang.Location = new System.Drawing.Point(184, 3);
-            this.pbMuaHang.Name = "pbMuaHang";
-            this.pbMuaHang.Size = new System.Drawing.Size(65, 67);
-            this.pbMuaHang.TabIndex = 14;
-            this.pbMuaHang.TabStop = false;
+            this.pbSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbSanPham.Location = new System.Drawing.Point(184, 3);
+            this.pbSanPham.Name = "pbSanPham";
+            this.pbSanPham.Size = new System.Drawing.Size(65, 67);
+            this.pbSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSanPham.TabIndex = 14;
+            this.pbSanPham.TabStop = false;
+            this.pbSanPham.Click += new System.EventHandler(this.pbSanPham_Click);
+            this.pbSanPham.MouseEnter += new System.EventHandler(this.pbSanPham_MouseEnter);
+            this.pbSanPham.MouseLeave += new System.EventHandler(this.pbSanPham_MouseLeave);
             // 
-            // pbQuanLyUser
+            // pbUser
             // 
-            this.pbQuanLyUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbQuanLyUser.Location = new System.Drawing.Point(4, 3);
-            this.pbQuanLyUser.Name = "pbQuanLyUser";
-            this.pbQuanLyUser.Size = new System.Drawing.Size(65, 67);
-            this.pbQuanLyUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbQuanLyUser.TabIndex = 10;
-            this.pbQuanLyUser.TabStop = false;
-            this.pbQuanLyUser.Click += new System.EventHandler(this.pbQuanLyUser_Click);
-            this.pbQuanLyUser.MouseEnter += new System.EventHandler(this.pbQuanLyUser_MouseEnter);
-            this.pbQuanLyUser.MouseLeave += new System.EventHandler(this.pbQuanLyUser_MouseLeave);
+            this.pbUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbUser.Location = new System.Drawing.Point(4, 3);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(65, 67);
+            this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUser.TabIndex = 10;
+            this.pbUser.TabStop = false;
+            this.pbUser.Click += new System.EventHandler(this.pbUser_Click);
+            this.pbUser.MouseEnter += new System.EventHandler(this.pbUser_MouseEnter);
+            this.pbUser.MouseLeave += new System.EventHandler(this.pbUser_MouseLeave);
             // 
-            // pbBanHang
+            // pbKhachHang
             // 
-            this.pbBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBanHang.Location = new System.Drawing.Point(94, 3);
-            this.pbBanHang.Name = "pbBanHang";
-            this.pbBanHang.Size = new System.Drawing.Size(65, 67);
-            this.pbBanHang.TabIndex = 12;
-            this.pbBanHang.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(463, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 14);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Thu chi";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(454, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 67);
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.pbKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbKhachHang.Location = new System.Drawing.Point(94, 3);
+            this.pbKhachHang.Name = "pbKhachHang";
+            this.pbKhachHang.Size = new System.Drawing.Size(65, 67);
+            this.pbKhachHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbKhachHang.TabIndex = 12;
+            this.pbKhachHang.TabStop = false;
+            this.pbKhachHang.Click += new System.EventHandler(this.pbKhachHang_Click);
+            this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
+            this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
             // FormMain
             // 
@@ -370,6 +420,7 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ KINH DOANH 1.0";
@@ -384,14 +435,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             this.pnHeaderAndMainMenu.ResumeLayout(false);
             this.pnHeaderAndMainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTimKiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHorizonline)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMuaHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbQuanLyUser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,20 +461,22 @@
         private System.Windows.Forms.PictureBox pbExit;
         private System.Windows.Forms.Panel pnHeaderAndMainMenu;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pbTimKiem;
+        private System.Windows.Forms.PictureBox pbBan;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pbThuChi;
+        private System.Windows.Forms.PictureBox pbMua;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbHorizonline;
-        private System.Windows.Forms.PictureBox pbMuaHang;
-        private System.Windows.Forms.PictureBox pbQuanLyUser;
-        private System.Windows.Forms.PictureBox pbBanHang;
+        private System.Windows.Forms.PictureBox pbSanPham;
+        private System.Windows.Forms.PictureBox pbUser;
+        private System.Windows.Forms.PictureBox pbKhachHang;
         private System.Windows.Forms.Panel pnBody;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbThuChi;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pbKhoHang;
     }
 }
 

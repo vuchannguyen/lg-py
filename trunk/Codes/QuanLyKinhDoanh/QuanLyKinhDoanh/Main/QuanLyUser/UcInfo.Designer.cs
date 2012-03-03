@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanh.Main.QuanLyUser
+﻿namespace QuanLyKinhDoanh.QuanLyUser
 {
     partial class UcInfo
     {

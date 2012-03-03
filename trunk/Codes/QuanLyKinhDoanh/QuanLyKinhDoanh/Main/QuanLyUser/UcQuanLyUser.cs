@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
+using QuanLyKinhDoanh.QuanLyUser;
 
-namespace QuanLyKinhDoanh.Main.QuanLyUser
+namespace QuanLyKinhDoanh
 {
     public partial class UcQuanLyUser : UserControl
     {
-        UserControl uc;
+        private UserControl uc;
 
         public UcQuanLyUser()
         {
@@ -47,7 +48,8 @@ namespace QuanLyKinhDoanh.Main.QuanLyUser
         {
             LoadResource();
 
-            pnQuanLy.Size = new System.Drawing.Size(670, 390);
+            //pnQuanLy.Size = new System.Drawing.Size(710, 480);
+            pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             //tbPage.LostFocus += new EventHandler(tbPage_LostFocus);

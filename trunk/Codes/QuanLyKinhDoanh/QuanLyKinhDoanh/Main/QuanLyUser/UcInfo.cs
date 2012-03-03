@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Library;
 
-namespace QuanLyKinhDoanh.Main.QuanLyUser
+namespace QuanLyKinhDoanh.QuanLyUser
 {
     public partial class UcInfo : UserControl
     {
