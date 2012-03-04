@@ -81,6 +81,18 @@
     <Compile Include="Main\Ban\UcBan.Designer.cs">
       <DependentUpon>UcBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\KhachHang\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhachHang\UcKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\UcKhachHang.Designer.cs">
+      <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Mua\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,17 +105,41 @@
     <Compile Include="Main\Mua\UcMua.Designer.cs">
       <DependentUpon>UcMua.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\QuanLyUser\UcInfo.cs">
+    <Compile Include="Main\SanPham\NhomSanPham\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\QuanLyUser\UcInfo.Designer.cs">
+    <Compile Include="Main\SanPham\NhomSanPham\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\QuanLyUser\UcQuanLyUser.cs">
+    <Compile Include="Main\SanPham\SanPham\UcSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\QuanLyUser\UcQuanLyUser.Designer.cs">
-      <DependentUpon>UcQuanLyUser.cs</DependentUpon>
+    <Compile Include="Main\SanPham\SanPham\UcSanPham.Designer.cs">
+      <DependentUpon>UcSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\NhomSanPham\UcNhomSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\NhomSanPham\UcNhomSanPham.Designer.cs">
+      <DependentUpon>UcNhomSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\UcSanPhamIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\UcSanPhamIndex.Designer.cs">
+      <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\User\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\User\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\User\UcUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\User\UcUser.Designer.cs">
+      <DependentUpon>UcUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,14 +149,32 @@
     <EmbeddedResource Include="Main\Ban\UcBan.resx">
       <DependentUpon>UcBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\UcKhachHang.resx">
+      <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\Mua\UcMua.resx">
       <DependentUpon>UcMua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\QuanLyUser\UcInfo.resx">
+    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\QuanLyUser\UcQuanLyUser.resx">
-      <DependentUpon>UcQuanLyUser.cs</DependentUpon>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
+      <DependentUpon>UcSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcNhomSanPham.resx">
+      <DependentUpon>UcNhomSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
+      <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\User\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\User\UcUser.resx">
+      <DependentUpon>UcUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -146,7 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Main\ThuChi\" />
-    <Folder Include="Main\TimKiem\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

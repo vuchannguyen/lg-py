@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanh.QuanLyUser
+﻿namespace QuanLyKinhDoanh.KhachHang
 {
     partial class UcInfo
     {
@@ -28,14 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnTitle = new System.Windows.Forms.Panel();
+            this.lbSelect = new System.Windows.Forms.Label();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbGioiTinh = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbUserName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbNhom = new System.Windows.Forms.ComboBox();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,37 +55,76 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbMoTa = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
-            this.pnTitle = new System.Windows.Forms.Panel();
-            this.lbSelect = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.pnTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
-            this.pnTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pnTitle
+            // 
+            this.pnTitle.Controls.Add(this.lbSelect);
+            this.pnTitle.Controls.Add(this.lbTitle);
+            this.pnTitle.Controls.Add(this.pbTitle);
+            this.pnTitle.Location = new System.Drawing.Point(345, 3);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(299, 38);
+            this.pnTitle.TabIndex = 50;
+            // 
+            // lbSelect
+            // 
+            this.lbSelect.AutoSize = true;
+            this.lbSelect.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSelect.ForeColor = System.Drawing.Color.Orange;
+            this.lbSelect.Location = new System.Drawing.Point(50, 8);
+            this.lbSelect.Name = "lbSelect";
+            this.lbSelect.Size = new System.Drawing.Size(66, 22);
+            this.lbSelect.TabIndex = 1;
+            this.lbSelect.Text = "THÊM";
+            // 
+            // lbTitle
+            // 
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.ForeColor = System.Drawing.Color.Gray;
+            this.lbTitle.Location = new System.Drawing.Point(122, 8);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(136, 22);
+            this.lbTitle.TabIndex = 2;
+            this.lbTitle.Text = "KHÁCH HÀNG";
+            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // pbTitle
+            // 
+            this.pbTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbTitle.Location = new System.Drawing.Point(10, 0);
+            this.pbTitle.Name = "pbTitle";
+            this.pbTitle.Size = new System.Drawing.Size(36, 36);
+            this.pbTitle.TabIndex = 1;
+            this.pbTitle.TabStop = false;
             // 
             // pnInfo
             // 
             this.pnInfo.Controls.Add(this.gbInfo);
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
-            this.pnInfo.Location = new System.Drawing.Point(3, 47);
+            this.pnInfo.Location = new System.Drawing.Point(210, 102);
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(580, 440);
-            this.pnInfo.TabIndex = 45;
+            this.pnInfo.TabIndex = 49;
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.textBox3);
+            this.gbInfo.Controls.Add(this.label1);
+            this.gbInfo.Controls.Add(this.cbGioiTinh);
             this.gbInfo.Controls.Add(this.textBox1);
             this.gbInfo.Controls.Add(this.label3);
             this.gbInfo.Controls.Add(this.textBox2);
             this.gbInfo.Controls.Add(this.label5);
-            this.gbInfo.Controls.Add(this.tbUserName);
-            this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.cbNhom);
             this.gbInfo.Controls.Add(this.tbPass);
             this.gbInfo.Controls.Add(this.label4);
@@ -99,19 +143,50 @@
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(130, 225);
+            this.textBox3.MaxLength = 30;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(61, 23);
+            this.textBox3.TabIndex = 106;
+            this.textBox3.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(70, 228);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.TabIndex = 107;
+            this.label1.Text = "* Điểm:";
+            // 
+            // cbGioiTinh
+            // 
+            this.cbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGioiTinh.FormattingEnabled = true;
+            this.cbGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cbGioiTinh.Location = new System.Drawing.Point(280, 65);
+            this.cbGioiTinh.Name = "cbGioiTinh";
+            this.cbGioiTinh.Size = new System.Drawing.Size(73, 24);
+            this.cbGioiTinh.TabIndex = 105;
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 185);
+            this.textBox1.Location = new System.Drawing.Point(130, 145);
             this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(224, 23);
+            this.textBox1.Size = new System.Drawing.Size(223, 23);
             this.textBox1.TabIndex = 103;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(47, 188);
+            this.label3.Location = new System.Drawing.Point(47, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 104;
@@ -119,47 +194,29 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 225);
+            this.textBox2.Location = new System.Drawing.Point(130, 185);
             this.textBox2.MaxLength = 30;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(224, 23);
+            this.textBox2.Size = new System.Drawing.Size(223, 23);
             this.textBox2.TabIndex = 101;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(77, 228);
+            this.label5.Location = new System.Drawing.Point(77, 188);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 102;
             this.label5.Text = "Email:";
-            // 
-            // tbUserName
-            // 
-            this.tbUserName.Location = new System.Drawing.Point(129, 105);
-            this.tbUserName.MaxLength = 30;
-            this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(224, 23);
-            this.tbUserName.TabIndex = 99;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(9, 108);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 16);
-            this.label1.TabIndex = 100;
-            this.label1.Text = "*Tên đăng nhập:";
             // 
             // cbNhom
             // 
             this.cbNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNhom.FormattingEnabled = true;
             this.cbNhom.Items.AddRange(new object[] {
-            "Admin",
-            "Nhân viên bán hàng"});
+            "Thường",
+            "VIP"});
             this.cbNhom.Location = new System.Drawing.Point(129, 65);
             this.cbNhom.Name = "cbNhom";
             this.cbNhom.Size = new System.Drawing.Size(131, 24);
@@ -167,21 +224,21 @@
             // 
             // tbPass
             // 
-            this.tbPass.Location = new System.Drawing.Point(129, 145);
+            this.tbPass.Location = new System.Drawing.Point(129, 105);
             this.tbPass.MaxLength = 30;
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(224, 23);
+            this.tbPass.Size = new System.Drawing.Size(419, 23);
             this.tbPass.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(44, 148);
+            this.label4.Location = new System.Drawing.Point(68, 108);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 97;
-            this.label4.Text = "* Mật khẩu:";
+            this.label4.Text = "Địa chỉ:";
             // 
             // panel12
             // 
@@ -287,48 +344,6 @@
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Ghi chú:";
             // 
-            // pnTitle
-            // 
-            this.pnTitle.Controls.Add(this.lbSelect);
-            this.pnTitle.Controls.Add(this.lbTitle);
-            this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(139, 3);
-            this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(225, 38);
-            this.pnTitle.TabIndex = 48;
-            // 
-            // lbSelect
-            // 
-            this.lbSelect.AutoSize = true;
-            this.lbSelect.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelect.ForeColor = System.Drawing.Color.Orange;
-            this.lbSelect.Location = new System.Drawing.Point(50, 8);
-            this.lbSelect.Name = "lbSelect";
-            this.lbSelect.Size = new System.Drawing.Size(66, 22);
-            this.lbSelect.TabIndex = 1;
-            this.lbSelect.Text = "THÊM";
-            // 
-            // lbTitle
-            // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lbTitle.Location = new System.Drawing.Point(122, 8);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(62, 22);
-            this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "USER";
-            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // pbTitle
-            // 
-            this.pbTitle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTitle.Location = new System.Drawing.Point(10, 0);
-            this.pbTitle.Name = "pbTitle";
-            this.pbTitle.Size = new System.Drawing.Size(36, 36);
-            this.pbTitle.TabIndex = 1;
-            this.pbTitle.TabStop = false;
-            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -337,8 +352,11 @@
             this.Controls.Add(this.pnInfo);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcInfo";
-            this.Size = new System.Drawing.Size(800, 600);
+            this.Size = new System.Drawing.Size(1000, 600);
             this.Load += new System.EventHandler(this.UcInfo_Load);
+            this.pnTitle.ResumeLayout(false);
+            this.pnTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnInfo.ResumeLayout(false);
             this.gbInfo.ResumeLayout(false);
             this.gbInfo.PerformLayout();
@@ -348,23 +366,22 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
-            this.pnTitle.ResumeLayout(false);
-            this.pnTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel pnTitle;
+        private System.Windows.Forms.Label lbSelect;
+        private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.GroupBox gbInfo;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbUserName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbNhom;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.Label label4;
@@ -379,10 +396,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbMoTa;
         private System.Windows.Forms.Label lbTen;
-        private System.Windows.Forms.Panel pnTitle;
-        private System.Windows.Forms.Label lbSelect;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.PictureBox pbTitle;
-
+        private System.Windows.Forms.ComboBox cbGioiTinh;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
     }
 }

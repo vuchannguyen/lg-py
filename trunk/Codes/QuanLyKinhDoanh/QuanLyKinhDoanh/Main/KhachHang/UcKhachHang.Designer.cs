@@ -1,6 +1,6 @@
 ﻿namespace QuanLyKinhDoanh
 {
-    partial class UcQuanLyUser
+    partial class UcKhachHang
     {
         /// <summary> 
         /// Required designer variable.
@@ -60,6 +60,8 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.chDiaChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDiem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -86,7 +88,7 @@
             this.pnTitle.Location = new System.Drawing.Point(521, 6);
             this.pnTitle.Name = "pnTitle";
             this.pnTitle.Size = new System.Drawing.Size(340, 38);
-            this.pnTitle.TabIndex = 47;
+            this.pnTitle.TabIndex = 50;
             // 
             // lbTitle
             // 
@@ -95,9 +97,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(151, 22);
+            this.lbTitle.Size = new System.Drawing.Size(225, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "QUẢN LÝ USER";
+            this.lbTitle.Text = "QUẢN LÝ KHÁCH HÀNG";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -117,7 +119,7 @@
             this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(235, 78);
-            this.pnSelect.TabIndex = 46;
+            this.pnSelect.TabIndex = 49;
             // 
             // panel2
             // 
@@ -221,17 +223,20 @@
             this.pnQuanLy.Location = new System.Drawing.Point(146, 87);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Size = new System.Drawing.Size(710, 480);
-            this.pnQuanLy.TabIndex = 43;
+            this.pnQuanLy.TabIndex = 48;
             // 
             // lvThongTin
             // 
+            this.lvThongTin.CheckBoxes = true;
             this.lvThongTin.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chMa,
             this.chSTT,
             this.chHoTen,
             this.chNhom,
+            this.chDiaChi,
             this.chDienThoai,
-            this.chEmail});
+            this.chEmail,
+            this.chDiem});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -257,24 +262,23 @@
             // chHoTen
             // 
             this.chHoTen.Text = "Họ và tên";
-            this.chHoTen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chHoTen.Width = 139;
+            this.chHoTen.Width = 145;
             // 
             // chNhom
             // 
             this.chNhom.Text = "Nhóm";
             this.chNhom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNhom.Width = 66;
+            this.chNhom.Width = 72;
             // 
             // chDienThoai
             // 
             this.chDienThoai.Text = "Điện thoại";
-            this.chDienThoai.Width = 112;
+            this.chDienThoai.Width = 103;
             // 
             // chEmail
             // 
             this.chEmail.Text = "Email";
-            this.chEmail.Width = 75;
+            this.chEmail.Width = 112;
             // 
             // pnTraCuu
             // 
@@ -386,7 +390,17 @@
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // UcQuanLyUser
+            // chDiaChi
+            // 
+            this.chDiaChi.Text = "Địa chỉ";
+            this.chDiaChi.Width = 165;
+            // 
+            // chDiem
+            // 
+            this.chDiem.Text = "Điểm";
+            this.chDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // UcKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -394,9 +408,9 @@
             this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UcQuanLyUser";
+            this.Name = "UcKhachHang";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.Load += new System.EventHandler(this.UcQuanLyUser_Load);
+            this.Load += new System.EventHandler(this.UcKhachHang_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
@@ -426,8 +440,27 @@
 
         #endregion
 
+        private System.Windows.Forms.Panel pnTitle;
+        private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.Panel pnSelect;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.PictureBox pbThem;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.PictureBox pbSua;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.PictureBox pbXoa;
         private System.Windows.Forms.Panel pnQuanLy;
+        private System.Windows.Forms.ListView lvThongTin;
+        private System.Windows.Forms.ColumnHeader chMa;
+        private System.Windows.Forms.ColumnHeader chSTT;
+        private System.Windows.Forms.ColumnHeader chHoTen;
+        private System.Windows.Forms.ColumnHeader chNhom;
+        private System.Windows.Forms.ColumnHeader chDienThoai;
+        private System.Windows.Forms.ColumnHeader chEmail;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
@@ -439,25 +472,7 @@
         private System.Windows.Forms.PictureBox pbTraCuu;
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lbPage;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.PictureBox pbThem;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.PictureBox pbSua;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.PictureBox pbXoa;
-        private System.Windows.Forms.Panel pnTitle;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.PictureBox pbTitle;
-        private System.Windows.Forms.ListView lvThongTin;
-        private System.Windows.Forms.ColumnHeader chMa;
-        private System.Windows.Forms.ColumnHeader chSTT;
-        private System.Windows.Forms.ColumnHeader chHoTen;
-        private System.Windows.Forms.ColumnHeader chNhom;
-        private System.Windows.Forms.ColumnHeader chDienThoai;
-        private System.Windows.Forms.ColumnHeader chEmail;
-
+        private System.Windows.Forms.ColumnHeader chDiaChi;
+        private System.Windows.Forms.ColumnHeader chDiem;
     }
 }
