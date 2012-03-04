@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Library;
 
-namespace QuanLyKinhDoanh.QuanLyUser
+namespace QuanLyKinhDoanh.NhomSanPham
 {
     public partial class UcInfo : UserControl
     {
@@ -35,8 +35,6 @@ namespace QuanLyKinhDoanh.QuanLyUser
         {
             LoadResource();
 
-            this.Dock = DockStyle.Fill;
-            pnInfo.Size = new System.Drawing.Size(580, 500);
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);

@@ -13,7 +13,7 @@ namespace QuanLyKinhDoanh
     public partial class FormMain : Form
     {
         #region Variables
-        UcQuanLyUser ucQuanLyUser;
+        UcUser ucQuanLyUser;
         UserControl uc;
         #endregion
 
@@ -73,23 +73,7 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        #region Image Button
-        private void pbUser_Click(object sender, EventArgs e)
-        {
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcQuanLyUser());
-        }
-
-        private void pbUser_MouseEnter(object sender, EventArgs e)
-        {
-            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
-        }
-
-        private void pbUser_MouseLeave(object sender, EventArgs e)
-        {
-            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
-        }
-        #endregion
-
+        #region Main Button
         private void pbMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -120,9 +104,24 @@ namespace QuanLyKinhDoanh
             pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT);
         }
 
+        private void pbUser_Click(object sender, EventArgs e)
+        {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
+        }
+
+        private void pbUser_MouseEnter(object sender, EventArgs e)
+        {
+            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
+        }
+
+        private void pbUser_MouseLeave(object sender, EventArgs e)
+        {
+            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
+        }
+
         private void pbKhachHang_Click(object sender, EventArgs e)
         {
-
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
         }
 
         private void pbKhachHang_MouseEnter(object sender, EventArgs e)
@@ -137,7 +136,7 @@ namespace QuanLyKinhDoanh
 
         private void pbSanPham_Click(object sender, EventArgs e)
         {
-
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
         }
 
         private void pbSanPham_MouseEnter(object sender, EventArgs e)
@@ -209,5 +208,6 @@ namespace QuanLyKinhDoanh
         {
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
         }
+        #endregion
     }
 }

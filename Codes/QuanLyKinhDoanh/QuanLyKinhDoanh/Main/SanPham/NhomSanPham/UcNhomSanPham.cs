@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
-using QuanLyKinhDoanh.QuanLyUser;
+using QuanLyKinhDoanh.NhomSanPham;
 
 namespace QuanLyKinhDoanh
 {
-    public partial class UcQuanLyUser : UserControl
+    public partial class UcNhomSanPham : UserControl
     {
         private UserControl uc;
 
-        public UcQuanLyUser()
+        public UcNhomSanPham()
         {
             InitializeComponent();
         }
@@ -44,7 +44,7 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void UcQuanLyUser_Load(object sender, EventArgs e)
+        private void UcNhomSanPham_Load(object sender, EventArgs e)
         {
             LoadResource();
 
@@ -53,10 +53,12 @@ namespace QuanLyKinhDoanh
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             //tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
+
+            this.BringToFront();
         }
 
         private void Refresh()
-        { 
+        {
             //
         }
 
@@ -72,7 +74,7 @@ namespace QuanLyKinhDoanh
             uc = new UcInfo();
             uc.Disposed += new EventHandler(uc_Disposed);
             this.Controls.Add(uc);
-        }      
+        }
 
         private void pbThem_MouseEnter(object sender, EventArgs e)
         {

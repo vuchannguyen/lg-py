@@ -50,6 +50,11 @@ namespace Library
 
         public const string SANPHAM_ICON_SANPHAM = @"Resources\SanPham\icon_sanpham.png";
         public const string SANPHAM_ICON_SANPHAM_MOUSEOVER = @"Resources\SanPham\icon_sanpham_mouseover.png";
+        public const string SANPHAM_ICON_SANPHAM_INDEX = @"Resources\SanPham\icon_sanpham_index.png";
+        public const string SANPHAM_ICON_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_sanpham_index_mouseover.png";
+
+        public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX = @"Resources\SanPham\icon_nhom_sanpham_index.png";
+        public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_nhom_sanpham_index_mouseover.png";
 
         public const string MUA_ICON_MUA = @"Resources\Mua\icon_mua.png";
         public const string MUA_ICON_MUA_MOUSEOVER = @"Resources\Mua\icon_mua_mouseover.png";
