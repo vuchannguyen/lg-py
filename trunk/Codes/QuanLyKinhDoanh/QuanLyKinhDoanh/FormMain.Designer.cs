@@ -40,18 +40,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.pnHeaderAndMainMenu = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbKhoHang = new System.Windows.Forms.Label();
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbThuChi = new System.Windows.Forms.Label();
             this.pbThuChi = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbBan = new System.Windows.Forms.Label();
             this.pbBan = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbMua = new System.Windows.Forms.Label();
             this.pbMua = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.lbSanPham = new System.Windows.Forms.Label();
+            this.lbKhachHang = new System.Windows.Forms.Label();
+            this.lbUser = new System.Windows.Forms.Label();
             this.pbHorizonline = new System.Windows.Forms.PictureBox();
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
@@ -105,10 +105,10 @@
             this.lbAbout.ForeColor = System.Drawing.Color.Gray;
             this.lbAbout.Location = new System.Drawing.Point(197, 2);
             this.lbAbout.Name = "lbAbout";
-            this.lbAbout.Size = new System.Drawing.Size(434, 14);
+            this.lbAbout.Size = new System.Drawing.Size(427, 14);
             this.lbAbout.TabIndex = 8;
-            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD. | About Software | About ST" +
-                "G";
+            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD. | About Software | About CD" +
+                "";
             // 
             // pnBody
             // 
@@ -199,18 +199,18 @@
             // pnHeaderAndMainMenu
             // 
             this.pnHeaderAndMainMenu.BackColor = System.Drawing.Color.Transparent;
-            this.pnHeaderAndMainMenu.Controls.Add(this.label8);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbKhoHang);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbKhoHang);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label3);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbThuChi);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbThuChi);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label7);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbBan);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbBan);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label6);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbMua);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbMua);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbHeader);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label5);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label4);
-            this.pnHeaderAndMainMenu.Controls.Add(this.label24);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbSanPham);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbKhachHang);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbUser);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbHorizonline);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbSanPham);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbUser);
@@ -220,16 +220,16 @@
             this.pnHeaderAndMainMenu.Size = new System.Drawing.Size(958, 118);
             this.pnHeaderAndMainMenu.TabIndex = 6;
             // 
-            // label8
+            // lbKhoHang
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(461, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 14);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Kho hàng";
+            this.lbKhoHang.AutoSize = true;
+            this.lbKhoHang.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbKhoHang.ForeColor = System.Drawing.Color.Gray;
+            this.lbKhoHang.Location = new System.Drawing.Point(461, 68);
+            this.lbKhoHang.Name = "lbKhoHang";
+            this.lbKhoHang.Size = new System.Drawing.Size(53, 14);
+            this.lbKhoHang.TabIndex = 26;
+            this.lbKhoHang.Text = "Kho hàng";
             // 
             // pbKhoHang
             // 
@@ -244,16 +244,16 @@
             this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
             this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);
             // 
-            // label3
+            // lbThuChi
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(555, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 14);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Thu chi";
+            this.lbThuChi.AutoSize = true;
+            this.lbThuChi.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbThuChi.ForeColor = System.Drawing.Color.Gray;
+            this.lbThuChi.Location = new System.Drawing.Point(555, 68);
+            this.lbThuChi.Name = "lbThuChi";
+            this.lbThuChi.Size = new System.Drawing.Size(42, 14);
+            this.lbThuChi.TabIndex = 24;
+            this.lbThuChi.Text = "Thu chi";
             // 
             // pbThuChi
             // 
@@ -268,16 +268,16 @@
             this.pbThuChi.MouseEnter += new System.EventHandler(this.pbThuChi_MouseEnter);
             this.pbThuChi.MouseLeave += new System.EventHandler(this.pbThuChi_MouseLeave);
             // 
-            // label7
+            // lbBan
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(382, 68);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 14);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Bán";
+            this.lbBan.AutoSize = true;
+            this.lbBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBan.ForeColor = System.Drawing.Color.Gray;
+            this.lbBan.Location = new System.Drawing.Point(382, 68);
+            this.lbBan.Name = "lbBan";
+            this.lbBan.Size = new System.Drawing.Size(26, 14);
+            this.lbBan.TabIndex = 22;
+            this.lbBan.Text = "Bán";
             // 
             // pbBan
             // 
@@ -292,16 +292,16 @@
             this.pbBan.MouseEnter += new System.EventHandler(this.pbBan_MouseEnter);
             this.pbBan.MouseLeave += new System.EventHandler(this.pbBan_MouseLeave);
             // 
-            // label6
+            // lbMua
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(292, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 14);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Mua";
+            this.lbMua.AutoSize = true;
+            this.lbMua.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMua.ForeColor = System.Drawing.Color.Gray;
+            this.lbMua.Location = new System.Drawing.Point(292, 68);
+            this.lbMua.Name = "lbMua";
+            this.lbMua.Size = new System.Drawing.Size(27, 14);
+            this.lbMua.TabIndex = 20;
+            this.lbMua.Text = "Mua";
             // 
             // pbMua
             // 
@@ -326,38 +326,38 @@
             this.pbHeader.TabIndex = 7;
             this.pbHeader.TabStop = false;
             // 
-            // label5
+            // lbSanPham
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(189, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 14);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Sản phẩm";
+            this.lbSanPham.AutoSize = true;
+            this.lbSanPham.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSanPham.ForeColor = System.Drawing.Color.Gray;
+            this.lbSanPham.Location = new System.Drawing.Point(189, 68);
+            this.lbSanPham.Name = "lbSanPham";
+            this.lbSanPham.Size = new System.Drawing.Size(55, 14);
+            this.lbSanPham.TabIndex = 18;
+            this.lbSanPham.Text = "Sản phẩm";
             // 
-            // label4
+            // lbKhachHang
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(94, 68);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 14);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Khách hàng";
+            this.lbKhachHang.AutoSize = true;
+            this.lbKhachHang.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbKhachHang.ForeColor = System.Drawing.Color.Gray;
+            this.lbKhachHang.Location = new System.Drawing.Point(94, 68);
+            this.lbKhachHang.Name = "lbKhachHang";
+            this.lbKhachHang.Size = new System.Drawing.Size(65, 14);
+            this.lbKhachHang.TabIndex = 17;
+            this.lbKhachHang.Text = "Khách hàng";
             // 
-            // label24
+            // lbUser
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.Gray;
-            this.label24.Location = new System.Drawing.Point(22, 68);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(30, 14);
-            this.label24.TabIndex = 16;
-            this.label24.Text = "User";
+            this.lbUser.AutoSize = true;
+            this.lbUser.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUser.ForeColor = System.Drawing.Color.Gray;
+            this.lbUser.Location = new System.Drawing.Point(22, 68);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(30, 14);
+            this.lbUser.TabIndex = 16;
+            this.lbUser.Text = "User";
             // 
             // pbHorizonline
             // 
@@ -460,22 +460,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExit;
         private System.Windows.Forms.Panel pnHeaderAndMainMenu;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbBan;
         private System.Windows.Forms.PictureBox pbBan;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbMua;
         private System.Windows.Forms.PictureBox pbMua;
         private System.Windows.Forms.PictureBox pbHeader;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lbSanPham;
+        private System.Windows.Forms.Label lbKhachHang;
+        private System.Windows.Forms.Label lbUser;
         private System.Windows.Forms.PictureBox pbHorizonline;
         private System.Windows.Forms.PictureBox pbSanPham;
         private System.Windows.Forms.PictureBox pbUser;
         private System.Windows.Forms.PictureBox pbKhachHang;
         private System.Windows.Forms.Panel pnBody;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbThuChi;
         private System.Windows.Forms.PictureBox pbThuChi;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbKhoHang;
         private System.Windows.Forms.PictureBox pbKhoHang;
     }
 }
