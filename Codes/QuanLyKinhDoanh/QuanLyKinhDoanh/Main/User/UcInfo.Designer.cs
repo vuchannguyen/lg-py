@@ -162,7 +162,7 @@
             "Nhân viên bán hàng"});
             this.cbNhom.Location = new System.Drawing.Point(129, 65);
             this.cbNhom.Name = "cbNhom";
-            this.cbNhom.Size = new System.Drawing.Size(131, 24);
+            this.cbNhom.Size = new System.Drawing.Size(155, 24);
             this.cbNhom.TabIndex = 98;
             // 
             // tbPass

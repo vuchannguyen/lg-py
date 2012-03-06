@@ -48,11 +48,13 @@ namespace QuanLyKinhDoanh
         private void pbSanPham_MouseEnter(object sender, EventArgs e)
         {
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_INDEX_MOUSEOVER);
+            lbSanPham.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbSanPham_MouseLeave(object sender, EventArgs e)
         {
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_INDEX);
+            lbSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
 
         private void pbNhomSanPham_Click(object sender, EventArgs e)
@@ -63,11 +65,13 @@ namespace QuanLyKinhDoanh
         private void pbNhomSanPham_MouseEnter(object sender, EventArgs e)
         {
             pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER);
+            lbNhomSanPham.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbNhomSanPham_MouseLeave(object sender, EventArgs e)
         {
             pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX);
+            lbNhomSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
     }
 }
