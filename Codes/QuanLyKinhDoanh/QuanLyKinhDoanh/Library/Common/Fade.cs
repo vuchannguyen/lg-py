@@ -46,6 +46,11 @@ namespace Library
         {
             switch (sImage)
             {
+                default:
+                    {
+                        return null;
+                    }
+
                 //case "Back":
                 //    {
                 //        return PTTK_0712306_0712451.Properties.Resources.Back;
@@ -116,8 +121,6 @@ namespace Library
                 //        return PTTK_0712306_0712451.Properties.Resources.Sign;
                 //    }
             }
-
-            return null;
         }
     }
 }

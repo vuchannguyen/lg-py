@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
+using QuanLyKinhDoanh.SanPham;
 
 namespace QuanLyKinhDoanh
 {
@@ -70,9 +71,9 @@ namespace QuanLyKinhDoanh
         {
             //tbDienGiai_TextChanged(sender, e);
 
-            //uc = new UcInfo();
-            //uc.Disposed += new EventHandler(uc_Disposed);
-            //this.Controls.Add(uc);
+            uc = new UcInfo();
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbThem_MouseEnter(object sender, EventArgs e)

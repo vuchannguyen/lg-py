@@ -47,8 +47,10 @@
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHoTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNhom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDiaChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDiem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -60,8 +62,6 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.chDiaChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDiem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -85,9 +85,9 @@
             // 
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(521, 6);
+            this.pnTitle.Location = new System.Drawing.Point(591, 6);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(340, 38);
+            this.pnTitle.Size = new System.Drawing.Size(270, 38);
             this.pnTitle.TabIndex = 50;
             // 
             // lbTitle
@@ -97,9 +97,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(225, 22);
+            this.lbTitle.Size = new System.Drawing.Size(136, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "QUẢN LÝ KHÁCH HÀNG";
+            this.lbTitle.Text = "KHÁCH HÀNG";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -270,6 +270,11 @@
             this.chNhom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chNhom.Width = 72;
             // 
+            // chDiaChi
+            // 
+            this.chDiaChi.Text = "Địa chỉ";
+            this.chDiaChi.Width = 165;
+            // 
             // chDienThoai
             // 
             this.chDienThoai.Text = "Điện thoại";
@@ -279,6 +284,11 @@
             // 
             this.chEmail.Text = "Email";
             this.chEmail.Width = 112;
+            // 
+            // chDiem
+            // 
+            this.chDiem.Text = "Điểm";
+            this.chDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pnTraCuu
             // 
@@ -389,16 +399,6 @@
             this.lbPage.TabIndex = 89;
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chDiaChi
-            // 
-            this.chDiaChi.Text = "Địa chỉ";
-            this.chDiaChi.Width = 165;
-            // 
-            // chDiem
-            // 
-            this.chDiem.Text = "Điểm";
-            this.chDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // UcKhachHang
             // 

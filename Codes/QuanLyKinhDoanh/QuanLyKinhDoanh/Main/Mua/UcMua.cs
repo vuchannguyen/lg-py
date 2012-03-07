@@ -52,6 +52,8 @@ namespace QuanLyKinhDoanh
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             //tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
+
+            cbFilter.SelectedIndex = 0;
         }
 
         private void Refresh()

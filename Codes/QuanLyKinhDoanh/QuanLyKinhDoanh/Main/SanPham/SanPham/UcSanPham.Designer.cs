@@ -84,9 +84,9 @@
             // 
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(521, 6);
+            this.pnTitle.Location = new System.Drawing.Point(591, 6);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(340, 38);
+            this.pnTitle.Size = new System.Drawing.Size(270, 38);
             this.pnTitle.TabIndex = 50;
             // 
             // lbTitle
@@ -96,9 +96,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(199, 22);
+            this.lbTitle.Size = new System.Drawing.Size(110, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "QUẢN LÝ SẢN PHẨM";
+            this.lbTitle.Text = "SẢN PHẨM";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle

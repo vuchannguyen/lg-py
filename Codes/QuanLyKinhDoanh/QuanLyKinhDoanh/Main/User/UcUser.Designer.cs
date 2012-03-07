@@ -83,9 +83,9 @@
             // 
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(521, 6);
+            this.pnTitle.Location = new System.Drawing.Point(591, 6);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(340, 38);
+            this.pnTitle.Size = new System.Drawing.Size(270, 38);
             this.pnTitle.TabIndex = 47;
             // 
             // lbTitle
@@ -95,9 +95,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(151, 22);
+            this.lbTitle.Size = new System.Drawing.Size(62, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "QUẢN LÝ USER";
+            this.lbTitle.Text = "USER";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
