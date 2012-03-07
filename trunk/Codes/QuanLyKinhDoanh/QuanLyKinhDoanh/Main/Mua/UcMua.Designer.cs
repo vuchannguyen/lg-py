@@ -62,6 +62,10 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -79,15 +83,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).BeginInit();
             this.pnPage.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTitle
             // 
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(521, 6);
+            this.pnTitle.Location = new System.Drawing.Point(591, 6);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(340, 38);
+            this.pnTitle.Size = new System.Drawing.Size(270, 38);
             this.pnTitle.TabIndex = 50;
             // 
             // lbTitle
@@ -398,6 +403,46 @@
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbFilter);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dtpFilter);
+            this.panel1.Location = new System.Drawing.Point(381, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(204, 78);
+            this.panel1.TabIndex = 51;
+            // 
+            // dtpFilter
+            // 
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFilter.Location = new System.Drawing.Point(3, 40);
+            this.dtpFilter.Name = "dtpFilter";
+            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
+            this.dtpFilter.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Lọc theo:";
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Items.AddRange(new object[] {
+            "Ngày",
+            "Tháng",
+            "Năm"});
+            this.cbFilter.Location = new System.Drawing.Point(76, 10);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(77, 24);
+            this.cbFilter.TabIndex = 114;
+            // 
             // UcMua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -405,6 +450,7 @@
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.pnQuanLy);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcMua";
             this.Size = new System.Drawing.Size(1000, 600);
@@ -432,6 +478,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).EndInit();
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -472,6 +520,10 @@
         private System.Windows.Forms.Label lbPage;
         private System.Windows.Forms.ColumnHeader chNgay;
         private System.Windows.Forms.ColumnHeader chThanhTien;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dtpFilter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbFilter;
 
     }
 }

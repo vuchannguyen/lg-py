@@ -91,7 +91,7 @@ namespace Library
                 sw.Flush();
                 sw.Close();
             }
-            catch (Exception ex)
+            catch
             {
             }
         }

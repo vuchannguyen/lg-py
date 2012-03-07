@@ -111,6 +111,12 @@
     <Compile Include="Main\SanPham\NhomSanPham\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\SanPham\SanPham\UcSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +165,9 @@
       <DependentUpon>UcMua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
