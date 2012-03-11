@@ -81,6 +81,12 @@
     <Compile Include="Main\Ban\UcBan.Designer.cs">
       <DependentUpon>UcBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Ban\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Ban\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\KhachHang\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,11 +161,17 @@
     <EmbeddedResource Include="Main\Ban\UcBan.resx">
       <DependentUpon>UcBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\Ban\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\UcKhachHang.resx">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Mua\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Mua\UcMua.resx">
       <DependentUpon>UcMua.cs</DependentUpon>

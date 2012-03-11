@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
+using QuanLyKinhDoanh.Mua;
 
 namespace QuanLyKinhDoanh
 {
@@ -70,14 +71,16 @@ namespace QuanLyKinhDoanh
         {
             //tbDienGiai_TextChanged(sender, e);
 
-            //uc = new UcInfo();
-            //uc.Disposed += new EventHandler(uc_Disposed);
-            //this.Controls.Add(uc);
+            uc = new UcInfo();
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbThem_MouseEnter(object sender, EventArgs e)
         {
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
+
+            ttDetail.SetToolTip(pbThem, Constant.TOOLTIP_MUA_THEM);
         }
 
         private void pbThem_MouseLeave(object sender, EventArgs e)
