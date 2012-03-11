@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
@@ -63,9 +64,10 @@
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -413,23 +415,6 @@
             this.panel1.Size = new System.Drawing.Size(204, 78);
             this.panel1.TabIndex = 51;
             // 
-            // dtpFilter
-            // 
-            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilter.Location = new System.Drawing.Point(3, 40);
-            this.dtpFilter.Name = "dtpFilter";
-            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
-            this.dtpFilter.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Lọc theo:";
-            // 
             // cbFilter
             // 
             this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -442,6 +427,23 @@
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(77, 24);
             this.cbFilter.TabIndex = 114;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Lọc theo:";
+            // 
+            // dtpFilter
+            // 
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFilter.Location = new System.Drawing.Point(3, 40);
+            this.dtpFilter.Name = "dtpFilter";
+            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
+            this.dtpFilter.TabIndex = 3;
             // 
             // UcMua
             // 
@@ -524,6 +526,7 @@
         private System.Windows.Forms.DateTimePicker dtpFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.ToolTip ttDetail;
 
     }
 }

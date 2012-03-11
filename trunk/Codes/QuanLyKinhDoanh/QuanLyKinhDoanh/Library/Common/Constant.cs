@@ -15,5 +15,8 @@ namespace Library
         public static Color COLOR_MOUSEOVER = Color.Orange;
         public static Color COLOR_DISABLE = Color.LightSlateGray;
         public static Color COLOR_IN_USE = Color.Orange;
+
+        public const string TOOLTIP_MUA_THEM = "Nhập sản phẩm vào kho";
+        public const string TOOLTIP_MUA_THEM_SAN_PHAM = "Thêm sản phẩm mới vào danh mục";
     }
 }

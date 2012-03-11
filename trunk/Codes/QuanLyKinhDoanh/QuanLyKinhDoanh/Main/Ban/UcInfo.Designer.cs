@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanh.Mua
+﻿namespace QuanLyKinhDoanh.Main.Ban
 {
     partial class UcInfo
     {
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.pnTitle = new System.Windows.Forms.Panel();
-            this.lbSelect = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.pnSelect = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.pbThem = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cbDonViTinh = new System.Windows.Forms.ComboBox();
             this.tbMoTa = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -54,66 +54,58 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
-            this.pnSelect = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
-            this.pbThem = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
-            this.pnTitle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
+            this.pnTitle = new System.Windows.Forms.Panel();
+            this.lbSelect = new System.Windows.Forms.Label();
+            this.lbTitle = new System.Windows.Forms.Label();
+            this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.pnSelect.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
-            this.pnSelect.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
+            this.pnTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnTitle
+            // pnSelect
             // 
-            this.pnTitle.Controls.Add(this.lbSelect);
-            this.pnTitle.Controls.Add(this.lbTitle);
-            this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(381, 3);
-            this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(267, 38);
-            this.pnTitle.TabIndex = 52;
+            this.pnSelect.Controls.Add(this.panel2);
+            this.pnSelect.Location = new System.Drawing.Point(140, 30);
+            this.pnSelect.Name = "pnSelect";
+            this.pnSelect.Size = new System.Drawing.Size(130, 78);
+            this.pnSelect.TabIndex = 57;
             // 
-            // lbSelect
+            // panel2
             // 
-            this.lbSelect.AutoSize = true;
-            this.lbSelect.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSelect.ForeColor = System.Drawing.Color.Orange;
-            this.lbSelect.Location = new System.Drawing.Point(50, 8);
-            this.lbSelect.Name = "lbSelect";
-            this.lbSelect.Size = new System.Drawing.Size(53, 22);
-            this.lbSelect.TabIndex = 1;
-            this.lbSelect.Text = "MUA";
+            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.pbThem);
+            this.panel2.Location = new System.Drawing.Point(6, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(120, 70);
+            this.panel2.TabIndex = 26;
             // 
-            // lbTitle
+            // label24
             // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lbTitle.Location = new System.Drawing.Point(109, 8);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(110, 22);
-            this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "SẢN PHẨM";
-            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(3, 53);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(113, 16);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Thêm Sản Phẩm";
             // 
-            // pbTitle
+            // pbThem
             // 
-            this.pbTitle.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTitle.Location = new System.Drawing.Point(10, 0);
-            this.pbTitle.Name = "pbTitle";
-            this.pbTitle.Size = new System.Drawing.Size(36, 36);
-            this.pbTitle.TabIndex = 1;
-            this.pbTitle.TabStop = false;
+            this.pbThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbThem.Location = new System.Drawing.Point(33, 0);
+            this.pbThem.Name = "pbThem";
+            this.pbThem.Size = new System.Drawing.Size(50, 50);
+            this.pbThem.TabIndex = 1;
+            this.pbThem.TabStop = false;
             // 
             // pnInfo
             // 
@@ -122,7 +114,7 @@
             this.pnInfo.Location = new System.Drawing.Point(140, 135);
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(710, 360);
-            this.pnInfo.TabIndex = 53;
+            this.pnInfo.TabIndex = 56;
             // 
             // gbInfo
             // 
@@ -149,6 +141,17 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(29, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.TabIndex = 115;
+            this.label3.Text = "Tối đa 6 ký tự";
             // 
             // cbDonViTinh
             // 
@@ -266,9 +269,6 @@
             this.pbHoanTat.Size = new System.Drawing.Size(50, 39);
             this.pbHoanTat.TabIndex = 1;
             this.pbHoanTat.TabStop = false;
-            this.pbHoanTat.Click += new System.EventHandler(this.pbHoanTat_Click);
-            this.pbHoanTat.MouseEnter += new System.EventHandler(this.pbHoanTat_MouseEnter);
-            this.pbHoanTat.MouseLeave += new System.EventHandler(this.pbHoanTat_MouseLeave);
             // 
             // panel8
             // 
@@ -295,9 +295,6 @@
             this.pbHuy.Size = new System.Drawing.Size(50, 39);
             this.pbHuy.TabIndex = 1;
             this.pbHuy.TabStop = false;
-            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
-            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
-            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
             // 
             // tbHoTen
             // 
@@ -337,55 +334,47 @@
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Giá:";
             // 
-            // pnSelect
+            // pnTitle
             // 
-            this.pnSelect.Controls.Add(this.panel2);
-            this.pnSelect.Location = new System.Drawing.Point(140, 30);
-            this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(130, 78);
-            this.pnSelect.TabIndex = 54;
+            this.pnTitle.Controls.Add(this.lbSelect);
+            this.pnTitle.Controls.Add(this.lbTitle);
+            this.pnTitle.Controls.Add(this.pbTitle);
+            this.pnTitle.Location = new System.Drawing.Point(381, 3);
+            this.pnTitle.Name = "pnTitle";
+            this.pnTitle.Size = new System.Drawing.Size(267, 38);
+            this.pnTitle.TabIndex = 55;
             // 
-            // panel2
+            // lbSelect
             // 
-            this.panel2.Controls.Add(this.label24);
-            this.panel2.Controls.Add(this.pbThem);
-            this.panel2.Location = new System.Drawing.Point(6, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(120, 70);
-            this.panel2.TabIndex = 26;
+            this.lbSelect.AutoSize = true;
+            this.lbSelect.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSelect.ForeColor = System.Drawing.Color.Orange;
+            this.lbSelect.Location = new System.Drawing.Point(50, 8);
+            this.lbSelect.Name = "lbSelect";
+            this.lbSelect.Size = new System.Drawing.Size(50, 22);
+            this.lbSelect.TabIndex = 1;
+            this.lbSelect.Text = "BÁN";
             // 
-            // label24
+            // lbTitle
             // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(3, 53);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(113, 16);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Thêm Sản Phẩm";
+            this.lbTitle.AutoSize = true;
+            this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.ForeColor = System.Drawing.Color.Gray;
+            this.lbTitle.Location = new System.Drawing.Point(109, 8);
+            this.lbTitle.Name = "lbTitle";
+            this.lbTitle.Size = new System.Drawing.Size(110, 22);
+            this.lbTitle.TabIndex = 2;
+            this.lbTitle.Text = "SẢN PHẨM";
+            this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // pbThem
+            // pbTitle
             // 
-            this.pbThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThem.Location = new System.Drawing.Point(33, 0);
-            this.pbThem.Name = "pbThem";
-            this.pbThem.Size = new System.Drawing.Size(50, 50);
-            this.pbThem.TabIndex = 1;
-            this.pbThem.TabStop = false;
-            this.pbThem.Click += new System.EventHandler(this.pbThem_Click);
-            this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
-            this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(29, 56);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
-            this.label3.TabIndex = 115;
-            this.label3.Text = "Tối đa 6 ký tự";
+            this.pbTitle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbTitle.Location = new System.Drawing.Point(10, 0);
+            this.pbTitle.Name = "pbTitle";
+            this.pbTitle.Size = new System.Drawing.Size(36, 36);
+            this.pbTitle.TabIndex = 1;
+            this.pbTitle.TabStop = false;
             // 
             // UcInfo
             // 
@@ -397,10 +386,10 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcInfo";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.Load += new System.EventHandler(this.UcInfo_Load);
-            this.pnTitle.ResumeLayout(false);
-            this.pnTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
+            this.pnSelect.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
             this.pnInfo.ResumeLayout(false);
             this.gbInfo.ResumeLayout(false);
             this.gbInfo.PerformLayout();
@@ -410,22 +399,22 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
-            this.pnSelect.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
+            this.pnTitle.ResumeLayout(false);
+            this.pnTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnTitle;
-        private System.Windows.Forms.Label lbSelect;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Panel pnSelect;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.PictureBox pbThem;
         private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.GroupBox gbInfo;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbDonViTinh;
         private System.Windows.Forms.TextBox tbMoTa;
         private System.Windows.Forms.TextBox textBox3;
@@ -445,11 +434,9 @@
         private System.Windows.Forms.Label lbMa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbTen;
-        private System.Windows.Forms.Panel pnSelect;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.PictureBox pbThem;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolTip ttDetail;
+        private System.Windows.Forms.Panel pnTitle;
+        private System.Windows.Forms.Label lbSelect;
+        private System.Windows.Forms.Label lbTitle;
+        private System.Windows.Forms.PictureBox pbTitle;
     }
 }

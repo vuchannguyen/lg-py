@@ -31,3 +31,5 @@ C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\De
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPham.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhomSanPham.UcInfo.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPham.UcInfo.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Mua.UcInfo.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.Ban.UcInfo.resources
