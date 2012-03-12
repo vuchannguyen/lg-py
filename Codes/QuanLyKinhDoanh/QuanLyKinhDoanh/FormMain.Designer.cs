@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.pnMain = new System.Windows.Forms.Panel();
             this.pnAbout = new System.Windows.Forms.Panel();
@@ -44,10 +45,10 @@
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
             this.lbThuChi = new System.Windows.Forms.Label();
             this.pbThuChi = new System.Windows.Forms.PictureBox();
-            this.lbBan = new System.Windows.Forms.Label();
-            this.pbBan = new System.Windows.Forms.PictureBox();
-            this.lbMua = new System.Windows.Forms.Label();
-            this.pbMua = new System.Windows.Forms.PictureBox();
+            this.lbThanhToan = new System.Windows.Forms.Label();
+            this.pbThanhToan = new System.Windows.Forms.PictureBox();
+            this.lbMuaBan = new System.Windows.Forms.Label();
+            this.pbMuaBan = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.lbSanPham = new System.Windows.Forms.Label();
             this.lbKhachHang = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
+            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
@@ -65,8 +67,8 @@
             this.pnHeaderAndMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThanhToan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHorizonline)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
@@ -203,10 +205,10 @@
             this.pnHeaderAndMainMenu.Controls.Add(this.pbKhoHang);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbThuChi);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbThuChi);
-            this.pnHeaderAndMainMenu.Controls.Add(this.lbBan);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbBan);
-            this.pnHeaderAndMainMenu.Controls.Add(this.lbMua);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbMua);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbThanhToan);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbThanhToan);
+            this.pnHeaderAndMainMenu.Controls.Add(this.lbMuaBan);
+            this.pnHeaderAndMainMenu.Controls.Add(this.pbMuaBan);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbHeader);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbSanPham);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbKhachHang);
@@ -225,7 +227,7 @@
             this.lbKhoHang.AutoSize = true;
             this.lbKhoHang.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbKhoHang.ForeColor = System.Drawing.Color.Gray;
-            this.lbKhoHang.Location = new System.Drawing.Point(461, 68);
+            this.lbKhoHang.Location = new System.Drawing.Point(371, 68);
             this.lbKhoHang.Name = "lbKhoHang";
             this.lbKhoHang.Size = new System.Drawing.Size(53, 14);
             this.lbKhoHang.TabIndex = 26;
@@ -234,7 +236,7 @@
             // pbKhoHang
             // 
             this.pbKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbKhoHang.Location = new System.Drawing.Point(454, 3);
+            this.pbKhoHang.Location = new System.Drawing.Point(364, 3);
             this.pbKhoHang.Name = "pbKhoHang";
             this.pbKhoHang.Size = new System.Drawing.Size(65, 67);
             this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -249,7 +251,7 @@
             this.lbThuChi.AutoSize = true;
             this.lbThuChi.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThuChi.ForeColor = System.Drawing.Color.Gray;
-            this.lbThuChi.Location = new System.Drawing.Point(555, 68);
+            this.lbThuChi.Location = new System.Drawing.Point(465, 68);
             this.lbThuChi.Name = "lbThuChi";
             this.lbThuChi.Size = new System.Drawing.Size(42, 14);
             this.lbThuChi.TabIndex = 24;
@@ -258,7 +260,7 @@
             // pbThuChi
             // 
             this.pbThuChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThuChi.Location = new System.Drawing.Point(544, 3);
+            this.pbThuChi.Location = new System.Drawing.Point(454, 3);
             this.pbThuChi.Name = "pbThuChi";
             this.pbThuChi.Size = new System.Drawing.Size(65, 67);
             this.pbThuChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,53 +270,53 @@
             this.pbThuChi.MouseEnter += new System.EventHandler(this.pbThuChi_MouseEnter);
             this.pbThuChi.MouseLeave += new System.EventHandler(this.pbThuChi_MouseLeave);
             // 
-            // lbBan
+            // lbThanhToan
             // 
-            this.lbBan.AutoSize = true;
-            this.lbBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBan.ForeColor = System.Drawing.Color.Gray;
-            this.lbBan.Location = new System.Drawing.Point(382, 68);
-            this.lbBan.Name = "lbBan";
-            this.lbBan.Size = new System.Drawing.Size(26, 14);
-            this.lbBan.TabIndex = 22;
-            this.lbBan.Text = "Bán";
+            this.lbThanhToan.AutoSize = true;
+            this.lbThanhToan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbThanhToan.ForeColor = System.Drawing.Color.Gray;
+            this.lbThanhToan.Location = new System.Drawing.Point(546, 68);
+            this.lbThanhToan.Name = "lbThanhToan";
+            this.lbThanhToan.Size = new System.Drawing.Size(61, 14);
+            this.lbThanhToan.TabIndex = 22;
+            this.lbThanhToan.Text = "Thanh toán";
             // 
-            // pbBan
+            // pbThanhToan
             // 
-            this.pbBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBan.Location = new System.Drawing.Point(364, 3);
-            this.pbBan.Name = "pbBan";
-            this.pbBan.Size = new System.Drawing.Size(65, 67);
-            this.pbBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBan.TabIndex = 21;
-            this.pbBan.TabStop = false;
-            this.pbBan.Click += new System.EventHandler(this.pbBan_Click);
-            this.pbBan.MouseEnter += new System.EventHandler(this.pbBan_MouseEnter);
-            this.pbBan.MouseLeave += new System.EventHandler(this.pbBan_MouseLeave);
+            this.pbThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbThanhToan.Location = new System.Drawing.Point(544, 3);
+            this.pbThanhToan.Name = "pbThanhToan";
+            this.pbThanhToan.Size = new System.Drawing.Size(65, 67);
+            this.pbThanhToan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbThanhToan.TabIndex = 21;
+            this.pbThanhToan.TabStop = false;
+            this.pbThanhToan.Click += new System.EventHandler(this.pbThanhToan_Click);
+            this.pbThanhToan.MouseEnter += new System.EventHandler(this.pbThanhToan_MouseEnter);
+            this.pbThanhToan.MouseLeave += new System.EventHandler(this.pbThanhToan_MouseLeave);
             // 
-            // lbMua
+            // lbMuaBan
             // 
-            this.lbMua.AutoSize = true;
-            this.lbMua.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMua.ForeColor = System.Drawing.Color.Gray;
-            this.lbMua.Location = new System.Drawing.Point(292, 68);
-            this.lbMua.Name = "lbMua";
-            this.lbMua.Size = new System.Drawing.Size(27, 14);
-            this.lbMua.TabIndex = 20;
-            this.lbMua.Text = "Mua";
+            this.lbMuaBan.AutoSize = true;
+            this.lbMuaBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMuaBan.ForeColor = System.Drawing.Color.Gray;
+            this.lbMuaBan.Location = new System.Drawing.Point(281, 68);
+            this.lbMuaBan.Name = "lbMuaBan";
+            this.lbMuaBan.Size = new System.Drawing.Size(52, 14);
+            this.lbMuaBan.TabIndex = 20;
+            this.lbMuaBan.Text = "Giao dịch";
             // 
-            // pbMua
+            // pbMuaBan
             // 
-            this.pbMua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMua.Location = new System.Drawing.Point(274, 3);
-            this.pbMua.Name = "pbMua";
-            this.pbMua.Size = new System.Drawing.Size(65, 67);
-            this.pbMua.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMua.TabIndex = 19;
-            this.pbMua.TabStop = false;
-            this.pbMua.Click += new System.EventHandler(this.pbMua_Click);
-            this.pbMua.MouseEnter += new System.EventHandler(this.pbMua_MouseEnter);
-            this.pbMua.MouseLeave += new System.EventHandler(this.pbMua_MouseLeave);
+            this.pbMuaBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMuaBan.Location = new System.Drawing.Point(274, 3);
+            this.pbMuaBan.Name = "pbMuaBan";
+            this.pbMuaBan.Size = new System.Drawing.Size(65, 67);
+            this.pbMuaBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMuaBan.TabIndex = 19;
+            this.pbMuaBan.TabStop = false;
+            this.pbMuaBan.Click += new System.EventHandler(this.pbMuaBan_Click);
+            this.pbMuaBan.MouseEnter += new System.EventHandler(this.pbMuaBan_MouseEnter);
+            this.pbMuaBan.MouseLeave += new System.EventHandler(this.pbMuaBan_MouseLeave);
             // 
             // pbHeader
             // 
@@ -437,8 +439,8 @@
             this.pnHeaderAndMainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThanhToan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHorizonline)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
@@ -460,10 +462,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExit;
         private System.Windows.Forms.Panel pnHeaderAndMainMenu;
-        private System.Windows.Forms.Label lbBan;
-        private System.Windows.Forms.PictureBox pbBan;
-        private System.Windows.Forms.Label lbMua;
-        private System.Windows.Forms.PictureBox pbMua;
+        private System.Windows.Forms.Label lbThanhToan;
+        private System.Windows.Forms.PictureBox pbThanhToan;
+        private System.Windows.Forms.Label lbMuaBan;
+        private System.Windows.Forms.PictureBox pbMuaBan;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.Label lbSanPham;
         private System.Windows.Forms.Label lbKhachHang;
@@ -477,6 +479,7 @@
         private System.Windows.Forms.PictureBox pbThuChi;
         private System.Windows.Forms.Label lbKhoHang;
         private System.Windows.Forms.PictureBox pbKhoHang;
+        private System.Windows.Forms.ToolTip ttDetail;
     }
 }
 

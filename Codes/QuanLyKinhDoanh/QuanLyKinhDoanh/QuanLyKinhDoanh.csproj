@@ -75,16 +75,16 @@
     <Compile Include="Library\Common\Startup.cs" />
     <Compile Include="Library\Common\CommonFunction.cs" />
     <Compile Include="Library\Common\XML_Function.cs" />
-    <Compile Include="Main\Ban\UcBan.cs">
+    <Compile Include="Main\MuaBan\Ban\UcBan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Ban\UcBan.Designer.cs">
+    <Compile Include="Main\MuaBan\Ban\UcBan.Designer.cs">
       <DependentUpon>UcBan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Ban\UcInfo.cs">
+    <Compile Include="Main\MuaBan\Ban\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Ban\UcInfo.Designer.cs">
+    <Compile Include="Main\MuaBan\Ban\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhachHang\UcInfo.cs">
@@ -99,17 +99,29 @@
     <Compile Include="Main\KhachHang\UcKhachHang.Designer.cs">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Mua\UcInfo.cs">
+    <Compile Include="Main\KhoHang\UcKhoHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Mua\UcInfo.Designer.cs">
+    <Compile Include="Main\KhoHang\UcKhoHang.Designer.cs">
+      <DependentUpon>UcKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MuaBan\Mua\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\MuaBan\Mua\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Mua\UcMua.cs">
+    <Compile Include="Main\MuaBan\Mua\UcMua.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Mua\UcMua.Designer.cs">
+    <Compile Include="Main\MuaBan\Mua\UcMua.Designer.cs">
       <DependentUpon>UcMua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\MuaBan\UcMuaBanIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\MuaBan\UcMuaBanIndex.Designer.cs">
+      <DependentUpon>UcMuaBanIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\NhomSanPham\UcInfo.cs">
       <SubType>UserControl</SubType>
@@ -141,6 +153,18 @@
     <Compile Include="Main\SanPham\UcSanPhamIndex.Designer.cs">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\ThanhToan\UcThanhToan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\ThanhToan\UcThanhToan.Designer.cs">
+      <DependentUpon>UcThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\ThuChi\UcThuChiIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\ThuChi\UcThuChiIndex.Designer.cs">
+      <DependentUpon>UcThuChiIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\User\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,10 +182,10 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Ban\UcBan.resx">
+    <EmbeddedResource Include="Main\MuaBan\Ban\UcBan.resx">
       <DependentUpon>UcBan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Ban\UcInfo.resx">
+    <EmbeddedResource Include="Main\MuaBan\Ban\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\UcInfo.resx">
@@ -170,11 +194,17 @@
     <EmbeddedResource Include="Main\KhachHang\UcKhachHang.resx">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Mua\UcInfo.resx">
+    <EmbeddedResource Include="Main\KhoHang\UcKhoHang.resx">
+      <DependentUpon>UcKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MuaBan\Mua\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Mua\UcMua.resx">
+    <EmbeddedResource Include="Main\MuaBan\Mua\UcMua.resx">
       <DependentUpon>UcMua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\MuaBan\UcMuaBanIndex.resx">
+      <DependentUpon>UcMuaBanIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
@@ -190,6 +220,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ThanhToan\UcThanhToan.resx">
+      <DependentUpon>UcThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ThuChi\UcThuChiIndex.resx">
+      <DependentUpon>UcThuChiIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\User\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
@@ -219,9 +255,7 @@
   <ItemGroup>
     <Content Include="iconCD.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Main\ThuChi\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

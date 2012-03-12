@@ -39,11 +39,11 @@ namespace QuanLyKinhDoanh
 
                 pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
                 pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
-                pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-                pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN);
-                pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA);
+                pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);               
+                pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN);
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
                 pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
+                pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN);
 
                 pnAbout.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
             }
@@ -78,16 +78,16 @@ namespace QuanLyKinhDoanh
             lbUser.ForeColor = Constant.COLOR_NORMAL;
             lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
             lbSanPham.ForeColor = Constant.COLOR_NORMAL;
-            lbMua.ForeColor = Constant.COLOR_NORMAL;
-            lbBan.ForeColor = Constant.COLOR_NORMAL;
+            lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
+            lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
             lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
             lbThuChi.ForeColor = Constant.COLOR_NORMAL;
 
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-            pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA);
-            pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN);
+            pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN);
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
         }
@@ -134,6 +134,8 @@ namespace QuanLyKinhDoanh
         {
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
             lbUser.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_USER);
         }
 
         private void pbUser_MouseLeave(object sender, EventArgs e)
@@ -153,6 +155,8 @@ namespace QuanLyKinhDoanh
         {
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
             lbKhachHang.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbKhachHang, Constant.TOOLTIP_KHACHHANG);
         }
 
         private void pbKhachHang_MouseLeave(object sender, EventArgs e)
@@ -172,6 +176,8 @@ namespace QuanLyKinhDoanh
         {
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
             lbSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbSanPham, Constant.TOOLTIP_SANPHAM);
         }
 
         private void pbSanPham_MouseLeave(object sender, EventArgs e)
@@ -180,53 +186,40 @@ namespace QuanLyKinhDoanh
             lbSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
 
-        private void pbMua_Click(object sender, EventArgs e)
+        private void pbMuaBan_Click(object sender, EventArgs e)
         {
             Refresh();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMua());
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMuaBanIndex());
         }
 
-        private void pbMua_MouseEnter(object sender, EventArgs e)
+        private void pbMuaBan_MouseEnter(object sender, EventArgs e)
         {
-            pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA_MOUSEOVER);
-            lbMua.ForeColor = Constant.COLOR_MOUSEOVER;
+            pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN_MOUSEOVER);
+            lbMuaBan.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbMuaBan, Constant.TOOLTIP_MUABAN);
         }
 
-        private void pbMua_MouseLeave(object sender, EventArgs e)
+        private void pbMuaBan_MouseLeave(object sender, EventArgs e)
         {
-            pbMua.Image = Image.FromFile(ConstantResource.MUA_ICON_MUA);
-            lbMua.ForeColor = Constant.COLOR_NORMAL;
-        }
-
-        private void pbBan_Click(object sender, EventArgs e)
-        {
-            Refresh();
-
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcBan());
-        }
-
-        private void pbBan_MouseEnter(object sender, EventArgs e)
-        {
-            pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN_MOUSEOVER);
-            lbBan.ForeColor = Constant.COLOR_MOUSEOVER;
-        }
-
-        private void pbBan_MouseLeave(object sender, EventArgs e)
-        {
-            pbBan.Image = Image.FromFile(ConstantResource.BAN_ICON_BAN);
-            lbBan.ForeColor = Constant.COLOR_NORMAL;
+            pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN);
+            lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
         }
 
         private void pbKhoHang_Click(object sender, EventArgs e)
         {
+            Refresh();
 
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHang());
         }
 
         private void pbKhoHang_MouseEnter(object sender, EventArgs e)
         {
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
             lbKhoHang.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbKhoHang, Constant.TOOLTIP_KHOHANG);
         }
 
         private void pbKhoHang_MouseLeave(object sender, EventArgs e)
@@ -237,19 +230,44 @@ namespace QuanLyKinhDoanh
 
         private void pbThuChi_Click(object sender, EventArgs e)
         {
+            Refresh();
 
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
         }
 
         private void pbThuChi_MouseEnter(object sender, EventArgs e)
         {
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
             lbThuChi.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbThuChi, Constant.TOOLTIP_THUCHI);
         }
 
         private void pbThuChi_MouseLeave(object sender, EventArgs e)
         {
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
             lbThuChi.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbThanhToan_Click(object sender, EventArgs e)
+        {
+            Refresh();
+
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThanhToan());
+        }
+
+        private void pbThanhToan_MouseEnter(object sender, EventArgs e)
+        {
+            pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN_MOUSEOVER);
+            lbThanhToan.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbThanhToan, Constant.TOOLTIP_THANHTOAN);
+        }
+
+        private void pbThanhToan_MouseLeave(object sender, EventArgs e)
+        {
+            pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN);
+            lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
         }
         #endregion
     }
