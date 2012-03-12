@@ -49,7 +49,6 @@
             this.chNhom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonViTinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -232,8 +231,7 @@
             this.chTen,
             this.chNhom,
             this.chMoTa,
-            this.chDonViTinh,
-            this.chGia});
+            this.chDonViTinh});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -276,11 +274,6 @@
             // 
             this.chDonViTinh.Text = "Đơn vị tính";
             this.chDonViTinh.Width = 85;
-            // 
-            // chGia
-            // 
-            this.chGia.Text = "Giá";
-            this.chGia.Width = 94;
             // 
             // pnTraCuu
             // 
@@ -452,7 +445,6 @@
         private System.Windows.Forms.ColumnHeader chTen;
         private System.Windows.Forms.ColumnHeader chNhom;
         private System.Windows.Forms.ColumnHeader chDonViTinh;
-        private System.Windows.Forms.ColumnHeader chGia;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
