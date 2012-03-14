@@ -54,6 +54,9 @@
             this.lbSelect = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.cbGioiTinh = new System.Windows.Forms.ComboBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -70,11 +73,14 @@
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
             this.pnInfo.Location = new System.Drawing.Point(3, 47);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(580, 440);
+            this.pnInfo.Size = new System.Drawing.Size(580, 480);
             this.pnInfo.TabIndex = 45;
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.textBox3);
+            this.gbInfo.Controls.Add(this.label6);
+            this.gbInfo.Controls.Add(this.cbGioiTinh);
             this.gbInfo.Controls.Add(this.textBox1);
             this.gbInfo.Controls.Add(this.label3);
             this.gbInfo.Controls.Add(this.textBox2);
@@ -94,14 +100,14 @@
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
             this.gbInfo.Location = new System.Drawing.Point(7, 3);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(562, 432);
+            this.gbInfo.Size = new System.Drawing.Size(562, 470);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 185);
+            this.textBox1.Location = new System.Drawing.Point(130, 225);
             this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(223, 23);
@@ -111,7 +117,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(47, 188);
+            this.label3.Location = new System.Drawing.Point(47, 228);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 104;
@@ -119,7 +125,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 225);
+            this.textBox2.Location = new System.Drawing.Point(130, 265);
             this.textBox2.MaxLength = 30;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(223, 23);
@@ -129,7 +135,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(77, 228);
+            this.label5.Location = new System.Drawing.Point(77, 268);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 102;
@@ -187,7 +193,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(435, 353);
+            this.panel12.Location = new System.Drawing.Point(435, 393);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -216,7 +222,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(64, 353);
+            this.panel8.Location = new System.Drawing.Point(64, 393);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -246,7 +252,7 @@
             this.tbHoTen.Location = new System.Drawing.Point(129, 25);
             this.tbHoTen.MaxLength = 6;
             this.tbHoTen.Name = "tbHoTen";
-            this.tbHoTen.Size = new System.Drawing.Size(224, 23);
+            this.tbHoTen.Size = new System.Drawing.Size(313, 23);
             this.tbHoTen.TabIndex = 4;
             // 
             // lbMa
@@ -271,7 +277,7 @@
             // 
             // tbMoTa
             // 
-            this.tbMoTa.Location = new System.Drawing.Point(129, 265);
+            this.tbMoTa.Location = new System.Drawing.Point(129, 305);
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
             this.tbMoTa.Size = new System.Drawing.Size(419, 66);
@@ -281,7 +287,7 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(62, 268);
+            this.lbTen.Location = new System.Drawing.Point(62, 308);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
@@ -328,6 +334,36 @@
             this.pbTitle.Size = new System.Drawing.Size(36, 36);
             this.pbTitle.TabIndex = 1;
             this.pbTitle.TabStop = false;
+            // 
+            // cbGioiTinh
+            // 
+            this.cbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGioiTinh.FormattingEnabled = true;
+            this.cbGioiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cbGioiTinh.Location = new System.Drawing.Point(475, 25);
+            this.cbGioiTinh.Name = "cbGioiTinh";
+            this.cbGioiTinh.Size = new System.Drawing.Size(73, 24);
+            this.cbGioiTinh.TabIndex = 106;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(129, 185);
+            this.textBox3.MaxLength = 30;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(223, 23);
+            this.textBox3.TabIndex = 107;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(71, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 16);
+            this.label6.TabIndex = 108;
+            this.label6.Text = "CMND:";
             // 
             // UcInfo
             // 
@@ -383,6 +419,9 @@
         private System.Windows.Forms.Label lbSelect;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.ComboBox cbGioiTinh;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label6;
 
     }
 }

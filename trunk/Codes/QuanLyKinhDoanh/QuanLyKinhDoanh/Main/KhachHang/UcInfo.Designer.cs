@@ -55,6 +55,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbMoTa = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -118,6 +120,8 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.textBox4);
+            this.gbInfo.Controls.Add(this.label6);
             this.gbInfo.Controls.Add(this.textBox3);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.cbGioiTinh);
@@ -145,22 +149,23 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(130, 225);
+            this.textBox3.Location = new System.Drawing.Point(487, 65);
             this.textBox3.MaxLength = 30;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(61, 23);
             this.textBox3.TabIndex = 106;
             this.textBox3.Text = "0";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(70, 228);
+            this.label1.Location = new System.Drawing.Point(437, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 107;
-            this.label1.Text = "* Điểm:";
+            this.label1.Text = "Điểm:";
             // 
             // cbGioiTinh
             // 
@@ -169,14 +174,14 @@
             this.cbGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbGioiTinh.Location = new System.Drawing.Point(280, 65);
+            this.cbGioiTinh.Location = new System.Drawing.Point(475, 25);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(73, 24);
             this.cbGioiTinh.TabIndex = 105;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 145);
+            this.textBox1.Location = new System.Drawing.Point(128, 145);
             this.textBox1.MaxLength = 30;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(223, 23);
@@ -186,7 +191,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(47, 148);
+            this.label3.Location = new System.Drawing.Point(46, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 104;
@@ -194,7 +199,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 185);
+            this.textBox2.Location = new System.Drawing.Point(129, 225);
             this.textBox2.MaxLength = 30;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(223, 23);
@@ -204,7 +209,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(77, 188);
+            this.label5.Location = new System.Drawing.Point(77, 228);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 102;
@@ -303,7 +308,7 @@
             this.tbHoTen.Location = new System.Drawing.Point(129, 25);
             this.tbHoTen.MaxLength = 6;
             this.tbHoTen.Name = "tbHoTen";
-            this.tbHoTen.Size = new System.Drawing.Size(224, 23);
+            this.tbHoTen.Size = new System.Drawing.Size(313, 23);
             this.tbHoTen.TabIndex = 4;
             // 
             // lbMa
@@ -343,6 +348,24 @@
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Ghi chú:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(129, 185);
+            this.textBox4.MaxLength = 30;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(223, 23);
+            this.textBox4.TabIndex = 108;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(87, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 16);
+            this.label6.TabIndex = 109;
+            this.label6.Text = "Fax:";
             // 
             // UcInfo
             // 
@@ -399,5 +422,7 @@
         private System.Windows.Forms.ComboBox cbGioiTinh;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -20,8 +20,6 @@ C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKin
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Main.Ban.UcBan.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormMain.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\GenerateResource.write.215.tlog
-C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcBan.resources
-C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcMua.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcUser.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.User.UcInfo.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhachHang.resources
@@ -32,8 +30,8 @@ C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\De
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhomSanPham.UcInfo.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPham.UcInfo.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Mua.UcInfo.resources
-C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Ban.UcInfo.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhoHang.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcThuChiIndex.resources
 C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcMuaBanIndex.resources
-C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcThanhToan.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.GiaoDich.UcThanhToan.resources
+C:\Users\CONAN\Desktop\LogiGear\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcNhapKho.resources

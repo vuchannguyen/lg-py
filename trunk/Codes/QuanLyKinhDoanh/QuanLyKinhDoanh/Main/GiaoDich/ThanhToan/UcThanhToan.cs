@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace QuanLyKinhDoanh
+namespace QuanLyKinhDoanh.GiaoDich
 {
     public partial class UcThanhToan : UserControl
     {
@@ -18,7 +18,7 @@ namespace QuanLyKinhDoanh
 
         private void UcThanhToan_Load(object sender, EventArgs e)
         {
-
+            this.BringToFront();
         }
     }
 }

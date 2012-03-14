@@ -41,6 +41,7 @@ namespace QuanLyKinhDoanh.User
             this.BringToFront();
 
             cbNhom.SelectedIndex = 0;
+            cbGioiTinh.SelectedIndex = 0;
         }
 
         private void pbHuy_Click(object sender, EventArgs e)

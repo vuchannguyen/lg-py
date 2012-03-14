@@ -35,9 +35,11 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cbDonViTinh = new System.Windows.Forms.ComboBox();
             this.tbMoTa = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbGiaNhap = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUserName = new System.Windows.Forms.TextBox();
@@ -58,8 +60,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThem = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -90,20 +94,20 @@
             this.lbSelect.ForeColor = System.Drawing.Color.Orange;
             this.lbSelect.Location = new System.Drawing.Point(50, 8);
             this.lbSelect.Name = "lbSelect";
-            this.lbSelect.Size = new System.Drawing.Size(53, 22);
+            this.lbSelect.Size = new System.Drawing.Size(62, 22);
             this.lbSelect.TabIndex = 1;
-            this.lbSelect.Text = "MUA";
+            this.lbSelect.Text = "NHẬP";
             // 
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lbTitle.Location = new System.Drawing.Point(109, 8);
+            this.lbTitle.Location = new System.Drawing.Point(118, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(110, 22);
+            this.lbTitle.Size = new System.Drawing.Size(111, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "SẢN PHẨM";
+            this.lbTitle.Text = "KHO HÀNG";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -126,10 +130,14 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.label7);
+            this.gbInfo.Controls.Add(this.textBox4);
             this.gbInfo.Controls.Add(this.label3);
+            this.gbInfo.Controls.Add(this.textBox1);
+            this.gbInfo.Controls.Add(this.label6);
             this.gbInfo.Controls.Add(this.cbDonViTinh);
             this.gbInfo.Controls.Add(this.tbMoTa);
-            this.gbInfo.Controls.Add(this.textBox3);
+            this.gbInfo.Controls.Add(this.tbGiaNhap);
             this.gbInfo.Controls.Add(this.textBox2);
             this.gbInfo.Controls.Add(this.label5);
             this.gbInfo.Controls.Add(this.tbUserName);
@@ -149,6 +157,25 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(410, 130);
+            this.textBox1.MaxLength = 30;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 23);
+            this.textBox1.TabIndex = 117;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(334, 133);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 16);
+            this.label6.TabIndex = 116;
+            this.label6.Text = "*Giá BÁN:";
             // 
             // cbDonViTinh
             // 
@@ -173,13 +200,14 @@
             this.tbMoTa.Size = new System.Drawing.Size(300, 66);
             this.tbMoTa.TabIndex = 108;
             // 
-            // textBox3
+            // tbGiaNhap
             // 
-            this.textBox3.Location = new System.Drawing.Point(420, 80);
-            this.textBox3.MaxLength = 30;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 23);
-            this.textBox3.TabIndex = 105;
+            this.tbGiaNhap.Location = new System.Drawing.Point(410, 80);
+            this.tbGiaNhap.MaxLength = 30;
+            this.tbGiaNhap.Name = "tbGiaNhap";
+            this.tbGiaNhap.Size = new System.Drawing.Size(121, 23);
+            this.tbGiaNhap.TabIndex = 105;
+            this.tbGiaNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBox2
             // 
@@ -202,7 +230,7 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(420, 25);
+            this.tbUserName.Location = new System.Drawing.Point(410, 30);
             this.tbUserName.MaxLength = 30;
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(250, 23);
@@ -212,11 +240,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(372, 28);
+            this.label1.Location = new System.Drawing.Point(296, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.Size = new System.Drawing.Size(108, 16);
             this.label1.TabIndex = 100;
-            this.label1.Text = "*Tên:";
+            this.label1.Text = "*Tên sản phẩm:";
             // 
             // cbNhom
             // 
@@ -321,21 +349,21 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(46, 83);
+            this.label2.Location = new System.Drawing.Point(41, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 16);
+            this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Nhóm:";
+            this.label2.Text = "*Nhóm:";
             // 
             // lbTen
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(380, 83);
+            this.lbTen.Location = new System.Drawing.Point(325, 83);
             this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(34, 16);
+            this.lbTen.Size = new System.Drawing.Size(79, 16);
             this.lbTen.TabIndex = 4;
-            this.lbTen.Text = "Giá:";
+            this.lbTen.Text = "*Giá NHẬP:";
             // 
             // pnSelect
             // 
@@ -379,13 +407,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(29, 56);
+            this.label3.Location = new System.Drawing.Point(537, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
-            this.label3.TabIndex = 115;
-            this.label3.Text = "Tối đa 6 ký tự";
+            this.label3.Size = new System.Drawing.Size(16, 16);
+            this.label3.TabIndex = 118;
+            this.label3.Text = "=";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(559, 130);
+            this.textBox4.MaxLength = 3;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(40, 23);
+            this.textBox4.TabIndex = 119;
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(605, 133);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 16);
+            this.label7.TabIndex = 120;
+            this.label7.Text = "% giá nhập";
             // 
             // UcInfo
             // 
@@ -428,7 +474,7 @@
         private System.Windows.Forms.GroupBox gbInfo;
         private System.Windows.Forms.ComboBox cbDonViTinh;
         private System.Windows.Forms.TextBox tbMoTa;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbGiaNhap;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbUserName;
@@ -449,7 +495,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbThem;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip ttDetail;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -46,6 +46,9 @@ namespace QuanLyKinhDoanh.Mua
 
             cbNhom.SelectedIndex = 0;
             cbDonViTinh.SelectedIndex = 0;
+
+            //int abc = 12345;
+            //tbGiaNhap.Text = abc.ToString("#,###.00");
         }
 
         private void pbHuy_Click(object sender, EventArgs e)
