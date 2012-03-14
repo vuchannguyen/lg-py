@@ -58,14 +58,14 @@ namespace Library
         public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX = @"Resources\SanPham\icon_nhom_sanpham_index.png";
         public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_nhom_sanpham_index_mouseover.png";
 
-        public const string MUABAN_ICON_MUABAN = @"Resources\MuaBan\icon_muaban.png";
-        public const string MUABAN_ICON_MUABAN_MOUSEOVER = @"Resources\MuaBan\icon_muaban_mouseover.png";
-
-        public const string MUABAN_ICON_MUA_INDEX = @"Resources\MuaBan\icon_mua_index.png";
-        public const string MUABAN_ICON_MUA_INDEX_MOUSEOVER = @"Resources\MuaBan\icon_mua_index_mouseover.png";
-
-        public const string MUABAN_ICON_BAN_INDEX = @"Resources\MuaBan\icon_ban_index.png";
-        public const string MUABAN_ICON_BAN_INDEX_MOUSEOVER = @"Resources\MuaBan\icon_ban_index_mouseover.png";
+        public const string GIAODICH_ICON_GIAODICH = @"Resources\GiaoDich\icon_giaodich.png";
+        public const string GIAODICH_ICON_GIAODICH_MOUSEOVER = @"Resources\GiaoDich\icon_giaodich_mouseover.png";
+        public const string GIAODICH_ICON_MUA_INDEX = @"Resources\GiaoDich\icon_mua_index.png";
+        public const string GIAODICH_ICON_MUA_INDEX_MOUSEOVER = @"Resources\GiaoDich\icon_mua_index_mouseover.png";
+        public const string GIAODICH_ICON_BAN_INDEX = @"Resources\GiaoDich\icon_ban_index.png";
+        public const string GIAODICH_ICON_BAN_INDEX_MOUSEOVER = @"Resources\GiaoDich\icon_ban_index_mouseover.png";
+        public const string GIAODICH_ICON_THANHTOAN = @"Resources\GiaoDich\icon_thanhtoan.png";
+        public const string GIAODICH_ICON_THANHTOAN_MOUSEOVER = @"Resources\GiaoDich\icon_thanhtoan_mouseover.png";
 
         public const string KHOHANG_ICON_KHOHANG = @"Resources\KhoHang\icon_khohang.png";
         public const string KHOHANG_ICON_KHOHANG_MOUSEOVER = @"Resources\KhoHang\icon_khohang_mouseover.png";
@@ -78,8 +78,5 @@ namespace Library
 
         public const string THUCHI_ICON_CHI_INDEX = @"Resources\ThuChi\icon_chi_index.png";
         public const string THUCHI_ICON_CHI_INDEX_MOUSEOVER = @"Resources\ThuChi\icon_chi_index_mouseover.png";
-
-        public const string THANHTOAN_ICON_THANHTOAN = @"Resources\ThanhToan\icon_thanhtoan.png";
-        public const string THANHTOAN_ICON_THANHTOAN_MOUSEOVER = @"Resources\ThanhToan\icon_thanhtoan_mouseover.png";
     }
 }

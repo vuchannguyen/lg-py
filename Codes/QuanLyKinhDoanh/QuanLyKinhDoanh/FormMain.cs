@@ -40,10 +40,10 @@ namespace QuanLyKinhDoanh
                 pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
                 pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);               
-                pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN);
+                pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
                 pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
-                pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN);
+                pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
 
                 pnAbout.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
             }
@@ -86,8 +86,8 @@ namespace QuanLyKinhDoanh
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-            pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN);
-            pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN);
+            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
         }
@@ -195,7 +195,7 @@ namespace QuanLyKinhDoanh
 
         private void pbMuaBan_MouseEnter(object sender, EventArgs e)
         {
-            pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN_MOUSEOVER);
+            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH_MOUSEOVER);
             lbMuaBan.ForeColor = Constant.COLOR_MOUSEOVER;
 
             ttDetail.SetToolTip(pbMuaBan, Constant.TOOLTIP_MUABAN);
@@ -203,7 +203,7 @@ namespace QuanLyKinhDoanh
 
         private void pbMuaBan_MouseLeave(object sender, EventArgs e)
         {
-            pbMuaBan.Image = Image.FromFile(ConstantResource.MUABAN_ICON_MUABAN);
+            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
             lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
         }
 
@@ -253,12 +253,12 @@ namespace QuanLyKinhDoanh
         {
             Refresh();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThanhToan());
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new QuanLyKinhDoanh.GiaoDich.UcThanhToan());
         }
 
         private void pbThanhToan_MouseEnter(object sender, EventArgs e)
         {
-            pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN_MOUSEOVER);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
             lbThanhToan.ForeColor = Constant.COLOR_MOUSEOVER;
 
             ttDetail.SetToolTip(pbThanhToan, Constant.TOOLTIP_THANHTOAN);
@@ -266,7 +266,7 @@ namespace QuanLyKinhDoanh
 
         private void pbThanhToan_MouseLeave(object sender, EventArgs e)
         {
-            pbThanhToan.Image = Image.FromFile(ConstantResource.THANHTOAN_ICON_THANHTOAN);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
         }
         #endregion

@@ -11,11 +11,11 @@ using QuanLyKinhDoanh.Mua;
 
 namespace QuanLyKinhDoanh
 {
-    public partial class UcMua : UserControl
+    public partial class UcNhapKho : UserControl
     {
         private UserControl uc;
 
-        public UcMua()
+        public UcNhapKho()
         {
             InitializeComponent();
         }
@@ -44,7 +44,7 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void UcMua_Load(object sender, EventArgs e)
+        private void UcNhapKho_Load(object sender, EventArgs e)
         {
             LoadResource();
 
