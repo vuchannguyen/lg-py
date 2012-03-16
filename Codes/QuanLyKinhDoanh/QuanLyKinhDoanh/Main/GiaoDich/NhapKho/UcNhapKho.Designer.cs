@@ -48,7 +48,7 @@
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chNgay = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,6 +70,7 @@
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tbTong = new System.Windows.Forms.TextBox();
+            this.chGiaNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -225,9 +226,9 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(146, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(101, 87);
             this.pnQuanLy.Name = "pnQuanLy";
-            this.pnQuanLy.Size = new System.Drawing.Size(710, 480);
+            this.pnQuanLy.Size = new System.Drawing.Size(810, 480);
             this.pnQuanLy.TabIndex = 48;
             // 
             // lvThongTin
@@ -237,16 +238,17 @@
             this.chMa,
             this.chSanPham,
             this.chUser,
-            this.chGio,
+            this.chNgay,
             this.chSoLuong,
             this.chDVT,
+            this.chGiaNhap,
             this.chThanhTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(700, 430);
+            this.lvThongTin.Size = new System.Drawing.Size(800, 430);
             this.lvThongTin.TabIndex = 87;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -273,11 +275,11 @@
             this.chUser.Text = "Người nhập";
             this.chUser.Width = 116;
             // 
-            // chGio
+            // chNgay
             // 
-            this.chGio.Text = "Giờ";
-            this.chGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chGio.Width = 93;
+            this.chNgay.Text = "Ngày";
+            this.chNgay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chNgay.Width = 93;
             // 
             // chSoLuong
             // 
@@ -468,6 +470,12 @@
             this.tbTong.Text = "999.999.999";
             this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // chGiaNhap
+            // 
+            this.chGiaNhap.Text = "Giá nhập";
+            this.chGiaNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chGiaNhap.Width = 102;
+            // 
             // UcNhapKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -550,12 +558,13 @@
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chSanPham;
         private System.Windows.Forms.ColumnHeader chUser;
-        private System.Windows.Forms.ColumnHeader chGio;
+        private System.Windows.Forms.ColumnHeader chNgay;
         private System.Windows.Forms.ColumnHeader chSoLuong;
         private System.Windows.Forms.ColumnHeader chDVT;
         private System.Windows.Forms.ColumnHeader chThanhTien;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbTong;
+        private System.Windows.Forms.ColumnHeader chGiaNhap;
 
     }
 }

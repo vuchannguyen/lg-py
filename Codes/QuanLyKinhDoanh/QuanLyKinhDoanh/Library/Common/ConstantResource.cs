@@ -66,6 +66,13 @@ namespace Library
         public const string GIAODICH_ICON_BAN_INDEX_MOUSEOVER = @"Resources\GiaoDich\icon_ban_index_mouseover.png";
         public const string GIAODICH_ICON_THANHTOAN = @"Resources\GiaoDich\icon_thanhtoan.png";
         public const string GIAODICH_ICON_THANHTOAN_MOUSEOVER = @"Resources\GiaoDich\icon_thanhtoan_mouseover.png";
+        public const string GIAODICH_ICON_CART_ADD = @"Resources\GiaoDich\icon_cart_add.png";
+        public const string GIAODICH_ICON_CART_ADD_MOUSEOVER = @"Resources\GiaoDich\icon_cart_add_mouseover.png";
+        public const string GIAODICH_ICON_CART_ADD_DISABLE = @"Resources\GiaoDich\icon_cart_add_disable.png";
+        public const string GIAODICH_ICON_CART_DELETE = @"Resources\GiaoDich\icon_cart_delete.png";
+        public const string GIAODICH_ICON_CART_DELETE_MOUSEOVER = @"Resources\GiaoDich\icon_cart_delete_mouseover.png";
+        public const string GIAODICH_ICON_CART_DELETE_DISABLE = @"Resources\GiaoDich\icon_cart_delete_disable.png";
+        
 
         public const string KHOHANG_ICON_KHOHANG = @"Resources\KhoHang\icon_khohang.png";
         public const string KHOHANG_ICON_KHOHANG_MOUSEOVER = @"Resources\KhoHang\icon_khohang_mouseover.png";

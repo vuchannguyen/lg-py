@@ -52,7 +52,8 @@
             this.chTinhTrang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGiaBan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.pbTotalPage = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnFind.SuspendLayout();
@@ -240,7 +240,7 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(146, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(93, 87);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Size = new System.Drawing.Size(810, 480);
             this.pnQuanLy.TabIndex = 51;
@@ -255,7 +255,7 @@
             this.chTinhTrang,
             this.chSoLuong,
             this.chDVT,
-            this.chGia,
+            this.chGiaBan,
             this.chThanhTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
@@ -306,11 +306,17 @@
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chDVT.Width = 63;
             // 
-            // chGia
+            // chGiaBan
             // 
-            this.chGia.Text = "Giá";
-            this.chGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGia.Width = 94;
+            this.chGiaBan.Text = "Giá bán";
+            this.chGiaBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chGiaBan.Width = 94;
+            // 
+            // chThanhTien
+            // 
+            this.chThanhTien.Text = "Thành tiền";
+            this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chThanhTien.Width = 100;
             // 
             // pnTraCuu
             // 
@@ -393,12 +399,6 @@
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chThanhTien
-            // 
-            this.chThanhTien.Text = "Thành tiền";
-            this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chThanhTien.Width = 100;
-            // 
             // UcKhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -444,7 +444,7 @@
         private System.Windows.Forms.ColumnHeader chNhom;
         private System.Windows.Forms.ColumnHeader chTinhTrang;
         private System.Windows.Forms.ColumnHeader chDVT;
-        private System.Windows.Forms.ColumnHeader chGia;
+        private System.Windows.Forms.ColumnHeader chGiaBan;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
