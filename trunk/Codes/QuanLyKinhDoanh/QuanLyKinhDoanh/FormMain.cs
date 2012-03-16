@@ -71,6 +71,8 @@ namespace QuanLyKinhDoanh
             pnBody.Height = pnMain.Height - 100 - Constant.BOT_HEIGHT_DEFAULT;
 
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.TOP_HEIGHT_DEFAULT);
+
+            pbThanhToan_Click(sender, e);
         }
 
         private void Refresh()
