@@ -234,7 +234,8 @@ namespace QuanLyKinhDoanh
         {
             Refresh();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+            //CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcBaoCao());
         }
 
         private void pbThuChi_MouseEnter(object sender, EventArgs e)

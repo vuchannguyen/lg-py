@@ -147,6 +147,12 @@
     <Compile Include="Main\GiaoDich\ThanhToan\UcThanhToan.Designer.cs">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\ThuChi\UcBaoCao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\ThuChi\UcBaoCao.Designer.cs">
+      <DependentUpon>UcBaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\ThuChi\UcThuChiIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\GiaoDich\ThanhToan\UcThanhToan.resx">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\ThuChi\UcBaoCao.resx">
+      <DependentUpon>UcBaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\ThuChi\UcThuChiIndex.resx">
       <DependentUpon>UcThuChiIndex.cs</DependentUpon>

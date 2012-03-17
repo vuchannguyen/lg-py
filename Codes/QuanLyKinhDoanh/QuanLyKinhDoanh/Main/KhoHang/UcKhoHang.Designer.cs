@@ -116,9 +116,9 @@
             this.pnFind.Controls.Add(this.tbHoTen);
             this.pnFind.Controls.Add(this.lbMa);
             this.pnFind.Controls.Add(this.panel2);
-            this.pnFind.Location = new System.Drawing.Point(140, 3);
+            this.pnFind.Location = new System.Drawing.Point(93, 3);
             this.pnFind.Name = "pnFind";
-            this.pnFind.Size = new System.Drawing.Size(445, 78);
+            this.pnFind.Size = new System.Drawing.Size(473, 78);
             this.pnFind.TabIndex = 52;
             // 
             // cbTinhTrang
@@ -129,16 +129,16 @@
             "Tất cả",
             "Còn",
             "Hết"});
-            this.cbTinhTrang.Location = new System.Drawing.Point(325, 10);
+            this.cbTinhTrang.Location = new System.Drawing.Point(334, 10);
             this.cbTinhTrang.Name = "cbTinhTrang";
-            this.cbTinhTrang.Size = new System.Drawing.Size(110, 24);
+            this.cbTinhTrang.Size = new System.Drawing.Size(125, 24);
             this.cbTinhTrang.TabIndex = 102;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(241, 13);
+            this.label3.Location = new System.Drawing.Point(250, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 101;
@@ -153,16 +153,16 @@
             "Vd1: Giày",
             "Vd2: Dép",
             "Vd3: Nón"});
-            this.cbNhom.Location = new System.Drawing.Point(295, 40);
+            this.cbNhom.Location = new System.Drawing.Point(334, 40);
             this.cbNhom.Name = "cbNhom";
-            this.cbNhom.Size = new System.Drawing.Size(140, 24);
+            this.cbNhom.Size = new System.Drawing.Size(125, 24);
             this.cbNhom.TabIndex = 100;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(241, 43);
+            this.label2.Location = new System.Drawing.Point(280, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 16);
             this.label2.TabIndex = 99;
@@ -173,7 +173,7 @@
             this.textBox1.Location = new System.Drawing.Point(125, 40);
             this.textBox1.MaxLength = 50;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 23);
+            this.textBox1.Size = new System.Drawing.Size(133, 23);
             this.textBox1.TabIndex = 93;
             // 
             // label1
@@ -191,7 +191,7 @@
             this.tbHoTen.Location = new System.Drawing.Point(125, 10);
             this.tbHoTen.MaxLength = 6;
             this.tbHoTen.Name = "tbHoTen";
-            this.tbHoTen.Size = new System.Drawing.Size(107, 23);
+            this.tbHoTen.Size = new System.Drawing.Size(92, 23);
             this.tbHoTen.TabIndex = 91;
             // 
             // lbMa
