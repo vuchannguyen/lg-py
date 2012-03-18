@@ -33,15 +33,18 @@
             this.lbThu = new System.Windows.Forms.Label();
             this.lbChi = new System.Windows.Forms.Label();
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.lbLoiNhuan = new System.Windows.Forms.Label();
+            this.pbLoiNhuan = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbChi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThu)).BeginInit();
             this.pnSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoiNhuan)).BeginInit();
             this.SuspendLayout();
             // 
             // pbChi
             // 
             this.pbChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbChi.Location = new System.Drawing.Point(439, 10);
+            this.pbChi.Location = new System.Drawing.Point(220, 10);
             this.pbChi.Name = "pbChi";
             this.pbChi.Size = new System.Drawing.Size(100, 100);
             this.pbChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -80,7 +83,7 @@
             this.lbChi.AutoSize = true;
             this.lbChi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChi.ForeColor = System.Drawing.Color.Gray;
-            this.lbChi.Location = new System.Drawing.Point(473, 120);
+            this.lbChi.Location = new System.Drawing.Point(254, 120);
             this.lbChi.Name = "lbChi";
             this.lbChi.Size = new System.Drawing.Size(32, 16);
             this.lbChi.TabIndex = 6;
@@ -88,6 +91,8 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.lbLoiNhuan);
+            this.pnSelect.Controls.Add(this.pbLoiNhuan);
             this.pnSelect.Controls.Add(this.lbChi);
             this.pnSelect.Controls.Add(this.lbThu);
             this.pnSelect.Controls.Add(this.pbThu);
@@ -96,6 +101,30 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(560, 140);
             this.pnSelect.TabIndex = 6;
+            // 
+            // lbLoiNhuan
+            // 
+            this.lbLoiNhuan.AutoSize = true;
+            this.lbLoiNhuan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLoiNhuan.ForeColor = System.Drawing.Color.Gray;
+            this.lbLoiNhuan.Location = new System.Drawing.Point(448, 120);
+            this.lbLoiNhuan.Name = "lbLoiNhuan";
+            this.lbLoiNhuan.Size = new System.Drawing.Size(85, 16);
+            this.lbLoiNhuan.TabIndex = 8;
+            this.lbLoiNhuan.Text = "LỢI NHUẬN";
+            // 
+            // pbLoiNhuan
+            // 
+            this.pbLoiNhuan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLoiNhuan.Location = new System.Drawing.Point(440, 10);
+            this.pbLoiNhuan.Name = "pbLoiNhuan";
+            this.pbLoiNhuan.Size = new System.Drawing.Size(100, 100);
+            this.pbLoiNhuan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLoiNhuan.TabIndex = 7;
+            this.pbLoiNhuan.TabStop = false;
+            this.pbLoiNhuan.Click += new System.EventHandler(this.pbLoiNhuan_Click);
+            this.pbLoiNhuan.MouseEnter += new System.EventHandler(this.pbLoiNhuan_MouseEnter);
+            this.pbLoiNhuan.MouseLeave += new System.EventHandler(this.pbLoiNhuan_MouseLeave);
             // 
             // UcThuChiIndex
             // 
@@ -110,6 +139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbThu)).EndInit();
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoiNhuan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,6 +151,8 @@
         private System.Windows.Forms.Label lbThu;
         private System.Windows.Forms.Label lbChi;
         private System.Windows.Forms.Panel pnSelect;
+        private System.Windows.Forms.Label lbLoiNhuan;
+        private System.Windows.Forms.PictureBox pbLoiNhuan;
 
 
     }

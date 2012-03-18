@@ -49,7 +49,7 @@ namespace QuanLyKinhDoanh
             LoadResource();
 
             //pnQuanLy.Size = new System.Drawing.Size(710, 480);
-            pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
+            //pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             //tbPage.LostFocus += new EventHandler(tbPage_LostFocus);

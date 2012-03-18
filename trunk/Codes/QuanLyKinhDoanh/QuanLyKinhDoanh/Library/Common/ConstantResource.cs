@@ -72,18 +72,22 @@ namespace Library
         public const string GIAODICH_ICON_CART_DELETE = @"Resources\GiaoDich\icon_cart_delete.png";
         public const string GIAODICH_ICON_CART_DELETE_MOUSEOVER = @"Resources\GiaoDich\icon_cart_delete_mouseover.png";
         public const string GIAODICH_ICON_CART_DELETE_DISABLE = @"Resources\GiaoDich\icon_cart_delete_disable.png";
-        
-
+                
         public const string KHOHANG_ICON_KHOHANG = @"Resources\KhoHang\icon_khohang.png";
         public const string KHOHANG_ICON_KHOHANG_MOUSEOVER = @"Resources\KhoHang\icon_khohang_mouseover.png";
 
         public const string THUCHI_ICON_THUCHI = @"Resources\ThuChi\icon_thuchi.png";
         public const string THUCHI_ICON_THUCHI_MOUSEOVER = @"Resources\ThuChi\icon_thuchi_mouseover.png";
-
         public const string THUCHI_ICON_THU_INDEX = @"Resources\ThuChi\icon_thu_index.png";
         public const string THUCHI_ICON_THU_INDEX_MOUSEOVER = @"Resources\ThuChi\icon_thu_index_mouseover.png";
-
         public const string THUCHI_ICON_CHI_INDEX = @"Resources\ThuChi\icon_chi_index.png";
         public const string THUCHI_ICON_CHI_INDEX_MOUSEOVER = @"Resources\ThuChi\icon_chi_index_mouseover.png";
+        public const string THUCHI_ICON_LOINHUAN_INDEX = @"Resources\ThuChi\icon_loinhuan_index.png";
+        public const string THUCHI_ICON_LOINHUAN_INDEX_MOUSEOVER = @"Resources\ThuChi\icon_loinhuan_index_mouseover.png";
+
+        public const string THUCHI_ICON_UP = @"Resources\ThuChi\icon_up.png";
+        public const string THUCHI_ICON_UP_MOUSEOVER = @"Resources\ThuChi\icon_up_mouseover.png";
+        public const string THUCHI_ICON_DOWN = @"Resources\ThuChi\icon_down.png";
+        public const string THUCHI_ICON_DOWN_MOUSEOVER = @"Resources\ThuChi\icon_down_mouseover.png";
     }
 }

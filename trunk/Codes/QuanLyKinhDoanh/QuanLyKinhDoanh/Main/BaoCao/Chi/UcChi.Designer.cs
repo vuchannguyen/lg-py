@@ -1,6 +1,6 @@
 ﻿namespace QuanLyKinhDoanh
 {
-    partial class UcBaoCao
+    partial class UcChi
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,6 +32,8 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnFind = new System.Windows.Forms.Panel();
+            this.tbTong = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
@@ -41,7 +43,6 @@
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNguoiNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chKhachHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chLyDo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,15 +57,6 @@
             this.pbTotalPage = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.pnSelect = new System.Windows.Forms.Panel();
-            this.lbChi = new System.Windows.Forms.Label();
-            this.lbThu = new System.Windows.Forms.Label();
-            this.pbThu = new System.Windows.Forms.PictureBox();
-            this.pbChi = new System.Windows.Forms.PictureBox();
-            this.tbTong = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pbLoiNhuan = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnFind.SuspendLayout();
@@ -76,10 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBackPage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTotalPage)).BeginInit();
             this.pnPage.SuspendLayout();
-            this.pnSelect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbChi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoiNhuan)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -88,7 +76,7 @@
             this.pnTitle.Controls.Add(this.pbTitle);
             this.pnTitle.Location = new System.Drawing.Point(591, 6);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(147, 38);
+            this.pnTitle.Size = new System.Drawing.Size(221, 38);
             this.pnTitle.TabIndex = 56;
             // 
             // lbTitle
@@ -98,9 +86,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(49, 22);
+            this.lbTitle.Size = new System.Drawing.Size(42, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "THU";
+            this.lbTitle.Text = "CHI";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -114,14 +102,37 @@
             // 
             // pnFind
             // 
+            this.pnFind.Controls.Add(this.tbTong);
+            this.pnFind.Controls.Add(this.label3);
             this.pnFind.Controls.Add(this.dateTimePicker1);
             this.pnFind.Controls.Add(this.label2);
             this.pnFind.Controls.Add(this.dtp);
             this.pnFind.Controls.Add(this.label1);
             this.pnFind.Location = new System.Drawing.Point(398, 51);
             this.pnFind.Name = "pnFind";
-            this.pnFind.Size = new System.Drawing.Size(320, 30);
+            this.pnFind.Size = new System.Drawing.Size(505, 30);
             this.pnFind.TabIndex = 55;
+            // 
+            // tbTong
+            // 
+            this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTong.Location = new System.Drawing.Point(377, 3);
+            this.tbTong.MaxLength = 10;
+            this.tbTong.Name = "tbTong";
+            this.tbTong.ReadOnly = true;
+            this.tbTong.Size = new System.Drawing.Size(121, 26);
+            this.tbTong.TabIndex = 59;
+            this.tbTong.Text = "999.999.999";
+            this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(326, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 58;
+            this.label3.Text = "Tổng:";
             // 
             // dateTimePicker1
             // 
@@ -174,7 +185,6 @@
             this.chSTT,
             this.chMa,
             this.chNguoiNhap,
-            this.chKhachHang,
             this.chNgayGio,
             this.chLyDo,
             this.chTien});
@@ -203,28 +213,24 @@
             // chNguoiNhap
             // 
             this.chNguoiNhap.Text = "Người nhập";
-            this.chNguoiNhap.Width = 136;
-            // 
-            // chKhachHang
-            // 
-            this.chKhachHang.Text = "Khách hàng";
-            this.chKhachHang.Width = 140;
+            this.chNguoiNhap.Width = 175;
             // 
             // chNgayGio
             // 
             this.chNgayGio.Text = "Ngày giờ";
+            this.chNgayGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chNgayGio.Width = 131;
             // 
             // chLyDo
             // 
             this.chLyDo.Text = "Lý do";
-            this.chLyDo.Width = 157;
+            this.chLyDo.Width = 246;
             // 
             // chTien
             // 
             this.chTien.Text = "Tiền";
             this.chTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chTien.Width = 115;
+            this.chTien.Width = 126;
             // 
             // pnTraCuu
             // 
@@ -336,128 +342,17 @@
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnSelect
-            // 
-            this.pnSelect.Controls.Add(this.label4);
-            this.pnSelect.Controls.Add(this.pbLoiNhuan);
-            this.pnSelect.Controls.Add(this.lbChi);
-            this.pnSelect.Controls.Add(this.lbThu);
-            this.pnSelect.Controls.Add(this.pbThu);
-            this.pnSelect.Controls.Add(this.pbChi);
-            this.pnSelect.Location = new System.Drawing.Point(93, 3);
-            this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(216, 78);
-            this.pnSelect.TabIndex = 57;
-            // 
-            // lbChi
-            // 
-            this.lbChi.AutoSize = true;
-            this.lbChi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChi.ForeColor = System.Drawing.Color.Gray;
-            this.lbChi.Location = new System.Drawing.Point(81, 56);
-            this.lbChi.Name = "lbChi";
-            this.lbChi.Size = new System.Drawing.Size(32, 16);
-            this.lbChi.TabIndex = 6;
-            this.lbChi.Text = "CHI";
-            // 
-            // lbThu
-            // 
-            this.lbThu.AutoSize = true;
-            this.lbThu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbThu.ForeColor = System.Drawing.Color.Gray;
-            this.lbThu.Location = new System.Drawing.Point(10, 56);
-            this.lbThu.Name = "lbThu";
-            this.lbThu.Size = new System.Drawing.Size(36, 16);
-            this.lbThu.TabIndex = 4;
-            this.lbThu.Text = "THU";
-            // 
-            // pbThu
-            // 
-            this.pbThu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThu.Location = new System.Drawing.Point(3, 3);
-            this.pbThu.Name = "pbThu";
-            this.pbThu.Size = new System.Drawing.Size(50, 50);
-            this.pbThu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbThu.TabIndex = 0;
-            this.pbThu.TabStop = false;
-            this.pbThu.Click += new System.EventHandler(this.pbThu_Click);
-            this.pbThu.MouseEnter += new System.EventHandler(this.pbThu_MouseEnter);
-            this.pbThu.MouseLeave += new System.EventHandler(this.pbThu_MouseLeave);
-            // 
-            // pbChi
-            // 
-            this.pbChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbChi.Location = new System.Drawing.Point(73, 3);
-            this.pbChi.Name = "pbChi";
-            this.pbChi.Size = new System.Drawing.Size(50, 50);
-            this.pbChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbChi.TabIndex = 2;
-            this.pbChi.TabStop = false;
-            this.pbChi.Click += new System.EventHandler(this.pbChi_Click);
-            this.pbChi.MouseEnter += new System.EventHandler(this.pbChi_MouseEnter);
-            this.pbChi.MouseLeave += new System.EventHandler(this.pbChi_MouseLeave);
-            // 
-            // tbTong
-            // 
-            this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(775, 55);
-            this.tbTong.MaxLength = 10;
-            this.tbTong.Name = "tbTong";
-            this.tbTong.ReadOnly = true;
-            this.tbTong.Size = new System.Drawing.Size(121, 26);
-            this.tbTong.TabIndex = 59;
-            this.tbTong.Text = "999.999.999";
-            this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(724, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 58;
-            this.label3.Text = "Tổng:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(128, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "LỢI NHUẬN";
-            this.label4.Visible = false;
-            // 
-            // pbLoiNhuan
-            // 
-            this.pbLoiNhuan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLoiNhuan.Location = new System.Drawing.Point(143, 3);
-            this.pbLoiNhuan.Name = "pbLoiNhuan";
-            this.pbLoiNhuan.Size = new System.Drawing.Size(50, 50);
-            this.pbLoiNhuan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLoiNhuan.TabIndex = 7;
-            this.pbLoiNhuan.TabStop = false;
-            this.pbLoiNhuan.Visible = false;
-            this.pbLoiNhuan.Click += new System.EventHandler(this.pbLoiNhuan_Click);
-            this.pbLoiNhuan.MouseEnter += new System.EventHandler(this.pbLoiNhuan_MouseEnter);
-            this.pbLoiNhuan.MouseLeave += new System.EventHandler(this.pbLoiNhuan_MouseLeave);
-            // 
-            // UcBaoCao
+            // UcChi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tbTong);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnFind);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UcBaoCao";
+            this.Name = "UcChi";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.Load += new System.EventHandler(this.UcBaoCao_Load);
+            this.Load += new System.EventHandler(this.UcChi_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
@@ -473,13 +368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTotalPage)).EndInit();
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
-            this.pnSelect.ResumeLayout(false);
-            this.pnSelect.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbChi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoiNhuan)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -496,7 +385,6 @@
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chNgayGio;
         private System.Windows.Forms.ColumnHeader chNguoiNhap;
-        private System.Windows.Forms.ColumnHeader chKhachHang;
         private System.Windows.Forms.ColumnHeader chLyDo;
         private System.Windows.Forms.ColumnHeader chTien;
         private System.Windows.Forms.Panel pnTraCuu;
@@ -507,11 +395,6 @@
         private System.Windows.Forms.PictureBox pbTotalPage;
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lbPage;
-        private System.Windows.Forms.Panel pnSelect;
-        private System.Windows.Forms.Label lbChi;
-        private System.Windows.Forms.Label lbThu;
-        private System.Windows.Forms.PictureBox pbThu;
-        private System.Windows.Forms.PictureBox pbChi;
         private System.Windows.Forms.PictureBox pbOk;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.PictureBox pbTraCuu;
@@ -520,7 +403,5 @@
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.TextBox tbTong;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pbLoiNhuan;
     }
 }

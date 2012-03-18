@@ -75,6 +75,18 @@
     <Compile Include="Library\Common\Startup.cs" />
     <Compile Include="Library\Common\CommonFunction.cs" />
     <Compile Include="Library\Common\XML_Function.cs" />
+    <Compile Include="Main\BaoCao\Chi\UcChi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\Chi\UcChi.Designer.cs">
+      <DependentUpon>UcChi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.Designer.cs">
+      <DependentUpon>UcLoiNhuan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\KhachHang\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,16 +159,16 @@
     <Compile Include="Main\GiaoDich\ThanhToan\UcThanhToan.Designer.cs">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\ThuChi\UcBaoCao.cs">
+    <Compile Include="Main\BaoCao\Thu\UcThu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\ThuChi\UcBaoCao.Designer.cs">
-      <DependentUpon>UcBaoCao.cs</DependentUpon>
+    <Compile Include="Main\BaoCao\Thu\UcThu.Designer.cs">
+      <DependentUpon>UcThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\ThuChi\UcThuChiIndex.cs">
+    <Compile Include="Main\BaoCao\UcThuChiIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\ThuChi\UcThuChiIndex.Designer.cs">
+    <Compile Include="Main\BaoCao\UcThuChiIndex.Designer.cs">
       <DependentUpon>UcThuChiIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\User\UcInfo.cs">
@@ -175,6 +187,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\Chi\UcChi.resx">
+      <DependentUpon>UcChi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.resx">
+      <DependentUpon>UcLoiNhuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
@@ -212,10 +230,10 @@
     <EmbeddedResource Include="Main\GiaoDich\ThanhToan\UcThanhToan.resx">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\ThuChi\UcBaoCao.resx">
-      <DependentUpon>UcBaoCao.cs</DependentUpon>
+    <EmbeddedResource Include="Main\BaoCao\Thu\UcThu.resx">
+      <DependentUpon>UcThu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\ThuChi\UcThuChiIndex.resx">
+    <EmbeddedResource Include="Main\BaoCao\UcThuChiIndex.resx">
       <DependentUpon>UcThuChiIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\User\UcInfo.resx">
