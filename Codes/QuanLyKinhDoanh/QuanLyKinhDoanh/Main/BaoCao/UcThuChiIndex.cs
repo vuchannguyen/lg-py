@@ -23,6 +23,7 @@ namespace QuanLyKinhDoanh
             {
                 pbThu.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THU_INDEX);
                 pbChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_CHI_INDEX);
+                pbLoiNhuan.Image = Image.FromFile(ConstantResource.THUCHI_ICON_LOINHUAN_INDEX);
             }
             catch
             {
@@ -40,7 +41,7 @@ namespace QuanLyKinhDoanh
 
         private void pbThu_Click(object sender, EventArgs e)
         {
-
+            this.Controls.Add(new UcThu());
         }
 
         private void pbThu_MouseEnter(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace QuanLyKinhDoanh
 
         private void pbChi_Click(object sender, EventArgs e)
         {
-
+            this.Controls.Add(new UcChi());
         }
 
         private void pbChi_MouseEnter(object sender, EventArgs e)
@@ -70,6 +71,23 @@ namespace QuanLyKinhDoanh
         {
             pbChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_CHI_INDEX);
             lbChi.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbLoiNhuan_Click(object sender, EventArgs e)
+        {
+            this.Controls.Add(new UcLoiNhuan());
+        }
+
+        private void pbLoiNhuan_MouseEnter(object sender, EventArgs e)
+        {
+            pbLoiNhuan.Image = Image.FromFile(ConstantResource.THUCHI_ICON_LOINHUAN_INDEX_MOUSEOVER);
+            lbLoiNhuan.ForeColor = Constant.COLOR_IN_USE;
+        }
+
+        private void pbLoiNhuan_MouseLeave(object sender, EventArgs e)
+        {
+            pbLoiNhuan.Image = Image.FromFile(ConstantResource.THUCHI_ICON_LOINHUAN_INDEX);
+            lbLoiNhuan.ForeColor = Constant.COLOR_NORMAL;
         }
     }
 }

@@ -46,7 +46,7 @@
             this.lbSelect = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnDetail = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lvThongTin = new System.Windows.Forms.ListView();
@@ -77,7 +77,7 @@
             this.gbInfo.SuspendLayout();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnDetail.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
@@ -273,17 +273,17 @@
             this.pbTitle.TabIndex = 1;
             this.pbTitle.TabStop = false;
             // 
-            // panel1
+            // pnDetail
             // 
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.lvThongTin);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(20, 220);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(950, 350);
-            this.panel1.TabIndex = 57;
+            this.pnDetail.Controls.Add(this.textBox1);
+            this.pnDetail.Controls.Add(this.label10);
+            this.pnDetail.Controls.Add(this.lvThongTin);
+            this.pnDetail.Controls.Add(this.groupBox1);
+            this.pnDetail.ForeColor = System.Drawing.Color.Black;
+            this.pnDetail.Location = new System.Drawing.Point(20, 220);
+            this.pnDetail.Name = "pnDetail";
+            this.pnDetail.Size = new System.Drawing.Size(950, 350);
+            this.pnDetail.TabIndex = 57;
             // 
             // textBox1
             // 
@@ -541,7 +541,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnDetail);
             this.Controls.Add(this.pnInfo);
             this.Controls.Add(this.pnTitle);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -554,8 +554,8 @@
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnDetail.ResumeLayout(false);
+            this.pnDetail.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -582,7 +582,7 @@
         private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnDetail;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox6;

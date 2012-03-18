@@ -35,6 +35,9 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             LoadResource();
 
+            pnInfo.Location = CommonFunc.SetWidthCenter(this.Size, pnInfo.Size, pnInfo.Top);
+            pnDetail.Location = CommonFunc.SetWidthCenter(this.Size, pnDetail.Size, pnDetail.Top);
+
             cbTinhTrang.SelectedIndex = 0;
 
             this.BringToFront();
