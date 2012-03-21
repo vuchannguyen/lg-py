@@ -1,0 +1,5 @@
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\BUS.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\BUS.pdb

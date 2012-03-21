@@ -1,0 +1,7 @@
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\obj\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\obj\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DTO.pdb

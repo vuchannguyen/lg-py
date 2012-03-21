@@ -1,0 +1,6 @@
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\bin\Debug\DTO.dll.config
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\bin\Debug\DTO.pdb
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\DTO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\DTO.pdb
