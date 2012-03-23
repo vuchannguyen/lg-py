@@ -41,6 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HoaDonDao.cs" />
+    <Compile Include="HoaDonDetailDao.cs" />
+    <Compile Include="HoaDonStatusDao.cs" />
+    <Compile Include="HoaDonTypeDao.cs" />
+    <Compile Include="Library\CommonDao.cs" />
+    <Compile Include="Library\DynamicLinq.cs" />
+    <Compile Include="KhachHangDao.cs" />
+    <Compile Include="SanPhamDao.cs" />
+    <Compile Include="SanPhamGroupDao.cs" />
     <Compile Include="SQLConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDao.cs" />

@@ -10,38 +10,20 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class UserDao: SQLConnection
+    public class HoaDonDao : SQLConnection
     {
-        public IQueryable<User> GetQuery(string text)
+        public IQueryable<HoaDon> GetQuery(string text)
         {
-            var sql = from data in dbContext.Users
+            var sql = from data in dbContext.HoaDons
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Email, text) ||
-                    SqlMethods.Like(p.DienThoai, text)
+                sql = sql.Where(p => SqlMethods.Like(p.User.Ten, text) ||
+                    SqlMethods.Like(p.KhachHang.Ten, text)
                     );
             }
-
-            //if (ConvertUtil.ConvertToInt(examQuestionId) != 0)
-            //{
-            //    sql = sql.Where(p => p.ExamQuestionID == ConvertUtil.ConvertToInt(examQuestionId));
-            //}
-
-            //if (examDateFrom != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate >= examDateFrom);
-            //}
-
-            //if (examDateTo != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate <= examDateTo);
-            //}
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
@@ -51,7 +33,7 @@ namespace DAO
             return GetQuery(text).Count();
         }
 
-        public List<User> GetList(string text,
+        public List<HoaDon> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -89,16 +71,16 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public User GetById(int id)
+        public HoaDon GetById(int id)
         {
-            return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
+            return dbContext.HoaDons.Where(p => p.Id == id).SingleOrDefault<HoaDon>();
         }
 
-        public bool Insert(User data)
+        public bool Insert(HoaDon data)
         {
             try
             {
-                dbContext.Users.InsertOnSubmit(data);
+                dbContext.HoaDons.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -109,12 +91,11 @@ namespace DAO
             }
         }
 
-        public bool Delete(User data)
+        public bool Delete(HoaDon data)
         {
             if (data != null)
             {
-                User objDb = GetById(data.Id);
-
+                HoaDon objDb = GetById(data.Id);
                 if (objDb != null)
                 {
                     objDb.DeleteFlag = true;
@@ -146,7 +127,7 @@ namespace DAO
                     {
                         if (!int.TryParse(id, out result))
                         {
-                            User data = GetById(result);
+                            HoaDon data = GetById(result);
 
                             if (!Delete(data))
                             {
@@ -172,28 +153,26 @@ namespace DAO
             }
         }
 
-        public bool Update(User data)
+        public bool Update(HoaDon data)
         {
             try
             {
                 if (data != null)
                 {
-                    User objDb = GetById(data.Id);
+                    HoaDon objDb = GetById(data.Id);
 
-                    objDb.Ten = data.Ten;
-                    objDb.IdGroup = data.IdGroup;
-                    objDb.MatKhau = data.MatKhau;
-                    objDb.GioiTinh = data.GioiTinh;
-                    objDb.CMND = data.CMND;
-                    objDb.DienThoai = data.DienThoai;
-                    objDb.Email = data.Email;
+                    objDb.IdType = data.IdType;
+                    objDb.IdStatus = data.IdStatus;
+                    objDb.IdUser = data.IdUser;
+                    objDb.IdKhachHang = data.IdKhachHang;
+                    objDb.ThanhTien = data.ThanhTien;
                     objDb.GhiChu = data.GhiChu;
 
                     objDb.CreateBy = data.CreateBy;
                     objDb.CreateDate = data.CreateDate;
                     objDb.UpdateBy = data.UpdateBy;
                     objDb.UpdateDate = data.UpdateDate;
-                    
+
                     dbContext.SubmitChanges();
                     return true;
                 }

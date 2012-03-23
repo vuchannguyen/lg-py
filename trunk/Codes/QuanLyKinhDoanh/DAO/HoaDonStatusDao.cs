@@ -10,38 +10,19 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class UserDao: SQLConnection
+    public class HoaDonStatusDao : SQLConnection
     {
-        public IQueryable<User> GetQuery(string text)
+        public IQueryable<HoaDonStatus> GetQuery(string text)
         {
-            var sql = from data in dbContext.Users
+            var sql = from data in dbContext.HoaDonStatus
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Email, text) ||
-                    SqlMethods.Like(p.DienThoai, text)
+                sql = sql.Where(p => SqlMethods.Like(p.Ten, text)
                     );
             }
-
-            //if (ConvertUtil.ConvertToInt(examQuestionId) != 0)
-            //{
-            //    sql = sql.Where(p => p.ExamQuestionID == ConvertUtil.ConvertToInt(examQuestionId));
-            //}
-
-            //if (examDateFrom != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate >= examDateFrom);
-            //}
-
-            //if (examDateTo != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate <= examDateTo);
-            //}
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
@@ -51,7 +32,7 @@ namespace DAO
             return GetQuery(text).Count();
         }
 
-        public List<User> GetList(string text,
+        public List<HoaDonStatus> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -61,18 +42,6 @@ namespace DAO
                 case "chTen":
                     sortSQL += "Ten " + sortOrder;
                     break;
-
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
 
                 default:
                     sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
@@ -89,16 +58,16 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public User GetById(int id)
+        public HoaDonStatus GetById(int id)
         {
-            return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
+            return dbContext.HoaDonStatus.Where(p => p.Id == id).SingleOrDefault<HoaDonStatus>();
         }
 
-        public bool Insert(User data)
+        public bool Insert(HoaDonStatus data)
         {
             try
             {
-                dbContext.Users.InsertOnSubmit(data);
+                dbContext.HoaDonStatus.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -109,16 +78,15 @@ namespace DAO
             }
         }
 
-        public bool Delete(User data)
+        public bool Delete(HoaDonStatus data)
         {
             if (data != null)
             {
-                User objDb = GetById(data.Id);
+                HoaDonStatus objDb = GetById(data.Id);
 
                 if (objDb != null)
                 {
-                    objDb.DeleteFlag = true;
-                    dbContext.SubmitChanges();
+                    dbContext.HoaDonStatus.DeleteOnSubmit(objDb);
 
                     return true;
                 }
@@ -146,7 +114,7 @@ namespace DAO
                     {
                         if (!int.TryParse(id, out result))
                         {
-                            User data = GetById(result);
+                            HoaDonStatus data = GetById(result);
 
                             if (!Delete(data))
                             {
@@ -172,28 +140,16 @@ namespace DAO
             }
         }
 
-        public bool Update(User data)
+        public bool Update(HoaDonStatus data)
         {
             try
             {
                 if (data != null)
                 {
-                    User objDb = GetById(data.Id);
+                    HoaDonStatus objDb = GetById(data.Id);
 
                     objDb.Ten = data.Ten;
-                    objDb.IdGroup = data.IdGroup;
-                    objDb.MatKhau = data.MatKhau;
-                    objDb.GioiTinh = data.GioiTinh;
-                    objDb.CMND = data.CMND;
-                    objDb.DienThoai = data.DienThoai;
-                    objDb.Email = data.Email;
-                    objDb.GhiChu = data.GhiChu;
 
-                    objDb.CreateBy = data.CreateBy;
-                    objDb.CreateDate = data.CreateDate;
-                    objDb.UpdateBy = data.UpdateBy;
-                    objDb.UpdateDate = data.UpdateDate;
-                    
                     dbContext.SubmitChanges();
                     return true;
                 }

@@ -10,36 +10,21 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class UserDao: SQLConnection
+    public class SanPhamDao : SQLConnection
     {
-        public IQueryable<User> GetQuery(string text)
+        public IQueryable<SanPham> GetQuery(string text)
         {
-            var sql = from data in dbContext.Users
+            var sql = from data in dbContext.SanPhams
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Email, text) ||
-                    SqlMethods.Like(p.DienThoai, text)
+                sql = sql.Where(p => SqlMethods.Like(p.IdSanPham, text) ||
+                    SqlMethods.Like(p.Ten, text) ||
+                    SqlMethods.Like(p.MoTa, text)
                     );
             }
-
-            //if (ConvertUtil.ConvertToInt(examQuestionId) != 0)
-            //{
-            //    sql = sql.Where(p => p.ExamQuestionID == ConvertUtil.ConvertToInt(examQuestionId));
-            //}
-
-            //if (examDateFrom != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate >= examDateFrom);
-            //}
-
-            //if (examDateTo != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate <= examDateTo);
-            //}
 
             sql = sql.Where(p => p.DeleteFlag == false);
 
@@ -51,7 +36,7 @@ namespace DAO
             return GetQuery(text).Count();
         }
 
-        public List<User> GetList(string text,
+        public List<SanPham> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -89,16 +74,16 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public User GetById(int id)
+        public SanPham GetById(int id)
         {
-            return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
+            return dbContext.SanPhams.Where(p => p.Id == id).SingleOrDefault<SanPham>();
         }
 
-        public bool Insert(User data)
+        public bool Insert(SanPham data)
         {
             try
             {
-                dbContext.Users.InsertOnSubmit(data);
+                dbContext.SanPhams.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -109,12 +94,11 @@ namespace DAO
             }
         }
 
-        public bool Delete(User data)
+        public bool Delete(SanPham data)
         {
             if (data != null)
             {
-                User objDb = GetById(data.Id);
-
+                SanPham objDb = GetById(data.Id);
                 if (objDb != null)
                 {
                     objDb.DeleteFlag = true;
@@ -146,7 +130,7 @@ namespace DAO
                     {
                         if (!int.TryParse(id, out result))
                         {
-                            User data = GetById(result);
+                            SanPham data = GetById(result);
 
                             if (!Delete(data))
                             {
@@ -172,28 +156,35 @@ namespace DAO
             }
         }
 
-        public bool Update(User data)
+        public bool Update(SanPham data)
         {
             try
             {
                 if (data != null)
                 {
-                    User objDb = GetById(data.Id);
+                    SanPham objDb = GetById(data.Id);
 
                     objDb.Ten = data.Ten;
+                    objDb.IdSanPham = data.IdSanPham;
                     objDb.IdGroup = data.IdGroup;
-                    objDb.MatKhau = data.MatKhau;
-                    objDb.GioiTinh = data.GioiTinh;
-                    objDb.CMND = data.CMND;
-                    objDb.DienThoai = data.DienThoai;
-                    objDb.Email = data.Email;
+                    objDb.MoTa = data.MoTa;
+                    objDb.GiaMua = data.GiaMua;
+                    objDb.GiaBan = data.GiaBan;
+                    objDb.LaiSuat = data.LaiSuat;
+                    objDb.SoLuong = data.SoLuong;
+                    objDb.DonViTinh = data.DonViTinh;
+                    objDb.XuatXu = data.XuatXu;
+                    objDb.Hieu = data.Hieu;
+                    objDb.Size = data.Size;
+                    objDb.ThoiGianBaoHanh = data.ThoiGianBaoHanh;
+                    objDb.DonViBaoHanh = data.DonViBaoHanh;
                     objDb.GhiChu = data.GhiChu;
 
                     objDb.CreateBy = data.CreateBy;
                     objDb.CreateDate = data.CreateDate;
                     objDb.UpdateBy = data.UpdateBy;
                     objDb.UpdateDate = data.UpdateDate;
-                    
+
                     dbContext.SubmitChanges();
                     return true;
                 }
