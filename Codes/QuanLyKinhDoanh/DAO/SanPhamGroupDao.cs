@@ -10,38 +10,20 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class UserDao: SQLConnection
+    public class SanPhamGroupDao : SQLConnection
     {
-        public IQueryable<User> GetQuery(string text)
+        public IQueryable<SanPhamGroup> GetQuery(string text)
         {
-            var sql = from data in dbContext.Users
+            var sql = from data in dbContext.SanPhamGroups
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Email, text) ||
-                    SqlMethods.Like(p.DienThoai, text)
+                    SqlMethods.Like(p.Mota, text)
                     );
             }
-
-            //if (ConvertUtil.ConvertToInt(examQuestionId) != 0)
-            //{
-            //    sql = sql.Where(p => p.ExamQuestionID == ConvertUtil.ConvertToInt(examQuestionId));
-            //}
-
-            //if (examDateFrom != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate >= examDateFrom);
-            //}
-
-            //if (examDateTo != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate <= examDateTo);
-            //}
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
@@ -51,7 +33,7 @@ namespace DAO
             return GetQuery(text).Count();
         }
 
-        public List<User> GetList(string text,
+        public List<SanPhamGroup> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -61,18 +43,6 @@ namespace DAO
                 case "chTen":
                     sortSQL += "Ten " + sortOrder;
                     break;
-
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
 
                 default:
                     sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
@@ -89,16 +59,16 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public User GetById(int id)
+        public SanPhamGroup GetById(string id)
         {
-            return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
+            return dbContext.SanPhamGroups.Where(p => p.Id == id).SingleOrDefault<SanPhamGroup>();
         }
 
-        public bool Insert(User data)
+        public bool Insert(SanPhamGroup data)
         {
             try
             {
-                dbContext.Users.InsertOnSubmit(data);
+                dbContext.SanPhamGroups.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -109,16 +79,15 @@ namespace DAO
             }
         }
 
-        public bool Delete(User data)
+        public bool Delete(SanPhamGroup data)
         {
             if (data != null)
             {
-                User objDb = GetById(data.Id);
+                SanPhamGroup objDb = GetById(data.Id);
 
                 if (objDb != null)
                 {
-                    objDb.DeleteFlag = true;
-                    dbContext.SubmitChanges();
+                    dbContext.SanPhamGroups.DeleteOnSubmit(objDb);
 
                     return true;
                 }
@@ -140,13 +109,12 @@ namespace DAO
                 {
                     ids = ids.TrimEnd(',');
                     string[] idArr = ids.Split(',');
-                    int result = 0;
 
                     foreach (string id in idArr)
                     {
-                        if (!int.TryParse(id, out result))
+                        if (!string.IsNullOrEmpty(id))
                         {
-                            User data = GetById(result);
+                            SanPhamGroup data = GetById(id);
 
                             if (!Delete(data))
                             {
@@ -172,28 +140,17 @@ namespace DAO
             }
         }
 
-        public bool Update(User data)
+        public bool Update(SanPhamGroup data)
         {
             try
             {
                 if (data != null)
                 {
-                    User objDb = GetById(data.Id);
+                    SanPhamGroup objDb = GetById(data.Id);
 
                     objDb.Ten = data.Ten;
-                    objDb.IdGroup = data.IdGroup;
-                    objDb.MatKhau = data.MatKhau;
-                    objDb.GioiTinh = data.GioiTinh;
-                    objDb.CMND = data.CMND;
-                    objDb.DienThoai = data.DienThoai;
-                    objDb.Email = data.Email;
-                    objDb.GhiChu = data.GhiChu;
+                    objDb.Mota = data.Mota;
 
-                    objDb.CreateBy = data.CreateBy;
-                    objDb.CreateDate = data.CreateDate;
-                    objDb.UpdateBy = data.UpdateBy;
-                    objDb.UpdateDate = data.UpdateDate;
-                    
                     dbContext.SubmitChanges();
                     return true;
                 }

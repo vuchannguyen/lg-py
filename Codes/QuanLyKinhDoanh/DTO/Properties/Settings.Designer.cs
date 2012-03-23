@@ -33,5 +33,16 @@ namespace DTO.Properties {
                 return ((string)(this["QuanLyKinhDoanhConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LGVN13311-XPB01\\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated" +
+            " Security=True")]
+        public string QuanLyKinhDoanhConnectionString1 {
+            get {
+                return ((string)(this["QuanLyKinhDoanhConnectionString1"]));
+            }
+        }
     }
 }

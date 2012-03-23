@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyKinhDoanh" Class="QLKDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CONAN-PC\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LGVN13311-XPB01\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -13,9 +13,10 @@
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonDetail" Member="HoaDonDetails" ThisKey="Id" OtherKey="IdHoaDon" Type="HoaDonDetail" />
-      <Association Name="HoaDonGroup_HoaDon" Member="HoaDonGroup" ThisKey="IdType" OtherKey="Id" Type="HoaDonGroup" IsForeignKey="true" />
       <Association Name="HoaDonStatus_HoaDon" Member="HoaDonStatus" ThisKey="IdStatus" OtherKey="Id" Type="HoaDonStatus" IsForeignKey="true" />
+      <Association Name="HoaDonType_HoaDon" Member="HoaDonType" ThisKey="IdType" OtherKey="Id" Type="HoaDonType" IsForeignKey="true" />
       <Association Name="KhachHang_HoaDon" Member="KhachHang" ThisKey="IdKhachHang" OtherKey="Id" Type="KhachHang" IsForeignKey="true" />
       <Association Name="User_HoaDon" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
@@ -25,7 +26,7 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Mota" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="UserGroup_User" Member="Users" ThisKey="Id" OtherKey="IdUserGroup" Type="User" />
+      <Association Name="UserGroup_User" Member="Users" ThisKey="Id" OtherKey="IdGroup" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.HoaDonDetail" Member="HoaDonDetails">
@@ -39,13 +40,6 @@
       <Association Name="SanPham_HoaDonDetail" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.HoaDonGroup" Member="HoaDonGroups">
-    <Type Name="HoaDonGroup">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
-      <Association Name="HoaDonGroup_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdType" Type="HoaDon" />
-    </Type>
-  </Table>
   <Table Name="dbo.HoaDonStatus" Member="HoaDonStatus">
     <Type Name="HoaDonStatus">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -53,10 +47,17 @@
       <Association Name="HoaDonStatus_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdStatus" Type="HoaDon" />
     </Type>
   </Table>
+  <Table Name="dbo.HoaDonType" Member="HoaDonTypes">
+    <Type Name="HoaDonType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NChar(3) NOT NULL" CanBeNull="false" />
+      <Association Name="HoaDonType_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdType" Type="HoaDon" />
+    </Type>
+  </Table>
   <Table Name="dbo.KhachHang" Member="KhachHangs">
     <Type Name="KhachHang">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdNhomKhachHang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -71,7 +72,7 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdKhachHang" Type="HoaDon" />
-      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangGroup" ThisKey="IdNhomKhachHang" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
+      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangGroup" ThisKey="IdGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.KhachHangGroup" Member="KhachHangGroups">
@@ -80,14 +81,14 @@
       <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Diem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Mota" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangs" ThisKey="Id" OtherKey="IdNhomKhachHang" Type="KhachHang" />
+      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangs" ThisKey="Id" OtherKey="IdGroup" Type="KhachHang" />
     </Type>
   </Table>
   <Table Name="dbo.SanPham" Member="SanPhams">
     <Type Name="SanPham">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IdSanPham" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="IdNhomSanPham" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="IdGroup" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="GiaMua" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
@@ -107,7 +108,6 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="SanPham_HoaDonDetail" Member="HoaDonDetails" ThisKey="Id" OtherKey="IdSanPham" Type="HoaDonDetail" />
-      <Association Name="SanPhamGroup_SanPham" Member="SanPhamGroup" ThisKey="IdNhomSanPham" OtherKey="Id" Type="SanPhamGroup" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SanPhamGroup" Member="SanPhamGroups">
@@ -115,13 +115,12 @@
       <Column Name="Id" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Mota" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="SanPhamGroup_SanPham" Member="SanPhams" ThisKey="Id" OtherKey="IdNhomSanPham" Type="SanPham" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdUserGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MatKhau" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="CMND" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
@@ -135,7 +134,7 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="User_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdUser" Type="HoaDon" />
-      <Association Name="UserGroup_User" Member="UserGroup" ThisKey="IdUserGroup" OtherKey="Id" Type="UserGroup" IsForeignKey="true" />
+      <Association Name="UserGroup_User" Member="UserGroup" ThisKey="IdGroup" OtherKey="Id" Type="UserGroup" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

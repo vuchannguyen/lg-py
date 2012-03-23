@@ -5,3 +5,10 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\obj\Debug\DAO.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\obj\Debug\DAO.pdb
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DTO.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DTO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\obj\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DAO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DTO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DTO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DAO\obj\Debug\DAO.pdb

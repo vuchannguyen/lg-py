@@ -3,3 +3,8 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\BUS.pdb
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\BUS.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\BUS.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\BUS.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\BUS.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\BUS.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\BUS.pdb

@@ -8,12 +8,51 @@ namespace DAO
 {
     public class SQLConnection
     {
-        public static bool bWindowsAuthentication;
-        public static string sServerName;
-        public static string sUserName;
-        public static string sPassword;
+        private bool bWindowsAuthentication;
 
-        public static QLKDDataContext CreateSQlConnection()
+        public bool BWindowsAuthentication
+        {
+            get { return bWindowsAuthentication; }
+            set { bWindowsAuthentication = value; }
+        }
+
+        private string sServerName;
+
+        public string SServerName
+        {
+            get { return sServerName; }
+            set { sServerName = value; }
+        }
+
+        private string sUserName;
+
+        public string SUserName
+        {
+            get { return sUserName; }
+            set { sUserName = value; }
+        }
+
+        private string sPassword;
+
+        public string SPassword
+        {
+            get { return sPassword; }
+            set { sPassword = value; }
+        }
+
+        private static readonly string serverName = ".\\SQLEXPRESS";
+
+        private static readonly string CONNECTION_STRING = "Data Source=" + serverName + ";Initial Catalog=VNSC_DB;Integrated Security=True";
+        // CRM Data Context
+        protected QLKDDataContext dbContext = new QLKDDataContext(CONNECTION_STRING);
+
+        public SQLConnection()
+        {
+            // set command time out by seconds
+            dbContext.CommandTimeout = 300;
+        }
+
+        public QLKDDataContext CreateSQlConnection()
         {
             try
             {

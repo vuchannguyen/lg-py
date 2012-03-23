@@ -4,3 +4,9 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\bin\Debug\DTO.pdb
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\DTO.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\DTO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DTO\bin\Debug\DTO.dll.config
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DTO\bin\Debug\DTO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DTO\bin\Debug\DTO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DTO\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DTO\obj\Debug\DTO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\DTO\obj\Debug\DTO.pdb
