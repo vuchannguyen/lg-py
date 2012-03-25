@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Collections;
 #endregion
 
-namespace VNSC {
+namespace Library {
     /// <summary>
     /// Represents a Windows list view control, 
     /// which displays a collection of items that can be 

@@ -10,6 +10,7 @@ namespace Library
     {
         public static string SORT_ASCENDING = "asc";
         public static string SORT_DESCENDING = "desc";
+        public static string SEPERATE_STRING = ", ";
 
         public static string GetFilterText(string text)
         {

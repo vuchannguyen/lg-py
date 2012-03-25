@@ -42,9 +42,9 @@ namespace DAO
 
         private static readonly string serverName = ".\\SQLEXPRESS";
 
-        private static readonly string CONNECTION_STRING = "Data Source=" + serverName + ";Initial Catalog=VNSC_DB;Integrated Security=True";
+        private static readonly string CONNECTION_STRING = "Data Source=" + serverName + ";Initial Catalog=QuanLyKinhDoanh;Integrated Security=True";
         // CRM Data Context
-        protected QLKDDataContext dbContext = new QLKDDataContext(CONNECTION_STRING);
+        protected static QLKDDataContext dbContext = new QLKDDataContext(CONNECTION_STRING);
 
         public SQLConnection()
         {

@@ -8,3 +8,7 @@ C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\D
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\BUS.dll
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\BUS.pdb
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DAO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DTO.dll
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DAO.pdb
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DTO.pdb

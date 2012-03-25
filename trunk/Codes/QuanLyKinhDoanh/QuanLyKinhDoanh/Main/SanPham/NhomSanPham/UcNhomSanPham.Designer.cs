@@ -43,6 +43,7 @@
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.lvThongTin = new System.Windows.Forms.ListView();
+            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,6 +59,7 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -223,9 +225,12 @@
             // 
             // lvThongTin
             // 
+            this.lvThongTin.CheckBoxes = true;
             this.lvThongTin.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chCheckBox,
             this.chMa,
             this.chSTT,
+            this.chId,
             this.chTen,
             this.chMoTa});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,6 +242,15 @@
             this.lvThongTin.TabIndex = 86;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
+            this.lvThongTin.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvThongTin_ColumnClick);
+            this.lvThongTin.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTin_ColumnWidthChanging);
+            this.lvThongTin.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvThongTin_ItemChecked);
+            this.lvThongTin.SelectedIndexChanged += new System.EventHandler(this.lvThongTin_SelectedIndexChanged);
+            // 
+            // chCheckBox
+            // 
+            this.chCheckBox.Text = "All";
+            this.chCheckBox.Width = 30;
             // 
             // chMa
             // 
@@ -253,12 +267,12 @@
             // chTen
             // 
             this.chTen.Text = "Tên";
-            this.chTen.Width = 284;
+            this.chTen.Width = 214;
             // 
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 371;
+            this.chMoTa.Width = 332;
             // 
             // pnTraCuu
             // 
@@ -285,6 +299,7 @@
             this.tbPage.TabIndex = 89;
             this.tbPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbPage.Visible = false;
+            this.tbPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPage_KeyPress);
             // 
             // lbTotalPage
             // 
@@ -305,6 +320,9 @@
             this.pbNextPage.Size = new System.Drawing.Size(25, 32);
             this.pbNextPage.TabIndex = 88;
             this.pbNextPage.TabStop = false;
+            this.pbNextPage.Click += new System.EventHandler(this.pbNextPage_Click);
+            this.pbNextPage.MouseEnter += new System.EventHandler(this.pbNextPage_MouseEnter);
+            this.pbNextPage.MouseLeave += new System.EventHandler(this.pbNextPage_MouseLeave);
             // 
             // pbBackPage
             // 
@@ -314,6 +332,9 @@
             this.pbBackPage.Size = new System.Drawing.Size(25, 32);
             this.pbBackPage.TabIndex = 87;
             this.pbBackPage.TabStop = false;
+            this.pbBackPage.Click += new System.EventHandler(this.pbBackPage_Click);
+            this.pbBackPage.MouseEnter += new System.EventHandler(this.pbBackPage_MouseEnter);
+            this.pbBackPage.MouseLeave += new System.EventHandler(this.pbBackPage_MouseLeave);
             // 
             // pbTotalPage
             // 
@@ -327,19 +348,25 @@
             // pbOk
             // 
             this.pbOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbOk.Location = new System.Drawing.Point(224, 6);
+            this.pbOk.Location = new System.Drawing.Point(252, 6);
             this.pbOk.Name = "pbOk";
             this.pbOk.Size = new System.Drawing.Size(64, 21);
             this.pbOk.TabIndex = 85;
             this.pbOk.TabStop = false;
+            this.pbOk.Click += new System.EventHandler(this.pbOk_Click);
+            this.pbOk.MouseEnter += new System.EventHandler(this.pbOk_MouseEnter);
+            this.pbOk.MouseLeave += new System.EventHandler(this.pbOk_MouseLeave);
             // 
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
             this.tbSearch.MaxLength = 10;
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(177, 23);
+            this.tbSearch.Size = new System.Drawing.Size(200, 23);
             this.tbSearch.TabIndex = 84;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
+            this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
             // 
             // pbTraCuu
             // 
@@ -363,12 +390,20 @@
             this.lbPage.AutoSize = true;
             this.lbPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbPage.Location = new System.Drawing.Point(3, 1);
+            this.lbPage.Location = new System.Drawing.Point(13, 1);
             this.lbPage.Name = "lbPage";
-            this.lbPage.Size = new System.Drawing.Size(39, 19);
+            this.lbPage.Size = new System.Drawing.Size(18, 19);
             this.lbPage.TabIndex = 89;
-            this.lbPage.Text = "???";
+            this.lbPage.Text = "1";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
+            this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
+            // 
+            // chId
+            // 
+            this.chId.Text = "Mã";
+            this.chId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chId.Width = 79;
             // 
             // UcNhomSanPham
             // 
@@ -440,5 +475,7 @@
         private System.Windows.Forms.PictureBox pbTraCuu;
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lbPage;
+        private System.Windows.Forms.ColumnHeader chCheckBox;
+        private System.Windows.Forms.ColumnHeader chId;
     }
 }

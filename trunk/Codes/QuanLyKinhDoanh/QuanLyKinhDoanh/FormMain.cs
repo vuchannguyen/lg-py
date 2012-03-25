@@ -68,9 +68,9 @@ namespace QuanLyKinhDoanh
             lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
 
             pnBody.Width = pnMain.Width;
-            pnBody.Height = pnMain.Height - 100 - Constant.BOT_HEIGHT_DEFAULT;
+            pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
 
-            pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.TOP_HEIGHT_DEFAULT);
+            pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
 
             pbThanhToan_Click(sender, e);
         }

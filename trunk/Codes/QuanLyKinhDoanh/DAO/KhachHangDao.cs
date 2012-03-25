@@ -12,7 +12,7 @@ namespace DAO
 {
     public class KhachHangDao : SQLConnection
     {
-        public IQueryable<KhachHang> GetQuery(string text)
+        public static IQueryable<KhachHang> GetQuery(string text)
         {
             var sql = from data in dbContext.KhachHangs
                       select data;
@@ -31,12 +31,12 @@ namespace DAO
             return sql;
         }
 
-        public int GetCount(string text)
+        public static int GetCount(string text)
         {
             return GetQuery(text).Count();
         }
 
-        public List<KhachHang> GetList(string text,
+        public static List<KhachHang> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -74,12 +74,12 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public KhachHang GetById(int id)
+        public static KhachHang GetById(int id)
         {
             return dbContext.KhachHangs.Where(p => p.Id == id).SingleOrDefault<KhachHang>();
         }
 
-        public bool Insert(KhachHang data)
+        public static bool Insert(KhachHang data)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace DAO
             }
         }
 
-        public bool Delete(KhachHang data)
+        public static bool Delete(KhachHang data)
         {
             if (data != null)
             {
@@ -112,7 +112,7 @@ namespace DAO
             return false;
         }
 
-        public bool DeleteList(string ids)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             try
@@ -157,7 +157,7 @@ namespace DAO
             }
         }
 
-        public bool Update(KhachHang data)
+        public static bool Update(KhachHang data)
         {
             try
             {

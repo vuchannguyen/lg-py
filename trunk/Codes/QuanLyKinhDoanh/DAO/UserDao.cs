@@ -12,7 +12,7 @@ namespace DAO
 {
     public class UserDao: SQLConnection
     {
-        public IQueryable<User> GetQuery(string text)
+        public static IQueryable<User> GetQuery(string text)
         {
             var sql = from data in dbContext.Users
                       select data;
@@ -21,8 +21,8 @@ namespace DAO
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Email, text) ||
-                    SqlMethods.Like(p.DienThoai, text)
+                    SqlMethods.Like(p.UserName, text) ||
+                    SqlMethods.Like(p.Email, text)
                     );
             }
 
@@ -46,12 +46,12 @@ namespace DAO
             return sql;
         }
 
-        public int GetCount(string text)
+        public static int GetCount(string text)
         {
             return GetQuery(text).Count();
         }
 
-        public List<User> GetList(string text,
+        public static List<User> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -89,15 +89,25 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public User GetById(int id)
+        public static User GetById(int id)
         {
             return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
         }
 
-        public bool Insert(User data)
+        public static User GetByUserName(string name)
+        {
+            return dbContext.Users.Where(p => p.UserName == name).SingleOrDefault<User>();
+        }
+
+        public static bool Insert(User data)
         {
             try
             {
+                if (GetByUserName(data.UserName) != null)
+                {
+                    return false;
+                }
+
                 dbContext.Users.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
@@ -109,42 +119,40 @@ namespace DAO
             }
         }
 
-        public bool Delete(User data)
+        public static bool Delete(User data)
         {
             if (data != null)
             {
-                User objDb = GetById(data.Id);
+                data.DeleteFlag = true;
+                dbContext.SubmitChanges();
 
-                if (objDb != null)
-                {
-                    objDb.DeleteFlag = true;
-                    dbContext.SubmitChanges();
-
-                    return true;
-                }
+                return true;
             }
 
             return false;
         }
 
-        public bool DeleteList(string ids)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             try
             {
-                dbContext.Connection.Open();
+                if (dbContext.Connection.State != System.Data.ConnectionState.Open)
+                {
+                    dbContext.Connection.Open();
+                }
+
                 trans = dbContext.Connection.BeginTransaction();
                 dbContext.Transaction = trans;
 
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    ids = ids.TrimEnd(',');
-                    string[] idArr = ids.Split(',');
+                    string[] idArr = ids.Split(new string[] { CommonDao.SEPERATE_STRING }, StringSplitOptions.RemoveEmptyEntries);
                     int result = 0;
 
                     foreach (string id in idArr)
                     {
-                        if (!int.TryParse(id, out result))
+                        if (int.TryParse(id, out result))
                         {
                             User data = GetById(result);
 
@@ -160,8 +168,12 @@ namespace DAO
                     }
 
                     trans.Commit();
+                    dbContext.Connection.Close();
+
                     return true;
                 }
+
+                dbContext.Connection.Close();
 
                 return false;
             }
@@ -172,29 +184,14 @@ namespace DAO
             }
         }
 
-        public bool Update(User data)
+        public static bool Update(User data)
         {
             try
             {
                 if (data != null)
                 {
-                    User objDb = GetById(data.Id);
-
-                    objDb.Ten = data.Ten;
-                    objDb.IdGroup = data.IdGroup;
-                    objDb.MatKhau = data.MatKhau;
-                    objDb.GioiTinh = data.GioiTinh;
-                    objDb.CMND = data.CMND;
-                    objDb.DienThoai = data.DienThoai;
-                    objDb.Email = data.Email;
-                    objDb.GhiChu = data.GhiChu;
-
-                    objDb.CreateBy = data.CreateBy;
-                    objDb.CreateDate = data.CreateDate;
-                    objDb.UpdateBy = data.UpdateBy;
-                    objDb.UpdateDate = data.UpdateDate;
-                    
                     dbContext.SubmitChanges();
+
                     return true;
                 }
 

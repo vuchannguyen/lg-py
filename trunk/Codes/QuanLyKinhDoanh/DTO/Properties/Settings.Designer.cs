@@ -26,8 +26,19 @@ namespace DTO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CONAN-PC\\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Securi" +
-            "ty=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LGVN13311-XPB01\\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated" +
+            " Security=True")]
+        public string QuanLyKinhDoanhConnectionString1 {
+            get {
+                return ((string)(this["QuanLyKinhDoanhConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" +
+            "")]
         public string QuanLyKinhDoanhConnectionString {
             get {
                 return ((string)(this["QuanLyKinhDoanhConnectionString"]));
@@ -37,11 +48,11 @@ namespace DTO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LGVN13311-XPB01\\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated" +
-            " Security=True")]
-        public string QuanLyKinhDoanhConnectionString1 {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CONAN-PC\\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Securi" +
+            "ty=True")]
+        public string QuanLyKinhDoanhConnectionString2 {
             get {
-                return ((string)(this["QuanLyKinhDoanhConnectionString1"]));
+                return ((string)(this["QuanLyKinhDoanhConnectionString2"]));
             }
         }
     }
