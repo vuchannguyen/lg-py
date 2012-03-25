@@ -12,7 +12,7 @@ namespace DAO
 {
     public class SanPhamDao : SQLConnection
     {
-        public IQueryable<SanPham> GetQuery(string text)
+        public static IQueryable<SanPham> GetQuery(string text)
         {
             var sql = from data in dbContext.SanPhams
                       select data;
@@ -31,12 +31,12 @@ namespace DAO
             return sql;
         }
 
-        public int GetCount(string text)
+        public static int GetCount(string text)
         {
             return GetQuery(text).Count();
         }
 
-        public List<SanPham> GetList(string text,
+        public static List<SanPham> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -74,12 +74,12 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public SanPham GetById(int id)
+        public static SanPham GetById(int id)
         {
             return dbContext.SanPhams.Where(p => p.Id == id).SingleOrDefault<SanPham>();
         }
 
-        public bool Insert(SanPham data)
+        public static bool Insert(SanPham data)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace DAO
             }
         }
 
-        public bool Delete(SanPham data)
+        public static bool Delete(SanPham data)
         {
             if (data != null)
             {
@@ -111,7 +111,7 @@ namespace DAO
             return false;
         }
 
-        public bool DeleteList(string ids)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             try
@@ -156,7 +156,7 @@ namespace DAO
             }
         }
 
-        public bool Update(SanPham data)
+        public static bool Update(SanPham data)
         {
             try
             {

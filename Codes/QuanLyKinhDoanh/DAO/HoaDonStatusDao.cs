@@ -12,7 +12,7 @@ namespace DAO
 {
     public class HoaDonStatusDao : SQLConnection
     {
-        public IQueryable<HoaDonStatus> GetQuery(string text)
+        public static IQueryable<HoaDonStatus> GetQuery(string text)
         {
             var sql = from data in dbContext.HoaDonStatus
                       select data;
@@ -27,12 +27,12 @@ namespace DAO
             return sql;
         }
 
-        public int GetCount(string text)
+        public static int GetCount(string text)
         {
             return GetQuery(text).Count();
         }
 
-        public List<HoaDonStatus> GetList(string text,
+        public static List<HoaDonStatus> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -58,12 +58,12 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public HoaDonStatus GetById(int id)
+        public static HoaDonStatus GetById(int id)
         {
             return dbContext.HoaDonStatus.Where(p => p.Id == id).SingleOrDefault<HoaDonStatus>();
         }
 
-        public bool Insert(HoaDonStatus data)
+        public static bool Insert(HoaDonStatus data)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace DAO
             }
         }
 
-        public bool Delete(HoaDonStatus data)
+        public static bool Delete(HoaDonStatus data)
         {
             if (data != null)
             {
@@ -95,7 +95,7 @@ namespace DAO
             return false;
         }
 
-        public bool DeleteList(string ids)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             try
@@ -140,7 +140,7 @@ namespace DAO
             }
         }
 
-        public bool Update(HoaDonStatus data)
+        public static bool Update(HoaDonStatus data)
         {
             try
             {

@@ -12,7 +12,7 @@ namespace DAO
 {
     public class SanPhamGroupDao : SQLConnection
     {
-        public IQueryable<SanPhamGroup> GetQuery(string text)
+        public static IQueryable<SanPhamGroup> GetQuery(string text)
         {
             var sql = from data in dbContext.SanPhamGroups
                       select data;
@@ -20,7 +20,8 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
+                sql = sql.Where(p => SqlMethods.Like(p.Id, text) ||
+                    SqlMethods.Like(p.Ten, text) ||
                     SqlMethods.Like(p.Mota, text)
                     );
             }
@@ -28,12 +29,12 @@ namespace DAO
             return sql;
         }
 
-        public int GetCount(string text)
+        public static int GetCount(string text)
         {
             return GetQuery(text).Count();
         }
 
-        public List<SanPhamGroup> GetList(string text,
+        public static List<SanPhamGroup> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -59,12 +60,12 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public SanPhamGroup GetById(string id)
+        public static SanPhamGroup GetById(string id)
         {
             return dbContext.SanPhamGroups.Where(p => p.Id == id).SingleOrDefault<SanPhamGroup>();
         }
 
-        public bool Insert(SanPhamGroup data)
+        public static bool Insert(SanPhamGroup data)
         {
             try
             {
@@ -79,57 +80,53 @@ namespace DAO
             }
         }
 
-        public bool Delete(SanPhamGroup data)
+        public static bool Delete(SanPhamGroup data)
         {
             if (data != null)
             {
-                SanPhamGroup objDb = GetById(data.Id);
+                dbContext.SanPhamGroups.DeleteOnSubmit(data);
+                dbContext.SubmitChanges();
 
-                if (objDb != null)
-                {
-                    dbContext.SanPhamGroups.DeleteOnSubmit(objDb);
-
-                    return true;
-                }
+                return true;
             }
 
             return false;
         }
 
-        public bool DeleteList(string ids)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             try
             {
-                dbContext.Connection.Open();
+                if (dbContext.Connection.State != System.Data.ConnectionState.Open)
+                {
+                    dbContext.Connection.Open();
+                }
+
                 trans = dbContext.Connection.BeginTransaction();
                 dbContext.Transaction = trans;
 
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    ids = ids.TrimEnd(',');
-                    string[] idArr = ids.Split(',');
+                    string[] idArr = ids.Split(new string[] { CommonDao.SEPERATE_STRING }, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach (string id in idArr)
                     {
-                        if (!string.IsNullOrEmpty(id))
-                        {
-                            SanPhamGroup data = GetById(id);
+                        SanPhamGroup data = GetById(id);
 
-                            if (!Delete(data))
-                            {
-                                return false;
-                            }
-                        }
-                        else
+                        if (!Delete(data))
                         {
                             return false;
                         }
                     }
 
                     trans.Commit();
+                    dbContext.Connection.Close();
+
                     return true;
                 }
+
+                dbContext.Connection.Close();
 
                 return false;
             }
@@ -140,17 +137,12 @@ namespace DAO
             }
         }
 
-        public bool Update(SanPhamGroup data)
+        public static bool Update(SanPhamGroup data)
         {
             try
             {
                 if (data != null)
                 {
-                    SanPhamGroup objDb = GetById(data.Id);
-
-                    objDb.Ten = data.Ten;
-                    objDb.Mota = data.Mota;
-
                     dbContext.SubmitChanges();
                     return true;
                 }

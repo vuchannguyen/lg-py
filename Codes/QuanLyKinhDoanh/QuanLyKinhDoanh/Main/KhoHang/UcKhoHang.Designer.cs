@@ -271,7 +271,7 @@
             // 
             this.chSTT.Text = "STT";
             this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chSTT.Width = 39;
+            this.chSTT.Width = 40;
             // 
             // chMa
             // 

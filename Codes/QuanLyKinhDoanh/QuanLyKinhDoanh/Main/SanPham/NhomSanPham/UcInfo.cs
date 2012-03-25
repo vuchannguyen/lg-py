@@ -7,14 +7,39 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
+using DTO;
+using BUS;
 
 namespace QuanLyKinhDoanh.NhomSanPham
 {
     public partial class UcInfo : UserControl
     {
+        private DTO.SanPhamGroup data;
+        private bool isUpdate;
+
         public UcInfo()
         {
             InitializeComponent();
+
+            data = new DTO.SanPhamGroup();
+            isUpdate = false;
+
+            Init();
+            RefreshData();
+        }
+
+        public UcInfo(DTO.SanPhamGroup data)
+        {
+            InitializeComponent();
+
+            this.data = data;
+            isUpdate = true;
+
+            Init();
+
+            tbMa.Text = data.Id;
+            tbTen.Text = data.Ten;
+            tbMoTa.Text = data.Mota;
         }
 
         private void LoadResource()
@@ -41,6 +66,77 @@ namespace QuanLyKinhDoanh.NhomSanPham
             this.BringToFront();
         }
 
+        #region Function
+        private void Init()
+        {
+            //
+        }
+
+        private void RefreshData()
+        {
+            tbMa.Text = string.Empty;
+            tbTen.Text = string.Empty;
+            tbMoTa.Text = string.Empty;
+        }
+
+        private void ValidateInput()
+        {
+            if (!string.IsNullOrEmpty(tbMa.Text) &&
+                !string.IsNullOrEmpty(tbTen.Text)
+                )
+            {
+                pbHoanTat.Enabled = true;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            }
+            else
+            {
+                pbHoanTat.Enabled = false;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+            }
+        }
+
+        private void InsertData()
+        {
+            data.Id = tbMa.Text;
+            data.Ten = tbTen.Text;
+            data.Mota = tbMoTa.Text;
+
+            if (SanPhamGroupBus.Insert(data))
+            {
+                this.Dispose();
+            }
+            else
+            {
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void UpdateData()
+        {
+            data.Id = tbMa.Text;
+            data.Ten = tbTen.Text;
+            data.Mota = tbMoTa.Text;
+
+            if (SanPhamGroupBus.Update(data))
+            {
+                this.Dispose();
+            }
+            else
+            {
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    this.Dispose();
+                }
+            }
+        }
+        #endregion
+
+
+
+        #region Ok Cancel
         private void pbHuy_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -58,7 +154,14 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            if (!isUpdate)
+            {
+                InsertData();
+            }
+            else
+            {
+                UpdateData();
+            }
         }
 
         private void pbHoanTat_MouseEnter(object sender, EventArgs e)
@@ -69,6 +172,17 @@ namespace QuanLyKinhDoanh.NhomSanPham
         private void pbHoanTat_MouseLeave(object sender, EventArgs e)
         {
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+        }
+        #endregion
+
+        private void tbMa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateSpace(e);
+        }
+
+        private void tbMa_TextChanged(object sender, EventArgs e)
+        {
+            tbMa.Text = CommonFunc.ConvertVietNamToEnglish(tbMa.Text);
         }
     }
 }

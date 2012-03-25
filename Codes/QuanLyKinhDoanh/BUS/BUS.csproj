@@ -40,8 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="HoaDonBus.cs" />
+    <Compile Include="HoaDonDetailBus.cs" />
+    <Compile Include="HoaDonStatusBus.cs" />
+    <Compile Include="HoaDonTypeBus.cs" />
+    <Compile Include="KhachHangBus.cs" />
+    <Compile Include="KhachHangGroupBus.cs" />
+    <Compile Include="SanPhamBus.cs" />
+    <Compile Include="SanPhamGroupBus.cs" />
+    <Compile Include="UserBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserGroupBus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{512A643B-C83E-4EC6-9769-EB20179259E7}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2C4D3ED8-16CD-46F1-A599-E121F5B0F7C6}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

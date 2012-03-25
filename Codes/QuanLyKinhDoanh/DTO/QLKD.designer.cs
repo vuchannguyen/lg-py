@@ -63,7 +63,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1976,6 +1976,8 @@ namespace DTO
 		
 		private EntitySet<HoaDonDetail> _HoaDonDetails;
 		
+		private EntityRef<SanPhamGroup> _SanPhamGroup;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2027,6 +2029,7 @@ namespace DTO
 		public SanPham()
 		{
 			this._HoaDonDetails = new EntitySet<HoaDonDetail>(new Action<HoaDonDetail>(this.attach_HoaDonDetails), new Action<HoaDonDetail>(this.detach_HoaDonDetails));
+			this._SanPhamGroup = default(EntityRef<SanPhamGroup>);
 			OnCreated();
 		}
 		
@@ -2081,6 +2084,10 @@ namespace DTO
 			{
 				if ((this._IdGroup != value))
 				{
+					if (this._SanPhamGroup.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnIdGroupChanging(value);
 					this.SendPropertyChanging();
 					this._IdGroup = value;
@@ -2463,6 +2470,40 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SanPhamGroup_SanPham", Storage="_SanPhamGroup", ThisKey="IdGroup", OtherKey="Id", IsForeignKey=true)]
+		public SanPhamGroup SanPhamGroup
+		{
+			get
+			{
+				return this._SanPhamGroup.Entity;
+			}
+			set
+			{
+				SanPhamGroup previousValue = this._SanPhamGroup.Entity;
+				if (((previousValue != value) 
+							|| (this._SanPhamGroup.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SanPhamGroup.Entity = null;
+						previousValue.SanPhams.Remove(this);
+					}
+					this._SanPhamGroup.Entity = value;
+					if ((value != null))
+					{
+						value.SanPhams.Add(this);
+						this._IdGroup = value.Id;
+					}
+					else
+					{
+						this._IdGroup = default(string);
+					}
+					this.SendPropertyChanged("SanPhamGroup");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2508,6 +2549,8 @@ namespace DTO
 		
 		private string _Mota;
 		
+		private EntitySet<SanPham> _SanPhams;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2522,6 +2565,7 @@ namespace DTO
 		
 		public SanPhamGroup()
 		{
+			this._SanPhams = new EntitySet<SanPham>(new Action<SanPham>(this.attach_SanPhams), new Action<SanPham>(this.detach_SanPhams));
 			OnCreated();
 		}
 		
@@ -2545,7 +2589,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
 		public string Ten
 		{
 			get
@@ -2585,6 +2629,19 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SanPhamGroup_SanPham", Storage="_SanPhams", ThisKey="Id", OtherKey="IdGroup")]
+		public EntitySet<SanPham> SanPhams
+		{
+			get
+			{
+				return this._SanPhams;
+			}
+			set
+			{
+				this._SanPhams.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2604,6 +2661,18 @@ namespace DTO
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_SanPhams(SanPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.SanPhamGroup = this;
+		}
+		
+		private void detach_SanPhams(SanPham entity)
+		{
+			this.SendPropertyChanging();
+			entity.SanPhamGroup = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
@@ -2618,7 +2687,9 @@ namespace DTO
 		
 		private string _Ten;
 		
-		private string _MatKhau;
+		private string _UserName;
+		
+		private string _Password;
 		
 		private string _CMND;
 		
@@ -2654,8 +2725,10 @@ namespace DTO
     partial void OnIdGroupChanged();
     partial void OnTenChanging(string value);
     partial void OnTenChanged();
-    partial void OnMatKhauChanging(string value);
-    partial void OnMatKhauChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
     partial void OnCMNDChanging(string value);
     partial void OnCMNDChanged();
     partial void OnGioiTinhChanging(string value);
@@ -2749,22 +2822,42 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string MatKhau
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string UserName
 		{
 			get
 			{
-				return this._MatKhau;
+				return this._UserName;
 			}
 			set
 			{
-				if ((this._MatKhau != value))
+				if ((this._UserName != value))
 				{
-					this.OnMatKhauChanging(value);
+					this.OnUserNameChanging(value);
 					this.SendPropertyChanging();
-					this._MatKhau = value;
-					this.SendPropertyChanged("MatKhau");
-					this.OnMatKhauChanged();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
 				}
 			}
 		}

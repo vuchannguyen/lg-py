@@ -33,24 +33,26 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.gbInfo = new System.Windows.Forms.GroupBox();
-            this.lbTen = new System.Windows.Forms.Label();
-            this.tbMoTa = new System.Windows.Forms.TextBox();
-            this.lbMa = new System.Windows.Forms.Label();
-            this.tbHoTen = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.pbHuy = new System.Windows.Forms.PictureBox();
-            this.label39 = new System.Windows.Forms.Label();
+            this.tbMa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.pbHoanTat = new System.Windows.Forms.PictureBox();
             this.label47 = new System.Windows.Forms.Label();
+            this.pbHoanTat = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.pbHuy = new System.Windows.Forms.PictureBox();
+            this.tbTen = new System.Windows.Forms.TextBox();
+            this.lbMa = new System.Windows.Forms.Label();
+            this.tbMoTa = new System.Windows.Forms.TextBox();
+            this.lbTen = new System.Windows.Forms.Label();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.gbInfo.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
             this.pnInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,93 +100,58 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbMa);
+            this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.panel12);
             this.gbInfo.Controls.Add(this.panel8);
-            this.gbInfo.Controls.Add(this.tbHoTen);
+            this.gbInfo.Controls.Add(this.tbTen);
             this.gbInfo.Controls.Add(this.lbMa);
             this.gbInfo.Controls.Add(this.tbMoTa);
             this.gbInfo.Controls.Add(this.lbTen);
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
             this.gbInfo.Location = new System.Drawing.Point(7, 3);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(562, 234);
+            this.gbInfo.Size = new System.Drawing.Size(562, 280);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
-            // lbTen
+            // tbMa
             // 
-            this.lbTen.AutoSize = true;
-            this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(76, 68);
-            this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(47, 16);
-            this.lbTen.TabIndex = 4;
-            this.lbTen.Text = "Mô tả:";
+            this.tbMa.Location = new System.Drawing.Point(129, 25);
+            this.tbMa.MaxLength = 6;
+            this.tbMa.Name = "tbMa";
+            this.tbMa.Size = new System.Drawing.Size(82, 23);
+            this.tbMa.TabIndex = 0;
+            this.tbMa.TextChanged += new System.EventHandler(this.tbMa_TextChanged);
+            this.tbMa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbMa_KeyPress);
             // 
-            // tbMoTa
+            // label1
             // 
-            this.tbMoTa.Location = new System.Drawing.Point(129, 65);
-            this.tbMoTa.Multiline = true;
-            this.tbMoTa.Name = "tbMoTa";
-            this.tbMoTa.Size = new System.Drawing.Size(419, 66);
-            this.tbMoTa.TabIndex = 10;
-            // 
-            // lbMa
-            // 
-            this.lbMa.AutoSize = true;
-            this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(81, 28);
-            this.lbMa.Name = "lbMa";
-            this.lbMa.Size = new System.Drawing.Size(42, 16);
-            this.lbMa.TabIndex = 90;
-            this.lbMa.Text = "*Tên:";
-            // 
-            // tbHoTen
-            // 
-            this.tbHoTen.Location = new System.Drawing.Point(129, 25);
-            this.tbHoTen.MaxLength = 6;
-            this.tbHoTen.Name = "tbHoTen";
-            this.tbHoTen.Size = new System.Drawing.Size(224, 23);
-            this.tbHoTen.TabIndex = 4;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label39);
-            this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(64, 153);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(70, 70);
-            this.panel8.TabIndex = 92;
-            // 
-            // pbHuy
-            // 
-            this.pbHuy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHuy.Location = new System.Drawing.Point(10, 10);
-            this.pbHuy.Name = "pbHuy";
-            this.pbHuy.Size = new System.Drawing.Size(50, 39);
-            this.pbHuy.TabIndex = 1;
-            this.pbHuy.TabStop = false;
-            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
-            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
-            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(7, 68);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(0, 16);
-            this.label39.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(87, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 16);
+            this.label1.TabIndex = 95;
+            this.label1.Text = "*Mã:";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(435, 153);
+            this.panel12.Location = new System.Drawing.Point(435, 193);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(7, 68);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(0, 16);
+            this.label47.TabIndex = 2;
             // 
             // pbHoanTat
             // 
@@ -198,21 +165,79 @@
             this.pbHoanTat.MouseEnter += new System.EventHandler(this.pbHoanTat_MouseEnter);
             this.pbHoanTat.MouseLeave += new System.EventHandler(this.pbHoanTat_MouseLeave);
             // 
-            // label47
+            // panel8
             // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(7, 68);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(0, 16);
-            this.label47.TabIndex = 2;
+            this.panel8.Controls.Add(this.label39);
+            this.panel8.Controls.Add(this.pbHuy);
+            this.panel8.Location = new System.Drawing.Point(64, 193);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(70, 70);
+            this.panel8.TabIndex = 92;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 68);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(0, 16);
+            this.label39.TabIndex = 2;
+            // 
+            // pbHuy
+            // 
+            this.pbHuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHuy.Location = new System.Drawing.Point(10, 10);
+            this.pbHuy.Name = "pbHuy";
+            this.pbHuy.Size = new System.Drawing.Size(50, 39);
+            this.pbHuy.TabIndex = 1;
+            this.pbHuy.TabStop = false;
+            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
+            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
+            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
+            // 
+            // tbTen
+            // 
+            this.tbTen.Location = new System.Drawing.Point(129, 65);
+            this.tbTen.MaxLength = 50;
+            this.tbTen.Name = "tbTen";
+            this.tbTen.Size = new System.Drawing.Size(224, 23);
+            this.tbTen.TabIndex = 1;
+            // 
+            // lbMa
+            // 
+            this.lbMa.AutoSize = true;
+            this.lbMa.ForeColor = System.Drawing.Color.Black;
+            this.lbMa.Location = new System.Drawing.Point(81, 68);
+            this.lbMa.Name = "lbMa";
+            this.lbMa.Size = new System.Drawing.Size(42, 16);
+            this.lbMa.TabIndex = 90;
+            this.lbMa.Text = "*Tên:";
+            // 
+            // tbMoTa
+            // 
+            this.tbMoTa.Location = new System.Drawing.Point(129, 105);
+            this.tbMoTa.MaxLength = 200;
+            this.tbMoTa.Multiline = true;
+            this.tbMoTa.Name = "tbMoTa";
+            this.tbMoTa.Size = new System.Drawing.Size(419, 66);
+            this.tbMoTa.TabIndex = 2;
+            // 
+            // lbTen
+            // 
+            this.lbTen.AutoSize = true;
+            this.lbTen.ForeColor = System.Drawing.Color.Black;
+            this.lbTen.Location = new System.Drawing.Point(76, 108);
+            this.lbTen.Name = "lbTen";
+            this.lbTen.Size = new System.Drawing.Size(47, 16);
+            this.lbTen.TabIndex = 4;
+            this.lbTen.Text = "Mô tả:";
             // 
             // pnInfo
             // 
             this.pnInfo.Controls.Add(this.gbInfo);
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
-            this.pnInfo.Location = new System.Drawing.Point(214, 240);
+            this.pnInfo.Location = new System.Drawing.Point(214, 220);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(580, 247);
+            this.pnInfo.Size = new System.Drawing.Size(580, 290);
             this.pnInfo.TabIndex = 49;
             // 
             // UcInfo
@@ -230,12 +255,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.gbInfo.ResumeLayout(false);
             this.gbInfo.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
             this.pnInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -254,10 +279,12 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.PictureBox pbHuy;
-        private System.Windows.Forms.TextBox tbHoTen;
+        private System.Windows.Forms.TextBox tbTen;
         private System.Windows.Forms.Label lbMa;
         private System.Windows.Forms.TextBox tbMoTa;
         private System.Windows.Forms.Label lbTen;
         private System.Windows.Forms.Panel pnInfo;
+        private System.Windows.Forms.TextBox tbMa;
+        private System.Windows.Forms.Label label1;
     }
 }

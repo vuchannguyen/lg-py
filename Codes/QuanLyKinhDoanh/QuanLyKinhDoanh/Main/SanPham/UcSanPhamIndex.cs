@@ -37,7 +37,7 @@ namespace QuanLyKinhDoanh
         {
             LoadResource();
 
-            pnSelect.Location = CommonFunc.SetWidthCenter(this.Size, pnSelect.Size, Constant.TOP_HEIGHT_DEFAULT);
+            pnSelect.Location = CommonFunc.SetWidthCenter(this.Size, pnSelect.Size, Constant.DEFAULT_TOP_HEIGHT);
         }
 
         private void pbSanPham_Click(object sender, EventArgs e)

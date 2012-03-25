@@ -58,9 +58,10 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Library\Common\CommonComboBoxItems.cs" />
     <Compile Include="Library\Common\Constant.cs" />
     <Compile Include="Library\Common\ConstantResource.cs" />
-    <Compile Include="Library\Common\ConstantTitle.cs" />
+    <Compile Include="Library\Common\ConvertUtil.cs" />
     <Compile Include="Library\Common\Convert_Function.cs" />
     <Compile Include="Library\Common\Fade.cs" />
     <Compile Include="Library\Common\File_Function.cs" />
@@ -75,6 +76,13 @@
     <Compile Include="Library\Common\Startup.cs" />
     <Compile Include="Library\Common\CommonFunction.cs" />
     <Compile Include="Library\Common\XML_Function.cs" />
+    <Compile Include="Library\Crypto\Crypto.cs" />
+    <Compile Include="Library\Crypto\MyFileCryptography.cs" />
+    <Compile Include="Library\Crypto\MyHashAlgorithm.cs" />
+    <Compile Include="Library\Crypto\MyHexHash.cs" />
+    <Compile Include="Library\Crypto\MyRSAAlgorithm.cs" />
+    <Compile Include="Library\Crypto\MyTripleDES.cs" />
+    <Compile Include="Library\Crypto\PrivateKeyCrypto.cs" />
     <Compile Include="Main\BaoCao\Chi\UcChi.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -264,7 +272,16 @@
   <ItemGroup>
     <Content Include="iconCD.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{43D5ACE3-32A3-4E07-A04A-25AD681BF2CE}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2C4D3ED8-16CD-46F1-A599-E121F5B0F7C6}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
