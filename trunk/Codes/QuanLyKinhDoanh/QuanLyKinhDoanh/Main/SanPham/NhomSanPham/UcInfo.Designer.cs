@@ -201,6 +201,7 @@
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(224, 23);
             this.tbTen.TabIndex = 1;
+            this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
             // lbMa
             // 

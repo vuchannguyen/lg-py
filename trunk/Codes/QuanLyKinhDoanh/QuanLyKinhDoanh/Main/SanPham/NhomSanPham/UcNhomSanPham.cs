@@ -49,6 +49,8 @@ namespace QuanLyKinhDoanh
 
         private void UcNhomSanPham_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
+
             LoadResource();
 
             //pnQuanLy.Size = new System.Drawing.Size(710, 480);
@@ -63,6 +65,8 @@ namespace QuanLyKinhDoanh
             tbSearch.Text = Constant.SEARCH_SANPHAMGROUP_TIP;
 
             this.BringToFront();
+
+            this.Visible = true;
         }
 
         #region Function
@@ -93,8 +97,13 @@ namespace QuanLyKinhDoanh
             }
 
             int total = SanPhamGroupBus.GetCount(text);
-            int maxPage = GetTotalPage(total);
+            int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
+
+            if (total == 0)
+            {
+                return;
+            }
 
             if (ConvertUtil.ConvertToInt(lbPage.Text) > maxPage)
             {
@@ -381,6 +390,14 @@ namespace QuanLyKinhDoanh
             if (tbSearch.Text == string.Empty)
             {
                 tbSearch.Text = Constant.SEARCH_SANPHAMGROUP_TIP;
+            }
+        }
+
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                pbOk_Click(sender, e);
             }
         }
 

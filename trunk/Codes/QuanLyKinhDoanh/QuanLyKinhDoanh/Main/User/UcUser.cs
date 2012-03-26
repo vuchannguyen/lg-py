@@ -97,7 +97,7 @@ namespace QuanLyKinhDoanh
             }
 
             int total = UserBus.GetCount(text);
-            int maxPage = GetTotalPage(total);
+            int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
             if (ConvertUtil.ConvertToInt(lbPage.Text) > maxPage)
@@ -385,6 +385,14 @@ namespace QuanLyKinhDoanh
             if (tbSearch.Text == string.Empty)
             {
                 tbSearch.Text = Constant.SEARCH_USER_TIP;
+            }
+        }
+
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                pbOk_Click(sender, e);
             }
         }
 
