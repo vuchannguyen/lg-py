@@ -25,8 +25,14 @@ namespace QuanLyKinhDoanh.User
             data = new DTO.User();
             isUpdate = false;
 
-            Init();
-            RefreshData();
+            if (Init())
+            {
+                RefreshData();
+            }
+            else
+            {
+                this.Visible = false;
+            }
         }
 
         public UcInfo(DTO.User data)
@@ -36,21 +42,26 @@ namespace QuanLyKinhDoanh.User
             this.data = data;
             isUpdate = true;
 
-            Init();
+            if (Init())
+            {
+                tbTen.Text = data.Ten;
+                tbUserName.Text = data.UserName;
+                tbPassword.Text = Constant.DEFAULT_PASSWORD;
+                tbCMND.Text = data.CMND;
+                tbDienThoai.Text = data.DienThoai;
+                tbEmail.Text = data.Email;
+                tbGhiChu.Text = data.GhiChu;
 
-            tbTen.Text = data.Ten;
-            tbUserName.Text = data.UserName;
-            tbPassword.Text = Constant.DEFAULT_PASSWORD;
-            tbCMND.Text = data.CMND;
-            tbDienThoai.Text = data.DienThoai;
-            tbEmail.Text = data.Email;
-            tbGhiChu.Text = data.GhiChu;
+                cbGioiTinh.Text = data.GioiTinh;
+                cbGroup.Text = data.UserGroup.Ten;
 
-            cbGioiTinh.Text = data.GioiTinh;
-            cbGroup.Text = data.UserGroup.Ten;
-
-            tbUserName.Enabled = false;
-            tbPassword.Enabled = false;
+                tbUserName.Enabled = false;
+                tbPassword.Enabled = false;
+            }
+            else
+            {
+                this.Visible = false;
+            }
         }
 
         private void LoadResource()
@@ -83,7 +94,7 @@ namespace QuanLyKinhDoanh.User
 
 
         #region Function
-        private void Init()
+        private bool Init()
         {
             List<DTO.UserGroup> listData = UserGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
@@ -91,7 +102,7 @@ namespace QuanLyKinhDoanh.User
             {
                 MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm User"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                this.Dispose();
+                return false;
             }
 
             cbGroup.Items.Clear();
@@ -100,6 +111,8 @@ namespace QuanLyKinhDoanh.User
             {
                 cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
             }
+
+            return true;
         }
 
         private void RefreshData()

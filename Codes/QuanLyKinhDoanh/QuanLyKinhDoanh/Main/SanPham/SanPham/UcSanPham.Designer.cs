@@ -43,8 +43,10 @@
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.lvThongTin = new System.Windows.Forms.ListView();
+            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMaSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNhom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,8 +62,6 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chMaSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -250,6 +250,12 @@
             this.lvThongTin.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvThongTin_ItemChecked);
             this.lvThongTin.SelectedIndexChanged += new System.EventHandler(this.lvThongTin_SelectedIndexChanged);
             // 
+            // chCheckBox
+            // 
+            this.chCheckBox.Text = "All";
+            this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chCheckBox.Width = 30;
+            // 
             // chMa
             // 
             this.chMa.Text = "Mã";
@@ -261,6 +267,12 @@
             this.chSTT.Text = "STT";
             this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chSTT.Width = 39;
+            // 
+            // chMaSanPham
+            // 
+            this.chMaSanPham.Text = "Mã";
+            this.chMaSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chMaSanPham.Width = 76;
             // 
             // chTen
             // 
@@ -375,6 +387,7 @@
             this.tbSearch.TabIndex = 84;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
+            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
             // 
             // pbTraCuu
@@ -407,18 +420,6 @@
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
-            // 
-            // chCheckBox
-            // 
-            this.chCheckBox.Text = "All";
-            this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chCheckBox.Width = 30;
-            // 
-            // chMaSanPham
-            // 
-            this.chMaSanPham.Text = "Mã";
-            this.chMaSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chMaSanPham.Width = 76;
             // 
             // UcSanPham
             // 

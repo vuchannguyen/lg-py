@@ -176,6 +176,9 @@ namespace QuanLyKinhDoanh.NhomSanPham
         }
         #endregion
 
+
+
+        #region Controls
         private void tbMa_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateSpace(e);
@@ -184,6 +187,14 @@ namespace QuanLyKinhDoanh.NhomSanPham
         private void tbMa_TextChanged(object sender, EventArgs e)
         {
             tbMa.Text = CommonFunc.ConvertVietNamToEnglish(tbMa.Text);
+
+            ValidateInput();
         }
+
+        private void tbTen_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+        #endregion
     }
 }

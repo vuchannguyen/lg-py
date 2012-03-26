@@ -388,6 +388,7 @@
             this.tbSearch.TabIndex = 84;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
+            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
             // 
             // pbTraCuu

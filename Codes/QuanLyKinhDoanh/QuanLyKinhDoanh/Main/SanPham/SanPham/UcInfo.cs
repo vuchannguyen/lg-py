@@ -20,6 +20,45 @@ namespace QuanLyKinhDoanh.SanPham
         public UcInfo()
         {
             InitializeComponent();
+
+            data = new DTO.SanPham();
+            isUpdate = false;
+
+            if (Init())
+            {
+                RefreshData();
+            }
+            else
+            {
+                this.Visible = false;
+            }
+        }
+
+        public UcInfo(DTO.SanPham data)
+        {
+            InitializeComponent();
+
+            this.data = data;
+            isUpdate = true;
+
+            if (Init())
+            {
+                tbMa.Text = data.IdSanPham;
+                tbTen.Text = data.Ten;
+                tbDonViTinh.Text = data.DonViTinh;
+                tbXuatXu.Text = data.XuatXu;
+                tbHieu.Text = data.Hieu;
+                tbThoiGianBaoHanh.Text = data.ThoiGianBaoHanh.ToString();
+                tbSize.Text = data.Size;
+                tbMoTa.Text = data.MoTa;
+
+                cbGroup.Text = data.SanPhamGroup.Ten;
+                cbDonViBaoHanh.Text = data.DonViBaoHanh;
+            }
+            else
+            {
+                this.Visible = false;
+            }
         }
 
         private void LoadResource()
@@ -50,7 +89,7 @@ namespace QuanLyKinhDoanh.SanPham
 
 
         #region Function
-        private void Init()
+        private bool Init()
         {
             List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
@@ -58,7 +97,7 @@ namespace QuanLyKinhDoanh.SanPham
             {
                 MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                this.Dispose();
+                return false;
             }
 
             cbGroup.Items.Clear();
@@ -67,6 +106,8 @@ namespace QuanLyKinhDoanh.SanPham
             {
                 cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
             }
+
+            return true;
         }
 
         private void RefreshData()

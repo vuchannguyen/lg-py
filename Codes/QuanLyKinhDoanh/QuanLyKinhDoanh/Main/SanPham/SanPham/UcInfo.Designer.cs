@@ -34,6 +34,7 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbDonViTinh = new System.Windows.Forms.TextBox();
             this.cbDonViBaoHanh = new System.Windows.Forms.ComboBox();
             this.tbThoiGianBaoHanh = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
-            this.tbDonViTinh = new System.Windows.Forms.TextBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -150,6 +150,14 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // tbDonViTinh
+            // 
+            this.tbDonViTinh.Location = new System.Drawing.Point(100, 130);
+            this.tbDonViTinh.MaxLength = 10;
+            this.tbDonViTinh.Name = "tbDonViTinh";
+            this.tbDonViTinh.Size = new System.Drawing.Size(181, 23);
+            this.tbDonViTinh.TabIndex = 114;
             // 
             // cbDonViBaoHanh
             // 
@@ -350,6 +358,7 @@
             this.tbMa.Location = new System.Drawing.Point(100, 30);
             this.tbMa.MaxLength = 15;
             this.tbMa.Name = "tbMa";
+            this.tbMa.ReadOnly = true;
             this.tbMa.Size = new System.Drawing.Size(100, 23);
             this.tbMa.TabIndex = 4;
             // 
@@ -382,14 +391,6 @@
             this.lbTen.Size = new System.Drawing.Size(59, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Xuất xứ:";
-            // 
-            // tbDonViTinh
-            // 
-            this.tbDonViTinh.Location = new System.Drawing.Point(100, 130);
-            this.tbDonViTinh.MaxLength = 10;
-            this.tbDonViTinh.Name = "tbDonViTinh";
-            this.tbDonViTinh.Size = new System.Drawing.Size(181, 23);
-            this.tbDonViTinh.TabIndex = 114;
             // 
             // UcInfo
             // 
