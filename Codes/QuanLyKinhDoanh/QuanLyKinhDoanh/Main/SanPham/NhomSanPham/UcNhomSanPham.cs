@@ -100,11 +100,6 @@ namespace QuanLyKinhDoanh
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
-            if (total == 0)
-            {
-                return;
-            }
-
             if (ConvertUtil.ConvertToInt(lbPage.Text) > maxPage)
             {
                 lbPage.Text = maxPage.ToString();
