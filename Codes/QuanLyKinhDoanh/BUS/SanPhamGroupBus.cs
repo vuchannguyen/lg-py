@@ -20,7 +20,7 @@ namespace BUS
             return SanPhamGroupDao.GetList(text, sortColumn, sortOrder, skip, take);
         }
 
-        public static SanPhamGroup GetById(string id)
+        public static SanPhamGroup GetById(int id)
         {
             return SanPhamGroupDao.GetById(id);
         }

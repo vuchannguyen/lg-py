@@ -12,3 +12,7 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DAO.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DTO.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DAO.pdb
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\BUS\bin\Debug\DTO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DAO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DTO.dll
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DAO.pdb
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DTO.pdb

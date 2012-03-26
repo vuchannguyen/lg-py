@@ -49,6 +49,7 @@ namespace QuanLyKinhDoanh
 
         private void UcUser_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
             LoadResource();
 
             //pnQuanLy.Size = new System.Drawing.Size(710, 480);
@@ -57,10 +58,13 @@ namespace QuanLyKinhDoanh
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
 
+            this.BringToFront();
+
             RefreshListView(tbSearch.Text, 1);
             SetStatusButtonPage(1);
 
             tbSearch.Text = Constant.SEARCH_USER_TIP;
+            this.Visible = true;
         }
 
 
@@ -183,8 +187,6 @@ namespace QuanLyKinhDoanh
         #region Thêm Xóa Sửa
         private void pbThem_Click(object sender, EventArgs e)
         {
-            //tbDienGiai_TextChanged(sender, e);
-
             uc = new UcInfo();
             uc.Disposed += new EventHandler(uc_Disposed);
             this.Controls.Add(uc);

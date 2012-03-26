@@ -111,9 +111,9 @@ namespace QuanLyKinhDoanh
             foreach (DTO.SanPhamGroup data in list)
             {
                 ListViewItem lvi = new ListViewItem();
-                lvi.SubItems.Add(data.Id);
+                lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.Id);
+                lvi.SubItems.Add(data.Ma);
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.Mota);
 
@@ -230,7 +230,7 @@ namespace QuanLyKinhDoanh
         {
             string id = lvThongTin.CheckedItems[0].SubItems[1].Text;
 
-            uc = new UcInfo(SanPhamGroupBus.GetById(id));
+            uc = new UcInfo(SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(id)));
             uc.Disposed += new EventHandler(uc_Disposed);
             this.Controls.Add(uc);
         }

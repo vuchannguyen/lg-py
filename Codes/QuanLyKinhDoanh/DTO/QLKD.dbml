@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyKinhDoanh" Class="QLKDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CONAN-PC\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LGVN13311-XPB01\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -88,7 +88,7 @@
     <Type Name="SanPham">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IdSanPham" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="IdGroup" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="GiaMua" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
@@ -113,7 +113,8 @@
   </Table>
   <Table Name="dbo.SanPhamGroup" Member="SanPhamGroups">
     <Type Name="SanPhamGroup">
-      <Column Name="Id" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Mota" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Association Name="SanPhamGroup_SanPham" Member="SanPhams" ThisKey="Id" OtherKey="IdGroup" Type="SanPham" />

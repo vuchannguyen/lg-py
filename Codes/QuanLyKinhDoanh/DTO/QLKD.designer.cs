@@ -63,7 +63,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1936,7 +1936,7 @@ namespace DTO
 		
 		private string _IdSanPham;
 		
-		private string _IdGroup;
+		private int _IdGroup;
 		
 		private string _Ten;
 		
@@ -1986,7 +1986,7 @@ namespace DTO
     partial void OnIdChanged();
     partial void OnIdSanPhamChanging(string value);
     partial void OnIdSanPhamChanged();
-    partial void OnIdGroupChanging(string value);
+    partial void OnIdGroupChanging(int value);
     partial void OnIdGroupChanged();
     partial void OnTenChanging(string value);
     partial void OnTenChanged();
@@ -2073,8 +2073,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGroup", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
-		public string IdGroup
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdGroup", DbType="Int NOT NULL")]
+		public int IdGroup
 		{
 			get
 			{
@@ -2497,7 +2497,7 @@ namespace DTO
 					}
 					else
 					{
-						this._IdGroup = default(string);
+						this._IdGroup = default(int);
 					}
 					this.SendPropertyChanged("SanPhamGroup");
 				}
@@ -2543,7 +2543,9 @@ namespace DTO
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _Id;
+		private int _Id;
+		
+		private string _Ma;
 		
 		private string _Ten;
 		
@@ -2555,8 +2557,10 @@ namespace DTO
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(string value);
+    partial void OnIdChanging(int value);
     partial void OnIdChanged();
+    partial void OnMaChanging(string value);
+    partial void OnMaChanged();
     partial void OnTenChanging(string value);
     partial void OnTenChanged();
     partial void OnMotaChanging(string value);
@@ -2569,8 +2573,8 @@ namespace DTO
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(6) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
 		{
 			get
 			{
@@ -2585,6 +2589,26 @@ namespace DTO
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Ma
+		{
+			get
+			{
+				return this._Ma;
+			}
+			set
+			{
+				if ((this._Ma != value))
+				{
+					this.OnMaChanging(value);
+					this.SendPropertyChanging();
+					this._Ma = value;
+					this.SendPropertyChanged("Ma");
+					this.OnMaChanged();
 				}
 			}
 		}
