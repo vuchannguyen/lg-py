@@ -74,6 +74,7 @@ namespace QuanLyKinhDoanh.User
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
+
             this.BringToFront();
 
             ValidateInput();
@@ -85,6 +86,14 @@ namespace QuanLyKinhDoanh.User
         private void Init()
         {
             List<DTO.UserGroup> listData = UserGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            if (listData.Count == 0)
+            {
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm User"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                this.Dispose();
+            }
+
             cbGroup.Items.Clear();
 
             foreach (DTO.UserGroup data in listData)

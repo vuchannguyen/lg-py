@@ -20,7 +20,7 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Id, text) ||
+                sql = sql.Where(p => SqlMethods.Like(p.Ma, text) ||
                     SqlMethods.Like(p.Ten, text) ||
                     SqlMethods.Like(p.Mota, text)
                     );
@@ -60,7 +60,7 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static SanPhamGroup GetById(string id)
+        public static SanPhamGroup GetById(int id)
         {
             return dbContext.SanPhamGroups.Where(p => p.Id == id).SingleOrDefault<SanPhamGroup>();
         }
@@ -109,12 +109,20 @@ namespace DAO
                 if (!string.IsNullOrEmpty(ids))
                 {
                     string[] idArr = ids.Split(new string[] { CommonDao.SEPERATE_STRING }, StringSplitOptions.RemoveEmptyEntries);
+                    int result = 0;
 
                     foreach (string id in idArr)
                     {
-                        SanPhamGroup data = GetById(id);
+                        if (int.TryParse(id, out result))
+                        {
+                            SanPhamGroup data = GetById(result);
 
-                        if (!Delete(data))
+                            if (!Delete(data))
+                            {
+                                return false;
+                            }
+                        }
+                        else
                         {
                             return false;
                         }

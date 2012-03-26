@@ -34,21 +34,19 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
-            this.cbDonViTinh = new System.Windows.Forms.ComboBox();
             this.cbDonViBaoHanh = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbThoiGianBaoHanh = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbSize = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbMoTa = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbHieu = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbXuatXu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbUserName = new System.Windows.Forms.TextBox();
+            this.tbTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbNhom = new System.Windows.Forms.ComboBox();
+            this.cbGroup = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
@@ -56,10 +54,11 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
             this.pbHuy = new System.Windows.Forms.PictureBox();
-            this.tbHoTen = new System.Windows.Forms.TextBox();
+            this.tbMa = new System.Windows.Forms.TextBox();
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
+            this.tbDonViTinh = new System.Windows.Forms.TextBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -123,25 +122,24 @@
             // 
             // gbInfo
             // 
-            this.gbInfo.Controls.Add(this.cbDonViTinh);
+            this.gbInfo.Controls.Add(this.tbDonViTinh);
             this.gbInfo.Controls.Add(this.cbDonViBaoHanh);
-            this.gbInfo.Controls.Add(this.textBox6);
+            this.gbInfo.Controls.Add(this.tbThoiGianBaoHanh);
             this.gbInfo.Controls.Add(this.label8);
-            this.gbInfo.Controls.Add(this.textBox5);
+            this.gbInfo.Controls.Add(this.tbSize);
             this.gbInfo.Controls.Add(this.label7);
             this.gbInfo.Controls.Add(this.tbMoTa);
-            this.gbInfo.Controls.Add(this.textBox4);
+            this.gbInfo.Controls.Add(this.tbHieu);
             this.gbInfo.Controls.Add(this.label6);
-            this.gbInfo.Controls.Add(this.textBox3);
-            this.gbInfo.Controls.Add(this.textBox2);
+            this.gbInfo.Controls.Add(this.tbXuatXu);
             this.gbInfo.Controls.Add(this.label5);
-            this.gbInfo.Controls.Add(this.tbUserName);
+            this.gbInfo.Controls.Add(this.tbTen);
             this.gbInfo.Controls.Add(this.label1);
-            this.gbInfo.Controls.Add(this.cbNhom);
+            this.gbInfo.Controls.Add(this.cbGroup);
             this.gbInfo.Controls.Add(this.label4);
             this.gbInfo.Controls.Add(this.panel12);
             this.gbInfo.Controls.Add(this.panel8);
-            this.gbInfo.Controls.Add(this.tbHoTen);
+            this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.lbMa);
             this.gbInfo.Controls.Add(this.label2);
             this.gbInfo.Controls.Add(this.lbTen);
@@ -152,20 +150,6 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
-            // 
-            // cbDonViTinh
-            // 
-            this.cbDonViTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDonViTinh.FormattingEnabled = true;
-            this.cbDonViTinh.Items.AddRange(new object[] {
-            "Đôi",
-            "Cái",
-            "Mét",
-            "Hộp"});
-            this.cbDonViTinh.Location = new System.Drawing.Point(159, 130);
-            this.cbDonViTinh.Name = "cbDonViTinh";
-            this.cbDonViTinh.Size = new System.Drawing.Size(122, 24);
-            this.cbDonViTinh.TabIndex = 114;
             // 
             // cbDonViBaoHanh
             // 
@@ -180,14 +164,14 @@
             this.cbDonViBaoHanh.Size = new System.Drawing.Size(77, 24);
             this.cbDonViBaoHanh.TabIndex = 113;
             // 
-            // textBox6
+            // tbThoiGianBaoHanh
             // 
-            this.textBox6.Location = new System.Drawing.Point(159, 180);
-            this.textBox6.MaxLength = 30;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(30, 23);
-            this.textBox6.TabIndex = 112;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbThoiGianBaoHanh.Location = new System.Drawing.Point(159, 180);
+            this.tbThoiGianBaoHanh.MaxLength = 30;
+            this.tbThoiGianBaoHanh.Name = "tbThoiGianBaoHanh";
+            this.tbThoiGianBaoHanh.Size = new System.Drawing.Size(30, 23);
+            this.tbThoiGianBaoHanh.TabIndex = 112;
+            this.tbThoiGianBaoHanh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -199,13 +183,13 @@
             this.label8.TabIndex = 111;
             this.label8.Text = "Thời gian bảo hành:";
             // 
-            // textBox5
+            // tbSize
             // 
-            this.textBox5.Location = new System.Drawing.Point(420, 180);
-            this.textBox5.MaxLength = 30;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(250, 23);
-            this.textBox5.TabIndex = 110;
+            this.tbSize.Location = new System.Drawing.Point(420, 180);
+            this.tbSize.MaxLength = 50;
+            this.tbSize.Name = "tbSize";
+            this.tbSize.Size = new System.Drawing.Size(250, 23);
+            this.tbSize.TabIndex = 110;
             // 
             // label7
             // 
@@ -220,18 +204,19 @@
             // tbMoTa
             // 
             this.tbMoTa.Location = new System.Drawing.Point(204, 225);
+            this.tbMoTa.MaxLength = 200;
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
             this.tbMoTa.Size = new System.Drawing.Size(300, 66);
             this.tbMoTa.TabIndex = 108;
             // 
-            // textBox4
+            // tbHieu
             // 
-            this.textBox4.Location = new System.Drawing.Point(420, 130);
-            this.textBox4.MaxLength = 30;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(250, 23);
-            this.textBox4.TabIndex = 107;
+            this.tbHieu.Location = new System.Drawing.Point(420, 130);
+            this.tbHieu.MaxLength = 50;
+            this.tbHieu.Name = "tbHieu";
+            this.tbHieu.Size = new System.Drawing.Size(250, 23);
+            this.tbHieu.TabIndex = 107;
             // 
             // label6
             // 
@@ -243,40 +228,31 @@
             this.label6.TabIndex = 106;
             this.label6.Text = "Hiệu:";
             // 
-            // textBox3
+            // tbXuatXu
             // 
-            this.textBox3.Location = new System.Drawing.Point(420, 80);
-            this.textBox3.MaxLength = 30;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(250, 23);
-            this.textBox3.TabIndex = 105;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(100, 130);
-            this.textBox2.MaxLength = 5;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(50, 23);
-            this.textBox2.TabIndex = 101;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbXuatXu.Location = new System.Drawing.Point(420, 80);
+            this.tbXuatXu.MaxLength = 50;
+            this.tbXuatXu.Name = "tbXuatXu";
+            this.tbXuatXu.Size = new System.Drawing.Size(250, 23);
+            this.tbXuatXu.TabIndex = 105;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(19, 133);
+            this.label5.Location = new System.Drawing.Point(36, 133);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 16);
+            this.label5.Size = new System.Drawing.Size(58, 16);
             this.label5.TabIndex = 102;
-            this.label5.Text = "*Số lượng:";
+            this.label5.Text = "*Đơn vị:";
             // 
-            // tbUserName
+            // tbTen
             // 
-            this.tbUserName.Location = new System.Drawing.Point(420, 25);
-            this.tbUserName.MaxLength = 30;
-            this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(250, 23);
-            this.tbUserName.TabIndex = 99;
+            this.tbTen.Location = new System.Drawing.Point(420, 25);
+            this.tbTen.MaxLength = 50;
+            this.tbTen.Name = "tbTen";
+            this.tbTen.Size = new System.Drawing.Size(250, 23);
+            this.tbTen.TabIndex = 99;
             // 
             // label1
             // 
@@ -288,18 +264,18 @@
             this.label1.TabIndex = 100;
             this.label1.Text = "*Tên:";
             // 
-            // cbNhom
+            // cbGroup
             // 
-            this.cbNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNhom.FormattingEnabled = true;
-            this.cbNhom.Items.AddRange(new object[] {
+            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGroup.FormattingEnabled = true;
+            this.cbGroup.Items.AddRange(new object[] {
             "Vd1: Giày",
             "Vd2: Dép",
             "Vd3: Nón"});
-            this.cbNhom.Location = new System.Drawing.Point(100, 80);
-            this.cbNhom.Name = "cbNhom";
-            this.cbNhom.Size = new System.Drawing.Size(181, 24);
-            this.cbNhom.TabIndex = 98;
+            this.cbGroup.Location = new System.Drawing.Point(100, 80);
+            this.cbGroup.Name = "cbGroup";
+            this.cbGroup.Size = new System.Drawing.Size(181, 24);
+            this.cbGroup.TabIndex = 98;
             // 
             // label4
             // 
@@ -369,13 +345,13 @@
             this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
             this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
             // 
-            // tbHoTen
+            // tbMa
             // 
-            this.tbHoTen.Location = new System.Drawing.Point(100, 30);
-            this.tbHoTen.MaxLength = 6;
-            this.tbHoTen.Name = "tbHoTen";
-            this.tbHoTen.Size = new System.Drawing.Size(100, 23);
-            this.tbHoTen.TabIndex = 4;
+            this.tbMa.Location = new System.Drawing.Point(100, 30);
+            this.tbMa.MaxLength = 15;
+            this.tbMa.Name = "tbMa";
+            this.tbMa.Size = new System.Drawing.Size(100, 23);
+            this.tbMa.TabIndex = 4;
             // 
             // lbMa
             // 
@@ -406,6 +382,14 @@
             this.lbTen.Size = new System.Drawing.Size(59, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Xuất xứ:";
+            // 
+            // tbDonViTinh
+            // 
+            this.tbDonViTinh.Location = new System.Drawing.Point(100, 130);
+            this.tbDonViTinh.MaxLength = 10;
+            this.tbDonViTinh.Name = "tbDonViTinh";
+            this.tbDonViTinh.Size = new System.Drawing.Size(181, 23);
+            this.tbDonViTinh.TabIndex = 114;
             // 
             // UcInfo
             // 
@@ -441,11 +425,10 @@
         private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.GroupBox gbInfo;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbUserName;
+        private System.Windows.Forms.TextBox tbTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbNhom;
+        private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label47;
@@ -453,19 +436,19 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.PictureBox pbHuy;
-        private System.Windows.Forms.TextBox tbHoTen;
+        private System.Windows.Forms.TextBox tbMa;
         private System.Windows.Forms.Label lbMa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbTen;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbHieu;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbXuatXu;
         private System.Windows.Forms.ComboBox cbDonViBaoHanh;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbThoiGianBaoHanh;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbSize;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbMoTa;
-        private System.Windows.Forms.ComboBox cbDonViTinh;
+        private System.Windows.Forms.TextBox tbDonViTinh;
     }
 }

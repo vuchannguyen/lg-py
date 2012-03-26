@@ -54,8 +54,10 @@ namespace Library
         public const string MESSAGE_UPDATE_ERROR = "{0} cập nhật dữ liệu thất bại!";
 
         public const string MESSAGE_ERROR = "Có lỗi!";
+        public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
+        public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
     }
 }

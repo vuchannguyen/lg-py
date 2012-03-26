@@ -37,7 +37,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
             Init();
 
-            tbMa.Text = data.Id;
+            tbMa.Text = data.Ma;
             tbTen.Text = data.Ten;
             tbMoTa.Text = data.Mota;
         }
@@ -63,6 +63,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
+
             this.BringToFront();
         }
 
@@ -97,7 +98,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
         private void InsertData()
         {
-            data.Id = tbMa.Text;
+            data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
             data.Mota = tbMoTa.Text;
 
@@ -116,7 +117,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
         private void UpdateData()
         {
-            data.Id = tbMa.Text;
+            data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
             data.Mota = tbMoTa.Text;
 
