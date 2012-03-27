@@ -104,7 +104,7 @@ namespace QuanLyKinhDoanh.SanPham
 
             foreach (DTO.SanPhamGroup data in listData)
             {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Ma));
             }
 
             return true;
@@ -145,7 +145,7 @@ namespace QuanLyKinhDoanh.SanPham
         {
             data.IdSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
-            data.IdGroup = ((CommonComboBoxItems)cbGroup.SelectedItem).Value;
+            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             data.MoTa = tbMoTa.Text;
             data.DonViTinh = tbDonViTinh.Text;
             data.XuatXu = tbXuatXu.Text;
@@ -163,7 +163,7 @@ namespace QuanLyKinhDoanh.SanPham
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     this.Dispose();
                 }
@@ -174,7 +174,7 @@ namespace QuanLyKinhDoanh.SanPham
         {
             data.IdSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
-            data.IdGroup = ((CommonComboBoxItems)cbGroup.SelectedItem).Value;
+            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             data.MoTa = tbMoTa.Text;
             data.DonViTinh = tbDonViTinh.Text;
             data.XuatXu = tbXuatXu.Text;
@@ -192,7 +192,7 @@ namespace QuanLyKinhDoanh.SanPham
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     this.Dispose();
                 }
@@ -240,5 +240,15 @@ namespace QuanLyKinhDoanh.SanPham
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
         #endregion
+
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string idSanPham = string.Empty;
+            DTO.SanPham data = SanPhamBus.GetLastData();
+
+            int newValue = data == null ? 0 : data.Id;
+
+            tbMa.Text = ((CommonComboBoxItems)cbGroup.SelectedItem).Value.ToString() + (newValue + 1).ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+        }
     }
 }

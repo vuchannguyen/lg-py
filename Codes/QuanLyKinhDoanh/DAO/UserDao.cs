@@ -94,9 +94,9 @@ namespace DAO
             return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
         }
 
-        public static User GetByUserName(string name)
+        public static User GetByUserName(string text)
         {
-            return dbContext.Users.Where(p => p.UserName == name).SingleOrDefault<User>();
+            return dbContext.Users.Where(p => p.UserName == text).SingleOrDefault<User>();
         }
 
         public static bool Insert(User data)

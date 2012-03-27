@@ -43,6 +43,10 @@ namespace DAO
 
             switch (sortColumn)
             {
+                case "chId":
+                    sortSQL += "Id " + sortOrder;
+                    break;
+
                 case "chTen":
                     sortSQL += "Ten " + sortOrder;
                     break;
@@ -72,6 +76,13 @@ namespace DAO
             }
 
             return sql.Skip(skip).Take(take).ToList();
+        }
+
+        public static SanPham GetLastData()
+        {
+            var sql = dbContext.SanPhams.OrderBy("Id " + CommonDao.SORT_DESCENDING);
+
+            return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static SanPham GetById(int id)

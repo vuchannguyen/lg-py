@@ -115,7 +115,7 @@
             // 
             this.pnInfo.Controls.Add(this.gbInfo);
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
-            this.pnInfo.Location = new System.Drawing.Point(44, 47);
+            this.pnInfo.Location = new System.Drawing.Point(145, 119);
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(710, 410);
             this.pnInfo.TabIndex = 49;
@@ -276,14 +276,11 @@
             // 
             this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Items.AddRange(new object[] {
-            "Vd1: Giày",
-            "Vd2: Dép",
-            "Vd3: Nón"});
             this.cbGroup.Location = new System.Drawing.Point(100, 80);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(181, 24);
             this.cbGroup.TabIndex = 98;
+            this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.cbGroup_SelectedIndexChanged);
             // 
             // label4
             // 

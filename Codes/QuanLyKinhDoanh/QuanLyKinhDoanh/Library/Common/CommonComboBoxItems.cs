@@ -7,22 +7,22 @@ namespace Library
 {
     public class CommonComboBoxItems
     {
-        private int _value;
-        private string _name;
+        private object _value;
+        private object _name;
 
-        public int Value
+        public object Value
         {
             get { return _value; }
             set { _value = value; }
         }
 
-        public string Name
+        public object Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        public CommonComboBoxItems(string name, int value)
+        public CommonComboBoxItems(object name, object value)
         {
             _name = name;
             _value = value;
@@ -30,7 +30,7 @@ namespace Library
 
         public override string ToString()
         {
-            return _name;
+            return _name.ToString();
         }
     }
 }
