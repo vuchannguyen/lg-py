@@ -157,7 +157,8 @@
             this.tbDonViTinh.MaxLength = 10;
             this.tbDonViTinh.Name = "tbDonViTinh";
             this.tbDonViTinh.Size = new System.Drawing.Size(181, 23);
-            this.tbDonViTinh.TabIndex = 114;
+            this.tbDonViTinh.TabIndex = 4;
+            this.tbDonViTinh.TextChanged += new System.EventHandler(this.tbDonViTinh_TextChanged);
             // 
             // cbDonViBaoHanh
             // 
@@ -170,16 +171,17 @@
             this.cbDonViBaoHanh.Location = new System.Drawing.Point(204, 179);
             this.cbDonViBaoHanh.Name = "cbDonViBaoHanh";
             this.cbDonViBaoHanh.Size = new System.Drawing.Size(77, 24);
-            this.cbDonViBaoHanh.TabIndex = 113;
+            this.cbDonViBaoHanh.TabIndex = 7;
             // 
             // tbThoiGianBaoHanh
             // 
             this.tbThoiGianBaoHanh.Location = new System.Drawing.Point(159, 180);
-            this.tbThoiGianBaoHanh.MaxLength = 30;
+            this.tbThoiGianBaoHanh.MaxLength = 2;
             this.tbThoiGianBaoHanh.Name = "tbThoiGianBaoHanh";
             this.tbThoiGianBaoHanh.Size = new System.Drawing.Size(30, 23);
-            this.tbThoiGianBaoHanh.TabIndex = 112;
+            this.tbThoiGianBaoHanh.TabIndex = 6;
             this.tbThoiGianBaoHanh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbThoiGianBaoHanh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbThoiGianBaoHanh_KeyPress);
             // 
             // label8
             // 
@@ -197,7 +199,7 @@
             this.tbSize.MaxLength = 50;
             this.tbSize.Name = "tbSize";
             this.tbSize.Size = new System.Drawing.Size(250, 23);
-            this.tbSize.TabIndex = 110;
+            this.tbSize.TabIndex = 8;
             // 
             // label7
             // 
@@ -216,7 +218,7 @@
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
             this.tbMoTa.Size = new System.Drawing.Size(300, 66);
-            this.tbMoTa.TabIndex = 108;
+            this.tbMoTa.TabIndex = 9;
             // 
             // tbHieu
             // 
@@ -224,7 +226,7 @@
             this.tbHieu.MaxLength = 50;
             this.tbHieu.Name = "tbHieu";
             this.tbHieu.Size = new System.Drawing.Size(250, 23);
-            this.tbHieu.TabIndex = 107;
+            this.tbHieu.TabIndex = 5;
             // 
             // label6
             // 
@@ -242,7 +244,7 @@
             this.tbXuatXu.MaxLength = 50;
             this.tbXuatXu.Name = "tbXuatXu";
             this.tbXuatXu.Size = new System.Drawing.Size(250, 23);
-            this.tbXuatXu.TabIndex = 105;
+            this.tbXuatXu.TabIndex = 3;
             // 
             // label5
             // 
@@ -260,7 +262,8 @@
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(250, 23);
-            this.tbTen.TabIndex = 99;
+            this.tbTen.TabIndex = 1;
+            this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
             // label1
             // 
@@ -279,7 +282,7 @@
             this.cbGroup.Location = new System.Drawing.Point(100, 80);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(181, 24);
-            this.cbGroup.TabIndex = 98;
+            this.cbGroup.TabIndex = 2;
             this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.cbGroup_SelectedIndexChanged);
             // 
             // label4
@@ -357,7 +360,7 @@
             this.tbMa.Name = "tbMa";
             this.tbMa.ReadOnly = true;
             this.tbMa.Size = new System.Drawing.Size(100, 23);
-            this.tbMa.TabIndex = 4;
+            this.tbMa.TabIndex = 0;
             // 
             // lbMa
             // 
