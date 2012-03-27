@@ -13,7 +13,12 @@ namespace Library
 
         public const int DEFAULT_ROW = 20;
 
+        public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
+
         public const string DEFAULT_PASSWORD = "admin";
+
+        public static string SORT_ASCENDING = "asc";
+        public static string SORT_DESCENDING = "desc";
 
         public static Color COLOR_NORMAL = Color.Gray;
         public static Color COLOR_MOUSEOVER = Color.Orange;
@@ -39,18 +44,20 @@ namespace Library
         public const string CAPTION_WARNING = "WARNING";
         public const string CAPTION_ERROR = "ERROR";
 
+        public const string MESSAGE_NEW_LINE = "\n";
         public const string MESSAGE_EXIT = "Bạn có muốn thoát?";
         public const string MESSAGE_CONTINUE = "Bạn có muốn tiếp tục?";
 
         public const string MESSAGE_DELETE_CONFIRM = "Xóa dữ liệu đã chọn?";
-        public const string MESSAGE_DELETE_SUCCESS = "{0} đã xóa thành công";
+        public const string MESSAGE_DELETE_SUCCESS = "{0} đã xóa thành công.";
         public const string MESSAGE_DELETE_ERROR = "{0} xóa thất bại!";
 
         public const string MESSAGE_INSERT_SUCCESS = "{0} đã nhập thành công";
         public const string MESSAGE_INSERT_ERROR = "Quá trình nhập dữ liệu mới thất bại!";
+        public const string MESSAGE_INSERT_ERROR_DUPLICATE = "Quá trình nhập dữ liệu mới thất bại!" + MESSAGE_NEW_LINE + "Vui lòng kiểm tra \"{0}\" đã tồn tại.";
 
         public const string MESSAGE_UPDATE_CONFIRM = "Cập nhật dữ liệu?";
-        public const string MESSAGE_UPDATE_SUCCESS = "{0} đã cập nhật thành công";
+        public const string MESSAGE_UPDATE_SUCCESS = "{0} đã cập nhật thành công.";
         public const string MESSAGE_UPDATE_ERROR = "{0} cập nhật dữ liệu thất bại!";
 
         public const string MESSAGE_ERROR = "Có lỗi!";

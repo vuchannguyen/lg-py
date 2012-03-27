@@ -149,7 +149,7 @@ namespace QuanLyKinhDoanh.User
         private void InsertData()
         {
             data.Ten = tbTen.Text;
-            data.IdGroup = ((CommonComboBoxItems)cbGroup.SelectedItem).Value;
+            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             data.UserName = tbUserName.Text;
             data.Password = Crypto.EncryptText(tbPassword.Text);
             data.GioiTinh = cbGioiTinh.Text;
@@ -167,7 +167,8 @@ namespace QuanLyKinhDoanh.User
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_ERROR_DUPLICATE, tbUserName.Text) +
+                    Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     this.Dispose();
                 }
@@ -177,7 +178,7 @@ namespace QuanLyKinhDoanh.User
         private void UpdateData()
         {
             data.Ten = tbTen.Text;
-            data.UserGroup = UserGroupBus.GetById(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            data.UserGroup = UserGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             //data.UserName = tbUserName.Text;
             //data.Password = Crypto.EncryptText(tbPassword.Text);
             data.GioiTinh = cbGioiTinh.Text;
@@ -195,7 +196,7 @@ namespace QuanLyKinhDoanh.User
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     this.Dispose();
                 }

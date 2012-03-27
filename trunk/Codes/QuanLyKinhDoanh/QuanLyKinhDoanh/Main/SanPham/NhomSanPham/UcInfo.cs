@@ -67,6 +67,8 @@ namespace QuanLyKinhDoanh.NhomSanPham
             this.BringToFront();
         }
 
+
+
         #region Function
         private void Init()
         {
@@ -108,7 +110,8 @@ namespace QuanLyKinhDoanh.NhomSanPham
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_ERROR_DUPLICATE, tbMa.Text) + 
+                    Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     this.Dispose();
                 }
@@ -127,7 +130,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     this.Dispose();
                 }
