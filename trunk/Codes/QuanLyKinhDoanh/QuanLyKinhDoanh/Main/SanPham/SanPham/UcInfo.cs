@@ -84,6 +84,8 @@ namespace QuanLyKinhDoanh.SanPham
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
             this.BringToFront();
+
+            ValidateInput();
         }
 
 
@@ -128,7 +130,8 @@ namespace QuanLyKinhDoanh.SanPham
         private void ValidateInput()
         {
             if (!string.IsNullOrEmpty(tbMa.Text) &&
-                !string.IsNullOrEmpty(tbTen.Text)
+                !string.IsNullOrEmpty(tbTen.Text) &&
+                !string.IsNullOrEmpty(tbDonViTinh.Text)
                 )
             {
                 pbHoanTat.Enabled = true;
@@ -241,6 +244,9 @@ namespace QuanLyKinhDoanh.SanPham
         }
         #endregion
 
+
+
+        #region Controls
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             string idSanPham = string.Empty;
@@ -249,6 +255,24 @@ namespace QuanLyKinhDoanh.SanPham
             int newValue = data == null ? 0 : data.Id;
 
             tbMa.Text = ((CommonComboBoxItems)cbGroup.SelectedItem).Value.ToString() + (newValue + 1).ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+
+            ValidateInput();
         }
+
+        private void tbTen_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void tbDonViTinh_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void tbThoiGianBaoHanh_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+        #endregion
     }
 }
