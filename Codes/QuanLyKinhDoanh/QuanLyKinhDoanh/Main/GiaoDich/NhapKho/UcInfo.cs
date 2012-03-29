@@ -45,7 +45,6 @@ namespace QuanLyKinhDoanh.Mua
             this.BringToFront();
 
             cbNhom.SelectedIndex = 0;
-            cbDonViTinh.SelectedIndex = 0;
 
             //int abc = 12345;
             //tbGiaNhap.Text = abc.ToString("#,###.00");

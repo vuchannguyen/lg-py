@@ -227,6 +227,7 @@
             // 
             // lvThongTin
             // 
+            this.lvThongTin.CheckBoxes = true;
             this.lvThongTin.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chCheckBox,
             this.chMa,

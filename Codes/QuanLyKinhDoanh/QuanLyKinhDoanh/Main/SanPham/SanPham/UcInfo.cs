@@ -106,7 +106,7 @@ namespace QuanLyKinhDoanh.SanPham
 
             foreach (DTO.SanPhamGroup data in listData)
             {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Ma));
+                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
             }
 
             return true;
@@ -254,7 +254,9 @@ namespace QuanLyKinhDoanh.SanPham
 
             int newValue = data == null ? 0 : data.Id;
 
-            tbMa.Text = ((CommonComboBoxItems)cbGroup.SelectedItem).Value.ToString() + (newValue + 1).ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+            string MaGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value)).Ma;
+
+            tbMa.Text = MaGroup + (newValue + 1).ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 
             ValidateInput();
         }
@@ -267,6 +269,9 @@ namespace QuanLyKinhDoanh.SanPham
         private void tbDonViTinh_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
+
+            tbDonViTinh.Text = tbDonViTinh.Text.ToUpper();
+            tbDonViTinh.Select(tbDonViTinh.Text.Length, 0);
         }
 
         private void tbThoiGianBaoHanh_KeyPress(object sender, KeyPressEventArgs e)

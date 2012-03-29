@@ -20,6 +20,17 @@ namespace BUS
             return SanPhamDao.GetList(text, sortColumn, sortOrder, skip, take);
         }
 
+        public static int GetCountKho(string text)
+        {
+            return SanPhamDao.GetCountKho(text);
+        }
+
+        public static List<SanPham> GetListKho(string text,
+            string sortColumn, string sortOrder, int skip, int take)
+        {
+            return SanPhamDao.GetListKho(text, sortColumn, sortOrder, skip, take);
+        }
+
         public static SanPham GetLastData()
         {
             return SanPhamDao.GetLastData();
