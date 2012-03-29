@@ -2053,7 +2053,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSanPham", DbType="NChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSanPham", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
 		public string IdSanPham
 		{
 			get

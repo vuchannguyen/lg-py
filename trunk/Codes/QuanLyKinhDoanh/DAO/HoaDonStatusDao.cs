@@ -100,19 +100,22 @@ namespace DAO
             DbTransaction trans = null;
             try
             {
-                dbContext.Connection.Open();
+                if (dbContext.Connection.State != System.Data.ConnectionState.Open)
+                {
+                    dbContext.Connection.Open();
+                }
+
                 trans = dbContext.Connection.BeginTransaction();
                 dbContext.Transaction = trans;
 
                 if (!string.IsNullOrEmpty(ids))
                 {
-                    ids = ids.TrimEnd(',');
-                    string[] idArr = ids.Split(',');
+                    string[] idArr = ids.Split(new string[] { CommonDao.SEPERATE_STRING }, StringSplitOptions.RemoveEmptyEntries);
                     int result = 0;
 
                     foreach (string id in idArr)
                     {
-                        if (!int.TryParse(id, out result))
+                        if (int.TryParse(id, out result))
                         {
                             HoaDonStatus data = GetById(result);
 
@@ -128,6 +131,8 @@ namespace DAO
                     }
 
                     trans.Commit();
+                    dbContext.Connection.Close();
+
                     return true;
                 }
 
