@@ -49,10 +49,12 @@ namespace QuanLyKinhDoanh
 
         private void UcNhapKho_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
+
             LoadResource();
 
             //pnQuanLy.Size = new System.Drawing.Size(710, 480);
-            //pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
+            pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
@@ -60,6 +62,13 @@ namespace QuanLyKinhDoanh
             this.BringToFront();
 
             cbFilter.SelectedIndex = 0;
+
+            tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
+
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, 1);
+            SetStatusButtonPage(1);
+
+            this.Visible = true;
         }
 
         
@@ -67,9 +76,9 @@ namespace QuanLyKinhDoanh
         #region Function
         private void uc_Disposed(object sender, EventArgs e)
         {
-            tbSearch.Text = Constant.SEARCH_USER_TIP;
+            tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
 
-            RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private int GetTotalPage(int total)
@@ -84,14 +93,14 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListView(string text, int page)
+        private void RefreshListView(string text, int type, int page)
         {
-            if (text == Constant.SEARCH_USER_TIP)
+            if (text == Constant.SEARCH_NHAPKHO_TIP)
             {
                 text = string.Empty;
             }
 
-            int total = HoaDonDetailBus.GetCount(text);
+            int total = HoaDonDetailBus.GetCount(text, type);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -102,18 +111,18 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.HoaDonDetail> listTotal = HoaDonDetailBus.GetList(text,
+            List<DTO.HoaDonDetail> listTotal = HoaDonDetailBus.GetList(text, type,
                 string.Empty, string.Empty, 0, 0);
             long totalMoney = 0;
 
             foreach (DTO.HoaDonDetail data in listTotal)
             {
-                totalMoney += (long)data.SanPham.GiaBan * data.SoLuong;
+                totalMoney += data.ThanhTien;
             }
 
             tbTong.Text = totalMoney.ToString();
 
-            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text,
+            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type,
                 string.Empty, string.Empty, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -123,14 +132,14 @@ namespace QuanLyKinhDoanh
                 ListViewItem lvi = new ListViewItem();
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.IdHoaDon.ToString());
+                lvi.SubItems.Add(data.HoaDon.IdHoaDon.ToString());
                 lvi.SubItems.Add(data.SanPham.Ten);
-                lvi.SubItems.Add(data.HoaDon.User.Ten);
+                lvi.SubItems.Add("");
                 lvi.SubItems.Add(data.HoaDon.CreateDate.ToShortDateString());
                 lvi.SubItems.Add(data.SoLuong.ToString());
                 lvi.SubItems.Add(data.SanPham.DonViTinh);
                 lvi.SubItems.Add(data.SanPham.GiaMua.ToString());
-                lvi.SubItems.Add((data.SanPham.GiaMua * data.SoLuong).ToString());
+                lvi.SubItems.Add(data.ThanhTien.ToString());
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -233,7 +242,7 @@ namespace QuanLyKinhDoanh
         {
             if (e.ColumnIndex == 0)
             {
-                e.NewWidth = 30;
+                e.NewWidth = 0;
                 e.Cancel = true;
             }
 
@@ -280,7 +289,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
 
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -340,7 +349,7 @@ namespace QuanLyKinhDoanh
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_USER_TIP)
+            if (tbSearch.Text == Constant.SEARCH_NHAPKHO_TIP)
             {
                 tbSearch.Text = string.Empty;
             }
@@ -350,7 +359,7 @@ namespace QuanLyKinhDoanh
         {
             if (tbSearch.Text == string.Empty)
             {
-                tbSearch.Text = Constant.SEARCH_USER_TIP;
+                tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
             }
         }
 
@@ -364,7 +373,7 @@ namespace QuanLyKinhDoanh
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_USER_TIP)
+            if (tbSearch.Text == Constant.SEARCH_NHAPKHO_TIP)
             {
                 pbOk.Enabled = false;
                 pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE_DISABLE);
@@ -378,7 +387,7 @@ namespace QuanLyKinhDoanh
 
         private void pbOk_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)

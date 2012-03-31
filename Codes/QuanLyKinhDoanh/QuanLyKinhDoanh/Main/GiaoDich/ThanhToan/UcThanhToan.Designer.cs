@@ -73,6 +73,9 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label47 = new System.Windows.Forms.Label();
+            this.pbHoanTat = new System.Windows.Forms.PictureBox();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.pnTitle.SuspendLayout();
@@ -81,6 +84,8 @@
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.SuspendLayout();
             // 
             // pnInfo
@@ -106,6 +111,7 @@
             this.gbInfo.Controls.Add(this.lbMa);
             this.gbInfo.Controls.Add(this.label2);
             this.gbInfo.Controls.Add(this.lbTen);
+            this.gbInfo.Controls.Add(this.panel12);
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
             this.gbInfo.Location = new System.Drawing.Point(7, 0);
             this.gbInfo.Name = "gbInfo";
@@ -126,6 +132,7 @@
             this.cbTinhTrang.Name = "cbTinhTrang";
             this.cbTinhTrang.Size = new System.Drawing.Size(164, 24);
             this.cbTinhTrang.TabIndex = 127;
+            this.cbTinhTrang.Visible = false;
             // 
             // textBox4
             // 
@@ -170,7 +177,7 @@
             this.tbMoTa.Location = new System.Drawing.Point(107, 110);
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
-            this.tbMoTa.Size = new System.Drawing.Size(553, 46);
+            this.tbMoTa.Size = new System.Drawing.Size(436, 46);
             this.tbMoTa.TabIndex = 108;
             // 
             // tbGiaNhap
@@ -219,6 +226,7 @@
             this.label2.Size = new System.Drawing.Size(78, 16);
             this.label2.TabIndex = 12;
             this.label2.Text = "Tình trạng:";
+            this.label2.Visible = false;
             // 
             // lbTen
             // 
@@ -537,6 +545,35 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "*Sản phẩm:";
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label47);
+            this.panel12.Controls.Add(this.pbHoanTat);
+            this.panel12.Location = new System.Drawing.Point(590, 97);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(70, 70);
+            this.panel12.TabIndex = 128;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(7, 68);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(0, 16);
+            this.label47.TabIndex = 2;
+            // 
+            // pbHoanTat
+            // 
+            this.pbHoanTat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHoanTat.Location = new System.Drawing.Point(10, 10);
+            this.pbHoanTat.Name = "pbHoanTat";
+            this.pbHoanTat.Size = new System.Drawing.Size(50, 39);
+            this.pbHoanTat.TabIndex = 1;
+            this.pbHoanTat.TabStop = false;
+            this.pbHoanTat.Click += new System.EventHandler(this.pbHoanTat_Click);
+            this.pbHoanTat.MouseEnter += new System.EventHandler(this.pbHoanTat_MouseEnter);
+            this.pbHoanTat.MouseLeave += new System.EventHandler(this.pbHoanTat_MouseLeave);
+            // 
             // UcThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -561,6 +598,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -612,6 +652,9 @@
         private System.Windows.Forms.ColumnHeader chThanhTien;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.PictureBox pbHoanTat;
 
     }
 }

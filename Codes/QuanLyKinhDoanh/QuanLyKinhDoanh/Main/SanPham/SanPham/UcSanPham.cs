@@ -61,20 +61,22 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
-            RefreshListView(tbSearch.Text, 1);
-            SetStatusButtonPage(1);
-
             tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
+
+            RefreshListView(tbSearch.Text, 0, 1);
+            SetStatusButtonPage(1);
 
             this.Visible = true;
         }
+
+
 
         #region Function
         private void uc_Disposed(object sender, EventArgs e)
         {
             tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
 
-            RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private int GetTotalPage(int total)
@@ -89,14 +91,14 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListView(string text, int page)
+        private void RefreshListView(string text, int idGroup, int page)
         {
             if (text == Constant.SEARCH_SANPHAM_TIP)
             {
                 text = string.Empty;
             }
 
-            int total = SanPhamBus.GetCount(text);
+            int total = SanPhamBus.GetCount(text, idGroup);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -107,7 +109,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text,
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0,
                 string.Empty, string.Empty, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -217,7 +219,7 @@ namespace QuanLyKinhDoanh
 
                 if (SanPhamBus.DeleteList(ids))
                 {
-                    RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+                    RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
             }
         }
@@ -234,11 +236,11 @@ namespace QuanLyKinhDoanh
 
         private void pbSua_Click(object sender, EventArgs e)
         {
-            //int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+            int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
 
-            //uc = new UcInfo(SanPhamBus.GetById(id));
-            //uc.Disposed += new EventHandler(uc_Disposed);
-            //this.Controls.Add(uc);
+            uc = new UcInfo(SanPhamBus.GetById(id));
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
@@ -316,7 +318,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+                RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
 
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -414,7 +416,7 @@ namespace QuanLyKinhDoanh
 
         private void pbOk_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)

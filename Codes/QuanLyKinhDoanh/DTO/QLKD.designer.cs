@@ -39,9 +39,6 @@ namespace DTO
     partial void InsertHoaDonDetail(HoaDonDetail instance);
     partial void UpdateHoaDonDetail(HoaDonDetail instance);
     partial void DeleteHoaDonDetail(HoaDonDetail instance);
-    partial void InsertHoaDonStatus(HoaDonStatus instance);
-    partial void UpdateHoaDonStatus(HoaDonStatus instance);
-    partial void DeleteHoaDonStatus(HoaDonStatus instance);
     partial void InsertHoaDonType(HoaDonType instance);
     partial void UpdateHoaDonType(HoaDonType instance);
     partial void DeleteHoaDonType(HoaDonType instance);
@@ -116,14 +113,6 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<HoaDonStatus> HoaDonStatus
-		{
-			get
-			{
-				return this.GetTable<HoaDonStatus>();
-			}
-		}
-		
 		public System.Data.Linq.Table<HoaDonType> HoaDonTypes
 		{
 			get
@@ -181,15 +170,17 @@ namespace DTO
 		
 		private int _Id;
 		
+		private string _IdHoaDon;
+		
 		private int _IdType;
 		
-		private int _IdStatus;
-		
-		private int _IdUser;
+		private System.Nullable<int> _IdUser;
 		
 		private System.Nullable<int> _IdKhachHang;
 		
-		private decimal _ThanhTien;
+		private string _Status;
+		
+		private long _ThanhTien;
 		
 		private string _GhiChu;
 		
@@ -205,8 +196,6 @@ namespace DTO
 		
 		private EntitySet<HoaDonDetail> _HoaDonDetails;
 		
-		private EntityRef<HoaDonStatus> _HoaDonStatus;
-		
 		private EntityRef<HoaDonType> _HoaDonType;
 		
 		private EntityRef<KhachHang> _KhachHang;
@@ -219,15 +208,17 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
+    partial void OnIdHoaDonChanging(string value);
+    partial void OnIdHoaDonChanged();
     partial void OnIdTypeChanging(int value);
     partial void OnIdTypeChanged();
-    partial void OnIdStatusChanging(int value);
-    partial void OnIdStatusChanged();
-    partial void OnIdUserChanging(int value);
+    partial void OnIdUserChanging(System.Nullable<int> value);
     partial void OnIdUserChanged();
     partial void OnIdKhachHangChanging(System.Nullable<int> value);
     partial void OnIdKhachHangChanged();
-    partial void OnThanhTienChanging(decimal value);
+    partial void OnStatusChanging(string value);
+    partial void OnStatusChanged();
+    partial void OnThanhTienChanging(long value);
     partial void OnThanhTienChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
@@ -246,7 +237,6 @@ namespace DTO
 		public HoaDon()
 		{
 			this._HoaDonDetails = new EntitySet<HoaDonDetail>(new Action<HoaDonDetail>(this.attach_HoaDonDetails), new Action<HoaDonDetail>(this.detach_HoaDonDetails));
-			this._HoaDonStatus = default(EntityRef<HoaDonStatus>);
 			this._HoaDonType = default(EntityRef<HoaDonType>);
 			this._KhachHang = default(EntityRef<KhachHang>);
 			this._User = default(EntityRef<User>);
@@ -269,6 +259,26 @@ namespace DTO
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHoaDon", DbType="Char(6) NOT NULL", CanBeNull=false)]
+		public string IdHoaDon
+		{
+			get
+			{
+				return this._IdHoaDon;
+			}
+			set
+			{
+				if ((this._IdHoaDon != value))
+				{
+					this.OnIdHoaDonChanging(value);
+					this.SendPropertyChanging();
+					this._IdHoaDon = value;
+					this.SendPropertyChanged("IdHoaDon");
+					this.OnIdHoaDonChanged();
 				}
 			}
 		}
@@ -297,32 +307,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdStatus", DbType="Int NOT NULL")]
-		public int IdStatus
-		{
-			get
-			{
-				return this._IdStatus;
-			}
-			set
-			{
-				if ((this._IdStatus != value))
-				{
-					if (this._HoaDonStatus.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdStatusChanging(value);
-					this.SendPropertyChanging();
-					this._IdStatus = value;
-					this.SendPropertyChanged("IdStatus");
-					this.OnIdStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="Int NOT NULL")]
-		public int IdUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="Int")]
+		public System.Nullable<int> IdUser
 		{
 			get
 			{
@@ -369,8 +355,28 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhTien", DbType="Money NOT NULL")]
-		public decimal ThanhTien
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhTien", DbType="BigInt NOT NULL")]
+		public long ThanhTien
 		{
 			get
 			{
@@ -522,40 +528,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HoaDonStatus_HoaDon", Storage="_HoaDonStatus", ThisKey="IdStatus", OtherKey="Id", IsForeignKey=true)]
-		public HoaDonStatus HoaDonStatus
-		{
-			get
-			{
-				return this._HoaDonStatus.Entity;
-			}
-			set
-			{
-				HoaDonStatus previousValue = this._HoaDonStatus.Entity;
-				if (((previousValue != value) 
-							|| (this._HoaDonStatus.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._HoaDonStatus.Entity = null;
-						previousValue.HoaDons.Remove(this);
-					}
-					this._HoaDonStatus.Entity = value;
-					if ((value != null))
-					{
-						value.HoaDons.Add(this);
-						this._IdStatus = value.Id;
-					}
-					else
-					{
-						this._IdStatus = default(int);
-					}
-					this.SendPropertyChanged("HoaDonStatus");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HoaDonType_HoaDon", Storage="_HoaDonType", ThisKey="IdType", OtherKey="Id", IsForeignKey=true)]
 		public HoaDonType HoaDonType
 		{
@@ -651,7 +623,7 @@ namespace DTO
 					}
 					else
 					{
-						this._IdUser = default(int);
+						this._IdUser = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("User");
 				}
@@ -843,7 +815,7 @@ namespace DTO
 		
 		private int _SoLuong;
 		
-		private decimal _ThanhTien;
+		private long _ThanhTien;
 		
 		private EntityRef<HoaDon> _HoaDon;
 		
@@ -861,7 +833,7 @@ namespace DTO
     partial void OnIdSanPhamChanged();
     partial void OnSoLuongChanging(int value);
     partial void OnSoLuongChanged();
-    partial void OnThanhTienChanging(decimal value);
+    partial void OnThanhTienChanging(long value);
     partial void OnThanhTienChanged();
     #endregion
 		
@@ -960,8 +932,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhTien", DbType="Money NOT NULL")]
-		public decimal ThanhTien
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThanhTien", DbType="BigInt NOT NULL")]
+		public long ThanhTien
 		{
 			get
 			{
@@ -1066,120 +1038,6 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HoaDonStatus")]
-	public partial class HoaDonStatus : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Ten;
-		
-		private EntitySet<HoaDon> _HoaDons;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTenChanging(string value);
-    partial void OnTenChanged();
-    #endregion
-		
-		public HoaDonStatus()
-		{
-			this._HoaDons = new EntitySet<HoaDon>(new Action<HoaDon>(this.attach_HoaDons), new Action<HoaDon>(this.detach_HoaDons));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string Ten
-		{
-			get
-			{
-				return this._Ten;
-			}
-			set
-			{
-				if ((this._Ten != value))
-				{
-					this.OnTenChanging(value);
-					this.SendPropertyChanging();
-					this._Ten = value;
-					this.SendPropertyChanged("Ten");
-					this.OnTenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HoaDonStatus_HoaDon", Storage="_HoaDons", ThisKey="Id", OtherKey="IdStatus")]
-		public EntitySet<HoaDon> HoaDons
-		{
-			get
-			{
-				return this._HoaDons;
-			}
-			set
-			{
-				this._HoaDons.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_HoaDons(HoaDon entity)
-		{
-			this.SendPropertyChanging();
-			entity.HoaDonStatus = this;
-		}
-		
-		private void detach_HoaDons(HoaDon entity)
-		{
-			this.SendPropertyChanging();
-			entity.HoaDonStatus = null;
 		}
 	}
 	
@@ -1942,9 +1800,9 @@ namespace DTO
 		
 		private string _MoTa;
 		
-		private decimal _GiaMua;
+		private long _GiaMua;
 		
-		private decimal _GiaBan;
+		private long _GiaBan;
 		
 		private double _LaiSuat;
 		
@@ -1961,8 +1819,6 @@ namespace DTO
 		private System.Nullable<byte> _ThoiGianBaoHanh;
 		
 		private string _DonViBaoHanh;
-		
-		private string _GhiChu;
 		
 		private string _CreateBy;
 		
@@ -1992,9 +1848,9 @@ namespace DTO
     partial void OnTenChanged();
     partial void OnMoTaChanging(string value);
     partial void OnMoTaChanged();
-    partial void OnGiaMuaChanging(decimal value);
+    partial void OnGiaMuaChanging(long value);
     partial void OnGiaMuaChanged();
-    partial void OnGiaBanChanging(decimal value);
+    partial void OnGiaBanChanging(long value);
     partial void OnGiaBanChanged();
     partial void OnLaiSuatChanging(double value);
     partial void OnLaiSuatChanged();
@@ -2012,8 +1868,6 @@ namespace DTO
     partial void OnThoiGianBaoHanhChanged();
     partial void OnDonViBaoHanhChanging(string value);
     partial void OnDonViBaoHanhChanged();
-    partial void OnGhiChuChanging(string value);
-    partial void OnGhiChuChanged();
     partial void OnCreateByChanging(string value);
     partial void OnCreateByChanged();
     partial void OnCreateDateChanging(System.DateTime value);
@@ -2137,8 +1991,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaMua", DbType="Money NOT NULL")]
-		public decimal GiaMua
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaMua", DbType="BigInt NOT NULL")]
+		public long GiaMua
 		{
 			get
 			{
@@ -2157,8 +2011,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaBan", DbType="Money NOT NULL")]
-		public decimal GiaBan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaBan", DbType="BigInt NOT NULL")]
+		public long GiaBan
 		{
 			get
 			{
@@ -2333,26 +2187,6 @@ namespace DTO
 					this._DonViBaoHanh = value;
 					this.SendPropertyChanged("DonViBaoHanh");
 					this.OnDonViBaoHanhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(200)")]
-		public string GhiChu
-		{
-			get
-			{
-				return this._GhiChu;
-			}
-			set
-			{
-				if ((this._GhiChu != value))
-				{
-					this.OnGhiChuChanging(value);
-					this.SendPropertyChanging();
-					this._GhiChu = value;
-					this.SendPropertyChanged("GhiChu");
-					this.OnGhiChuChanged();
 				}
 			}
 		}

@@ -44,6 +44,8 @@
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.lvThongTin = new System.Windows.Forms.ListView();
+            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -71,8 +73,6 @@
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tbTong = new System.Windows.Forms.TextBox();
-            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -262,6 +262,19 @@
             this.lvThongTin.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvThongTin_ItemChecked);
             this.lvThongTin.SelectedIndexChanged += new System.EventHandler(this.lvThongTin_SelectedIndexChanged);
             // 
+            // chCheckBox
+            // 
+            this.chCheckBox.Text = "All";
+            this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chCheckBox.Width = 0;
+            // 
+            // chId
+            // 
+            this.chId.DisplayIndex = 10;
+            this.chId.Text = "Id";
+            this.chId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chId.Width = 0;
+            // 
             // chSTT
             // 
             this.chSTT.DisplayIndex = 1;
@@ -280,13 +293,13 @@
             // 
             this.chSanPham.DisplayIndex = 3;
             this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.Width = 138;
+            this.chSanPham.Width = 158;
             // 
             // chUser
             // 
             this.chUser.DisplayIndex = 4;
             this.chUser.Text = "Người nhập";
-            this.chUser.Width = 116;
+            this.chUser.Width = 125;
             // 
             // chNgay
             // 
@@ -439,11 +452,11 @@
             this.lbPage.AutoSize = true;
             this.lbPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbPage.Location = new System.Drawing.Point(3, 1);
+            this.lbPage.Location = new System.Drawing.Point(12, 1);
             this.lbPage.Name = "lbPage";
-            this.lbPage.Size = new System.Drawing.Size(39, 19);
+            this.lbPage.Size = new System.Drawing.Size(18, 19);
             this.lbPage.TabIndex = 89;
-            this.lbPage.Text = "???";
+            this.lbPage.Text = "1";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
@@ -508,19 +521,6 @@
             this.tbTong.TabIndex = 53;
             this.tbTong.Text = "0";
             this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // chCheckBox
-            // 
-            this.chCheckBox.Text = "All";
-            this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chCheckBox.Width = 30;
-            // 
-            // chId
-            // 
-            this.chId.DisplayIndex = 10;
-            this.chId.Text = "Id";
-            this.chId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chId.Width = 0;
             // 
             // UcNhapKho
             // 

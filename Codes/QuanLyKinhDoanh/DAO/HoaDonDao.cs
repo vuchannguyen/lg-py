@@ -12,7 +12,7 @@ namespace DAO
 {
     public class HoaDonDao : SQLConnection
     {
-        public static IQueryable<HoaDon> GetQuery(string text)
+        public static IQueryable<HoaDon> GetQuery(string text, int type)
         {
             var sql = from data in dbContext.HoaDons
                       select data;
@@ -25,15 +25,20 @@ namespace DAO
                     );
             }
 
+            if (type != 0)
+            {
+                sql = sql.Where(p => p.IdType == type);
+
+            }
             return sql;
         }
 
-        public static int GetCount(string text)
+        public static int GetCount(string text, int type)
         {
-            return GetQuery(text).Count();
+            return GetQuery(text, type).Count();
         }
 
-        public static List<HoaDon> GetList(string text,
+        public static List<HoaDon> GetList(string text, int type,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -44,31 +49,26 @@ namespace DAO
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
-
                 default:
                     sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
                     break;
             }
 
-            var sql = GetQuery(text).OrderBy(sortSQL);
+            var sql = GetQuery(text, type).OrderBy(sortSQL);
 
-            if (skip == 0 && take == 0)
+            if ((skip <= 0 && take <= 0) || (skip <= 0 && take > 0) || (skip > 0 && take <= 0))
             {
                 return sql.ToList();
             }
 
             return sql.Skip(skip).Take(take).ToList();
+        }
+
+        public static HoaDon GetLastData()
+        {
+            var sql = dbContext.HoaDons.OrderBy("Id " + CommonDao.SORT_DESCENDING);
+
+            return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static HoaDon GetById(int id)
@@ -164,19 +164,19 @@ namespace DAO
             {
                 if (data != null)
                 {
-                    HoaDon objDb = GetById(data.Id);
+                    //HoaDon objDb = GetById(data.Id);
 
-                    objDb.IdType = data.IdType;
-                    objDb.IdStatus = data.IdStatus;
-                    objDb.IdUser = data.IdUser;
-                    objDb.IdKhachHang = data.IdKhachHang;
-                    objDb.ThanhTien = data.ThanhTien;
-                    objDb.GhiChu = data.GhiChu;
+                    //objDb.IdType = data.IdType;
+                    //objDb.IdStatus = data.IdStatus;
+                    //objDb.IdUser = data.IdUser;
+                    //objDb.IdKhachHang = data.IdKhachHang;
+                    //objDb.ThanhTien = data.ThanhTien;
+                    //objDb.GhiChu = data.GhiChu;
 
-                    objDb.CreateBy = data.CreateBy;
-                    objDb.CreateDate = data.CreateDate;
-                    objDb.UpdateBy = data.UpdateBy;
-                    objDb.UpdateDate = data.UpdateDate;
+                    //objDb.CreateBy = data.CreateBy;
+                    //objDb.CreateDate = data.CreateDate;
+                    //objDb.UpdateBy = data.UpdateBy;
+                    //objDb.UpdateDate = data.UpdateDate;
 
                     dbContext.SubmitChanges();
                     return true;

@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="HoaDonDao.cs" />
     <Compile Include="HoaDonDetailDao.cs" />
-    <Compile Include="HoaDonStatusDao.cs" />
     <Compile Include="HoaDonTypeDao.cs" />
     <Compile Include="KhachHangGroupDao.cs" />
     <Compile Include="Library\CommonDao.cs" />

@@ -22,6 +22,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             try
             {
                 pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
                 //pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             }
             catch
@@ -56,6 +57,21 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
             pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
+        }
+
+        private void pbHoanTat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbHoanTat_MouseEnter(object sender, EventArgs e)
+        {
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_MOUSEOVER);
+        }
+
+        private void pbHoanTat_MouseLeave(object sender, EventArgs e)
+        {
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
     }
 }

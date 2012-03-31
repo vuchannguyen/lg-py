@@ -12,7 +12,7 @@ namespace DAO
 {
     public class HoaDonDetailDao : SQLConnection
     {
-        public static IQueryable<HoaDonDetail> GetQuery(string text)
+        public static IQueryable<HoaDonDetail> GetQuery(string text, int type)
         {
             var sql = from data in dbContext.HoaDonDetails
                       select data;
@@ -24,38 +24,47 @@ namespace DAO
                     );
             }
 
+            if (type != 0)
+            {
+                sql = sql.Where(p => p.HoaDon.IdType == type);
+            }
+
             return sql;
         }
 
-        public static int GetCount(string text)
+        public static int GetCount(string text, int type)
         {
-            return GetQuery(text).Count();
+            return GetQuery(text, type).Count();
         }
 
-        public static List<HoaDonDetail> GetList(string text,
+        public static List<HoaDonDetail> GetList(string text, int type,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
 
             switch (sortColumn)
             {
-                case "chTen":
-                    sortSQL += "Ten " + sortOrder;
-                    break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Id " + CommonDao.SORT_ASCENDING;
                     break;
             }
 
-            var sql = GetQuery(text).OrderBy(sortSQL);
+            var sql = GetQuery(text, type).OrderBy(sortSQL);
 
-            if (skip == 0 && take == 0)
+            if ((skip <= 0 && take <= 0) || (skip <= 0 && take > 0) || (skip > 0 && take <= 0))
             {
                 return sql.ToList();
             }
 
             return sql.Skip(skip).Take(take).ToList();
+        }
+
+        public static HoaDonDetail GetLastData()
+        {
+            var sql = dbContext.HoaDonDetails.OrderBy("Id " + CommonDao.SORT_DESCENDING);
+
+            return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static HoaDonDetail GetById(int id)
