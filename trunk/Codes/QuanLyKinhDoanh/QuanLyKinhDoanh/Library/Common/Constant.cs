@@ -13,7 +13,10 @@ namespace Library
 
         public const int DEFAULT_ROW = 20;
 
+        public const int DEFAULT_MAX_PERCENT_PROFIT = 999;
+
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
+        public const string DEFAULT_FORMAT_ID_BILL = "00000";
 
         public const string DEFAULT_PASSWORD = "admin";
 
@@ -39,6 +42,21 @@ namespace Library
 
         public const string PAGE_TEXT = " Trang";
         public const string SEPERATE_STRING = ", ";
+        public const string LINK_SYMBOL_STRING = " - ";
+        public const string LINK_SYMBOL_MONEY = ",";
+
+        public const int ID_TYPE_MUA = 1;
+        public const int ID_TYPE_BAN = 2;
+        public const int ID_TYPE_THU = 3;
+        public const int ID_TYPE_CHI = 4;
+
+        public const string PREFIX_MUA = "M";
+        public const string PREFIX_BAN = "B";
+        public const string PREFIX_THU = "T";
+        public const string PREFIX_CHI = "C";
+
+        public const string STATUS_DONE = "Đã thanh toán";
+        public const string STATUS_NOTHING = "Chưa thanh toán";
 
         public const string CAPTION_CONFIRM = "CONFIRM";
         public const string CAPTION_WARNING = "WARNING";
@@ -66,5 +84,6 @@ namespace Library
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
         public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
+        public const string SEARCH_NHAPKHO_TIP = "Mã - Tên sản phẩm";
     }
 }

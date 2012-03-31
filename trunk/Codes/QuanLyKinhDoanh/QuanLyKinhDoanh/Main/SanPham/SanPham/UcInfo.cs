@@ -177,7 +177,7 @@ namespace QuanLyKinhDoanh.SanPham
         {
             data.IdSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
-            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            data.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             data.MoTa = tbMoTa.Text;
             data.DonViTinh = tbDonViTinh.Text;
             data.XuatXu = tbXuatXu.Text;
@@ -249,14 +249,23 @@ namespace QuanLyKinhDoanh.SanPham
         #region Controls
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string idSanPham = string.Empty;
-            DTO.SanPham data = SanPhamBus.GetLastData();
+            int id = 0;
 
-            int newValue = data == null ? 0 : data.Id;
+            if (isUpdate)
+            {
+                string idSanPham = string.Empty;
+                DTO.SanPham dataTemp = SanPhamBus.GetLastData();
+
+                id = dataTemp == null ? 1 : dataTemp.Id + 1;
+            }
+            else
+            {
+                id = data.Id;
+            }
 
             string MaGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value)).Ma;
 
-            tbMa.Text = MaGroup + (newValue + 1).ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+            tbMa.Text = MaGroup + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 
             ValidateInput();
         }

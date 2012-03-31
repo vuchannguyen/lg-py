@@ -3,11 +3,12 @@
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdHoaDon" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
       <Column Name="IdType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdKhachHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ThanhTien" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -15,7 +16,6 @@
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonDetail" Member="HoaDonDetails" ThisKey="Id" OtherKey="IdHoaDon" Type="HoaDonDetail" />
-      <Association Name="HoaDonStatus_HoaDon" Member="HoaDonStatus" ThisKey="IdStatus" OtherKey="Id" Type="HoaDonStatus" IsForeignKey="true" />
       <Association Name="HoaDonType_HoaDon" Member="HoaDonType" ThisKey="IdType" OtherKey="Id" Type="HoaDonType" IsForeignKey="true" />
       <Association Name="KhachHang_HoaDon" Member="KhachHang" ThisKey="IdKhachHang" OtherKey="Id" Type="KhachHang" IsForeignKey="true" />
       <Association Name="User_HoaDon" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
@@ -35,16 +35,9 @@
       <Column Name="IdHoaDon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdSanPham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ThanhTien" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ThanhTien" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonDetail" Member="HoaDon" ThisKey="IdHoaDon" OtherKey="Id" Type="HoaDon" IsForeignKey="true" />
       <Association Name="SanPham_HoaDonDetail" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.HoaDonStatus" Member="HoaDonStatus">
-    <Type Name="HoaDonStatus">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="HoaDonStatus_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdStatus" Type="HoaDon" />
     </Type>
   </Table>
   <Table Name="dbo.HoaDonType" Member="HoaDonTypes">
@@ -91,8 +84,8 @@
       <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="GiaMua" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="GiaBan" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="GiaMua" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="GiaBan" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="LaiSuat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
@@ -101,7 +94,6 @@
       <Column Name="Size" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ThoiGianBaoHanh" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="DonViBaoHanh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />

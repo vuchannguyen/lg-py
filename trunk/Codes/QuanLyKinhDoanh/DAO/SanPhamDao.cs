@@ -13,7 +13,7 @@ namespace DAO
     public class SanPhamDao : SQLConnection
     {
         #region SanPham
-        public static IQueryable<SanPham> GetQuery(string text)
+        public static IQueryable<SanPham> GetQuery(string text, int idGroup)
         {
             var sql = from data in dbContext.SanPhams
                       select data;
@@ -27,17 +27,22 @@ namespace DAO
                     );
             }
 
+            if (idGroup != 0)
+            {
+                sql = sql.Where(p => p.IdGroup == idGroup);
+            }
+
             sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
 
-        public static int GetCount(string text)
+        public static int GetCount(string text, int idGroup)
         {
-            return GetQuery(text).Count();
+            return GetQuery(text, idGroup).Count();
         }
 
-        public static List<SanPham> GetList(string text,
+        public static List<SanPham> GetList(string text, int idGroup,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -52,26 +57,14 @@ namespace DAO
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
-
                 default:
                     sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
                     break;
             }
 
-            var sql = GetQuery(text).OrderBy(sortSQL);
+            var sql = GetQuery(text, idGroup).OrderBy(sortSQL);
 
-            if (skip == 0 && take == 0)
+            if ((skip <= 0 && take <= 0) || (skip <= 0 && take > 0) || (skip > 0 && take <= 0))
             {
                 return sql.ToList();
             }
@@ -121,18 +114,6 @@ namespace DAO
                 case "chTen":
                     sortSQL += "Ten " + sortOrder;
                     break;
-
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
 
                 default:
                     sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
@@ -250,30 +231,8 @@ namespace DAO
             {
                 if (data != null)
                 {
-                    SanPham objDb = GetById(data.Id);
-
-                    objDb.Ten = data.Ten;
-                    objDb.IdSanPham = data.IdSanPham;
-                    objDb.IdGroup = data.IdGroup;
-                    objDb.MoTa = data.MoTa;
-                    objDb.GiaMua = data.GiaMua;
-                    objDb.GiaBan = data.GiaBan;
-                    objDb.LaiSuat = data.LaiSuat;
-                    objDb.SoLuong = data.SoLuong;
-                    objDb.DonViTinh = data.DonViTinh;
-                    objDb.XuatXu = data.XuatXu;
-                    objDb.Hieu = data.Hieu;
-                    objDb.Size = data.Size;
-                    objDb.ThoiGianBaoHanh = data.ThoiGianBaoHanh;
-                    objDb.DonViBaoHanh = data.DonViBaoHanh;
-                    objDb.GhiChu = data.GhiChu;
-
-                    objDb.CreateBy = data.CreateBy;
-                    objDb.CreateDate = data.CreateDate;
-                    objDb.UpdateBy = data.UpdateBy;
-                    objDb.UpdateDate = data.UpdateDate;
-
                     dbContext.SubmitChanges();
+
                     return true;
                 }
 

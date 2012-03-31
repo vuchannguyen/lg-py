@@ -9,15 +9,20 @@ namespace BUS
 {
     public class HoaDonBus
     {
-        public static int GetCount(string text)
+        public static int GetCount(string text, int type)
         {
-            return HoaDonDao.GetCount(text);
+            return HoaDonDao.GetCount(text, type);
         }
 
-        public static List<HoaDon> GetList(string text,
+        public static List<HoaDon> GetList(string text, int type,
             string sortColumn, string sortOrder, int skip, int take)
         {
-            return HoaDonDao.GetList(text, sortColumn, sortOrder, skip, take);
+            return HoaDonDao.GetList(text, type, sortColumn, sortOrder, skip, take);
+        }
+
+        public static HoaDon GetLastData()
+        {
+            return HoaDonDao.GetLastData();
         }
 
         public static HoaDon GetById(int id)

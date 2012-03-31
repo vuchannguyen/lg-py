@@ -60,10 +60,11 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
+            tbSearch.Text = Constant.SEARCH_USER_TIP;
+
             RefreshListView(tbSearch.Text, 1);
             SetStatusButtonPage(1);
 
-            tbSearch.Text = Constant.SEARCH_USER_TIP;
             this.Visible = true;
         }
 
