@@ -65,6 +65,8 @@ namespace QuanLyKinhDoanh.NhomSanPham
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
             this.BringToFront();
+
+            ValidateInput();
         }
 
 
