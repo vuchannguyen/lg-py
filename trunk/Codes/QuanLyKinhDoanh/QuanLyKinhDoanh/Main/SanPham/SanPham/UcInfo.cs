@@ -253,14 +253,14 @@ namespace QuanLyKinhDoanh.SanPham
 
             if (isUpdate)
             {
+                id = data.Id;
+            }
+            else
+            {
                 string idSanPham = string.Empty;
                 DTO.SanPham dataTemp = SanPhamBus.GetLastData();
 
                 id = dataTemp == null ? 1 : dataTemp.Id + 1;
-            }
-            else
-            {
-                id = data.Id;
             }
 
             string MaGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value)).Ma;

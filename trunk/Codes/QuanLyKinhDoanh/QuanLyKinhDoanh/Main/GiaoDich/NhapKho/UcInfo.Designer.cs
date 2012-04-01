@@ -166,9 +166,11 @@
             // 
             this.tbLaiSuat.Enabled = false;
             this.tbLaiSuat.Location = new System.Drawing.Point(559, 130);
+            this.tbLaiSuat.MaxLength = 3;
             this.tbLaiSuat.Name = "tbLaiSuat";
             this.tbLaiSuat.Size = new System.Drawing.Size(40, 23);
             this.tbLaiSuat.TabIndex = 7;
+            this.tbLaiSuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbLaiSuat.TextChanged += new System.EventHandler(this.tbLaiSuat_TextChanged);
             this.tbLaiSuat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLaiSuat_KeyPress);
             // 

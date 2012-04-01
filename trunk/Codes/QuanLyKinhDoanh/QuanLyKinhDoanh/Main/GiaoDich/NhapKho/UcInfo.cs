@@ -118,7 +118,7 @@ namespace QuanLyKinhDoanh.Mua
         private void RefreshData()
         {
             tbMa.Text = dataSanPham.IdSanPham;
-            tbSoLuong.Text = string.Empty;
+            //tbSoLuong.Text = string.Empty;
             tbDonViTinh.Text = string.Empty;
             tbGiaNhap.Text = string.Empty;
             tbGiaBan.Text = string.Empty;
@@ -176,7 +176,6 @@ namespace QuanLyKinhDoanh.Mua
         private void Insert()
         {
             InsertDataHoaDon();
-            UpdateDataSanPham();
         }
 
         private void InsertDataHoaDon()
@@ -225,7 +224,9 @@ namespace QuanLyKinhDoanh.Mua
 
         private void UpdateDataSanPham()
         {
-            dataSanPham.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            dataSanPham = SanPhamBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value));
+
+            dataSanPham.SoLuong += ConvertUtil.ConvertToInt(tbSoLuong.Text);
             dataSanPham.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
             dataSanPham.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
             dataSanPham.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
@@ -235,7 +236,15 @@ namespace QuanLyKinhDoanh.Mua
 
             if (SanPhamBus.Update(dataSanPham))
             {
-                this.Dispose();
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSanPham.IdSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                {
+                    this.Dispose();
+                }
+                else
+                {
+                    RefreshData();
+                    CreateNewId();
+                }
             }
             else
             {
@@ -339,7 +348,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (!string.IsNullOrEmpty(tbGiaBan.Text))
             {
-                tbGiaBan_Leave(sender, e);
+                tbLaiSuat_TextChanged(sender, e);
             }
         }
 
@@ -361,11 +370,11 @@ namespace QuanLyKinhDoanh.Mua
             }
             else
             {
-                tbGiaBan.Text = string.Empty;
-                tbLaiSuat.Text = string.Empty;
-
                 tbGiaBan.Enabled = false;
                 tbLaiSuat.Enabled = false;
+
+                tbGiaBan.Text = string.Empty;
+                tbLaiSuat.Text = string.Empty;
             }
 
             ValidateInput();
