@@ -123,6 +123,7 @@ namespace QuanLyKinhDoanh.Mua
             tbGiaNhap.Text = string.Empty;
             tbGiaBan.Text = string.Empty;
             tbLaiSuat.Text = string.Empty;
+            tbThanhTien.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
             cbGroup.SelectedIndex = 0;

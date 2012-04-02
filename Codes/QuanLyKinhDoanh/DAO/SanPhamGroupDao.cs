@@ -151,6 +151,7 @@ namespace DAO
             catch
             {
                 if (trans != null) trans.Rollback();
+                dbContext.Connection.Close();
                 return false;
             }
         }
