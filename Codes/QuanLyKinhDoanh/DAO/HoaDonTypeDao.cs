@@ -50,7 +50,7 @@ namespace DAO
 
             var sql = GetQuery(text).OrderBy(sortSQL);
 
-            if ((skip <= 0 && take <= 0) || (skip <= 0 && take > 0) || (skip > 0 && take <= 0))
+            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
                 return sql.ToList();
             }

@@ -137,7 +137,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(107, 30);
-            this.textBox4.MaxLength = 6;
+            this.textBox4.MaxLength = 10;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(77, 23);
@@ -156,7 +156,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(275, 30);
-            this.textBox3.MaxLength = 6;
+            this.textBox3.MaxLength = 20;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(109, 23);
@@ -183,7 +183,7 @@
             // tbGiaNhap
             // 
             this.tbGiaNhap.Location = new System.Drawing.Point(445, 68);
-            this.tbGiaNhap.MaxLength = 30;
+            this.tbGiaNhap.MaxLength = 50;
             this.tbGiaNhap.Name = "tbGiaNhap";
             this.tbGiaNhap.Size = new System.Drawing.Size(215, 23);
             this.tbGiaNhap.TabIndex = 105;
@@ -201,7 +201,7 @@
             // tbHoTen
             // 
             this.tbHoTen.Location = new System.Drawing.Point(107, 68);
-            this.tbHoTen.MaxLength = 6;
+            this.tbHoTen.MaxLength = 50;
             this.tbHoTen.Name = "tbHoTen";
             this.tbHoTen.ReadOnly = true;
             this.tbHoTen.Size = new System.Drawing.Size(215, 23);
