@@ -63,7 +63,7 @@ namespace DAO
 
             var sql = GetQuery(text).OrderBy(sortSQL);
 
-            if ((skip <= 0 && take <= 0) || (skip <= 0 && take > 0) || (skip > 0 && take <= 0))
+            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
                 return sql.ToList();
             }
@@ -145,6 +145,8 @@ namespace DAO
                     return true;
                 }
 
+                dbContext.Connection.Close();
+
                 return false;
             }
             catch
@@ -160,11 +162,6 @@ namespace DAO
             {
                 if (data != null)
                 {
-                    KhachHangGroup objDb = GetById(data.Id);
-
-                    objDb.Ten = data.Ten;
-                    objDb.Mota = data.Mota;
-
                     dbContext.SubmitChanges();
                     return true;
                 }

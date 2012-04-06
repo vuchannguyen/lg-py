@@ -66,7 +66,7 @@ namespace DAO
 
             var sql = GetQuery(text).OrderBy(sortSQL);
 
-            if ((skip <= 0 && take <= 0) || (skip <= 0 && take > 0) || (skip > 0 && take <= 0))
+            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
                 return sql.ToList();
             }
@@ -153,6 +153,8 @@ namespace DAO
                     return true;
                 }
 
+                dbContext.Connection.Close();
+
                 return false;
             }
             catch
@@ -168,23 +170,6 @@ namespace DAO
             {
                 if (data != null)
                 {
-                    KhachHang objDb = GetById(data.Id);
-
-                    objDb.Ten = data.Ten;
-                    objDb.IdGroup = data.IdGroup;
-                    objDb.DiaChi = data.DiaChi;
-                    objDb.GioiTinh = data.GioiTinh;
-                    objDb.DienThoai = data.DienThoai;
-                    objDb.Fax = data.Fax;
-                    objDb.Email = data.Email;
-                    objDb.Diem = data.Diem;
-                    objDb.GhiChu = data.GhiChu;
-
-                    objDb.CreateBy = data.CreateBy;
-                    objDb.CreateDate = data.CreateDate;
-                    objDb.UpdateBy = data.UpdateBy;
-                    objDb.UpdateDate = data.UpdateDate;
-
                     dbContext.SubmitChanges();
                     return true;
                 }

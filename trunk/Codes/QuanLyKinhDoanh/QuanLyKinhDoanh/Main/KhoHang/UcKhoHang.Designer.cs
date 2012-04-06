@@ -62,6 +62,7 @@
             this.pbTotalPage = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnFind.SuspendLayout();
@@ -248,6 +249,7 @@
             // lvThongTin
             // 
             this.lvThongTin.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chCheckBox,
             this.chSTT,
             this.chMa,
             this.chSanPham,
@@ -275,14 +277,14 @@
             // 
             // chMa
             // 
-            this.chMa.Text = "Mã";
+            this.chMa.Text = "Mã nhập";
             this.chMa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chMa.Width = 77;
             // 
             // chSanPham
             // 
-            this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.Width = 174;
+            this.chSanPham.Text = "Mã - Tên SP";
+            this.chSanPham.Width = 170;
             // 
             // chNhom
             // 
@@ -293,24 +295,25 @@
             // chTinhTrang
             // 
             this.chTinhTrang.Text = "Tình trạng";
-            this.chTinhTrang.Width = 69;
+            this.chTinhTrang.Width = 74;
             // 
             // chSoLuong
             // 
-            this.chSoLuong.Text = "Số lượng";
-            this.chSoLuong.Width = 68;
+            this.chSoLuong.Text = "SL";
+            this.chSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chSoLuong.Width = 52;
             // 
             // chDVT
             // 
             this.chDVT.Text = "ĐVT";
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDVT.Width = 63;
+            this.chDVT.Width = 69;
             // 
             // chGiaBan
             // 
             this.chGiaBan.Text = "Giá bán";
             this.chGiaBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaBan.Width = 94;
+            this.chGiaBan.Width = 100;
             // 
             // chThanhTien
             // 
@@ -399,6 +402,11 @@
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // chCheckBox
+            // 
+            this.chCheckBox.Text = "All";
+            this.chCheckBox.Width = 30;
+            // 
             // UcKhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -466,6 +474,7 @@
         private System.Windows.Forms.ComboBox cbNhom;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader chThanhTien;
+        private System.Windows.Forms.ColumnHeader chCheckBox;
 
     }
 }

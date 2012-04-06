@@ -271,7 +271,7 @@
             // 
             // chMaSanPham
             // 
-            this.chMaSanPham.Text = "Mã";
+            this.chMaSanPham.Text = "Mã SP";
             this.chMaSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chMaSanPham.Width = 76;
             // 

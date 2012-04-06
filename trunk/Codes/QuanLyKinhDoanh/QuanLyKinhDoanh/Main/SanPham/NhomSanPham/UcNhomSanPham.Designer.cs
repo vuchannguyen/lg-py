@@ -266,7 +266,7 @@
             // 
             // chId
             // 
-            this.chId.Text = "Mã";
+            this.chId.Text = "Mã NSP";
             this.chId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chId.Width = 79;
             // 

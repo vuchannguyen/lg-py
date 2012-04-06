@@ -7,14 +7,57 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
+using DTO;
+using BUS;
 
 namespace QuanLyKinhDoanh.KhachHang
 {
     public partial class UcInfo : UserControl
     {
+        private DTO.KhachHang data;
+        private bool isUpdate;
+
         public UcInfo()
         {
             InitializeComponent();
+
+            data = new DTO.KhachHang();
+            isUpdate = false;
+
+            if (Init())
+            {
+                RefreshData();
+            }
+            else
+            {
+                this.Visible = false;
+            }
+        }
+
+        public UcInfo(DTO.KhachHang data)
+        {
+            InitializeComponent();
+
+            this.data = data;
+            isUpdate = true;
+
+            if (Init())
+            {
+                tbTen.Text = data.Ten;
+                tbDiem.Text = data.Diem.ToString();
+                tbDiaChi.Text = data.DiaChi;
+                tbDienThoai.Text = data.DienThoai;
+                tbFax.Text = data.Fax;
+                tbEmail.Text = data.Email;
+                tbGhiChu.Text = data.GhiChu;
+
+                cbGioiTinh.Text = data.GioiTinh;
+                cbGroup.Text = data.KhachHangGroup.Ten;
+            }
+            else
+            {
+                this.Visible = false;
+            }
         }
 
         private void LoadResource()
@@ -38,12 +81,126 @@ namespace QuanLyKinhDoanh.KhachHang
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
+
             this.BringToFront();
 
-            cbNhom.SelectedIndex = 0;
+            ValidateInput();
+        }
+
+
+
+        #region Function
+        private bool Init()
+        {
+            List<DTO.KhachHangGroup> listData = KhachHangGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            if (listData.Count == 0)
+            {
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm khách hàng"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            cbGroup.Items.Clear();
+
+            foreach (DTO.KhachHangGroup data in listData)
+            {
+                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            return true;
+        }
+
+        private void RefreshData()
+        {
+            tbTen.Text = string.Empty;
+            tbDiem.Text = "0";
+            tbDiaChi.Text = string.Empty;
+            tbDienThoai.Text = string.Empty;
+            tbFax.Text = string.Empty;
+            tbEmail.Text = string.Empty;
+            tbGhiChu.Text = string.Empty;
+
+            cbGroup.SelectedIndex = 0;
             cbGioiTinh.SelectedIndex = 0;
         }
 
+        private void ValidateInput()
+        {
+            if (!string.IsNullOrEmpty(tbTen.Text)
+                )
+            {
+                pbHoanTat.Enabled = true;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            }
+            else
+            {
+                pbHoanTat.Enabled = false;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+            }
+        }
+
+        private void InsertData()
+        {
+            data.Ten = tbTen.Text;
+            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            data.GioiTinh = cbGioiTinh.Text;
+            data.DiaChi = tbDiaChi.Text;
+            data.DienThoai = tbDienThoai.Text;
+            data.Fax = tbFax.Text;
+            data.Email = tbEmail.Text;
+            data.Diem = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.GhiChu = tbGhiChu.Text;
+
+            data.CreateBy = data.UpdateBy = "";
+            data.CreateDate = data.UpdateDate = DateTime.Now;
+
+            if (KhachHangBus.Insert(data))
+            {
+                this.Dispose();
+            }
+            else
+            {
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR +
+                    Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void UpdateData()
+        {
+            data.Ten = tbTen.Text;
+            data.KhachHangGroup = KhachHangGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+            data.GioiTinh = cbGioiTinh.Text;
+            data.DiaChi = tbDiaChi.Text;
+            data.DienThoai = tbDienThoai.Text;
+            data.Fax = tbFax.Text;
+            data.Email = tbEmail.Text;
+            data.Diem = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.GhiChu = tbGhiChu.Text;
+
+            data.UpdateBy = "";
+            data.UpdateDate = DateTime.Now;
+
+            if (KhachHangBus.Update(data))
+            {
+                this.Dispose();
+            }
+            else
+            {
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    this.Dispose();
+                }
+            }
+        }
+        #endregion
+
+
+
+        #region Ok Cancel
         private void pbHuy_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -61,7 +218,14 @@ namespace QuanLyKinhDoanh.KhachHang
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            if (!isUpdate)
+            {
+                InsertData();
+            }
+            else
+            {
+                UpdateData();
+            }
         }
 
         private void pbHoanTat_MouseEnter(object sender, EventArgs e)
@@ -73,5 +237,40 @@ namespace QuanLyKinhDoanh.KhachHang
         {
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
+        #endregion
+
+        
+
+        #region Controls
+        private void tbTen_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void tbDiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+
+        private void tbDiem_TextChanged(object sender, EventArgs e)
+        {
+            tbDiem.Text = ConvertUtil.ConvertToInt(tbDiem.Text).ToString();
+        }
+
+        private void tbDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateSpace(e);
+        }
+
+        private void tbFax_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateSpace(e);
+        }
+
+        private void tbEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateSpace(e);
+        }
+        #endregion
     }
 }

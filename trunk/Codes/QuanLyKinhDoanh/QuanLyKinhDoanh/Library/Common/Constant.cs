@@ -45,6 +45,10 @@ namespace Library
         public const string LINK_SYMBOL_STRING = " - ";
         public const string LINK_SYMBOL_MONEY = ",";
 
+        public const int ID_GROUP_KH_MUA_LE = 1;
+        public const int ID_GROUP_KH_MUA_SI = 2;
+        public const int ID_GROUP_KH_VIP = 3;
+
         public const int ID_TYPE_MUA = 1;
         public const int ID_TYPE_BAN = 2;
         public const int ID_TYPE_THU = 3;
@@ -82,8 +86,9 @@ namespace Library
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
+        public const string SEARCH_KHACHHANG_TIP = "Họ tên - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
         public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
-        public const string SEARCH_NHAPKHO_TIP = "Mã - Tên sản phẩm";
+        public const string SEARCH_NHAPKHO_TIP = "Mã nhập - Mã SP - Tên SP";
     }
 }
