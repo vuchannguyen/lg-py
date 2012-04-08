@@ -13,7 +13,7 @@ namespace QuanLyKinhDoanh
     public partial class FormMain : Form
     {
         #region Variables
-        UcUser ucQuanLyUser;
+        private bool isMainMenuClick;
         UserControl uc;
         #endregion
 
@@ -73,9 +73,11 @@ namespace QuanLyKinhDoanh
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
 
             pbThanhToan_Click(sender, e);
+
+            isMainMenuClick = false;
         }
 
-        private void Refresh()
+        private void Init()
         {
             lbUser.ForeColor = Constant.COLOR_NORMAL;
             lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
@@ -92,6 +94,14 @@ namespace QuanLyKinhDoanh
             pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
+
+            pbUser.Enabled = true;
+            pbKhachHang.Enabled = true;
+            pbSanPham.Enabled = true;
+            pbMuaBan.Enabled = true;
+            pbThanhToan.Enabled = true;
+            pbKhoHang.Enabled = true;
+            pbThuChi.Enabled = true;
         }
 
         #region Main Button
@@ -127,7 +137,11 @@ namespace QuanLyKinhDoanh
 
         private void pbUser_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbUser.Enabled = false;
+
+            pbUser_MouseEnter(sender, e);
 
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
         }
@@ -142,13 +156,24 @@ namespace QuanLyKinhDoanh
 
         private void pbUser_MouseLeave(object sender, EventArgs e)
         {
-            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
-            lbUser.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
+                lbUser.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
 
         private void pbKhachHang_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbKhachHang.Enabled = false;
+
+            pbKhachHang_MouseEnter(sender, e);
             
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
         }
@@ -163,13 +188,24 @@ namespace QuanLyKinhDoanh
 
         private void pbKhachHang_MouseLeave(object sender, EventArgs e)
         {
-            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
-            lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
+                lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
 
         private void pbSanPham_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbSanPham.Enabled = false;
+
+            pbSanPham_MouseEnter(sender, e);
 
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
         }
@@ -190,7 +226,11 @@ namespace QuanLyKinhDoanh
 
         private void pbMuaBan_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbMuaBan.Enabled = false;
+
+            pbMuaBan_MouseEnter(sender, e);
 
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMuaBanIndex());
         }
@@ -211,9 +251,13 @@ namespace QuanLyKinhDoanh
 
         private void pbKhoHang_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbKhoHang.Enabled = false;
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHang());
+            pbKhoHang_MouseEnter(sender, e);
+
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
         }
 
         private void pbKhoHang_MouseEnter(object sender, EventArgs e)
@@ -232,7 +276,11 @@ namespace QuanLyKinhDoanh
 
         private void pbThuChi_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbThuChi.Enabled = false;
+
+            pbThuChi_MouseEnter(sender, e);
 
             //CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
@@ -254,7 +302,11 @@ namespace QuanLyKinhDoanh
 
         private void pbThanhToan_Click(object sender, EventArgs e)
         {
-            Refresh();
+            Init();
+            isMainMenuClick = true;
+            pbThanhToan.Enabled = false;
+
+            pbThanhToan_MouseEnter(sender, e);
 
             CommonFunc.NewControl(pnBody.Controls, ref uc, new QuanLyKinhDoanh.GiaoDich.UcThanhToan());
         }

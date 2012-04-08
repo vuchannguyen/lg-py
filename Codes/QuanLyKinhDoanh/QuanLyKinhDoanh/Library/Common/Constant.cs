@@ -26,7 +26,7 @@ namespace Library
         public static Color COLOR_NORMAL = Color.Gray;
         public static Color COLOR_MOUSEOVER = Color.Orange;
         public static Color COLOR_DISABLE = Color.LightSlateGray;
-        public static Color COLOR_IN_USE = Color.Orange;
+        public static Color COLOR_IN_USE = Color.Red;
 
         public const string TOOLTIP_USER = "Quản lý thông tin User";
         public const string TOOLTIP_KHACHHANG = "Quản lý thông tin Khách hàng";
