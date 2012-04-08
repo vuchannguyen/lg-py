@@ -125,12 +125,31 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            SanPhamGroup data = GetById(result);
+                            //SanPhamGroup data = GetById(result);
 
-                            if (!Delete(data))
+                            //if (!Delete(data))
+                            //{
+                            //    return false;
+                            //}
+
+                            try
                             {
-                                return false;
+                                SanPhamGroup temp = dbContext.SanPhamGroups.Where(p => p.Id == result).SingleOrDefault<SanPhamGroup>();
+
+                                dbContext.SanPhamGroups.Attach(temp);
+                                dbContext.Refresh(System.Data.Linq.RefreshMode.KeepCurrentValues, temp);
+
+                                dbContext.SanPhamGroups.DeleteOnSubmit(temp);
+                                dbContext.SubmitChanges();
+
+                                return true;
                             }
+                            catch (Exception ex)
+                            {
+                                throw ex;
+                                //return false;
+                            }
+
                         }
                         else
                         {

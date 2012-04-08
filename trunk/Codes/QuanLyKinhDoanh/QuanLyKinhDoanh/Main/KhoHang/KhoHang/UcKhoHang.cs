@@ -41,6 +41,8 @@ namespace QuanLyKinhDoanh
 
         private void UcKhoHang_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
+
             LoadResource();
 
             //pnQuanLy.Size = new System.Drawing.Size(710, 480);
@@ -51,6 +53,17 @@ namespace QuanLyKinhDoanh
 
             cbTinhTrang.SelectedIndex = 0;
             cbNhom.SelectedIndex = 0;
+
+            this.BringToFront();
+
+            //cbFilter.SelectedIndex = 0;
+
+            //tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
+
+            //RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, 1);
+            //SetStatusButtonPage(1);
+
+            this.Visible = true;
         }
 
         private void pbFind_Click(object sender, EventArgs e)

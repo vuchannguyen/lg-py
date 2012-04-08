@@ -50,37 +50,19 @@ namespace DAO
         {
             // set command time out by seconds
             dbContext.CommandTimeout = 300;
+
+            dbContext = new QLKDDataContext(CONNECTION_STRING);
         }
 
-        public QLKDDataContext CreateSQlConnection()
+        public static void CreateSQlConnection()
         {
             try
             {
-                QLKDDataContext Test;
-                if (bWindowsAuthentication)
-                {
-                    Test = new QLKDDataContext("Data Source=" + sServerName + ";Initial Catalog=VNSC_DB;Integrated Security=True");
-                }
-                else
-                {
-                    Test = new QLKDDataContext("Data Source=" + sServerName + ";Initial Catalog=VNSC_DB;User ID=" + sUserName + ";Password=" + sPassword + ";");
-                }
-
-                //List<HoSo> list = new List<HoSo>();
-
-                //var q = from p in Test.HoSos
-                //        select p;
-
-                //foreach (HoSo k in q)
-                //{
-                //    break;
-                //}
-
-                return Test;
+                dbContext = new QLKDDataContext(CONNECTION_STRING);
             }
             catch
             {
-                return null;
+                return;
             }
         }
     }

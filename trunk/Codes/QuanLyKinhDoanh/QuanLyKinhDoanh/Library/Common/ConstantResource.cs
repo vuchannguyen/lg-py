@@ -72,9 +72,15 @@ namespace Library
         public const string GIAODICH_ICON_CART_DELETE = @"Resources\GiaoDich\icon_cart_delete.png";
         public const string GIAODICH_ICON_CART_DELETE_MOUSEOVER = @"Resources\GiaoDich\icon_cart_delete_mouseover.png";
         public const string GIAODICH_ICON_CART_DELETE_DISABLE = @"Resources\GiaoDich\icon_cart_delete_disable.png";
-                
+
         public const string KHOHANG_ICON_KHOHANG = @"Resources\KhoHang\icon_khohang.png";
         public const string KHOHANG_ICON_KHOHANG_MOUSEOVER = @"Resources\KhoHang\icon_khohang_mouseover.png";
+        public const string KHOHANG_ICON_KHOHANG_NHAP_INDEX = @"Resources\KhoHang\icon_khohang_nhap_index.png";
+        public const string KHOHANG_ICON_KHOHANG_NHAP_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_nhap_index_mouseover.png";
+        public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX = @"Resources\KhoHang\icon_khohang_search_index.png";
+        public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_search_index_mouseover.png";
+        public const string KHOHANG_ICON_NHOM_SANPHAM_INDEX = @"Resources\KhoHang\icon_nhom_sanpham_index.png";
+        public const string KHOHANG_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_nhom_sanpham_index_mouseover.png";
 
         public const string THUCHI_ICON_THUCHI = @"Resources\ThuChi\icon_thuchi.png";
         public const string THUCHI_ICON_THUCHI_MOUSEOVER = @"Resources\ThuChi\icon_thuchi_mouseover.png";

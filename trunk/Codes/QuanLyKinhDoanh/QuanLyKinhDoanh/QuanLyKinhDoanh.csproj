@@ -107,22 +107,22 @@
     <Compile Include="Main\KhachHang\UcKhachHang.Designer.cs">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhoHang\UcKhoHang.cs">
+    <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhoHang\UcKhoHang.Designer.cs">
+    <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.Designer.cs">
       <DependentUpon>UcKhoHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\GiaoDich\NhapKho\UcInfo.cs">
+    <Compile Include="Main\KhoHang\NhapKho\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\GiaoDich\NhapKho\UcInfo.Designer.cs">
+    <Compile Include="Main\KhoHang\NhapKho\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\GiaoDich\NhapKho\UcNhapKho.cs">
+    <Compile Include="Main\KhoHang\NhapKho\UcNhapKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\GiaoDich\NhapKho\UcNhapKho.Designer.cs">
+    <Compile Include="Main\KhoHang\NhapKho\UcNhapKho.Designer.cs">
       <DependentUpon>UcNhapKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\GiaoDich\UcGiaoDichIndex.cs">
@@ -131,10 +131,16 @@
     <Compile Include="Main\GiaoDich\UcGiaoDichIndex.Designer.cs">
       <DependentUpon>UcGiaoDichIndex.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcInfo.cs">
+    <Compile Include="Main\KhoHang\UcKhoHangIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcInfo.Designer.cs">
+    <Compile Include="Main\KhoHang\UcKhoHangIndex.Designer.cs">
+      <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhoHang\NhomSanPham\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\NhomSanPham\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\SanPham\UcInfo.cs">
@@ -149,10 +155,10 @@
     <Compile Include="Main\SanPham\SanPham\UcSanPham.Designer.cs">
       <DependentUpon>UcSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcNhomSanPham.cs">
+    <Compile Include="Main\KhoHang\NhomSanPham\UcNhomSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcNhomSanPham.Designer.cs">
+    <Compile Include="Main\KhoHang\NhomSanPham\UcNhomSanPham.Designer.cs">
       <DependentUpon>UcNhomSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\UcSanPhamIndex.cs">
@@ -208,19 +214,22 @@
     <EmbeddedResource Include="Main\KhachHang\UcKhachHang.resx">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhoHang\UcKhoHang.resx">
+    <EmbeddedResource Include="Main\KhoHang\KhoHang\UcKhoHang.resx">
       <DependentUpon>UcKhoHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\GiaoDich\NhapKho\UcInfo.resx">
+    <EmbeddedResource Include="Main\KhoHang\NhapKho\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\GiaoDich\NhapKho\UcNhapKho.resx">
+    <EmbeddedResource Include="Main\KhoHang\NhapKho\UcNhapKho.resx">
       <DependentUpon>UcNhapKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\GiaoDich\UcGiaoDichIndex.resx">
       <DependentUpon>UcGiaoDichIndex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
+    <EmbeddedResource Include="Main\KhoHang\UcKhoHangIndex.resx">
+      <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\NhomSanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPham\UcInfo.resx">
@@ -229,7 +238,7 @@
     <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
       <DependentUpon>UcSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcNhomSanPham.resx">
+    <EmbeddedResource Include="Main\KhoHang\NhomSanPham\UcNhomSanPham.resx">
       <DependentUpon>UcNhomSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
