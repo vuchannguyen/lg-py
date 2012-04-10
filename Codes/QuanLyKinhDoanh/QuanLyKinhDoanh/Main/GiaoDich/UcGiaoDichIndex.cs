@@ -48,7 +48,7 @@ namespace QuanLyKinhDoanh
         private void pbNhapKho_MouseEnter(object sender, EventArgs e)
         {
             pbNhapKho.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_MUA_INDEX_MOUSEOVER);
-            lbNhapKho.ForeColor = Constant.COLOR_IN_USE;
+            lbNhapKho.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbNhapKho_MouseLeave(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace QuanLyKinhDoanh
         private void pbThanhToan_MouseEnter(object sender, EventArgs e)
         {
             pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
-            lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
+            lbThanhToan.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbThanhToan_MouseLeave(object sender, EventArgs e)
