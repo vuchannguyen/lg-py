@@ -68,6 +68,8 @@ namespace QuanLyKinhDoanh
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, 1);
             SetStatusButtonPage(1);
 
+            dtpFilter.CustomFormat = "dd/MM/yyyy";
+
             this.Visible = true;
         }
 
@@ -133,9 +135,9 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.HoaDon.IdHoaDon.ToString());
-                lvi.SubItems.Add(data.SanPham.IdSanPham + Constant.SEPERATE_STRING + data.SanPham.Ten);
+                lvi.SubItems.Add(data.SanPham.IdSanPham + Constant.LINK_SYMBOL_STRING + data.SanPham.Ten);
                 lvi.SubItems.Add("");
-                lvi.SubItems.Add(data.HoaDon.CreateDate.ToShortDateString());
+                lvi.SubItems.Add(data.HoaDon.CreateDate.ToString("dd/MM/yyyy"));
                 lvi.SubItems.Add(data.SoLuong.ToString());
                 lvi.SubItems.Add(data.SanPham.DonViTinh);
                 lvi.SubItems.Add(data.SanPham.GiaMua.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###"));

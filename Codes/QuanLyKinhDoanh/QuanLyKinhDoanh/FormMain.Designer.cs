@@ -82,6 +82,8 @@
             this.pnMain.Controls.Add(this.pnBody);
             this.pnMain.Controls.Add(this.pnTopBar);
             this.pnMain.Controls.Add(this.pnHeaderAndMainMenu);
+            this.pnMain.Controls.Add(this.pbMuaBan);
+            this.pnMain.Controls.Add(this.lbMuaBan);
             this.pnMain.Location = new System.Drawing.Point(12, 12);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(973, 498);
@@ -207,8 +209,6 @@
             this.pnHeaderAndMainMenu.Controls.Add(this.pbThuChi);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbThanhToan);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbThanhToan);
-            this.pnHeaderAndMainMenu.Controls.Add(this.lbMuaBan);
-            this.pnHeaderAndMainMenu.Controls.Add(this.pbMuaBan);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbHeader);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbSanPham);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbKhachHang);
@@ -227,7 +227,7 @@
             this.lbKhoHang.AutoSize = true;
             this.lbKhoHang.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbKhoHang.ForeColor = System.Drawing.Color.Gray;
-            this.lbKhoHang.Location = new System.Drawing.Point(371, 68);
+            this.lbKhoHang.Location = new System.Drawing.Point(281, 68);
             this.lbKhoHang.Name = "lbKhoHang";
             this.lbKhoHang.Size = new System.Drawing.Size(53, 14);
             this.lbKhoHang.TabIndex = 26;
@@ -236,7 +236,7 @@
             // pbKhoHang
             // 
             this.pbKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbKhoHang.Location = new System.Drawing.Point(364, 3);
+            this.pbKhoHang.Location = new System.Drawing.Point(274, 3);
             this.pbKhoHang.Name = "pbKhoHang";
             this.pbKhoHang.Size = new System.Drawing.Size(65, 67);
             this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -251,7 +251,7 @@
             this.lbThuChi.AutoSize = true;
             this.lbThuChi.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThuChi.ForeColor = System.Drawing.Color.Gray;
-            this.lbThuChi.Location = new System.Drawing.Point(465, 68);
+            this.lbThuChi.Location = new System.Drawing.Point(375, 68);
             this.lbThuChi.Name = "lbThuChi";
             this.lbThuChi.Size = new System.Drawing.Size(42, 14);
             this.lbThuChi.TabIndex = 24;
@@ -260,7 +260,7 @@
             // pbThuChi
             // 
             this.pbThuChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThuChi.Location = new System.Drawing.Point(454, 3);
+            this.pbThuChi.Location = new System.Drawing.Point(364, 3);
             this.pbThuChi.Name = "pbThuChi";
             this.pbThuChi.Size = new System.Drawing.Size(65, 67);
             this.pbThuChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -275,7 +275,7 @@
             this.lbThanhToan.AutoSize = true;
             this.lbThanhToan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThanhToan.ForeColor = System.Drawing.Color.Gray;
-            this.lbThanhToan.Location = new System.Drawing.Point(546, 68);
+            this.lbThanhToan.Location = new System.Drawing.Point(456, 68);
             this.lbThanhToan.Name = "lbThanhToan";
             this.lbThanhToan.Size = new System.Drawing.Size(61, 14);
             this.lbThanhToan.TabIndex = 22;
@@ -284,7 +284,7 @@
             // pbThanhToan
             // 
             this.pbThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThanhToan.Location = new System.Drawing.Point(544, 3);
+            this.pbThanhToan.Location = new System.Drawing.Point(454, 3);
             this.pbThanhToan.Name = "pbThanhToan";
             this.pbThanhToan.Size = new System.Drawing.Size(65, 67);
             this.pbThanhToan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -299,21 +299,23 @@
             this.lbMuaBan.AutoSize = true;
             this.lbMuaBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMuaBan.ForeColor = System.Drawing.Color.Gray;
-            this.lbMuaBan.Location = new System.Drawing.Point(281, 68);
+            this.lbMuaBan.Location = new System.Drawing.Point(834, 250);
             this.lbMuaBan.Name = "lbMuaBan";
             this.lbMuaBan.Size = new System.Drawing.Size(52, 14);
             this.lbMuaBan.TabIndex = 20;
             this.lbMuaBan.Text = "Giao dịch";
+            this.lbMuaBan.Visible = false;
             // 
             // pbMuaBan
             // 
             this.pbMuaBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMuaBan.Location = new System.Drawing.Point(274, 3);
+            this.pbMuaBan.Location = new System.Drawing.Point(827, 185);
             this.pbMuaBan.Name = "pbMuaBan";
             this.pbMuaBan.Size = new System.Drawing.Size(65, 67);
             this.pbMuaBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMuaBan.TabIndex = 19;
             this.pbMuaBan.TabStop = false;
+            this.pbMuaBan.Visible = false;
             this.pbMuaBan.Click += new System.EventHandler(this.pbMuaBan_Click);
             this.pbMuaBan.MouseEnter += new System.EventHandler(this.pbMuaBan_MouseEnter);
             this.pbMuaBan.MouseLeave += new System.EventHandler(this.pbMuaBan_MouseLeave);
@@ -428,6 +430,7 @@
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);
+            this.pnMain.PerformLayout();
             this.pnAbout.ResumeLayout(false);
             this.pnAbout.PerformLayout();
             this.pnTopBar.ResumeLayout(false);

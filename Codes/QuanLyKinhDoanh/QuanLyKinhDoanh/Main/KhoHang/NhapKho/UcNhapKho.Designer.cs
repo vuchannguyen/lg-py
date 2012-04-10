@@ -493,7 +493,7 @@
             // 
             // dtpFilter
             // 
-            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFilter.Location = new System.Drawing.Point(3, 40);
             this.dtpFilter.Name = "dtpFilter";
             this.dtpFilter.Size = new System.Drawing.Size(150, 23);

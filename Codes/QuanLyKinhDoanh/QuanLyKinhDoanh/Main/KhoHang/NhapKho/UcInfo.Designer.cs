@@ -74,12 +74,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cbGroup = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbMaSP = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -94,10 +88,6 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
             this.gbInfoSP.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -169,7 +159,6 @@
             this.gbInfo.Controls.Add(this.label5);
             this.gbInfo.Controls.Add(this.label4);
             this.gbInfo.Controls.Add(this.panel12);
-            this.gbInfo.Controls.Add(this.panel8);
             this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.lbMa);
             this.gbInfo.Controls.Add(this.lbTen);
@@ -360,7 +349,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(43, 363);
+            this.panel8.Location = new System.Drawing.Point(39, 363);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -432,8 +421,7 @@
             this.gbInfoSP.Controls.Add(this.label13);
             this.gbInfoSP.Controls.Add(this.cbGroup);
             this.gbInfoSP.Controls.Add(this.label14);
-            this.gbInfoSP.Controls.Add(this.panel1);
-            this.gbInfoSP.Controls.Add(this.panel3);
+            this.gbInfoSP.Controls.Add(this.panel8);
             this.gbInfoSP.Controls.Add(this.tbMaSP);
             this.gbInfoSP.Controls.Add(this.label17);
             this.gbInfoSP.Controls.Add(this.label18);
@@ -590,60 +578,6 @@
             this.label14.TabIndex = 97;
             this.label14.Text = "Mô tả:";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(411, 315);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 70);
-            this.panel1.TabIndex = 93;
-            this.panel1.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 68);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(0, 16);
-            this.label15.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 39);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(40, 315);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(70, 70);
-            this.panel3.TabIndex = 92;
-            this.panel3.Visible = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(7, 68);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(0, 16);
-            this.label16.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 39);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // tbMaSP
             // 
             this.tbMaSP.Location = new System.Drawing.Point(100, 30);
@@ -708,12 +642,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
             this.gbInfoSP.ResumeLayout(false);
             this.gbInfoSP.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -765,12 +693,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox tbMaSP;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
