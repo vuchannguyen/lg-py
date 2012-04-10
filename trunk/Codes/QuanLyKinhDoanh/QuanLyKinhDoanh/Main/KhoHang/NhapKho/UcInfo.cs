@@ -95,6 +95,8 @@ namespace QuanLyKinhDoanh.Mua
             ValidateInput();
         }
 
+
+
         #region Function
         private bool Init()
         {
@@ -201,6 +203,15 @@ namespace QuanLyKinhDoanh.Mua
             }
             else
             {
+                try
+                {
+                    HoaDonBus.Delete(dataHoaDon);
+                }
+                catch
+                { 
+                    //
+                }
+
                 if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     this.Dispose();
@@ -216,6 +227,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             dataHoaDonDetail.IdHoaDon = idHoaDon;
             //dataHoaDonDetail.IdSanPham = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value);
+            dataHoaDonDetail.IdSanPham = dataSP.Id;
             dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
             dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
 
@@ -225,6 +237,15 @@ namespace QuanLyKinhDoanh.Mua
             }
             else
             {
+                try
+                {
+                    HoaDonDetailBus.Delete(dataHoaDonDetail);
+                }
+                catch
+                {
+                    //
+                }
+
                 if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     this.Dispose();
@@ -235,6 +256,7 @@ namespace QuanLyKinhDoanh.Mua
         private void UpdatedataSP()
         {
             //dataSP = SanPhamBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value));
+            //dataSP = SanPhamBus.GetById(dataSP.Id);
 
             dataSP.SoLuong += ConvertUtil.ConvertToInt(tbSoLuong.Text);
             dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
@@ -252,7 +274,7 @@ namespace QuanLyKinhDoanh.Mua
                 }
                 else
                 {
-                    RefreshData();
+                    //RefreshData();
                     CreateNewId();
                 }
             }
@@ -397,24 +419,29 @@ namespace QuanLyKinhDoanh.Mua
 
         private void tbGiaBan_Leave(object sender, EventArgs e)
         {
+            isFixedMoney = true;
+
             long moneyBuy = 0;
             long moneySell = 0;
 
             moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
             moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
 
-            double laiSuat = moneySell * 1.0 / moneyBuy * 100;
+            double laiSuat = (moneySell * 1.0 / moneyBuy * 100) - 100;
+
             if (Math.Round(laiSuat) > Constant.DEFAULT_MAX_PERCENT_PROFIT)
             {
                 laiSuat = Constant.DEFAULT_MAX_PERCENT_PROFIT;
+
+                isFixedMoney = false;
             }
 
-            if (Math.Round(laiSuat) == 0)
+            if (Math.Round(laiSuat) <= 0)
             {
-                tbGiaBan.Text = "0";
+                laiSuat = 0;
             }
 
-            isFixedMoney = true;
+            
 
             tbLaiSuat.Text = Math.Round(laiSuat).ToString();
         }
@@ -443,7 +470,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (tbLaiSuat.Enabled)
             {
-                if (isFixedMoney)
+                if (!isFixedMoney)
                 {
                     long moneySell = 0;
                     long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
@@ -592,6 +619,8 @@ namespace QuanLyKinhDoanh.Mua
         {
             tbDonViTinhSP.Text = tbDonViTinhSP.Text.ToUpper();
             tbDonViTinhSP.Select(tbDonViTinhSP.Text.Length, 0);
+
+            tbDonViTinh.Text = tbDonViTinhSP.Text;
 
             ValidateInputSP();
         }
