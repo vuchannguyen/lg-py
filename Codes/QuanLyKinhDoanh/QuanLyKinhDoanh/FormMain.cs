@@ -137,13 +137,14 @@ namespace QuanLyKinhDoanh
 
         private void pbUser_Click(object sender, EventArgs e)
         {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
+
             Init();
             isMainMenuClick = true;
             pbUser.Enabled = false;
 
-            pbUser_MouseEnter(sender, e);
-
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
+            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
+            lbUser.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbUser_MouseEnter(object sender, EventArgs e)
@@ -169,13 +170,14 @@ namespace QuanLyKinhDoanh
 
         private void pbKhachHang_Click(object sender, EventArgs e)
         {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
+
             Init();
             isMainMenuClick = true;
             pbKhachHang.Enabled = false;
 
-            pbKhachHang_MouseEnter(sender, e);
-            
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
+            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
+            lbKhachHang.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbKhachHang_MouseEnter(object sender, EventArgs e)
@@ -201,13 +203,14 @@ namespace QuanLyKinhDoanh
 
         private void pbSanPham_Click(object sender, EventArgs e)
         {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
+
             Init();
             isMainMenuClick = true;
             pbSanPham.Enabled = false;
 
-            pbSanPham_MouseEnter(sender, e);
-
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
+            pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
+            lbSanPham.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbSanPham_MouseEnter(object sender, EventArgs e)
@@ -220,19 +223,27 @@ namespace QuanLyKinhDoanh
 
         private void pbSanPham_MouseLeave(object sender, EventArgs e)
         {
-            pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-            lbSanPham.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
+                lbSanPham.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
 
         private void pbMuaBan_Click(object sender, EventArgs e)
         {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMuaBanIndex());
+
             Init();
             isMainMenuClick = true;
             pbMuaBan.Enabled = false;
 
-            pbMuaBan_MouseEnter(sender, e);
-
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMuaBanIndex());
+            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH_MOUSEOVER);
+            lbMuaBan.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbMuaBan_MouseEnter(object sender, EventArgs e)
@@ -245,19 +256,27 @@ namespace QuanLyKinhDoanh
 
         private void pbMuaBan_MouseLeave(object sender, EventArgs e)
         {
-            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
-            lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
+                lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
 
         private void pbKhoHang_Click(object sender, EventArgs e)
         {
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
+
             Init();
             isMainMenuClick = true;
             pbKhoHang.Enabled = false;
 
-            pbKhoHang_MouseEnter(sender, e);
-
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
+            pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
+            lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbKhoHang_MouseEnter(object sender, EventArgs e)
@@ -270,20 +289,28 @@ namespace QuanLyKinhDoanh
 
         private void pbKhoHang_MouseLeave(object sender, EventArgs e)
         {
-            pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
-            lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
+                lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
 
         private void pbThuChi_Click(object sender, EventArgs e)
         {
+            //CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+
             Init();
             isMainMenuClick = true;
             pbThuChi.Enabled = false;
 
-            pbThuChi_MouseEnter(sender, e);
-
-            //CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+            pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
+            lbThuChi.ForeColor = Constant.COLOR_IN_USE;
         }
 
         private void pbThuChi_MouseEnter(object sender, EventArgs e)
@@ -296,8 +323,15 @@ namespace QuanLyKinhDoanh
 
         private void pbThuChi_MouseLeave(object sender, EventArgs e)
         {
-            pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
-            lbThuChi.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
+                lbThuChi.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
 
         private void pbThanhToan_Click(object sender, EventArgs e)
@@ -306,7 +340,8 @@ namespace QuanLyKinhDoanh
             isMainMenuClick = true;
             pbThanhToan.Enabled = false;
 
-            pbThanhToan_MouseEnter(sender, e);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
+            lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
 
             CommonFunc.NewControl(pnBody.Controls, ref uc, new QuanLyKinhDoanh.GiaoDich.UcThanhToan());
         }
@@ -321,29 +356,39 @@ namespace QuanLyKinhDoanh
 
         private void pbThanhToan_MouseLeave(object sender, EventArgs e)
         {
-            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
-            lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
+            if (!isMainMenuClick)
+            {
+                pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
+                lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                isMainMenuClick = false;
+            }
         }
         #endregion
 
-        private float oldWidth = 1024f;
-        private float oldHeght = 768f;
+        private float oldWidth = 1014f;
+        private float oldHeght = 764f;
 
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
-            //float ratioWidth = this.Width / oldWidth;
-            //float ratioHeight = this.Height / oldHeght;
+            float ratioWidth = this.Width / oldWidth;
+            float ratioHeight = this.Height / oldHeght;
 
-            ////oldWidth = (float)this.Width;
-            ////oldHeght = (float)this.Height;
+            oldWidth = this.Width;
+            oldHeght = this.Height;
 
-            ////if (this.Width > 1024)
-            ////SizeF size = new SizeF(ratioWidth, ratioHeight);
+            //oldWidth = (float)this.Width;
+            //oldHeght = (float)this.Height;
 
-            //for (int i = 0; i < this.Controls.Count; i++)
-            //{
-            //    this.Controls[i].Scale((float)ratioWidth, (float)ratioHeight);
-            //}
+            //if (this.Width > 1024)
+            //SizeF size = new SizeF(ratioWidth, ratioHeight);
+
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+            }
         }
 
     }
