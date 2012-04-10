@@ -49,7 +49,7 @@ namespace QuanLyKinhDoanh
         private void pbNhapKho_MouseEnter(object sender, EventArgs e)
         {
             pbNhapKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_NHAP_INDEX_MOUSEOVER);
-            lbNhapKho.ForeColor = Constant.COLOR_IN_USE;
+            lbNhapKho.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbNhapKho_MouseLeave(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace QuanLyKinhDoanh
         private void pbKhoHang_MouseEnter(object sender, EventArgs e)
         {
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_SEARCH_INDEX_MOUSEOVER);
-            lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
+            lbKhoHang.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbKhoHang_MouseLeave(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace QuanLyKinhDoanh
         private void pbNhomSanPham_MouseEnter(object sender, EventArgs e)
         {
             pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER);
-            lbNhomSanPham.ForeColor = Constant.COLOR_IN_USE;
+            lbNhomSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbNhomSanPham_MouseLeave(object sender, EventArgs e)
