@@ -47,8 +47,6 @@
             this.pbThuChi = new System.Windows.Forms.PictureBox();
             this.lbThanhToan = new System.Windows.Forms.Label();
             this.pbThanhToan = new System.Windows.Forms.PictureBox();
-            this.lbMuaBan = new System.Windows.Forms.Label();
-            this.pbMuaBan = new System.Windows.Forms.PictureBox();
             this.pbHeader = new System.Windows.Forms.PictureBox();
             this.lbSanPham = new System.Windows.Forms.Label();
             this.lbKhachHang = new System.Windows.Forms.Label();
@@ -57,6 +55,8 @@
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
+            this.pbMuaBan = new System.Windows.Forms.PictureBox();
+            this.lbMuaBan = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
@@ -68,12 +68,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThanhToan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHorizonline)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -294,32 +294,6 @@
             this.pbThanhToan.MouseEnter += new System.EventHandler(this.pbThanhToan_MouseEnter);
             this.pbThanhToan.MouseLeave += new System.EventHandler(this.pbThanhToan_MouseLeave);
             // 
-            // lbMuaBan
-            // 
-            this.lbMuaBan.AutoSize = true;
-            this.lbMuaBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMuaBan.ForeColor = System.Drawing.Color.Gray;
-            this.lbMuaBan.Location = new System.Drawing.Point(834, 250);
-            this.lbMuaBan.Name = "lbMuaBan";
-            this.lbMuaBan.Size = new System.Drawing.Size(52, 14);
-            this.lbMuaBan.TabIndex = 20;
-            this.lbMuaBan.Text = "Giao dịch";
-            this.lbMuaBan.Visible = false;
-            // 
-            // pbMuaBan
-            // 
-            this.pbMuaBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMuaBan.Location = new System.Drawing.Point(827, 185);
-            this.pbMuaBan.Name = "pbMuaBan";
-            this.pbMuaBan.Size = new System.Drawing.Size(65, 67);
-            this.pbMuaBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMuaBan.TabIndex = 19;
-            this.pbMuaBan.TabStop = false;
-            this.pbMuaBan.Visible = false;
-            this.pbMuaBan.Click += new System.EventHandler(this.pbMuaBan_Click);
-            this.pbMuaBan.MouseEnter += new System.EventHandler(this.pbMuaBan_MouseEnter);
-            this.pbMuaBan.MouseLeave += new System.EventHandler(this.pbMuaBan_MouseLeave);
-            // 
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
@@ -413,12 +387,38 @@
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
+            // pbMuaBan
+            // 
+            this.pbMuaBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMuaBan.Location = new System.Drawing.Point(827, 185);
+            this.pbMuaBan.Name = "pbMuaBan";
+            this.pbMuaBan.Size = new System.Drawing.Size(65, 67);
+            this.pbMuaBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbMuaBan.TabIndex = 19;
+            this.pbMuaBan.TabStop = false;
+            this.pbMuaBan.Visible = false;
+            this.pbMuaBan.Click += new System.EventHandler(this.pbMuaBan_Click);
+            this.pbMuaBan.MouseEnter += new System.EventHandler(this.pbMuaBan_MouseEnter);
+            this.pbMuaBan.MouseLeave += new System.EventHandler(this.pbMuaBan_MouseLeave);
+            // 
+            // lbMuaBan
+            // 
+            this.lbMuaBan.AutoSize = true;
+            this.lbMuaBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMuaBan.ForeColor = System.Drawing.Color.Gray;
+            this.lbMuaBan.Location = new System.Drawing.Point(834, 250);
+            this.lbMuaBan.Name = "lbMuaBan";
+            this.lbMuaBan.Size = new System.Drawing.Size(52, 14);
+            this.lbMuaBan.TabIndex = 20;
+            this.lbMuaBan.Text = "Giao dịch";
+            this.lbMuaBan.Visible = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1008, 732);
             this.Controls.Add(this.pnMain);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -443,12 +443,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThanhToan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHorizonline)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).EndInit();
             this.ResumeLayout(false);
 
         }

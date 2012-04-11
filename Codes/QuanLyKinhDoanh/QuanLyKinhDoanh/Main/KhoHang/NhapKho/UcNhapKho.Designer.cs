@@ -291,7 +291,7 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Mã - Tên SP";
-            this.chSanPham.Width = 143;
+            this.chSanPham.Width = 150;
             // 
             // chUser
             // 
@@ -308,7 +308,7 @@
             // 
             this.chSoLuong.Text = "SL";
             this.chSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chSoLuong.Width = 67;
+            this.chSoLuong.Width = 58;
             // 
             // chDVT
             // 

@@ -36,6 +36,11 @@ namespace BUS
             return SanPhamDao.GetLastData();
         }
 
+        public static SanPham GetLastData(int idGroup)
+        {
+            return SanPhamDao.GetLastData(idGroup);
+        }
+
         public static SanPham GetById(int id)
         {
             return SanPhamDao.GetById(id);

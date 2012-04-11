@@ -133,9 +133,16 @@ namespace DAO
 
         public static SanPham GetLastData()
         {
-            var sql = dbContext.SanPhams.OrderBy("Id " + CommonDao.SORT_DESCENDING);
+            return dbContext.SanPhams.OrderBy("Id " + CommonDao.SORT_DESCENDING).FirstOrDefault();
 
-            return sql.Skip(0).Take(1).ToList().FirstOrDefault();
+            //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
+        }
+
+        public static SanPham GetLastData(int idGroup)
+        {
+            return dbContext.SanPhams.Where(p => p.IdGroup == idGroup).OrderBy("IdSanPham " + CommonDao.SORT_DESCENDING).FirstOrDefault();
+
+            //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static SanPham GetById(int id)

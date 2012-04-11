@@ -52,9 +52,6 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
             this.pbHoanTat = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.pbHuy = new System.Windows.Forms.PictureBox();
             this.tbMa = new System.Windows.Forms.TextBox();
             this.lbMa = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
@@ -74,20 +71,24 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cbGroup = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.pbHuy = new System.Windows.Forms.PictureBox();
             this.tbMaSP = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
+            this.cbChangeMoney = new System.Windows.Forms.ComboBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
+            this.gbInfoSP.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
-            this.gbInfoSP.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -144,6 +145,7 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.cbChangeMoney);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.tbLaiSuat);
             this.gbInfo.Controls.Add(this.tbThanhTien);
@@ -344,35 +346,6 @@
             this.pbHoanTat.Click += new System.EventHandler(this.pbHoanTat_Click);
             this.pbHoanTat.MouseEnter += new System.EventHandler(this.pbHoanTat_MouseEnter);
             this.pbHoanTat.MouseLeave += new System.EventHandler(this.pbHoanTat_MouseLeave);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label39);
-            this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(39, 363);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(70, 70);
-            this.panel8.TabIndex = 92;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(7, 68);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(0, 16);
-            this.label39.TabIndex = 2;
-            // 
-            // pbHuy
-            // 
-            this.pbHuy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHuy.Location = new System.Drawing.Point(10, 10);
-            this.pbHuy.Name = "pbHuy";
-            this.pbHuy.Size = new System.Drawing.Size(50, 39);
-            this.pbHuy.TabIndex = 1;
-            this.pbHuy.TabStop = false;
-            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
-            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
-            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
             // 
             // tbMa
             // 
@@ -578,6 +551,35 @@
             this.label14.TabIndex = 97;
             this.label14.Text = "Mô tả:";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label39);
+            this.panel8.Controls.Add(this.pbHuy);
+            this.panel8.Location = new System.Drawing.Point(39, 363);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(70, 70);
+            this.panel8.TabIndex = 92;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 68);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(0, 16);
+            this.label39.TabIndex = 2;
+            // 
+            // pbHuy
+            // 
+            this.pbHuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHuy.Location = new System.Drawing.Point(10, 10);
+            this.pbHuy.Name = "pbHuy";
+            this.pbHuy.Size = new System.Drawing.Size(50, 39);
+            this.pbHuy.TabIndex = 1;
+            this.pbHuy.TabStop = false;
+            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
+            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
+            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
+            // 
             // tbMaSP
             // 
             this.tbMaSP.Location = new System.Drawing.Point(100, 30);
@@ -618,6 +620,19 @@
             this.label19.TabIndex = 4;
             this.label19.Text = "Xuất xứ:";
             // 
+            // cbChangeMoney
+            // 
+            this.cbChangeMoney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChangeMoney.FormattingEnabled = true;
+            this.cbChangeMoney.Items.AddRange(new object[] {
+            "Giá nhập -> Giá bán",
+            "Giá bán -> Giá nhập"});
+            this.cbChangeMoney.Location = new System.Drawing.Point(227, 30);
+            this.cbChangeMoney.Name = "cbChangeMoney";
+            this.cbChangeMoney.Size = new System.Drawing.Size(152, 24);
+            this.cbChangeMoney.TabIndex = 112;
+            this.cbChangeMoney.SelectedIndexChanged += new System.EventHandler(this.cbChangeMoney_SelectedIndexChanged);
+            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -637,11 +652,11 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).EndInit();
+            this.gbInfoSP.ResumeLayout(false);
+            this.gbInfoSP.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
-            this.gbInfoSP.ResumeLayout(false);
-            this.gbInfoSP.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -698,5 +713,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbChangeMoney;
     }
 }
