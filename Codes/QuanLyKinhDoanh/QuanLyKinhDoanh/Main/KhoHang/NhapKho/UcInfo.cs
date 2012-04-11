@@ -190,6 +190,8 @@ namespace QuanLyKinhDoanh.Mua
 
         private void InsertDataHoaDon()
         {
+            dataHoaDon = new HoaDon();
+
             dataHoaDon.IdHoaDon = tbMa.Text;
             dataHoaDon.IdType = Constant.ID_TYPE_MUA;
             dataHoaDon.Status = Constant.STATUS_DONE;
@@ -227,6 +229,8 @@ namespace QuanLyKinhDoanh.Mua
 
         private void InsertDataHoaDonDetail(int idHoaDon)
         {
+            dataHoaDonDetail = new HoaDonDetail();
+
             dataHoaDonDetail.IdHoaDon = idHoaDon;
             //dataHoaDonDetail.IdSanPham = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value);
             dataHoaDonDetail.IdSanPham = dataSP.Id;
@@ -552,7 +556,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             tbMaSP.Text = string.Empty;
             tbTen.Text = string.Empty;
-            tbDonViTinhSP.Text = string.Empty;
+            cbDVTSP.Text = string.Empty;
             tbXuatXu.Text = string.Empty;
             tbHieu.Text = string.Empty;
             tbThoiGianBaoHanh.Text = string.Empty;
@@ -590,7 +594,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (!string.IsNullOrEmpty(tbMaSP.Text) &&
                 !string.IsNullOrEmpty(tbTen.Text) &&
-                !string.IsNullOrEmpty(tbDonViTinhSP.Text)
+                !string.IsNullOrEmpty(cbDVTSP.Text)
                 )
             {
                 gbInfo.Enabled = true;
@@ -603,11 +607,13 @@ namespace QuanLyKinhDoanh.Mua
 
         private bool InsertDataSP()
         {
+            dataSP = new DTO.SanPham();
+
             dataSP.IdSanPham = tbMaSP.Text;
             dataSP.Ten = tbTen.Text;
             dataSP.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             dataSP.MoTa = tbMoTa.Text;
-            dataSP.DonViTinh = tbDonViTinhSP.Text;
+            dataSP.DonViTinh = cbDVTSP.Text;
             dataSP.XuatXu = tbXuatXu.Text;
             dataSP.Hieu = tbHieu.Text;
             dataSP.Size = tbSize.Text;
@@ -646,16 +652,6 @@ namespace QuanLyKinhDoanh.Mua
             ValidateInputSP();
         }
 
-        private void tbDonViTinhSP_TextChanged(object sender, EventArgs e)
-        {
-            tbDonViTinhSP.Text = tbDonViTinhSP.Text.ToUpper();
-            tbDonViTinhSP.Select(tbDonViTinhSP.Text.Length, 0);
-
-            tbDonViTinh.Text = tbDonViTinhSP.Text;
-
-            ValidateInputSP();
-        }
-
         private void tbThoiGianBaoHanh_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
@@ -671,6 +667,16 @@ namespace QuanLyKinhDoanh.Mua
 
                 tbLaiSuat_TextChanged(sender, e);
             }
+        }
+
+        private void cbDVTSP_TextChanged(object sender, EventArgs e)
+        {
+            cbDVTSP.Text = cbDVTSP.Text.ToUpper();
+            cbDVTSP.Select(cbDVTSP.Text.Length, 0);
+
+            tbDonViTinh.Text = cbDVTSP.Text;
+
+            ValidateInputSP();
         }
     }
 }
