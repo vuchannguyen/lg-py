@@ -90,6 +90,8 @@ namespace QuanLyKinhDoanh.Mua
 
             isFixedMoney = false;
 
+            cbChangeMoney.SelectedIndex = 0;
+
             CreateNewId();
 
             ValidateInput();
@@ -144,8 +146,8 @@ namespace QuanLyKinhDoanh.Mua
                 //!string.IsNullOrEmpty(cbTen.Text) &&
                 !string.IsNullOrEmpty(tbGiaNhap.Text) &&
                 !string.IsNullOrEmpty(tbGiaBan.Text) &&
-                !string.IsNullOrEmpty(tbSoLuong.Text) &&
-                !string.IsNullOrEmpty(cbGroup.Text)
+                !string.IsNullOrEmpty(tbSoLuong.Text)
+                //!string.IsNullOrEmpty(cbGroup.Text)
                 )
             {
                 pbHoanTat.Enabled = true;
@@ -274,7 +276,7 @@ namespace QuanLyKinhDoanh.Mua
                 }
                 else
                 {
-                    //RefreshData();
+                    CreateNewIdSP();
                     CreateNewId();
                 }
             }
@@ -378,6 +380,11 @@ namespace QuanLyKinhDoanh.Mua
 
         private void tbGiaNhap_Leave(object sender, EventArgs e)
         {
+            if (cbChangeMoney.SelectedIndex == 0)
+            {
+                isFixedMoney = false;
+            }
+
             if (!string.IsNullOrEmpty(tbGiaBan.Text))
             {
                 tbLaiSuat_TextChanged(sender, e);
@@ -400,7 +407,7 @@ namespace QuanLyKinhDoanh.Mua
 
                 CalculateTotalMoney();
             }
-            else
+            else if (cbChangeMoney.SelectedIndex == 0)
             {
                 tbGiaBan.Enabled = false;
                 tbLaiSuat.Enabled = false;
@@ -419,31 +426,41 @@ namespace QuanLyKinhDoanh.Mua
 
         private void tbGiaBan_Leave(object sender, EventArgs e)
         {
-            isFixedMoney = true;
-
-            long moneyBuy = 0;
-            long moneySell = 0;
-
-            moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
-            moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
-
-            double laiSuat = (moneySell * 1.0 / moneyBuy * 100) - 100;
-
-            if (Math.Round(laiSuat) > Constant.DEFAULT_MAX_PERCENT_PROFIT)
+            if (cbChangeMoney.SelectedIndex == 0)
             {
-                laiSuat = Constant.DEFAULT_MAX_PERCENT_PROFIT;
+                isFixedMoney = true;
 
-                isFixedMoney = false;
+                long moneyBuy = 0;
+                long moneySell = 0;
+
+                moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+                moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+
+                double laiSuat = (moneySell * 1.0 / moneyBuy * 100) - 100;
+
+                if (Math.Round(laiSuat) > Constant.DEFAULT_MAX_PERCENT_PROFIT)
+                {
+                    laiSuat = Constant.DEFAULT_MAX_PERCENT_PROFIT;
+
+                    isFixedMoney = false;
+                }
+
+                if (Math.Round(laiSuat) <= 0)
+                {
+                    laiSuat = 0;
+                }
+
+                tbLaiSuat.Text = Math.Round(laiSuat).ToString();
             }
-
-            if (Math.Round(laiSuat) <= 0)
+            else
             {
-                laiSuat = 0;
+                if (string.IsNullOrEmpty(tbLaiSuat.Text))
+                {
+                    tbLaiSuat.Text = "0";
+                }
+
+                tbLaiSuat_TextChanged(sender, e);
             }
-
-            
-
-            tbLaiSuat.Text = Math.Round(laiSuat).ToString();
         }
 
         private void tbGiaBan_TextChanged(object sender, EventArgs e)
@@ -470,18 +487,27 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (tbLaiSuat.Enabled)
             {
-                if (!isFixedMoney)
+                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+
+                if (cbChangeMoney.SelectedIndex == 0)
                 {
-                    long moneySell = 0;
-                    long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+                    if (!isFixedMoney)
+                    {
+                        moneySell = moneyBuy + (moneyBuy * ConvertUtil.ConvertToLong(tbLaiSuat.Text) / 100);
 
-                    moneySell = moneyBuy + (moneyBuy * ConvertUtil.ConvertToLong(tbLaiSuat.Text) / 100);
-
-                    tbGiaBan.Text = moneySell == 0 ? "0" : moneySell.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###");
+                        tbGiaBan.Text = moneySell == 0 ? "0" : moneySell.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###");
+                    }
+                    else
+                    {
+                        isFixedMoney = false;
+                    }
                 }
                 else
                 {
-                    isFixedMoney = false;
+                    moneyBuy = (long)(moneySell / (ConvertUtil.ConvertToLong(tbLaiSuat.Text) * 1.0 / 100 + 1));
+
+                    tbGiaNhap.Text = moneyBuy == 0 ? string.Empty : moneyBuy.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###");
                 }
             }
         }
@@ -537,6 +563,29 @@ namespace QuanLyKinhDoanh.Mua
             cbDonViBaoHanh.SelectedIndex = 0;
         }
 
+        private void CreateNewIdSP()
+        {
+            int id = 0;
+            SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+
+            //if (isUpdate)
+            //{
+            //    id = data.Id;
+            //}
+            //else
+            //{
+            string idSanPham = string.Empty;
+            DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
+
+            string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.IdSanPham.Substring(dataTemp.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            //}
+
+            tbMaSP.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+
+            ValidateInputSP();
+        }
+
         private void ValidateInputSP()
         {
             if (!string.IsNullOrEmpty(tbMaSP.Text) &&
@@ -589,25 +638,7 @@ namespace QuanLyKinhDoanh.Mua
         #region Controls
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id = 0;
-
-            //if (isUpdate)
-            //{
-            //    id = data.Id;
-            //}
-            //else
-            //{
-                string idSanPham = string.Empty;
-                DTO.SanPham dataTemp = SanPhamBus.GetLastData();
-
-                id = dataTemp == null ? 1 : dataTemp.Id + 1;
-            //}
-
-            string MaGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value)).Ma;
-
-            tbMaSP.Text = MaGroup + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
-
-            ValidateInputSP();
+            CreateNewIdSP();
         }
 
         private void tbTen_TextChanged(object sender, EventArgs e)
@@ -630,5 +661,16 @@ namespace QuanLyKinhDoanh.Mua
             CommonFunc.ValidateNumeric(e);
         }
         #endregion
+
+        private void cbChangeMoney_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbChangeMoney.SelectedIndex == 1)
+            {
+                tbGiaBan.Enabled = true;
+                tbLaiSuat.Enabled = true;
+
+                tbLaiSuat_TextChanged(sender, e);
+            }
+        }
     }
 }
