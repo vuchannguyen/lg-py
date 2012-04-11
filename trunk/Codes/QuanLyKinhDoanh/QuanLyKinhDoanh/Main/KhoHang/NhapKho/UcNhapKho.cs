@@ -81,6 +81,7 @@ namespace QuanLyKinhDoanh
             tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private int GetTotalPage(int total)
