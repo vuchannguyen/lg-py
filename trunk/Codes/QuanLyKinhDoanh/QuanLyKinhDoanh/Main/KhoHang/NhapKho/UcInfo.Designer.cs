@@ -35,6 +35,7 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.cbChangeMoney = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbLaiSuat = new System.Windows.Forms.TextBox();
             this.tbThanhTien = new System.Windows.Forms.TextBox();
@@ -56,7 +57,7 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
             this.gbInfoSP = new System.Windows.Forms.GroupBox();
-            this.tbDonViTinhSP = new System.Windows.Forms.TextBox();
+            this.cbDVTSP = new System.Windows.Forms.ComboBox();
             this.cbDonViBaoHanh = new System.Windows.Forms.ComboBox();
             this.tbThoiGianBaoHanh = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -79,7 +80,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
-            this.cbChangeMoney = new System.Windows.Forms.ComboBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -171,6 +171,19 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin nhập kho";
+            // 
+            // cbChangeMoney
+            // 
+            this.cbChangeMoney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbChangeMoney.FormattingEnabled = true;
+            this.cbChangeMoney.Items.AddRange(new object[] {
+            "Giá nhập -> Giá bán",
+            "Giá bán -> Giá nhập"});
+            this.cbChangeMoney.Location = new System.Drawing.Point(227, 30);
+            this.cbChangeMoney.Name = "cbChangeMoney";
+            this.cbChangeMoney.Size = new System.Drawing.Size(152, 24);
+            this.cbChangeMoney.TabIndex = 112;
+            this.cbChangeMoney.SelectedIndexChanged += new System.EventHandler(this.cbChangeMoney_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -379,7 +392,7 @@
             // 
             // gbInfoSP
             // 
-            this.gbInfoSP.Controls.Add(this.tbDonViTinhSP);
+            this.gbInfoSP.Controls.Add(this.cbDVTSP);
             this.gbInfoSP.Controls.Add(this.cbDonViBaoHanh);
             this.gbInfoSP.Controls.Add(this.tbThoiGianBaoHanh);
             this.gbInfoSP.Controls.Add(this.label8);
@@ -407,14 +420,21 @@
             this.gbInfoSP.TabStop = false;
             this.gbInfoSP.Text = "Thông tin sản phẩm";
             // 
-            // tbDonViTinhSP
+            // cbDVTSP
             // 
-            this.tbDonViTinhSP.Location = new System.Drawing.Point(100, 130);
-            this.tbDonViTinhSP.MaxLength = 10;
-            this.tbDonViTinhSP.Name = "tbDonViTinhSP";
-            this.tbDonViTinhSP.Size = new System.Drawing.Size(119, 23);
-            this.tbDonViTinhSP.TabIndex = 4;
-            this.tbDonViTinhSP.TextChanged += new System.EventHandler(this.tbDonViTinhSP_TextChanged);
+            this.cbDVTSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbDVTSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbDVTSP.FormattingEnabled = true;
+            this.cbDVTSP.Items.AddRange(new object[] {
+            "ĐÔI",
+            "CÁI",
+            "MÉT",
+            "BỘ"});
+            this.cbDVTSP.Location = new System.Drawing.Point(82, 80);
+            this.cbDVTSP.Name = "cbDVTSP";
+            this.cbDVTSP.Size = new System.Drawing.Size(137, 24);
+            this.cbDVTSP.TabIndex = 112;
+            this.cbDVTSP.TextChanged += new System.EventHandler(this.cbDVTSP_TextChanged);
             // 
             // cbDonViBaoHanh
             // 
@@ -451,17 +471,17 @@
             // 
             // tbSize
             // 
-            this.tbSize.Location = new System.Drawing.Point(323, 180);
+            this.tbSize.Location = new System.Drawing.Point(82, 130);
             this.tbSize.MaxLength = 50;
             this.tbSize.Name = "tbSize";
-            this.tbSize.Size = new System.Drawing.Size(187, 23);
+            this.tbSize.Size = new System.Drawing.Size(137, 23);
             this.tbSize.TabIndex = 8;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(279, 183);
+            this.label10.Location = new System.Drawing.Point(38, 133);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 16);
             this.label10.TabIndex = 109;
@@ -478,17 +498,17 @@
             // 
             // tbHieu
             // 
-            this.tbHieu.Location = new System.Drawing.Point(323, 130);
+            this.tbHieu.Location = new System.Drawing.Point(302, 177);
             this.tbHieu.MaxLength = 50;
             this.tbHieu.Name = "tbHieu";
-            this.tbHieu.Size = new System.Drawing.Size(187, 23);
+            this.tbHieu.Size = new System.Drawing.Size(208, 23);
             this.tbHieu.TabIndex = 5;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(277, 133);
+            this.label11.Location = new System.Drawing.Point(256, 180);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 16);
             this.label11.TabIndex = 106;
@@ -496,17 +516,17 @@
             // 
             // tbXuatXu
             // 
-            this.tbXuatXu.Location = new System.Drawing.Point(323, 80);
+            this.tbXuatXu.Location = new System.Drawing.Point(302, 130);
             this.tbXuatXu.MaxLength = 50;
             this.tbXuatXu.Name = "tbXuatXu";
-            this.tbXuatXu.Size = new System.Drawing.Size(187, 23);
+            this.tbXuatXu.Size = new System.Drawing.Size(208, 23);
             this.tbXuatXu.TabIndex = 3;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(36, 133);
+            this.label12.Location = new System.Drawing.Point(18, 83);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 16);
             this.label12.TabIndex = 102;
@@ -514,10 +534,10 @@
             // 
             // tbTen
             // 
-            this.tbTen.Location = new System.Drawing.Point(323, 30);
+            this.tbTen.Location = new System.Drawing.Point(302, 30);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
-            this.tbTen.Size = new System.Drawing.Size(187, 23);
+            this.tbTen.Size = new System.Drawing.Size(208, 23);
             this.tbTen.TabIndex = 1;
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
@@ -525,7 +545,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(275, 33);
+            this.label13.Location = new System.Drawing.Point(254, 33);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 16);
             this.label13.TabIndex = 100;
@@ -535,9 +555,9 @@
             // 
             this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(100, 80);
+            this.cbGroup.Location = new System.Drawing.Point(302, 80);
             this.cbGroup.Name = "cbGroup";
-            this.cbGroup.Size = new System.Drawing.Size(119, 24);
+            this.cbGroup.Size = new System.Drawing.Size(208, 24);
             this.cbGroup.TabIndex = 2;
             this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.cbGroup_SelectedIndexChanged);
             // 
@@ -582,11 +602,11 @@
             // 
             // tbMaSP
             // 
-            this.tbMaSP.Location = new System.Drawing.Point(100, 30);
+            this.tbMaSP.Location = new System.Drawing.Point(82, 30);
             this.tbMaSP.MaxLength = 15;
             this.tbMaSP.Name = "tbMaSP";
             this.tbMaSP.ReadOnly = true;
-            this.tbMaSP.Size = new System.Drawing.Size(119, 23);
+            this.tbMaSP.Size = new System.Drawing.Size(137, 23);
             this.tbMaSP.TabIndex = 0;
             this.tbMaSP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -594,7 +614,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(36, 33);
+            this.label17.Location = new System.Drawing.Point(18, 33);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 16);
             this.label17.TabIndex = 90;
@@ -604,7 +624,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(41, 83);
+            this.label18.Location = new System.Drawing.Point(243, 83);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(53, 16);
             this.label18.TabIndex = 12;
@@ -614,24 +634,11 @@
             // 
             this.label19.AutoSize = true;
             this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(258, 83);
+            this.label19.Location = new System.Drawing.Point(237, 133);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(59, 16);
             this.label19.TabIndex = 4;
             this.label19.Text = "Xuất xứ:";
-            // 
-            // cbChangeMoney
-            // 
-            this.cbChangeMoney.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbChangeMoney.FormattingEnabled = true;
-            this.cbChangeMoney.Items.AddRange(new object[] {
-            "Giá nhập -> Giá bán",
-            "Giá bán -> Giá nhập"});
-            this.cbChangeMoney.Location = new System.Drawing.Point(227, 30);
-            this.cbChangeMoney.Name = "cbChangeMoney";
-            this.cbChangeMoney.Size = new System.Drawing.Size(152, 24);
-            this.cbChangeMoney.TabIndex = 112;
-            this.cbChangeMoney.SelectedIndexChanged += new System.EventHandler(this.cbChangeMoney_SelectedIndexChanged);
             // 
             // UcInfo
             // 
@@ -693,7 +700,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbLaiSuat;
         private System.Windows.Forms.GroupBox gbInfoSP;
-        private System.Windows.Forms.TextBox tbDonViTinhSP;
         private System.Windows.Forms.ComboBox cbDonViBaoHanh;
         private System.Windows.Forms.TextBox tbThoiGianBaoHanh;
         private System.Windows.Forms.Label label8;
@@ -714,5 +720,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbChangeMoney;
+        private System.Windows.Forms.ComboBox cbDVTSP;
     }
 }
