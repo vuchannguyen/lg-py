@@ -75,6 +75,7 @@ namespace QuanLyKinhDoanh
             tbSearch.Text = Constant.SEARCH_SANPHAMGROUP_TIP;
 
             RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private int GetTotalPage(int total)
