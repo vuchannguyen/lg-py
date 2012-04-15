@@ -58,6 +58,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPrintPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintPrice.Designer.cs">
+      <DependentUpon>FormPrintPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Library\Common\CommonComboBoxItems.cs" />
     <Compile Include="Library\Common\Constant.cs" />
     <Compile Include="Library\Common\ConstantResource.cs" />
@@ -201,6 +207,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintPrice.resx">
+      <DependentUpon>FormPrintPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Chi\UcChi.resx">
       <DependentUpon>UcChi.cs</DependentUpon>
