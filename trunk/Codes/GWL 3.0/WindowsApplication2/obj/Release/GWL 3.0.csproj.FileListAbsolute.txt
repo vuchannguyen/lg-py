@@ -1,0 +1,14 @@
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\ResolveAssemblyReference.cache
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\WindowsApplication2.About.resources
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\WindowsApplication2.Form1.resources
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\Gilwell.Properties.Resources.resources
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\GWL 3.0.csproj.GenerateResource.Cache
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\bin\Release\GWL 3.0.exe.manifest
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\bin\Release\GWL 3.0.application
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\bin\Release\GWL 3.0.exe
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\bin\Release\GWL 3.0.pdb
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\GWL 3.0.TrustInfo.xml
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\GWL 3.0.exe.manifest
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\GWL 3.0.application
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\GWL 3.0.exe
+D:\TH2007\Phan tich thiet ke PM\GWL\GWL 3.0\WindowsApplication2\obj\Release\GWL 3.0.pdb
