@@ -448,6 +448,7 @@
             this.cbDonViBaoHanh.Name = "cbDonViBaoHanh";
             this.cbDonViBaoHanh.Size = new System.Drawing.Size(77, 24);
             this.cbDonViBaoHanh.TabIndex = 7;
+            this.cbDonViBaoHanh.Visible = false;
             // 
             // tbThoiGianBaoHanh
             // 
@@ -457,6 +458,7 @@
             this.tbThoiGianBaoHanh.Size = new System.Drawing.Size(30, 23);
             this.tbThoiGianBaoHanh.TabIndex = 6;
             this.tbThoiGianBaoHanh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbThoiGianBaoHanh.Visible = false;
             this.tbThoiGianBaoHanh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbThoiGianBaoHanh_KeyPress);
             // 
             // label8
@@ -468,6 +470,7 @@
             this.label8.Size = new System.Drawing.Size(94, 16);
             this.label8.TabIndex = 111;
             this.label8.Text = "Thời gian BH:";
+            this.label8.Visible = false;
             // 
             // tbSize
             // 
@@ -489,11 +492,11 @@
             // 
             // tbMoTa
             // 
-            this.tbMoTa.Location = new System.Drawing.Point(100, 230);
+            this.tbMoTa.Location = new System.Drawing.Point(82, 230);
             this.tbMoTa.MaxLength = 200;
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
-            this.tbMoTa.Size = new System.Drawing.Size(410, 66);
+            this.tbMoTa.Size = new System.Drawing.Size(428, 66);
             this.tbMoTa.TabIndex = 9;
             // 
             // tbHieu
@@ -565,7 +568,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(47, 233);
+            this.label14.Location = new System.Drawing.Point(29, 233);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(47, 16);
             this.label14.TabIndex = 97;

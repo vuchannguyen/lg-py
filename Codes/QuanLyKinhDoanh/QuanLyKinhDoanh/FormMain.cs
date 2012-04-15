@@ -13,7 +13,13 @@ namespace QuanLyKinhDoanh
     public partial class FormMain : Form
     {
         #region Variables
-        private bool isMainMenuClick;
+        private bool isMainMenuClickUser;
+        private bool isMainMenuClickKhachHang;
+        private bool isMainMenuClickSP;
+        private bool isMainMenuClickKho;
+        private bool isMainMenuClickThuChi;
+        private bool isMainMenuClickThanhToan;
+
         UserControl uc;
         #endregion
 
@@ -40,7 +46,6 @@ namespace QuanLyKinhDoanh
                 pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
                 pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);               
-                pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
                 pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
@@ -73,8 +78,6 @@ namespace QuanLyKinhDoanh
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
 
             pbThanhToan_Click(sender, e);
-
-            isMainMenuClick = false;
         }
 
         private void Init()
@@ -82,7 +85,6 @@ namespace QuanLyKinhDoanh
             lbUser.ForeColor = Constant.COLOR_NORMAL;
             lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
             lbSanPham.ForeColor = Constant.COLOR_NORMAL;
-            lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
             lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
             lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
             lbThuChi.ForeColor = Constant.COLOR_NORMAL;
@@ -90,7 +92,6 @@ namespace QuanLyKinhDoanh
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
             pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
@@ -98,10 +99,16 @@ namespace QuanLyKinhDoanh
             pbUser.Enabled = true;
             pbKhachHang.Enabled = true;
             pbSanPham.Enabled = true;
-            pbMuaBan.Enabled = true;
             pbThanhToan.Enabled = true;
             pbKhoHang.Enabled = true;
             pbThuChi.Enabled = true;
+
+            isMainMenuClickUser = false;
+            isMainMenuClickKhachHang = false;
+            isMainMenuClickSP = false;
+            isMainMenuClickKho = false;
+            isMainMenuClickThuChi = false;
+            isMainMenuClickThanhToan = false;
         }
 
         #region Main Button
@@ -140,8 +147,7 @@ namespace QuanLyKinhDoanh
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
 
             Init();
-            isMainMenuClick = true;
-            pbUser.Enabled = false;
+            isMainMenuClickUser = true;
 
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
             lbUser.ForeColor = Constant.COLOR_IN_USE;
@@ -157,14 +163,15 @@ namespace QuanLyKinhDoanh
 
         private void pbUser_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClick)
+            if (!isMainMenuClickUser)
             {
                 pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
                 lbUser.ForeColor = Constant.COLOR_NORMAL;
             }
             else
             {
-                isMainMenuClick = false;
+                pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
+                lbUser.ForeColor = Constant.COLOR_IN_USE;
             }
         }
 
@@ -173,8 +180,7 @@ namespace QuanLyKinhDoanh
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
 
             Init();
-            isMainMenuClick = true;
-            pbKhachHang.Enabled = false;
+            isMainMenuClickKhachHang = true;
 
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
             lbKhachHang.ForeColor = Constant.COLOR_IN_USE;
@@ -190,14 +196,15 @@ namespace QuanLyKinhDoanh
 
         private void pbKhachHang_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClick)
+            if (!isMainMenuClickKhachHang)
             {
                 pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
                 lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
             }
             else
             {
-                isMainMenuClick = false;
+                pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
+                lbKhachHang.ForeColor = Constant.COLOR_IN_USE;
             }
         }
 
@@ -206,8 +213,7 @@ namespace QuanLyKinhDoanh
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
 
             Init();
-            isMainMenuClick = true;
-            pbSanPham.Enabled = false;
+            isMainMenuClickSP = true;
 
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
             lbSanPham.ForeColor = Constant.COLOR_IN_USE;
@@ -223,47 +229,15 @@ namespace QuanLyKinhDoanh
 
         private void pbSanPham_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClick)
+            if (!isMainMenuClickSP)
             {
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
                 lbSanPham.ForeColor = Constant.COLOR_NORMAL;
             }
             else
             {
-                isMainMenuClick = false;
-            }
-        }
-
-        private void pbMuaBan_Click(object sender, EventArgs e)
-        {
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcMuaBanIndex());
-
-            Init();
-            isMainMenuClick = true;
-            pbMuaBan.Enabled = false;
-
-            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH_MOUSEOVER);
-            lbMuaBan.ForeColor = Constant.COLOR_IN_USE;
-        }
-
-        private void pbMuaBan_MouseEnter(object sender, EventArgs e)
-        {
-            pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH_MOUSEOVER);
-            lbMuaBan.ForeColor = Constant.COLOR_MOUSEOVER;
-
-            ttDetail.SetToolTip(pbMuaBan, Constant.TOOLTIP_MUABAN);
-        }
-
-        private void pbMuaBan_MouseLeave(object sender, EventArgs e)
-        {
-            if (!isMainMenuClick)
-            {
-                pbMuaBan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_GIAODICH);
-                lbMuaBan.ForeColor = Constant.COLOR_NORMAL;
-            }
-            else
-            {
-                isMainMenuClick = false;
+                pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
+                lbSanPham.ForeColor = Constant.COLOR_IN_USE;
             }
         }
 
@@ -272,8 +246,7 @@ namespace QuanLyKinhDoanh
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
 
             Init();
-            isMainMenuClick = true;
-            pbKhoHang.Enabled = false;
+            isMainMenuClickKho = true;
 
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
             lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
@@ -289,14 +262,15 @@ namespace QuanLyKinhDoanh
 
         private void pbKhoHang_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClick)
+            if (!isMainMenuClickKho)
             {
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
                 lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
             }
             else
             {
-                isMainMenuClick = false;
+                pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
+                lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
             }
         }
 
@@ -306,8 +280,7 @@ namespace QuanLyKinhDoanh
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
 
             Init();
-            isMainMenuClick = true;
-            pbThuChi.Enabled = false;
+            isMainMenuClickThuChi = true;
 
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
             lbThuChi.ForeColor = Constant.COLOR_IN_USE;
@@ -323,22 +296,22 @@ namespace QuanLyKinhDoanh
 
         private void pbThuChi_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClick)
+            if (!isMainMenuClickThuChi)
             {
                 pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
                 lbThuChi.ForeColor = Constant.COLOR_NORMAL;
             }
             else
             {
-                isMainMenuClick = false;
+                pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
+                lbThuChi.ForeColor = Constant.COLOR_IN_USE;
             }
         }
 
         private void pbThanhToan_Click(object sender, EventArgs e)
         {
             Init();
-            isMainMenuClick = true;
-            pbThanhToan.Enabled = false;
+            isMainMenuClickThanhToan = true;
 
             pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
             lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
@@ -356,14 +329,15 @@ namespace QuanLyKinhDoanh
 
         private void pbThanhToan_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClick)
+            if (!isMainMenuClickThanhToan)
             {
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
                 lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
             }
             else
             {
-                isMainMenuClick = false;
+                pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
+                lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
             }
         }
         #endregion

@@ -55,8 +55,6 @@
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
-            this.pbMuaBan = new System.Windows.Forms.PictureBox();
-            this.lbMuaBan = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
@@ -73,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -82,8 +79,6 @@
             this.pnMain.Controls.Add(this.pnBody);
             this.pnMain.Controls.Add(this.pnTopBar);
             this.pnMain.Controls.Add(this.pnHeaderAndMainMenu);
-            this.pnMain.Controls.Add(this.pbMuaBan);
-            this.pnMain.Controls.Add(this.lbMuaBan);
             this.pnMain.Location = new System.Drawing.Point(12, 12);
             this.pnMain.Name = "pnMain";
             this.pnMain.Size = new System.Drawing.Size(973, 498);
@@ -387,32 +382,6 @@
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
-            // pbMuaBan
-            // 
-            this.pbMuaBan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMuaBan.Location = new System.Drawing.Point(827, 185);
-            this.pbMuaBan.Name = "pbMuaBan";
-            this.pbMuaBan.Size = new System.Drawing.Size(65, 67);
-            this.pbMuaBan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMuaBan.TabIndex = 19;
-            this.pbMuaBan.TabStop = false;
-            this.pbMuaBan.Visible = false;
-            this.pbMuaBan.Click += new System.EventHandler(this.pbMuaBan_Click);
-            this.pbMuaBan.MouseEnter += new System.EventHandler(this.pbMuaBan_MouseEnter);
-            this.pbMuaBan.MouseLeave += new System.EventHandler(this.pbMuaBan_MouseLeave);
-            // 
-            // lbMuaBan
-            // 
-            this.lbMuaBan.AutoSize = true;
-            this.lbMuaBan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMuaBan.ForeColor = System.Drawing.Color.Gray;
-            this.lbMuaBan.Location = new System.Drawing.Point(834, 250);
-            this.lbMuaBan.Name = "lbMuaBan";
-            this.lbMuaBan.Size = new System.Drawing.Size(52, 14);
-            this.lbMuaBan.TabIndex = 20;
-            this.lbMuaBan.Text = "Giao dịch";
-            this.lbMuaBan.Visible = false;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -430,7 +399,6 @@
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);
-            this.pnMain.PerformLayout();
             this.pnAbout.ResumeLayout(false);
             this.pnAbout.PerformLayout();
             this.pnTopBar.ResumeLayout(false);
@@ -448,7 +416,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMuaBan)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,8 +434,6 @@
         private System.Windows.Forms.Panel pnHeaderAndMainMenu;
         private System.Windows.Forms.Label lbThanhToan;
         private System.Windows.Forms.PictureBox pbThanhToan;
-        private System.Windows.Forms.Label lbMuaBan;
-        private System.Windows.Forms.PictureBox pbMuaBan;
         private System.Windows.Forms.PictureBox pbHeader;
         private System.Windows.Forms.Label lbSanPham;
         private System.Windows.Forms.Label lbKhachHang;

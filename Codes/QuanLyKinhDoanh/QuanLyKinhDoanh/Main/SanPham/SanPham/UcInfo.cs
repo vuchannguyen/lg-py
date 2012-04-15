@@ -257,8 +257,10 @@ namespace QuanLyKinhDoanh.SanPham
             }
             else
             {
+                SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+
                 string idSanPham = string.Empty;
-                DTO.SanPham dataTemp = SanPhamBus.GetLastData();
+                DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
 
                 id = dataTemp == null ? 1 : dataTemp.Id + 1;
             }
