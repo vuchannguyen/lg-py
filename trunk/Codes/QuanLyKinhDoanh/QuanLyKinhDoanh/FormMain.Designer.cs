@@ -56,6 +56,7 @@
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
+            this.btPrint = new System.Windows.Forms.Button();
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
@@ -198,6 +199,7 @@
             // pnHeaderAndMainMenu
             // 
             this.pnHeaderAndMainMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnHeaderAndMainMenu.Controls.Add(this.btPrint);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbKhoHang);
             this.pnHeaderAndMainMenu.Controls.Add(this.pbKhoHang);
             this.pnHeaderAndMainMenu.Controls.Add(this.lbThuChi);
@@ -382,6 +384,16 @@
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
+            // btPrint
+            // 
+            this.btPrint.Location = new System.Drawing.Point(539, 3);
+            this.btPrint.Name = "btPrint";
+            this.btPrint.Size = new System.Drawing.Size(73, 67);
+            this.btPrint.TabIndex = 27;
+            this.btPrint.Text = "In mã SP";
+            this.btPrint.UseVisualStyleBackColor = true;
+            this.btPrint.Click += new System.EventHandler(this.btPrint_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -448,6 +460,7 @@
         private System.Windows.Forms.Label lbKhoHang;
         private System.Windows.Forms.PictureBox pbKhoHang;
         private System.Windows.Forms.ToolTip ttDetail;
+        private System.Windows.Forms.Button btPrint;
     }
 }
 
