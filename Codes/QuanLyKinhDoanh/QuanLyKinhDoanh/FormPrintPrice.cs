@@ -31,33 +31,46 @@ namespace QuanLyKinhDoanh
 
         private void printDocumentDecal_PrintPage(object sender, PrintPageEventArgs e)
         {
-            //Bitmap bitmap = new Bitmap(this.Width, this.Height);
+            Bitmap bitmap = new Bitmap(this.Width, this.Height);
 
-            //int x = SystemInformation.WorkingArea.X;
-            //int y = SystemInformation.WorkingArea.Y;
+            int x = SystemInformation.WorkingArea.X;
+            int y = SystemInformation.WorkingArea.Y;
 
-            //int width = this.Width;
-            //int height = this.Height;
+            int width = this.Width;
+            int height = this.Height;
 
-            //Rectangle bounds = new Rectangle(x, y, width, height);
-            //this.DrawToBitmap(bitmap, bounds);
-            //bounds = new Rectangle((int)fTyLeX - 20, (int)fTyLe_Top - 30, 810, 670);
+            Rectangle bounds = new Rectangle(x, y, width, height);
+            this.DrawToBitmap(bitmap, bounds);
+            bounds = new Rectangle(15, 30, 620, 670);
 
-            //Bitmap bmpCrop = bitmap.Clone(bounds, bitmap.PixelFormat);
+            Bitmap bmpCrop = bitmap.Clone(bounds, bitmap.PixelFormat);
 
-            //if (pgSettings.Landscape)
-            //{
-            //    e.Graphics.DrawImage(bmpCrop, (pgSettings.PaperSize.Height - 800) / 2, (pgSettings.PaperSize.Width - 660) / 2);
-            //}
-            //else
-            //{
-            //    e.Graphics.DrawImage(bmpCrop, (pgSettings.PaperSize.Width - 800) / 2, (pgSettings.PaperSize.Height - 660) / 2);
-            //}
+            if (pgSettings.Landscape)
+            {
+                e.Graphics.DrawImage(bmpCrop, 775, 620);
+            }
+            else
+            {
+                e.Graphics.DrawImage(bmpCrop, 620, 775);
+            }
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (pgSetupDialog.PageSettings != null)
+            {
+                pgSettings = pgSetupDialog.PageSettings;
+            }
+            else
+            {
+                pgSettings.Landscape = true;
+            }
+            printDocumentDecal.DefaultPageSettings = pgSettings;
 
+            if (printDialogDecal.ShowDialog() == DialogResult.OK)
+            {
+                printDocumentDecal.Print();
+            }
         }
 
         private void previewToolStripMenuItem_Click(object sender, EventArgs e)
