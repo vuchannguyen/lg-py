@@ -61,27 +61,23 @@ namespace QuanLyKinhDoanh
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            FormPrintPrice frm = new FormPrintPrice();
-            frm.ShowDialog();
-            this.Dispose();
+            LoadResource();
 
-            //LoadResource();
+            pnMain.BackColor = Color.White;
+            pnMain.Visible = true;
+            pnMain.Dock = DockStyle.Fill;
 
-            //pnMain.BackColor = Color.White;
-            //pnMain.Visible = true;
-            //pnMain.Dock = DockStyle.Fill;
+            pnHeaderAndMainMenu.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnHeaderAndMainMenu.Size, 30);
 
-            //pnHeaderAndMainMenu.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnHeaderAndMainMenu.Size, 30);
+            pnHello.Left = pnHeaderAndMainMenu.Left;
+            lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
 
-            //pnHello.Left = pnHeaderAndMainMenu.Left;
-            //lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
+            pnBody.Width = pnMain.Width;
+            pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
 
-            //pnBody.Width = pnMain.Width;
-            //pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
+            pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
 
-            //pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
-
-            //pbThanhToan_Click(sender, e);
+            pbThanhToan_Click(sender, e);
         }
 
         private void Init()
@@ -367,6 +363,12 @@ namespace QuanLyKinhDoanh
             {
                 this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
             }
+        }
+
+        private void btPrint_Click(object sender, EventArgs e)
+        {
+            FormPrintPrice frm = new FormPrintPrice();
+            frm.ShowDialog();
         }
 
     }
