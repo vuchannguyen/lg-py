@@ -63,6 +63,7 @@ namespace QuanLyKinhDoanh
         {
             FormPrintPrice frm = new FormPrintPrice();
             frm.ShowDialog();
+            this.Dispose();
 
             //LoadResource();
 

@@ -26,7 +26,19 @@ namespace QuanLyKinhDoanh
 
         private void FormPrintPrice_Load(object sender, EventArgs e)
         {
+            InitPrintDefault();
+        }
 
+        private void InitPrintDefault()
+        {
+            pgSettings.PaperSize = new PaperSize("Custom", this.Width, this.Height);
+
+            pgSetupDialog.PageSettings = pgSettings;
+            pgSetupDialog.PageSettings.PaperSize = pgSettings.PaperSize;
+            pgSetupDialog.PageSettings.Landscape = false;
+            pgSetupDialog.PrinterSettings = prtSettings;
+            pgSetupDialog.AllowOrientation = true;
+            pgSetupDialog.AllowMargins = false;
         }
 
         private void printDocumentDecal_PrintPage(object sender, PrintPageEventArgs e)
@@ -36,22 +48,22 @@ namespace QuanLyKinhDoanh
             int x = SystemInformation.WorkingArea.X;
             int y = SystemInformation.WorkingArea.Y;
 
-            int width = this.Width;
-            int height = this.Height;
+            int width = gbDecal.Width;
+            int height = gbDecal.Height;
 
-            Rectangle bounds = new Rectangle(x, y, width, height);
+            Rectangle bounds = new Rectangle(0, 0, this.Width, this.Height);
             this.DrawToBitmap(bitmap, bounds);
-            bounds = new Rectangle(15, 30, 620, 670);
+            bounds = new Rectangle(2, 10, gbDecal.Width - 2, gbDecal.Height- 10);
 
             Bitmap bmpCrop = bitmap.Clone(bounds, bitmap.PixelFormat);
 
             if (pgSettings.Landscape)
             {
-                e.Graphics.DrawImage(bmpCrop, 775, 620);
+                e.Graphics.DrawImage(bmpCrop, 0, 0);
             }
             else
             {
-                e.Graphics.DrawImage(bmpCrop, 620, 775);
+                e.Graphics.DrawImage(bitmap, 0, 0);
             }
         }
 
@@ -86,6 +98,7 @@ namespace QuanLyKinhDoanh
 
             printDocumentDecal.DefaultPageSettings = pgSettings;
             dlg.Document = printDocumentDecal;
+
             ((Form)dlg).WindowState = FormWindowState.Maximized;
             dlg.ShowDialog();
         }
@@ -93,6 +106,11 @@ namespace QuanLyKinhDoanh
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void PageSetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pgSetupDialog.ShowDialog();
         }
     }
 }
