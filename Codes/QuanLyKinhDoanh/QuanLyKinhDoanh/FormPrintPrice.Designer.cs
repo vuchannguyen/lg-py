@@ -66,6 +66,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDialogDecal = new System.Windows.Forms.PrintDialog();
             this.gbDecal.SuspendLayout();
@@ -248,7 +249,7 @@
             // textBox19
             // 
             this.textBox19.Font = new System.Drawing.Font("Arial", 10F);
-            this.textBox19.Location = new System.Drawing.Point(535, 15);
+            this.textBox19.Location = new System.Drawing.Point(546, 15);
             this.textBox19.Multiline = true;
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(79, 53);
@@ -415,7 +416,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(186, 15);
+            this.textBox2.Location = new System.Drawing.Point(186, 0);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(79, 53);
@@ -424,7 +425,7 @@
             // tbContent
             // 
             this.tbContent.Font = new System.Drawing.Font("Arial", 10F);
-            this.tbContent.Location = new System.Drawing.Point(10, 15);
+            this.tbContent.Location = new System.Drawing.Point(0, 15);
             this.tbContent.Multiline = true;
             this.tbContent.Name = "tbContent";
             this.tbContent.Size = new System.Drawing.Size(79, 53);
@@ -441,6 +442,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.printToolStripMenuItem,
             this.previewToolStripMenuItem,
+            this.printSettingsToolStripMenuItem,
             this.clearAllToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -451,21 +453,28 @@
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // previewToolStripMenuItem
             // 
             this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-            this.previewToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.previewToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.previewToolStripMenuItem.Text = "Preview";
             this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
+            // 
+            // printSettingsToolStripMenuItem
+            // 
+            this.printSettingsToolStripMenuItem.Name = "printSettingsToolStripMenuItem";
+            this.printSettingsToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.printSettingsToolStripMenuItem.Text = "Page Setup";
+            this.printSettingsToolStripMenuItem.Click += new System.EventHandler(this.PageSetupToolStripMenuItem_Click);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.clearAllToolStripMenuItem.Text = "Clear All";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
@@ -486,7 +495,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "FormPrintPrice";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Print Price";
             this.Load += new System.EventHandler(this.FormPrintPrice_Load);
@@ -540,5 +548,6 @@
         private System.Windows.Forms.TextBox textBox31;
         private System.Windows.Forms.TextBox textBox30;
         private System.Windows.Forms.PrintDialog printDialogDecal;
+        private System.Windows.Forms.ToolStripMenuItem printSettingsToolStripMenuItem;
     }
 }
