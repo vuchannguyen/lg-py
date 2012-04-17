@@ -61,23 +61,26 @@ namespace QuanLyKinhDoanh
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            LoadResource();
+            FormPrintPrice frm = new FormPrintPrice();
+            frm.ShowDialog();
 
-            pnMain.BackColor = Color.White;
-            pnMain.Visible = true;
-            pnMain.Dock = DockStyle.Fill;
+            //LoadResource();
 
-            pnHeaderAndMainMenu.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnHeaderAndMainMenu.Size, 30);
+            //pnMain.BackColor = Color.White;
+            //pnMain.Visible = true;
+            //pnMain.Dock = DockStyle.Fill;
 
-            pnHello.Left = pnHeaderAndMainMenu.Left;
-            lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
+            //pnHeaderAndMainMenu.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnHeaderAndMainMenu.Size, 30);
 
-            pnBody.Width = pnMain.Width;
-            pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
+            //pnHello.Left = pnHeaderAndMainMenu.Left;
+            //lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
 
-            pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
+            //pnBody.Width = pnMain.Width;
+            //pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
 
-            pbThanhToan_Click(sender, e);
+            //pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
+
+            //pbThanhToan_Click(sender, e);
         }
 
         private void Init()
