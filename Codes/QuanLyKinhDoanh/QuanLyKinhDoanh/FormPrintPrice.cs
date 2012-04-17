@@ -31,8 +31,8 @@ namespace QuanLyKinhDoanh
 
         private void InitPrintDefault()
         {
-            pgSettings.PaperSize = new PaperSize("Custom", this.Width, this.Height);
-
+            pgSettings.PaperSize = new PaperSize("Custom", 640, 780);
+            pgSettings.Margins = new Margins(0, 0, 0, 0);
             pgSetupDialog.PageSettings = pgSettings;
             pgSetupDialog.PageSettings.PaperSize = pgSettings.PaperSize;
             pgSetupDialog.PageSettings.Landscape = false;
@@ -43,27 +43,27 @@ namespace QuanLyKinhDoanh
 
         private void printDocumentDecal_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Bitmap bitmap = new Bitmap(this.Width, this.Height);
+            Bitmap bitmap = new Bitmap(gbDecal.Width, gbDecal.Height);
 
-            int x = SystemInformation.WorkingArea.X;
-            int y = SystemInformation.WorkingArea.Y;
+            //int x = SystemInformation.WorkingArea.X;
+            //int y = SystemInformation.WorkingArea.Y;
 
             int width = gbDecal.Width;
             int height = gbDecal.Height;
 
-            Rectangle bounds = new Rectangle(0, 0, this.Width, this.Height);
-            this.DrawToBitmap(bitmap, bounds);
-            bounds = new Rectangle(2, 10, gbDecal.Width - 2, gbDecal.Height- 10);
+            Rectangle bounds = new Rectangle(0, 0, gbDecal.Width, gbDecal.Height);
+            gbDecal.DrawToBitmap(bitmap, bounds);
+            bounds = new Rectangle(8, 12, gbDecal.Width - 8, gbDecal.Height - 12);
 
             Bitmap bmpCrop = bitmap.Clone(bounds, bitmap.PixelFormat);
-
+            bitmap.Dispose();
             if (pgSettings.Landscape)
             {
                 e.Graphics.DrawImage(bmpCrop, 0, 0);
             }
             else
             {
-                e.Graphics.DrawImage(bitmap, 0, 0);
+                e.Graphics.DrawImage(bmpCrop, 0, 0);
             }
         }
 
