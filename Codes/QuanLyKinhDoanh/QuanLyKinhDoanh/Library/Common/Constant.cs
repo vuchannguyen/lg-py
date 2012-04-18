@@ -82,6 +82,7 @@ namespace Library
         public const string MESSAGE_UPDATE_SUCCESS = "{0} đã cập nhật thành công.";
         public const string MESSAGE_UPDATE_ERROR = "{0} cập nhật dữ liệu thất bại!";
 
+        public const string MESSAGE_CONFIRM = "Hoàn tất?";
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
 

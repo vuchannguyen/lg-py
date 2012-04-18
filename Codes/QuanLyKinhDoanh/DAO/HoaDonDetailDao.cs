@@ -29,6 +29,8 @@ namespace DAO
                 sql = sql.Where(p => p.HoaDon.IdType == type);
             }
 
+            sql = sql.Where(p => p.HoaDon.DeleteFlag == false);
+
             return sql;
         }
 
