@@ -223,13 +223,16 @@ namespace QuanLyKinhDoanh.SanPham
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            if (!isUpdate)
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                InsertData();
-            }
-            else
-            {
-                UpdateData();
+                if (!isUpdate)
+                {
+                    InsertData();
+                }
+                else
+                {
+                    UpdateData();
+                }
             }
         }
 

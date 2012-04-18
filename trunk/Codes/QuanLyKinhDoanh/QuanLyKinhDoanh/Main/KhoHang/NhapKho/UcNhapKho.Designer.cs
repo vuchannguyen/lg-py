@@ -173,7 +173,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(70, 70);
             this.panel3.TabIndex = 28;
-            this.panel3.Visible = false;
             // 
             // label30
             // 
@@ -194,6 +193,9 @@
             this.pbSua.Size = new System.Drawing.Size(50, 50);
             this.pbSua.TabIndex = 1;
             this.pbSua.TabStop = false;
+            this.pbSua.Click += new System.EventHandler(this.pbSua_Click);
+            this.pbSua.MouseEnter += new System.EventHandler(this.pbSua_MouseEnter);
+            this.pbSua.MouseLeave += new System.EventHandler(this.pbSua_MouseLeave);
             // 
             // panel4
             // 
@@ -203,7 +205,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(70, 70);
             this.panel4.TabIndex = 27;
-            this.panel4.Visible = false;
             // 
             // label28
             // 
@@ -224,14 +225,17 @@
             this.pbXoa.Size = new System.Drawing.Size(50, 50);
             this.pbXoa.TabIndex = 1;
             this.pbXoa.TabStop = false;
+            this.pbXoa.Click += new System.EventHandler(this.pbXoa_Click);
+            this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
+            this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
             // 
             // pnQuanLy
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(40, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(16, 87);
             this.pnQuanLy.Name = "pnQuanLy";
-            this.pnQuanLy.Size = new System.Drawing.Size(930, 480);
+            this.pnQuanLy.Size = new System.Drawing.Size(960, 480);
             this.pnQuanLy.TabIndex = 48;
             // 
             // lvThongTin
@@ -255,7 +259,7 @@
             this.lvThongTin.GridLines = true;
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(920, 430);
+            this.lvThongTin.Size = new System.Drawing.Size(950, 430);
             this.lvThongTin.TabIndex = 88;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -268,7 +272,7 @@
             // 
             this.chCheckBox.Text = "All";
             this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chCheckBox.Width = 0;
+            this.chCheckBox.Width = 30;
             // 
             // chId
             // 
@@ -296,7 +300,7 @@
             // chUser
             // 
             this.chUser.Text = "Người nhập";
-            this.chUser.Width = 125;
+            this.chUser.Width = 126;
             // 
             // chNgay
             // 
@@ -502,7 +506,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(724, 60);
+            this.label2.Location = new System.Drawing.Point(795, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 52;
@@ -511,7 +515,7 @@
             // tbTong
             // 
             this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(775, 55);
+            this.tbTong.Location = new System.Drawing.Point(846, 54);
             this.tbTong.MaxLength = 10;
             this.tbTong.Name = "tbTong";
             this.tbTong.ReadOnly = true;

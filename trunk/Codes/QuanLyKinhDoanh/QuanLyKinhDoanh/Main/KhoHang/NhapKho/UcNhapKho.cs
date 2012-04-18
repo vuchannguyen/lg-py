@@ -227,6 +227,55 @@ namespace QuanLyKinhDoanh
         {
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
         }
+
+        private void pbXoa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_DELETE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                string ids = string.Empty;
+
+                foreach (ListViewItem item in lvThongTin.CheckedItems)
+                {
+                    HoaDonDetail temp = HoaDonDetailBus.GetById(ConvertUtil.ConvertToInt(item.SubItems[1].Text));
+
+                    ids += (temp.IdHoaDon.ToString() + Constant.SEPERATE_STRING);
+                }
+
+                if (HoaDonBus.DeleteList(ids))
+                {
+                    RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
+                }
+            }
+        }
+
+        private void pbXoa_MouseEnter(object sender, EventArgs e)
+        {
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
+        }
+
+        private void pbXoa_MouseLeave(object sender, EventArgs e)
+        {
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+        }
+
+        private void pbSua_Click(object sender, EventArgs e)
+        {
+            int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+
+            uc = new UcInfo(HoaDonDetailBus.GetById(id));
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
+        }
+
+        private void pbSua_MouseEnter(object sender, EventArgs e)
+        {
+            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_MOUSEROVER);
+        }
+
+        private void pbSua_MouseLeave(object sender, EventArgs e)
+        {
+            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
+        }
         #endregion
 
 
@@ -246,7 +295,7 @@ namespace QuanLyKinhDoanh
         {
             if (e.ColumnIndex == 0)
             {
-                e.NewWidth = 0;
+                e.NewWidth = 30;
                 e.Cancel = true;
             }
 
