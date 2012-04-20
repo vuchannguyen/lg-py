@@ -57,6 +57,9 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
             this.gbInfoSP = new System.Windows.Forms.GroupBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.pbHuy = new System.Windows.Forms.PictureBox();
             this.cbDVTSP = new System.Windows.Forms.ComboBox();
             this.cbDonViBaoHanh = new System.Windows.Forms.ComboBox();
             this.tbThoiGianBaoHanh = new System.Windows.Forms.TextBox();
@@ -76,16 +79,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.pbHuy = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThemNhomSP = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pbCancelUpdate = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -97,8 +94,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThemNhomSP)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCancelUpdate)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -155,7 +150,6 @@
             // 
             // gbInfo
             // 
-            this.gbInfo.Controls.Add(this.panel1);
             this.gbInfo.Controls.Add(this.cbChangeMoney);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.tbLaiSuat);
@@ -431,6 +425,35 @@
             this.gbInfoSP.TabStop = false;
             this.gbInfoSP.Text = "Thông tin sản phẩm";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.label39);
+            this.panel8.Controls.Add(this.pbHuy);
+            this.panel8.Location = new System.Drawing.Point(41, 361);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(70, 70);
+            this.panel8.TabIndex = 92;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 68);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(0, 16);
+            this.label39.TabIndex = 2;
+            // 
+            // pbHuy
+            // 
+            this.pbHuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHuy.Location = new System.Drawing.Point(10, 10);
+            this.pbHuy.Name = "pbHuy";
+            this.pbHuy.Size = new System.Drawing.Size(50, 39);
+            this.pbHuy.TabIndex = 1;
+            this.pbHuy.TabStop = false;
+            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
+            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
+            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
+            // 
             // cbDVTSP
             // 
             this.cbDVTSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -625,35 +648,6 @@
             this.label19.TabIndex = 4;
             this.label19.Text = "Xuất xứ:";
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.label39);
-            this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(41, 361);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(70, 70);
-            this.panel8.TabIndex = 92;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(7, 68);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(0, 16);
-            this.label39.TabIndex = 2;
-            // 
-            // pbHuy
-            // 
-            this.pbHuy.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHuy.Location = new System.Drawing.Point(10, 10);
-            this.pbHuy.Name = "pbHuy";
-            this.pbHuy.Size = new System.Drawing.Size(50, 39);
-            this.pbHuy.TabIndex = 1;
-            this.pbHuy.TabStop = false;
-            this.pbHuy.Click += new System.EventHandler(this.pbHuy_Click);
-            this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
-            this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label24);
@@ -685,36 +679,6 @@
             this.pbThemNhomSP.MouseEnter += new System.EventHandler(this.pbThemNhomSP_MouseEnter);
             this.pbThemNhomSP.MouseLeave += new System.EventHandler(this.pbThemNhomSP_MouseLeave);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pbCancelUpdate);
-            this.panel1.Location = new System.Drawing.Point(46, 361);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 70);
-            this.panel1.TabIndex = 126;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 2;
-            // 
-            // pbCancelUpdate
-            // 
-            this.pbCancelUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbCancelUpdate.Location = new System.Drawing.Point(10, 10);
-            this.pbCancelUpdate.Name = "pbCancelUpdate";
-            this.pbCancelUpdate.Size = new System.Drawing.Size(50, 39);
-            this.pbCancelUpdate.TabIndex = 1;
-            this.pbCancelUpdate.TabStop = false;
-            this.pbCancelUpdate.Visible = false;
-            this.pbCancelUpdate.Click += new System.EventHandler(this.pbCancelUpdate_Click);
-            this.pbCancelUpdate.MouseEnter += new System.EventHandler(this.pbCancelUpdate_MouseEnter);
-            this.pbCancelUpdate.MouseLeave += new System.EventHandler(this.pbCancelUpdate_MouseLeave);
-            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -743,9 +707,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThemNhomSP)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCancelUpdate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -806,8 +767,5 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbThemNhomSP;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pbCancelUpdate;
     }
 }

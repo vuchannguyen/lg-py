@@ -261,7 +261,7 @@
             // 
             // tbTen
             // 
-            this.tbTen.Location = new System.Drawing.Point(420, 25);
+            this.tbTen.Location = new System.Drawing.Point(420, 80);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(250, 23);
@@ -272,7 +272,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(372, 28);
+            this.label1.Location = new System.Drawing.Point(372, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 100;
@@ -282,7 +282,7 @@
             // 
             this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(420, 80);
+            this.cbGroup.Location = new System.Drawing.Point(420, 30);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(250, 24);
             this.cbGroup.TabIndex = 2;
@@ -379,7 +379,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(361, 83);
+            this.label2.Location = new System.Drawing.Point(361, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 12;
