@@ -258,12 +258,12 @@ namespace QuanLyKinhDoanh
         #region Controls
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lvThongTin.SelectedIndices.Count > 0)
-            {
-                int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
+            //if (lvThongTin.SelectedIndices.Count > 0)
+            //{
+            //    int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
 
-                lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
-            }
+            //    lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
+            //}
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
