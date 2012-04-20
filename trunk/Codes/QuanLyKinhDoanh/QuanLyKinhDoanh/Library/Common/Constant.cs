@@ -15,6 +15,15 @@ namespace Library
 
         public const int DEFAULT_MAX_PERCENT_PROFIT = 999;
 
+        public const int DEFAULT_TOTAL_DECAL = 84;
+        public const int DEFAULT_SPACE_WIDTH = 7;
+        public const int DEFAULT_SPACE_HEIGHT = 8;
+        public const int DEFAULT_TOP_FIRST_DECAL = 17;
+        public const int DEFAULT_LEFT_FIRST_DECAL = 10;
+        public const int DEFAULT_NUMS_DECAL_ROWS = 12;
+        public const int DEFAULT_NUMS_DECAL_COLUMNS = 7;
+        public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
+
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
 

@@ -253,24 +253,23 @@ namespace QuanLyKinhDoanh.SanPham
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = 0;
+            SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
 
             if (isUpdate)
             {
-                id = data.Id;
+                string oldIdNumber = data == null ? string.Empty : data.IdSanPham.Substring(data.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
             }
             else
             {
-                SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
-
                 string idSanPham = string.Empty;
                 DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
 
-                id = dataTemp == null ? 1 : dataTemp.Id + 1;
+                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.IdSanPham.Substring(dataTemp.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
             }
 
-            string MaGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value)).Ma;
-
-            tbMa.Text = MaGroup + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+            tbMa.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 
             ValidateInput();
         }

@@ -50,13 +50,13 @@ namespace QuanLyKinhDoanh.Mua
 
             isUpdate = true;
 
-            pbHuy.Visible = false;
-            pbCancelUpdate.Visible = true;
+            //pbHuy.Visible = false;
+            //pbCancelUpdate.Visible = true;
 
-            gbInfoSP.Enabled = false;
-            cbChangeMoney.Enabled = false;
-            tbGiaNhap.ReadOnly = true;
-            tbSoLuong.ReadOnly = true;
+            //gbInfoSP.Enabled = false;
+            //cbChangeMoney.Enabled = false;
+            //tbGiaNhap.ReadOnly = true;
+            //tbSoLuong.ReadOnly = true;
             cbChangeMoney.SelectedIndex = 0;
 
             this.dataHoaDonDetail = data;
@@ -91,7 +91,6 @@ namespace QuanLyKinhDoanh.Mua
             {
                 pbThemNhomSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
 
-                pbCancelUpdate.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
                 pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
             }
@@ -320,6 +319,17 @@ namespace QuanLyKinhDoanh.Mua
         {
             dataSP = SanPhamBus.GetById(dataHoaDonDetail.IdSanPham);
 
+            dataSP.IdSanPham = tbMaSP.Text;
+            dataSP.Ten = tbTenSP.Text;
+            dataSP.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+            dataSP.MoTa = tbMoTa.Text;
+            dataSP.DonViTinh = tbDonViTinh.Text;
+            dataSP.XuatXu = tbXuatXu.Text;
+            dataSP.Hieu = tbHieu.Text;
+            dataSP.Size = tbSize.Text;
+            //dataSP.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
+            //dataSP.DonViBaoHanh = cbDonViBaoHanh.Text;
+
             dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
@@ -381,21 +391,6 @@ namespace QuanLyKinhDoanh.Mua
         private void pbHoanTat_MouseLeave(object sender, EventArgs e)
         {
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
-        }
-
-        private void pbCancelUpdate_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void pbCancelUpdate_MouseEnter(object sender, EventArgs e)
-        {
-            pbCancelUpdate.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL_MOUSEOVER);
-        }
-
-        private void pbCancelUpdate_MouseLeave(object sender, EventArgs e)
-        {
-            pbCancelUpdate.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
         }
         #endregion
 
@@ -624,18 +619,19 @@ namespace QuanLyKinhDoanh.Mua
             int id = 0;
             SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
 
-            //if (isUpdate)
-            //{
-            //    id = data.Id;
-            //}
-            //else
-            //{
-            string idSanPham = string.Empty;
-            DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
+            if (isUpdate)
+            {
+                string oldIdNumber = dataSP == null ? string.Empty : dataSP.IdSanPham.Substring(dataSP.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = dataSP == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            }
+            else
+            {
+                string idSanPham = string.Empty;
+                DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
 
-            string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.IdSanPham.Substring(dataTemp.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
-            //}
+                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.IdSanPham.Substring(dataTemp.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            }
 
             tbMaSP.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 

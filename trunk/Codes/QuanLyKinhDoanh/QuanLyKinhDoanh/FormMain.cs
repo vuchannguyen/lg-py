@@ -344,24 +344,28 @@ namespace QuanLyKinhDoanh
 
         private float oldWidth = 1014f;
         private float oldHeght = 764f;
+        private bool isMinimize = false;
 
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
-            float ratioWidth = this.Width / oldWidth;
-            float ratioHeight = this.Height / oldHeght;
-
-            oldWidth = this.Width;
-            oldHeght = this.Height;
-
-            //oldWidth = (float)this.Width;
-            //oldHeght = (float)this.Height;
-
-            //if (this.Width > 1024)
-            //SizeF size = new SizeF(ratioWidth, ratioHeight);
-
-            for (int i = 0; i < this.Controls.Count; i++)
+            if (this.Width >= 1014 || this.Height >= 764)
             {
-                this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                float ratioWidth = this.Width / oldWidth;
+                float ratioHeight = this.Height / oldHeght;
+
+                oldWidth = this.Width;
+                oldHeght = this.Height;
+
+                //oldWidth = (float)this.Width;
+                //oldHeght = (float)this.Height;
+
+                //if (this.Width > 1024)
+                //SizeF size = new SizeF(ratioWidth, ratioHeight);
+
+                for (int i = 0; i < this.Controls.Count; i++)
+                {
+                    this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                }
             }
         }
 
@@ -370,6 +374,5 @@ namespace QuanLyKinhDoanh
             FormPrintPrice frm = new FormPrintPrice();
             frm.ShowDialog();
         }
-
     }
 }
