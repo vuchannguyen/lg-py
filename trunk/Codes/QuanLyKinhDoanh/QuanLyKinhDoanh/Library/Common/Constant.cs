@@ -26,6 +26,8 @@ namespace Library
 
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
+        public const string DEFAULT_FORMAT_MONEY = "#" + Constant.LINK_SYMBOL_MONEY + "###";
+        public const string DEFAULT_MONEY_SUBFIX = "Đ";
 
         public const string DEFAULT_PASSWORD = "admin";
 
@@ -36,6 +38,7 @@ namespace Library
         public static Color COLOR_MOUSEOVER = Color.Orange;
         public static Color COLOR_DISABLE = Color.LightSlateGray;
         public static Color COLOR_IN_USE = Color.Red;
+        public static Color COLOR_CHOOSEN_PRICE = Color.LightBlue;
 
         public const string TOOLTIP_USER = "Quản lý thông tin User";
         public const string TOOLTIP_KHACHHANG = "Quản lý thông tin Khách hàng";
@@ -92,8 +95,10 @@ namespace Library
         public const string MESSAGE_UPDATE_ERROR = "{0} cập nhật dữ liệu thất bại!";
 
         public const string MESSAGE_CONFIRM = "Hoàn tất?";
+        public const string MESSAGE_CONFIRM_DELETE_ALL_PRICE = "Xóa hết tất cả các ô?";
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
+        public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Họ tên - Email";

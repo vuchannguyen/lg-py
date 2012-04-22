@@ -123,7 +123,7 @@ namespace QuanLyKinhDoanh.SanPham
             tbSize.Text = string.Empty;
             tbMoTa.Text = string.Empty;
 
-            cbGroup.SelectedIndex = 0;
+            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbDonViBaoHanh.SelectedIndex = 0;
         }
 

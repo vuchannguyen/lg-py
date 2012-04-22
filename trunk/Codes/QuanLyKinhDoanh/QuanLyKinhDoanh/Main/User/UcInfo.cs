@@ -125,7 +125,7 @@ namespace QuanLyKinhDoanh.User
             tbEmail.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
-            cbGroup.SelectedIndex = 0;
+            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbGioiTinh.SelectedIndex = 0;
         }
 

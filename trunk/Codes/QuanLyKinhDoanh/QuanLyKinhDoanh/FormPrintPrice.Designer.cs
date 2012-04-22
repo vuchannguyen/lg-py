@@ -67,8 +67,20 @@
             this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDialogDecal = new System.Windows.Forms.PrintDialog();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label47 = new System.Windows.Forms.Label();
+            this.pbHoanTat = new System.Windows.Forms.PictureBox();
+            this.tbSoLuong = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbGroup = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cbTen = new System.Windows.Forms.ComboBox();
+            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbDecal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDecal
@@ -458,31 +470,32 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.printToolStripMenuItem,
             this.previewToolStripMenuItem,
-            this.printSettingsToolStripMenuItem});
+            this.printSettingsToolStripMenuItem,
+            this.clearAllToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(80, 758);
+            this.menuStrip1.Size = new System.Drawing.Size(98, 758);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // previewToolStripMenuItem
             // 
             this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-            this.previewToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
+            this.previewToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.previewToolStripMenuItem.Text = "Preview";
             this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
             // 
             // printSettingsToolStripMenuItem
             // 
             this.printSettingsToolStripMenuItem.Name = "printSettingsToolStripMenuItem";
-            this.printSettingsToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
+            this.printSettingsToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
             this.printSettingsToolStripMenuItem.Text = "Page Setup";
             this.printSettingsToolStripMenuItem.Click += new System.EventHandler(this.PageSetupToolStripMenuItem_Click);
             // 
@@ -490,11 +503,116 @@
             // 
             this.printDialogDecal.UseEXDialog = true;
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.label47);
+            this.panel12.Controls.Add(this.pbHoanTat);
+            this.panel12.Location = new System.Drawing.Point(776, 200);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(70, 70);
+            this.panel12.TabIndex = 94;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(7, 68);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(0, 16);
+            this.label47.TabIndex = 2;
+            // 
+            // pbHoanTat
+            // 
+            this.pbHoanTat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHoanTat.Location = new System.Drawing.Point(10, 10);
+            this.pbHoanTat.Name = "pbHoanTat";
+            this.pbHoanTat.Size = new System.Drawing.Size(50, 39);
+            this.pbHoanTat.TabIndex = 1;
+            this.pbHoanTat.TabStop = false;
+            this.pbHoanTat.Click += new System.EventHandler(this.pbHoanTat_Click);
+            this.pbHoanTat.MouseEnter += new System.EventHandler(this.pbHoanTat_MouseEnter);
+            this.pbHoanTat.MouseLeave += new System.EventHandler(this.pbHoanTat_MouseLeave);
+            // 
+            // tbSoLuong
+            // 
+            this.tbSoLuong.Location = new System.Drawing.Point(740, 157);
+            this.tbSoLuong.MaxLength = 4;
+            this.tbSoLuong.Name = "tbSoLuong";
+            this.tbSoLuong.Size = new System.Drawing.Size(50, 23);
+            this.tbSoLuong.TabIndex = 105;
+            this.tbSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbSoLuong.TextChanged += new System.EventHandler(this.tbSoLuong_TextChanged);
+            this.tbSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSoLuong_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(737, 138);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 16);
+            this.label5.TabIndex = 106;
+            this.label5.Text = "Số lượng:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(737, 78);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 16);
+            this.label13.TabIndex = 110;
+            this.label13.Text = "*Tên SP:";
+            // 
+            // cbGroup
+            // 
+            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGroup.FormattingEnabled = true;
+            this.cbGroup.Location = new System.Drawing.Point(740, 36);
+            this.cbGroup.Name = "cbGroup";
+            this.cbGroup.Size = new System.Drawing.Size(128, 24);
+            this.cbGroup.TabIndex = 108;
+            this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.cbGroup_SelectedIndexChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(737, 17);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(75, 16);
+            this.label18.TabIndex = 109;
+            this.label18.Text = "*Nhóm SP:";
+            // 
+            // cbTen
+            // 
+            this.cbTen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cbTen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbTen.FormattingEnabled = true;
+            this.cbTen.Location = new System.Drawing.Point(740, 97);
+            this.cbTen.Name = "cbTen";
+            this.cbTen.Size = new System.Drawing.Size(128, 24);
+            this.cbTen.TabIndex = 111;
+            this.cbTen.SelectedIndexChanged += new System.EventHandler(this.cbTen_SelectedIndexChanged);
+            // 
+            // clearAllToolStripMenuItem
+            // 
+            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.clearAllToolStripMenuItem.Text = "Xóa hết";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+            // 
             // FormPrintPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 758);
+            this.Controls.Add(this.cbTen);
+            this.Controls.Add(this.tbSoLuong);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbGroup);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.panel12);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.gbDecal);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -510,6 +628,9 @@
             this.gbDecal.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,5 +676,15 @@
         private System.Windows.Forms.PrintDialog printDialogDecal;
         private System.Windows.Forms.ToolStripMenuItem printSettingsToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.PictureBox pbHoanTat;
+        private System.Windows.Forms.TextBox tbSoLuong;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbGroup;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cbTen;
+        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
     }
 }

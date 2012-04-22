@@ -123,7 +123,7 @@ namespace QuanLyKinhDoanh
                 totalMoney += data.ThanhTien;
             }
 
-            tbTong.Text = totalMoney.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###");
+            tbTong.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type,
                 string.Empty, string.Empty, row * (page - 1), row);
@@ -141,9 +141,9 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.HoaDon.CreateDate.ToString("dd/MM/yyyy"));
                 lvi.SubItems.Add(data.SoLuong.ToString());
                 lvi.SubItems.Add(data.SanPham.DonViTinh);
-                lvi.SubItems.Add(data.SanPham.GiaMua.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###"));
-                lvi.SubItems.Add(data.SanPham.GiaBan.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###"));
-                lvi.SubItems.Add(data.ThanhTien.ToString("#" + Constant.LINK_SYMBOL_MONEY + "###"));
+                lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
                 lvThongTin.Items.Add(lvi);
             }
