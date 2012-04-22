@@ -22,6 +22,8 @@ namespace QuanLyKinhDoanh
 
         private List<TextBox> listTexbox;
 
+        private int currentTextboxDecalId;
+
         float cmPerPix = 96 / (float)2.54;
 
         public FormPrintPrice()
@@ -29,11 +31,32 @@ namespace QuanLyKinhDoanh
             InitializeComponent();
         }
 
+        private void LoadResource()
+        {
+            try
+            {
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            }
+            catch
+            {
+                this.Dispose();
+                //Form_Notice frm_Notice = new Form_Notice("Kiểm tra thư mục Resource!", false);
+            }
+        }
+
         private void FormPrintPrice_Load(object sender, EventArgs e)
         {
+            LoadResource();
+
             InitPrintDefault();
 
             CreateTextBox();
+
+            Init();
+
+            RefreshData();
+
+            ValidateInput();
         }
 
         private void InitPrintDefault()
@@ -58,6 +81,8 @@ namespace QuanLyKinhDoanh
             listTexbox = new List<TextBox>();
             gbDecal.Controls.Clear();
 
+            currentTextboxDecalId = 0;
+
             int x = 0;
             int y = 0;
 
@@ -79,6 +104,9 @@ namespace QuanLyKinhDoanh
                 tb.TextAlign = HorizontalAlignment.Center;
                 tb.BorderStyle = BorderStyle.None;
 
+                tb.Tag = i;
+                tb.Enter += new EventHandler(tbDecal_Enter);
+
                 listTexbox.Add(tb);
                 gbDecal.Controls.Add(tb);
 
@@ -88,6 +116,7 @@ namespace QuanLyKinhDoanh
 
         private void printDocumentDecal_PrintPage(object sender, PrintPageEventArgs e)
         {
+            listTexbox[currentTextboxDecalId].BackColor = Color.White;
             this.BackColor = Color.White;
 
             Bitmap bitmap = new Bitmap(gbDecal.Width, gbDecal.Height);
@@ -110,6 +139,7 @@ namespace QuanLyKinhDoanh
                 e.Graphics.DrawImage(bmpCrop, 0, 0);
             }
 
+            listTexbox[currentTextboxDecalId].BackColor = Constant.COLOR_CHOOSEN_PRICE;
             this.BackColor = SystemColors.Control;
         }
 
@@ -150,14 +180,150 @@ namespace QuanLyKinhDoanh
             dlg.ShowDialog();
         }
 
-        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PageSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pgSetupDialog.ShowDialog();
+        }
+
+        private void tbDecal_Enter(object sender, EventArgs e)
+        {
+            if (currentTextboxDecalId >= 0)
+            {
+                listTexbox[ConvertUtil.ConvertToInt(currentTextboxDecalId)].BackColor = Color.White;
+            }
+
+            TextBox tb = (TextBox)sender;
+            currentTextboxDecalId = ConvertUtil.ConvertToInt(tb.Tag);
+            listTexbox[currentTextboxDecalId].BackColor = Constant.COLOR_CHOOSEN_PRICE;
+        }
+
+        private void tbSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void ValidateInput()
+        {
+            if (!string.IsNullOrEmpty(tbSoLuong.Text) &&
+                !string.IsNullOrEmpty(cbTen.Text)
+                )
+            {
+                pbHoanTat.Enabled = true;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            }
+            else
+            {
+                pbHoanTat.Enabled = false;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+            }
+        }
+
+        private void pbHoanTat_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DTO.SanPham data = SanPhamBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value));
+
+                if (data.GiaBan == 0)
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_MONEY, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                for (int i = 0; i < ConvertUtil.ConvertToInt(tbSoLuong.Text); i++)
+                {
+                    if (currentTextboxDecalId + i < Constant.DEFAULT_TOTAL_DECAL)
+                    {
+                        listTexbox[currentTextboxDecalId + i].Text = data.IdSanPham + Constant.MESSAGE_NEW_LINE + data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY) + Constant.DEFAULT_MONEY_SUBFIX;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_MONEY, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pbHoanTat_MouseEnter(object sender, EventArgs e)
+        {
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_MOUSEOVER);
+        }
+
+        private void pbHoanTat_MouseLeave(object sender, EventArgs e)
+        {
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+        }
+
+        private bool Init()
+        {
+            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            if (listData.Count == 0)
+            {
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            cbGroup.Items.Clear();
+
+            foreach (DTO.SanPhamGroup data in listData)
+            {
+                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            return true;
+        }
+
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
+
+            cbTen.Items.Clear();
+
+            foreach (DTO.SanPham data in listData)
+            {
+                cbTen.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            if (listData.Count > 0)
+            {
+                cbTen.SelectedIndex = 0;
+            }
+        }
+
+        private void RefreshData()
+        {
+            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
+            cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
+        }
+
+        private void tbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+
+        private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void ClearAllPrice()
+        {
+            for (int i = 0; i < Constant.DEFAULT_TOTAL_DECAL; i++)
+            {
+                listTexbox[i].Text = string.Empty;
+            }
+        }
+
+        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM_DELETE_ALL_PRICE, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+            {
+                ClearAllPrice();
+            }
         }
     }
 }

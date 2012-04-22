@@ -131,6 +131,8 @@ namespace DAO
         }
         #endregion
 
+
+
         public static SanPham GetLastData()
         {
             return dbContext.SanPhams.OrderBy("Id " + CommonDao.SORT_DESCENDING).FirstOrDefault();
