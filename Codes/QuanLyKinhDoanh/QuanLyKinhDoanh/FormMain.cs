@@ -344,7 +344,6 @@ namespace QuanLyKinhDoanh
 
         private float oldWidth = 1014f;
         private float oldHeght = 764f;
-        private bool isMinimize = false;
 
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {

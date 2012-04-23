@@ -66,6 +66,7 @@
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.previewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDialogDecal = new System.Windows.Forms.PrintDialog();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.cbGroup = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.cbTen = new System.Windows.Forms.ComboBox();
-            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbDecal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -474,30 +474,37 @@
             this.clearAllToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(98, 758);
+            this.menuStrip1.Size = new System.Drawing.Size(80, 758);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // previewToolStripMenuItem
             // 
             this.previewToolStripMenuItem.Name = "previewToolStripMenuItem";
-            this.previewToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.previewToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
             this.previewToolStripMenuItem.Text = "Preview";
             this.previewToolStripMenuItem.Click += new System.EventHandler(this.previewToolStripMenuItem_Click);
             // 
             // printSettingsToolStripMenuItem
             // 
             this.printSettingsToolStripMenuItem.Name = "printSettingsToolStripMenuItem";
-            this.printSettingsToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
+            this.printSettingsToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
             this.printSettingsToolStripMenuItem.Text = "Page Setup";
             this.printSettingsToolStripMenuItem.Click += new System.EventHandler(this.PageSetupToolStripMenuItem_Click);
+            // 
+            // clearAllToolStripMenuItem
+            // 
+            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(67, 17);
+            this.clearAllToolStripMenuItem.Text = "Xóa hết";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
             // printDialogDecal
             // 
@@ -593,13 +600,7 @@
             this.cbTen.Size = new System.Drawing.Size(128, 24);
             this.cbTen.TabIndex = 111;
             this.cbTen.SelectedIndexChanged += new System.EventHandler(this.cbTen_SelectedIndexChanged);
-            // 
-            // clearAllToolStripMenuItem
-            // 
-            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(85, 19);
-            this.clearAllToolStripMenuItem.Text = "Xóa hết";
-            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+            this.cbTen.Leave += new System.EventHandler(this.cbTen_Leave);
             // 
             // FormPrintPrice
             // 

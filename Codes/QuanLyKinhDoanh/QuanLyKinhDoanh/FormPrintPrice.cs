@@ -29,6 +29,15 @@ namespace QuanLyKinhDoanh
         public FormPrintPrice()
         {
             InitializeComponent();
+
+            if (Init())
+            {
+                RefreshData();
+            }
+            else
+            {
+                this.Visible = false;
+            }
         }
 
         private void LoadResource()
@@ -51,10 +60,6 @@ namespace QuanLyKinhDoanh
             InitPrintDefault();
 
             CreateTextBox();
-
-            Init();
-
-            RefreshData();
 
             ValidateInput();
         }
@@ -241,7 +246,7 @@ namespace QuanLyKinhDoanh
             }
             catch
             {
-                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_MONEY, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Constant.MESSAGE_ERROR_NULL_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -255,7 +260,7 @@ namespace QuanLyKinhDoanh
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
 
-        private bool Init()
+        private bool GetListGroupSP()
         {
             List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
@@ -276,7 +281,7 @@ namespace QuanLyKinhDoanh
             return true;
         }
 
-        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        private void GetListSP()
         {
             int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
@@ -292,6 +297,21 @@ namespace QuanLyKinhDoanh
             {
                 cbTen.SelectedIndex = 0;
             }
+        }
+
+        private bool Init()
+        {
+            if (!GetListGroupSP())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetListSP();
         }
 
         private void RefreshData()
@@ -324,6 +344,11 @@ namespace QuanLyKinhDoanh
             {
                 ClearAllPrice();
             }
+        }
+
+        private void cbTen_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }

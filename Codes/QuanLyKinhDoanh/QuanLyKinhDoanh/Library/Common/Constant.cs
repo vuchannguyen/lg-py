@@ -61,6 +61,10 @@ namespace Library
         public const int ID_GROUP_KH_MUA_SI = 2;
         public const int ID_GROUP_KH_VIP = 3;
 
+        public const int DEFAULT_DISCOUNT_GROUP_KH_MUA_LE = 0;
+        public const int DEFAULT_DISCOUNT_GROUP_KH_MUA_SI = 10;
+        public const int DEFAULT_DISCOUNT_GROUP_KH_VIP = 5;
+
         public const int ID_TYPE_MUA = 1;
         public const int ID_TYPE_BAN = 2;
         public const int ID_TYPE_THU = 3;
@@ -97,6 +101,7 @@ namespace Library
         public const string MESSAGE_CONFIRM = "Hoàn tất?";
         public const string MESSAGE_CONFIRM_DELETE_ALL_PRICE = "Xóa hết tất cả các ô?";
         public const string MESSAGE_ERROR = "Có lỗi!";
+        public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
         public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
 
