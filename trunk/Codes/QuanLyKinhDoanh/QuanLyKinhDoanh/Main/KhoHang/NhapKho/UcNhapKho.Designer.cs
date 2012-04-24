@@ -258,6 +258,7 @@
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
+            this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
             this.lvThongTin.Size = new System.Drawing.Size(950, 430);
             this.lvThongTin.TabIndex = 88;

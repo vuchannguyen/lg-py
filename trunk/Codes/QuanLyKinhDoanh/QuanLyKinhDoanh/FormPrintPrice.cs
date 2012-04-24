@@ -64,6 +64,9 @@ namespace QuanLyKinhDoanh
             ValidateInput();
         }
 
+
+
+        #region Function
         private void InitPrintDefault()
         {
             pgSetupDialog = new PageSetupDialog();
@@ -79,6 +82,77 @@ namespace QuanLyKinhDoanh
             pgSetupDialog.PrinterSettings = prtSettings;
             pgSetupDialog.AllowOrientation = true;
             pgSetupDialog.AllowMargins = false;
+        }
+
+        private bool Init()
+        {
+            if (!GetListGroupSP())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void RefreshData()
+        {
+            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
+            cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
+        }
+
+        private bool GetListGroupSP()
+        {
+            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            if (listData.Count == 0)
+            {
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            cbGroup.Items.Clear();
+
+            foreach (DTO.SanPhamGroup data in listData)
+            {
+                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            return true;
+        }
+
+        private void GetListSP()
+        {
+            int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
+
+            cbTen.Items.Clear();
+
+            foreach (DTO.SanPham data in listData)
+            {
+                cbTen.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            if (listData.Count > 0)
+            {
+                cbTen.SelectedIndex = 0;
+            }
+        }
+
+        private void ValidateInput()
+        {
+            if (!string.IsNullOrEmpty(tbSoLuong.Text) &&
+                !string.IsNullOrEmpty(cbTen.Text)
+                )
+            {
+                pbHoanTat.Enabled = true;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            }
+            else
+            {
+                pbHoanTat.Enabled = false;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+            }
         }
 
         private void CreateTextBox()
@@ -119,6 +193,18 @@ namespace QuanLyKinhDoanh
             }
         }
 
+        private void ClearAllPrice()
+        {
+            for (int i = 0; i < Constant.DEFAULT_TOTAL_DECAL; i++)
+            {
+                listTexbox[i].Text = string.Empty;
+            }
+        }
+        #endregion
+
+
+
+        #region Controls
         private void printDocumentDecal_PrintPage(object sender, PrintPageEventArgs e)
         {
             listTexbox[currentTextboxDecalId].BackColor = Color.White;
@@ -207,22 +293,6 @@ namespace QuanLyKinhDoanh
             ValidateInput();
         }
 
-        private void ValidateInput()
-        {
-            if (!string.IsNullOrEmpty(tbSoLuong.Text) &&
-                !string.IsNullOrEmpty(cbTen.Text)
-                )
-            {
-                pbHoanTat.Enabled = true;
-                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
-            }
-            else
-            {
-                pbHoanTat.Enabled = false;
-                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
-            }
-        }
-
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
             try
@@ -260,64 +330,9 @@ namespace QuanLyKinhDoanh
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
 
-        private bool GetListGroupSP()
-        {
-            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
-
-            if (listData.Count == 0)
-            {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return false;
-            }
-
-            cbGroup.Items.Clear();
-
-            foreach (DTO.SanPhamGroup data in listData)
-            {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-            }
-
-            return true;
-        }
-
-        private void GetListSP()
-        {
-            int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
-
-            cbTen.Items.Clear();
-
-            foreach (DTO.SanPham data in listData)
-            {
-                cbTen.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-            }
-
-            if (listData.Count > 0)
-            {
-                cbTen.SelectedIndex = 0;
-            }
-        }
-
-        private bool Init()
-        {
-            if (!GetListGroupSP())
-            {
-                return false;
-            }
-
-            return true;
-        }
-
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetListSP();
-        }
-
-        private void RefreshData()
-        {
-            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
-            cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
         }
 
         private void tbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
@@ -330,14 +345,6 @@ namespace QuanLyKinhDoanh
             ValidateInput();
         }
 
-        private void ClearAllPrice()
-        {
-            for (int i = 0; i < Constant.DEFAULT_TOTAL_DECAL; i++)
-            {
-                listTexbox[i].Text = string.Empty;
-            }
-        }
-
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM_DELETE_ALL_PRICE, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
@@ -345,10 +352,6 @@ namespace QuanLyKinhDoanh
                 ClearAllPrice();
             }
         }
-
-        private void cbTen_Leave(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

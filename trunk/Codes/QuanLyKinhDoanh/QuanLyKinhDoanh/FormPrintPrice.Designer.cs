@@ -600,7 +600,6 @@
             this.cbTen.Size = new System.Drawing.Size(128, 24);
             this.cbTen.TabIndex = 111;
             this.cbTen.SelectedIndexChanged += new System.EventHandler(this.cbTen_SelectedIndexChanged);
-            this.cbTen.Leave += new System.EventHandler(this.cbTen_Leave);
             // 
             // FormPrintPrice
             // 

@@ -26,7 +26,7 @@ namespace Library
 
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
-        public const string DEFAULT_FORMAT_MONEY = "#" + Constant.LINK_SYMBOL_MONEY + "###";
+        public const string DEFAULT_FORMAT_MONEY = "#" + Constant.SYMBOL_LINK_MONEY + "###";
         public const string DEFAULT_MONEY_SUBFIX = "Đ";
 
         public const string DEFAULT_PASSWORD = "admin";
@@ -54,8 +54,9 @@ namespace Library
 
         public const string PAGE_TEXT = " Trang";
         public const string SEPERATE_STRING = ", ";
-        public const string LINK_SYMBOL_STRING = " - ";
-        public const string LINK_SYMBOL_MONEY = ",";
+        public const string SYMBOL_LINK_STRING = " - ";
+        public const string SYMBOL_LINK_MONEY = ",";
+        public const string SYMBOL_DISCOUNT = "%";
 
         public const int ID_GROUP_KH_MUA_LE = 1;
         public const int ID_GROUP_KH_MUA_SI = 2;
@@ -104,6 +105,7 @@ namespace Library
         public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
         public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
+        public const string MESSAGE_ERROR_DELETE_DATA = "Vui lòng kiểm tra dữ liệu có đang sử dụng hay không!";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Họ tên - Email";

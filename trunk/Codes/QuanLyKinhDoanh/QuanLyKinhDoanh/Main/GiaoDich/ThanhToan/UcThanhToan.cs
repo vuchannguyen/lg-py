@@ -56,8 +56,13 @@ namespace QuanLyKinhDoanh.GiaoDich
             pnDetail.Location = CommonFunc.SetWidthCenter(this.Size, pnDetail.Size, pnDetail.Top);
 
             this.BringToFront();
+
+            ValidateInput();
         }
 
+
+
+        #region Function
         private bool Init()
         {
             if (!GetListGroupSP())
@@ -87,52 +92,49 @@ namespace QuanLyKinhDoanh.GiaoDich
             cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
         }
 
-        private void AddToBill(string text, int type, int page)
+        private void ValidateInput()
+        {
+            if (!string.IsNullOrEmpty(cbTen.Text) &&
+                !string.IsNullOrEmpty(tbSoLuong.Text) &&
+                !string.IsNullOrEmpty(tbThanhTien.Text)
+                )
+            {
+                pbAdd.Enabled = true;
+                pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
+            }
+            else
+            {
+                pbAdd.Enabled = true;
+                pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD_DISABLE);
+            }
+        }
+
+        private void CalculateMoney()
+        {
+            long money = 0;
+
+            if (dataSP != null && dataSP.GiaBan != 0)
+            {
+                money = (dataSP.GiaBan - (dataSP.GiaBan * ConvertUtil.ConvertToInt(tbChietKhau.Text) / 100)) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            }
+
+            tbThanhTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+        }
+
+        private void AddToBill()
         {
             ListViewItem lvi = new ListViewItem();
+
             lvi.SubItems.Add(dataSP.Id.ToString());
-            lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-            lvi.SubItems.Add(data.HoaDon.IdHoaDon.ToString());
-            lvi.SubItems.Add(data.SanPham.IdSanPham + Constant.LINK_SYMBOL_STRING + data.SanPham.Ten);
-            lvi.SubItems.Add("");
-            lvi.SubItems.Add(data.HoaDon.CreateDate.ToString("dd/MM/yyyy"));
-            lvi.SubItems.Add(data.SoLuong.ToString());
-            lvi.SubItems.Add(data.SanPham.DonViTinh);
-            lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
-            lvi.SubItems.Add(data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
-            lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
+            lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
+            lvi.SubItems.Add(dataSP.Ten);
+            lvi.SubItems.Add(tbSoLuong.Text);
+            lvi.SubItems.Add(tbDVT.Text);
+            lvi.SubItems.Add(tbGiaBan.Text);
+            lvi.SubItems.Add(tbChietKhau.Text == "0" ? string.Empty : tbChietKhau.Text + Constant.SYMBOL_DISCOUNT);
+            lvi.SubItems.Add(tbThanhTien.Text);
 
             lvThongTin.Items.Add(lvi);
-        }
-
-        private void pbAdd_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pbAdd_MouseEnter(object sender, EventArgs e)
-        {
-            pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD_MOUSEOVER);
-        }
-
-        private void pbAdd_MouseLeave(object sender, EventArgs e)
-        {
-            pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
-        }
-
-        private void pbHoanTat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pbHoanTat_MouseEnter(object sender, EventArgs e)
-        {
-            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_MOUSEOVER);
-        }
-
-        private void pbHoanTat_MouseLeave(object sender, EventArgs e)
-        {
-            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
 
         private bool GetListGroupSP()
@@ -191,11 +193,6 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
 
-        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetListSP();
-        }
-
         private void GetInfoSP()
         {
             try
@@ -229,7 +226,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                     lvThongTin.Items.Clear();
 
                     dataKhachHang = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbKhachHang.SelectedItem).Value));
-                    
+
 
                     switch (dataKhachHang.IdGroup)
                     {
@@ -262,10 +259,82 @@ namespace QuanLyKinhDoanh.GiaoDich
                 return 0;
             }
         }
+        #endregion
+
+
+
+        #region Button
+        private void pbAdd_Click(object sender, EventArgs e)
+        {
+            AddToBill();
+        }
+
+        private void pbAdd_MouseEnter(object sender, EventArgs e)
+        {
+            pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD_MOUSEOVER);
+        }
+
+        private void pbAdd_MouseLeave(object sender, EventArgs e)
+        {
+            pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
+        }
+
+        private void pbHoanTat_Click(object sender, EventArgs e)
+        {
+            FormBill frm = new FormBill();
+            frm.ShowDialog();
+        }
+
+        private void pbHoanTat_MouseEnter(object sender, EventArgs e)
+        {
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_MOUSEOVER);
+        }
+
+        private void pbHoanTat_MouseLeave(object sender, EventArgs e)
+        {
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+        }
+
+        private void pbXoa_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_DELETE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                string ids = string.Empty;
+
+                foreach (ListViewItem item in lvThongTin.CheckedItems)
+                {
+                    lvThongTin.Items.Remove(item);
+                }
+            }
+        }
+
+        private void pbXoa_MouseEnter(object sender, EventArgs e)
+        {
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
+        }
+
+        private void pbXoa_MouseLeave(object sender, EventArgs e)
+        {
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+        }
+        #endregion
+
+
+
+        #region Controls
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetListSP();
+        }
 
         private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetInfoSP();
+        }
+
+        private void cbTen_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
         }
 
         private void cbKhachHang_Leave(object sender, EventArgs e)
@@ -286,18 +355,6 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void tbChietKhau_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
-        }
-
-        private void CalculateMoney()
-        {
-            long money = 0;
-
-            if (dataSP != null && dataSP.GiaBan != 0)
-            {
-                money = (dataSP.GiaBan - (dataSP.GiaBan * ConvertUtil.ConvertToInt(tbChietKhau.Text) / 100)) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            }
-
-            tbThanhTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private void tbChietKhau_TextChanged(object sender, EventArgs e)
@@ -323,6 +380,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
 
             CalculateMoney();
+
+            ValidateInput();
         }
 
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
@@ -381,28 +440,6 @@ namespace QuanLyKinhDoanh.GiaoDich
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
             }
         }
-
-        private void pbXoa_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(Constant.MESSAGE_DELETE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                string ids = string.Empty;
-
-                foreach (ListViewItem item in lvThongTin.CheckedItems)
-                {
-                    lvThongTin.Items.Remove(item);
-                }
-            }
-        }
-
-        private void pbXoa_MouseEnter(object sender, EventArgs e)
-        {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
-        }
-
-        private void pbXoa_MouseLeave(object sender, EventArgs e)
-        {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
-        }
+        #endregion
     }
 }

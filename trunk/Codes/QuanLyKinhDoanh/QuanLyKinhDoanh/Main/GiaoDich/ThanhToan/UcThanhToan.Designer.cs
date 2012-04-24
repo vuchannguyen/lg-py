@@ -54,12 +54,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lvThongTin = new System.Windows.Forms.ListView();
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbTen = new System.Windows.Forms.ComboBox();
@@ -81,7 +82,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pbXoa = new System.Windows.Forms.PictureBox();
-            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -388,6 +388,12 @@
             this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chCheckBox.Width = 30;
             // 
+            // chId
+            // 
+            this.chId.Text = "Id";
+            this.chId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chId.Width = 0;
+            // 
             // chSTT
             // 
             this.chSTT.Text = "STT";
@@ -410,17 +416,17 @@
             this.chDVT.Text = "ĐVT";
             this.chDVT.Width = 91;
             // 
-            // chChietKhau
-            // 
-            this.chChietKhau.Text = "Giảm";
-            this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chChietKhau.Width = 54;
-            // 
             // chDonGia
             // 
             this.chDonGia.Text = "Đơn giá";
             this.chDonGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.chDonGia.Width = 100;
+            // 
+            // chChietKhau
+            // 
+            this.chChietKhau.Text = "Giảm";
+            this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chChietKhau.Width = 54;
             // 
             // chThanhTien
             // 
@@ -463,6 +469,7 @@
             this.cbTen.Size = new System.Drawing.Size(157, 24);
             this.cbTen.TabIndex = 130;
             this.cbTen.SelectedIndexChanged += new System.EventHandler(this.cbTen_SelectedIndexChanged);
+            this.cbTen.TextChanged += new System.EventHandler(this.cbTen_TextChanged);
             // 
             // cbGroup
             // 
@@ -649,12 +656,6 @@
             this.pbXoa.Click += new System.EventHandler(this.pbXoa_Click);
             this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
             this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
-            // 
-            // chId
-            // 
-            this.chId.Text = "Id";
-            this.chId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chId.Width = 0;
             // 
             // UcThanhToan
             // 

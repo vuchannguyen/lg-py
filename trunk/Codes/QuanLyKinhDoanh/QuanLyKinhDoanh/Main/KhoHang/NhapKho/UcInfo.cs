@@ -145,8 +145,7 @@ namespace QuanLyKinhDoanh.Mua
 
         private void RefreshData()
         {
-            tbMaNhap.Text = dataSP.IdSanPham;
-            //tbSoLuong.Text = string.Empty;
+            tbSoLuong.Text = string.Empty;
             tbDonViTinh.Text = string.Empty;
             tbGiaNhap.Text = string.Empty;
             tbGiaBan.Text = string.Empty;
@@ -154,12 +153,7 @@ namespace QuanLyKinhDoanh.Mua
             tbThanhTien.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
-            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
-
-            //if (cbTen.Items.Count > 0)
-            //{
-            //    cbTen.SelectedIndex = 0;
-            //}
+            cbChangeMoney.SelectedIndex = 0;
         }
 
         private void ValidateInput()
@@ -196,7 +190,7 @@ namespace QuanLyKinhDoanh.Mua
 
         private void CalculateTotalMoney()
         {
-            long giaNhap = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+            long giaNhap = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             int soLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
 
             tbThanhTien.Text = giaNhap * soLuong == 0 ? string.Empty : (giaNhap * soLuong).ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -217,7 +211,7 @@ namespace QuanLyKinhDoanh.Mua
             dataHoaDon.IdHoaDon = tbMaNhap.Text;
             dataHoaDon.IdType = Constant.ID_TYPE_MUA;
             dataHoaDon.Status = Constant.STATUS_DONE;
-            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
             dataHoaDon.CreateBy = dataHoaDon.UpdateBy = "";
@@ -257,7 +251,7 @@ namespace QuanLyKinhDoanh.Mua
             //dataHoaDonDetail.IdSanPham = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value);
             dataHoaDonDetail.IdSanPham = dataSP.Id;
             dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
             if (HoaDonDetailBus.Insert(dataHoaDonDetail))
             {
@@ -287,8 +281,8 @@ namespace QuanLyKinhDoanh.Mua
             //dataSP = SanPhamBus.GetById(dataSP.Id);
 
             dataSP.SoLuong += ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
-            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+            dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
             dataSP.UpdateBy = "";
@@ -330,7 +324,7 @@ namespace QuanLyKinhDoanh.Mua
             //dataSP.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
             //dataSP.DonViBaoHanh = cbDonViBaoHanh.Text;
 
-            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
             dataSP.UpdateBy = "";
@@ -446,7 +440,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             long money = 0;
 
-            money = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+            money = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
             tbGiaNhap.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbGiaNhap.Select(tbGiaNhap.Text.Length, 0);
@@ -484,8 +478,8 @@ namespace QuanLyKinhDoanh.Mua
                 long moneyBuy = 0;
                 long moneySell = 0;
 
-                moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
-                moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+                moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
                 double laiSuat = (moneySell * 1.0 / moneyBuy * 100) - 100;
 
@@ -520,7 +514,7 @@ namespace QuanLyKinhDoanh.Mua
             {
                 long money = 0;
 
-                money = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+                money = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
                 tbGiaBan.Text = money == 0 ? "0" : money.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGiaBan.Select(tbGiaBan.Text.Length, 0);
@@ -538,8 +532,8 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (tbLaiSuat.Enabled)
             {
-                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
-                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.LINK_SYMBOL_MONEY, ""));
+                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
                 if (cbChangeMoney.SelectedIndex == 0)
                 {
@@ -578,6 +572,21 @@ namespace QuanLyKinhDoanh.Mua
 
 
         #region Function SP
+        private void uc_Disposed(object sender, EventArgs e)
+        {
+            if (!InitSP())
+            {
+                RefreshData();
+                RefreshDataSP();
+
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm sản phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
+            }
+        }
+
         private bool InitSP()
         {
             List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
@@ -731,7 +740,9 @@ namespace QuanLyKinhDoanh.Mua
 
         private void pbThemNhomSP_Click(object sender, EventArgs e)
         {
-            this.Controls.Add(new NhomSanPham.UcInfo());
+            uc = new NhomSanPham.UcInfo();
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbThemNhomSP_MouseEnter(object sender, EventArgs e)

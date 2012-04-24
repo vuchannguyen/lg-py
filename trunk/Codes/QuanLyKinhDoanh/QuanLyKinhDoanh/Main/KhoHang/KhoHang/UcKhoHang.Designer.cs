@@ -45,6 +45,7 @@
             this.pbFind = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.lvThongTin = new System.Windows.Forms.ListView();
+            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,7 +63,6 @@
             this.pbTotalPage = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnFind.SuspendLayout();
@@ -263,11 +263,17 @@
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
+            this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
             this.lvThongTin.Size = new System.Drawing.Size(800, 430);
             this.lvThongTin.TabIndex = 86;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
+            // 
+            // chCheckBox
+            // 
+            this.chCheckBox.Text = "All";
+            this.chCheckBox.Width = 30;
             // 
             // chSTT
             // 
@@ -284,7 +290,7 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Mã - Tên SP";
-            this.chSanPham.Width = 170;
+            this.chSanPham.Width = 144;
             // 
             // chNhom
             // 
@@ -401,11 +407,6 @@
             this.lbPage.TabIndex = 89;
             this.lbPage.Text = "???";
             this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chCheckBox
-            // 
-            this.chCheckBox.Text = "All";
-            this.chCheckBox.Width = 30;
             // 
             // UcKhoHang
             // 
