@@ -136,7 +136,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.HoaDon.IdHoaDon.ToString());
-                lvi.SubItems.Add(data.SanPham.IdSanPham + Constant.LINK_SYMBOL_STRING + data.SanPham.Ten);
+                lvi.SubItems.Add(data.SanPham.IdSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
                 lvi.SubItems.Add("");
                 lvi.SubItems.Add(data.HoaDon.CreateDate.ToString("dd/MM/yyyy"));
                 lvi.SubItems.Add(data.SoLuong.ToString());

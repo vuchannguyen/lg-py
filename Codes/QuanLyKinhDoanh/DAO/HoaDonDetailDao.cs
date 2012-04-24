@@ -132,6 +132,10 @@ namespace DAO
 
                             if (!Delete(data))
                             {
+                                CreateSQlConnection();
+
+                                if (trans != null) trans.Rollback();
+
                                 return false;
                             }
                         }

@@ -58,6 +58,8 @@ namespace DAO
         {
             try
             {
+                dbContext.CommandTimeout = 300;
+
                 dbContext = new QLKDDataContext(CONNECTION_STRING);
             }
             catch

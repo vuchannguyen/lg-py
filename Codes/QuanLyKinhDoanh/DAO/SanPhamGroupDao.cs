@@ -72,35 +72,35 @@ namespace DAO
 
         public static bool Insert(SanPhamGroup data)
         {
+            if (GetByUserMa(data.Ma) != null)
+            {
+                return false;
+            }
+
+            dbContext.SanPhamGroups.InsertOnSubmit(data);
+            dbContext.SubmitChanges();
+
+            return true;
+        }
+
+        public static bool Delete(SanPhamGroup data)
+        {
             try
             {
-                if (GetByUserMa(data.Ma) != null)
+                if (data != null)
                 {
-                    return false;
+                    dbContext.SanPhamGroups.DeleteOnSubmit(data);
+                    dbContext.SubmitChanges();
+
+                    return true;
                 }
 
-                dbContext.SanPhamGroups.InsertOnSubmit(data);
-                dbContext.SubmitChanges();
-
-                return true;
+                return false;
             }
             catch
             {
                 return false;
             }
-        }
-
-        public static bool Delete(SanPhamGroup data)
-        {
-            if (data != null)
-            {
-                dbContext.SanPhamGroups.DeleteOnSubmit(data);
-                dbContext.SubmitChanges();
-
-                return true;
-            }
-
-            return false;
         }
 
         public static bool DeleteList(string ids)
@@ -125,31 +125,16 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            //SanPhamGroup data = GetById(result);
+                            SanPhamGroup data = GetById(result);
 
-                            //if (!Delete(data))
-                            //{
-                            //    return false;
-                            //}
-
-                            try
+                            if (!Delete(data))
                             {
-                                SanPhamGroup temp = dbContext.SanPhamGroups.Where(p => p.Id == result).SingleOrDefault<SanPhamGroup>();
+                                CreateSQlConnection();
 
-                                dbContext.SanPhamGroups.Attach(temp);
-                                dbContext.Refresh(System.Data.Linq.RefreshMode.KeepCurrentValues, temp);
+                                if (trans != null) trans.Rollback();
 
-                                dbContext.SanPhamGroups.DeleteOnSubmit(temp);
-                                dbContext.SubmitChanges();
-
-                                return true;
+                                return false;
                             }
-                            catch (Exception ex)
-                            {
-                                throw ex;
-                                //return false;
-                            }
-
                         }
                         else
                         {
@@ -170,7 +155,7 @@ namespace DAO
             catch
             {
                 if (trans != null) trans.Rollback();
-                dbContext.Connection.Close();
+
                 return false;
             }
         }
