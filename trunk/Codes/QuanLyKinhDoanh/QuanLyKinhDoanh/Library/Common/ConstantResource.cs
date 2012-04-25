@@ -58,6 +58,9 @@ namespace Library
         public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX = @"Resources\SanPham\icon_nhom_sanpham_index.png";
         public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_nhom_sanpham_index_mouseover.png";
 
+        public const string SANPHAM_ICON_XUATXU_INDEX = @"Resources\SanPham\icon_xuatxu_index.png";
+        public const string SANPHAM_ICON_XUATXU_INDEX_MOUSEOVER = @"Resources\SanPham\icon_xuatxu_index_mouseover.png";
+
         public const string GIAODICH_ICON_GIAODICH = @"Resources\GiaoDich\icon_giaodich.png";
         public const string GIAODICH_ICON_GIAODICH_MOUSEOVER = @"Resources\GiaoDich\icon_giaodich_mouseover.png";
         public const string GIAODICH_ICON_MUA_INDEX = @"Resources\GiaoDich\icon_mua_index.png";

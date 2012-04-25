@@ -25,6 +25,7 @@ namespace QuanLyKinhDoanh
             {
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_INDEX);
                 pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX);
+                pbXuatXu.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_XUATXU_INDEX);
             }
             catch
             {
@@ -81,12 +82,14 @@ namespace QuanLyKinhDoanh
 
         private void pbXuatXu_MouseEnter(object sender, EventArgs e)
         {
-
+            pbXuatXu.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_XUATXU_INDEX_MOUSEOVER);
+            lbXuatXu.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbXuatXu_MouseLeave(object sender, EventArgs e)
         {
-
+            pbXuatXu.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_XUATXU_INDEX);
+            lbXuatXu.ForeColor = Constant.COLOR_NORMAL;
         }
     }
 }
