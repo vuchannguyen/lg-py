@@ -34,6 +34,7 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.cbXuatXu = new System.Windows.Forms.ComboBox();
             this.tbDonViTinh = new System.Windows.Forms.TextBox();
             this.cbDonViBaoHanh = new System.Windows.Forms.ComboBox();
             this.tbThoiGianBaoHanh = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.tbMoTa = new System.Windows.Forms.TextBox();
             this.tbHieu = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbXuatXu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -122,6 +122,7 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.cbXuatXu);
             this.gbInfo.Controls.Add(this.tbDonViTinh);
             this.gbInfo.Controls.Add(this.cbDonViBaoHanh);
             this.gbInfo.Controls.Add(this.tbThoiGianBaoHanh);
@@ -131,7 +132,6 @@
             this.gbInfo.Controls.Add(this.tbMoTa);
             this.gbInfo.Controls.Add(this.tbHieu);
             this.gbInfo.Controls.Add(this.label6);
-            this.gbInfo.Controls.Add(this.tbXuatXu);
             this.gbInfo.Controls.Add(this.label5);
             this.gbInfo.Controls.Add(this.tbTen);
             this.gbInfo.Controls.Add(this.label1);
@@ -150,6 +150,16 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // cbXuatXu
+            // 
+            this.cbXuatXu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbXuatXu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbXuatXu.FormattingEnabled = true;
+            this.cbXuatXu.Location = new System.Drawing.Point(420, 130);
+            this.cbXuatXu.Name = "cbXuatXu";
+            this.cbXuatXu.Size = new System.Drawing.Size(250, 24);
+            this.cbXuatXu.TabIndex = 112;
             // 
             // tbDonViTinh
             // 
@@ -240,14 +250,6 @@
             this.label6.Size = new System.Drawing.Size(40, 16);
             this.label6.TabIndex = 106;
             this.label6.Text = "Hiệu:";
-            // 
-            // tbXuatXu
-            // 
-            this.tbXuatXu.Location = new System.Drawing.Point(420, 130);
-            this.tbXuatXu.MaxLength = 50;
-            this.tbXuatXu.Name = "tbXuatXu";
-            this.tbXuatXu.Size = new System.Drawing.Size(250, 23);
-            this.tbXuatXu.TabIndex = 3;
             // 
             // label5
             // 
@@ -446,7 +448,6 @@
         private System.Windows.Forms.Label lbTen;
         private System.Windows.Forms.TextBox tbHieu;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbXuatXu;
         private System.Windows.Forms.ComboBox cbDonViBaoHanh;
         private System.Windows.Forms.TextBox tbThoiGianBaoHanh;
         private System.Windows.Forms.Label label8;
@@ -454,5 +455,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbMoTa;
         private System.Windows.Forms.TextBox tbDonViTinh;
+        private System.Windows.Forms.ComboBox cbXuatXu;
     }
 }

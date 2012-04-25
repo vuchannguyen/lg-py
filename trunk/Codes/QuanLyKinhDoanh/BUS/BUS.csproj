@@ -50,6 +50,7 @@
     <Compile Include="UserBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserGroupBus.cs" />
+    <Compile Include="XuatXuBus.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

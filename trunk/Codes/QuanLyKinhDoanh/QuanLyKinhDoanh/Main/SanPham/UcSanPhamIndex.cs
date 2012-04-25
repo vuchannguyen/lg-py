@@ -73,5 +73,20 @@ namespace QuanLyKinhDoanh
             pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX);
             lbNhomSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
+
+        private void pbXuatXu_Click(object sender, EventArgs e)
+        {
+            CommonFunc.NewControl(this.Controls, ref uc, new UcXuatXu());
+        }
+
+        private void pbXuatXu_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbXuatXu_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

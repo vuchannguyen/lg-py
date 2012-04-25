@@ -46,7 +46,7 @@ namespace QuanLyKinhDoanh.SanPham
                 tbMa.Text = data.IdSanPham;
                 tbTen.Text = data.Ten;
                 tbDonViTinh.Text = data.DonViTinh;
-                tbXuatXu.Text = data.XuatXu;
+                cbXuatXu.Text = data.XuatXu == null ? string.Empty : data.XuatXu.Ten;
                 tbHieu.Text = data.Hieu;
                 tbThoiGianBaoHanh.Text = data.ThoiGianBaoHanh.ToString();
                 tbSize.Text = data.Size;
@@ -93,21 +93,12 @@ namespace QuanLyKinhDoanh.SanPham
         #region Function
         private bool Init()
         {
-            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
-
-            if (listData.Count == 0)
+            if (!GetListGroupSP())
             {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return false;
             }
 
-            cbGroup.Items.Clear();
-
-            foreach (DTO.SanPhamGroup data in listData)
-            {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-            }
+            GetListXuatXu();
 
             return true;
         }
@@ -117,13 +108,13 @@ namespace QuanLyKinhDoanh.SanPham
             tbMa.Text = string.Empty;
             tbTen.Text = string.Empty;
             tbDonViTinh.Text = string.Empty;
-            tbXuatXu.Text = string.Empty;
             tbHieu.Text = string.Empty;
             tbThoiGianBaoHanh.Text = string.Empty;
             tbSize.Text = string.Empty;
             tbMoTa.Text = string.Empty;
 
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
+            cbXuatXu.SelectedIndex = cbXuatXu.Items.Count > 0 ? 0 : -1;
             cbDonViBaoHanh.SelectedIndex = 0;
         }
 
@@ -144,6 +135,48 @@ namespace QuanLyKinhDoanh.SanPham
             }
         }
 
+        private bool GetListGroupSP()
+        {
+            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            if (listData.Count == 0)
+            {
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm sản phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            cbGroup.Items.Clear();
+
+            foreach (DTO.SanPhamGroup data in listData)
+            {
+                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            return true;
+        }
+
+        private bool GetListXuatXu()
+        {
+            List<DTO.XuatXu> listData = XuatXuBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            if (listData.Count == 0)
+            {
+                //MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Xuất xứ"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //return false;
+            }
+
+            cbXuatXu.Items.Clear();
+
+            foreach (DTO.XuatXu data in listData)
+            {
+                cbXuatXu.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            return true;
+        }
+
         private void InsertData()
         {
             data.IdSanPham = tbMa.Text;
@@ -151,7 +184,7 @@ namespace QuanLyKinhDoanh.SanPham
             data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             data.MoTa = tbMoTa.Text;
             data.DonViTinh = tbDonViTinh.Text;
-            data.XuatXu = tbXuatXu.Text;
+            //data.XuatXu = tbXuatXu.Text;
             data.Hieu = tbHieu.Text;
             data.Size = tbSize.Text;
             data.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
@@ -178,9 +211,18 @@ namespace QuanLyKinhDoanh.SanPham
             data.IdSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
             data.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+
+            if (cbXuatXu.SelectedItem != null)
+            {
+                data.XuatXu = XuatXuBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value));
+            }
+            else
+            {
+                data.XuatXu = null;
+            }
+
             data.MoTa = tbMoTa.Text;
             data.DonViTinh = tbDonViTinh.Text;
-            data.XuatXu = tbXuatXu.Text;
             data.Hieu = tbHieu.Text;
             data.Size = tbSize.Text;
             data.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);

@@ -68,7 +68,7 @@ namespace QuanLyKinhDoanh.Mua
                 cbDVTSP.Text = data.SanPham.DonViTinh;
                 tbTenSP.Text = data.SanPham.Ten;
                 tbSize.Text = data.SanPham.Size;
-                tbXuatXu.Text = data.SanPham.XuatXu;
+                tbXuatXu.Text = data.SanPham.XuatXu == null ? string.Empty : data.SanPham.XuatXu.Ten;
                 tbHieu.Text = data.SanPham.Hieu;
                 tbMoTa.Text = data.SanPham.MoTa;
 
@@ -210,7 +210,7 @@ namespace QuanLyKinhDoanh.Mua
 
             dataHoaDon.IdHoaDon = tbMaNhap.Text;
             dataHoaDon.IdType = Constant.ID_TYPE_MUA;
-            dataHoaDon.Status = Constant.STATUS_DONE;
+            dataHoaDon.IdStatus = Constant.ID_STATUS_DONE;
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
@@ -318,7 +318,7 @@ namespace QuanLyKinhDoanh.Mua
             dataSP.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             dataSP.MoTa = tbMoTa.Text;
             dataSP.DonViTinh = tbDonViTinh.Text;
-            dataSP.XuatXu = tbXuatXu.Text;
+            //dataSP.XuatXu = tbXuatXu.Text;
             dataSP.Hieu = tbHieu.Text;
             dataSP.Size = tbSize.Text;
             //dataSP.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
@@ -669,9 +669,9 @@ namespace QuanLyKinhDoanh.Mua
             dataSP.IdSanPham = tbMaSP.Text;
             dataSP.Ten = tbTenSP.Text;
             dataSP.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            //dataSP.XuatXu = tbXuatXu.Text;
             dataSP.MoTa = tbMoTa.Text;
             dataSP.DonViTinh = cbDVTSP.Text;
-            dataSP.XuatXu = tbXuatXu.Text;
             dataSP.Hieu = tbHieu.Text;
             dataSP.Size = tbSize.Text;
             dataSP.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);

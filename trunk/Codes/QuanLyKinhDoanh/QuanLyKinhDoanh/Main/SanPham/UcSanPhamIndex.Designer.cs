@@ -33,13 +33,18 @@
             this.lbSanPham = new System.Windows.Forms.Label();
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbNhomSanPham = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbXuatXu = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuatXu)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.label1);
+            this.pnSelect.Controls.Add(this.pbXuatXu);
             this.pnSelect.Controls.Add(this.lbNhomSanPham);
             this.pnSelect.Controls.Add(this.lbSanPham);
             this.pnSelect.Controls.Add(this.pbSanPham);
@@ -97,6 +102,30 @@
             this.pbNhomSanPham.MouseEnter += new System.EventHandler(this.pbNhomSanPham_MouseEnter);
             this.pbNhomSanPham.MouseLeave += new System.EventHandler(this.pbNhomSanPham_MouseLeave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(244, 120);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 16);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "XUẤT XỨ";
+            // 
+            // pbXuatXu
+            // 
+            this.pbXuatXu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXuatXu.Location = new System.Drawing.Point(231, 10);
+            this.pbXuatXu.Name = "pbXuatXu";
+            this.pbXuatXu.Size = new System.Drawing.Size(100, 100);
+            this.pbXuatXu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbXuatXu.TabIndex = 7;
+            this.pbXuatXu.TabStop = false;
+            this.pbXuatXu.Click += new System.EventHandler(this.pbXuatXu_Click);
+            this.pbXuatXu.MouseEnter += new System.EventHandler(this.pbXuatXu_MouseEnter);
+            this.pbXuatXu.MouseLeave += new System.EventHandler(this.pbXuatXu_MouseLeave);
+            // 
             // UcSanPhamIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -110,6 +139,7 @@
             this.pnSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuatXu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,5 +151,7 @@
         private System.Windows.Forms.Label lbSanPham;
         private System.Windows.Forms.PictureBox pbSanPham;
         private System.Windows.Forms.PictureBox pbNhomSanPham;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbXuatXu;
     }
 }
