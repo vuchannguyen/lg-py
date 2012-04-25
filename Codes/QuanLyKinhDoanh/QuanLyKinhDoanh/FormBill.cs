@@ -63,22 +63,22 @@ namespace QuanLyKinhDoanh
             {
                 ListViewItem lvi = new ListViewItem();
 
-                lvi.SubItems.Add(result[0]);
-                lvThongTin.Items.Add(lvi);
+                //lvi.SubItems.Add(result[0]);
+                //lvThongTin.Items.Add(lvi);
 
-                if (result.Count > 1)
-                {
-                    for (int i = 1; i < result.Count; i++)
-                    {
-                        ListViewItem lviEx = new ListViewItem();
+                //if (result.Count > 1)
+                //{
+                //    for (int i = 1; i < result.Count; i++)
+                //    {
+                //        ListViewItem lviEx = new ListViewItem();
 
-                        lviEx.SubItems.Add(string.Empty);
-                        lviEx.SubItems.Add(string.Empty);
-                        lviEx.SubItems.Add(result[i]);
+                //        lviEx.SubItems.Add(string.Empty);
+                //        lviEx.SubItems.Add(string.Empty);
+                //        lviEx.SubItems.Add(result[i]);
 
-                        lvThongTin.Items.Add(lviEx);
-                    }
-                }
+                //        lvThongTin.Items.Add(lviEx);
+                //    }
+                //}
             }
         }
     }

@@ -58,13 +58,15 @@ namespace Library
         public const string SYMBOL_LINK_MONEY = ",";
         public const string SYMBOL_DISCOUNT = "%";
 
-        public const int ID_GROUP_KH_MUA_LE = 1;
-        public const int ID_GROUP_KH_MUA_SI = 2;
-        public const int ID_GROUP_KH_VIP = 3;
+        public const int ID_GROUP_KHACH_THUONG = 1;
+        public const int ID_GROUP_KHTT = 2;
+        public const int ID_GROUP_VIP = 3;
+        public const int ID_GROUP_KHACH_SI = 4;
 
-        public const int DEFAULT_DISCOUNT_GROUP_KH_MUA_LE = 0;
-        public const int DEFAULT_DISCOUNT_GROUP_KH_MUA_SI = 10;
-        public const int DEFAULT_DISCOUNT_GROUP_KH_VIP = 5;
+        public const int DEFAULT_DISCOUNT_GROUP_KHACH_THUONG = 0;
+        public const int DEFAULT_DISCOUNT_GROUP_KHTT = 10;
+        public const int DEFAULT_DISCOUNT_GROUP_VIP = 5;
+        public const int DEFAULT_DISCOUNT_GROUP_KHACH_SI = 5;
 
         public const int ID_TYPE_MUA = 1;
         public const int ID_TYPE_BAN = 2;
@@ -76,6 +78,8 @@ namespace Library
         public const string PREFIX_THU = "T";
         public const string PREFIX_CHI = "C";
 
+        public const int ID_STATUS_DONE = 1;
+        public const int ID_STATUS_NOTHING = 2;
         public const string STATUS_DONE = "Đã thanh toán";
         public const string STATUS_NOTHING = "Chưa thanh toán";
 
@@ -111,6 +115,7 @@ namespace Library
         public const string SEARCH_KHACHHANG_TIP = "Họ tên - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
         public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
+        public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
         public const string SEARCH_NHAPKHO_TIP = "Mã nhập - Mã SP - Tên SP";
     }
 }

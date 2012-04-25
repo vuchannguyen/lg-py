@@ -65,14 +65,14 @@ namespace DAO
             return dbContext.SanPhamGroups.Where(p => p.Id == id).SingleOrDefault<SanPhamGroup>();
         }
 
-        public static SanPhamGroup GetByUserMa(string text)
+        public static SanPhamGroup GetByMa(string text)
         {
             return dbContext.SanPhamGroups.Where(p => p.Ma == text).SingleOrDefault<SanPhamGroup>();
         }
 
         public static bool Insert(SanPhamGroup data)
         {
-            if (GetByUserMa(data.Ma) != null)
+            if (GetByMa(data.Ma) != null)
             {
                 return false;
             }

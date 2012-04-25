@@ -21,7 +21,7 @@ namespace DAO
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Mota, text)
+                    SqlMethods.Like(p.MoTa, text)
                     );
             }
 

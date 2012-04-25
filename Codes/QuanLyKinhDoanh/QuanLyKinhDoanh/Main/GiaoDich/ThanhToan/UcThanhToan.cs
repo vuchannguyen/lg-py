@@ -230,23 +230,23 @@ namespace QuanLyKinhDoanh.GiaoDich
 
                     switch (dataKhachHang.IdGroup)
                     {
-                        case Constant.ID_GROUP_KH_MUA_LE:
-                            {
-                                percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_MUA_LE;
-                                break;
-                            }
+                        //case Constant.ID_GROUP_KHACH_THUONG:
+                        //    {
+                        //        percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_MUA_LE;
+                        //        break;
+                        //    }
 
-                        case Constant.ID_GROUP_KH_MUA_SI:
-                            {
-                                percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_MUA_SI;
-                                break;
-                            }
+                        //case Constant.ID_GROUP_KHACH_SI:
+                        //    {
+                        //        percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_MUA_SI;
+                        //        break;
+                        //    }
 
-                        case Constant.ID_GROUP_KH_VIP:
-                            {
-                                percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_VIP;
-                                break;
-                            }
+                        //case Constant.ID_GROUP_VIP:
+                        //    {
+                        //        percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_VIP;
+                        //        break;
+                        //    }
                     }
                 }
 
