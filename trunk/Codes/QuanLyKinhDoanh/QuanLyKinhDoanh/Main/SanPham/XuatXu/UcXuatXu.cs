@@ -219,6 +219,10 @@ namespace QuanLyKinhDoanh
                 {
                     RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
+                else
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR_DELETE_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
