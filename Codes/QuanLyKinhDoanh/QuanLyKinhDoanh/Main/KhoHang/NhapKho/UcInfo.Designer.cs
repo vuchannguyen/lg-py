@@ -57,19 +57,19 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
             this.gbInfoSP = new System.Windows.Forms.GroupBox();
+            this.cbXuatXu = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
             this.pbHuy = new System.Windows.Forms.PictureBox();
             this.cbDVTSP = new System.Windows.Forms.ComboBox();
-            this.cbDonViBaoHanh = new System.Windows.Forms.ComboBox();
-            this.tbThoiGianBaoHanh = new System.Windows.Forms.TextBox();
+            this.cbDonViThoiHan = new System.Windows.Forms.ComboBox();
+            this.tbThoiHan = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbSize = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbMoTa = new System.Windows.Forms.TextBox();
             this.tbHieu = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.tbXuatXu = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tbTenSP = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -397,17 +397,17 @@
             // 
             // gbInfoSP
             // 
+            this.gbInfoSP.Controls.Add(this.cbXuatXu);
             this.gbInfoSP.Controls.Add(this.panel8);
             this.gbInfoSP.Controls.Add(this.cbDVTSP);
-            this.gbInfoSP.Controls.Add(this.cbDonViBaoHanh);
-            this.gbInfoSP.Controls.Add(this.tbThoiGianBaoHanh);
+            this.gbInfoSP.Controls.Add(this.cbDonViThoiHan);
+            this.gbInfoSP.Controls.Add(this.tbThoiHan);
             this.gbInfoSP.Controls.Add(this.label8);
             this.gbInfoSP.Controls.Add(this.tbSize);
             this.gbInfoSP.Controls.Add(this.label10);
             this.gbInfoSP.Controls.Add(this.tbMoTa);
             this.gbInfoSP.Controls.Add(this.tbHieu);
             this.gbInfoSP.Controls.Add(this.label11);
-            this.gbInfoSP.Controls.Add(this.tbXuatXu);
             this.gbInfoSP.Controls.Add(this.label12);
             this.gbInfoSP.Controls.Add(this.tbTenSP);
             this.gbInfoSP.Controls.Add(this.label13);
@@ -424,6 +424,16 @@
             this.gbInfoSP.TabIndex = 55;
             this.gbInfoSP.TabStop = false;
             this.gbInfoSP.Text = "Thông tin sản phẩm";
+            // 
+            // cbXuatXu
+            // 
+            this.cbXuatXu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbXuatXu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbXuatXu.FormattingEnabled = true;
+            this.cbXuatXu.Location = new System.Drawing.Point(302, 130);
+            this.cbXuatXu.Name = "cbXuatXu";
+            this.cbXuatXu.Size = new System.Drawing.Size(208, 24);
+            this.cbXuatXu.TabIndex = 113;
             // 
             // panel8
             // 
@@ -460,51 +470,48 @@
             this.cbDVTSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbDVTSP.FormattingEnabled = true;
             this.cbDVTSP.Items.AddRange(new object[] {
-            "ĐÔI",
-            "CÁI",
-            "MÉT",
-            "BỘ"});
+            "Đôi",
+            "Cái",
+            "Mét",
+            "Bộ"});
             this.cbDVTSP.Location = new System.Drawing.Point(82, 80);
             this.cbDVTSP.Name = "cbDVTSP";
             this.cbDVTSP.Size = new System.Drawing.Size(137, 24);
             this.cbDVTSP.TabIndex = 112;
             this.cbDVTSP.TextChanged += new System.EventHandler(this.cbDVTSP_TextChanged);
             // 
-            // cbDonViBaoHanh
+            // cbDonViThoiHan
             // 
-            this.cbDonViBaoHanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDonViBaoHanh.FormattingEnabled = true;
-            this.cbDonViBaoHanh.Items.AddRange(new object[] {
+            this.cbDonViThoiHan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDonViThoiHan.FormattingEnabled = true;
+            this.cbDonViThoiHan.Items.AddRange(new object[] {
             "Ngày",
             "Tháng",
             "Năm"});
-            this.cbDonViBaoHanh.Location = new System.Drawing.Point(142, 180);
-            this.cbDonViBaoHanh.Name = "cbDonViBaoHanh";
-            this.cbDonViBaoHanh.Size = new System.Drawing.Size(77, 24);
-            this.cbDonViBaoHanh.TabIndex = 7;
-            this.cbDonViBaoHanh.Visible = false;
+            this.cbDonViThoiHan.Location = new System.Drawing.Point(118, 180);
+            this.cbDonViThoiHan.Name = "cbDonViThoiHan";
+            this.cbDonViThoiHan.Size = new System.Drawing.Size(77, 24);
+            this.cbDonViThoiHan.TabIndex = 7;
             // 
-            // tbThoiGianBaoHanh
+            // tbThoiHan
             // 
-            this.tbThoiGianBaoHanh.Location = new System.Drawing.Point(106, 180);
-            this.tbThoiGianBaoHanh.MaxLength = 2;
-            this.tbThoiGianBaoHanh.Name = "tbThoiGianBaoHanh";
-            this.tbThoiGianBaoHanh.Size = new System.Drawing.Size(30, 23);
-            this.tbThoiGianBaoHanh.TabIndex = 6;
-            this.tbThoiGianBaoHanh.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbThoiGianBaoHanh.Visible = false;
-            this.tbThoiGianBaoHanh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbThoiGianBaoHanh_KeyPress);
+            this.tbThoiHan.Location = new System.Drawing.Point(82, 180);
+            this.tbThoiHan.MaxLength = 2;
+            this.tbThoiHan.Name = "tbThoiHan";
+            this.tbThoiHan.Size = new System.Drawing.Size(30, 23);
+            this.tbThoiHan.TabIndex = 6;
+            this.tbThoiHan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbThoiHan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbThoiHan_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(6, 183);
+            this.label8.Location = new System.Drawing.Point(5, 183);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 16);
+            this.label8.Size = new System.Drawing.Size(69, 16);
             this.label8.TabIndex = 111;
-            this.label8.Text = "Thời gian BH:";
-            this.label8.Visible = false;
+            this.label8.Text = "Thời hạn:";
             // 
             // tbSize
             // 
@@ -550,14 +557,6 @@
             this.label11.Size = new System.Drawing.Size(40, 16);
             this.label11.TabIndex = 106;
             this.label11.Text = "Hiệu:";
-            // 
-            // tbXuatXu
-            // 
-            this.tbXuatXu.Location = new System.Drawing.Point(302, 130);
-            this.tbXuatXu.MaxLength = 50;
-            this.tbXuatXu.Name = "tbXuatXu";
-            this.tbXuatXu.Size = new System.Drawing.Size(208, 23);
-            this.tbXuatXu.TabIndex = 3;
             // 
             // label12
             // 
@@ -743,15 +742,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbLaiSuat;
         private System.Windows.Forms.GroupBox gbInfoSP;
-        private System.Windows.Forms.ComboBox cbDonViBaoHanh;
-        private System.Windows.Forms.TextBox tbThoiGianBaoHanh;
+        private System.Windows.Forms.ComboBox cbDonViThoiHan;
+        private System.Windows.Forms.TextBox tbThoiHan;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbSize;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbMoTa;
         private System.Windows.Forms.TextBox tbHieu;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox tbXuatXu;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbTenSP;
         private System.Windows.Forms.Label label13;
@@ -767,5 +765,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbThemNhomSP;
+        private System.Windows.Forms.ComboBox cbXuatXu;
     }
 }

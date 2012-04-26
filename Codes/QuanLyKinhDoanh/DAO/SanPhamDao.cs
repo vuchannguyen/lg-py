@@ -21,7 +21,7 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.IdSanPham, text) ||
+                sql = sql.Where(p => SqlMethods.Like(p.MaSanPham, text) ||
                     SqlMethods.Like(p.Ten, text) ||
                     SqlMethods.Like(p.MoTa, text)
                     );
@@ -89,7 +89,7 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.IdSanPham, text) ||
+                sql = sql.Where(p => SqlMethods.Like(p.MaSanPham, text) ||
                     SqlMethods.Like(p.Ten, text) ||
                     SqlMethods.Like(p.SanPhamGroup.Ten, text)
                     );
@@ -147,7 +147,7 @@ namespace DAO
 
         public static SanPham GetLastData(int idGroup)
         {
-            return dbContext.SanPhams.Where(p => p.IdGroup == idGroup).OrderBy("IdSanPham " + CommonDao.SORT_DESCENDING).FirstOrDefault();
+            return dbContext.SanPhams.Where(p => p.IdGroup == idGroup).OrderBy("MaSanPham " + CommonDao.SORT_DESCENDING).FirstOrDefault();
 
             //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
