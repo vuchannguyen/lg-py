@@ -52,7 +52,7 @@ namespace QuanLyKinhDoanh.Mua
             cbChangeMoney.SelectedIndex = 0;
             this.dataHoaDonDetail = data;
 
-            if (Init())
+            if (InitSP() && Init())
             {
                 tbMaSP.Text = data.SanPham.MaSanPham;
                 cbGroup.Text = data.SanPham.SanPhamGroup.Ten;
