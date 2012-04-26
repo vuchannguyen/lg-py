@@ -161,7 +161,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void GetListSP()
         {
             int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, string.Empty, string.Empty, 0, 0);
 
             cbTen.Items.Clear();
 
