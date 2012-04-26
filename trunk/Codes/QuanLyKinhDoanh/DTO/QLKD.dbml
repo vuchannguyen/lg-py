@@ -83,6 +83,7 @@
   <Table Name="dbo.KhachHang" Member="KhachHangs">
     <Type Name="KhachHang">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaKhachHang" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
@@ -104,6 +105,7 @@
   <Table Name="dbo.KhachHangGroup" Member="KhachHangGroups">
     <Type Name="KhachHangGroup">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Diem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
@@ -114,7 +116,7 @@
   <Table Name="dbo.SanPham" Member="SanPhams">
     <Type Name="SanPham">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdSanPham" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MaSanPham" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdXuatXu" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -127,7 +129,7 @@
       <Column Name="Hieu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Size" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ThoiHan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="DonViThoiHan" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DonViThoiHan" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="ThoiGianBaoHanh" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="DonViBaoHanh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />

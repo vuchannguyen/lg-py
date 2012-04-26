@@ -49,27 +49,20 @@ namespace QuanLyKinhDoanh.Mua
             InitializeComponent();
 
             isUpdate = true;
-
-            //pbHuy.Visible = false;
-            //pbCancelUpdate.Visible = true;
-
-            //gbInfoSP.Enabled = false;
-            //cbChangeMoney.Enabled = false;
-            //tbGiaNhap.ReadOnly = true;
-            //tbSoLuong.ReadOnly = true;
             cbChangeMoney.SelectedIndex = 0;
-
             this.dataHoaDonDetail = data;
 
             if (Init())
             {
-                tbMaSP.Text = data.SanPham.IdSanPham;
+                tbMaSP.Text = data.SanPham.MaSanPham;
                 cbGroup.Text = data.SanPham.SanPhamGroup.Ten;
                 cbDVTSP.Text = data.SanPham.DonViTinh;
                 tbTenSP.Text = data.SanPham.Ten;
                 tbSize.Text = data.SanPham.Size;
-                tbXuatXu.Text = data.SanPham.XuatXu == null ? string.Empty : data.SanPham.XuatXu.Ten;
+                cbXuatXu.Text = data.SanPham.XuatXu == null ? string.Empty : data.SanPham.XuatXu.Ten;
                 tbHieu.Text = data.SanPham.Hieu;
+                tbThoiHan.Text = data.SanPham.ThoiHan.ToString();
+                tbThoiHan.Text = data.SanPham.DonViThoiHan;
                 tbMoTa.Text = data.SanPham.MoTa;
 
                 tbMaNhap.Text = data.Id.ToString();
@@ -124,22 +117,6 @@ namespace QuanLyKinhDoanh.Mua
         #region Function
         private bool Init()
         {
-            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
-
-            if (listData.Count == 0)
-            {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return false;
-            }
-
-            cbGroup.Items.Clear();
-
-            foreach (DTO.SanPhamGroup data in listData)
-            {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-            }
-
             return true;
         }
 
@@ -255,7 +232,7 @@ namespace QuanLyKinhDoanh.Mua
 
             if (HoaDonDetailBus.Insert(dataHoaDonDetail))
             {
-                UpdateDataSP();
+                UpdatePriceSP();
             }
             else
             {
@@ -275,54 +252,29 @@ namespace QuanLyKinhDoanh.Mua
             }
         }
 
-        private void UpdateDataSP()
-        {
-            //dataSP = SanPhamBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value));
-            //dataSP = SanPhamBus.GetById(dataSP.Id);
-
-            dataSP.SoLuong += ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-            dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
-
-            dataSP.UpdateBy = "";
-            dataSP.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Update(dataSP))
-            {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSP.IdSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
-                {
-                    this.Dispose();
-                }
-                else
-                {
-                    CreateNewIdSP();
-                    CreateNewId();
-                }
-            }
-            else
-            {
-                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                {
-                    this.Dispose();
-                }
-            }
-        }
-
         private void UpdateData()
         {
             dataSP = SanPhamBus.GetById(dataHoaDonDetail.IdSanPham);
 
-            dataSP.IdSanPham = tbMaSP.Text;
+            dataSP.MaSanPham = tbMaSP.Text;
             dataSP.Ten = tbTenSP.Text;
             dataSP.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+
+            if (cbXuatXu.SelectedItem != null)
+            {
+                dataSP.XuatXu = XuatXuBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value));
+            }
+            else
+            {
+                dataSP.XuatXu = null;
+            }
+
             dataSP.MoTa = tbMoTa.Text;
             dataSP.DonViTinh = tbDonViTinh.Text;
-            //dataSP.XuatXu = tbXuatXu.Text;
             dataSP.Hieu = tbHieu.Text;
             dataSP.Size = tbSize.Text;
-            //dataSP.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
-            //dataSP.DonViBaoHanh = cbDonViBaoHanh.Text;
+            dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
+            dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
             dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
@@ -589,11 +541,39 @@ namespace QuanLyKinhDoanh.Mua
 
         private bool InitSP()
         {
+            if (!GetListGroupSP())
+            {
+                return false;
+            }
+
+            GetListXuatXu();
+
+            return true;
+        }
+
+        private void RefreshDataSP()
+        {
+            tbMaSP.Text = string.Empty;
+            tbTenSP.Text = string.Empty;
+            cbDVTSP.Text = string.Empty;
+            cbXuatXu.Text = string.Empty;
+            tbHieu.Text = string.Empty;
+            tbThoiHan.Text = string.Empty;
+            tbSize.Text = string.Empty;
+            tbMoTa.Text = string.Empty;
+
+            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
+            cbDonViThoiHan.SelectedIndex = 0;
+            cbDVTSP.SelectedIndex = 0;
+        }
+
+        private bool GetListGroupSP()
+        {
             List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
             if (listData.Count == 0)
             {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm sản phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return false;
             }
@@ -608,19 +588,25 @@ namespace QuanLyKinhDoanh.Mua
             return true;
         }
 
-        private void RefreshDataSP()
+        private bool GetListXuatXu()
         {
-            tbMaSP.Text = string.Empty;
-            tbTenSP.Text = string.Empty;
-            cbDVTSP.Text = string.Empty;
-            tbXuatXu.Text = string.Empty;
-            tbHieu.Text = string.Empty;
-            tbThoiGianBaoHanh.Text = string.Empty;
-            tbSize.Text = string.Empty;
-            tbMoTa.Text = string.Empty;
+            List<DTO.XuatXu> listData = XuatXuBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
-            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
-            cbDonViBaoHanh.SelectedIndex = 0;
+            if (listData.Count == 0)
+            {
+                //MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Xuất xứ"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //return false;
+            }
+
+            cbXuatXu.Items.Clear();
+
+            foreach (DTO.XuatXu data in listData)
+            {
+                cbXuatXu.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
+
+            return true;
         }
 
         private void CreateNewIdSP()
@@ -630,7 +616,7 @@ namespace QuanLyKinhDoanh.Mua
 
             if (isUpdate)
             {
-                string oldIdNumber = dataSP == null ? string.Empty : dataSP.IdSanPham.Substring(dataSP.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                string oldIdNumber = dataSP == null ? string.Empty : dataSP.MaSanPham.Substring(dataSP.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
                 id = dataSP == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
             }
             else
@@ -638,7 +624,7 @@ namespace QuanLyKinhDoanh.Mua
                 string idSanPham = string.Empty;
                 DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
 
-                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.IdSanPham.Substring(dataTemp.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaSanPham.Substring(dataTemp.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
                 id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
             }
 
@@ -666,16 +652,21 @@ namespace QuanLyKinhDoanh.Mua
         {
             dataSP = new DTO.SanPham();
 
-            dataSP.IdSanPham = tbMaSP.Text;
+            dataSP.MaSanPham = tbMaSP.Text;
             dataSP.Ten = tbTenSP.Text;
             dataSP.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            //dataSP.XuatXu = tbXuatXu.Text;
+
+            if (cbXuatXu.SelectedItem != null)
+            {
+                dataSP.IdXuatXu = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value);
+            }
+
             dataSP.MoTa = tbMoTa.Text;
             dataSP.DonViTinh = cbDVTSP.Text;
             dataSP.Hieu = tbHieu.Text;
             dataSP.Size = tbSize.Text;
-            dataSP.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
-            dataSP.DonViBaoHanh = cbDonViBaoHanh.Text;
+            dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
+            dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
             dataSP.CreateBy = dataSP.UpdateBy = "";
             dataSP.CreateDate = dataSP.UpdateDate = DateTime.Now;
@@ -694,6 +685,37 @@ namespace QuanLyKinhDoanh.Mua
 
             return false;
         }
+
+        private void UpdatePriceSP()
+        {
+            dataSP.SoLuong += ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
+
+            dataSP.UpdateBy = "";
+            dataSP.UpdateDate = DateTime.Now;
+
+            if (SanPhamBus.Update(dataSP))
+            {
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSP.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                {
+                    this.Dispose();
+                }
+                else
+                {
+                    CreateNewIdSP();
+                    CreateNewId();
+                }
+            }
+            else
+            {
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    this.Dispose();
+                }
+            }
+        }
         #endregion
 
 
@@ -709,7 +731,7 @@ namespace QuanLyKinhDoanh.Mua
             ValidateInputSP();
         }
 
-        private void tbThoiGianBaoHanh_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbThoiHan_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
         }
@@ -727,8 +749,8 @@ namespace QuanLyKinhDoanh.Mua
 
         private void cbDVTSP_TextChanged(object sender, EventArgs e)
         {
-            cbDVTSP.Text = cbDVTSP.Text.ToUpper();
-            cbDVTSP.Select(cbDVTSP.Text.Length, 0);
+            //cbDVTSP.Text = cbDVTSP.Text.ToUpper();
+            //cbDVTSP.Select(cbDVTSP.Text.Length, 0);
 
             tbDonViTinh.Text = cbDVTSP.Text;
 

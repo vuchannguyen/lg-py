@@ -326,7 +326,7 @@ namespace QuanLyKinhDoanh
                 {
                     if (currentTextboxDecalId + i < Constant.DEFAULT_TOTAL_DECAL)
                     {
-                        listTexbox[currentTextboxDecalId + i].Text = data.IdSanPham + Constant.MESSAGE_NEW_LINE + data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY) + Constant.DEFAULT_MONEY_SUBFIX;
+                        listTexbox[currentTextboxDecalId + i].Text = data.MaSanPham + Constant.MESSAGE_NEW_LINE + data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY) + Constant.DEFAULT_MONEY_SUBFIX;
                     }
                 }
 

@@ -43,17 +43,17 @@ namespace QuanLyKinhDoanh.SanPham
 
             if (Init())
             {
-                tbMa.Text = data.IdSanPham;
+                tbMa.Text = data.MaSanPham;
                 tbTen.Text = data.Ten;
-                tbDonViTinh.Text = data.DonViTinh;
+                cbDVT.Text = data.DonViTinh;
                 cbXuatXu.Text = data.XuatXu == null ? string.Empty : data.XuatXu.Ten;
                 tbHieu.Text = data.Hieu;
-                tbThoiGianBaoHanh.Text = data.ThoiGianBaoHanh.ToString();
+                tbThoiHan.Text = data.ThoiHan.ToString();
                 tbSize.Text = data.Size;
                 tbMoTa.Text = data.MoTa;
 
                 cbGroup.Text = data.SanPhamGroup.Ten;
-                cbDonViBaoHanh.Text = data.DonViBaoHanh;
+                cbDonViThoiHan.Text = data.DonViThoiHan;
             }
             else
             {
@@ -107,22 +107,23 @@ namespace QuanLyKinhDoanh.SanPham
         {
             tbMa.Text = string.Empty;
             tbTen.Text = string.Empty;
-            tbDonViTinh.Text = string.Empty;
+            cbDVT.Text = string.Empty;
             tbHieu.Text = string.Empty;
-            tbThoiGianBaoHanh.Text = string.Empty;
+            tbThoiHan.Text = string.Empty;
             tbSize.Text = string.Empty;
             tbMoTa.Text = string.Empty;
 
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbXuatXu.SelectedIndex = cbXuatXu.Items.Count > 0 ? 0 : -1;
-            cbDonViBaoHanh.SelectedIndex = 0;
+            cbDonViThoiHan.SelectedIndex = 0;
+            cbDVT.SelectedIndex = 0;
         }
 
         private void ValidateInput()
         {
             if (!string.IsNullOrEmpty(tbMa.Text) &&
                 !string.IsNullOrEmpty(tbTen.Text) &&
-                !string.IsNullOrEmpty(tbDonViTinh.Text)
+                !string.IsNullOrEmpty(cbDVT.Text)
                 )
             {
                 pbHoanTat.Enabled = true;
@@ -179,16 +180,21 @@ namespace QuanLyKinhDoanh.SanPham
 
         private void InsertData()
         {
-            data.IdSanPham = tbMa.Text;
+            data.MaSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
             data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+
+            if (cbXuatXu.SelectedItem != null)
+            {
+                data.IdXuatXu = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value);
+            }
+
             data.MoTa = tbMoTa.Text;
-            data.DonViTinh = tbDonViTinh.Text;
-            //data.XuatXu = tbXuatXu.Text;
+            data.DonViTinh = cbDVT.Text;
             data.Hieu = tbHieu.Text;
             data.Size = tbSize.Text;
-            data.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
-            data.DonViBaoHanh = cbDonViBaoHanh.Text;
+            data.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
+            data.DonViThoiHan = cbDonViThoiHan.Text;
 
             data.CreateBy = data.UpdateBy = "";
             data.CreateDate = data.UpdateDate = DateTime.Now;
@@ -208,7 +214,7 @@ namespace QuanLyKinhDoanh.SanPham
 
         private void UpdateData()
         {
-            data.IdSanPham = tbMa.Text;
+            data.MaSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
             data.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
 
@@ -222,11 +228,11 @@ namespace QuanLyKinhDoanh.SanPham
             }
 
             data.MoTa = tbMoTa.Text;
-            data.DonViTinh = tbDonViTinh.Text;
+            data.DonViTinh = cbDVT.Text;
             data.Hieu = tbHieu.Text;
             data.Size = tbSize.Text;
-            data.ThoiGianBaoHanh = ConvertUtil.ConvertToByte(tbThoiGianBaoHanh.Text);
-            data.DonViBaoHanh = cbDonViBaoHanh.Text;
+            data.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
+            data.DonViThoiHan = cbDonViThoiHan.Text;
 
             data.UpdateBy = "";
             data.UpdateDate = DateTime.Now;
@@ -299,7 +305,7 @@ namespace QuanLyKinhDoanh.SanPham
 
             if (isUpdate)
             {
-                string oldIdNumber = data == null ? string.Empty : data.IdSanPham.Substring(data.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                string oldIdNumber = data == null ? string.Empty : data.MaSanPham.Substring(data.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
                 id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
             }
             else
@@ -307,7 +313,7 @@ namespace QuanLyKinhDoanh.SanPham
                 string idSanPham = string.Empty;
                 DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
 
-                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.IdSanPham.Substring(dataTemp.IdSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaSanPham.Substring(dataTemp.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
                 id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
             }
 
@@ -321,15 +327,12 @@ namespace QuanLyKinhDoanh.SanPham
             ValidateInput();
         }
 
-        private void tbDonViTinh_TextChanged(object sender, EventArgs e)
+        private void cbDVT_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValidateInput();
-
-            tbDonViTinh.Text = tbDonViTinh.Text.ToUpper();
-            tbDonViTinh.Select(tbDonViTinh.Text.Length, 0);
         }
 
-        private void tbThoiGianBaoHanh_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbThoiHan_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
         }

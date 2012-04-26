@@ -1927,6 +1927,8 @@ namespace DTO
 		
 		private int _Id;
 		
+		private string _MaKhachHang;
+		
 		private int _IdGroup;
 		
 		private string _Ten;
@@ -1965,6 +1967,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
+    partial void OnMaKhachHangChanging(string value);
+    partial void OnMaKhachHangChanged();
     partial void OnIdGroupChanging(int value);
     partial void OnIdGroupChanged();
     partial void OnTenChanging(string value);
@@ -2018,6 +2022,26 @@ namespace DTO
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaKhachHang", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MaKhachHang
+		{
+			get
+			{
+				return this._MaKhachHang;
+			}
+			set
+			{
+				if ((this._MaKhachHang != value))
+				{
+					this.OnMaKhachHangChanging(value);
+					this.SendPropertyChanging();
+					this._MaKhachHang = value;
+					this.SendPropertyChanged("MaKhachHang");
+					this.OnMaKhachHangChanged();
 				}
 			}
 		}
@@ -2394,6 +2418,8 @@ namespace DTO
 		
 		private int _Id;
 		
+		private string _Ma;
+		
 		private string _Ten;
 		
 		private int _Diem;
@@ -2410,6 +2436,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
+    partial void OnMaChanging(string value);
+    partial void OnMaChanged();
     partial void OnTenChanging(string value);
     partial void OnTenChanged();
     partial void OnDiemChanging(int value);
@@ -2441,6 +2469,26 @@ namespace DTO
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string Ma
+		{
+			get
+			{
+				return this._Ma;
+			}
+			set
+			{
+				if ((this._Ma != value))
+				{
+					this.OnMaChanging(value);
+					this.SendPropertyChanging();
+					this._Ma = value;
+					this.SendPropertyChanged("Ma");
+					this.OnMaChanged();
 				}
 			}
 		}
@@ -2584,7 +2632,7 @@ namespace DTO
 		
 		private int _Id;
 		
-		private string _IdSanPham;
+		private string _MaSanPham;
 		
 		private int _IdGroup;
 		
@@ -2640,8 +2688,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnIdSanPhamChanging(string value);
-    partial void OnIdSanPhamChanged();
+    partial void OnMaSanPhamChanging(string value);
+    partial void OnMaSanPhamChanged();
     partial void OnIdGroupChanging(int value);
     partial void OnIdGroupChanged();
     partial void OnIdXuatXuChanging(System.Nullable<int> value);
@@ -2713,22 +2761,22 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSanPham", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
-		public string IdSanPham
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSanPham", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string MaSanPham
 		{
 			get
 			{
-				return this._IdSanPham;
+				return this._MaSanPham;
 			}
 			set
 			{
-				if ((this._IdSanPham != value))
+				if ((this._MaSanPham != value))
 				{
-					this.OnIdSanPhamChanging(value);
+					this.OnMaSanPhamChanging(value);
 					this.SendPropertyChanging();
-					this._IdSanPham = value;
-					this.SendPropertyChanged("IdSanPham");
-					this.OnIdSanPhamChanged();
+					this._MaSanPham = value;
+					this.SendPropertyChanged("MaSanPham");
+					this.OnMaSanPhamChanged();
 				}
 			}
 		}
@@ -2981,7 +3029,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViThoiHan", DbType="NVarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViThoiHan", DbType="NVarChar(5)")]
 		public string DonViThoiHan
 		{
 			get
