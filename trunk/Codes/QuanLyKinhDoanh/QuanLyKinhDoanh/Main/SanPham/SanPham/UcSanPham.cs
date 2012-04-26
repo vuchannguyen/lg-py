@@ -99,7 +99,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            int total = SanPhamBus.GetCount(text, idGroup);
+            int total = SanPhamBus.GetCount(text, idGroup, false);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -110,7 +110,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0,
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false,
                 string.Empty, string.Empty, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);

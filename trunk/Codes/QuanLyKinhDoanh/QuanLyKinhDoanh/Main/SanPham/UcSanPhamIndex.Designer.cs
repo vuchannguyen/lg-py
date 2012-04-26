@@ -35,23 +35,28 @@
             this.lbSanPham = new System.Windows.Forms.Label();
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbNhomSanPham = new System.Windows.Forms.PictureBox();
+            this.lbPrint = new System.Windows.Forms.Label();
+            this.pbPrint = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXuatXu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.lbPrint);
+            this.pnSelect.Controls.Add(this.pbPrint);
             this.pnSelect.Controls.Add(this.lbXuatXu);
             this.pnSelect.Controls.Add(this.pbXuatXu);
             this.pnSelect.Controls.Add(this.lbNhomSanPham);
             this.pnSelect.Controls.Add(this.lbSanPham);
             this.pnSelect.Controls.Add(this.pbSanPham);
             this.pnSelect.Controls.Add(this.pbNhomSanPham);
-            this.pnSelect.Location = new System.Drawing.Point(220, 230);
+            this.pnSelect.Location = new System.Drawing.Point(143, 228);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(560, 140);
+            this.pnSelect.Size = new System.Drawing.Size(710, 140);
             this.pnSelect.TabIndex = 5;
             // 
             // lbXuatXu
@@ -59,7 +64,7 @@
             this.lbXuatXu.AutoSize = true;
             this.lbXuatXu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbXuatXu.ForeColor = System.Drawing.Color.Gray;
-            this.lbXuatXu.Location = new System.Drawing.Point(244, 120);
+            this.lbXuatXu.Location = new System.Drawing.Point(221, 120);
             this.lbXuatXu.Name = "lbXuatXu";
             this.lbXuatXu.Size = new System.Drawing.Size(69, 16);
             this.lbXuatXu.TabIndex = 8;
@@ -68,7 +73,7 @@
             // pbXuatXu
             // 
             this.pbXuatXu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbXuatXu.Location = new System.Drawing.Point(231, 10);
+            this.pbXuatXu.Location = new System.Drawing.Point(208, 10);
             this.pbXuatXu.Name = "pbXuatXu";
             this.pbXuatXu.Size = new System.Drawing.Size(100, 100);
             this.pbXuatXu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -83,7 +88,7 @@
             this.lbNhomSanPham.AutoSize = true;
             this.lbNhomSanPham.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNhomSanPham.ForeColor = System.Drawing.Color.Gray;
-            this.lbNhomSanPham.Location = new System.Drawing.Point(427, 120);
+            this.lbNhomSanPham.Location = new System.Drawing.Point(388, 120);
             this.lbNhomSanPham.Name = "lbNhomSanPham";
             this.lbNhomSanPham.Size = new System.Drawing.Size(129, 16);
             this.lbNhomSanPham.TabIndex = 6;
@@ -116,7 +121,7 @@
             // pbNhomSanPham
             // 
             this.pbNhomSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNhomSanPham.Location = new System.Drawing.Point(439, 10);
+            this.pbNhomSanPham.Location = new System.Drawing.Point(400, 10);
             this.pbNhomSanPham.Name = "pbNhomSanPham";
             this.pbNhomSanPham.Size = new System.Drawing.Size(100, 100);
             this.pbNhomSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,6 +130,30 @@
             this.pbNhomSanPham.Click += new System.EventHandler(this.pbNhomSanPham_Click);
             this.pbNhomSanPham.MouseEnter += new System.EventHandler(this.pbNhomSanPham_MouseEnter);
             this.pbNhomSanPham.MouseLeave += new System.EventHandler(this.pbNhomSanPham_MouseLeave);
+            // 
+            // lbPrint
+            // 
+            this.lbPrint.AutoSize = true;
+            this.lbPrint.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrint.ForeColor = System.Drawing.Color.Gray;
+            this.lbPrint.Location = new System.Drawing.Point(600, 120);
+            this.lbPrint.Name = "lbPrint";
+            this.lbPrint.Size = new System.Drawing.Size(71, 16);
+            this.lbPrint.TabIndex = 10;
+            this.lbPrint.Text = "IN MÃ SP";
+            // 
+            // pbPrint
+            // 
+            this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPrint.Location = new System.Drawing.Point(588, 10);
+            this.pbPrint.Name = "pbPrint";
+            this.pbPrint.Size = new System.Drawing.Size(100, 100);
+            this.pbPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPrint.TabIndex = 9;
+            this.pbPrint.TabStop = false;
+            this.pbPrint.Click += new System.EventHandler(this.pbPrint_Click);
+            this.pbPrint.MouseEnter += new System.EventHandler(this.pbPrint_MouseEnter);
+            this.pbPrint.MouseLeave += new System.EventHandler(this.pbPrint_MouseLeave);
             // 
             // UcSanPhamIndex
             // 
@@ -140,6 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbXuatXu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -153,5 +183,7 @@
         private System.Windows.Forms.PictureBox pbNhomSanPham;
         private System.Windows.Forms.Label lbXuatXu;
         private System.Windows.Forms.PictureBox pbXuatXu;
+        private System.Windows.Forms.Label lbPrint;
+        private System.Windows.Forms.PictureBox pbPrint;
     }
 }

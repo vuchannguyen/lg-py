@@ -367,11 +367,5 @@ namespace QuanLyKinhDoanh
                 }
             }
         }
-
-        private void btPrint_Click(object sender, EventArgs e)
-        {
-            FormPrintPrice frm = new FormPrintPrice();
-            frm.ShowDialog();
-        }
     }
 }

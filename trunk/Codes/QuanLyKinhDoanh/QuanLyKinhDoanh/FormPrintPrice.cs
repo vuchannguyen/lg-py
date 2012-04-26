@@ -96,8 +96,12 @@ namespace QuanLyKinhDoanh
 
         private void RefreshData()
         {
+            tbSoLuong.Text = string.Empty;
+
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
+
+            tbSoLuong.Focus();
         }
 
         private bool GetListGroupSP()
@@ -124,7 +128,7 @@ namespace QuanLyKinhDoanh
         private void GetListSP()
         {
             int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, string.Empty, string.Empty, 0, 0);
 
             cbTen.Items.Clear();
 
@@ -199,6 +203,8 @@ namespace QuanLyKinhDoanh
             {
                 listTexbox[i].Text = string.Empty;
             }
+
+            listTexbox[0].Focus();
         }
         #endregion
 
@@ -276,6 +282,14 @@ namespace QuanLyKinhDoanh
             pgSetupDialog.ShowDialog();
         }
 
+        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM_DELETE_ALL_PRICE, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+            {
+                ClearAllPrice();
+            }
+        }
+
         private void tbDecal_Enter(object sender, EventArgs e)
         {
             if (currentTextboxDecalId >= 0)
@@ -306,13 +320,17 @@ namespace QuanLyKinhDoanh
                     return;
                 }
 
-                for (int i = 0; i < ConvertUtil.ConvertToInt(tbSoLuong.Text); i++)
+                int count = ConvertUtil.ConvertToInt(tbSoLuong.Text);
+
+                for (int i = 0; i < count; i++)
                 {
                     if (currentTextboxDecalId + i < Constant.DEFAULT_TOTAL_DECAL)
                     {
                         listTexbox[currentTextboxDecalId + i].Text = data.IdSanPham + Constant.MESSAGE_NEW_LINE + data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY) + Constant.DEFAULT_MONEY_SUBFIX;
                     }
                 }
+
+                listTexbox[currentTextboxDecalId + count].Focus();
             }
             catch
             {
@@ -332,6 +350,8 @@ namespace QuanLyKinhDoanh
 
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cbTen.Text = string.Empty;
+
             GetListSP();
         }
 
@@ -343,14 +363,6 @@ namespace QuanLyKinhDoanh
         private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValidateInput();
-        }
-
-        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(Constant.MESSAGE_CONFIRM_DELETE_ALL_PRICE, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
-            {
-                ClearAllPrice();
-            }
         }
         #endregion
     }

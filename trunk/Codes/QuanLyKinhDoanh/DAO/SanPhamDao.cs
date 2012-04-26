@@ -13,7 +13,7 @@ namespace DAO
     public class SanPhamDao : SQLConnection
     {
         #region SanPham
-        public static IQueryable<SanPham> GetQuery(string text, int idGroup)
+        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHaveGiaBan)
         {
             var sql = from data in dbContext.SanPhams
                       select data;
@@ -32,17 +32,22 @@ namespace DAO
                 sql = sql.Where(p => p.IdGroup == idGroup);
             }
 
+            if (isHaveGiaBan)
+            {
+                sql = sql.Where(p => p.GiaBan != null && p.GiaBan > 0);
+            }
+
             sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
 
-        public static int GetCount(string text, int idGroup)
+        public static int GetCount(string text, int idGroup, bool isHaveGiaBan)
         {
-            return GetQuery(text, idGroup).Count();
+            return GetQuery(text, idGroup, isHaveGiaBan).Count();
         }
 
-        public static List<SanPham> GetList(string text, int idGroup,
+        public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -62,7 +67,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, idGroup).OrderBy(sortSQL);
+            var sql = GetQuery(text, idGroup, isHaveGiaBan).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

@@ -26,6 +26,7 @@ namespace QuanLyKinhDoanh
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_INDEX);
                 pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX);
                 pbXuatXu.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_XUATXU_INDEX);
+                pbPrint.Image = Image.FromFile(ConstantResource.ICON_PRINT);
             }
             catch
             {
@@ -90,6 +91,24 @@ namespace QuanLyKinhDoanh
         {
             pbXuatXu.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_XUATXU_INDEX);
             lbXuatXu.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbPrint_Click(object sender, EventArgs e)
+        {
+            FormPrintPrice frm = new FormPrintPrice();
+            frm.ShowDialog();
+        }
+
+        private void pbPrint_MouseEnter(object sender, EventArgs e)
+        {
+            pbPrint.Image = Image.FromFile(ConstantResource.ICON_PRINT_MOUSEOVER);
+            lbPrint.ForeColor = Constant.COLOR_MOUSEOVER;
+        }
+
+        private void pbPrint_MouseLeave(object sender, EventArgs e)
+        {
+            pbPrint.Image = Image.FromFile(ConstantResource.ICON_PRINT);
+            lbPrint.ForeColor = Constant.COLOR_NORMAL;
         }
     }
 }
