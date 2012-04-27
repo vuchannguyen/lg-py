@@ -1935,6 +1935,8 @@ namespace DTO
 		
 		private string _GioiTinh;
 		
+		private System.Nullable<System.DateTime> _DOB;
+		
 		private string _DiaChi;
 		
 		private string _DienThoai;
@@ -1975,6 +1977,8 @@ namespace DTO
     partial void OnTenChanged();
     partial void OnGioiTinhChanging(string value);
     partial void OnGioiTinhChanged();
+    partial void OnDOBChanging(System.Nullable<System.DateTime> value);
+    partial void OnDOBChanged();
     partial void OnDiaChiChanging(string value);
     partial void OnDiaChiChanged();
     partial void OnDienThoaiChanging(string value);
@@ -2106,6 +2110,26 @@ namespace DTO
 					this._GioiTinh = value;
 					this.SendPropertyChanged("GioiTinh");
 					this.OnGioiTinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="Date")]
+		public System.Nullable<System.DateTime> DOB
+		{
+			get
+			{
+				return this._DOB;
+			}
+			set
+			{
+				if ((this._DOB != value))
+				{
+					this.OnDOBChanging(value);
+					this.SendPropertyChanging();
+					this._DOB = value;
+					this.SendPropertyChanged("DOB");
+					this.OnDOBChanged();
 				}
 			}
 		}

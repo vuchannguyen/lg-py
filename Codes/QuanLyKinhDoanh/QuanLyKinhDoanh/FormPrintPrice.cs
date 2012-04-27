@@ -45,6 +45,7 @@ namespace QuanLyKinhDoanh
             try
             {
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+                pbRefresh.Image = Image.FromFile(ConstantResource.CHUC_NANG_REFRESH);
             }
             catch
             {
@@ -336,6 +337,28 @@ namespace QuanLyKinhDoanh
             {
                 MessageBox.Show(Constant.MESSAGE_ERROR_NULL_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pbRefresh_Click(object sender, EventArgs e)
+        {
+            if (Init())
+            {
+                RefreshData();
+            }
+            else
+            {
+                this.Visible = false;
+            }
+        }
+
+        private void pbRefresh_MouseEnter(object sender, EventArgs e)
+        {
+            pbRefresh.Image = Image.FromFile(ConstantResource.CHUC_NANG_REFRESH_MOUSEOVER);
+        }
+
+        private void pbRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            pbRefresh.Image = Image.FromFile(ConstantResource.CHUC_NANG_REFRESH);
         }
 
         private void pbHoanTat_MouseEnter(object sender, EventArgs e)

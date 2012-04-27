@@ -25,6 +25,16 @@ namespace BUS
             return KhachHangDao.GetById(id);
         }
 
+        public static KhachHang GetLastData()
+        {
+            return KhachHangDao.GetLastData();
+        }
+
+        public static KhachHang GetLastData(int idGroup)
+        {
+            return KhachHangDao.GetLastData(idGroup);
+        }
+
         public static bool Insert(KhachHang data)
         {
             return KhachHangDao.Insert(data);

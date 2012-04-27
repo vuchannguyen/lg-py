@@ -68,7 +68,7 @@ namespace QuanLyKinhDoanh
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, 1);
             SetStatusButtonPage(1);
 
-            dtpFilter.CustomFormat = "dd/MM/yyyy";
+            dtpFilter.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
 
             this.Visible = true;
         }
@@ -138,7 +138,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.HoaDon.IdHoaDon.ToString());
                 lvi.SubItems.Add(data.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
                 lvi.SubItems.Add("");
-                lvi.SubItems.Add(data.HoaDon.CreateDate.ToString("dd/MM/yyyy"));
+                lvi.SubItems.Add(data.HoaDon.CreateDate.ToString(Constant.DEFAULT_DATE_FORMAT));
                 lvi.SubItems.Add(data.SoLuong.ToString());
                 lvi.SubItems.Add(data.SanPham.DonViTinh);
                 lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));

@@ -82,6 +82,8 @@ namespace QuanLyKinhDoanh.KhachHang
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
+            dtpDOB.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
+
             this.BringToFront();
 
             ValidateInput();
@@ -140,11 +142,44 @@ namespace QuanLyKinhDoanh.KhachHang
             }
         }
 
+        private void CreateNewIdKH()
+        {
+            int id = 0;
+            KhachHangGroup SPGroup = KhachHangGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+
+            if (isUpdate)
+            {
+                string oldIdNumber = data == null ? string.Empty : data.MaKhachHang.Substring(data.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            }
+            else
+            {
+                string idSanPham = string.Empty;
+                DTO.KhachHang dataTemp = KhachHangBus.GetLastData(SPGroup.Id);
+
+                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaKhachHang.Substring(dataTemp.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            }
+
+            tbMa.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+
+            ValidateInput();
+        }
+
         private void InsertData()
         {
+            if (!CommonFunc.ValidateDOB(dtpDOB.Value, Constant.DEFAULT_AGE_KHACH_HANG))
+            {
+                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_DOB, Constant.DEFAULT_AGE_KHACH_HANG), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            data.MaKhachHang = tbMa.Text;
             data.Ten = tbTen.Text;
             data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             data.GioiTinh = cbGioiTinh.Text;
+            data.DOB = dtpDOB.Value;
             data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
             data.Fax = tbFax.Text;
@@ -218,13 +253,16 @@ namespace QuanLyKinhDoanh.KhachHang
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            if (!isUpdate)
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                InsertData();
-            }
-            else
-            {
-                UpdateData();
+                if (!isUpdate)
+                {
+                    InsertData();
+                }
+                else
+                {
+                    UpdateData();
+                }
             }
         }
 
@@ -272,5 +310,10 @@ namespace QuanLyKinhDoanh.KhachHang
             CommonFunc.ValidateSpace(e);
         }
         #endregion
+
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CreateNewIdKH();
+        }
     }
 }

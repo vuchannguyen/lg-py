@@ -119,6 +119,7 @@ namespace QuanLyKinhDoanh
                 ListViewItem lvi = new ListViewItem();
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
+                lvi.SubItems.Add(data.MaKhachHang);
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.KhachHangGroup.Ten);
                 lvi.SubItems.Add(data.DiaChi);

@@ -40,6 +40,11 @@ namespace QuanLyKinhDoanh
             LoadResource();
 
             pnSelect.Location = CommonFunc.SetWidthCenter(this.Size, pnSelect.Size, Constant.DEFAULT_TOP_HEIGHT);
+
+            if (FormMain.isPrintUsing)
+            {
+                pbPrint.Enabled = false;
+            }
         }
 
         private void pbSanPham_Click(object sender, EventArgs e)
@@ -96,7 +101,11 @@ namespace QuanLyKinhDoanh
         private void pbPrint_Click(object sender, EventArgs e)
         {
             FormPrintPrice frm = new FormPrintPrice();
-            frm.ShowDialog();
+            frm.Disposed += new EventHandler(pbPrint_Disposed);
+            frm.Show();
+
+            pbPrint.Enabled = false;
+            FormMain.isPrintUsing = true;
         }
 
         private void pbPrint_MouseEnter(object sender, EventArgs e)
@@ -109,6 +118,12 @@ namespace QuanLyKinhDoanh
         {
             pbPrint.Image = Image.FromFile(ConstantResource.ICON_PRINT);
             lbPrint.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbPrint_Disposed(object sender, EventArgs e)
+        {
+            pbPrint.Enabled = true;
+            FormMain.isPrintUsing = false;
         }
     }
 }

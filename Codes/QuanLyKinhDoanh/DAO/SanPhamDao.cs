@@ -140,14 +140,14 @@ namespace DAO
 
         public static SanPham GetLastData()
         {
-            return dbContext.SanPhams.OrderBy("Id " + CommonDao.SORT_DESCENDING).FirstOrDefault();
+            return dbContext.SanPhams.OrderByDescending(p => p.Id).FirstOrDefault();
 
             //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static SanPham GetLastData(int idGroup)
         {
-            return dbContext.SanPhams.Where(p => p.IdGroup == idGroup).OrderBy("MaSanPham " + CommonDao.SORT_DESCENDING).FirstOrDefault();
+            return dbContext.SanPhams.Where(p => p.IdGroup == idGroup).OrderByDescending(p => p.MaSanPham).FirstOrDefault();
 
             //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
