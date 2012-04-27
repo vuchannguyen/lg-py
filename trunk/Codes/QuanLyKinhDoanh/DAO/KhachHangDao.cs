@@ -20,9 +20,10 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Email, text) ||
-                    SqlMethods.Like(p.DienThoai, text)
+                sql = sql.Where(p => SqlMethods.Like(p.MaKhachHang, text) ||
+                    SqlMethods.Like(p.Ten, text) ||
+                    SqlMethods.Like(p.DienThoai, text) ||
+                    SqlMethods.Like(p.Email, text)
                     );
             }
 
@@ -77,6 +78,20 @@ namespace DAO
         public static KhachHang GetById(int id)
         {
             return dbContext.KhachHangs.Where(p => p.Id == id).SingleOrDefault<KhachHang>();
+        }
+
+        public static KhachHang GetLastData()
+        {
+            return dbContext.KhachHangs.OrderByDescending(p => p.Id).FirstOrDefault();
+
+            //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
+        }
+
+        public static KhachHang GetLastData(int idGroup)
+        {
+            return dbContext.KhachHangs.Where(p => p.IdGroup == idGroup).OrderByDescending(p => p.MaKhachHang).FirstOrDefault();
+
+            //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static bool Insert(KhachHang data)

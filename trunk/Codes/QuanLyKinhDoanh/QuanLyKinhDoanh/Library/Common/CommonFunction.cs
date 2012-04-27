@@ -102,6 +102,11 @@ namespace Library
             }
         }
 
+        public static bool ValidateDOB(DateTime time, int age)
+        {
+            return time < DateTime.Now.AddYears(-age);
+        }
+
         public static void MuteEnterPress(KeyEventArgs e)
         {
             if (e.KeyCode == System.Windows.Forms.Keys.Enter)

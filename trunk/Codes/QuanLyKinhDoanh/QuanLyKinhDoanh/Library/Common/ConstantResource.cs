@@ -43,6 +43,8 @@ namespace Library
         public const string CHUC_NANG_BUTTON_OK_PAGE = @"Resources\ChucNang\button_ok.png";
         public const string CHUC_NANG_BUTTON_OK_PAGE_MOUSEOVER = @"Resources\ChucNang\button_ok_mouseover.png";
         public const string CHUC_NANG_BUTTON_OK_PAGE_DISABLE = @"Resources\ChucNang\button_ok_disable.png";
+        public const string CHUC_NANG_REFRESH = @"Resources\ChucNang\button_refresh.png";
+        public const string CHUC_NANG_REFRESH_MOUSEOVER = @"Resources\ChucNang\button_refresh_mouseover.png";
 
         public const string USER_ICON_USER = @"Resources\User\icon_user.png";
         public const string USER_ICON_USER_MOUSEOVER = @"Resources\User\icon_user_mouseover.png";

@@ -136,6 +136,30 @@ namespace QuanLyKinhDoanh.SanPham
             }
         }
 
+        private void CreateNewIdSP()
+        {
+            int id = 0;
+            SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+
+            if (isUpdate)
+            {
+                string oldIdNumber = data == null ? string.Empty : data.MaSanPham.Substring(data.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            }
+            else
+            {
+                string idSanPham = string.Empty;
+                DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
+
+                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaSanPham.Substring(dataTemp.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            }
+
+            tbMa.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+
+            ValidateInput();
+        }
+
         private bool GetListGroupSP()
         {
             List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
@@ -300,26 +324,7 @@ namespace QuanLyKinhDoanh.SanPham
         #region Controls
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id = 0;
-            SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
-
-            if (isUpdate)
-            {
-                string oldIdNumber = data == null ? string.Empty : data.MaSanPham.Substring(data.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
-            }
-            else
-            {
-                string idSanPham = string.Empty;
-                DTO.SanPham dataTemp = SanPhamBus.GetLastData(SPGroup.Id);
-
-                string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaSanPham.Substring(dataTemp.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-                id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
-            }
-
-            tbMa.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
-
-            ValidateInput();
+            CreateNewIdSP();
         }
 
         private void tbTen_TextChanged(object sender, EventArgs e)

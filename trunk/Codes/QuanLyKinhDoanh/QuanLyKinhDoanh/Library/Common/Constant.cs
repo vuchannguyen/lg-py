@@ -24,6 +24,8 @@ namespace Library
         public const int DEFAULT_NUMS_DECAL_COLUMNS = 7;
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
 
+        public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
+
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
         public const string DEFAULT_FORMAT_MONEY = "#" + Constant.SYMBOL_LINK_MONEY + "###";
@@ -68,6 +70,8 @@ namespace Library
         public const int DEFAULT_DISCOUNT_GROUP_VIP = 5;
         public const int DEFAULT_DISCOUNT_GROUP_KHACH_SI = 5;
 
+        public const int DEFAULT_AGE_KHACH_HANG = 18;
+
         public const int ID_TYPE_MUA = 1;
         public const int ID_TYPE_BAN = 2;
         public const int ID_TYPE_THU = 3;
@@ -110,9 +114,10 @@ namespace Library
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
         public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
         public const string MESSAGE_ERROR_DELETE_DATA = "Vui lòng kiểm tra dữ liệu có đang sử dụng hay không!";
+        public const string MESSAGE_ERROR_DOB = "Vui lòng kiểm tra ngày sinh!" + MESSAGE_NEW_LINE + "(Từ {0} tuổi trở lên)";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
-        public const string SEARCH_KHACHHANG_TIP = "Họ tên - Email";
+        public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
         public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";

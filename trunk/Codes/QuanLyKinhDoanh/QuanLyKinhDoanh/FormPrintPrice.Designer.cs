@@ -77,10 +77,16 @@
             this.cbGroup = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.cbTen = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbRefresh = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.gbDecal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRefresh)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDecal
@@ -514,7 +520,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(776, 200);
+            this.panel12.Location = new System.Drawing.Point(769, 321);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 94;
@@ -533,6 +539,7 @@
             this.pbHoanTat.Location = new System.Drawing.Point(10, 10);
             this.pbHoanTat.Name = "pbHoanTat";
             this.pbHoanTat.Size = new System.Drawing.Size(50, 39);
+            this.pbHoanTat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHoanTat.TabIndex = 1;
             this.pbHoanTat.TabStop = false;
             this.pbHoanTat.Click += new System.EventHandler(this.pbHoanTat_Click);
@@ -541,7 +548,7 @@
             // 
             // tbSoLuong
             // 
-            this.tbSoLuong.Location = new System.Drawing.Point(740, 157);
+            this.tbSoLuong.Location = new System.Drawing.Point(737, 278);
             this.tbSoLuong.MaxLength = 4;
             this.tbSoLuong.Name = "tbSoLuong";
             this.tbSoLuong.Size = new System.Drawing.Size(50, 23);
@@ -554,7 +561,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(737, 138);
+            this.label5.Location = new System.Drawing.Point(734, 259);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 16);
             this.label5.TabIndex = 106;
@@ -564,7 +571,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(737, 78);
+            this.label13.Location = new System.Drawing.Point(734, 199);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(64, 16);
             this.label13.TabIndex = 110;
@@ -574,7 +581,7 @@
             // 
             this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(740, 36);
+            this.cbGroup.Location = new System.Drawing.Point(737, 157);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(128, 24);
             this.cbGroup.TabIndex = 108;
@@ -584,7 +591,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(737, 17);
+            this.label18.Location = new System.Drawing.Point(734, 138);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 16);
             this.label18.TabIndex = 109;
@@ -595,17 +602,59 @@
             this.cbTen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cbTen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbTen.FormattingEnabled = true;
-            this.cbTen.Location = new System.Drawing.Point(740, 97);
+            this.cbTen.Location = new System.Drawing.Point(737, 218);
             this.cbTen.Name = "cbTen";
             this.cbTen.Size = new System.Drawing.Size(128, 24);
             this.cbTen.TabIndex = 111;
             this.cbTen.SelectedIndexChanged += new System.EventHandler(this.cbTen_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbRefresh);
+            this.panel1.Location = new System.Drawing.Point(744, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(117, 70);
+            this.panel1.TabIndex = 95;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 2;
+            // 
+            // pbRefresh
+            // 
+            this.pbRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbRefresh.Location = new System.Drawing.Point(35, 20);
+            this.pbRefresh.Name = "pbRefresh";
+            this.pbRefresh.Size = new System.Drawing.Size(50, 50);
+            this.pbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbRefresh.TabIndex = 1;
+            this.pbRefresh.TabStop = false;
+            this.pbRefresh.Click += new System.EventHandler(this.pbRefresh_Click);
+            this.pbRefresh.MouseEnter += new System.EventHandler(this.pbRefresh_MouseEnter);
+            this.pbRefresh.MouseLeave += new System.EventHandler(this.pbRefresh_MouseLeave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.TabIndex = 112;
+            this.label2.Text = "Cập nhật dữ liệu";
             // 
             // FormPrintPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 758);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbTen);
             this.Controls.Add(this.tbSoLuong);
             this.Controls.Add(this.label13);
@@ -631,6 +680,9 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbRefresh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,5 +738,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cbTen;
         private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbRefresh;
+        private System.Windows.Forms.Label label2;
     }
 }

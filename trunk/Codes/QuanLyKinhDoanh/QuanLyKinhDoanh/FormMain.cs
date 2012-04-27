@@ -13,6 +13,8 @@ namespace QuanLyKinhDoanh
     public partial class FormMain : Form
     {
         #region Variables
+        public static bool isPrintUsing = false;
+
         private bool isMainMenuClickUser;
         private bool isMainMenuClickKhachHang;
         private bool isMainMenuClickSP;
