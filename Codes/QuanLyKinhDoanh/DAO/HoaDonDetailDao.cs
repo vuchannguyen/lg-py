@@ -20,7 +20,8 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.SanPham.Ten, text)
+                sql = sql.Where(p => SqlMethods.Like(p.SanPham.Ten, text) ||
+                    SqlMethods.Like(p.SanPham.MaSanPham, text)
                     );
             }
 

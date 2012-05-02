@@ -51,6 +51,8 @@ namespace QuanLyKinhDoanh.KhachHang
                 tbEmail.Text = data.Email;
                 tbGhiChu.Text = data.GhiChu;
 
+                dtpDOB.Value = data.DOB.HasValue ? data.DOB.Value : DateTime.Now;
+
                 cbGioiTinh.Text = data.GioiTinh;
                 cbGroup.Text = data.KhachHangGroup.Ten;
             }
@@ -168,13 +170,6 @@ namespace QuanLyKinhDoanh.KhachHang
 
         private void InsertData()
         {
-            if (!CommonFunc.ValidateDOB(dtpDOB.Value, Constant.DEFAULT_AGE_KHACH_HANG))
-            {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_DOB, Constant.DEFAULT_AGE_KHACH_HANG), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return;
-            }
-
             data.MaKhachHang = tbMa.Text;
             data.Ten = tbTen.Text;
             data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
@@ -209,6 +204,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.Ten = tbTen.Text;
             data.KhachHangGroup = KhachHangGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             data.GioiTinh = cbGioiTinh.Text;
+            data.DOB = dtpDOB.Value;
             data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
             data.Fax = tbFax.Text;
