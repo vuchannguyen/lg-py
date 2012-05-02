@@ -233,17 +233,23 @@ namespace QuanLyKinhDoanh
             if (MessageBox.Show(Constant.MESSAGE_DELETE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 string ids = string.Empty;
+                string idSPs = string.Empty;
 
                 foreach (ListViewItem item in lvThongTin.CheckedItems)
                 {
                     HoaDonDetail temp = HoaDonDetailBus.GetById(ConvertUtil.ConvertToInt(item.SubItems[1].Text));
 
                     ids += (temp.IdHoaDon.ToString() + Constant.SEPERATE_STRING);
+                    idSPs += (temp.IdSanPham.ToString() + Constant.SEPERATE_STRING);
                 }
 
-                if (HoaDonBus.DeleteList(ids))
+                if (SanPhamBus.DeleteList(idSPs) && HoaDonBus.DeleteList(ids))
                 {
                     RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
+                }
+                else
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR_DELETE_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

@@ -176,13 +176,31 @@ namespace DAO
         {
             if (data != null)
             {
-                SanPham objDb = GetById(data.Id);
-                if (objDb != null)
-                {
-                    objDb.DeleteFlag = true;
-                    dbContext.SubmitChanges();
+                List<HoaDonDetail> listHoaDonDetail = HoaDonDetailDao.GetList(string.Empty, CommonDao.ID_TYPE_MUA,
+                    string.Empty, string.Empty, 0, 0);
 
-                    return true;
+                if (listHoaDonDetail != null)
+                {
+                    listHoaDonDetail = listHoaDonDetail.Where(p => p.IdSanPham == data.Id).ToList();
+                    int total = 0;
+
+                    foreach (HoaDonDetail detail in listHoaDonDetail)
+                    {
+                        total += detail.SoLuong;
+                    }
+
+                    if (total == data.SoLuong)
+                    {
+                        SanPham objDb = GetById(data.Id);
+
+                        if (objDb != null)
+                        {
+                            objDb.DeleteFlag = true;
+                            dbContext.SubmitChanges();
+
+                            return true;
+                        }
+                    }
                 }
             }
 

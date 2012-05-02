@@ -12,6 +12,11 @@ namespace Library
         public static string SORT_DESCENDING = "desc";
         public static string SEPERATE_STRING = ", ";
 
+        public const int ID_TYPE_MUA = 1;
+        public const int ID_TYPE_BAN = 2;
+        public const int ID_TYPE_THU = 3;
+        public const int ID_TYPE_CHI = 4;
+
         public static string GetFilterText(string text)
         {
             string filter = string.Empty;

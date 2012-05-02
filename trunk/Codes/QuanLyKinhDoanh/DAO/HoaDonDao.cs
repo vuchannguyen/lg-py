@@ -96,6 +96,7 @@ namespace DAO
             if (data != null)
             {
                 HoaDon objDb = GetById(data.Id);
+
                 if (objDb != null)
                 {
                     objDb.DeleteFlag = true;

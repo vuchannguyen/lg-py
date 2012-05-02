@@ -225,7 +225,6 @@ namespace QuanLyKinhDoanh.Mua
             dataHoaDonDetail = new HoaDonDetail();
 
             dataHoaDonDetail.IdHoaDon = idHoaDon;
-            //dataHoaDonDetail.IdSanPham = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value);
             dataHoaDonDetail.IdSanPham = dataSP.Id;
             dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
             dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
@@ -254,6 +253,14 @@ namespace QuanLyKinhDoanh.Mua
 
         private void UpdateData()
         {
+            if (UpdateDataSP())
+            {
+                UpdateDataHoaDon();
+            }
+        }
+
+        private bool UpdateDataSP()
+        {
             dataSP = SanPhamBus.GetById(dataHoaDonDetail.IdSanPham);
 
             dataSP.MaSanPham = tbMaSP.Text;
@@ -276,15 +283,15 @@ namespace QuanLyKinhDoanh.Mua
             dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
-            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-            dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
+            //dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            //dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
             dataSP.UpdateBy = "";
             dataSP.UpdateDate = DateTime.Now;
 
             if (SanPhamBus.Update(dataSP))
             {
-                this.Dispose();
+                return true;
             }
             else
             {
@@ -292,6 +299,55 @@ namespace QuanLyKinhDoanh.Mua
                 {
                     this.Dispose();
                 }
+            }
+
+            return false;
+        }
+
+        private void UpdateDataHoaDon()
+        {
+            dataHoaDon = HoaDonBus.GetById(dataHoaDonDetail.IdHoaDon);
+
+            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataHoaDon.GhiChu = tbGhiChu.Text;
+
+            dataHoaDon.UpdateBy = "";
+            dataHoaDon.UpdateDate = DateTime.Now;
+
+            if (HoaDonBus.Update(dataHoaDon))
+            {
+                UpdateDataHoaDonDetail();
+            }
+            else
+            {
+                try
+                {
+                    HoaDonBus.Delete(dataHoaDon);
+                }
+                catch
+                {
+                    //
+                }
+
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+                else
+                {
+                    CreateNewId();
+                }
+            }
+        }
+
+        private void UpdateDataHoaDonDetail()
+        {
+            dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+
+            if (HoaDonDetailBus.Update(dataHoaDonDetail))
+            {
+                UpdatePriceSP();
             }
         }
         #endregion
@@ -698,14 +754,21 @@ namespace QuanLyKinhDoanh.Mua
 
             if (SanPhamBus.Update(dataSP))
             {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSP.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                if (!isUpdate)
                 {
-                    this.Dispose();
+                    if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSP.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                    {
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        CreateNewIdSP();
+                        CreateNewId();
+                    }
                 }
                 else
                 {
-                    CreateNewIdSP();
-                    CreateNewId();
+                    this.Dispose();
                 }
             }
             else
@@ -723,7 +786,10 @@ namespace QuanLyKinhDoanh.Mua
         #region Controls SP
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CreateNewIdSP();
+            if (!isUpdate)
+            {
+                CreateNewIdSP();
+            }
         }
 
         private void tbTenSP_TextChanged(object sender, EventArgs e)
