@@ -49,9 +49,12 @@ namespace QuanLyKinhDoanh.KhachHang
                 tbDienThoai.Text = data.DienThoai;
                 tbFax.Text = data.Fax;
                 tbEmail.Text = data.Email;
+                tbCMND.Text = data.CMND;
+                tbNoiCap.Text = data.NoiCap;
                 tbGhiChu.Text = data.GhiChu;
 
                 dtpDOB.Value = data.DOB.HasValue ? data.DOB.Value : DateTime.Now;
+                dtpNgayCap.Value = data.NgayCap.HasValue ? data.NgayCap.Value : DateTime.Now;
 
                 cbGioiTinh.Text = data.GioiTinh;
                 cbGroup.Text = data.KhachHangGroup.Ten;
@@ -123,7 +126,12 @@ namespace QuanLyKinhDoanh.KhachHang
             tbDienThoai.Text = string.Empty;
             tbFax.Text = string.Empty;
             tbEmail.Text = string.Empty;
+            tbCMND.Text = string.Empty;
+            tbNoiCap.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
+
+            dtpDOB.Value = DateTime.Now;
+            dtpNgayCap.Value = DateTime.Now;
 
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbGioiTinh.SelectedIndex = 0;
@@ -179,6 +187,9 @@ namespace QuanLyKinhDoanh.KhachHang
             data.DienThoai = tbDienThoai.Text;
             data.Fax = tbFax.Text;
             data.Email = tbEmail.Text;
+            data.CMND = tbCMND.Text;
+            data.NoiCap = tbNoiCap.Text;
+            data.NgayCap = dtpNgayCap.Value;
             data.Diem = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
@@ -209,6 +220,9 @@ namespace QuanLyKinhDoanh.KhachHang
             data.DienThoai = tbDienThoai.Text;
             data.Fax = tbFax.Text;
             data.Email = tbEmail.Text;
+            data.CMND = tbCMND.Text;
+            data.NoiCap = tbNoiCap.Text;
+            data.NgayCap = dtpNgayCap.Value;
             data.Diem = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
