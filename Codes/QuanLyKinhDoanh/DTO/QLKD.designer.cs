@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1937,6 +1937,12 @@ namespace DTO
 		
 		private System.Nullable<System.DateTime> _DOB;
 		
+		private string _CMND;
+		
+		private System.Nullable<System.DateTime> _NgayCap;
+		
+		private string _NoiCap;
+		
 		private string _DiaChi;
 		
 		private string _DienThoai;
@@ -1979,6 +1985,12 @@ namespace DTO
     partial void OnGioiTinhChanged();
     partial void OnDOBChanging(System.Nullable<System.DateTime> value);
     partial void OnDOBChanged();
+    partial void OnCMNDChanging(string value);
+    partial void OnCMNDChanged();
+    partial void OnNgayCapChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayCapChanged();
+    partial void OnNoiCapChanging(string value);
+    partial void OnNoiCapChanged();
     partial void OnDiaChiChanging(string value);
     partial void OnDiaChiChanged();
     partial void OnDienThoaiChanging(string value);
@@ -2130,6 +2142,66 @@ namespace DTO
 					this._DOB = value;
 					this.SendPropertyChanged("DOB");
 					this.OnDOBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="NChar(10)")]
+		public string CMND
+		{
+			get
+			{
+				return this._CMND;
+			}
+			set
+			{
+				if ((this._CMND != value))
+				{
+					this.OnCMNDChanging(value);
+					this.SendPropertyChanging();
+					this._CMND = value;
+					this.SendPropertyChanged("CMND");
+					this.OnCMNDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayCap", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayCap
+		{
+			get
+			{
+				return this._NgayCap;
+			}
+			set
+			{
+				if ((this._NgayCap != value))
+				{
+					this.OnNgayCapChanging(value);
+					this.SendPropertyChanging();
+					this._NgayCap = value;
+					this.SendPropertyChanged("NgayCap");
+					this.OnNgayCapChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiCap", DbType="NVarChar(50)")]
+		public string NoiCap
+		{
+			get
+			{
+				return this._NoiCap;
+			}
+			set
+			{
+				if ((this._NoiCap != value))
+				{
+					this.OnNoiCapChanging(value);
+					this.SendPropertyChanging();
+					this._NoiCap = value;
+					this.SendPropertyChanged("NoiCap");
+					this.OnNoiCapChanged();
 				}
 			}
 		}

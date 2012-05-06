@@ -62,8 +62,9 @@ namespace Library
 
         public const int ID_GROUP_KHACH_THUONG = 1;
         public const int ID_GROUP_KHTT = 2;
-        public const int ID_GROUP_VIP = 3;
+        public const int ID_GROUP_KHND = 3;
         public const int ID_GROUP_KHACH_SI = 4;
+        public const int ID_GROUP_VIP = 5;
 
         public const int DEFAULT_DISCOUNT_GROUP_KHACH_THUONG = 0;
         public const int DEFAULT_DISCOUNT_GROUP_KHTT = 10;
