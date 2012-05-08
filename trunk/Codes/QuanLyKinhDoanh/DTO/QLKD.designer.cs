@@ -203,11 +203,11 @@ namespace DTO
 		
 		private int _Id;
 		
-		private System.Nullable<int> _IdSanPham;
+		private int _IdSanPham;
 		
-		private System.Nullable<int> _idKhachHangGroup;
+		private System.Nullable<int> _IdKhachHangGroup;
 		
-		private System.Nullable<int> _Value;
+		private int _Value;
 		
 		private string _CreateBy;
 		
@@ -227,11 +227,11 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnIdSanPhamChanging(System.Nullable<int> value);
+    partial void OnIdSanPhamChanging(int value);
     partial void OnIdSanPhamChanged();
-    partial void OnidKhachHangGroupChanging(System.Nullable<int> value);
-    partial void OnidKhachHangGroupChanged();
-    partial void OnValueChanging(System.Nullable<int> value);
+    partial void OnIdKhachHangGroupChanging(System.Nullable<int> value);
+    partial void OnIdKhachHangGroupChanged();
+    partial void OnValueChanging(int value);
     partial void OnValueChanged();
     partial void OnCreateByChanging(string value);
     partial void OnCreateByChanged();
@@ -270,8 +270,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSanPham", DbType="Int")]
-		public System.Nullable<int> IdSanPham
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdSanPham", DbType="Int NOT NULL")]
+		public int IdSanPham
 		{
 			get
 			{
@@ -294,32 +294,32 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idKhachHangGroup", DbType="Int")]
-		public System.Nullable<int> idKhachHangGroup
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKhachHangGroup", DbType="Int")]
+		public System.Nullable<int> IdKhachHangGroup
 		{
 			get
 			{
-				return this._idKhachHangGroup;
+				return this._IdKhachHangGroup;
 			}
 			set
 			{
-				if ((this._idKhachHangGroup != value))
+				if ((this._IdKhachHangGroup != value))
 				{
 					if (this._KhachHangGroup.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnidKhachHangGroupChanging(value);
+					this.OnIdKhachHangGroupChanging(value);
 					this.SendPropertyChanging();
-					this._idKhachHangGroup = value;
-					this.SendPropertyChanged("idKhachHangGroup");
-					this.OnidKhachHangGroupChanged();
+					this._IdKhachHangGroup = value;
+					this.SendPropertyChanged("IdKhachHangGroup");
+					this.OnIdKhachHangGroupChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Value", DbType="Int")]
-		public System.Nullable<int> Value
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Value", DbType="Int NOT NULL")]
+		public int Value
 		{
 			get
 			{
@@ -418,7 +418,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_KhachHangGroup", ThisKey="idKhachHangGroup", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_KhachHangGroup", ThisKey="IdKhachHangGroup", OtherKey="Id", IsForeignKey=true)]
 		public KhachHangGroup KhachHangGroup
 		{
 			get
@@ -441,11 +441,11 @@ namespace DTO
 					if ((value != null))
 					{
 						value.ChietKhaus.Add(this);
-						this._idKhachHangGroup = value.Id;
+						this._IdKhachHangGroup = value.Id;
 					}
 					else
 					{
-						this._idKhachHangGroup = default(Nullable<int>);
+						this._IdKhachHangGroup = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("KhachHangGroup");
 				}
@@ -479,7 +479,7 @@ namespace DTO
 					}
 					else
 					{
-						this._IdSanPham = default(Nullable<int>);
+						this._IdSanPham = default(int);
 					}
 					this.SendPropertyChanged("SanPham");
 				}
@@ -2649,7 +2649,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_ChietKhaus", ThisKey="Id", OtherKey="idKhachHangGroup")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_ChietKhaus", ThisKey="Id", OtherKey="IdKhachHangGroup")]
 		public EntitySet<ChietKhau> ChietKhaus
 		{
 			get

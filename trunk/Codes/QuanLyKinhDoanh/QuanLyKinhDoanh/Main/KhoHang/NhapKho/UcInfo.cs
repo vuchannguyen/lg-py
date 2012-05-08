@@ -18,6 +18,7 @@ namespace QuanLyKinhDoanh.Mua
         private DTO.HoaDon dataHoaDon;
         private DTO.HoaDonDetail dataHoaDonDetail;
         private DTO.SanPham dataSP;
+        private DTO.ChietKhau dataChietKhau;
         private bool isFixedMoney;
 
         private bool isUpdate;
@@ -71,6 +72,8 @@ namespace QuanLyKinhDoanh.Mua
                 tbGiaNhap.Text = data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbLaiSuat.Text = data.SanPham.LaiSuat.ToString();
                 tbGhiChu.Text = data.HoaDon.GhiChu;
+
+                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
             }
             else
             {
@@ -231,13 +234,45 @@ namespace QuanLyKinhDoanh.Mua
 
             if (HoaDonDetailBus.Insert(dataHoaDonDetail))
             {
-                UpdatePriceSP();
+                InsertChietKhau();
             }
             else
             {
                 try
                 {
                     HoaDonDetailBus.Delete(dataHoaDonDetail);
+                }
+                catch
+                {
+                    //
+                }
+
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void InsertChietKhau()
+        {
+            dataChietKhau = new ChietKhau();
+
+            dataChietKhau.IdSanPham = dataSP.Id;
+            dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
+
+            dataChietKhau.CreateBy = dataChietKhau.UpdateBy = "";
+            dataChietKhau.CreateDate = dataChietKhau.UpdateDate = DateTime.Now;
+
+            if (ChietKhauBus.Insert(dataChietKhau))
+            {
+                UpdatePriceSP();
+            }
+            else
+            {
+                try
+                {
+                    ChietKhauBus.Delete(dataChietKhau);
                 }
                 catch
                 {
@@ -347,7 +382,38 @@ namespace QuanLyKinhDoanh.Mua
 
             if (HoaDonDetailBus.Update(dataHoaDonDetail))
             {
+                UpdateChietKhau();
+            }
+        }
+
+        private void UpdateChietKhau()
+        {
+            dataChietKhau = ChietKhauBus.GetByIdSP(dataHoaDonDetail.IdSanPham);
+
+            dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
+
+            dataChietKhau.UpdateBy = "";
+            dataChietKhau.UpdateDate = DateTime.Now;
+
+            if (ChietKhauBus.Update(dataChietKhau))
+            {
                 UpdatePriceSP();
+            }
+            else
+            {
+                try
+                {
+                    ChietKhauBus.Delete(dataChietKhau);
+                }
+                catch
+                {
+                    //
+                }
+
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
             }
         }
         #endregion
@@ -841,6 +907,44 @@ namespace QuanLyKinhDoanh.Mua
         private void pbThemNhomSP_MouseLeave(object sender, EventArgs e)
         {
             pbThemNhomSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
+        }
+
+        private void cbGroup_DropDownClosed(object sender, EventArgs e)
+        {
+            cbDVTSP.Focus();
+        }
+
+        private void cbDVTSP_DropDownClosed(object sender, EventArgs e)
+        {
+            tbTenSP.Focus();
+        }
+
+        private void cbXuatXu_DropDownClosed(object sender, EventArgs e)
+        {
+            tbThoiHan.Focus();
+        }
+
+        private void cbDonViThoiHan_DropDownClosed(object sender, EventArgs e)
+        {
+            tbHieu.Focus();
+        }
+
+        private void cbChangeMoney_DropDownClosed(object sender, EventArgs e)
+        {
+            tbGiaNhap.Focus();
+        }
+
+        private void tbChietKhau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+
+        private void tbChietKhau_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbChietKhau.Text))
+            {
+                tbChietKhau.Text = "0";
+            }
         }
     }
 }
