@@ -3,14 +3,14 @@
   <Table Name="dbo.ChietKhau" Member="ChietKhaus">
     <Type Name="ChietKhau">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdSanPham" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="idKhachHangGroup" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdSanPham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdKhachHangGroup" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="KhachHangGroup_ChietKhau" Member="KhachHangGroup" ThisKey="idKhachHangGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
+      <Association Name="KhachHangGroup_ChietKhau" Member="KhachHangGroup" ThisKey="IdKhachHangGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
       <Association Name="SanPham_ChietKhau" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
@@ -113,7 +113,7 @@
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Diem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="KhachHangGroup_ChietKhau" Member="ChietKhaus" ThisKey="Id" OtherKey="idKhachHangGroup" Type="ChietKhau" />
+      <Association Name="KhachHangGroup_ChietKhau" Member="ChietKhaus" ThisKey="Id" OtherKey="IdKhachHangGroup" Type="ChietKhau" />
       <Association Name="KhachHangGroup_KhachHang" Member="KhachHangs" ThisKey="Id" OtherKey="IdGroup" Type="KhachHang" />
     </Type>
   </Table>

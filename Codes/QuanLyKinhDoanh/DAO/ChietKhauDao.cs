@@ -10,38 +10,20 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class UserDao: SQLConnection
+    public class ChietKhauDao : SQLConnection
     {
-        public static IQueryable<User> GetQuery(string text)
+        public static IQueryable<ChietKhau> GetQuery(string text)
         {
-            var sql = from data in dbContext.Users
+            var sql = from data in dbContext.ChietKhaus
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.UserName, text) ||
-                    SqlMethods.Like(p.Email, text)
+                sql = sql.Where(p => SqlMethods.Like(p.SanPham.Ten, text) ||
+                    SqlMethods.Like(p.Value.ToString(), text)
                     );
             }
-
-            //if (ConvertUtil.ConvertToInt(examQuestionId) != 0)
-            //{
-            //    sql = sql.Where(p => p.ExamQuestionID == ConvertUtil.ConvertToInt(examQuestionId));
-            //}
-
-            //if (examDateFrom != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate >= examDateFrom);
-            //}
-
-            //if (examDateTo != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate <= examDateTo);
-            //}
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
@@ -51,7 +33,7 @@ namespace DAO
             return GetQuery(text).Count();
         }
 
-        public static List<User> GetList(string text,
+        public static List<ChietKhau> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -59,7 +41,7 @@ namespace DAO
             switch (sortColumn)
             {
                 case "chTen":
-                    sortSQL += "Ten " + sortOrder;
+                    sortSQL += "SanPham.Ten " + sortOrder;
                     break;
 
                 //case "ExamQuestion":
@@ -75,7 +57,7 @@ namespace DAO
                 //    break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "SanPham.Ten " + CommonDao.SORT_ASCENDING;
                     break;
             }
 
@@ -89,26 +71,26 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static User GetById(int id)
+        public static ChietKhau GetById(int id)
         {
-            return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
+            return dbContext.ChietKhaus.Where(p => p.Id == id).SingleOrDefault<ChietKhau>();
         }
 
-        public static User GetByUserName(string text)
+        public static ChietKhau GetByIdSP(int id)
         {
-            return dbContext.Users.Where(p => p.UserName == text && p.DeleteFlag == false).SingleOrDefault<User>();
+            return dbContext.ChietKhaus.Where(p => p.IdSanPham == id && p.SanPham.DeleteFlag == false).SingleOrDefault<ChietKhau>();
         }
 
-        public static bool Insert(User data)
+        public static bool Insert(ChietKhau data)
         {
             try
             {
-                if (GetByUserName(data.UserName) != null)
+                if (GetByIdSP(data.IdSanPham) != null)
                 {
                     return false;
                 }
 
-                dbContext.Users.InsertOnSubmit(data);
+                dbContext.ChietKhaus.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -119,11 +101,11 @@ namespace DAO
             }
         }
 
-        public static bool Delete(User data)
+        public static bool Delete(ChietKhau data)
         {
             if (data != null)
             {
-                data.DeleteFlag = true;
+                dbContext.ChietKhaus.DeleteOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -154,10 +136,14 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            User data = GetById(result);
+                            ChietKhau data = GetById(result);
 
                             if (!Delete(data))
                             {
+                                CreateSQlConnection();
+
+                                if (trans != null) trans.Rollback();
+
                                 return false;
                             }
                         }
@@ -184,14 +170,13 @@ namespace DAO
             }
         }
 
-        public static bool Update(User data)
+        public static bool Update(ChietKhau data)
         {
             try
             {
                 if (data != null)
                 {
                     dbContext.SubmitChanges();
-
                     return true;
                 }
 
