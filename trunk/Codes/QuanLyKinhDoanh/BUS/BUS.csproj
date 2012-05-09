@@ -43,6 +43,7 @@
     <Compile Include="ChietKhauBus.cs" />
     <Compile Include="HoaDonBus.cs" />
     <Compile Include="HoaDonDetailBus.cs" />
+    <Compile Include="HoaDonStatusBus.cs" />
     <Compile Include="HoaDonTypeBus.cs" />
     <Compile Include="KhachHangBus.cs" />
     <Compile Include="KhachHangGroupBus.cs" />

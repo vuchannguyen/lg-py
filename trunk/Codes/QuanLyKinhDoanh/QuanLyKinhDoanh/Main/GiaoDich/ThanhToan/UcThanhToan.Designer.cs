@@ -30,7 +30,8 @@
         {
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
-            this.cbKhachHang = new System.Windows.Forms.ComboBox();
+            this.tbTenKH = new System.Windows.Forms.TextBox();
+            this.cbMaKhachHang = new System.Windows.Forms.ComboBox();
             this.cbTinhTrang = new System.Windows.Forms.ComboBox();
             this.tbMaHD = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -107,7 +108,8 @@
             // 
             // gbInfo
             // 
-            this.gbInfo.Controls.Add(this.cbKhachHang);
+            this.gbInfo.Controls.Add(this.tbTenKH);
+            this.gbInfo.Controls.Add(this.cbMaKhachHang);
             this.gbInfo.Controls.Add(this.cbTinhTrang);
             this.gbInfo.Controls.Add(this.tbMaHD);
             this.gbInfo.Controls.Add(this.label6);
@@ -127,16 +129,27 @@
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin chung";
             // 
-            // cbKhachHang
+            // tbTenKH
             // 
-            this.cbKhachHang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbKhachHang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbKhachHang.FormattingEnabled = true;
-            this.cbKhachHang.Location = new System.Drawing.Point(445, 68);
-            this.cbKhachHang.Name = "cbKhachHang";
-            this.cbKhachHang.Size = new System.Drawing.Size(215, 24);
-            this.cbKhachHang.TabIndex = 130;
-            this.cbKhachHang.Leave += new System.EventHandler(this.cbKhachHang_Leave);
+            this.tbTenKH.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenKH.Location = new System.Drawing.Point(577, 63);
+            this.tbTenKH.MaxLength = 3;
+            this.tbTenKH.Name = "tbTenKH";
+            this.tbTenKH.Size = new System.Drawing.Size(230, 29);
+            this.tbTenKH.TabIndex = 131;
+            this.tbTenKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbMaKhachHang
+            // 
+            this.cbMaKhachHang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbMaKhachHang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbMaKhachHang.FormattingEnabled = true;
+            this.cbMaKhachHang.Location = new System.Drawing.Point(466, 68);
+            this.cbMaKhachHang.Name = "cbMaKhachHang";
+            this.cbMaKhachHang.Size = new System.Drawing.Size(105, 24);
+            this.cbMaKhachHang.TabIndex = 130;
+            this.cbMaKhachHang.SelectedIndexChanged += new System.EventHandler(this.cbMaKhachHang_SelectedIndexChanged);
+            this.cbMaKhachHang.Leave += new System.EventHandler(this.cbKhachHang_Leave);
             // 
             // cbTinhTrang
             // 
@@ -244,9 +257,9 @@
             this.lbTen.ForeColor = System.Drawing.Color.Black;
             this.lbTen.Location = new System.Drawing.Point(351, 71);
             this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(88, 16);
+            this.lbTen.Size = new System.Drawing.Size(109, 16);
             this.lbTen.TabIndex = 4;
-            this.lbTen.Text = "Khách hàng:";
+            this.lbTen.Text = "Mã khách hàng:";
             // 
             // panel12
             // 
@@ -741,11 +754,12 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.ComboBox cbTen;
-        private System.Windows.Forms.ComboBox cbKhachHang;
+        private System.Windows.Forms.ComboBox cbMaKhachHang;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pbXoa;
         private System.Windows.Forms.ColumnHeader chId;
+        private System.Windows.Forms.TextBox tbTenKH;
 
     }
 }

@@ -89,7 +89,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
-            cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
+            //cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
         }
 
         private void ValidateInput()
@@ -180,17 +180,17 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             List<DTO.KhachHang> listData = KhachHangBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
-            cbKhachHang.Items.Clear();
+            cbMaKhachHang.Items.Clear();
 
             foreach (DTO.KhachHang data in listData)
             {
-                cbKhachHang.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+                cbMaKhachHang.Items.Add(new CommonComboBoxItems(data.MaKhachHang, data.Id));
             }
 
-            if (listData.Count > 0)
-            {
-                cbKhachHang.SelectedIndex = 0;
-            }
+            //if (listData.Count > 0)
+            //{
+            //    cbKhachHang.SelectedIndex = 0;
+            //}
         }
 
         private void GetInfoSP()
@@ -221,11 +221,11 @@ namespace QuanLyKinhDoanh.GiaoDich
             {
                 int percent = 0;
 
-                if (cbKhachHang.SelectedIndex >= 0)
+                if (cbMaKhachHang.SelectedIndex >= 0)
                 {
                     lvThongTin.Items.Clear();
 
-                    dataKhachHang = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbKhachHang.SelectedItem).Value));
+                    dataKhachHang = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKhachHang.SelectedItem).Value));
 
 
                     switch (dataKhachHang.IdGroup)
@@ -339,8 +339,6 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void cbKhachHang_Leave(object sender, EventArgs e)
         {
-            discount = GetDiscount();
-
             tbChietKhau.Text = discount.ToString();
         }
 
@@ -441,5 +439,12 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
         #endregion
+
+        private void cbMaKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DTO.KhachHang data = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKhachHang.SelectedItem).Value));
+
+            tbTenKH.Text = data == null ? string.Empty : data.Ten;
+        }
     }
 }

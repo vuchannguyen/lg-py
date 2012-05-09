@@ -72,15 +72,22 @@ namespace DAO
 
         public static bool Insert(SanPhamGroup data)
         {
-            if (GetByMa(data.Ma) != null)
+            try
+            {
+                if (GetByMa(data.Ma) != null)
+                {
+                    return false;
+                }
+
+                dbContext.SanPhamGroups.InsertOnSubmit(data);
+                dbContext.SubmitChanges();
+
+                return true;
+            }
+            catch
             {
                 return false;
             }
-
-            dbContext.SanPhamGroups.InsertOnSubmit(data);
-            dbContext.SubmitChanges();
-
-            return true;
         }
 
         public static bool Delete(SanPhamGroup data)
