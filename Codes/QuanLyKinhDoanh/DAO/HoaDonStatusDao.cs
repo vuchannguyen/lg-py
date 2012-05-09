@@ -50,7 +50,7 @@ namespace DAO
 
             var sql = GetQuery(text).OrderBy(sortSQL);
 
-            if (skip == 0 && take == 0)
+            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
                 return sql.ToList();
             }
@@ -80,19 +80,22 @@ namespace DAO
 
         public static bool Delete(HoaDonStatus data)
         {
-            if (data != null)
+            try
             {
-                HoaDonStatus objDb = GetById(data.Id);
-
-                if (objDb != null)
+                if (data != null)
                 {
-                    dbContext.HoaDonStatus.DeleteOnSubmit(objDb);
+                    dbContext.HoaDonStatus.DeleteOnSubmit(data);
+                    dbContext.SubmitChanges();
 
                     return true;
                 }
-            }
 
-            return false;
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public static bool DeleteList(string ids)
@@ -121,6 +124,10 @@ namespace DAO
 
                             if (!Delete(data))
                             {
+                                CreateSQlConnection();
+
+                                if (trans != null) trans.Rollback();
+
                                 return false;
                             }
                         }
@@ -136,11 +143,14 @@ namespace DAO
                     return true;
                 }
 
+                dbContext.Connection.Close();
+
                 return false;
             }
             catch
             {
                 if (trans != null) trans.Rollback();
+
                 return false;
             }
         }
@@ -151,10 +161,6 @@ namespace DAO
             {
                 if (data != null)
                 {
-                    HoaDonStatus objDb = GetById(data.Id);
-
-                    objDb.Ten = data.Ten;
-
                     dbContext.SubmitChanges();
                     return true;
                 }
