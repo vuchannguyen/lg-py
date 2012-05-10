@@ -234,6 +234,7 @@ namespace QuanLyKinhDoanh
             {
                 string ids = string.Empty;
                 string idSPs = string.Empty;
+                string idCKs = string.Empty;
 
                 foreach (ListViewItem item in lvThongTin.CheckedItems)
                 {
@@ -241,9 +242,10 @@ namespace QuanLyKinhDoanh
 
                     ids += (temp.IdHoaDon.ToString() + Constant.SEPERATE_STRING);
                     idSPs += (temp.IdSanPham.ToString() + Constant.SEPERATE_STRING);
+                    idCKs += (ChietKhauBus.GetByIdSP(temp.IdSanPham) == null ? string.Empty : (ChietKhauBus.GetByIdSP(temp.IdSanPham).Id.ToString() + Constant.SEPERATE_STRING));
                 }
 
-                if (SanPhamBus.DeleteList(idSPs) && HoaDonBus.DeleteList(ids))
+                if (SanPhamBus.DeleteList(idSPs) && HoaDonBus.DeleteList(ids) && ChietKhauBus.DeleteList(idCKs))
                 {
                     RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
                 }

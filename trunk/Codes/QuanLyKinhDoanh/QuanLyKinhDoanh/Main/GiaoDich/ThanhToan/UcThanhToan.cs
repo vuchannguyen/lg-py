@@ -234,47 +234,9 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private int GetDiscount()
         {
-            try
-            {
-                int percent = 0;
+            int percent = ChietKhauBus.GetByIdSP(dataSP.Id) == null ? 0 : ChietKhauBus.GetByIdSP(dataSP.Id).Value;
 
-                if (cbMaKH.SelectedIndex >= 0)
-                {
-                    lvThongTin.Items.Clear();
-
-                    dataKhachHang = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
-
-
-                    switch (dataKhachHang.IdGroup)
-                    {
-                        //case Constant.ID_GROUP_KHACH_THUONG:
-                        //    {
-                        //        percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_MUA_LE;
-                        //        break;
-                        //    }
-
-                        //case Constant.ID_GROUP_KHACH_SI:
-                        //    {
-                        //        percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_MUA_SI;
-                        //        break;
-                        //    }
-
-                        //case Constant.ID_GROUP_VIP:
-                        //    {
-                        //        percent = Constant.DEFAULT_DISCOUNT_GROUP_KH_VIP;
-                        //        break;
-                        //    }
-                    }
-                }
-
-                return percent;
-            }
-            catch
-            {
-                MessageBox.Show(Constant.MESSAGE_ERROR_NULL_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return 0;
-            }
+            return percent;
         }
         #endregion
 
@@ -460,7 +422,6 @@ namespace QuanLyKinhDoanh.GiaoDich
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
             }
         }
-        #endregion
 
         private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -496,5 +457,22 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbSuDung.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbSuDung.Select(tbSuDung.Text.Length, 0);
         }
+
+        private void tbPayMoney_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbPayMoney.Text))
+            {
+                tbPayMoney.Text = "0";
+            }
+        }
+
+        private void tbSuDung_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbSuDung.Text))
+            {
+                tbSuDung.Text = "0";
+            }
+        }
+        #endregion
     }
 }
