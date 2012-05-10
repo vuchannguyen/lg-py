@@ -465,33 +465,6 @@ namespace QuanLyKinhDoanh.Mua
 
 
         #region Controls Nhap
-        //private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-        //    List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, string.Empty, string.Empty, 0, 0);
-
-        //    cbTen.Items.Clear();
-
-        //    foreach (DTO.SanPham data in listData)
-        //    {
-        //        cbTen.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-        //    }
-
-        //    if (listData.Count > 0)
-        //    {
-        //        cbTen.SelectedIndex = 0;
-        //    }
-        //}
-
-        //private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int idSanPham = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value);
-
-        //    tbDonViTinh.Text = SanPhamBus.GetById(idSanPham).DonViTinh;
-
-        //    ValidateInput();
-        //}
-
         private void tbGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
@@ -512,14 +485,12 @@ namespace QuanLyKinhDoanh.Mua
 
         private void tbGiaNhap_TextChanged(object sender, EventArgs e)
         {
-            long money = 0;
-
-            money = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
             tbGiaNhap.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbGiaNhap.Select(tbGiaNhap.Text.Length, 0);
 
-            if (tbGiaNhap.Text.Length > 0)
+            if (!string.IsNullOrEmpty(tbGiaNhap.Text))
             {
                 tbGiaBan.Enabled = true;
                 tbLaiSuat.Enabled = true;
@@ -549,11 +520,8 @@ namespace QuanLyKinhDoanh.Mua
             {
                 isFixedMoney = true;
 
-                long moneyBuy = 0;
-                long moneySell = 0;
-
-                moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-                moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
                 double laiSuat = (moneySell * 1.0 / moneyBuy * 100) - 100;
 
@@ -586,9 +554,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (tbGiaBan.Enabled)
             {
-                long money = 0;
-
-                money = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long money = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
                 tbGiaBan.Text = money == 0 ? "0" : money.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGiaBan.Select(tbGiaBan.Text.Length, 0);

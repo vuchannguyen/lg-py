@@ -17,6 +17,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private DTO.SanPham dataSP;
         private DTO.KhachHang dataKhachHang;
         private int discount;
+        private long totalMoney;
 
         public UcThanhToan()
         {
@@ -71,6 +72,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
 
             GetListKhachHang();
+            GetListHoaDonStatus();
 
             return true;
         }
@@ -78,6 +80,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void RefreshData()
         {
             discount = 0;
+            totalMoney = 0;
 
             tbGhiChu.Text = string.Empty;
 
@@ -87,9 +90,13 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbChietKhau.Text = "0";
             tbThanhTien.Text = string.Empty;
 
+            dtpNgayGio.Value = DateTime.Now;
+            dtpNgayGio.CustomFormat = Constant.DEFAULT_DATE_TIME_FORMAT;
+
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
             //cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
+            cbStatus.SelectedIndex = cbStatus.Items.Count > 0 ? 0 : -1;
         }
 
         private void ValidateInput()
@@ -135,6 +142,9 @@ namespace QuanLyKinhDoanh.GiaoDich
             lvi.SubItems.Add(tbThanhTien.Text);
 
             lvThongTin.Items.Add(lvi);
+
+            totalMoney += ConvertUtil.ConvertToLong(dataSP.GiaBan);
+            tbTotalMoney.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private bool GetListGroupSP()
@@ -180,17 +190,24 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             List<DTO.KhachHang> listData = KhachHangBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
-            cbMaKhachHang.Items.Clear();
+            cbMaKH.Items.Clear();
 
             foreach (DTO.KhachHang data in listData)
             {
-                cbMaKhachHang.Items.Add(new CommonComboBoxItems(data.MaKhachHang, data.Id));
+                cbMaKH.Items.Add(new CommonComboBoxItems(data.MaKhachHang, data.Id));
             }
+        }
 
-            //if (listData.Count > 0)
-            //{
-            //    cbKhachHang.SelectedIndex = 0;
-            //}
+        private void GetListHoaDonStatus()
+        {
+            List<DTO.HoaDonStatus> listData = HoaDonStatusBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            cbStatus.Items.Clear();
+
+            foreach (DTO.HoaDonStatus data in listData)
+            {
+                cbStatus.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+            }
         }
 
         private void GetInfoSP()
@@ -221,11 +238,11 @@ namespace QuanLyKinhDoanh.GiaoDich
             {
                 int percent = 0;
 
-                if (cbMaKhachHang.SelectedIndex >= 0)
+                if (cbMaKH.SelectedIndex >= 0)
                 {
                     lvThongTin.Items.Clear();
 
-                    dataKhachHang = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKhachHang.SelectedItem).Value));
+                    dataKhachHang = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
 
 
                     switch (dataKhachHang.IdGroup)
@@ -303,6 +320,11 @@ namespace QuanLyKinhDoanh.GiaoDich
 
                 foreach (ListViewItem item in lvThongTin.CheckedItems)
                 {
+                    long money = ConvertUtil.ConvertToLong(item.SubItems[8].Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+
+                    totalMoney -= ConvertUtil.ConvertToLong(money);
+                    tbTotalMoney.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
+
                     lvThongTin.Items.Remove(item);
                 }
             }
@@ -440,11 +462,39 @@ namespace QuanLyKinhDoanh.GiaoDich
         }
         #endregion
 
-        private void cbMaKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DTO.KhachHang data = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKhachHang.SelectedItem).Value));
+            DTO.KhachHang data = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
 
             tbTenKH.Text = data == null ? string.Empty : data.Ten;
+            tbTichLuy.Text = data.TichLuy.ToString();
+            tbSuDung.Text = "0";
+        }
+
+        private void tbSoTienThanhToan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbPayMoney_TextChanged(object sender, EventArgs e)
+        {
+            long money = ConvertUtil.ConvertToLong(tbPayMoney.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+
+            tbPayMoney.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbPayMoney.Select(tbPayMoney.Text.Length, 0);
+        }
+
+        private void tbSuDung_TextChanged(object sender, EventArgs e)
+        {
+            long money = ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+
+            tbSuDung.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbSuDung.Select(tbSuDung.Text.Length, 0);
         }
     }
 }

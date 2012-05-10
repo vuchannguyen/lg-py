@@ -125,7 +125,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.DiaChi);
                 lvi.SubItems.Add(data.DienThoai);
                 lvi.SubItems.Add(data.Email);
-                lvi.SubItems.Add(data.Diem.ToString());
+                lvi.SubItems.Add(data.TichLuy.ToString());
 
                 lvThongTin.Items.Add(lvi);
             }

@@ -44,7 +44,7 @@ namespace QuanLyKinhDoanh.KhachHang
             if (Init())
             {
                 tbTen.Text = data.Ten;
-                tbDiem.Text = data.Diem.ToString();
+                tbDiem.Text = data.TichLuy.ToString();
                 tbDiaChi.Text = data.DiaChi;
                 tbDienThoai.Text = data.DienThoai;
                 tbFax.Text = data.Fax;
@@ -130,8 +130,8 @@ namespace QuanLyKinhDoanh.KhachHang
             tbNoiCap.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
-            dtpDOB.Value = DateTime.Now;
-            dtpNgayCap.Value = DateTime.Now;
+            dtpDOB.Value = Constant.DEFAULT_DATE;
+            dtpNgayCap.Value = Constant.DEFAULT_DATE;
 
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbGioiTinh.SelectedIndex = 0;
@@ -190,7 +190,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            data.Diem = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
             data.CreateBy = data.UpdateBy = "";
@@ -223,7 +223,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            data.Diem = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
             data.UpdateBy = "";

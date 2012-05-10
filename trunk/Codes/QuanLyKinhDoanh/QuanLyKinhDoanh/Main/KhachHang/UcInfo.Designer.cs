@@ -34,6 +34,12 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.dtpNgayCap = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbCMND = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbNoiCap = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
             this.tbMa = new System.Windows.Forms.TextBox();
@@ -61,12 +67,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbCMND = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbNoiCap = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dtpNgayCap = new System.Windows.Forms.DateTimePicker();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -167,6 +167,60 @@
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
+            // dtpNgayCap
+            // 
+            this.dtpNgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayCap.Location = new System.Drawing.Point(453, 263);
+            this.dtpNgayCap.Name = "dtpNgayCap";
+            this.dtpNgayCap.Size = new System.Drawing.Size(150, 23);
+            this.dtpNgayCap.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(376, 268);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 16);
+            this.label9.TabIndex = 119;
+            this.label9.Text = "Ngày cấp:";
+            // 
+            // tbCMND
+            // 
+            this.tbCMND.Location = new System.Drawing.Point(404, 185);
+            this.tbCMND.MaxLength = 10;
+            this.tbCMND.Name = "tbCMND";
+            this.tbCMND.Size = new System.Drawing.Size(199, 23);
+            this.tbCMND.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(346, 188);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 16);
+            this.label10.TabIndex = 118;
+            this.label10.Text = "CMND:";
+            // 
+            // tbNoiCap
+            // 
+            this.tbNoiCap.Location = new System.Drawing.Point(404, 225);
+            this.tbNoiCap.MaxLength = 50;
+            this.tbNoiCap.Name = "tbNoiCap";
+            this.tbNoiCap.Size = new System.Drawing.Size(199, 23);
+            this.tbNoiCap.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(338, 228);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 16);
+            this.label11.TabIndex = 117;
+            this.label11.Text = "Nơi cấp:";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -225,13 +279,14 @@
             // 
             // tbDiem
             // 
-            this.tbDiem.Location = new System.Drawing.Point(542, 109);
+            this.tbDiem.Location = new System.Drawing.Point(453, 109);
             this.tbDiem.MaxLength = 4;
             this.tbDiem.Name = "tbDiem";
-            this.tbDiem.Size = new System.Drawing.Size(61, 23);
+            this.tbDiem.ReadOnly = true;
+            this.tbDiem.Size = new System.Drawing.Size(150, 23);
             this.tbDiem.TabIndex = 5;
             this.tbDiem.Text = "0";
-            this.tbDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbDiem.TextChanged += new System.EventHandler(this.tbDiem_TextChanged);
             this.tbDiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDiem_KeyPress);
             // 
@@ -239,11 +294,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(492, 112);
+            this.label1.Location = new System.Drawing.Point(385, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(62, 16);
             this.label1.TabIndex = 107;
-            this.label1.Text = "Điểm:";
+            this.label1.Text = "Tích lũy:";
             // 
             // cbGioiTinh
             // 
@@ -432,60 +487,6 @@
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Ghi chú:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(376, 268);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 16);
-            this.label9.TabIndex = 119;
-            this.label9.Text = "Ngày cấp:";
-            // 
-            // tbCMND
-            // 
-            this.tbCMND.Location = new System.Drawing.Point(404, 185);
-            this.tbCMND.MaxLength = 10;
-            this.tbCMND.Name = "tbCMND";
-            this.tbCMND.Size = new System.Drawing.Size(199, 23);
-            this.tbCMND.TabIndex = 10;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(346, 188);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 16);
-            this.label10.TabIndex = 118;
-            this.label10.Text = "CMND:";
-            // 
-            // tbNoiCap
-            // 
-            this.tbNoiCap.Location = new System.Drawing.Point(404, 225);
-            this.tbNoiCap.MaxLength = 50;
-            this.tbNoiCap.Name = "tbNoiCap";
-            this.tbNoiCap.Size = new System.Drawing.Size(199, 23);
-            this.tbNoiCap.TabIndex = 11;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(338, 228);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 16);
-            this.label11.TabIndex = 117;
-            this.label11.Text = "Nơi cấp:";
-            // 
-            // dtpNgayCap
-            // 
-            this.dtpNgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayCap.Location = new System.Drawing.Point(453, 263);
-            this.dtpNgayCap.Name = "dtpNgayCap";
-            this.dtpNgayCap.Size = new System.Drawing.Size(150, 23);
-            this.dtpNgayCap.TabIndex = 12;
             // 
             // UcInfo
             // 

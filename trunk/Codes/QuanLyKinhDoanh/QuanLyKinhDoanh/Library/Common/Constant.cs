@@ -24,7 +24,9 @@ namespace Library
         public const int DEFAULT_NUMS_DECAL_COLUMNS = 7;
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
 
+        public static DateTime DEFAULT_DATE = new DateTime(2000, 1, 1);
         public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
+        public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - hh:mm:ss";
 
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
