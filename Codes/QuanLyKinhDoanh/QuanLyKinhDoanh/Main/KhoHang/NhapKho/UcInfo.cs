@@ -73,7 +73,7 @@ namespace QuanLyKinhDoanh.Mua
                 tbLaiSuat.Text = data.SanPham.LaiSuat.ToString();
                 tbGhiChu.Text = data.HoaDon.GhiChu;
 
-                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
+                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? "" : ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
             }
             else
             {
@@ -102,13 +102,9 @@ namespace QuanLyKinhDoanh.Mua
             LoadResource();
 
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
-
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
+
             this.BringToFront();
-
-            isFixedMoney = false;
-
-            cbChangeMoney.SelectedIndex = 0;
 
             CreateNewId();
 
@@ -134,6 +130,8 @@ namespace QuanLyKinhDoanh.Mua
             tbGhiChu.Text = string.Empty;
 
             cbChangeMoney.SelectedIndex = 0;
+
+            isFixedMoney = false;
         }
 
         private void ValidateInput()
@@ -259,7 +257,7 @@ namespace QuanLyKinhDoanh.Mua
             dataChietKhau = new ChietKhau();
 
             dataChietKhau.IdSanPham = dataSP.Id;
-            dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
+            dataChietKhau.Value = ConvertUtil.ConvertToInt(string.IsNullOrEmpty(tbChietKhau.Text) ? "0" : tbChietKhau.Text);
 
             dataChietKhau.CreateBy = dataChietKhau.UpdateBy = "";
             dataChietKhau.CreateDate = dataChietKhau.UpdateDate = DateTime.Now;
@@ -390,7 +388,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             dataChietKhau = ChietKhauBus.GetByIdSP(dataHoaDonDetail.IdSanPham);
 
-            dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
+            dataChietKhau.Value = ConvertUtil.ConvertToInt(string.IsNullOrEmpty(tbChietKhau.Text) ? "0" : tbChietKhau.Text);
 
             dataChietKhau.UpdateBy = "";
             dataChietKhau.UpdateDate = DateTime.Now;

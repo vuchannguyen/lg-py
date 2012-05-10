@@ -35,6 +35,9 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbChietKhau = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbChangeMoney = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbLaiSuat = new System.Windows.Forms.TextBox();
@@ -83,9 +86,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThemNhomSP = new System.Windows.Forms.PictureBox();
-            this.tbChietKhau = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -182,6 +182,37 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin nhập kho";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(359, 184);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(20, 16);
+            this.label15.TabIndex = 128;
+            this.label15.Text = "%";
+            // 
+            // tbChietKhau
+            // 
+            this.tbChietKhau.Location = new System.Drawing.Point(317, 181);
+            this.tbChietKhau.MaxLength = 2;
+            this.tbChietKhau.Name = "tbChietKhau";
+            this.tbChietKhau.Size = new System.Drawing.Size(40, 23);
+            this.tbChietKhau.TabIndex = 12;
+            this.tbChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbChietKhau.TextChanged += new System.EventHandler(this.tbChietKhau_TextChanged);
+            this.tbChietKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbChietKhau_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(231, 183);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.TabIndex = 127;
+            this.label2.Text = "Chiết khấu:";
             // 
             // cbChangeMoney
             // 
@@ -688,38 +719,6 @@
             this.pbThemNhomSP.Click += new System.EventHandler(this.pbThemNhomSP_Click);
             this.pbThemNhomSP.MouseEnter += new System.EventHandler(this.pbThemNhomSP_MouseEnter);
             this.pbThemNhomSP.MouseLeave += new System.EventHandler(this.pbThemNhomSP_MouseLeave);
-            // 
-            // tbChietKhau
-            // 
-            this.tbChietKhau.Location = new System.Drawing.Point(317, 181);
-            this.tbChietKhau.MaxLength = 2;
-            this.tbChietKhau.Name = "tbChietKhau";
-            this.tbChietKhau.Size = new System.Drawing.Size(40, 23);
-            this.tbChietKhau.TabIndex = 12;
-            this.tbChietKhau.Text = "0";
-            this.tbChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbChietKhau.TextChanged += new System.EventHandler(this.tbChietKhau_TextChanged);
-            this.tbChietKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbChietKhau_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(231, 183);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
-            this.label2.TabIndex = 127;
-            this.label2.Text = "Chiết khấu:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(359, 184);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(20, 16);
-            this.label15.TabIndex = 128;
-            this.label15.Text = "%";
             // 
             // UcInfo
             // 
