@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1951,7 +1951,7 @@ namespace DTO
 		
 		private string _Email;
 		
-		private System.Nullable<int> _Diem;
+		private System.Nullable<long> _TichLuy;
 		
 		private string _GhiChu;
 		
@@ -1999,8 +1999,8 @@ namespace DTO
     partial void OnFaxChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnDiemChanging(System.Nullable<int> value);
-    partial void OnDiemChanged();
+    partial void OnTichLuyChanging(System.Nullable<long> value);
+    partial void OnTichLuyChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
     partial void OnCreateByChanging(string value);
@@ -2286,22 +2286,22 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diem", DbType="Int")]
-		public System.Nullable<int> Diem
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TichLuy", DbType="BigInt")]
+		public System.Nullable<long> TichLuy
 		{
 			get
 			{
-				return this._Diem;
+				return this._TichLuy;
 			}
 			set
 			{
-				if ((this._Diem != value))
+				if ((this._TichLuy != value))
 				{
-					this.OnDiemChanging(value);
+					this.OnTichLuyChanging(value);
 					this.SendPropertyChanging();
-					this._Diem = value;
-					this.SendPropertyChanged("Diem");
-					this.OnDiemChanged();
+					this._TichLuy = value;
+					this.SendPropertyChanged("TichLuy");
+					this.OnTichLuyChanged();
 				}
 			}
 		}
