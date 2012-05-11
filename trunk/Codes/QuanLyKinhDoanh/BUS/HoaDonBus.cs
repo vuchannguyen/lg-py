@@ -25,6 +25,11 @@ namespace BUS
             return HoaDonDao.GetLastData();
         }
 
+        public static HoaDon GetLastData(int idType)
+        {
+            return HoaDonDao.GetLastData(idType);
+        }
+
         public static HoaDon GetById(int id)
         {
             return HoaDonDao.GetById(id);

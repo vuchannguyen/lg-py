@@ -135,7 +135,7 @@ namespace QuanLyKinhDoanh
                 ListViewItem lvi = new ListViewItem();
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.HoaDon.IdHoaDon.ToString());
+                lvi.SubItems.Add(data.HoaDon.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
                 lvi.SubItems.Add("");
                 lvi.SubItems.Add(data.HoaDon.CreateDate.ToString(Constant.DEFAULT_DATE_FORMAT));
@@ -202,6 +202,18 @@ namespace QuanLyKinhDoanh
                 pbNextPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_NEXT_PAGE);
             }
         }
+
+        //private bool UpdateSP(int id, int soLuong)
+        //{
+        //    DTO.SanPham data = SanPhamBus.GetById(id);
+
+        //    data.SoLuong -= soLuong;
+
+        //    data.UpdateBy = "";
+        //    data.UpdateDate = DateTime.Now;
+
+        //    return SanPhamBus.Update(data);
+        //}
         #endregion
 
 
@@ -245,8 +257,10 @@ namespace QuanLyKinhDoanh
                     idCKs += (ChietKhauBus.GetByIdSP(temp.IdSanPham) == null ? string.Empty : (ChietKhauBus.GetByIdSP(temp.IdSanPham).Id.ToString() + Constant.SEPERATE_STRING));
                 }
 
-                if (SanPhamBus.DeleteList(idSPs) && HoaDonBus.DeleteList(ids) && ChietKhauBus.DeleteList(idCKs))
+                if (SanPhamBus.DeleteList(idSPs) && HoaDonBus.DeleteList(ids))
                 {
+                    ChietKhauBus.DeleteList(idCKs);
+
                     RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else

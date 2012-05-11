@@ -173,7 +173,10 @@ namespace QuanLyKinhDoanh.XuatXu
         #region Ok Cancel
         private void pbHuy_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            if (MessageBox.Show(Constant.MESSAGE_EXIT, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
         }
 
         private void pbHuy_MouseEnter(object sender, EventArgs e)

@@ -71,6 +71,11 @@ namespace DAO
             return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
+        public static HoaDon GetLastData(int idType)
+        {
+            return dbContext.HoaDons.Where(p => p.IdType == idType).OrderByDescending(p => p.MaHoaDon).FirstOrDefault();
+        }
+
         public static HoaDon GetById(int id)
         {
             return dbContext.HoaDons.Where(p => p.Id == id).SingleOrDefault<HoaDon>();
