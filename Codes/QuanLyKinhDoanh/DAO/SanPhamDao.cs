@@ -13,7 +13,7 @@ namespace DAO
     public class SanPhamDao : SQLConnection
     {
         #region SanPham
-        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHaveGiaBan)
+        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHavePrice, bool isNotZero)
         {
             var sql = from data in dbContext.SanPhams
                       select data;
@@ -32,9 +32,14 @@ namespace DAO
                 sql = sql.Where(p => p.IdGroup == idGroup);
             }
 
-            if (isHaveGiaBan)
+            if (isHavePrice)
             {
                 sql = sql.Where(p => p.GiaBan != null && p.GiaBan > 0);
+            }
+
+            if (isNotZero)
+            {
+                sql = sql.Where(p => p.SoLuong > 0);
             }
 
             sql = sql.Where(p => p.DeleteFlag == false);
@@ -42,12 +47,12 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text, int idGroup, bool isHaveGiaBan)
+        public static int GetCount(string text, int idGroup, bool isHavePrice, bool isNotZero)
         {
-            return GetQuery(text, idGroup, isHaveGiaBan).Count();
+            return GetQuery(text, idGroup, isHavePrice, isNotZero).Count();
         }
 
-        public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan,
+        public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan, bool isNotZero,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -67,7 +72,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, idGroup, isHaveGiaBan).OrderBy(sortSQL);
+            var sql = GetQuery(text, idGroup, isHaveGiaBan, isNotZero).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
@@ -181,7 +186,8 @@ namespace DAO
 
                 if (listHoaDonDetail != null)
                 {
-                    listHoaDonDetail = listHoaDonDetail.Where(p => p.IdSanPham == data.Id).ToList();
+                    listHoaDonDetail = listHoaDonDetail.Where(p => p.HoaDon.IdType == CommonDao.ID_TYPE_MUA &&
+                        p.IdSanPham == data.Id && p.SanPham.DeleteFlag == false).ToList();
                     int total = 0;
 
                     foreach (HoaDonDetail detail in listHoaDonDetail)

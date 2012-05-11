@@ -15,7 +15,9 @@ namespace QuanLyKinhDoanh.GiaoDich
     public partial class UcThanhToan : UserControl
     {
         private DTO.SanPham dataSP;
-        private DTO.KhachHang dataKhachHang;
+        private DTO.KhachHang dataKH;
+        private DTO.ChietKhau dataCK;
+
         private int discount;
         private long totalMoney;
 
@@ -56,6 +58,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             pnInfo.Location = CommonFunc.SetWidthCenter(this.Size, pnInfo.Size, pnInfo.Top);
             pnDetail.Location = CommonFunc.SetWidthCenter(this.Size, pnDetail.Size, pnDetail.Top);
 
+            CreateNewId();
+
             this.BringToFront();
 
             ValidateInput();
@@ -66,11 +70,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         #region Function
         private bool Init()
         {
-            if (!GetListGroupSP())
-            {
-                return false;
-            }
-
+            GetListSP();
             GetListKhachHang();
             GetListHoaDonStatus();
 
@@ -85,23 +85,22 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbGhiChu.Text = string.Empty;
 
             tbSoLuong.Text = "1";
-            tbDVT.Text = string.Empty;
-            tbGiaBan.Text = string.Empty;
-            tbChietKhau.Text = "0";
-            tbThanhTien.Text = string.Empty;
+            //tbDVT.Text = string.Empty;
+            //tbGiaBan.Text = string.Empty;
+            //tbChietKhau.Text = string.Empty;
+            //tbThanhTien.Text = string.Empty;
 
             dtpNgayGio.Value = DateTime.Now;
             dtpNgayGio.CustomFormat = Constant.DEFAULT_DATE_TIME_FORMAT;
 
-            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
-            cbTen.SelectedIndex = cbTen.Items.Count > 0 ? 0 : -1;
+            cbMaSP.SelectedIndex = cbMaSP.Items.Count > 0 ? 0 : -1;
             //cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
             cbStatus.SelectedIndex = cbStatus.Items.Count > 0 ? 0 : -1;
         }
 
         private void ValidateInput()
         {
-            if (!string.IsNullOrEmpty(cbTen.Text) &&
+            if (!string.IsNullOrEmpty(cbMaSP.Text) &&
                 !string.IsNullOrEmpty(tbSoLuong.Text) &&
                 !string.IsNullOrEmpty(tbThanhTien.Text)
                 )
@@ -111,7 +110,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
             else
             {
-                pbAdd.Enabled = true;
+                pbAdd.Enabled = false;
                 pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD_DISABLE);
             }
         }
@@ -147,42 +146,56 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbTotalMoney.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
-        private bool GetListGroupSP()
+        private void CreateNewId()
         {
-            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+            int id = 0;
 
-            if (listData.Count == 0)
-            {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string idSanPham = string.Empty;
+            DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_BAN);
 
-                return false;
-            }
+            id = dataTemp == null ? 1 : dataTemp.Id + 1;
 
-            cbGroup.Items.Clear();
-
-            foreach (DTO.SanPhamGroup data in listData)
-            {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-            }
-
-            return true;
+            tbMaHD.Text = Constant.PREFIX_MUA + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
         }
+
+        //private bool GetListGroupSP()
+        //{
+        //    List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+        //    if (listData.Count == 0)
+        //    {
+        //        MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Sản Phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        //        return false;
+        //    }
+
+        //    cbGroup.Items.Clear();
+
+        //    foreach (DTO.SanPhamGroup data in listData)
+        //    {
+        //        cbGroup.Items.Add(new CommonComboBoxItems(data.Ma, data.Id));
+        //    }
+
+        //    return true;
+        //}
 
         private void GetListSP()
         {
-            int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, string.Empty, string.Empty, 0, 0);
+            //int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, 0, true, true,
+                string.Empty, string.Empty, 0, 0);
 
-            cbTen.Items.Clear();
+            cbMaSP.Text = string.Empty;
+            cbMaSP.Items.Clear();
 
             foreach (DTO.SanPham data in listData)
             {
-                cbTen.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+                cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
             }
 
             if (listData.Count > 0)
             {
-                cbTen.SelectedIndex = 0;
+                cbMaSP.SelectedIndex = 0;
             }
         }
 
@@ -214,7 +227,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             try
             {
-                dataSP = SanPhamBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbTen.SelectedItem).Value));
+                dataSP = SanPhamBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaSP.SelectedItem).Value));
+                dataCK = ChietKhauBus.GetByIdSP(dataSP.Id);
 
                 if (dataSP.GiaBan == 0)
                 {
@@ -223,6 +237,9 @@ namespace QuanLyKinhDoanh.GiaoDich
                     return;
                 }
 
+                tbTenSP.Text = dataSP.Ten;
+                tbTon.Text = dataSP.SoLuong.ToString();
+                tbChietKhau.Text = dataCK == null ? string.Empty : dataCK.Value.ToString();
                 tbDVT.Text = dataSP.DonViTinh;
                 tbGiaBan.Text = dataSP.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
             }
@@ -261,6 +278,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
             FormBill frm = new FormBill();
+
             frm.ShowDialog();
         }
 
@@ -311,26 +329,40 @@ namespace QuanLyKinhDoanh.GiaoDich
             GetListSP();
         }
 
-        private void cbTen_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetInfoSP();
         }
 
-        private void cbTen_TextChanged(object sender, EventArgs e)
+        private void cbMaSP_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
         }
 
         private void cbKhachHang_Leave(object sender, EventArgs e)
         {
-            tbChietKhau.Text = discount.ToString();
+            if (cbMaKH.SelectedItem != null)
+            {
+                dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
+
+                if (dataKH != null)
+                {
+                    tbTenKH.Text = dataKH.Ten;
+                    tbTichLuy.Text = dataKH.TichLuy.ToString();
+
+                    return;
+                }
+            }
+
+            tbTenKH.Text = string.Empty;
+            tbTichLuy.Text = string.Empty;
         }
 
         private void tbChietKhau_Leave(object sender, EventArgs e)
         {
-            if (ConvertUtil.ConvertToInt(tbChietKhau.Text) < discount)
+            if (dataCK != null && ConvertUtil.ConvertToInt(tbChietKhau.Text) < dataCK.Value)
             {
-                tbChietKhau.Text = discount.ToString();
+                tbChietKhau.Text = dataCK.Value.ToString();
             }
         }
 
@@ -341,12 +373,11 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void tbChietKhau_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbChietKhau.Text))
-            {
-                tbChietKhau.Text = "0";
-            }
-
-            CalculateMoney();
+            //CalculateMoney();
+            //if (dataCK != null && ConvertUtil.ConvertToInt(tbChietKhau.Text) < dataCK.Value)
+            //{
+            //    tbChietKhau.Text = dataCK.Value.ToString();
+            //}
         }
 
         private void tbGiaBan_TextChanged(object sender, EventArgs e)
@@ -425,11 +456,10 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DTO.KhachHang data = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
+            dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
 
-            tbTenKH.Text = data == null ? string.Empty : data.Ten;
-            tbTichLuy.Text = data.TichLuy.ToString();
-            tbSuDung.Text = "0";
+            tbTenKH.Text = dataKH == null ? string.Empty : dataKH.Ten;
+            tbTichLuy.Text = dataKH.TichLuy.ToString();
         }
 
         private void tbSoTienThanhToan_KeyPress(object sender, KeyPressEventArgs e)
@@ -474,5 +504,23 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
         #endregion
+
+        private void tbSoLuong_Leave(object sender, EventArgs e)
+        {
+            if (ConvertUtil.ConvertToInt(tbSoLuong.Text) > dataSP.SoLuong)
+            {
+                tbSoLuong.Text = dataSP.SoLuong.ToString();
+            }
+        }
+
+        private void tbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+
+        private void tbSuDung_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
     }
 }

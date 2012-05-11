@@ -10,6 +10,7 @@
       <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="KhachHangGroup_ChietKhau" Member="KhachHangGroup" ThisKey="IdKhachHangGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
       <Association Name="SanPham_ChietKhau" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
@@ -34,7 +35,7 @@
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdHoaDon" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+      <Column Name="MaHoaDon" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
       <Column Name="IdType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdKhachHang" Type="System.Int32" DbType="Int" CanBeNull="true" />

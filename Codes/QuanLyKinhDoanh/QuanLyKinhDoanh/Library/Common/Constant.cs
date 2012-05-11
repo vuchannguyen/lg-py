@@ -95,7 +95,7 @@ namespace Library
         public const string CAPTION_ERROR = "ERROR";
 
         public const string MESSAGE_NEW_LINE = "\r\n";
-        public const string MESSAGE_EXIT = "Bạn có muốn thoát?";
+        public const string MESSAGE_EXIT = "Thoát?";
         public const string MESSAGE_CONTINUE = "Bạn có muốn tiếp tục?";
 
         public const string MESSAGE_DELETE_CONFIRM = "Xóa dữ liệu đã chọn?";

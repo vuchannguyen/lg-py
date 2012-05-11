@@ -129,8 +129,10 @@ namespace QuanLyKinhDoanh
         private void GetListSP()
         {
             int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, string.Empty, string.Empty, 0, 0);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, true,
+                string.Empty, string.Empty, 0, 0);
 
+            cbTen.Text = string.Empty;
             cbTen.Items.Clear();
 
             foreach (DTO.SanPham data in listData)
@@ -373,8 +375,6 @@ namespace QuanLyKinhDoanh
 
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbTen.Text = string.Empty;
-
             GetListSP();
         }
 

@@ -217,6 +217,8 @@ namespace DTO
 		
 		private System.DateTime _UpdateDate;
 		
+		private bool _DeleteFlag;
+		
 		private EntityRef<KhachHangGroup> _KhachHangGroup;
 		
 		private EntityRef<SanPham> _SanPham;
@@ -241,6 +243,8 @@ namespace DTO
     partial void OnUpdateByChanged();
     partial void OnUpdateDateChanging(System.DateTime value);
     partial void OnUpdateDateChanged();
+    partial void OnDeleteFlagChanging(bool value);
+    partial void OnDeleteFlagChanged();
     #endregion
 		
 		public ChietKhau()
@@ -414,6 +418,26 @@ namespace DTO
 					this._UpdateDate = value;
 					this.SendPropertyChanged("UpdateDate");
 					this.OnUpdateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit NOT NULL")]
+		public bool DeleteFlag
+		{
+			get
+			{
+				return this._DeleteFlag;
+			}
+			set
+			{
+				if ((this._DeleteFlag != value))
+				{
+					this.OnDeleteFlagChanging(value);
+					this.SendPropertyChanging();
+					this._DeleteFlag = value;
+					this.SendPropertyChanged("DeleteFlag");
+					this.OnDeleteFlagChanged();
 				}
 			}
 		}
@@ -869,7 +893,7 @@ namespace DTO
 		
 		private int _Id;
 		
-		private string _IdHoaDon;
+		private string _MaHoaDon;
 		
 		private int _IdType;
 		
@@ -909,8 +933,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnIdHoaDonChanging(string value);
-    partial void OnIdHoaDonChanged();
+    partial void OnMaHoaDonChanging(string value);
+    partial void OnMaHoaDonChanged();
     partial void OnIdTypeChanging(int value);
     partial void OnIdTypeChanged();
     partial void OnIdUserChanging(System.Nullable<int> value);
@@ -965,22 +989,22 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHoaDon", DbType="Char(6) NOT NULL", CanBeNull=false)]
-		public string IdHoaDon
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHoaDon", DbType="Char(6) NOT NULL", CanBeNull=false)]
+		public string MaHoaDon
 		{
 			get
 			{
-				return this._IdHoaDon;
+				return this._MaHoaDon;
 			}
 			set
 			{
-				if ((this._IdHoaDon != value))
+				if ((this._MaHoaDon != value))
 				{
-					this.OnIdHoaDonChanging(value);
+					this.OnMaHoaDonChanging(value);
 					this.SendPropertyChanging();
-					this._IdHoaDon = value;
-					this.SendPropertyChanged("IdHoaDon");
-					this.OnIdHoaDonChanged();
+					this._MaHoaDon = value;
+					this.SendPropertyChanged("MaHoaDon");
+					this.OnMaHoaDonChanged();
 				}
 			}
 		}

@@ -56,7 +56,7 @@
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.Location = new System.Drawing.Point(0, 0);
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(424, 366);
+            this.lvThongTin.Size = new System.Drawing.Size(583, 366);
             this.lvThongTin.TabIndex = 88;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -82,19 +82,19 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.Width = 118;
+            this.chSanPham.Width = 186;
             // 
             // chSoLuong
             // 
             this.chSoLuong.Text = "SL";
             this.chSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chSoLuong.Width = 48;
+            this.chSoLuong.Width = 58;
             // 
             // chDonGia
             // 
             this.chDonGia.Text = "Đơn giá";
             this.chDonGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chDonGia.Width = 85;
+            this.chDonGia.Width = 101;
             // 
             // chChietKhau
             // 
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 668);
+            this.ClientSize = new System.Drawing.Size(809, 479);
             this.Controls.Add(this.lvThongTin);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

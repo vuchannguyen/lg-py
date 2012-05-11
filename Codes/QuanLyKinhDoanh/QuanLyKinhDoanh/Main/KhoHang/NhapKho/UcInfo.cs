@@ -159,7 +159,7 @@ namespace QuanLyKinhDoanh.Mua
             int id = 0;
 
             string idSanPham = string.Empty;
-            DTO.HoaDonDetail dataTemp = HoaDonDetailBus.GetLastData();
+            DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_MUA);
 
             id = dataTemp == null ? 1 : dataTemp.Id + 1;
 
@@ -186,7 +186,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             dataHoaDon = new HoaDon();
 
-            dataHoaDon.IdHoaDon = tbMaNhap.Text;
+            dataHoaDon.MaHoaDon = tbMaNhap.Text;
             dataHoaDon.IdType = Constant.ID_TYPE_MUA;
             dataHoaDon.IdStatus = Constant.ID_STATUS_DONE;
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
@@ -421,7 +421,10 @@ namespace QuanLyKinhDoanh.Mua
         #region Ok Cancel
         private void pbHuy_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            if (MessageBox.Show(Constant.MESSAGE_EXIT, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.Dispose(); 
+            }
         }
 
         private void pbHuy_MouseEnter(object sender, EventArgs e)
@@ -436,6 +439,8 @@ namespace QuanLyKinhDoanh.Mua
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
+            pbHoanTat.Focus();
+
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (!isUpdate)
@@ -774,7 +779,7 @@ namespace QuanLyKinhDoanh.Mua
 
         private void UpdatePriceSP()
         {
-            dataSP.SoLuong += ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            dataSP.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
             dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);

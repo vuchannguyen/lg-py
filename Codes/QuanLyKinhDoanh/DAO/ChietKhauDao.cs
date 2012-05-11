@@ -105,10 +105,15 @@ namespace DAO
         {
             if (data != null)
             {
-                dbContext.ChietKhaus.DeleteOnSubmit(data);
-                dbContext.SubmitChanges();
+                ChietKhau objDb = GetById(data.Id);
 
-                return true;
+                if (objDb != null)
+                {
+                    objDb.DeleteFlag = true;
+                    dbContext.SubmitChanges();
+
+                    return true;
+                }
             }
 
             return false;
