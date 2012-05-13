@@ -18,6 +18,9 @@ namespace QuanLyKinhDoanh
         private UserControl uc;
         private const int row = Constant.DEFAULT_ROW;
 
+        private ListViewEx lvEx;
+        private int columnCount;
+
         public UcSanPham()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace QuanLyKinhDoanh
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL);
 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
 
@@ -121,8 +125,8 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaSanPham);
-                lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.SanPhamGroup.Ten);
+                lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.MoTa);
                 lvi.SubItems.Add(data.DonViTinh);
 
@@ -187,7 +191,151 @@ namespace QuanLyKinhDoanh
 
 
 
-        #region Thêm Xóa Sửa
+        #region Export Excel
+        public void NewLvEx(int width, int height)
+        {
+            lvEx = new ListViewEx();
+
+            lvEx.FullRowSelect = true;
+            lvEx.GridLines = true;
+            lvEx.Location = new System.Drawing.Point(3, 3);
+            lvEx.MultiSelect = false;
+            lvEx.Name = "lvEx";
+            lvEx.Size = new System.Drawing.Size(width, height);
+            lvEx.TabIndex = 0;
+            lvEx.UseCompatibleStateImageBehavior = false;
+            lvEx.View = System.Windows.Forms.View.Details;
+            lvEx.ColumnWidthChanged += new ColumnWidthChangedEventHandler(LvEx_ColumnWidthChanged);
+        }
+
+        private void LoadLvExLData()
+        {
+            lvEx.Columns.Add("Mã", 10, HorizontalAlignment.Left); //0
+            lvEx.Columns.Add("STT", 50, HorizontalAlignment.Left); //1
+            lvEx.Columns.Add("Mã SP", 100, HorizontalAlignment.Left); //2
+            lvEx.Columns.Add("Nhóm", 100, HorizontalAlignment.Center); //3
+            lvEx.Columns.Add("Tên", 100, HorizontalAlignment.Center); //4
+            lvEx.Columns.Add("Mô tả", 100, HorizontalAlignment.Center); //5
+            lvEx.Columns.Add("Đơn giá", 100, HorizontalAlignment.Center); //6
+            lvEx.Columns.Add("ĐVT", 100, HorizontalAlignment.Left); //7
+            lvEx.Columns.Add("Xuất xứ", 100, HorizontalAlignment.Center); //8
+            lvEx.Columns.Add("Hiệu", 100, HorizontalAlignment.Left); //9
+            lvEx.Columns.Add("Size", 100, HorizontalAlignment.Left); //10
+            lvEx.Columns.Add("Thời hạn", 100, HorizontalAlignment.Left); //11
+        }
+
+        private void HideColumn()
+        {
+            // Let us hide columns initally
+            lvEx.Columns[0].Visible = false;
+            lvEx.Columns[6].Visible = false;
+            lvEx.Columns[7].Visible = false;
+            lvEx.Columns[8].Visible = false;
+            lvEx.Columns[9].Visible = false;
+            lvEx.Columns[10].Visible = false;
+            lvEx.Columns[11].Visible = false;
+
+            // We will avoid removing the first column by the user.
+            // Dont provide the menu to remove simple...
+            lvEx.Columns[0].ColumnMenuItem.Visible = false;
+            lvEx.Columns[2].ColumnMenuItem.Visible = false;
+            lvEx.Columns[3].ColumnMenuItem.Visible = false;
+            lvEx.Columns[4].ColumnMenuItem.Visible = false;
+        }
+
+        private void RefreshLvEx(string text)
+        {
+            lvEx.Items.Clear();
+
+            if (text == Constant.SEARCH_SANPHAM_TIP)
+            {
+                text = string.Empty;
+            }
+
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, false,
+                string.Empty, string.Empty, 0, 0);
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                ListViewItem lvi = new ListViewItem();
+
+                //if (lvEx.Columns[0].Visible)
+                //{
+                //    lvi.Text = list_dto[i].Ma;
+                //}
+
+                if (lvEx.Columns[1].Visible)
+                {
+                    lvi.Text = (i + 1).ToString();
+                }
+
+                if (lvEx.Columns[2].Visible)
+                {
+                    lvi.SubItems.Add(list[i].MaSanPham);
+                }
+
+                if (lvEx.Columns[3].Visible)
+                {
+                    lvi.SubItems.Add(list[i].SanPhamGroup.Ten);
+                }
+
+                if (lvEx.Columns[4].Visible)
+                {
+                    lvi.SubItems.Add(list[i].Ten);
+                }
+
+                if (lvEx.Columns[5].Visible)
+                {
+                    lvi.SubItems.Add(list[i].MoTa);
+                }
+
+                if (lvEx.Columns[6].Visible)
+                {
+                    lvi.SubItems.Add(list[i].GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                }
+
+                if (lvEx.Columns[7].Visible)
+                {
+                    lvi.SubItems.Add(list[i].DonViTinh);
+                }
+
+                if (lvEx.Columns[8].Visible)
+                {
+                    lvi.SubItems.Add(list[i].XuatXu.Ten);
+                }
+
+                if (lvEx.Columns[9].Visible)
+                {
+                    lvi.SubItems.Add(list[i].Hieu);
+                }
+
+                if (lvEx.Columns[10].Visible)
+                {
+                    lvi.SubItems.Add(list[i].Size);
+                }
+
+                if (lvEx.Columns[11].Visible)
+                {
+                    lvi.SubItems.Add(list[i].ThoiHan.ToString() + " " + list[i].DonViThoiHan);
+                }
+
+                lvEx.Items.Add(lvi);
+            }
+        }
+
+        private void LvEx_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
+        {
+            if (lvEx.Columns.Count != columnCount)
+            {
+                columnCount = lvEx.Columns.Count;
+                RefreshLvEx(tbSearch.Text);
+            }
+        }
+        #endregion
+
+
+
+        #region Buttons
         private void pbThem_Click(object sender, EventArgs e)
         {
             //tbDienGiai_TextChanged(sender, e);
@@ -252,6 +400,35 @@ namespace QuanLyKinhDoanh
         private void pbSua_MouseLeave(object sender, EventArgs e)
         {
             pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
+        }
+
+        private void pbExcel_Click(object sender, EventArgs e)
+        {
+            if (lvThongTin.Items.Count > 0)
+            {
+                NewLvEx(Constant.DEFAULT_SIZE_LISTVIEWEX_EXPORT.Width, Constant.DEFAULT_SIZE_LISTVIEWEX_EXPORT.Height);
+                LoadLvExLData();
+                HideColumn();
+
+                RefreshLvEx(tbSearch.Text);
+
+                FormExportExcel frm = new FormExportExcel("Sản phẩm", lvEx);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_EXPORT_EXCEL_NULL_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pbExcel_MouseEnter(object sender, EventArgs e)
+        {
+            pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL_MOUSEOVER);
+        }
+
+        private void pbExcel_MouseLeave(object sender, EventArgs e)
+        {
+            pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL);
         }
         #endregion
 

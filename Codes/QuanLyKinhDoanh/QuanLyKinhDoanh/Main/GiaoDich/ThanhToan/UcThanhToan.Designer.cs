@@ -30,13 +30,13 @@
         {
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.lbNgayGio = new System.Windows.Forms.Label();
             this.tbTichLuy = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbSuDung = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbPayMoney = new System.Windows.Forms.TextBox();
-            this.dtpNgayGio = new System.Windows.Forms.DateTimePicker();
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.cbMaKH = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -49,6 +49,7 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
+            this.dtpNgayGio = new System.Windows.Forms.DateTimePicker();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
             this.pbHoanTat = new System.Windows.Forms.PictureBox();
@@ -68,6 +69,7 @@
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbTon = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -90,7 +92,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pbXoa = new System.Windows.Forms.PictureBox();
-            this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -116,13 +117,13 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.lbNgayGio);
             this.gbInfo.Controls.Add(this.tbTichLuy);
             this.gbInfo.Controls.Add(this.label13);
             this.gbInfo.Controls.Add(this.tbSuDung);
             this.gbInfo.Controls.Add(this.label15);
             this.gbInfo.Controls.Add(this.label12);
             this.gbInfo.Controls.Add(this.tbPayMoney);
-            this.gbInfo.Controls.Add(this.dtpNgayGio);
             this.gbInfo.Controls.Add(this.tbTenKH);
             this.gbInfo.Controls.Add(this.cbMaKH);
             this.gbInfo.Controls.Add(this.cbStatus);
@@ -142,6 +143,16 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin chung";
+            // 
+            // lbNgayGio
+            // 
+            this.lbNgayGio.AutoSize = true;
+            this.lbNgayGio.ForeColor = System.Drawing.Color.Black;
+            this.lbNgayGio.Location = new System.Drawing.Point(269, 33);
+            this.lbNgayGio.Name = "lbNgayGio";
+            this.lbNgayGio.Size = new System.Drawing.Size(149, 16);
+            this.lbNgayGio.TabIndex = 140;
+            this.lbNgayGio.Text = "dd/MM/yyyy - hh:mm tt";
             // 
             // tbTichLuy
             // 
@@ -212,15 +223,6 @@
             this.tbPayMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSoTienThanhToan_KeyPress);
             this.tbPayMoney.Leave += new System.EventHandler(this.tbPayMoney_Leave);
             // 
-            // dtpNgayGio
-            // 
-            this.dtpNgayGio.Enabled = false;
-            this.dtpNgayGio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayGio.Location = new System.Drawing.Point(277, 30);
-            this.dtpNgayGio.Name = "dtpNgayGio";
-            this.dtpNgayGio.Size = new System.Drawing.Size(169, 23);
-            this.dtpNgayGio.TabIndex = 132;
-            // 
             // tbTenKH
             // 
             this.tbTenKH.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,7 +287,7 @@
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(107, 117);
+            this.tbGhiChu.Location = new System.Drawing.Point(107, 120);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
@@ -296,7 +298,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(40, 120);
+            this.label4.Location = new System.Drawing.Point(40, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 97;
@@ -340,6 +342,16 @@
             this.lbTen.Size = new System.Drawing.Size(88, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Khách hàng:";
+            // 
+            // dtpNgayGio
+            // 
+            this.dtpNgayGio.Enabled = false;
+            this.dtpNgayGio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayGio.Location = new System.Drawing.Point(27, 10);
+            this.dtpNgayGio.Name = "dtpNgayGio";
+            this.dtpNgayGio.Size = new System.Drawing.Size(169, 23);
+            this.dtpNgayGio.TabIndex = 132;
+            this.dtpNgayGio.Visible = false;
             // 
             // panel12
             // 
@@ -521,6 +533,12 @@
             this.chDonGia.Text = "Đơn giá";
             this.chDonGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.chDonGia.Width = 100;
+            // 
+            // chThanhTien
+            // 
+            this.chThanhTien.Text = "Thành tiền";
+            this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chThanhTien.Width = 100;
             // 
             // groupBox1
             // 
@@ -768,12 +786,6 @@
             this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
             this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
             // 
-            // chThanhTien
-            // 
-            this.chThanhTien.Text = "Thành tiền";
-            this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chThanhTien.Width = 100;
-            // 
             // UcThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -781,6 +793,7 @@
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnInfo);
             this.Controls.Add(this.pnDetail);
+            this.Controls.Add(this.dtpNgayGio);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcThanhToan";
             this.Size = new System.Drawing.Size(1000, 600);
@@ -872,6 +885,7 @@
         private System.Windows.Forms.TextBox tbTon;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ColumnHeader chThanhTien;
+        private System.Windows.Forms.Label lbNgayGio;
 
     }
 }

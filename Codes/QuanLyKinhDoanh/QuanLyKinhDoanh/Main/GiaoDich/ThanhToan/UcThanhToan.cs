@@ -92,6 +92,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             dtpNgayGio.Value = DateTime.Now;
             dtpNgayGio.CustomFormat = Constant.DEFAULT_DATE_TIME_FORMAT;
+            lbNgayGio.Text = dtpNgayGio.Value.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
 
             cbMaSP.SelectedIndex = cbMaSP.Items.Count > 0 ? 0 : -1;
             //cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
@@ -134,10 +135,10 @@ namespace QuanLyKinhDoanh.GiaoDich
             lvi.SubItems.Add(dataSP.Id.ToString());
             lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
             lvi.SubItems.Add(dataSP.Ten);
+            lvi.SubItems.Add(tbChietKhau.Text == "0" ? string.Empty : tbChietKhau.Text + Constant.SYMBOL_DISCOUNT);
             lvi.SubItems.Add(tbSoLuong.Text);
             lvi.SubItems.Add(tbDVT.Text);
             lvi.SubItems.Add(tbGiaBan.Text);
-            lvi.SubItems.Add(tbChietKhau.Text == "0" ? string.Empty : tbChietKhau.Text + Constant.SYMBOL_DISCOUNT);
             lvi.SubItems.Add(tbThanhTien.Text);
 
             lvThongTin.Items.Add(lvi);
@@ -277,9 +278,71 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            FormBill frm = new FormBill();
+            //FormBill frm = new FormBill();
 
-            frm.ShowDialog();
+            //frm.ShowDialog();
+            List<ListView> list = new List<ListView>();
+
+            ListView lvInfoBill = new ListView();
+            lvInfoBill.CheckBoxes = true;
+            lvInfoBill.Columns.Add("Hóa đơn:");
+            lvInfoBill.Columns.Add(tbMaHD.Text);
+
+            ListViewItem lvi = new ListViewItem();
+
+            lvi = new ListViewItem();
+
+            lvi.SubItems[0].Text = "Người bán:";
+            lvi.SubItems.Add(tbNguoiBan.Text);
+
+            lvInfoBill.Items.Add(lvi);
+
+            lvi = new ListViewItem();
+
+            lvi.SubItems[0].Text = "Khách:";
+            lvi.SubItems.Add(cbMaKH.Text);
+
+            lvInfoBill.Items.Add(lvi);
+
+            list.Add(lvInfoBill);
+
+            ListView lvInfoNew = new ListView();
+
+            for (int i = 2; i < lvThongTin.Columns.Count; i++)
+            {
+                lvInfoNew.Columns.Add((ColumnHeader)lvThongTin.Columns[i].Clone());
+            }
+
+            for (int i = 0; i < lvThongTin.Items.Count; i++)
+            {
+                ListViewItem lviInfo = new ListViewItem();
+
+                lviInfo.SubItems[0].Text = lvThongTin.Items[i].SubItems[2].Text;
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[3].Text);
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[4].Text);
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[5].Text);
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[6].Text);
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[7].Text + Constant.DEFAULT_MONEY_SUBFIX);
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[8].Text + Constant.DEFAULT_MONEY_SUBFIX);
+
+                lvInfoNew.Items.Add(lviInfo);
+            }
+
+            list.Add(lvInfoNew);
+
+            string sPath = File_Function.SaveDialog("HoaDon_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+
+            if (sPath != null)
+            {
+                if (Office_Function.ExportInfoBill("test", sPath, list))
+                {
+                    MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR_EXPORT_EXCEL, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void pbHoanTat_MouseEnter(object sender, EventArgs e)

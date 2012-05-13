@@ -32,6 +32,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbExcel = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThem = new System.Windows.Forms.PictureBox();
@@ -65,6 +68,8 @@
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
             this.panel3.SuspendLayout();
@@ -113,13 +118,46 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.panel1);
             this.pnSelect.Controls.Add(this.panel2);
             this.pnSelect.Controls.Add(this.panel3);
             this.pnSelect.Controls.Add(this.panel4);
             this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(235, 78);
+            this.pnSelect.Size = new System.Drawing.Size(233, 78);
             this.pnSelect.TabIndex = 49;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbExcel);
+            this.panel1.Location = new System.Drawing.Point(6, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(70, 70);
+            this.panel1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(-1, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Xuất Excel";
+            // 
+            // pbExcel
+            // 
+            this.pbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbExcel.Location = new System.Drawing.Point(10, 0);
+            this.pbExcel.Name = "pbExcel";
+            this.pbExcel.Size = new System.Drawing.Size(50, 50);
+            this.pbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbExcel.TabIndex = 1;
+            this.pbExcel.TabStop = false;
+            this.pbExcel.Click += new System.EventHandler(this.pbExcel_Click);
+            this.pbExcel.MouseEnter += new System.EventHandler(this.pbExcel_MouseEnter);
+            this.pbExcel.MouseLeave += new System.EventHandler(this.pbExcel_MouseLeave);
             // 
             // panel2
             // 
@@ -129,6 +167,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(70, 70);
             this.panel2.TabIndex = 26;
+            this.panel2.Visible = false;
             // 
             // label24
             // 
@@ -160,6 +199,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(70, 70);
             this.panel3.TabIndex = 28;
+            this.panel3.Visible = false;
             // 
             // label30
             // 
@@ -192,6 +232,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(70, 70);
             this.panel4.TabIndex = 27;
+            this.panel4.Visible = false;
             // 
             // label28
             // 
@@ -233,8 +274,8 @@
             this.chMa,
             this.chSTT,
             this.chMaSanPham,
-            this.chTen,
             this.chNhom,
+            this.chTen,
             this.chMoTa,
             this.chDonViTinh});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -438,6 +479,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
@@ -497,5 +541,8 @@
         private System.Windows.Forms.ColumnHeader chMoTa;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chMaSanPham;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbExcel;
     }
 }

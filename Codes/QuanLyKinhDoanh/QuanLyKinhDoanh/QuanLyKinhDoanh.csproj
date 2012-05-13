@@ -58,16 +58,22 @@
     <Compile Include="FormBill.Designer.cs">
       <DependentUpon>FormBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormExportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExportExcel.Designer.cs">
+      <DependentUpon>FormExportExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrintPrice.cs">
+    <Compile Include="Main\SanPham\FormPrintPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrintPrice.Designer.cs">
+    <Compile Include="Main\SanPham\FormPrintPrice.Designer.cs">
       <DependentUpon>FormPrintPrice.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\Common\CommonComboBoxItems.cs" />
@@ -226,10 +232,13 @@
     <EmbeddedResource Include="FormBill.resx">
       <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormExportExcel.resx">
+      <DependentUpon>FormExportExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrintPrice.resx">
+    <EmbeddedResource Include="Main\SanPham\FormPrintPrice.resx">
       <DependentUpon>FormPrintPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Chi\UcChi.resx">

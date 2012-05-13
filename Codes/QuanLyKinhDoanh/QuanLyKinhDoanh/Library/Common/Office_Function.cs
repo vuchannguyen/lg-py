@@ -275,17 +275,6 @@ namespace Library
                     list_iMaxLength.Add(lv.Columns[iColumn].Text.Length);
                 }
 
-                //for (int iRow = 0; iRow < lv.Items.Count; iRow++)
-                //{
-                //    for (int iColumn = 1; iColumn < lv.Columns.Count; iColumn++)
-                //    {
-                //        COMExcel.Range r = (COMExcel.Range)exSheet.Cells[iRow + 2, iColumn];
-
-                //        r.Value2 = lv.Items[iRow].SubItems[iColumn].Text.ToString();
-                //        //r.Columns.AutoFit();
-                //    }
-                //}
-
                 for (int iColumn = 0; iColumn < lv.Columns.Count; iColumn++)
                 {
                     iRowFit = 1;
@@ -312,7 +301,6 @@ namespace Library
                     rFit.Columns.AutoFit();
                 }
 
-
                 //// Hiển thị chương trình excel
                 //exApp.Visible = true;
 
@@ -320,8 +308,6 @@ namespace Library
                 //Console.WriteLine("Wait to excel.exe");
                 //Console.ReadLine();
                 //exApp.Quit();
-
-
 
                 // Ẩn chương trình
                 exApp.Visible = false;
@@ -331,11 +317,9 @@ namespace Library
                                 null, null, false, false,
                                 COMExcel.XlSaveAsAccessMode.xlExclusive,
                                 false, false, false, false, false);
-
-
-
                 exBook.Close(false, false, false);
                 exApp.Quit();
+
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(exBook);
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(exApp);
 
@@ -399,6 +383,178 @@ namespace Library
 
                 exBook.Close(false, false, false);
                 exApp.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(exBook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(exApp);
+
+                return true;
+            }
+            catch
+            {
+                CloseExcel();
+
+                return false;
+            }
+        }
+
+        public static bool ExportDetailBill(string sSheetName, string sPath, ListView lv,
+            string idBill, string idUser, string idCustomer, DateTime time, long subtractMoney, long totalMoney)
+        {
+            try
+            {
+                // Khởi động chtr Excell
+                exApp = new COMExcel.Application();
+
+                // Thêm file temp xls
+                exBook = exApp.Workbooks.Add(
+                          COMExcel.XlWBATemplate.xlWBATWorksheet);
+
+                // Lấy sheet 1.
+                COMExcel.Worksheet exSheet = (COMExcel.Worksheet)exBook.Worksheets[1];
+
+                exSheet.Activate();
+                exSheet.Name = sSheetName;
+
+                List<int> list_iMaxLength = new List<int>(); //Gia tri max de so sanh AutoFit column
+
+                int iRowFit = 1;
+                int iColumnFit = 1;
+
+                for (int iColumn = 0; iColumn < lv.Columns.Count; iColumn++)
+                {
+                    COMExcel.Range r = (COMExcel.Range)exSheet.Cells[1, iColumn + 1];
+
+                    r.Font.Bold = true;
+                    r.Value2 = lv.Columns[iColumn].Text.ToString();
+                    r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
+
+                    list_iMaxLength.Add(lv.Columns[iColumn].Text.Length);
+                }
+
+                for (int iColumn = 0; iColumn < lv.Columns.Count; iColumn++)
+                {
+                    iRowFit = 1;
+                    iColumnFit = iColumn + 1;
+
+                    for (int iRow = 0; iRow < lv.Items.Count; iRow++)
+                    {
+                        COMExcel.Range r = (COMExcel.Range)exSheet.Cells[iRow + 2, iColumn + 1];
+
+                        r.Value2 = lv.Items[iRow].SubItems[iColumn].Text.ToString();
+                        r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
+
+                        if (lv.Items[iRow].SubItems[iColumn].Text.Length > list_iMaxLength[iColumn])
+                        {
+                            list_iMaxLength[iColumn] = lv.Items[iRow].SubItems[iColumn].Text.Length;
+
+                            iRowFit = iRow + 2;
+                            iColumnFit = iColumn + 1;
+                        }
+                    }
+
+                    COMExcel.Range rFit = (COMExcel.Range)exSheet.Cells[iRowFit, iColumnFit];
+                    rFit.Columns.AutoFit();
+                }
+
+                exApp.Visible = false;
+
+                exBook.SaveAs(sPath, COMExcel.XlFileFormat.xlWorkbookNormal,
+                                null, null, false, false,
+                                COMExcel.XlSaveAsAccessMode.xlExclusive,
+                                false, false, false, false, false);
+                exBook.Close(false, false, false);
+                exApp.Quit();
+
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(exBook);
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(exApp);
+
+                return true;
+            }
+            catch
+            {
+                CloseExcel();
+
+                return false;
+            }
+        }
+
+        public static bool ExportInfoBill(string sSheetName, string sPath, List<ListView> lv)
+            //string idBill, string idUser, string idCustomer, DateTime time, long subtractMoney, long totalMoney)
+        {
+            try
+            {
+                // Khởi động chtr Excell
+                exApp = new COMExcel.Application();
+
+                // Thêm file temp xls
+                exBook = exApp.Workbooks.Add(
+                          COMExcel.XlWBATemplate.xlWBATWorksheet);
+
+                // Lấy sheet 1.
+                COMExcel.Worksheet exSheet = (COMExcel.Worksheet)exBook.Worksheets[1];
+
+                exSheet.Activate();
+                exSheet.Name = sSheetName;
+
+                List<int> list_iMaxLength = new List<int>(); //Gia tri max de so sanh AutoFit column
+
+                int iRowFit = 1;
+                int iColumnFit = 1;
+
+                int rowIndex = 0;
+
+                foreach (ListView listView in lv)
+                {
+                    for (int iColumn = 0; iColumn < listView.Columns.Count; iColumn++)
+                    {
+                        COMExcel.Range r = (COMExcel.Range)exSheet.Cells[rowIndex + 1, iColumn + 1];
+
+                        r.Font.Bold = true;
+                        r.Value2 = listView.Columns[iColumn].Text.ToString();
+                        r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
+
+                        list_iMaxLength.Add(listView.Columns[iColumn].Text.Length);
+                    }
+
+                    //rowIndex += 1;
+
+                    for (int iColumn = 0; iColumn < listView.Columns.Count; iColumn++)
+                    {
+                        iRowFit = 1;
+                        iColumnFit = iColumn + 1;
+
+                        for (int iRow = rowIndex; iRow < listView.Items.Count + rowIndex; iRow++)
+                        {
+                            COMExcel.Range r = (COMExcel.Range)exSheet.Cells[iRow + 2, iColumn + 1];
+
+                            r.Value2 = listView.Items[iRow - rowIndex].SubItems[iColumn].Text.ToString();
+                            r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
+
+                            if (listView.Items[iRow - rowIndex].SubItems[iColumn].Text.Length > list_iMaxLength[iColumn])
+                            {
+                                list_iMaxLength[iColumn] = listView.Items[iRow - rowIndex].SubItems[iColumn].Text.Length;
+
+                                iRowFit = iRow + 2;
+                                iColumnFit = iColumn + 1;
+                            }
+                        }
+
+                        COMExcel.Range rFit = (COMExcel.Range)exSheet.Cells[iRowFit, iColumnFit];
+                        rFit.Columns.AutoFit();
+                    }
+
+                    rowIndex += listView.Items.Count;
+                    rowIndex += 1;
+                }
+
+                exApp.Visible = false;
+
+                exBook.SaveAs(sPath, COMExcel.XlFileFormat.xlWorkbookNormal,
+                                null, null, false, false,
+                                COMExcel.XlSaveAsAccessMode.xlExclusive,
+                                false, false, false, false, false);
+                exBook.Close(false, false, false);
+                exApp.Quit();
+
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(exBook);
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(exApp);
 

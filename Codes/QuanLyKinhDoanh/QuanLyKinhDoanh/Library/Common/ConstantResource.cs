@@ -11,6 +11,9 @@ namespace Library
         public const string MAIN_HORIZONLINE = @"Resources\Main\horizonline.png";
         public const string MAIN_BOTTOM_HORIZONLINE = @"Resources\Main\bottom_horizonline.png";
 
+
+
+        #region
         public const string CHUC_NANG_BUTTON_MINIMIZE = @"Resources\ChucNang\button_minimize.png";
         public const string CHUC_NANG_BUTTON_MINIMIZE_MOUSEOVER = @"Resources\ChucNang\button_minimize_mouseover.png";
         public const string CHUC_NANG_BUTTON_EXIT = @"Resources\ChucNang\button_exit.png";
@@ -45,6 +48,12 @@ namespace Library
         public const string CHUC_NANG_BUTTON_OK_PAGE_DISABLE = @"Resources\ChucNang\button_ok_disable.png";
         public const string CHUC_NANG_REFRESH = @"Resources\ChucNang\button_refresh.png";
         public const string CHUC_NANG_REFRESH_MOUSEOVER = @"Resources\ChucNang\button_refresh_mouseover.png";
+        public const string CHUC_NANG_EXPORT_EXCEL = @"Resources\ChucNang\icon_excel.png";
+        public const string CHUC_NANG_EXPORT_EXCEL_MOUSEOVER = @"Resources\ChucNang\icon_excel_mouseover.png";
+        public const string CHUC_NANG_EXPORT_EXCEL_TITLE = @"Resources\ChucNang\export_title.png";
+        #endregion
+
+
 
         public const string USER_ICON_USER = @"Resources\User\icon_user.png";
         public const string USER_ICON_USER_MOUSEOVER = @"Resources\User\icon_user_mouseover.png";
