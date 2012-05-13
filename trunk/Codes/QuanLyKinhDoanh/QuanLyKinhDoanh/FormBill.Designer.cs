@@ -48,15 +48,15 @@
             this.chId,
             this.chSTT,
             this.chSanPham,
+            this.chChietKhau,
             this.chSoLuong,
             this.chDonGia,
-            this.chChietKhau,
             this.chThanhTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
-            this.lvThongTin.Location = new System.Drawing.Point(0, 0);
+            this.lvThongTin.Location = new System.Drawing.Point(12, 101);
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(583, 366);
+            this.lvThongTin.Size = new System.Drawing.Size(600, 366);
             this.lvThongTin.TabIndex = 88;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -82,7 +82,7 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.Width = 186;
+            this.chSanPham.Width = 248;
             // 
             // chSoLuong
             // 
@@ -94,11 +94,11 @@
             // 
             this.chDonGia.Text = "Đơn giá";
             this.chDonGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chDonGia.Width = 101;
+            this.chDonGia.Width = 100;
             // 
             // chChietKhau
             // 
-            this.chChietKhau.Text = "Giảm";
+            this.chChietKhau.Text = "CK";
             this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chChietKhau.Width = 50;
             // 
@@ -106,13 +106,13 @@
             // 
             this.chThanhTien.Text = "Thành tiền";
             this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chThanhTien.Width = 80;
+            this.chThanhTien.Width = 100;
             // 
             // FormBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 479);
+            this.ClientSize = new System.Drawing.Size(624, 479);
             this.Controls.Add(this.lvThongTin);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

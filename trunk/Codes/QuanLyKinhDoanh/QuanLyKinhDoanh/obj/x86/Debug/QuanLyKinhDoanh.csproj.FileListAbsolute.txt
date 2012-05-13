@@ -93,10 +93,10 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\Q
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhoHangIndex.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormPrintPrice.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormPrintPrice.resources
-C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\GenerateResource.write.215.tlog
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormBill.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcXuatXu.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.XuatXu.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormBill.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.XuatXu.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcXuatXu.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormExportExcel.resources

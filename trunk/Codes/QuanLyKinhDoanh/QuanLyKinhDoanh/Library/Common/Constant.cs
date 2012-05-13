@@ -22,11 +22,13 @@ namespace Library
         public const int DEFAULT_LEFT_FIRST_DECAL = 10;
         public const int DEFAULT_NUMS_DECAL_ROWS = 12;
         public const int DEFAULT_NUMS_DECAL_COLUMNS = 7;
+
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
+        public static Size DEFAULT_SIZE_LISTVIEWEX_EXPORT = new Size(770, 485);
 
         public static DateTime DEFAULT_DATE = new DateTime(2000, 1, 1);
         public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
-        public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - hh:mm:ss";
+        public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - hh:mm tt";
 
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
@@ -90,6 +92,10 @@ namespace Library
         public const string STATUS_DONE = "Đã thanh toán";
         public const string STATUS_NOTHING = "Chưa thanh toán";
 
+        public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME = "Excel File";
+        public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE = "xls";
+        public const string DEFAULT_EXPORT_EXCEL_DATE_FORMAT = "ddMMyyyy";
+
         public const string CAPTION_CONFIRM = "CONFIRM";
         public const string CAPTION_WARNING = "WARNING";
         public const string CAPTION_ERROR = "ERROR";
@@ -112,12 +118,17 @@ namespace Library
 
         public const string MESSAGE_CONFIRM = "Hoàn tất?";
         public const string MESSAGE_CONFIRM_DELETE_ALL_PRICE = "Xóa hết tất cả các ô?";
+
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
         public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
         public const string MESSAGE_ERROR_DELETE_DATA = "Vui lòng kiểm tra dữ liệu có đang sử dụng hay không!";
         public const string MESSAGE_ERROR_DOB = "Vui lòng kiểm tra ngày sinh!" + MESSAGE_NEW_LINE + "(Từ {0} tuổi trở lên)";
+        public const string MESSAGE_ERROR_EXPORT_EXCEL = "Không thể xuất dữ liệu!\nVui lòng thử lại.";
+        public const string MESSAGE_ERROR_EXPORT_EXCEL_NULL_DATA = "Không có dữ liệu để xuất!";
+
+        public const string MESSAGE_SUCCESS_EXPORT_EXCEL = "Dữ liệu đã xuất thành công.";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";

@@ -37,17 +37,17 @@ namespace Library
             }
         }
 
-        public static string SaveDialog(string sNameOfFile, string sTypeOfFile)
+        public static string SaveDialog(string defaultName, string sNameOfFile, string sTypeOfFile)
         {
             try
             {
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.FileName = "";
+                saveFileDialog1.FileName = defaultName;
                 saveFileDialog1.Filter = sNameOfFile + "(*." + sTypeOfFile + ")|*." + sTypeOfFile;
                 saveFileDialog1.AddExtension = true;
                 saveFileDialog1.RestoreDirectory = true;
                 saveFileDialog1.OverwritePrompt = true;
-                saveFileDialog1.DefaultExt = "xls";
+                saveFileDialog1.DefaultExt = sTypeOfFile;
                 //saveFileDialog1.Title = "Where do you want to save the file?";
                 //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
                 saveFileDialog1.InitialDirectory = @"C:\";
