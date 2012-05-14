@@ -38,6 +38,8 @@ namespace QuanLyKinhDoanh.Mua
                 RefreshDataSP();
 
                 RefreshData();
+
+                CreateNewId();
             }
             else
             {
@@ -66,7 +68,7 @@ namespace QuanLyKinhDoanh.Mua
                 tbThoiHan.Text = data.SanPham.DonViThoiHan;
                 tbMoTa.Text = data.SanPham.MoTa;
 
-                tbMaNhap.Text = data.Id.ToString();
+                tbMaNhap.Text = data.HoaDon.MaHoaDon;
                 tbGiaNhap.Text = data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbSoLuong.Text = data.SoLuong.ToString();
                 tbGiaNhap.Text = data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -105,8 +107,6 @@ namespace QuanLyKinhDoanh.Mua
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
             this.BringToFront();
-
-            CreateNewId();
 
             ValidateInput();
         }
@@ -158,10 +158,10 @@ namespace QuanLyKinhDoanh.Mua
         {
             int id = 0;
 
-            string idSanPham = string.Empty;
             DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_MUA);
 
-            id = dataTemp == null ? 1 : dataTemp.Id + 1;
+            string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaHoaDon.Substring(dataTemp.MaHoaDon.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
 
             tbMaNhap.Text = Constant.PREFIX_MUA + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
         }

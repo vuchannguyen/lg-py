@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1443,7 +1443,7 @@ namespace DTO
 		
 		private int _SoLuong;
 		
-		private double _ChietKhau;
+		private int _ChietKhau;
 		
 		private long _ThanhTien;
 		
@@ -1465,7 +1465,7 @@ namespace DTO
     partial void OnDonGiaChanged();
     partial void OnSoLuongChanging(int value);
     partial void OnSoLuongChanged();
-    partial void OnChietKhauChanging(double value);
+    partial void OnChietKhauChanging(int value);
     partial void OnChietKhauChanged();
     partial void OnThanhTienChanging(long value);
     partial void OnThanhTienChanged();
@@ -1586,8 +1586,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChietKhau", DbType="Float NOT NULL")]
-		public double ChietKhau
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChietKhau", DbType="Int NOT NULL")]
+		public int ChietKhau
 		{
 			get
 			{
