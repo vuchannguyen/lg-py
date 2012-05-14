@@ -499,27 +499,42 @@ namespace Library
 
                 int iRowFit = 1;
                 int iColumnFit = 1;
+                bool isNewMaxLength = true;
 
                 int rowIndex = 0;
 
                 foreach (ListView listView in lv)
                 {
+                    int[] listOldMaxLength = new int[list_iMaxLength.Count];
+                    list_iMaxLength.CopyTo(listOldMaxLength);
+                    list_iMaxLength.Clear();
+
                     for (int iColumn = 0; iColumn < listView.Columns.Count; iColumn++)
                     {
                         COMExcel.Range r = (COMExcel.Range)exSheet.Cells[rowIndex + 1, iColumn + 1];
 
                         r.Font.Bold = true;
                         r.Value2 = listView.Columns[iColumn].Text.ToString();
-                        r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
+                        //r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
 
-                        list_iMaxLength.Add(listView.Columns[iColumn].Text.Length);
+                        if (iColumn < listOldMaxLength.Length && listView.Columns[iColumn].Text.Length < listOldMaxLength[iColumn])
+                        {
+                            list_iMaxLength.Add(listOldMaxLength[iColumn]);
+                        }
+                        else
+                        {
+                            list_iMaxLength.Add(listView.Columns[iColumn].Text.Length);
+
+                            COMExcel.Range rFit = (COMExcel.Range)exSheet.Cells[rowIndex + 1, iColumn + 1];
+                            rFit.Columns.AutoFit();
+                        }
                     }
 
                     //rowIndex += 1;
 
                     for (int iColumn = 0; iColumn < listView.Columns.Count; iColumn++)
                     {
-                        iRowFit = 1;
+                        iRowFit = rowIndex + 1;
                         iColumnFit = iColumn + 1;
 
                         for (int iRow = rowIndex; iRow < listView.Items.Count + rowIndex; iRow++)
@@ -527,7 +542,7 @@ namespace Library
                             COMExcel.Range r = (COMExcel.Range)exSheet.Cells[iRow + 2, iColumn + 1];
 
                             r.Value2 = listView.Items[iRow - rowIndex].SubItems[iColumn].Text.ToString();
-                            r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
+                            //r.BorderAround(COMExcel.XlLineStyle.xlContinuous, COMExcel.XlBorderWeight.xlThin, COMExcel.XlColorIndex.xlColorIndexAutomatic, 1);
 
                             if (listView.Items[iRow - rowIndex].SubItems[iColumn].Text.Length > list_iMaxLength[iColumn])
                             {
@@ -535,11 +550,18 @@ namespace Library
 
                                 iRowFit = iRow + 2;
                                 iColumnFit = iColumn + 1;
+
+                                isNewMaxLength = true;
                             }
                         }
 
-                        COMExcel.Range rFit = (COMExcel.Range)exSheet.Cells[iRowFit, iColumnFit];
-                        rFit.Columns.AutoFit();
+                        if (isNewMaxLength)
+                        {
+                            COMExcel.Range rFit = (COMExcel.Range)exSheet.Cells[iRowFit, iColumnFit];
+                            rFit.Columns.AutoFit();
+
+                            isNewMaxLength = false;
+                        }
                     }
 
                     rowIndex += listView.Items.Count;
