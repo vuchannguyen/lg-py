@@ -118,6 +118,7 @@ namespace Library
 
         public const string MESSAGE_CONFIRM = "Hoàn tất?";
         public const string MESSAGE_CONFIRM_DELETE_ALL_PRICE = "Xóa hết tất cả các ô?";
+        public const string MESSAGE_CONFIRM_EXPORT = "Xuất dữ liệu ra file Excel?";
 
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
