@@ -17,6 +17,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         private DTO.SanPham dataSP;
         private DTO.KhachHang dataKH;
         private DTO.ChietKhau dataCK;
+        private DTO.HoaDon dataHoaDon;
+        private DTO.HoaDonDetail dataHoaDonDetail;
 
         private int discount;
         private long totalMoney;
@@ -58,8 +60,6 @@ namespace QuanLyKinhDoanh.GiaoDich
             pnInfo.Location = CommonFunc.SetWidthCenter(this.Size, pnInfo.Size, pnInfo.Top);
             pnDetail.Location = CommonFunc.SetWidthCenter(this.Size, pnDetail.Size, pnDetail.Top);
 
-            CreateNewId();
-
             this.BringToFront();
 
             ValidateInput();
@@ -97,6 +97,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             cbMaSP.SelectedIndex = cbMaSP.Items.Count > 0 ? 0 : -1;
             //cbKhachHang.SelectedIndex = cbKhachHang.Items.Count > 0 ? 0 : -1;
             cbStatus.SelectedIndex = cbStatus.Items.Count > 0 ? 0 : -1;
+
+            CreateNewId();
         }
 
         private void ValidateInput()
@@ -276,35 +278,32 @@ namespace QuanLyKinhDoanh.GiaoDich
             pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
         }
 
-        private void pbHoanTat_Click(object sender, EventArgs e)
+        private void ExportBill()
         {
-            //FormBill frm = new FormBill();
-
-            //frm.ShowDialog();
             List<ListView> list = new List<ListView>();
 
             ListView lvInfoBill = new ListView();
             lvInfoBill.CheckBoxes = true;
-            lvInfoBill.Columns.Add("Hóa đơn:");
-            lvInfoBill.Columns.Add(tbMaHD.Text);
+            lvInfoBill.Columns.Add("");
+            lvInfoBill.Columns.Add("Hóa đơn: " + tbMaHD.Text);
 
             ListViewItem lvi = new ListViewItem();
 
             lvi = new ListViewItem();
-
-            lvi.SubItems[0].Text = "Người bán:";
-            lvi.SubItems.Add(tbNguoiBan.Text);
-
+            lvi.SubItems.Add("Ngày: " + lbNgayGio.Text);
             lvInfoBill.Items.Add(lvi);
 
             lvi = new ListViewItem();
-
-            lvi.SubItems[0].Text = "Khách:";
-            lvi.SubItems.Add(cbMaKH.Text);
-
+            lvi.SubItems.Add("Nhân viên: " + tbNguoiBan.Text);
             lvInfoBill.Items.Add(lvi);
 
-            list.Add(lvInfoBill);
+            lvi = new ListViewItem();
+            lvi.SubItems.Add("Khách: " + cbMaKH.Text);
+            lvInfoBill.Items.Add(lvi);
+
+            lvi = new ListViewItem();
+            lvi.SubItems.Add("Tổng: " + tbTotalMoney.Text + Constant.DEFAULT_MONEY_SUBFIX);
+            lvInfoBill.Items.Add(lvi);
 
             ListView lvInfoNew = new ListView();
 
@@ -328,13 +327,14 @@ namespace QuanLyKinhDoanh.GiaoDich
                 lvInfoNew.Items.Add(lviInfo);
             }
 
+            list.Add(lvInfoBill);
             list.Add(lvInfoNew);
 
             string sPath = File_Function.SaveDialog("HoaDon_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
             if (sPath != null)
             {
-                if (Office_Function.ExportInfoBill("test", sPath, list))
+                if (Office_Function.ExportInfoBill("Hóa đơn", sPath, list))
                 {
                     MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -342,6 +342,98 @@ namespace QuanLyKinhDoanh.GiaoDich
                 {
                     MessageBox.Show(Constant.MESSAGE_ERROR_EXPORT_EXCEL, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void InsertData()
+        {
+            InsertDataHoaDon();
+        }
+
+        private void InsertDataHoaDon()
+        {
+            dataHoaDon = new HoaDon();
+
+            dataHoaDon.MaHoaDon = tbMaHD.Text;
+            dataHoaDon.IdType = Constant.ID_TYPE_BAN;
+            dataHoaDon.IdStatus = Constant.ID_STATUS_DONE;
+            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataHoaDon.GhiChu = tbGhiChu.Text;
+
+            dataHoaDon.CreateBy = dataHoaDon.UpdateBy = "";
+            dataHoaDon.CreateDate = dataHoaDon.UpdateDate = DateTime.Now;
+
+            if (HoaDonBus.Insert(dataHoaDon))
+            {
+                InsertDataHoaDonDetail(dataHoaDon.Id);
+            }
+            else
+            {
+                try
+                {
+                    HoaDonBus.Delete(dataHoaDon);
+                }
+                catch
+                {
+                    //
+                }
+
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+                else
+                {
+                    CreateNewId();
+                }
+            }
+        }
+
+        private void InsertDataHoaDonDetail(int idHoaDon)
+        {
+            dataHoaDonDetail = new HoaDonDetail();
+
+            dataHoaDonDetail.IdHoaDon = idHoaDon;
+            dataHoaDonDetail.IdSanPham = dataSP.Id;
+            dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+
+            if (HoaDonDetailBus.Insert(dataHoaDonDetail))
+            {
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + dataHoaDon.MaHoaDon) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                {
+                    this.Dispose();
+                }
+                else
+                {
+                    RefreshData();
+                }
+            }
+            else
+            {
+                try
+                {
+                    HoaDonDetailBus.Delete(dataHoaDonDetail);
+                }
+                catch
+                {
+                    //
+                }
+
+                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void pbHoanTat_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                InsertData();
+
+                ExportBill();
             }
         }
 

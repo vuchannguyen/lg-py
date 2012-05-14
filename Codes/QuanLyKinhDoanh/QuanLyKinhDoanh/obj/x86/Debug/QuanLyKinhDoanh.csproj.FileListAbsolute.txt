@@ -100,3 +100,4 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\Q
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.XuatXu.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcXuatXu.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormExportExcel.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormExportExcel.resources

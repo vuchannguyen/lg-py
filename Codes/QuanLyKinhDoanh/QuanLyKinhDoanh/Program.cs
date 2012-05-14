@@ -15,6 +15,7 @@ namespace QuanLyKinhDoanh
         static void Main()
         {
             string currentProcess = Process.GetCurrentProcess().ProcessName;
+
             if (Process.GetProcessesByName(currentProcess).Length > 1)
             {
                 MessageBox.Show("Chương trình Quản Lý Kinh Doanh đang được sử dụng!");

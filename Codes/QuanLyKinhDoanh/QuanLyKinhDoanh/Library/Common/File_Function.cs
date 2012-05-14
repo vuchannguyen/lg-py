@@ -20,7 +20,8 @@ namespace Library
                 openFileDialog1.CheckFileExists = true;
                 openFileDialog1.RestoreDirectory = true;
                 openFileDialog1.DefaultExt = sTypeOfFile;
-                openFileDialog1.InitialDirectory = @"C:\";
+                //openFileDialog1.InitialDirectory = @"C:\";
+                openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
 
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -49,8 +50,8 @@ namespace Library
                 saveFileDialog1.OverwritePrompt = true;
                 saveFileDialog1.DefaultExt = sTypeOfFile;
                 //saveFileDialog1.Title = "Where do you want to save the file?";
-                //saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
-                saveFileDialog1.InitialDirectory = @"C:\";
+                //saveFileDialog1.InitialDirectory = @"C:\";
+                saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
