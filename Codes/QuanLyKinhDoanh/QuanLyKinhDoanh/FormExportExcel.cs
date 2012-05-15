@@ -73,7 +73,11 @@ namespace QuanLyKinhDoanh
 
             if (sPath != null)
             {
-                if (Office_Function.ExportListViewData2Excel07(sheetName, sPath, lvEx))
+                List<ListView> list = new List<ListView>();
+
+                list.Add(lvEx);
+
+                if (Office_Function.ExportListViews2Excel(sheetName, sPath, list))
                 {
                     MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -91,7 +95,10 @@ namespace QuanLyKinhDoanh
 
         private void pbHoanTat_MouseLeave(object sender, EventArgs e)
         {
-            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            if (pbHoanTat.Enabled)
+            {
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            }
         }
     }
 }

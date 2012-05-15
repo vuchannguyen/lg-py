@@ -44,7 +44,7 @@ namespace QuanLyKinhDoanh.KhachHang
             if (Init())
             {
                 tbTen.Text = data.Ten;
-                tbDiem.Text = data.TichLuy.ToString();
+                tbDiem.Text = data.TichLuy.Value.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbDiaChi.Text = data.DiaChi;
                 tbDienThoai.Text = data.DienThoai;
                 tbFax.Text = data.Fax;
@@ -190,7 +190,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
+            //data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
             data.CreateBy = data.UpdateBy = "";
@@ -223,7 +223,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
+            //data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
             data.UpdateBy = "";
@@ -322,11 +322,11 @@ namespace QuanLyKinhDoanh.KhachHang
         {
             CommonFunc.ValidateSpace(e);
         }
-        #endregion
 
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateNewIdKH();
         }
+        #endregion
     }
 }
