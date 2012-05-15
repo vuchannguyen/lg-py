@@ -88,9 +88,11 @@ namespace Library
         public const string PREFIX_CHI = "C";
 
         public const int ID_STATUS_DONE = 1;
-        public const int ID_STATUS_NOTHING = 2;
-        public const string STATUS_DONE = "Đã thanh toán";
-        public const string STATUS_NOTHING = "Chưa thanh toán";
+        public const int ID_STATUS_DEBT = 2;
+        public const string STATUS_DONE = "Trả hết";
+        public const string STATUS_DEBT = "Nợ";
+        public const string DEFAULT_MONEY_STATUS_DONE = "Tiền hồi lại:";
+        public const string DEFAULT_MONEY_STATUS_DEBT = "Tiền còn lại:";
 
         public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME = "Excel File";
         public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE = "xls";
