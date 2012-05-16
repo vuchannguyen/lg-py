@@ -44,12 +44,12 @@ namespace QuanLyKinhDoanh.GiaoDich
                 pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
-                //pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             }
             catch
             {
+                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_RESOURCE, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.Dispose();
-                //Form_Notice frm_Notice = new Form_Notice("Kiểm tra thư mục Resource!", false);
             }
         }
 

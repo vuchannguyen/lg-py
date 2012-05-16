@@ -26,21 +26,6 @@ namespace DAO
                     );
             }
 
-            //if (ConvertUtil.ConvertToInt(examQuestionId) != 0)
-            //{
-            //    sql = sql.Where(p => p.ExamQuestionID == ConvertUtil.ConvertToInt(examQuestionId));
-            //}
-
-            //if (examDateFrom != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate >= examDateFrom);
-            //}
-
-            //if (examDateTo != null)
-            //{
-            //    sql = sql.Where(p => p.ExamDate <= examDateTo);
-            //}
-
             sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
@@ -58,24 +43,28 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chTen":
+                case "Họ và tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
+                case "Tên đăng nhập":
+                    sortSQL += "UserName " + sortOrder;
+                    break;
 
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
+                case "Nhóm":
+                    sortSQL += "UserGroup.Ten " + sortOrder;
+                    break;
 
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
+                case "Điện thoại":
+                    sortSQL += "DienThoai " + sortOrder;
+                    break;
+
+                case "Email":
+                    sortSQL += "Email " + sortOrder;
+                    break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Ten " + sortOrder;
                     break;
             }
 

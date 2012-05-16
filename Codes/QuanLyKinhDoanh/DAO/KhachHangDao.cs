@@ -44,24 +44,32 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chTen":
+                case "Mã KH":
+                    sortSQL += "MaKhachHang " + sortOrder;
+                    break;
+
+                case "Họ và tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
+                case "Địa chỉ":
+                    sortSQL += "DiaChi " + sortOrder;
+                    break;
 
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
+                case "Điện thoại":
+                    sortSQL += "DienThoai " + sortOrder;
+                    break;
 
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
+                case "Email":
+                    sortSQL += "Email " + sortOrder;
+                    break;
+
+                case "Tích lũy":
+                    sortSQL += "TichLuy " + sortOrder;
+                    break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Ten " + sortOrder;
                     break;
             }
 

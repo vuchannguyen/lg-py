@@ -46,11 +46,12 @@
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMaKH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHoTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDiaChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDiem = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chTichLuy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.chMaKH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -221,7 +221,7 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(146, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(100, 87);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Size = new System.Drawing.Size(800, 480);
             this.pnQuanLy.TabIndex = 48;
@@ -238,7 +238,7 @@
             this.chDiaChi,
             this.chDienThoai,
             this.chEmail,
-            this.chDiem});
+            this.chTichLuy});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -272,10 +272,16 @@
             this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chSTT.Width = 39;
             // 
+            // chMaKH
+            // 
+            this.chMaKH.Text = "Mã KH";
+            this.chMaKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chMaKH.Width = 84;
+            // 
             // chHoTen
             // 
             this.chHoTen.Text = "Họ và tên";
-            this.chHoTen.Width = 145;
+            this.chHoTen.Width = 181;
             // 
             // chDiaChi
             // 
@@ -293,10 +299,11 @@
             this.chEmail.Text = "Email";
             this.chEmail.Width = 112;
             // 
-            // chDiem
+            // chTichLuy
             // 
-            this.chDiem.Text = "Điểm";
-            this.chDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chTichLuy.Text = "Tích lũy";
+            this.chTichLuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chTichLuy.Width = 100;
             // 
             // pnTraCuu
             // 
@@ -424,12 +431,6 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
-            // chMaKH
-            // 
-            this.chMaKH.Text = "Mã KH";
-            this.chMaKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chMaKH.Width = 84;
-            // 
             // UcKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -502,7 +503,7 @@
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lbPage;
         private System.Windows.Forms.ColumnHeader chDiaChi;
-        private System.Windows.Forms.ColumnHeader chDiem;
+        private System.Windows.Forms.ColumnHeader chTichLuy;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chMaKH;
     }

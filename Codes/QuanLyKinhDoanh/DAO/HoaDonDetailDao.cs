@@ -47,9 +47,44 @@ namespace DAO
 
             switch (sortColumn)
             {
+                case "Mã Nhập":
+                    sortSQL += "HoaDon.MaHoaDon " + sortOrder;
+                    break;
+
+                case "Sản phẩm":
+                    sortSQL += "SanPham.MaSanPham " + sortOrder;
+                    break;
+
+                case "Người nhập":
+                    sortSQL += "HoaDon.User.UserName " + sortOrder;
+                    break;
+
+                case "Ngày giờ":
+                    sortSQL += "HoaDon.CreateDate " + sortOrder;
+                    break;
+
+                case "SL":
+                    sortSQL += "SoLuong " + sortOrder;
+                    break;
+
+                case "ĐVT":
+                    sortSQL += "SanPham.DonViTinh " + sortOrder;
+                    break;
+
+                case "Giá nhập":
+                    sortSQL += "SanPham.GiaMua " + sortOrder;
+                    break;
+
+                case "Giá bán":
+                    sortSQL += "SanPham.GiaBan " + sortOrder;
+                    break;
+
+                case "Tổng nhập":
+                    sortSQL += "ThanhTien " + sortOrder;
+                    break;
 
                 default:
-                    sortSQL += "Id " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "HoaDon.CreateDate " + sortOrder;
                     break;
             }
 

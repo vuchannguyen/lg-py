@@ -50,8 +50,8 @@
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMaSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNhom = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonViTinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
@@ -274,10 +274,10 @@
             this.chMa,
             this.chSTT,
             this.chMaSanPham,
-            this.chNhom,
+            this.chGroup,
             this.chTen,
-            this.chMoTa,
-            this.chDonViTinh});
+            this.chDonViTinh,
+            this.chMoTa});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -317,16 +317,16 @@
             this.chMaSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chMaSanPham.Width = 99;
             // 
+            // chGroup
+            // 
+            this.chGroup.Text = "Nhóm";
+            this.chGroup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chGroup.Width = 138;
+            // 
             // chTen
             // 
             this.chTen.Text = "Tên";
             this.chTen.Width = 197;
-            // 
-            // chNhom
-            // 
-            this.chNhom.Text = "Nhóm";
-            this.chNhom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNhom.Width = 138;
             // 
             // chMoTa
             // 
@@ -525,7 +525,7 @@
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chTen;
-        private System.Windows.Forms.ColumnHeader chNhom;
+        private System.Windows.Forms.ColumnHeader chGroup;
         private System.Windows.Forms.ColumnHeader chDonViTinh;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;

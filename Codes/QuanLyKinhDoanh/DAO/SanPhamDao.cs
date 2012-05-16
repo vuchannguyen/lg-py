@@ -59,16 +59,28 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chId":
-                    sortSQL += "Id " + sortOrder;
+                case "Mã SP":
+                    sortSQL += "MaSanPham " + sortOrder;
                     break;
 
-                case "chTen":
+                case "Nhóm":
+                    sortSQL += "SanPhamGroup.Ten " + sortOrder;
+                    break;
+
+                case "Tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
 
+                case "Đơn vị tính":
+                    sortSQL += "DonViTinh " + sortOrder;
+                    break;
+
+                case "Mô tả":
+                    sortSQL += "MoTa " + sortOrder;
+                    break;
+
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Ten " + sortOrder;
                     break;
             }
 
@@ -126,7 +138,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Ten " + sortOrder;
                     break;
             }
 

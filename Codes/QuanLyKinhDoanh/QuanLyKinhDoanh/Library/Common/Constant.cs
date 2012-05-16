@@ -124,6 +124,7 @@ namespace Library
 
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
+        public const string MESSAGE_ERROR_MISSING_RESOURCE = "Vui lòng kiểm tra thư mục Resource!";
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
         public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
         public const string MESSAGE_ERROR_DELETE_DATA = "Vui lòng kiểm tra dữ liệu có đang sử dụng hay không!";
@@ -139,5 +140,6 @@ namespace Library
         public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
         public const string SEARCH_NHAPKHO_TIP = "Mã nhập - Mã SP - Tên SP";
+        public const string SEARCH_THU_TIP = "Mã Hóa đơn - Lý do";
     }
 }

@@ -57,7 +57,7 @@ namespace DAO
                 //    break;
 
                 default:
-                    sortSQL += "SanPham.Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "SanPham.Ten " + sortOrder;
                     break;
             }
 

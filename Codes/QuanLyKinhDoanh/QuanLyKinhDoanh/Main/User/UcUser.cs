@@ -17,6 +17,8 @@ namespace QuanLyKinhDoanh
     {
         private UserControl uc;
         private const int row = Constant.DEFAULT_ROW;
+        private string sortColumn;
+        private string sortOrder;
 
         public UcUser()
         {
@@ -42,8 +44,9 @@ namespace QuanLyKinhDoanh
             }
             catch
             {
+                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_RESOURCE, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.Dispose();
-                //Form_Notice frm_Notice = new Form_Notice("Kiểm tra thư mục Resource!", false);
             }
         }
 
@@ -60,9 +63,13 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
+            sortColumn = string.Empty;
+            sortOrder = Constant.SORT_ASCENDING;
+
             tbSearch.Text = Constant.SEARCH_USER_TIP;
 
-            RefreshListView(tbSearch.Text, 1);
+            RefreshListView(tbSearch.Text,
+                sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
             this.Visible = true;
@@ -75,7 +82,8 @@ namespace QuanLyKinhDoanh
         {
             tbSearch.Text = Constant.SEARCH_USER_TIP;
 
-            RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text,
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
@@ -91,7 +99,8 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListView(string text, int page)
+        private void RefreshListView(string text,
+            string sortColumn, string sortOrder, int page)
         {
             if (text == Constant.SEARCH_USER_TIP)
             {
@@ -110,18 +119,19 @@ namespace QuanLyKinhDoanh
             }
 
             List<DTO.User> list = UserBus.GetList(text,
-                string.Empty, string.Empty, row * (page - 1), row);
+                sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
 
             foreach (DTO.User data in list)
             {
                 ListViewItem lvi = new ListViewItem();
+
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
+                lvi.SubItems.Add(data.UserGroup.Ten);
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.UserName);
-                lvi.SubItems.Add(data.UserGroup.Ten);
                 lvi.SubItems.Add(data.DienThoai);
                 lvi.SubItems.Add(data.Email);
 
@@ -217,7 +227,8 @@ namespace QuanLyKinhDoanh
 
                 if (UserBus.DeleteList(ids))
                 {
-                    RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+                    RefreshListView(tbSearch.Text,
+                        sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
             }
         }
@@ -291,6 +302,15 @@ namespace QuanLyKinhDoanh
                     item.Checked = !isChecked;
                 }
             }
+
+            if (e.Column != 0 && e.Column != 1 && e.Column != 2)
+            {
+                sortColumn = lvThongTin.Columns[e.Column].Text;
+                sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
+
+                RefreshListView(tbSearch.Text,
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+            }
         }
 
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -316,7 +336,8 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+                RefreshListView(tbSearch.Text,
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
 
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -414,7 +435,8 @@ namespace QuanLyKinhDoanh
 
         private void pbOk_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text,
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)

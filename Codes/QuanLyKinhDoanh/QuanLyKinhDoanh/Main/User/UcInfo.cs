@@ -73,8 +73,9 @@ namespace QuanLyKinhDoanh.User
             }
             catch
             {
+                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_RESOURCE, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.Dispose();
-                //Form_Notice frm_Notice = new Form_Notice("Kiểm tra thư mục Resource!", false);
             }
         }
 
