@@ -20,16 +20,19 @@ namespace DAO
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.User.Ten, text) ||
-                    SqlMethods.Like(p.KhachHang.Ten, text)
+                sql = sql.Where(p => SqlMethods.Like(p.MaHoaDon, text) ||
+                    SqlMethods.Like(p.GhiChu, text)
                     );
             }
 
             if (type != 0)
             {
                 sql = sql.Where(p => p.IdType == type);
-
             }
+
+            sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
+            sql = sql.Where(p => p.DeleteFlag == false);
+
             return sql;
         }
 
@@ -45,12 +48,32 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chTen":
-                    sortSQL += "Ten " + sortOrder;
+                case "Mã":
+                    sortSQL += "MaHoaDon " + sortOrder;
+                    break;
+
+                case "Người nhập":
+                    sortSQL += "User.UserName " + sortOrder;
+                    break;
+
+                case "Khách hàng":
+                    sortSQL += "KhachHang.MaKhachHange " + sortOrder;
+                    break;
+
+                case "Ngày giờ":
+                    sortSQL += "CreateDate " + sortOrder;
+                    break;
+
+                case "Lý do":
+                    sortSQL += "GhiChu " + sortOrder;
+                    break;
+
+                case "Tiền":
+                    sortSQL += "ThanhTien " + sortOrder;
                     break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "CreateDate " + sortOrder;
                     break;
             }
 
@@ -63,6 +86,118 @@ namespace DAO
 
             return sql.Skip(skip).Take(take).ToList();
         }
+
+
+
+        #region Thu
+        public static IQueryable<HoaDon> GetQueryThu(string text)
+        {
+            var sql = from data in dbContext.HoaDons
+                      select data;
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                text = CommonDao.GetFilterText(text);
+                sql = sql.Where(p => SqlMethods.Like(p.MaHoaDon, text) ||
+                    SqlMethods.Like(p.GhiChu, text)
+                    );
+            }
+
+            sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_BAN || p.IdType == CommonDao.ID_TYPE_THU);
+            sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
+            sql = sql.Where(p => p.DeleteFlag == false);
+
+            return sql;
+        }
+
+        public static int GetCountThu(string text)
+        {
+            return GetQueryThu(text).Count();
+        }
+
+        public static List<HoaDon> GetListThu(string text,
+            string sortColumn, string sortOrder, int skip, int take)
+        {
+            string sortSQL = string.Empty;
+
+            switch (sortColumn)
+            {
+                case "chId":
+                    sortSQL += "Id " + sortOrder;
+                    break;
+
+                default:
+                    sortSQL += "CreateDate " + sortOrder;
+                    break;
+            }
+
+            var sql = GetQueryThu(text).OrderBy(sortSQL);
+
+            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
+            {
+                return sql.ToList();
+            }
+
+            return sql.Skip(skip).Take(take).ToList();
+        }
+        #endregion
+
+
+
+        #region Chi
+        public static IQueryable<HoaDon> GetQueryChi(string text)
+        {
+            var sql = from data in dbContext.HoaDons
+                      select data;
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                text = CommonDao.GetFilterText(text);
+                sql = sql.Where(p => SqlMethods.Like(p.MaHoaDon, text) ||
+                    SqlMethods.Like(p.GhiChu, text)
+                    );
+            }
+
+            sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_MUA || p.IdType == CommonDao.ID_TYPE_CHI);
+            sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
+            sql = sql.Where(p => p.DeleteFlag == false);
+
+            return sql;
+        }
+
+        public static int GetCountChi(string text)
+        {
+            return GetQueryChi(text).Count();
+        }
+
+        public static List<HoaDon> GetListChi(string text,
+            string sortColumn, string sortOrder, int skip, int take)
+        {
+            string sortSQL = string.Empty;
+
+            switch (sortColumn)
+            {
+                case "chId":
+                    sortSQL += "Id " + sortOrder;
+                    break;
+
+                default:
+                    sortSQL += "CreateDate " + sortOrder;
+                    break;
+            }
+
+            var sql = GetQueryChi(text).OrderBy(sortSQL);
+
+            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
+            {
+                return sql.ToList();
+            }
+
+            return sql.Skip(skip).Take(take).ToList();
+        }
+        #endregion
+
+
 
         public static HoaDon GetLastData()
         {

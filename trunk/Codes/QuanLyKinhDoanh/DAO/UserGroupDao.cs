@@ -45,7 +45,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Ten " + sortOrder;
                     break;
             }
 

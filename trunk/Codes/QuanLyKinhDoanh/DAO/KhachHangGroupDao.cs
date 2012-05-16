@@ -40,24 +40,12 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chTen":
+                case "Tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
-
                 default:
-                    sortSQL += "Id " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Id " + sortOrder;
                     break;
             }
 

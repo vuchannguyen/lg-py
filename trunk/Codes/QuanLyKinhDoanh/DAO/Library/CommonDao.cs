@@ -17,6 +17,9 @@ namespace Library
         public const int ID_TYPE_THU = 3;
         public const int ID_TYPE_CHI = 4;
 
+        public const int ID_STATUS_DONE = 1;
+        public const int ID_STATUS_DEBT = 2;
+
         public static string GetFilterText(string text)
         {
             string filter = string.Empty;

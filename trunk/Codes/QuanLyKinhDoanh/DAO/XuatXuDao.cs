@@ -41,12 +41,28 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chTen":
+                case "Tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
 
+                case "Địa chỉ":
+                    sortSQL += "DiaChi " + sortOrder;
+                    break;
+
+                case "Điện thoại":
+                    sortSQL += "DienThoai " + sortOrder;
+                    break;
+
+                case "Fax":
+                    sortSQL += "Fax " + sortOrder;
+                    break;
+
+                case "Email":
+                    sortSQL += "Email " + sortOrder;
+                    break;
+
                 default:
-                    sortSQL += "Ten " + CommonDao.SORT_ASCENDING;
+                    sortSQL += "Ten " + sortOrder;
                     break;
             }
 

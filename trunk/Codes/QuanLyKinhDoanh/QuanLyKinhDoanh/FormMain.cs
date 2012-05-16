@@ -56,7 +56,8 @@ namespace QuanLyKinhDoanh
             }
             catch
             {
-                MessageBox.Show("ERROR!", "Kiểm tra thư mục Resource!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_RESOURCE, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.Dispose();
             }
         }

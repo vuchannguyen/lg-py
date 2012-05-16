@@ -17,6 +17,8 @@ namespace QuanLyKinhDoanh
     {
         private UserControl uc;
         private const int row = Constant.DEFAULT_ROW;
+        private string sortColumn;
+        private string sortOrder;
 
         public UcNhapKho()
         {
@@ -42,8 +44,9 @@ namespace QuanLyKinhDoanh
             }
             catch
             {
+                MessageBox.Show(Constant.MESSAGE_ERROR_MISSING_RESOURCE, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.Dispose();
-                //Form_Notice frm_Notice = new Form_Notice("Kiểm tra thư mục Resource!", false);
             }
         }
 
@@ -53,7 +56,6 @@ namespace QuanLyKinhDoanh
 
             LoadResource();
 
-            //pnQuanLy.Size = new System.Drawing.Size(710, 480);
             pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
@@ -61,11 +63,15 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
+            sortColumn = string.Empty;
+            sortOrder = Constant.SORT_DESCENDING;
+
             cbFilter.SelectedIndex = 0;
 
             tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, 1);
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
             dtpFilter.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
@@ -80,7 +86,8 @@ namespace QuanLyKinhDoanh
         {
             tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
@@ -96,7 +103,8 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListView(string text, int type, int page)
+        private void RefreshListView(string text, int type,
+            string sortColumn, string sortOrder, int page)
         {
             if (text == Constant.SEARCH_NHAPKHO_TIP)
             {
@@ -126,19 +134,20 @@ namespace QuanLyKinhDoanh
             tbTong.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type,
-                string.Empty, string.Empty, row * (page - 1), row);
+                sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
 
             foreach (DTO.HoaDonDetail data in list)
             {
                 ListViewItem lvi = new ListViewItem();
+
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.HoaDon.MaHoaDon.ToString());
-                lvi.SubItems.Add(data.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
-                lvi.SubItems.Add("");
-                lvi.SubItems.Add(data.HoaDon.CreateDate.ToString(Constant.DEFAULT_DATE_FORMAT));
+                lvi.SubItems.Add(data.SanPham.MaSanPham);
+                lvi.SubItems.Add(data.HoaDon.User == null ? string.Empty : data.HoaDon.User.UserName);
+                lvi.SubItems.Add(data.HoaDon.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.SoLuong.ToString());
                 lvi.SubItems.Add(data.SanPham.DonViTinh);
                 lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
@@ -202,18 +211,6 @@ namespace QuanLyKinhDoanh
                 pbNextPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_NEXT_PAGE);
             }
         }
-
-        //private bool UpdateSP(int id, int soLuong)
-        //{
-        //    DTO.SanPham data = SanPhamBus.GetById(id);
-
-        //    data.SoLuong -= soLuong;
-
-        //    data.UpdateBy = "";
-        //    data.UpdateDate = DateTime.Now;
-
-        //    return SanPhamBus.Update(data);
-        //}
         #endregion
 
 
@@ -261,7 +258,8 @@ namespace QuanLyKinhDoanh
                 {
                     ChietKhauBus.DeleteList(idCKs);
 
-                    RefreshListView(tbSearch.Text, 0, ConvertUtil.ConvertToInt(lbPage.Text));
+                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                        sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
                 {
@@ -305,12 +303,7 @@ namespace QuanLyKinhDoanh
         #region Controls
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (lvThongTin.SelectedIndices.Count > 0)
-            //{
-            //    int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
 
-            //    lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
-            //}
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -339,6 +332,15 @@ namespace QuanLyKinhDoanh
                     item.Checked = !isChecked;
                 }
             }
+
+            if (e.Column != 0 && e.Column != 1 && e.Column != 2)
+            {
+                sortColumn = lvThongTin.Columns[e.Column].Text;
+                sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
+
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+            }
         }
 
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -364,7 +366,8 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
 
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -462,7 +465,8 @@ namespace QuanLyKinhDoanh
 
         private void pbOk_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, ConvertUtil.ConvertToInt(lbPage.Text));
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)

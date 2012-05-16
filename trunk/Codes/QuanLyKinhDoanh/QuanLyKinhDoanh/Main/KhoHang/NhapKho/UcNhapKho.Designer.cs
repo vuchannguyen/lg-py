@@ -50,7 +50,7 @@
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNgay = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGiaNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -248,7 +248,7 @@
             this.chMa,
             this.chSanPham,
             this.chUser,
-            this.chNgay,
+            this.chNgayGio,
             this.chSoLuong,
             this.chDVT,
             this.chGiaNhap,
@@ -295,19 +295,20 @@
             // 
             // chSanPham
             // 
-            this.chSanPham.Text = "Mã - Tên SP";
-            this.chSanPham.Width = 150;
+            this.chSanPham.Text = "Sản phẩm";
+            this.chSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chSanPham.Width = 89;
             // 
             // chUser
             // 
             this.chUser.Text = "Người nhập";
-            this.chUser.Width = 126;
+            this.chUser.Width = 158;
             // 
-            // chNgay
+            // chNgayGio
             // 
-            this.chNgay.Text = "Ngày";
-            this.chNgay.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNgay.Width = 93;
+            this.chNgayGio.Text = "Ngày giờ";
+            this.chNgayGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chNgayGio.Width = 152;
             // 
             // chSoLuong
             // 
@@ -325,19 +326,19 @@
             // 
             this.chGiaNhap.Text = "Giá nhập";
             this.chGiaNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaNhap.Width = 100;
+            this.chGiaNhap.Width = 90;
             // 
             // chGiaBan
             // 
             this.chGiaBan.Text = "Giá bán";
             this.chGiaBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaBan.Width = 100;
+            this.chGiaBan.Width = 90;
             // 
             // chThanhTien
             // 
             this.chThanhTien.Text = "Tổng nhập";
             this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chThanhTien.Width = 100;
+            this.chThanhTien.Width = 90;
             // 
             // pnTraCuu
             // 
@@ -432,6 +433,7 @@
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
+            this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
             // 
             // pbTraCuu
             // 
@@ -609,7 +611,7 @@
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chSanPham;
         private System.Windows.Forms.ColumnHeader chUser;
-        private System.Windows.Forms.ColumnHeader chNgay;
+        private System.Windows.Forms.ColumnHeader chNgayGio;
         private System.Windows.Forms.ColumnHeader chSoLuong;
         private System.Windows.Forms.ColumnHeader chDVT;
         private System.Windows.Forms.ColumnHeader chGiaNhap;
