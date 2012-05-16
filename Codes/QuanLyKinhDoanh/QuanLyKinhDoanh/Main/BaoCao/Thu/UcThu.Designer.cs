@@ -31,16 +31,12 @@
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
-            this.pnFind = new System.Windows.Forms.Panel();
             this.tbTong = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.lvThongTin = new System.Windows.Forms.ListView();
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNguoiNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,10 +65,12 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.pbXoa = new System.Windows.Forms.PictureBox();
-            this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
-            this.pnFind.SuspendLayout();
             this.pnQuanLy.SuspendLayout();
             this.pnTraCuu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbOk)).BeginInit();
@@ -88,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -120,23 +119,10 @@
             this.pbTitle.TabIndex = 1;
             this.pbTitle.TabStop = false;
             // 
-            // pnFind
-            // 
-            this.pnFind.Controls.Add(this.tbTong);
-            this.pnFind.Controls.Add(this.label3);
-            this.pnFind.Controls.Add(this.dateTimePicker1);
-            this.pnFind.Controls.Add(this.label2);
-            this.pnFind.Controls.Add(this.dtp);
-            this.pnFind.Controls.Add(this.label1);
-            this.pnFind.Location = new System.Drawing.Point(398, 51);
-            this.pnFind.Name = "pnFind";
-            this.pnFind.Size = new System.Drawing.Size(505, 30);
-            this.pnFind.TabIndex = 55;
-            // 
             // tbTong
             // 
             this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(377, 3);
+            this.tbTong.Location = new System.Drawing.Point(775, 55);
             this.tbTong.MaxLength = 10;
             this.tbTong.Name = "tbTong";
             this.tbTong.ReadOnly = true;
@@ -148,47 +134,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(326, 8);
+            this.label3.Location = new System.Drawing.Point(724, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 58;
             this.label3.Text = "Tổng:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(205, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(107, 23);
-            this.dateTimePicker1.TabIndex = 105;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(152, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
-            this.label2.TabIndex = 104;
-            this.label2.Text = "- Đến:";
-            // 
-            // dtp
-            // 
-            this.dtp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp.Location = new System.Drawing.Point(39, 3);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(107, 23);
-            this.dtp.TabIndex = 103;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 16);
-            this.label1.TabIndex = 94;
-            this.label1.Text = "Từ:";
             // 
             // pnQuanLy
             // 
@@ -230,6 +180,11 @@
             // 
             this.chCheckBox.Text = "All";
             this.chCheckBox.Width = 30;
+            // 
+            // chId
+            // 
+            this.chId.Text = "Id";
+            this.chId.Width = 0;
             // 
             // chSTT
             // 
@@ -407,6 +362,7 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(235, 78);
             this.pnSelect.TabIndex = 57;
+            this.pnSelect.Visible = false;
             // 
             // panel2
             // 
@@ -503,18 +459,57 @@
             this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
             this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
             // 
-            // chId
+            // panel1
             // 
-            this.chId.Text = "Id";
-            this.chId.Width = 0;
+            this.panel1.Controls.Add(this.cbFilter);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dtpFilter);
+            this.panel1.Location = new System.Drawing.Point(381, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(204, 78);
+            this.panel1.TabIndex = 60;
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Items.AddRange(new object[] {
+            "Ngày",
+            "Tháng",
+            "Năm"});
+            this.cbFilter.Location = new System.Drawing.Point(76, 10);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(77, 24);
+            this.cbFilter.TabIndex = 114;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Lọc theo:";
+            // 
+            // dtpFilter
+            // 
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFilter.Location = new System.Drawing.Point(3, 40);
+            this.dtpFilter.Name = "dtpFilter";
+            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
+            this.dtpFilter.TabIndex = 3;
+            this.dtpFilter.ValueChanged += new System.EventHandler(this.dtpFilter_ValueChanged);
             // 
             // UcThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tbTong);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.pnTitle);
-            this.Controls.Add(this.pnFind);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcThu";
@@ -523,8 +518,6 @@
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
-            this.pnFind.ResumeLayout(false);
-            this.pnFind.PerformLayout();
             this.pnQuanLy.ResumeLayout(false);
             this.pnTraCuu.ResumeLayout(false);
             this.pnTraCuu.PerformLayout();
@@ -545,7 +538,10 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -554,8 +550,6 @@
         private System.Windows.Forms.Panel pnTitle;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pbTitle;
-        private System.Windows.Forms.Panel pnFind;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnQuanLy;
         private System.Windows.Forms.ListView lvThongTin;
         private System.Windows.Forms.ColumnHeader chSTT;
@@ -576,9 +570,6 @@
         private System.Windows.Forms.PictureBox pbOk;
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.PictureBox pbTraCuu;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.TextBox tbTong;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader chCheckBox;
@@ -593,5 +584,9 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.PictureBox pbXoa;
         private System.Windows.Forms.ColumnHeader chId;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpFilter;
     }
 }

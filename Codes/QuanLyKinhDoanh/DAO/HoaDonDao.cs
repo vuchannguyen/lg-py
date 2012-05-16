@@ -109,7 +109,7 @@ namespace DAO
 
 
         #region Thu
-        public static IQueryable<HoaDon> GetQueryThu(string text)
+        public static IQueryable<HoaDon> GetQueryThu(string text, string timeType, DateTime date)
         {
             var sql = from data in dbContext.HoaDons
                       select data;
@@ -126,15 +126,34 @@ namespace DAO
             sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
             sql = sql.Where(p => p.DeleteFlag == false);
 
+            switch (timeType)
+            {
+                case CommonDao.DEFAULT_TYPE_DAY:
+                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_MONTH:
+                    sql = sql.Where(p => p.CreateDate.Month == date.Month);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_YEAR:
+                    sql = sql.Where(p => p.CreateDate.Year == date.Year);
+                    break;
+
+                default:
+                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
+                    break;
+            }
+
             return sql;
         }
 
-        public static int GetCountThu(string text)
+        public static int GetCountThu(string text, string timeType, DateTime date)
         {
-            return GetQueryThu(text).Count();
+            return GetQueryThu(text, timeType, date).Count();
         }
 
-        public static List<HoaDon> GetListThu(string text,
+        public static List<HoaDon> GetListThu(string text, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -150,7 +169,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQueryThu(text).OrderBy(sortSQL);
+            var sql = GetQueryThu(text, timeType, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
@@ -164,7 +183,7 @@ namespace DAO
 
 
         #region Chi
-        public static IQueryable<HoaDon> GetQueryChi(string text)
+        public static IQueryable<HoaDon> GetQueryChi(string text, string timeType, DateTime date)
         {
             var sql = from data in dbContext.HoaDons
                       select data;
@@ -181,15 +200,34 @@ namespace DAO
             sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
             sql = sql.Where(p => p.DeleteFlag == false);
 
+            switch (timeType)
+            {
+                case CommonDao.DEFAULT_TYPE_DAY:
+                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_MONTH:
+                    sql = sql.Where(p => p.CreateDate.Month == date.Month);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_YEAR:
+                    sql = sql.Where(p => p.CreateDate.Year == date.Year);
+                    break;
+
+                default:
+                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
+                    break;
+            }
+
             return sql;
         }
 
-        public static int GetCountChi(string text)
+        public static int GetCountChi(string text, string timeType, DateTime date)
         {
-            return GetQueryChi(text).Count();
+            return GetQueryChi(text, timeType, date).Count();
         }
 
-        public static List<HoaDon> GetListChi(string text,
+        public static List<HoaDon> GetListChi(string text, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -205,7 +243,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQueryChi(text).OrderBy(sortSQL);
+            var sql = GetQueryChi(text, timeType, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

@@ -20,26 +20,26 @@ namespace BUS
             return HoaDonDao.GetList(text, type, timeType, date, sortColumn, sortOrder, skip, take);
         }
 
-        public static int GetCountThu(string text)
+        public static int GetCountThu(string text, string timeType, DateTime date)
         {
-            return HoaDonDao.GetCountThu(text);
+            return HoaDonDao.GetCountThu(text, timeType, date);
         }
 
-        public static List<HoaDon> GetListThu(string text,
+        public static List<HoaDon> GetListThu(string text, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
-            return HoaDonDao.GetListThu(text, sortColumn, sortOrder, skip, take);
+            return HoaDonDao.GetListThu(text, timeType, date, sortColumn, sortOrder, skip, take);
         }
 
-        public static int GetCountChi(string text)
+        public static int GetCountChi(string text, string timeType, DateTime date)
         {
-            return HoaDonDao.GetCountChi(text);
+            return HoaDonDao.GetCountChi(text, timeType, date);
         }
 
-        public static List<HoaDon> GetListChi(string text,
+        public static List<HoaDon> GetListChi(string text, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
-            return HoaDonDao.GetListChi(text, sortColumn, sortOrder, skip, take);
+            return HoaDonDao.GetListChi(text, timeType, date, sortColumn, sortOrder, skip, take);
         }
 
         public static HoaDon GetLastData()

@@ -193,7 +193,7 @@ namespace DAO
         {
             if (data != null)
             {
-                List<HoaDonDetail> listHoaDonDetail = HoaDonDetailDao.GetList(string.Empty, CommonDao.ID_TYPE_MUA,
+                List<HoaDonDetail> listHoaDonDetail = HoaDonDetailDao.GetList(string.Empty, CommonDao.ID_TYPE_MUA, string.Empty, DateTime.Now,
                     string.Empty, string.Empty, 0, 0);
 
                 if (listHoaDonDetail != null)
