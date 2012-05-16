@@ -12,7 +12,7 @@ namespace DAO
 {
     public class HoaDonDetailDao : SQLConnection
     {
-        public static IQueryable<HoaDonDetail> GetQuery(string text, int type)
+        public static IQueryable<HoaDonDetail> GetQuery(string text, int type, string timeType, DateTime date)
         {
             var sql = from data in dbContext.HoaDonDetails
                       select data;
@@ -30,17 +30,37 @@ namespace DAO
                 sql = sql.Where(p => p.HoaDon.IdType == type);
             }
 
+            sql = sql.Where(p => p.HoaDon.IdStatus == CommonDao.ID_STATUS_DONE);
             sql = sql.Where(p => p.HoaDon.DeleteFlag == false);
+
+            switch (timeType)
+            {
+                case CommonDao.DEFAULT_TYPE_DAY:
+                    sql = sql.Where(p => p.HoaDon.CreateDate.Day == date.Day);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_MONTH:
+                    sql = sql.Where(p => p.HoaDon.CreateDate.Month == date.Month);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_YEAR:
+                    sql = sql.Where(p => p.HoaDon.CreateDate.Year == date.Year);
+                    break;
+
+                default:
+                    sql = sql.Where(p => p.HoaDon.CreateDate.Day == date.Day);
+                    break;
+            }
 
             return sql;
         }
 
-        public static int GetCount(string text, int type)
+        public static int GetCount(string text, int type, string timeType, DateTime date)
         {
-            return GetQuery(text, type).Count();
+            return GetQuery(text, type, timeType, date).Count();
         }
 
-        public static List<HoaDonDetail> GetList(string text, int type,
+        public static List<HoaDonDetail> GetList(string text, int type, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -88,7 +108,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, type).OrderBy(sortSQL);
+            var sql = GetQuery(text, type, timeType, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
