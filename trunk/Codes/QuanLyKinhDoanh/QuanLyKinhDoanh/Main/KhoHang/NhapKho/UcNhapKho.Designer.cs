@@ -488,6 +488,7 @@
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(77, 24);
             this.cbFilter.TabIndex = 114;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -505,11 +506,12 @@
             this.dtpFilter.Name = "dtpFilter";
             this.dtpFilter.Size = new System.Drawing.Size(150, 23);
             this.dtpFilter.TabIndex = 3;
+            this.dtpFilter.ValueChanged += new System.EventHandler(this.dtpFilter_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(795, 59);
+            this.label2.Location = new System.Drawing.Point(797, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 16);
             this.label2.TabIndex = 52;
@@ -518,7 +520,7 @@
             // tbTong
             // 
             this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(846, 54);
+            this.tbTong.Location = new System.Drawing.Point(848, 55);
             this.tbTong.MaxLength = 10;
             this.tbTong.Name = "tbTong";
             this.tbTong.ReadOnly = true;

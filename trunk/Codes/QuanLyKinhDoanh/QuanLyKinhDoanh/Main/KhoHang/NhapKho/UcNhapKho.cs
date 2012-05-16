@@ -66,11 +66,11 @@ namespace QuanLyKinhDoanh
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_DESCENDING;
 
-            cbFilter.SelectedIndex = 0;
+            cbFilter.SelectedIndex = 1;
 
             tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
@@ -86,7 +86,7 @@ namespace QuanLyKinhDoanh
         {
             tbSearch.Text = Constant.SEARCH_NHAPKHO_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
@@ -103,7 +103,7 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListView(string text, int type,
+        private void RefreshListView(string text, int type, string timeType, DateTime date,
             string sortColumn, string sortOrder, int page)
         {
             if (text == Constant.SEARCH_NHAPKHO_TIP)
@@ -111,7 +111,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            int total = HoaDonDetailBus.GetCount(text, type);
+            int total = HoaDonDetailBus.GetCount(text, type, cbFilter.Text, dtpFilter.Value);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -122,7 +122,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.HoaDonDetail> listTotal = HoaDonDetailBus.GetList(text, type,
+            List<DTO.HoaDonDetail> listTotal = HoaDonDetailBus.GetList(text, type, timeType, date,
                 string.Empty, string.Empty, 0, 0);
             long totalMoney = 0;
 
@@ -133,7 +133,7 @@ namespace QuanLyKinhDoanh
 
             tbTong.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
-            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type,
+            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type, timeType, date,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -258,7 +258,7 @@ namespace QuanLyKinhDoanh
                 {
                     ChietKhauBus.DeleteList(idCKs);
 
-                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
@@ -338,7 +338,7 @@ namespace QuanLyKinhDoanh
                 sortColumn = lvThongTin.Columns[e.Column].Text;
                 sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -366,7 +366,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
 
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
@@ -465,7 +465,7 @@ namespace QuanLyKinhDoanh
 
         private void pbOk_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
@@ -477,6 +477,22 @@ namespace QuanLyKinhDoanh
         private void pbOk_MouseLeave(object sender, EventArgs e)
         {
             pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
+        }
+
+        private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+        }
+
+        private void dtpFilter_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
     }
