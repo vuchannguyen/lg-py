@@ -29,6 +29,9 @@ namespace Library
         public static DateTime DEFAULT_DATE = new DateTime(2000, 1, 1);
         public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
         public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - hh:mm tt";
+        public const string DEFAULT_TYPE_DAY = "Ngày";
+        public const string DEFAULT_TYPE_MONTH = "Tháng";
+        public const string DEFAULT_TYPE_YEAR = "Năm";
 
         public const string DEFAULT_FORMAT_ID_PRODUCT = "0000";
         public const string DEFAULT_FORMAT_ID_BILL = "00000";
