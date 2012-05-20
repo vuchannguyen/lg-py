@@ -418,6 +418,10 @@ namespace QuanLyKinhDoanh.GiaoDich
             lvInfoBill.Items.Add(lvi);
 
             lvi = new ListViewItem();
+            lvi.SubItems.Add("Tổng CK: " + tbTongCK.Text + Constant.DEFAULT_MONEY_SUBFIX);
+            lvInfoBill.Items.Add(lvi);
+
+            lvi = new ListViewItem();
             lvi.SubItems.Add("Tổng: " + tbTongHoaDon.Text + Constant.DEFAULT_MONEY_SUBFIX);
             lvInfoBill.Items.Add(lvi);
 
@@ -432,13 +436,14 @@ namespace QuanLyKinhDoanh.GiaoDich
             {
                 ListViewItem lviInfo = new ListViewItem();
 
-                lviInfo.SubItems[0].Text = lvThongTin.Items[i].SubItems[2].Text;
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[3].Text);
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[4].Text);
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[5].Text);
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[6].Text);
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[7].Text + Constant.DEFAULT_MONEY_SUBFIX);
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[8].Text + Constant.DEFAULT_MONEY_SUBFIX);
+                lviInfo.SubItems[0].Text = lvThongTin.Items[i].SubItems[2].Text; //STT
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[3].Text); //SP
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[4].Text); //CK
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[5].Text); //tien CK
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[6].Text); //SL
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[7].Text); //DVT
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[8].Text + Constant.DEFAULT_MONEY_SUBFIX); //don gia
+                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[9].Text + Constant.DEFAULT_MONEY_SUBFIX); //thanh tien
 
                 lvInfoNew.Items.Add(lviInfo);
             }
@@ -446,7 +451,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             list.Add(lvInfoBill);
             list.Add(lvInfoNew);
 
-            string sPath = File_Function.SaveDialog("HoaDon_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+            string sPath = File_Function.SaveDialog("HoaDon_" + tbMaHD.Text + "_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
             if (sPath != null)
             {
