@@ -251,6 +251,21 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             cbMaSP.Items.RemoveAt(cbMaSP.SelectedIndex);
             cbMaSP.SelectedIndex = cbMaSP.Items.Count > 0 ? 0 : -1;
+
+            if (cbMaSP.Items.Count == 0)
+            {
+                cbMaSP.Text = string.Empty;
+                tbTon.Text = string.Empty;
+                tbTenSP.Text = string.Empty;
+                tbChietKhau.Text = string.Empty;
+                tbTienCK.Text = string.Empty;
+                tbDVT.Text = string.Empty;
+                tbGiaBan.Text = string.Empty;
+                tbThanhTien.Text = string.Empty;
+
+                pbAdd.Enabled = false;
+                pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD_DISABLE);
+            }
         }
 
         private void RemoveFromBill()
@@ -623,7 +638,10 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void pbAdd_MouseLeave(object sender, EventArgs e)
         {
-            pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
+            if (cbMaSP.Items.Count != 0)
+            {
+                pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
+            }
         }
 
         private void pbHoanTat_Click(object sender, EventArgs e)

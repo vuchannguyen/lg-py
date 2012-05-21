@@ -260,7 +260,7 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(70, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(40, 87);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Size = new System.Drawing.Size(910, 480);
             this.pnQuanLy.TabIndex = 48;
