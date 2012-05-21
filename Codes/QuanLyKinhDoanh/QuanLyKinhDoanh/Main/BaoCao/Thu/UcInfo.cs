@@ -10,25 +10,25 @@ using Library;
 using DTO;
 using BUS;
 
-namespace QuanLyKinhDoanh.NhomSanPham
+namespace QuanLyKinhDoanh.Thu
 {
     public partial class UcInfo : UserControl
     {
-        private DTO.SanPhamGroup data;
+        private DTO.HoaDon data;
         private bool isUpdate;
 
         public UcInfo()
         {
             InitializeComponent();
 
-            data = new DTO.SanPhamGroup();
+            data = new DTO.HoaDon();
             isUpdate = false;
 
             Init();
             RefreshData();
         }
 
-        public UcInfo(DTO.SanPhamGroup data)
+        public UcInfo(DTO.HoaDon data)
         {
             InitializeComponent();
 
@@ -37,9 +37,9 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
             Init();
 
-            tbMa.Text = data.Ma;
-            tbTen.Text = data.Ten;
-            tbMoTa.Text = data.Mota;
+            tbMa.Text = data.MaHoaDon;
+            tbTien.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbGhiChu.Text = data.GhiChu;
         }
 
         private void LoadResource()
@@ -68,6 +68,8 @@ namespace QuanLyKinhDoanh.NhomSanPham
             this.BringToFront();
 
             ValidateInput();
+
+            tbTien.Focus();
         }
 
 
@@ -81,14 +83,16 @@ namespace QuanLyKinhDoanh.NhomSanPham
         private void RefreshData()
         {
             tbMa.Text = string.Empty;
-            tbTen.Text = string.Empty;
-            tbMoTa.Text = string.Empty;
+            tbTien.Text = string.Empty;
+            tbGhiChu.Text = string.Empty;
+
+            CreateNewId();
         }
 
         private void ValidateInput()
         {
-            if (!string.IsNullOrEmpty(tbMa.Text) &&
-                !string.IsNullOrEmpty(tbTen.Text)
+            if (!string.IsNullOrEmpty(tbTien.Text) &&
+                !string.IsNullOrEmpty(tbGhiChu.Text)
                 )
             {
                 pbHoanTat.Enabled = true;
@@ -101,15 +105,33 @@ namespace QuanLyKinhDoanh.NhomSanPham
             }
         }
 
+        private void CreateNewId()
+        {
+            int id = 0;
+
+            DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_THU);
+
+            string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaHoaDon.Substring(dataTemp.MaHoaDon.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+
+            tbMa.Text = Constant.PREFIX_THU + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
+        }
+
         private void InsertData()
         {
-            data.Ma = tbMa.Text;
-            data.Ten = tbTen.Text;
-            data.Mota = tbMoTa.Text;
+            data.MaHoaDon = tbMa.Text;
+            data.IdType = Constant.ID_TYPE_THU;
+            data.IdStatus = Constant.ID_STATUS_DONE;
+            data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            data.GhiChu = tbGhiChu.Text;
 
-            if (SanPhamGroupBus.Insert(data))
+            data.CreateBy = data.UpdateBy = "";
+            data.CreateDate = data.UpdateDate = DateTime.Now;
+
+            if (HoaDonBus.Insert(data))
             {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + data.Ma) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + data.MaHoaDon) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE,
+                    Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                 {
                     this.Dispose();
                 }
@@ -126,17 +148,20 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
         private void UpdateData()
         {
-            data.Ma = tbMa.Text;
-            data.Ten = tbTen.Text;
-            data.Mota = tbMoTa.Text;
+            data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            data.GhiChu = tbGhiChu.Text;
 
-            if (SanPhamGroupBus.Update(data))
+            data.UpdateBy = "";
+            data.UpdateDate = DateTime.Now;
+
+            if (HoaDonBus.Update(data))
             {
                 this.Dispose();
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT,
+                    Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
                     this.Dispose();
                 }
@@ -194,19 +219,24 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
 
         #region Controls
-        private void tbMa_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbTien_TextChanged(object sender, EventArgs e)
         {
-            CommonFunc.ValidateSpace(e);
-        }
+            long money = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
-        private void tbMa_TextChanged(object sender, EventArgs e)
-        {
-            tbMa.Text = CommonFunc.ConvertVietNamToEnglish(tbMa.Text);
+            tbTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTien.Select(tbTien.Text.Length, 0);
 
             ValidateInput();
         }
 
-        private void tbTen_TextChanged(object sender, EventArgs e)
+        private void tbTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+
+            ValidateInput();
+        }
+
+        private void tbGhiChu_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
         }

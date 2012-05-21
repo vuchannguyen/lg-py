@@ -32,7 +32,8 @@ namespace QuanLyKinhDoanh
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-
+                pbBirthDay.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BITRHDAY);
+                
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
 
                 pbTraCuu.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEARCH);
@@ -68,7 +69,7 @@ namespace QuanLyKinhDoanh
 
             tbSearch.Text = Constant.SEARCH_KHACHHANG_TIP;
 
-            RefreshListView(tbSearch.Text,
+            RefreshListView(tbSearch.Text, false,
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
@@ -82,7 +83,7 @@ namespace QuanLyKinhDoanh
         {
             tbSearch.Text = Constant.SEARCH_KHACHHANG_TIP;
 
-            RefreshListView(tbSearch.Text,
+            RefreshListView(tbSearch.Text, false,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
@@ -99,7 +100,7 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListView(string text,
+        private void RefreshListView(string text, bool isBirthDay,
             string sortColumn, string sortOrder, int page)
         {
             if (text == Constant.SEARCH_KHACHHANG_TIP)
@@ -107,7 +108,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            int total = KhachHangBus.GetCount(text);
+            int total = KhachHangBus.GetCount(text, isBirthDay);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -118,7 +119,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.KhachHang> list = KhachHangBus.GetList(text,
+            List<DTO.KhachHang> list = KhachHangBus.GetList(text, isBirthDay,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -131,10 +132,18 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaKhachHang);
                 lvi.SubItems.Add(data.Ten);
+                lvi.SubItems.Add(data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT));
                 lvi.SubItems.Add(data.DiaChi);
                 lvi.SubItems.Add(data.DienThoai);
                 lvi.SubItems.Add(data.Email);
                 lvi.SubItems.Add(data.TichLuy.Value.ToString(Constant.DEFAULT_FORMAT_MONEY));
+
+                if (CommonFunc.IsBirthDay(data.DOB.Value, 7))
+                {
+                    lvi.UseItemStyleForSubItems = false;
+                    lvi.SubItems[5].ForeColor = Color.Red;
+                    //lvi.BackColor = Color.LightBlue;
+                }
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -228,7 +237,7 @@ namespace QuanLyKinhDoanh
 
                 if (KhachHangBus.DeleteList(ids))
                 {
-                    RefreshListView(tbSearch.Text,
+                    RefreshListView(tbSearch.Text, false,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 }
             }
@@ -309,7 +318,7 @@ namespace QuanLyKinhDoanh
                 sortColumn = lvThongTin.Columns[e.Column].Text;
                 sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListView(tbSearch.Text,
+                RefreshListView(tbSearch.Text, false,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -337,7 +346,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text,
+                RefreshListView(tbSearch.Text, false,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
 
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
@@ -436,7 +445,7 @@ namespace QuanLyKinhDoanh
 
         private void pbOk_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text,
+            RefreshListView(tbSearch.Text, false,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
@@ -450,5 +459,23 @@ namespace QuanLyKinhDoanh
             pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
         }
         #endregion
+
+        private void pbBirthDay_Click(object sender, EventArgs e)
+        {
+            RefreshListView(tbSearch.Text, true,
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+        }
+
+        private void pbBirthDay_MouseEnter(object sender, EventArgs e)
+        {
+            pbBirthDay.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BITRHDAY_MOUSEROVER);
+        }
+
+        private void pbBirthDay_MouseLeave(object sender, EventArgs e)
+        {
+            pbBirthDay.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BITRHDAY);
+        }
     }
 }

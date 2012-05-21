@@ -76,14 +76,14 @@ namespace DAO
                     break;
 
                 case "Khách hàng":
-                    sortSQL += "KhachHang.MaKhachHange " + sortOrder;
+                    sortSQL += "KhachHang.MaKhachHang " + sortOrder;
                     break;
 
                 case "Ngày giờ":
                     sortSQL += "CreateDate " + sortOrder;
                     break;
 
-                case "Lý do":
+                case "Ghi chú":
                     sortSQL += "GhiChu " + sortOrder;
                     break;
 
@@ -160,8 +160,28 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chId":
-                    sortSQL += "Id " + sortOrder;
+                case "Mã":
+                    sortSQL += "MaHoaDon " + sortOrder;
+                    break;
+
+                case "Người nhập":
+                    sortSQL += "User.UserName " + sortOrder;
+                    break;
+
+                case "Khách hàng":
+                    sortSQL += "KhachHang.MaKhachHang " + sortOrder;
+                    break;
+
+                case "Ngày giờ":
+                    sortSQL += "CreateDate " + sortOrder;
+                    break;
+
+                case "Ghi chú":
+                    sortSQL += "GhiChu " + sortOrder;
+                    break;
+
+                case "Tiền":
+                    sortSQL += "ThanhTien " + sortOrder;
                     break;
 
                 default:
@@ -234,8 +254,28 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chId":
-                    sortSQL += "Id " + sortOrder;
+                case "Mã":
+                    sortSQL += "MaHoaDon " + sortOrder;
+                    break;
+
+                case "Người nhập":
+                    sortSQL += "User.UserName " + sortOrder;
+                    break;
+
+                case "Khách hàng":
+                    sortSQL += "KhachHang.MaKhachHang " + sortOrder;
+                    break;
+
+                case "Ngày giờ":
+                    sortSQL += "CreateDate " + sortOrder;
+                    break;
+
+                case "Ghi chú":
+                    sortSQL += "GhiChu " + sortOrder;
+                    break;
+
+                case "Tiền":
+                    sortSQL += "ThanhTien " + sortOrder;
                     break;
 
                 default:

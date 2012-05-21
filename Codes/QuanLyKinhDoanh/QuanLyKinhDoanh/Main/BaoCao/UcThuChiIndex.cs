@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using QuanLyKinhDoanh.Thu;
+using QuanLyKinhDoanh.Chi;
 using Library;
 
 namespace QuanLyKinhDoanh

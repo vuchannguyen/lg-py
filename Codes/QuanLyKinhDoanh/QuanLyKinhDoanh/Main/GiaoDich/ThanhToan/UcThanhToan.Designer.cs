@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
-            this.lbTienStatus = new System.Windows.Forms.Label();
             this.tbTienHoiLai = new System.Windows.Forms.TextBox();
             this.lbNgayGio = new System.Windows.Forms.Label();
             this.tbTichLuy = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
+            this.lbTienStatus = new System.Windows.Forms.Label();
             this.dtpNgayGio = new System.Windows.Forms.DateTimePicker();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
@@ -98,6 +99,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pbXoa = new System.Windows.Forms.PictureBox();
+            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -151,16 +153,6 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin chung";
-            // 
-            // lbTienStatus
-            // 
-            this.lbTienStatus.AutoSize = true;
-            this.lbTienStatus.ForeColor = System.Drawing.Color.Black;
-            this.lbTienStatus.Location = new System.Drawing.Point(456, 135);
-            this.lbTienStatus.Name = "lbTienStatus";
-            this.lbTienStatus.Size = new System.Drawing.Size(81, 16);
-            this.lbTienStatus.TabIndex = 142;
-            this.lbTienStatus.Text = "Tiền hồi lại:";
             // 
             // tbTienHoiLai
             // 
@@ -263,6 +255,7 @@
             this.tbTenKH.Size = new System.Drawing.Size(258, 29);
             this.tbTenKH.TabIndex = 10;
             this.tbTenKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTenKH.MouseEnter += new System.EventHandler(this.tbTenKH_MouseEnter);
             // 
             // cbMaKH
             // 
@@ -372,6 +365,16 @@
             this.lbTen.Size = new System.Drawing.Size(88, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Khách hàng:";
+            // 
+            // lbTienStatus
+            // 
+            this.lbTienStatus.AutoSize = true;
+            this.lbTienStatus.ForeColor = System.Drawing.Color.Black;
+            this.lbTienStatus.Location = new System.Drawing.Point(456, 135);
+            this.lbTienStatus.Name = "lbTienStatus";
+            this.lbTienStatus.Size = new System.Drawing.Size(81, 16);
+            this.lbTienStatus.TabIndex = 142;
+            this.lbTienStatus.Text = "Tiền hồi lại:";
             // 
             // dtpNgayGio
             // 
@@ -859,6 +862,13 @@
             this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
             this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
             // 
+            // ttDetail
+            // 
+            this.ttDetail.AutoPopDelay = 10000;
+            this.ttDetail.InitialDelay = 500;
+            this.ttDetail.IsBalloon = true;
+            this.ttDetail.ReshowDelay = 100;
+            // 
             // UcThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -965,6 +975,7 @@
         private System.Windows.Forms.TextBox tbTongCK;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbTienCK;
+        private System.Windows.Forms.ToolTip ttDetail;
 
     }
 }
