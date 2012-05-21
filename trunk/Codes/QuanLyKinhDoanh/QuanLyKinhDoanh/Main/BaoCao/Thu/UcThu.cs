@@ -10,7 +10,7 @@ using Library;
 using DTO;
 using BUS;
 
-namespace QuanLyKinhDoanh
+namespace QuanLyKinhDoanh.Thu
 {
     public partial class UcThu : UserControl
     {
@@ -207,14 +207,16 @@ namespace QuanLyKinhDoanh
         }
         #endregion
 
+
+
         #region Thêm Xóa Sửa
         private void pbThem_Click(object sender, EventArgs e)
         {
             //tbDienGiai_TextChanged(sender, e);
 
-            //uc = new UcInfo();
-            //uc.Disposed += new EventHandler(uc_Disposed);
-            //this.Controls.Add(uc);
+            uc = new UcInfo();
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbThem_MouseEnter(object sender, EventArgs e)
@@ -264,11 +266,18 @@ namespace QuanLyKinhDoanh
 
         private void pbSua_Click(object sender, EventArgs e)
         {
-            //int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+            int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
 
-            //uc = new UcInfo(HoaDonDetailBus.GetById(id));
-            //uc.Disposed += new EventHandler(uc_Disposed);
-            //this.Controls.Add(uc);
+            if (HoaDonBus.GetById(id).IdType == Constant.ID_TYPE_THU)
+            {
+                uc = new UcInfo(HoaDonBus.GetById(id));
+                uc.Disposed += new EventHandler(uc_Disposed);
+                this.Controls.Add(uc);
+            }
+            else
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
@@ -312,15 +321,15 @@ namespace QuanLyKinhDoanh
 
         private void lvThongTin_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            if (e.Column == 0 && lvThongTin.Items.Count > 0)
-            {
-                bool isChecked = lvThongTin.Items[0].Checked;
+            //if (e.Column == 0 && lvThongTin.Items.Count > 0)
+            //{
+            //    bool isChecked = lvThongTin.Items[0].Checked;
 
-                foreach (ListViewItem item in lvThongTin.Items)
-                {
-                    item.Checked = !isChecked;
-                }
-            }
+            //    foreach (ListViewItem item in lvThongTin.Items)
+            //    {
+            //        item.Checked = !isChecked;
+            //    }
+            //}
 
             if (e.Column != 0 && e.Column != 1 && e.Column != 2)
             {

@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanh
+﻿namespace QuanLyKinhDoanh.Thu
 {
     partial class UcThu
     {
@@ -42,7 +42,7 @@
             this.chNguoiNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chKhachHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chLyDo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.pbOk = new System.Windows.Forms.PictureBox();
@@ -160,7 +160,7 @@
             this.chNguoiNhap,
             this.chKhachHang,
             this.chNgayGio,
-            this.chLyDo,
+            this.chGhiChu,
             this.chTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
@@ -216,10 +216,10 @@
             this.chNgayGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chNgayGio.Width = 146;
             // 
-            // chLyDo
+            // chGhiChu
             // 
-            this.chLyDo.Text = "Lý do";
-            this.chLyDo.Width = 200;
+            this.chGhiChu.Text = "Ghi Chú";
+            this.chGhiChu.Width = 200;
             // 
             // chTien
             // 
@@ -362,7 +362,6 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(235, 78);
             this.pnSelect.TabIndex = 57;
-            this.pnSelect.Visible = false;
             // 
             // panel2
             // 
@@ -435,6 +434,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(70, 70);
             this.panel4.TabIndex = 27;
+            this.panel4.Visible = false;
             // 
             // label28
             // 
@@ -557,7 +557,7 @@
         private System.Windows.Forms.ColumnHeader chNgayGio;
         private System.Windows.Forms.ColumnHeader chNguoiNhap;
         private System.Windows.Forms.ColumnHeader chKhachHang;
-        private System.Windows.Forms.ColumnHeader chLyDo;
+        private System.Windows.Forms.ColumnHeader chGhiChu;
         private System.Windows.Forms.ColumnHeader chTien;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;

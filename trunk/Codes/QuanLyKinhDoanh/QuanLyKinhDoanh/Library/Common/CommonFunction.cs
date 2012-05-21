@@ -232,5 +232,11 @@ namespace Library
             oldControl = newControl;
             controls.Add(oldControl);
         }
+
+        public static bool IsBirthDay(DateTime DOB, int days)
+        {
+            return (DOB.AddYears(DateTime.Now.Year - DOB.Year) >= DateTime.Now.AddDays(-1) &&
+                    DOB.AddYears(DateTime.Now.Year - DOB.Year) <= DateTime.Now.AddDays(days));
+        }
     }
 }

@@ -339,7 +339,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void GetListKhachHang()
         {
-            List<DTO.KhachHang> listData = KhachHangBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+            List<DTO.KhachHang> listData = KhachHangBus.GetList(string.Empty, false, string.Empty, string.Empty, 0, 0);
 
             cbMaKH.Items.Clear();
 
@@ -889,7 +889,6 @@ namespace QuanLyKinhDoanh.GiaoDich
             //    tbSuDung.Text = tichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
             //}
         }
-        #endregion
 
         private void tbSoLuong_Leave(object sender, EventArgs e)
         {
@@ -921,5 +920,15 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbSuDung.ReadOnly = true;
             }
         }
+
+        private void tbTenKH_MouseEnter(object sender, EventArgs e)
+        {
+            if (dataKH != null)
+            {
+                ttDetail.SetToolTip(tbTenKH, string.Format(Constant.TOOLTIP_DETAIL_KHACHHANG,
+                    dataKH.Ten, dataKH.GioiTinh, dataKH.DOB, dataKH.CMND, dataKH.DiaChi, dataKH.Email));
+            }
+        }
+        #endregion
     }
 }

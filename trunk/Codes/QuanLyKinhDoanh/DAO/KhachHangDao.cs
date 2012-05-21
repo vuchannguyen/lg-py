@@ -12,12 +12,17 @@ namespace DAO
 {
     public class KhachHangDao : SQLConnection
     {
-        public static IQueryable<KhachHang> GetQuery(string text)
+        public static IQueryable<KhachHang> GetQuery(string text, bool isBirthDay)
         {
             var sql = from data in dbContext.KhachHangs
                       select data;
 
-            if (!string.IsNullOrEmpty(text))
+            if (isBirthDay)
+            {
+                sql = sql.Where(p => p.DOB.Value.AddYears(DateTime.Now.Year - p.DOB.Value.Year) >= DateTime.Now.AddDays(-1) &&
+                    p.DOB.Value.AddYears(DateTime.Now.Year - p.DOB.Value.Year) <= DateTime.Now.AddDays(7));
+            }
+            else if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.MaKhachHang, text) ||
@@ -32,12 +37,12 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text)
+        public static int GetCount(string text, bool isBirthDay)
         {
-            return GetQuery(text).Count();
+            return GetQuery(text, isBirthDay).Count();
         }
 
-        public static List<KhachHang> GetList(string text,
+        public static List<KhachHang> GetList(string text, bool isBirthDay,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -50,6 +55,10 @@ namespace DAO
 
                 case "Họ và tên":
                     sortSQL += "Ten " + sortOrder;
+                    break;
+
+                case "Ngày sinh":
+                    sortSQL += "DOB " + sortOrder;
                     break;
 
                 case "Địa chỉ":
@@ -73,7 +82,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text).OrderBy(sortSQL);
+            var sql = GetQuery(text, isBirthDay).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

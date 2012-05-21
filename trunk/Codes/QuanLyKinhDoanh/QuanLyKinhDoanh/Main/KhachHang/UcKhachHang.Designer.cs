@@ -32,6 +32,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbBirthDay = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThem = new System.Windows.Forms.PictureBox();
@@ -48,6 +51,7 @@
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMaKH = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHoTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDiaChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,6 +70,8 @@
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
             this.panel3.SuspendLayout();
@@ -114,13 +120,46 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.panel1);
             this.pnSelect.Controls.Add(this.panel2);
             this.pnSelect.Controls.Add(this.panel3);
             this.pnSelect.Controls.Add(this.panel4);
             this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(235, 78);
+            this.pnSelect.Size = new System.Drawing.Size(310, 78);
             this.pnSelect.TabIndex = 49;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbBirthDay);
+            this.panel1.Location = new System.Drawing.Point(234, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(70, 70);
+            this.panel1.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(1, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Sinh nhật";
+            // 
+            // pbBirthDay
+            // 
+            this.pbBirthDay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBirthDay.Location = new System.Drawing.Point(10, 0);
+            this.pbBirthDay.Name = "pbBirthDay";
+            this.pbBirthDay.Size = new System.Drawing.Size(50, 50);
+            this.pbBirthDay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBirthDay.TabIndex = 1;
+            this.pbBirthDay.TabStop = false;
+            this.pbBirthDay.Click += new System.EventHandler(this.pbBirthDay_Click);
+            this.pbBirthDay.MouseEnter += new System.EventHandler(this.pbBirthDay_MouseEnter);
+            this.pbBirthDay.MouseLeave += new System.EventHandler(this.pbBirthDay_MouseLeave);
             // 
             // panel2
             // 
@@ -221,9 +260,9 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(100, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(70, 87);
             this.pnQuanLy.Name = "pnQuanLy";
-            this.pnQuanLy.Size = new System.Drawing.Size(800, 480);
+            this.pnQuanLy.Size = new System.Drawing.Size(910, 480);
             this.pnQuanLy.TabIndex = 48;
             // 
             // lvThongTin
@@ -235,6 +274,7 @@
             this.chSTT,
             this.chMaKH,
             this.chHoTen,
+            this.chDOB,
             this.chDiaChi,
             this.chDienThoai,
             this.chEmail,
@@ -245,7 +285,7 @@
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
             this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(790, 430);
+            this.lvThongTin.Size = new System.Drawing.Size(900, 430);
             this.lvThongTin.TabIndex = 86;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -283,6 +323,12 @@
             this.chHoTen.Text = "Họ và tên";
             this.chHoTen.Width = 181;
             // 
+            // chDOB
+            // 
+            this.chDOB.Text = "Ngày sinh";
+            this.chDOB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chDOB.Width = 76;
+            // 
             // chDiaChi
             // 
             this.chDiaChi.Text = "Địa chỉ";
@@ -297,7 +343,7 @@
             // chEmail
             // 
             this.chEmail.Text = "Email";
-            this.chEmail.Width = 112;
+            this.chEmail.Width = 147;
             // 
             // chTichLuy
             // 
@@ -318,12 +364,12 @@
             this.pnTraCuu.Controls.Add(this.pnPage);
             this.pnTraCuu.Location = new System.Drawing.Point(3, 439);
             this.pnTraCuu.Name = "pnTraCuu";
-            this.pnTraCuu.Size = new System.Drawing.Size(790, 33);
+            this.pnTraCuu.Size = new System.Drawing.Size(900, 33);
             this.pnTraCuu.TabIndex = 85;
             // 
             // tbPage
             // 
-            this.tbPage.Location = new System.Drawing.Point(511, 6);
+            this.tbPage.Location = new System.Drawing.Point(621, 6);
             this.tbPage.MaxLength = 3;
             this.tbPage.Name = "tbPage";
             this.tbPage.Size = new System.Drawing.Size(40, 23);
@@ -337,7 +383,7 @@
             this.lbTotalPage.AutoSize = true;
             this.lbTotalPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbTotalPage.Location = new System.Drawing.Point(605, 6);
+            this.lbTotalPage.Location = new System.Drawing.Point(715, 6);
             this.lbTotalPage.Name = "lbTotalPage";
             this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
             this.lbTotalPage.TabIndex = 2;
@@ -346,7 +392,7 @@
             // pbNextPage
             // 
             this.pbNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNextPage.Location = new System.Drawing.Point(765, 0);
+            this.pbNextPage.Location = new System.Drawing.Point(875, 0);
             this.pbNextPage.Name = "pbNextPage";
             this.pbNextPage.Size = new System.Drawing.Size(25, 32);
             this.pbNextPage.TabIndex = 88;
@@ -358,7 +404,7 @@
             // pbBackPage
             // 
             this.pbBackPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBackPage.Location = new System.Drawing.Point(700, 0);
+            this.pbBackPage.Location = new System.Drawing.Point(810, 0);
             this.pbBackPage.Name = "pbBackPage";
             this.pbBackPage.Size = new System.Drawing.Size(25, 32);
             this.pbBackPage.TabIndex = 87;
@@ -370,7 +416,7 @@
             // pbTotalPage
             // 
             this.pbTotalPage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTotalPage.Location = new System.Drawing.Point(567, 0);
+            this.pbTotalPage.Location = new System.Drawing.Point(677, 0);
             this.pbTotalPage.Name = "pbTotalPage";
             this.pbTotalPage.Size = new System.Drawing.Size(32, 33);
             this.pbTotalPage.TabIndex = 86;
@@ -412,7 +458,7 @@
             // pnPage
             // 
             this.pnPage.Controls.Add(this.lbPage);
-            this.pnPage.Location = new System.Drawing.Point(723, 5);
+            this.pnPage.Location = new System.Drawing.Point(833, 5);
             this.pnPage.Name = "pnPage";
             this.pnPage.Size = new System.Drawing.Size(45, 22);
             this.pnPage.TabIndex = 86;
@@ -446,6 +492,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
@@ -506,5 +555,9 @@
         private System.Windows.Forms.ColumnHeader chTichLuy;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chMaKH;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbBirthDay;
+        private System.Windows.Forms.ColumnHeader chDOB;
     }
 }

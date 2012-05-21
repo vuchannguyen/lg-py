@@ -57,6 +57,13 @@ namespace Library
         public const string TOOLTIP_THUCHI = "Quản lý thu nhập hàng ngày";
         public const string TOOLTIP_THANHTOAN = "Tính hóa đơn cho khách hàng";
 
+        public const string TOOLTIP_DETAIL_KHACHHANG = "Họ tên: {0}\n" +
+            "Giới tính: {1}\n" +
+            "Ngày sinh: {2}\n" +
+            "CMND: {3}\n" +
+            "Địa chỉ: {4}\n" +
+            "Email: {5}";
+
         public const string TOOLTIP_MUA_THEM = "Nhập danh mục sản phẩm có thể bán";
         public const string TOOLTIP_MUA_THEM_SAN_PHAM = "Thêm sản phẩm mới vào danh mục";
         public const string TOOLTIP_BAN_THEM = "Nhập sản phẩm vào kho hàng để bán";
@@ -134,6 +141,7 @@ namespace Library
         public const string MESSAGE_ERROR_DOB = "Vui lòng kiểm tra ngày sinh!" + MESSAGE_NEW_LINE + "(Từ {0} tuổi trở lên)";
         public const string MESSAGE_ERROR_EXPORT_EXCEL = "Không thể xuất dữ liệu!\nVui lòng thử lại.";
         public const string MESSAGE_ERROR_EXPORT_EXCEL_NULL_DATA = "Không có dữ liệu để xuất!";
+        public const string MESSAGE_ERROR_EDIT_DATA = "Không thể thay đổi dữ liệu này!";
 
         public const string MESSAGE_SUCCESS_EXPORT_EXCEL = "Dữ liệu đã xuất thành công.";
 
@@ -144,5 +152,6 @@ namespace Library
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
         public const string SEARCH_NHAPKHO_TIP = "Mã nhập - Mã SP - Tên SP";
         public const string SEARCH_THU_TIP = "Mã Hóa đơn - Lý do";
+        public const string SEARCH_CHI_TIP = "Mã Hóa đơn - Lý do";
     }
 }

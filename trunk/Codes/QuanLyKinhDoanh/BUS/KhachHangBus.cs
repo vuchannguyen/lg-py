@@ -9,15 +9,15 @@ namespace BUS
 {
     public class KhachHangBus
     {
-        public static int GetCount(string text)
+        public static int GetCount(string text, bool isBirthDay)
         {
-            return KhachHangDao.GetCount(text);
+            return KhachHangDao.GetCount(text, isBirthDay);
         }
 
-        public static List<KhachHang> GetList(string text,
+        public static List<KhachHang> GetList(string text, bool isBirthDay,
             string sortColumn, string sortOrder, int skip, int take)
         {
-            return KhachHangDao.GetList(text, sortColumn, sortOrder, skip, take);
+            return KhachHangDao.GetList(text, isBirthDay, sortColumn, sortOrder, skip, take);
         }
 
         public static KhachHang GetById(int id)

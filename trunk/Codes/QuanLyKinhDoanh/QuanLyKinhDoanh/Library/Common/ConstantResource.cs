@@ -51,6 +51,8 @@ namespace Library
         public const string CHUC_NANG_EXPORT_EXCEL = @"Resources\ChucNang\icon_excel.png";
         public const string CHUC_NANG_EXPORT_EXCEL_MOUSEOVER = @"Resources\ChucNang\icon_excel_mouseover.png";
         public const string CHUC_NANG_EXPORT_EXCEL_TITLE = @"Resources\ChucNang\export_title.png";
+        public const string CHUC_NANG_ICON_BITRHDAY = @"Resources\ChucNang\icon_birthday.png";
+        public const string CHUC_NANG_ICON_BITRHDAY_MOUSEROVER = @"Resources\ChucNang\icon_birthday_mouseover.png";
         #endregion
 
 
