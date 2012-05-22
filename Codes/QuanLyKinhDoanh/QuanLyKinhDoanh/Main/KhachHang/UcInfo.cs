@@ -191,7 +191,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            //data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
             data.CreateBy = data.UpdateBy = "";

@@ -472,7 +472,7 @@
             this.cbXuatXu.Name = "cbXuatXu";
             this.cbXuatXu.Size = new System.Drawing.Size(208, 24);
             this.cbXuatXu.TabIndex = 10;
-            this.cbXuatXu.DropDownClosed += new System.EventHandler(this.cbXuatXu_DropDownClosed);
+            this.cbXuatXu.SelectedIndexChanged += new System.EventHandler(this.cbXuatXu_SelectedIndexChanged);
             // 
             // panel8
             // 
@@ -517,7 +517,7 @@
             this.cbDVTSP.Name = "cbDVTSP";
             this.cbDVTSP.Size = new System.Drawing.Size(137, 24);
             this.cbDVTSP.TabIndex = 4;
-            this.cbDVTSP.DropDownClosed += new System.EventHandler(this.cbDVTSP_DropDownClosed);
+            this.cbDVTSP.SelectedIndexChanged += new System.EventHandler(this.cbDVTSP_SelectedIndexChanged);
             this.cbDVTSP.TextChanged += new System.EventHandler(this.cbDVTSP_TextChanged);
             // 
             // cbDonViThoiHan

@@ -866,7 +866,6 @@
             // 
             this.ttDetail.AutoPopDelay = 10000;
             this.ttDetail.InitialDelay = 500;
-            this.ttDetail.IsBalloon = true;
             this.ttDetail.ReshowDelay = 100;
             // 
             // UcThanhToan

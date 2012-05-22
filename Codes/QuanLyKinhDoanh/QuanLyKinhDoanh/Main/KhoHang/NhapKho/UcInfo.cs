@@ -64,8 +64,8 @@ namespace QuanLyKinhDoanh.Mua
                 tbSize.Text = data.SanPham.Size;
                 cbXuatXu.Text = data.SanPham.XuatXu == null ? string.Empty : data.SanPham.XuatXu.Ten;
                 tbHieu.Text = data.SanPham.Hieu;
-                tbThoiHan.Text = data.SanPham.ThoiHan.ToString();
-                tbThoiHan.Text = data.SanPham.DonViThoiHan;
+                tbThoiHan.Text = data.SanPham.ThoiHan == 0 ? string.Empty : data.SanPham.ThoiHan.ToString();
+                cbDonViThoiHan.Text = data.SanPham.DonViThoiHan;
                 tbMoTa.Text = data.SanPham.MoTa;
 
                 tbMaNhap.Text = data.HoaDon.MaHoaDon;
@@ -886,14 +886,9 @@ namespace QuanLyKinhDoanh.Mua
             cbDVTSP.Focus();
         }
 
-        private void cbDVTSP_DropDownClosed(object sender, EventArgs e)
+        private void cbDVTSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbTenSP.Focus();
-        }
-
-        private void cbXuatXu_DropDownClosed(object sender, EventArgs e)
-        {
-            tbThoiHan.Focus();
         }
 
         private void cbDonViThoiHan_DropDownClosed(object sender, EventArgs e)
@@ -917,6 +912,11 @@ namespace QuanLyKinhDoanh.Mua
             {
                 tbChietKhau.Text = "0";
             }
+        }
+
+        private void cbXuatXu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbThoiHan.Focus();
         }
     }
 }
