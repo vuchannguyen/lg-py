@@ -205,7 +205,7 @@ namespace DTO
 		
 		private int _IdSanPham;
 		
-		private System.Nullable<int> _IdKhachHangGroup;
+		private System.Nullable<int> _idKhachHangGroup;
 		
 		private int _Value;
 		
@@ -231,8 +231,8 @@ namespace DTO
     partial void OnIdChanged();
     partial void OnIdSanPhamChanging(int value);
     partial void OnIdSanPhamChanged();
-    partial void OnIdKhachHangGroupChanging(System.Nullable<int> value);
-    partial void OnIdKhachHangGroupChanged();
+    partial void OnidKhachHangGroupChanging(System.Nullable<int> value);
+    partial void OnidKhachHangGroupChanged();
     partial void OnValueChanging(int value);
     partial void OnValueChanged();
     partial void OnCreateByChanging(string value);
@@ -298,26 +298,26 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKhachHangGroup", DbType="Int")]
-		public System.Nullable<int> IdKhachHangGroup
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idKhachHangGroup", DbType="Int")]
+		public System.Nullable<int> idKhachHangGroup
 		{
 			get
 			{
-				return this._IdKhachHangGroup;
+				return this._idKhachHangGroup;
 			}
 			set
 			{
-				if ((this._IdKhachHangGroup != value))
+				if ((this._idKhachHangGroup != value))
 				{
 					if (this._KhachHangGroup.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnIdKhachHangGroupChanging(value);
+					this.OnidKhachHangGroupChanging(value);
 					this.SendPropertyChanging();
-					this._IdKhachHangGroup = value;
-					this.SendPropertyChanged("IdKhachHangGroup");
-					this.OnIdKhachHangGroupChanged();
+					this._idKhachHangGroup = value;
+					this.SendPropertyChanged("idKhachHangGroup");
+					this.OnidKhachHangGroupChanged();
 				}
 			}
 		}
@@ -442,7 +442,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_KhachHangGroup", ThisKey="IdKhachHangGroup", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_KhachHangGroup", ThisKey="idKhachHangGroup", OtherKey="Id", IsForeignKey=true)]
 		public KhachHangGroup KhachHangGroup
 		{
 			get
@@ -465,11 +465,11 @@ namespace DTO
 					if ((value != null))
 					{
 						value.ChietKhaus.Add(this);
-						this._IdKhachHangGroup = value.Id;
+						this._idKhachHangGroup = value.Id;
 					}
 					else
 					{
-						this._IdKhachHangGroup = default(Nullable<int>);
+						this._idKhachHangGroup = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("KhachHangGroup");
 				}
@@ -1977,6 +1977,8 @@ namespace DTO
 		
 		private System.Nullable<long> _TichLuy;
 		
+		private System.Nullable<int> _Diem;
+		
 		private string _GhiChu;
 		
 		private string _CreateBy;
@@ -2025,6 +2027,8 @@ namespace DTO
     partial void OnEmailChanged();
     partial void OnTichLuyChanging(System.Nullable<long> value);
     partial void OnTichLuyChanged();
+    partial void OnDiemChanging(System.Nullable<int> value);
+    partial void OnDiemChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
     partial void OnCreateByChanging(string value);
@@ -2326,6 +2330,26 @@ namespace DTO
 					this._TichLuy = value;
 					this.SendPropertyChanged("TichLuy");
 					this.OnTichLuyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diem", DbType="Int")]
+		public System.Nullable<int> Diem
+		{
+			get
+			{
+				return this._Diem;
+			}
+			set
+			{
+				if ((this._Diem != value))
+				{
+					this.OnDiemChanging(value);
+					this.SendPropertyChanging();
+					this._Diem = value;
+					this.SendPropertyChanged("Diem");
+					this.OnDiemChanged();
 				}
 			}
 		}
@@ -2673,7 +2697,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_ChietKhaus", ThisKey="Id", OtherKey="IdKhachHangGroup")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KhachHangGroup_ChietKhau", Storage="_ChietKhaus", ThisKey="Id", OtherKey="idKhachHangGroup")]
 		public EntitySet<ChietKhau> ChietKhaus
 		{
 			get
@@ -2784,6 +2808,8 @@ namespace DTO
 		
 		private string _DonViBaoHanh;
 		
+		private bool _IsSold;
+		
 		private string _CreateBy;
 		
 		private System.DateTime _CreateDate;
@@ -2840,6 +2866,8 @@ namespace DTO
     partial void OnThoiGianBaoHanhChanged();
     partial void OnDonViBaoHanhChanging(string value);
     partial void OnDonViBaoHanhChanged();
+    partial void OnIsSoldChanging(bool value);
+    partial void OnIsSoldChanged();
     partial void OnCreateByChanging(string value);
     partial void OnCreateByChanged();
     partial void OnCreateDateChanging(System.DateTime value);
@@ -3205,6 +3233,26 @@ namespace DTO
 					this._DonViBaoHanh = value;
 					this.SendPropertyChanged("DonViBaoHanh");
 					this.OnDonViBaoHanhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSold", DbType="Bit NOT NULL")]
+		public bool IsSold
+		{
+			get
+			{
+				return this._IsSold;
+			}
+			set
+			{
+				if ((this._IsSold != value))
+				{
+					this.OnIsSoldChanging(value);
+					this.SendPropertyChanging();
+					this._IsSold = value;
+					this.SendPropertyChanged("IsSold");
+					this.OnIsSoldChanged();
 				}
 			}
 		}
