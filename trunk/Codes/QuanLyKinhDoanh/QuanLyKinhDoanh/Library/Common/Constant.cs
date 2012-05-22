@@ -40,6 +40,8 @@ namespace Library
 
         public const string DEFAULT_PASSWORD = "admin";
 
+        public static string IS_SOLD = "Is Sold";
+
         public static string SORT_ASCENDING = "asc";
         public static string SORT_DESCENDING = "desc";
 
@@ -64,6 +66,15 @@ namespace Library
             "Địa chỉ: {4}\n" +
             "Email: {5}";
 
+        /// <summary>
+        /// Ten, Dia chi, Dien Thoai, Fax, Email
+        /// </summary>
+        public const string TOOLTIP_DETAIL_XUATXU = "Tên: {0}\n" +
+            "Địa chỉ: {1}\n" +
+            "Điện thoại: {2}\n" +
+            "Fax: {3}\n" +
+            "Email: {4}\n";
+
         public const string TOOLTIP_MUA_THEM = "Nhập danh mục sản phẩm có thể bán";
         public const string TOOLTIP_MUA_THEM_SAN_PHAM = "Thêm sản phẩm mới vào danh mục";
         public const string TOOLTIP_BAN_THEM = "Nhập sản phẩm vào kho hàng để bán";
@@ -76,7 +87,7 @@ namespace Library
 
         public const int ID_GROUP_KHACH_THUONG = 1;
         public const int ID_GROUP_KHTT = 2;
-        public const int ID_GROUP_KHND = 3;
+        public const int ID_GROUP_TVND = 3;
         public const int ID_GROUP_KHACH_SI = 4;
         public const int ID_GROUP_VIP = 5;
 

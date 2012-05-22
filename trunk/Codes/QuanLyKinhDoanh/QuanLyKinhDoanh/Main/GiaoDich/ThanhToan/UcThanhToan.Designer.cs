@@ -238,6 +238,7 @@
             this.tbTienThanhToan.Location = new System.Drawing.Point(807, 130);
             this.tbTienThanhToan.MaxLength = 11;
             this.tbTienThanhToan.Name = "tbTienThanhToan";
+            this.tbTienThanhToan.ReadOnly = true;
             this.tbTienThanhToan.Size = new System.Drawing.Size(127, 26);
             this.tbTienThanhToan.TabIndex = 18;
             this.tbTienThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -255,7 +256,7 @@
             this.tbTenKH.Size = new System.Drawing.Size(258, 29);
             this.tbTenKH.TabIndex = 10;
             this.tbTenKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbTenKH.MouseEnter += new System.EventHandler(this.tbTenKH_MouseEnter);
+            this.tbTenKH.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbTenKH_MouseMove);
             // 
             // cbMaKH
             // 

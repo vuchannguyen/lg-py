@@ -296,13 +296,12 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chSanPham.Width = 89;
+            this.chSanPham.Width = 171;
             // 
             // chUser
             // 
             this.chUser.Text = "Người nhập";
-            this.chUser.Width = 158;
+            this.chUser.Width = 106;
             // 
             // chNgayGio
             // 
@@ -326,19 +325,19 @@
             // 
             this.chGiaNhap.Text = "Giá nhập";
             this.chGiaNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaNhap.Width = 90;
+            this.chGiaNhap.Width = 80;
             // 
             // chGiaBan
             // 
             this.chGiaBan.Text = "Giá bán";
             this.chGiaBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaBan.Width = 90;
+            this.chGiaBan.Width = 80;
             // 
             // chThanhTien
             // 
             this.chThanhTien.Text = "Tổng nhập";
             this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chThanhTien.Width = 90;
+            this.chThanhTien.Width = 80;
             // 
             // pnTraCuu
             // 
