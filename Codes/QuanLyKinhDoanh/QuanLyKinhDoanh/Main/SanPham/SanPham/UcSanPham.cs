@@ -23,6 +23,10 @@ namespace QuanLyKinhDoanh
 
         private string sortColumn;
         private string sortOrder;
+        private Image imgCheck;
+        private Image imgWarning;
+        private int lvWidth;
+        private int centerX;
 
         public UcSanPham()
         {
@@ -69,14 +73,7 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
-            sortColumn = string.Empty;
-            sortOrder = Constant.SORT_ASCENDING;
-
-            tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
-
-            RefreshListView(tbSearch.Text, 0,
-                sortColumn, sortOrder, 1);
-            SetStatusButtonPage(1);
+            Init();
 
             this.Visible = true;
         }
@@ -84,6 +81,32 @@ namespace QuanLyKinhDoanh
 
 
         #region Function
+        private void Init()
+        {
+            imgCheck = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CHECK);
+            imgWarning = Image.FromFile(ConstantResource.CHUC_NANG_ICON_WARNING);
+
+            lvWidth = 0;
+
+            for (int i = 0; i < lvThongTin.Columns.Count; i++)
+            {
+                lvWidth += lvThongTin.Columns[i].Width;
+            }
+
+            centerX = lvThongTin.Columns[8].Width / 2;
+
+            lvThongTin.OwnerDraw = true;
+
+            sortColumn = string.Empty;
+            sortOrder = Constant.SORT_ASCENDING;
+
+            tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
+
+            RefreshListView(tbSearch.Text, 0,
+                sortColumn, sortOrder, 1);
+
+            SetStatusButtonPage(1);
+        }
         private void uc_Disposed(object sender, EventArgs e)
         {
             tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
@@ -131,6 +154,14 @@ namespace QuanLyKinhDoanh
 
             foreach (DTO.SanPham data in list)
             {
+                //ImageList imgList = new ImageList();
+
+                //imgList.ImageSize = new System.Drawing.Size(16, 16);
+                //imgList.Images.Add(img);
+
+                //lvThongTin.SmallImageList = imgList;
+                //lvThongTin.LargeImageList = imgList;
+
                 ListViewItem lvi = new ListViewItem();
 
                 lvi.SubItems.Add(data.Id.ToString());
@@ -141,8 +172,21 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.DonViTinh);
                 lvi.SubItems.Add(data.MoTa);
 
+                if (data.IsSold)
+                {
+                    lvi.SubItems.Add(Constant.IS_SOLD);
+                    //img = Image.FromFile(ConstantResource.CHUC_NANG_ICON_WARNING);
+                }
+                else
+                {
+                    lvi.SubItems.Add(string.Empty);
+                    //img = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CHECK);
+                }
+
                 lvThongTin.Items.Add(lvi);
             }
+
+            //lvThongTin.View = View.SmallIcon;
 
             CheckListViewItemsIsChecked();
         }
@@ -198,6 +242,30 @@ namespace QuanLyKinhDoanh
                 pbNextPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_NEXT_PAGE);
             }
         }
+
+        private bool UpdateStatusSold(int id)
+        {
+            DTO.SanPham data = SanPhamBus.GetById(id);
+
+            data.IsSold = !data.IsSold;
+
+            data.UpdateBy = "";
+            data.UpdateDate = DateTime.Now;
+
+            if (SanPhamBus.Update(data))
+            {
+                return true;
+                //this.Dispose();
+            }
+            else
+            {
+                return false;
+                //if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                //{
+                //    this.Dispose();
+                //}
+            }
+        }
         #endregion
 
 
@@ -222,14 +290,14 @@ namespace QuanLyKinhDoanh
         private void LoadLvExLData()
         {
             lvEx.Columns.Add("Mã", 10, HorizontalAlignment.Left); //0
-            lvEx.Columns.Add("STT", 50, HorizontalAlignment.Left); //1
-            lvEx.Columns.Add("Mã SP", 100, HorizontalAlignment.Left); //2
-            lvEx.Columns.Add("Nhóm", 100, HorizontalAlignment.Center); //3
-            lvEx.Columns.Add("Tên", 100, HorizontalAlignment.Center); //4
-            lvEx.Columns.Add("Mô tả", 100, HorizontalAlignment.Center); //5
-            lvEx.Columns.Add("Đơn giá", 100, HorizontalAlignment.Center); //6
+            lvEx.Columns.Add("STT", 50, HorizontalAlignment.Center); //1
+            lvEx.Columns.Add("Mã SP", 100, HorizontalAlignment.Center); //2
+            lvEx.Columns.Add("Nhóm", 100, HorizontalAlignment.Left); //3
+            lvEx.Columns.Add("Tên", 100, HorizontalAlignment.Left); //4
+            lvEx.Columns.Add("Mô tả", 100, HorizontalAlignment.Left); //5
+            lvEx.Columns.Add("Đơn giá", 100, HorizontalAlignment.Right); //6
             lvEx.Columns.Add("ĐVT", 100, HorizontalAlignment.Left); //7
-            lvEx.Columns.Add("Xuất xứ", 100, HorizontalAlignment.Center); //8
+            lvEx.Columns.Add("Xuất xứ", 100, HorizontalAlignment.Left); //8
             lvEx.Columns.Add("Hiệu", 100, HorizontalAlignment.Left); //9
             lvEx.Columns.Add("Size", 100, HorizontalAlignment.Left); //10
             lvEx.Columns.Add("Thời hạn", 100, HorizontalAlignment.Left); //11
@@ -312,7 +380,7 @@ namespace QuanLyKinhDoanh
 
                 if (lvEx.Columns[8].Visible)
                 {
-                    lvi.SubItems.Add(list[i].XuatXu.Ten);
+                    lvi.SubItems.Add(list[i].XuatXu == null ? string.Empty : list[i].XuatXu.Ten);
                 }
 
                 if (lvEx.Columns[9].Visible)
@@ -449,7 +517,7 @@ namespace QuanLyKinhDoanh
         #region Controls
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            int n = 0;
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -465,6 +533,15 @@ namespace QuanLyKinhDoanh
                 e.NewWidth = 0;
                 e.Cancel = true;
             }
+
+            lvWidth = 0;
+
+            for (int i = 0; i < lvThongTin.Columns.Count; i++)
+            {
+                lvWidth += lvThongTin.Columns[i].Width;
+            }
+
+            centerX = lvThongTin.Columns[8].Width / 2;
         }
 
         private void lvThongTin_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -492,6 +569,59 @@ namespace QuanLyKinhDoanh
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
+        }
+
+        private void lvThongTin_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            e.DrawDefault = true;
+        }
+
+        private void lvThongTin_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
+        {
+            if (e.ColumnIndex == 8)
+            {
+                if (e.SubItem.Text == Constant.IS_SOLD)
+                {
+                    e.Graphics.DrawImage(imgWarning, new System.Drawing.RectangleF(e.Item.Position.X + lvWidth - centerX - 30, e.Item.Position.Y, imgWarning.Width * 1f, imgWarning.Height * 1f));
+                }
+                else
+                {
+                    e.Graphics.DrawImage(imgCheck, new System.Drawing.RectangleF(e.Item.Position.X + lvWidth - centerX - 30, e.Item.Position.Y, imgCheck.Width * 1f, imgCheck.Height * 1f));
+                }
+            }
+            else
+            {
+                e.DrawDefault = true;
+            }
+        }
+
+        private void lvThongTin_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.X > lvWidth - centerX - 12 && e.X < lvWidth - centerX + 12)
+            {
+                this.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void lvThongTin_MouseUp(object sender, MouseEventArgs e)
+        {
+            ListViewItem item = lvThongTin.GetItemAt(e.X, e.Y);
+
+            if (e.X > lvWidth - centerX - 12 && e.X < lvWidth - centerX + 12)
+            {
+                if (item != null && item.SubItems[8].Text == Constant.IS_SOLD)
+                {
+                    if (UpdateStatusSold(ConvertUtil.ConvertToInt(item.SubItems[1].Text)))
+                    {
+                        RefreshListView(tbSearch.Text, 0,
+                            sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    }
+                }
+            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)

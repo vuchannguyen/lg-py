@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.lbNhomSanPham = new System.Windows.Forms.Label();
+            this.pbNhomSanPham = new System.Windows.Forms.PictureBox();
             this.lbKhoHang = new System.Windows.Forms.Label();
             this.lbNhapKho = new System.Windows.Forms.Label();
             this.pbNhapKho = new System.Windows.Forms.PictureBox();
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
-            this.lbNhomSanPham = new System.Windows.Forms.Label();
-            this.pbNhomSanPham = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
@@ -54,6 +54,30 @@
             this.pnSelect.Size = new System.Drawing.Size(560, 140);
             this.pnSelect.TabIndex = 6;
             // 
+            // lbNhomSanPham
+            // 
+            this.lbNhomSanPham.AutoSize = true;
+            this.lbNhomSanPham.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNhomSanPham.ForeColor = System.Drawing.Color.Gray;
+            this.lbNhomSanPham.Location = new System.Drawing.Point(428, 120);
+            this.lbNhomSanPham.Name = "lbNhomSanPham";
+            this.lbNhomSanPham.Size = new System.Drawing.Size(129, 16);
+            this.lbNhomSanPham.TabIndex = 8;
+            this.lbNhomSanPham.Text = "NHÓM SẢN PHẨM";
+            // 
+            // pbNhomSanPham
+            // 
+            this.pbNhomSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbNhomSanPham.Location = new System.Drawing.Point(440, 10);
+            this.pbNhomSanPham.Name = "pbNhomSanPham";
+            this.pbNhomSanPham.Size = new System.Drawing.Size(100, 100);
+            this.pbNhomSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbNhomSanPham.TabIndex = 7;
+            this.pbNhomSanPham.TabStop = false;
+            this.pbNhomSanPham.Click += new System.EventHandler(this.pbNhomSanPham_Click);
+            this.pbNhomSanPham.MouseEnter += new System.EventHandler(this.pbNhomSanPham_MouseEnter);
+            this.pbNhomSanPham.MouseLeave += new System.EventHandler(this.pbNhomSanPham_MouseLeave);
+            // 
             // lbKhoHang
             // 
             this.lbKhoHang.AutoSize = true;
@@ -64,6 +88,7 @@
             this.lbKhoHang.Size = new System.Drawing.Size(84, 16);
             this.lbKhoHang.TabIndex = 6;
             this.lbKhoHang.Text = "KHO HÀNG";
+            this.lbKhoHang.Visible = false;
             // 
             // lbNhapKho
             // 
@@ -98,33 +123,10 @@
             this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbKhoHang.TabIndex = 2;
             this.pbKhoHang.TabStop = false;
+            this.pbKhoHang.Visible = false;
             this.pbKhoHang.Click += new System.EventHandler(this.pbKhoHang_Click);
             this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
             this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);
-            // 
-            // lbNhomSanPham
-            // 
-            this.lbNhomSanPham.AutoSize = true;
-            this.lbNhomSanPham.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNhomSanPham.ForeColor = System.Drawing.Color.Gray;
-            this.lbNhomSanPham.Location = new System.Drawing.Point(428, 120);
-            this.lbNhomSanPham.Name = "lbNhomSanPham";
-            this.lbNhomSanPham.Size = new System.Drawing.Size(129, 16);
-            this.lbNhomSanPham.TabIndex = 8;
-            this.lbNhomSanPham.Text = "NHÓM SẢN PHẨM";
-            // 
-            // pbNhomSanPham
-            // 
-            this.pbNhomSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNhomSanPham.Location = new System.Drawing.Point(440, 10);
-            this.pbNhomSanPham.Name = "pbNhomSanPham";
-            this.pbNhomSanPham.Size = new System.Drawing.Size(100, 100);
-            this.pbNhomSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNhomSanPham.TabIndex = 7;
-            this.pbNhomSanPham.TabStop = false;
-            this.pbNhomSanPham.Click += new System.EventHandler(this.pbNhomSanPham_Click);
-            this.pbNhomSanPham.MouseEnter += new System.EventHandler(this.pbNhomSanPham_MouseEnter);
-            this.pbNhomSanPham.MouseLeave += new System.EventHandler(this.pbNhomSanPham_MouseLeave);
             // 
             // UcKhoHangIndex
             // 
@@ -138,9 +140,9 @@
             this.Load += new System.EventHandler(this.UcKhoHangIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).EndInit();
             this.ResumeLayout(false);
 
         }

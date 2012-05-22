@@ -19,6 +19,7 @@ namespace QuanLyKinhDoanh.Mua
         private DTO.HoaDonDetail dataHoaDonDetail;
         private DTO.SanPham dataSP;
         private DTO.ChietKhau dataChietKhau;
+        private DTO.XuatXu dataXuatXu;
         private bool isFixedMoney;
 
         private bool isUpdate;
@@ -916,7 +917,18 @@ namespace QuanLyKinhDoanh.Mua
 
         private void cbXuatXu_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dataXuatXu = XuatXuBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value));
+
             tbThoiHan.Focus();
+        }
+
+        private void cbXuatXu_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dataXuatXu != null)
+            {
+                ttDetail.SetToolTip(cbXuatXu, string.Format(Constant.TOOLTIP_DETAIL_XUATXU,
+                    dataXuatXu.Ten, dataXuatXu.DiaChi, dataXuatXu.DienThoai, dataXuatXu.Fax, dataXuatXu.Email));
+            }
         }
     }
 }

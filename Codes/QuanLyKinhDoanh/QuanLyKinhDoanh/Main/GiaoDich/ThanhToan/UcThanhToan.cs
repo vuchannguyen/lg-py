@@ -571,7 +571,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void UpdateDataKH()
         {
-            if (dataKH != null)
+            if (dataKH != null && dataKH.IdGroup != Constant.ID_GROUP_KHACH_THUONG)
             {
                 dataKH.TichLuy -= ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 dataKH.TichLuy += totalDiscount;
@@ -595,6 +595,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             if (dataUpdate != null)
             {
                 dataUpdate.SoLuong -= soLuong;
+                dataUpdate.IsSold = true;
 
                 dataUpdate.UpdateBy = "";
                 dataUpdate.UpdateDate = DateTime.Now;
@@ -715,6 +716,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
                 if (dataKH != null)
                 {
+                    tbTienThanhToan.ReadOnly = false;
                     tbTenKH.Text = dataKH.Ten;
                     tbTichLuy.Text = dataKH.TichLuy.Value == 0 ? "0" : dataKH.TichLuy.Value.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
@@ -722,6 +724,8 @@ namespace QuanLyKinhDoanh.GiaoDich
                 }
             }
 
+            tbTienThanhToan.ReadOnly = true;
+            tbTienThanhToan.Text = string.Empty;
             tbTenKH.Text = string.Empty;
             tbTichLuy.Text = string.Empty;
         }
@@ -939,7 +943,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
 
-        private void tbTenKH_MouseEnter(object sender, EventArgs e)
+        private void tbTenKH_MouseMove(object sender, MouseEventArgs e)
         {
             if (dataKH != null)
             {
