@@ -38,6 +38,8 @@ namespace Library
         public const string DEFAULT_FORMAT_MONEY = "#" + Constant.SYMBOL_LINK_MONEY + "###";
         public const string DEFAULT_MONEY_SUBFIX = "Đ";
 
+        public const string DEFAULT_FIRST_VALUE_COMBOBOX = "Tất cả";
+
         public const string DEFAULT_PASSWORD = "admin";
 
         public static string IS_SOLD = "Is Sold";
@@ -78,6 +80,10 @@ namespace Library
         public const string TOOLTIP_MUA_THEM = "Nhập danh mục sản phẩm có thể bán";
         public const string TOOLTIP_MUA_THEM_SAN_PHAM = "Thêm sản phẩm mới vào danh mục";
         public const string TOOLTIP_BAN_THEM = "Nhập sản phẩm vào kho hàng để bán";
+
+        public const string DEFAULT_STATUS_SP_ALL = "Tất cả";
+        public const string DEFAULT_STATUS_SP_NOT_ZERO = "Còn";
+        public const string DEFAULT_STATUS_SP_ZERO = "Hết";
 
         public const string PAGE_TEXT = " Trang";
         public const string SEPERATE_STRING = ", ";
@@ -146,7 +152,12 @@ namespace Library
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
         public const string MESSAGE_ERROR_MISSING_RESOURCE = "Vui lòng kiểm tra thư mục Resource!";
+
+        /// <summary>
+        /// Vui lòng nhập dữ liệu {0} trước! 
+        /// </summary>
         public const string MESSAGE_ERROR_MISSING_DATA = "Vui lòng nhập dữ liệu {0} trước!";
+
         public const string MESSAGE_ERROR_MISSING_MONEY = "Sản phẩm chưa có giá bán!";
         public const string MESSAGE_ERROR_DELETE_DATA = "Vui lòng kiểm tra dữ liệu có đang sử dụng hay không!";
         public const string MESSAGE_ERROR_DOB = "Vui lòng kiểm tra ngày sinh!" + MESSAGE_NEW_LINE + "(Từ {0} tuổi trở lên)";

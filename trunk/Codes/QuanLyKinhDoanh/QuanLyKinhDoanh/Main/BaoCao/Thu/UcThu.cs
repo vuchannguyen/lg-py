@@ -246,6 +246,7 @@ namespace QuanLyKinhDoanh.Thu
                 {
                     RefreshListView(tbSearch.Text, cbFilter.Text, dtpFilter.Value,
                         string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
                 {
@@ -338,6 +339,7 @@ namespace QuanLyKinhDoanh.Thu
 
                 RefreshListView(tbSearch.Text, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
 
@@ -366,7 +368,6 @@ namespace QuanLyKinhDoanh.Thu
             {
                 RefreshListView(tbSearch.Text, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -467,6 +468,7 @@ namespace QuanLyKinhDoanh.Thu
 
             RefreshListView(tbSearch.Text, cbFilter.Text, dtpFilter.Value,
                 string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)
@@ -483,7 +485,6 @@ namespace QuanLyKinhDoanh.Thu
         {
             RefreshListView(tbSearch.Text, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
@@ -491,7 +492,6 @@ namespace QuanLyKinhDoanh.Thu
         {
             RefreshListView(tbSearch.Text, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion

@@ -147,6 +147,8 @@ namespace QuanLyKinhDoanh
 
         private void pbUser_Click(object sender, EventArgs e)
         {
+            ScaleNormalControls();
+
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
 
             Init();
@@ -154,6 +156,8 @@ namespace QuanLyKinhDoanh
 
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
             lbUser.ForeColor = Constant.COLOR_IN_USE;
+
+            ScaleMaximizedControls();
         }
 
         private void pbUser_MouseEnter(object sender, EventArgs e)
@@ -180,6 +184,8 @@ namespace QuanLyKinhDoanh
 
         private void pbKhachHang_Click(object sender, EventArgs e)
         {
+            ScaleNormalControls();
+
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
 
             Init();
@@ -187,6 +193,8 @@ namespace QuanLyKinhDoanh
 
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
             lbKhachHang.ForeColor = Constant.COLOR_IN_USE;
+
+            ScaleMaximizedControls();
         }
 
         private void pbKhachHang_MouseEnter(object sender, EventArgs e)
@@ -213,6 +221,8 @@ namespace QuanLyKinhDoanh
 
         private void pbSanPham_Click(object sender, EventArgs e)
         {
+            ScaleNormalControls();
+
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
 
             Init();
@@ -220,6 +230,8 @@ namespace QuanLyKinhDoanh
 
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
             lbSanPham.ForeColor = Constant.COLOR_IN_USE;
+
+            ScaleMaximizedControls();
         }
 
         private void pbSanPham_MouseEnter(object sender, EventArgs e)
@@ -246,6 +258,8 @@ namespace QuanLyKinhDoanh
 
         private void pbKhoHang_Click(object sender, EventArgs e)
         {
+            ScaleNormalControls();
+
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
 
             Init();
@@ -253,6 +267,8 @@ namespace QuanLyKinhDoanh
 
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
             lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
+
+            ScaleMaximizedControls();
         }
 
         private void pbKhoHang_MouseEnter(object sender, EventArgs e)
@@ -279,7 +295,8 @@ namespace QuanLyKinhDoanh
 
         private void pbThuChi_Click(object sender, EventArgs e)
         {
-            //CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+            ScaleNormalControls();
+
             CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
 
             Init();
@@ -287,6 +304,8 @@ namespace QuanLyKinhDoanh
 
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
             lbThuChi.ForeColor = Constant.COLOR_IN_USE;
+
+            ScaleMaximizedControls();
         }
 
         private void pbThuChi_MouseEnter(object sender, EventArgs e)
@@ -313,6 +332,8 @@ namespace QuanLyKinhDoanh
 
         private void pbThanhToan_Click(object sender, EventArgs e)
         {
+            ScaleNormalControls();
+
             Init();
             isMainMenuClickThanhToan = true;
 
@@ -320,6 +341,8 @@ namespace QuanLyKinhDoanh
             lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
 
             CommonFunc.NewControl(pnBody.Controls, ref uc, new QuanLyKinhDoanh.GiaoDich.UcThanhToan());
+
+            ScaleMaximizedControls();
         }
 
         private void pbThanhToan_MouseEnter(object sender, EventArgs e)
@@ -358,15 +381,40 @@ namespace QuanLyKinhDoanh
                 oldWidth = this.Width;
                 oldHeght = this.Height;
 
-                //oldWidth = (float)this.Width;
-                //oldHeght = (float)this.Height;
+                for (int i = 0; i < this.Controls.Count; i++)
+                {
+                    this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                }
+            }
+        }
 
-                //if (this.Width > 1024)
-                //SizeF size = new SizeF(ratioWidth, ratioHeight);
+        private void ScaleMaximizedControls()
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                float ratioWidth = this.Width / 1014f;
+                float ratioHeight = this.Height / 764f;
 
                 for (int i = 0; i < this.Controls.Count; i++)
                 {
                     this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                }
+            }
+        }
+
+        private void ScaleNormalControls()
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                if (this.Width >= 1014 || this.Height >= 764)
+                {
+                    float ratioWidth = 1014f / this.Width;
+                    float ratioHeight = 764f / this.Height;
+
+                    for (int i = 0; i < this.Controls.Count; i++)
+                    {
+                        this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                    }
                 }
             }
         }
