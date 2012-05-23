@@ -24,6 +24,10 @@ namespace Library
         public const string DEFAULT_TYPE_MONTH = "Tháng";
         public const string DEFAULT_TYPE_YEAR = "Năm";
 
+        public const string DEFAULT_STATUS_SP_ALL = "Tất cả";
+        public const string DEFAULT_STATUS_SP_NOT_ZERO = "Còn";
+        public const string DEFAULT_STATUS_SP_ZERO = "Hết";
+
         public static string GetFilterText(string text)
         {
             string filter = string.Empty;

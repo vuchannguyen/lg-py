@@ -52,9 +52,9 @@
             this.chMaSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDonViTinh = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chActive = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chXuatKho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -277,9 +277,9 @@
             this.chMaSanPham,
             this.chGroup,
             this.chTen,
-            this.chDonViTinh,
+            this.chDVT,
             this.chMoTa,
-            this.chActive});
+            this.chXuatKho});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -334,21 +334,22 @@
             this.chTen.Text = "Tên";
             this.chTen.Width = 195;
             // 
-            // chDonViTinh
+            // chDVT
             // 
-            this.chDonViTinh.Text = "Đơn vị tính";
-            this.chDonViTinh.Width = 103;
+            this.chDVT.Text = "ĐVT";
+            this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chDVT.Width = 103;
             // 
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
             this.chMoTa.Width = 162;
             // 
-            // chActive
+            // chXuatKho
             // 
-            this.chActive.Text = "Xuất kho";
-            this.chActive.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chActive.Width = 70;
+            this.chXuatKho.Text = "Xuất kho";
+            this.chXuatKho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chXuatKho.Width = 70;
             // 
             // pnTraCuu
             // 
@@ -538,7 +539,7 @@
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chTen;
         private System.Windows.Forms.ColumnHeader chGroup;
-        private System.Windows.Forms.ColumnHeader chDonViTinh;
+        private System.Windows.Forms.ColumnHeader chDVT;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
@@ -556,6 +557,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExcel;
-        private System.Windows.Forms.ColumnHeader chActive;
+        private System.Windows.Forms.ColumnHeader chXuatKho;
     }
 }

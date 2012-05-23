@@ -260,6 +260,7 @@ namespace QuanLyKinhDoanh
 
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
                 {
@@ -340,6 +341,7 @@ namespace QuanLyKinhDoanh
 
                 RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
 
@@ -368,7 +370,6 @@ namespace QuanLyKinhDoanh
             {
                 RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -467,6 +468,7 @@ namespace QuanLyKinhDoanh
         {
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)
@@ -483,7 +485,6 @@ namespace QuanLyKinhDoanh
         {
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
@@ -491,7 +492,6 @@ namespace QuanLyKinhDoanh
         {
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion

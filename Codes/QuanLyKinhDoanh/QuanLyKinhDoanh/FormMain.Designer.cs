@@ -231,7 +231,7 @@
             // pbKhoHang
             // 
             this.pbKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbKhoHang.Location = new System.Drawing.Point(274, 3);
+            this.pbKhoHang.Location = new System.Drawing.Point(274, 0);
             this.pbKhoHang.Name = "pbKhoHang";
             this.pbKhoHang.Size = new System.Drawing.Size(65, 67);
             this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -255,7 +255,7 @@
             // pbThuChi
             // 
             this.pbThuChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThuChi.Location = new System.Drawing.Point(364, 3);
+            this.pbThuChi.Location = new System.Drawing.Point(364, 0);
             this.pbThuChi.Name = "pbThuChi";
             this.pbThuChi.Size = new System.Drawing.Size(65, 67);
             this.pbThuChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -279,7 +279,7 @@
             // pbThanhToan
             // 
             this.pbThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThanhToan.Location = new System.Drawing.Point(454, 3);
+            this.pbThanhToan.Location = new System.Drawing.Point(454, 0);
             this.pbThanhToan.Name = "pbThanhToan";
             this.pbThanhToan.Size = new System.Drawing.Size(65, 67);
             this.pbThanhToan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -292,7 +292,7 @@
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pbHeader.Location = new System.Drawing.Point(636, 3);
+            this.pbHeader.Location = new System.Drawing.Point(636, 0);
             this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
             this.pbHeader.Size = new System.Drawing.Size(318, 69);
@@ -346,7 +346,7 @@
             // pbSanPham
             // 
             this.pbSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSanPham.Location = new System.Drawing.Point(184, 3);
+            this.pbSanPham.Location = new System.Drawing.Point(184, 0);
             this.pbSanPham.Name = "pbSanPham";
             this.pbSanPham.Size = new System.Drawing.Size(65, 67);
             this.pbSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -359,7 +359,7 @@
             // pbUser
             // 
             this.pbUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbUser.Location = new System.Drawing.Point(4, 3);
+            this.pbUser.Location = new System.Drawing.Point(4, 0);
             this.pbUser.Name = "pbUser";
             this.pbUser.Size = new System.Drawing.Size(65, 67);
             this.pbUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -372,7 +372,7 @@
             // pbKhachHang
             // 
             this.pbKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbKhachHang.Location = new System.Drawing.Point(94, 3);
+            this.pbKhachHang.Location = new System.Drawing.Point(94, 0);
             this.pbKhachHang.Name = "pbKhachHang";
             this.pbKhachHang.Size = new System.Drawing.Size(65, 67);
             this.pbKhachHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -395,7 +395,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ KINH DOANH 2.5";
+            this.Text = "QUẢN LÝ KINH DOANH 2.6";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);

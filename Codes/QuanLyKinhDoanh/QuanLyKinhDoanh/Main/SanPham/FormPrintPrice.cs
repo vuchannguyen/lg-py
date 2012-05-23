@@ -130,7 +130,7 @@ namespace QuanLyKinhDoanh
         private void GetListSP()
         {
             int idGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, true,
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, idGroup, true, Constant.DEFAULT_STATUS_SP_NOT_ZERO,
                 string.Empty, string.Empty, 0, 0);
 
             cbTen.Text = string.Empty;

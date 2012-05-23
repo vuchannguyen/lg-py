@@ -65,7 +65,6 @@ namespace QuanLyKinhDoanh
 
             LoadResource();
 
-            //pnQuanLy.Size = new System.Drawing.Size(710, 480);
             pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
 
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
@@ -104,7 +103,6 @@ namespace QuanLyKinhDoanh
 
             RefreshListView(tbSearch.Text, 0,
                 sortColumn, sortOrder, 1);
-
             SetStatusButtonPage(1);
         }
         private void uc_Disposed(object sender, EventArgs e)
@@ -136,7 +134,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            int total = SanPhamBus.GetCount(text, idGroup, false, false);
+            int total = SanPhamBus.GetCount(text, idGroup, false, Constant.DEFAULT_STATUS_SP_ALL);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -147,21 +145,13 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, false,
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, Constant.DEFAULT_STATUS_SP_ALL,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
 
             foreach (DTO.SanPham data in list)
             {
-                //ImageList imgList = new ImageList();
-
-                //imgList.ImageSize = new System.Drawing.Size(16, 16);
-                //imgList.Images.Add(img);
-
-                //lvThongTin.SmallImageList = imgList;
-                //lvThongTin.LargeImageList = imgList;
-
                 ListViewItem lvi = new ListViewItem();
 
                 lvi.SubItems.Add(data.Id.ToString());
@@ -175,18 +165,14 @@ namespace QuanLyKinhDoanh
                 if (data.IsSold)
                 {
                     lvi.SubItems.Add(Constant.IS_SOLD);
-                    //img = Image.FromFile(ConstantResource.CHUC_NANG_ICON_WARNING);
                 }
                 else
                 {
                     lvi.SubItems.Add(string.Empty);
-                    //img = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CHECK);
                 }
 
                 lvThongTin.Items.Add(lvi);
             }
-
-            //lvThongTin.View = View.SmallIcon;
 
             CheckListViewItemsIsChecked();
         }
@@ -331,7 +317,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, false,
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, Constant.DEFAULT_STATUS_SP_ALL,
                 string.Empty, string.Empty, 0, 0);
 
             for (int i = 0; i < list.Count; i++)
@@ -449,6 +435,7 @@ namespace QuanLyKinhDoanh
                 {
                     RefreshListView(tbSearch.Text, 0,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
             }
         }
@@ -563,6 +550,7 @@ namespace QuanLyKinhDoanh
 
                 RefreshListView(tbSearch.Text, 0,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
 
@@ -619,6 +607,7 @@ namespace QuanLyKinhDoanh
                     {
                         RefreshListView(tbSearch.Text, 0,
                             sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                        SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                     }
                 }
             }
@@ -644,7 +633,6 @@ namespace QuanLyKinhDoanh
             {
                 RefreshListView(tbSearch.Text, 0,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -743,6 +731,7 @@ namespace QuanLyKinhDoanh
         {
             RefreshListView(tbSearch.Text, 0,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+            SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void pbOk_MouseEnter(object sender, EventArgs e)

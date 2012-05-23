@@ -88,7 +88,6 @@
             this.lbKhoHang.Size = new System.Drawing.Size(84, 16);
             this.lbKhoHang.TabIndex = 6;
             this.lbKhoHang.Text = "KHO HÀNG";
-            this.lbKhoHang.Visible = false;
             // 
             // lbNhapKho
             // 
@@ -123,7 +122,6 @@
             this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbKhoHang.TabIndex = 2;
             this.pbKhoHang.TabStop = false;
-            this.pbKhoHang.Visible = false;
             this.pbKhoHang.Click += new System.EventHandler(this.pbKhoHang_Click);
             this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
             this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);

@@ -33,7 +33,7 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbBirthDay = new System.Windows.Forms.Label();
             this.pbBirthDay = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
@@ -131,22 +131,22 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbBirthDay);
             this.panel1.Controls.Add(this.pbBirthDay);
             this.panel1.Location = new System.Drawing.Point(234, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(70, 70);
             this.panel1.TabIndex = 29;
             // 
-            // label1
+            // lbBirthDay
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Sinh nhật";
+            this.lbBirthDay.AutoSize = true;
+            this.lbBirthDay.ForeColor = System.Drawing.Color.Black;
+            this.lbBirthDay.Location = new System.Drawing.Point(1, 53);
+            this.lbBirthDay.Name = "lbBirthDay";
+            this.lbBirthDay.Size = new System.Drawing.Size(68, 16);
+            this.lbBirthDay.TabIndex = 1;
+            this.lbBirthDay.Text = "Sinh nhật";
             // 
             // pbBirthDay
             // 
@@ -556,7 +556,7 @@
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chMaKH;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbBirthDay;
         private System.Windows.Forms.PictureBox pbBirthDay;
         private System.Windows.Forms.ColumnHeader chDOB;
     }

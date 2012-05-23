@@ -13,7 +13,7 @@ namespace DAO
     public class SanPhamDao : SQLConnection
     {
         #region SanPham
-        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHavePrice, bool isNotZero)
+        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHavePrice, string status)
         {
             var sql = from data in dbContext.SanPhams
                       select data;
@@ -37,9 +37,23 @@ namespace DAO
                 sql = sql.Where(p => p.GiaBan != null && p.GiaBan > 0);
             }
 
-            if (isNotZero)
+            switch (status)
             {
-                sql = sql.Where(p => p.SoLuong > 0);
+                case CommonDao.DEFAULT_STATUS_SP_ALL:
+                    sql = sql.Where(p => p.SoLuong >= 0);
+                    break;
+
+                case CommonDao.DEFAULT_STATUS_SP_NOT_ZERO:
+                    sql = sql.Where(p => p.SoLuong > 0);
+                    break;
+
+                case CommonDao.DEFAULT_STATUS_SP_ZERO:
+                    sql = sql.Where(p => p.SoLuong == 0);
+                    break;
+
+                default:
+                    sql = sql.Where(p => p.SoLuong >= 0);
+                    break;
             }
 
             sql = sql.Where(p => p.DeleteFlag == false);
@@ -47,12 +61,12 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text, int idGroup, bool isHavePrice, bool isNotZero)
+        public static int GetCount(string text, int idGroup, bool isHavePrice, string status)
         {
-            return GetQuery(text, idGroup, isHavePrice, isNotZero).Count();
+            return GetQuery(text, idGroup, isHavePrice, status).Count();
         }
 
-        public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan, bool isNotZero,
+        public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan, string status,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -71,7 +85,7 @@ namespace DAO
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                case "Đơn vị tính":
+                case "ĐVT":
                     sortSQL += "DonViTinh " + sortOrder;
                     break;
 
@@ -79,12 +93,20 @@ namespace DAO
                     sortSQL += "MoTa " + sortOrder;
                     break;
 
+                case "SL":
+                    sortSQL += "SoLuong " + sortOrder;
+                    break;
+
+                case "Giá bán":
+                    sortSQL += "GiaBan " + sortOrder;
+                    break;
+
                 default:
                     sortSQL += "Ten " + sortOrder;
                     break;
             }
 
-            var sql = GetQuery(text, idGroup, isHaveGiaBan, isNotZero).OrderBy(sortSQL);
+            var sql = GetQuery(text, idGroup, isHaveGiaBan, status).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
