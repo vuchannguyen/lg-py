@@ -1,6 +1,6 @@
-﻿namespace QuanLyKinhDoanh.Thu
+﻿namespace QuanLyKinhDoanh.CongNo
 {
-    partial class UcThu
+    partial class UcCongNo
     {
         /// <summary> 
         /// Required designer variable.
@@ -43,7 +43,7 @@
             this.chKhachHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chConLai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.pbOk = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -69,6 +69,7 @@
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.chTong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnQuanLy.SuspendLayout();
@@ -105,9 +106,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(49, 22);
+            this.lbTitle.Size = new System.Drawing.Size(101, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "THU";
+            this.lbTitle.Text = "CÔNG NỢ";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -161,7 +162,8 @@
             this.chKhachHang,
             this.chNgayGio,
             this.chGhiChu,
-            this.chTien});
+            this.chConLai,
+            this.chTong});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -202,13 +204,13 @@
             // 
             this.chNguoiNhap.Text = "Người nhập";
             this.chNguoiNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNguoiNhap.Width = 117;
+            this.chNguoiNhap.Width = 99;
             // 
             // chKhachHang
             // 
             this.chKhachHang.Text = "Khách hàng";
             this.chKhachHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chKhachHang.Width = 186;
+            this.chKhachHang.Width = 147;
             // 
             // chNgayGio
             // 
@@ -219,13 +221,13 @@
             // chGhiChu
             // 
             this.chGhiChu.Text = "Ghi Chú";
-            this.chGhiChu.Width = 209;
+            this.chGhiChu.Width = 177;
             // 
-            // chTien
+            // chConLai
             // 
-            this.chTien.Text = "Tổng HĐ";
-            this.chTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chTien.Width = 90;
+            this.chConLai.Text = "Còn lại";
+            this.chConLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chConLai.Width = 90;
             // 
             // pnTraCuu
             // 
@@ -371,6 +373,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(70, 70);
             this.panel2.TabIndex = 26;
+            this.panel2.Visible = false;
             // 
             // label24
             // 
@@ -501,7 +504,13 @@
             this.dtpFilter.TabIndex = 3;
             this.dtpFilter.ValueChanged += new System.EventHandler(this.dtpFilter_ValueChanged);
             // 
-            // UcThu
+            // chTong
+            // 
+            this.chTong.Text = "Tổng HĐ";
+            this.chTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chTong.Width = 90;
+            // 
+            // UcCongNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -512,7 +521,7 @@
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UcThu";
+            this.Name = "UcCongNo";
             this.Size = new System.Drawing.Size(1000, 600);
             this.Load += new System.EventHandler(this.UcThu_Load);
             this.pnTitle.ResumeLayout(false);
@@ -558,7 +567,7 @@
         private System.Windows.Forms.ColumnHeader chNguoiNhap;
         private System.Windows.Forms.ColumnHeader chKhachHang;
         private System.Windows.Forms.ColumnHeader chGhiChu;
-        private System.Windows.Forms.ColumnHeader chTien;
+        private System.Windows.Forms.ColumnHeader chConLai;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
@@ -588,5 +597,6 @@
         private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFilter;
+        private System.Windows.Forms.ColumnHeader chTong;
     }
 }

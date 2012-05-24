@@ -76,6 +76,18 @@
     <Compile Include="Main\BaoCao\Chi\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\BaoCao\CongNo\UcCongNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\CongNo\UcCongNo.Designer.cs">
+      <DependentUpon>UcCongNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\BaoCao\CongNo\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\CongNo\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\BaoCao\Thu\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,6 +265,12 @@
     <EmbeddedResource Include="Main\BaoCao\Chi\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\CongNo\UcCongNo.resx">
+      <DependentUpon>UcCongNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\CongNo\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Thu\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,9 +372,7 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Main\BaoCao\CongNo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

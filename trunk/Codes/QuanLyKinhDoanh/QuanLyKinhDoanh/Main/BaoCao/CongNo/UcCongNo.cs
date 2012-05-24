@@ -10,16 +10,16 @@ using Library;
 using DTO;
 using BUS;
 
-namespace QuanLyKinhDoanh.Chi
+namespace QuanLyKinhDoanh.CongNo
 {
-    public partial class UcChi : UserControl
+    public partial class UcCongNo : UserControl
     {
         private UserControl uc;
         private const int row = Constant.DEFAULT_ROW;
         private string sortColumn;
         private string sortOrder;
 
-        public UcChi()
+        public UcCongNo()
         {
             InitializeComponent();
         }
@@ -49,7 +49,7 @@ namespace QuanLyKinhDoanh.Chi
             }
         }
 
-        private void UcChi_Load(object sender, EventArgs e)
+        private void UcThu_Load(object sender, EventArgs e)
         {
             this.Visible = false;
 
@@ -67,9 +67,9 @@ namespace QuanLyKinhDoanh.Chi
 
             cbFilter.SelectedIndex = 1;
 
-            tbSearch.Text = Constant.SEARCH_CHI_TIP;
+            tbSearch.Text = Constant.SEARCH_THU_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrder, 1);
             SetStatusButtonPage(1);
 
@@ -81,9 +81,9 @@ namespace QuanLyKinhDoanh.Chi
         #region Function
         private void uc_Disposed(object sender, EventArgs e)
         {
-            tbSearch.Text = Constant.SEARCH_CHI_TIP;
+            tbSearch.Text = Constant.SEARCH_THU_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
@@ -103,7 +103,7 @@ namespace QuanLyKinhDoanh.Chi
         private void RefreshListView(string text, int type, int status, string timeType, DateTime date,
             string sortColumn, string sortOrder, int page)
         {
-            if (text == Constant.SEARCH_CHI_TIP)
+            if (text == Constant.SEARCH_THU_TIP)
             {
                 text = string.Empty;
             }
@@ -143,8 +143,10 @@ namespace QuanLyKinhDoanh.Chi
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
+                lvi.SubItems.Add(data.KhachHang == null ? string.Empty : data.KhachHang.MaKhachHang.ToString());
                 lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
+                lvi.SubItems.Add(data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
                 lvThongTin.Items.Add(lvi);
@@ -211,11 +213,7 @@ namespace QuanLyKinhDoanh.Chi
         #region Thêm Xóa Sửa
         private void pbThem_Click(object sender, EventArgs e)
         {
-            //tbDienGiai_TextChanged(sender, e);
-
-            uc = new UcInfo();
-            uc.Disposed += new EventHandler(uc_Disposed);
-            this.Controls.Add(uc);
+            //
         }
 
         private void pbThem_MouseEnter(object sender, EventArgs e)
@@ -243,7 +241,7 @@ namespace QuanLyKinhDoanh.Chi
 
                 if (HoaDonBus.DeleteList(ids))
                 {
-                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                         string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
@@ -266,18 +264,7 @@ namespace QuanLyKinhDoanh.Chi
 
         private void pbSua_Click(object sender, EventArgs e)
         {
-            int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
-
-            if (HoaDonBus.GetById(id).IdType == Constant.ID_TYPE_MUA_CHI)
-            {
-                uc = new UcInfo(HoaDonBus.GetById(id));
-                uc.Disposed += new EventHandler(uc_Disposed);
-                this.Controls.Add(uc);
-            }
-            else
-            {
-                MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
@@ -336,7 +323,7 @@ namespace QuanLyKinhDoanh.Chi
                 sortColumn = lvThongTin.Columns[e.Column].Text;
                 sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -365,7 +352,7 @@ namespace QuanLyKinhDoanh.Chi
             }
             else
             {
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -425,7 +412,7 @@ namespace QuanLyKinhDoanh.Chi
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_CHI_TIP)
+            if (tbSearch.Text == Constant.SEARCH_THU_TIP)
             {
                 tbSearch.Text = string.Empty;
             }
@@ -435,7 +422,7 @@ namespace QuanLyKinhDoanh.Chi
         {
             if (tbSearch.Text == string.Empty)
             {
-                tbSearch.Text = Constant.SEARCH_CHI_TIP;
+                tbSearch.Text = Constant.SEARCH_THU_TIP;
             }
         }
 
@@ -449,7 +436,7 @@ namespace QuanLyKinhDoanh.Chi
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_CHI_TIP)
+            if (tbSearch.Text == Constant.SEARCH_THU_TIP)
             {
                 pbOk.Enabled = false;
                 pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE_DISABLE);
@@ -465,7 +452,7 @@ namespace QuanLyKinhDoanh.Chi
         {
             sortOrder = Constant.SORT_ASCENDING;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                 string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
@@ -482,14 +469,14 @@ namespace QuanLyKinhDoanh.Chi
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }

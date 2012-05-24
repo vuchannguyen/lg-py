@@ -34,6 +34,7 @@ namespace QuanLyKinhDoanh.Thu
 
             this.data = data;
             isUpdate = true;
+            lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
             Init();
 

@@ -105,6 +105,8 @@ namespace Library
 
         public const string THUCHI_ICON_THUCHI = @"Resources\ThuChi\icon_thuchi.png";
         public const string THUCHI_ICON_THUCHI_MOUSEOVER = @"Resources\ThuChi\icon_thuchi_mouseover.png";
+        public const string THUCHI_ICON_CONGNO_INDEX = @"Resources\ThuChi\icon_congno_index.png";
+        public const string THUCHI_ICON_CONGNO_INDEX_MOUSEOVER = @"Resources\ThuChi\icon_congno_index_mouseover.png";
         public const string THUCHI_ICON_THU_INDEX = @"Resources\ThuChi\icon_thu_index.png";
         public const string THUCHI_ICON_THU_INDEX_MOUSEOVER = @"Resources\ThuChi\icon_thu_index_mouseover.png";
         public const string THUCHI_ICON_CHI_INDEX = @"Resources\ThuChi\icon_chi_index.png";

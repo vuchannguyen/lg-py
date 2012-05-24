@@ -54,7 +54,6 @@
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chXuatKho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -278,8 +277,7 @@
             this.chGroup,
             this.chTen,
             this.chDVT,
-            this.chMoTa,
-            this.chXuatKho});
+            this.chMoTa});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -292,12 +290,8 @@
             this.lvThongTin.View = System.Windows.Forms.View.Details;
             this.lvThongTin.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvThongTin_ColumnClick);
             this.lvThongTin.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTin_ColumnWidthChanging);
-            this.lvThongTin.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.lvThongTin_DrawColumnHeader);
-            this.lvThongTin.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.lvThongTin_DrawSubItem);
             this.lvThongTin.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvThongTin_ItemChecked);
             this.lvThongTin.SelectedIndexChanged += new System.EventHandler(this.lvThongTin_SelectedIndexChanged);
-            this.lvThongTin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseMove);
-            this.lvThongTin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseUp);
             // 
             // chCheckBox
             // 
@@ -326,13 +320,12 @@
             // chGroup
             // 
             this.chGroup.Text = "Nhóm";
-            this.chGroup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chGroup.Width = 138;
             // 
             // chTen
             // 
             this.chTen.Text = "Tên";
-            this.chTen.Width = 195;
+            this.chTen.Width = 164;
             // 
             // chDVT
             // 
@@ -343,13 +336,7 @@
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 162;
-            // 
-            // chXuatKho
-            // 
-            this.chXuatKho.Text = "Xuất kho";
-            this.chXuatKho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chXuatKho.Width = 70;
+            this.chMoTa.Width = 262;
             // 
             // pnTraCuu
             // 
@@ -557,6 +544,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExcel;
-        private System.Windows.Forms.ColumnHeader chXuatKho;
     }
 }

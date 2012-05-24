@@ -26,6 +26,9 @@ namespace Library
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
         public static Size DEFAULT_SIZE_LISTVIEWEX_EXPORT = new Size(770, 485);
 
+        public const string DEFAULT_TITLE_ADD = "THÊM";
+        public const string DEFAULT_TITLE_EDIT = "SỬA";
+
         public static DateTime DEFAULT_DATE = new DateTime(2000, 1, 1);
         public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
         public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - hh:mm tt";
@@ -108,6 +111,8 @@ namespace Library
         public const int ID_TYPE_BAN = 2;
         public const int ID_TYPE_THU = 3;
         public const int ID_TYPE_CHI = 4;
+        public const int ID_TYPE_MUA_CHI = 5;
+        public const int ID_TYPE_BAN_THU = 6;
 
         public const string PREFIX_MUA = "M";
         public const string PREFIX_BAN = "B";
@@ -118,8 +123,8 @@ namespace Library
         public const int ID_STATUS_DEBT = 2;
         public const string STATUS_DONE = "Trả hết";
         public const string STATUS_DEBT = "Nợ";
-        public const string DEFAULT_MONEY_STATUS_DONE = "Tiền hồi lại:";
-        public const string DEFAULT_MONEY_STATUS_DEBT = "Tiền còn lại:";
+        public const string DEFAULT_MONEY_STATUS_DONE = "Hồi lại:";
+        public const string DEFAULT_MONEY_STATUS_DEBT = "Còn lại:";
 
         public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME = "Excel File";
         public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE = "xls";

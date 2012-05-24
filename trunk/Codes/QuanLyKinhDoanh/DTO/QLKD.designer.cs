@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -903,6 +903,8 @@ namespace DTO
 		
 		private int _IdStatus;
 		
+		private long _ConLai;
+		
 		private long _ThanhTien;
 		
 		private string _GhiChu;
@@ -943,6 +945,8 @@ namespace DTO
     partial void OnIdKhachHangChanged();
     partial void OnIdStatusChanging(int value);
     partial void OnIdStatusChanged();
+    partial void OnConLaiChanging(long value);
+    partial void OnConLaiChanged();
     partial void OnThanhTienChanging(long value);
     partial void OnThanhTienChanged();
     partial void OnGhiChuChanging(string value);
@@ -1101,6 +1105,26 @@ namespace DTO
 					this._IdStatus = value;
 					this.SendPropertyChanged("IdStatus");
 					this.OnIdStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConLai", DbType="BigInt NOT NULL")]
+		public long ConLai
+		{
+			get
+			{
+				return this._ConLai;
+			}
+			set
+			{
+				if ((this._ConLai != value))
+				{
+					this.OnConLaiChanging(value);
+					this.SendPropertyChanging();
+					this._ConLai = value;
+					this.SendPropertyChanged("ConLai");
+					this.OnConLaiChanged();
 				}
 			}
 		}
@@ -1975,9 +1999,9 @@ namespace DTO
 		
 		private string _Email;
 		
-		private System.Nullable<long> _TichLuy;
+		private long _TichLuy;
 		
-		private System.Nullable<int> _Diem;
+		private int _Diem;
 		
 		private string _GhiChu;
 		
@@ -2025,9 +2049,9 @@ namespace DTO
     partial void OnFaxChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnTichLuyChanging(System.Nullable<long> value);
+    partial void OnTichLuyChanging(long value);
     partial void OnTichLuyChanged();
-    partial void OnDiemChanging(System.Nullable<int> value);
+    partial void OnDiemChanging(int value);
     partial void OnDiemChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
@@ -2314,8 +2338,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TichLuy", DbType="BigInt")]
-		public System.Nullable<long> TichLuy
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TichLuy", DbType="BigInt NOT NULL")]
+		public long TichLuy
 		{
 			get
 			{
@@ -2334,8 +2358,8 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diem", DbType="Int")]
-		public System.Nullable<int> Diem
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diem", DbType="Int NOT NULL")]
+		public int Diem
 		{
 			get
 			{

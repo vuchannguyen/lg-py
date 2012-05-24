@@ -169,7 +169,7 @@
             // 
             this.lbNgayGio.AutoSize = true;
             this.lbNgayGio.ForeColor = System.Drawing.Color.Black;
-            this.lbNgayGio.Location = new System.Drawing.Point(269, 33);
+            this.lbNgayGio.Location = new System.Drawing.Point(253, 33);
             this.lbNgayGio.Name = "lbNgayGio";
             this.lbNgayGio.Size = new System.Drawing.Size(149, 16);
             this.lbNgayGio.TabIndex = 140;
@@ -225,11 +225,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(684, 135);
+            this.label12.Location = new System.Drawing.Point(711, 135);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 16);
+            this.label12.Size = new System.Drawing.Size(90, 16);
             this.label12.TabIndex = 134;
-            this.label12.Text = "*Tiền thanh toán:";
+            this.label12.Text = "*Thanh toán:";
             // 
             // tbTienThanhToan
             // 
@@ -274,7 +274,7 @@
             // 
             this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(341, 80);
+            this.cbStatus.Location = new System.Drawing.Point(325, 80);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(95, 24);
             this.cbStatus.TabIndex = 4;
@@ -282,7 +282,7 @@
             // 
             // tbMaHD
             // 
-            this.tbMaHD.Location = new System.Drawing.Point(107, 30);
+            this.tbMaHD.Location = new System.Drawing.Point(91, 30);
             this.tbMaHD.MaxLength = 10;
             this.tbMaHD.Name = "tbMaHD";
             this.tbMaHD.ReadOnly = true;
@@ -293,17 +293,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(13, 33);
+            this.label6.Location = new System.Drawing.Point(31, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 16);
+            this.label6.Size = new System.Drawing.Size(54, 16);
             this.label6.TabIndex = 124;
-            this.label6.Text = "Mã hóa đơn:";
+            this.label6.Text = "Mã HĐ:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(203, 33);
+            this.label1.Location = new System.Drawing.Point(187, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 16);
             this.label1.TabIndex = 122;
@@ -311,7 +311,7 @@
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(107, 120);
+            this.tbGhiChu.Location = new System.Drawing.Point(91, 120);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
@@ -322,7 +322,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(40, 133);
+            this.label4.Location = new System.Drawing.Point(24, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 97;
@@ -330,7 +330,7 @@
             // 
             // tbNguoiBan
             // 
-            this.tbNguoiBan.Location = new System.Drawing.Point(107, 80);
+            this.tbNguoiBan.Location = new System.Drawing.Point(91, 80);
             this.tbNguoiBan.MaxLength = 100;
             this.tbNguoiBan.Name = "tbNguoiBan";
             this.tbNguoiBan.ReadOnly = true;
@@ -341,7 +341,7 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(23, 83);
+            this.lbMa.Location = new System.Drawing.Point(7, 83);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(78, 16);
             this.lbMa.TabIndex = 90;
@@ -351,7 +351,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(257, 83);
+            this.label2.Location = new System.Drawing.Point(241, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 16);
             this.label2.TabIndex = 12;
@@ -371,11 +371,11 @@
             // 
             this.lbTienStatus.AutoSize = true;
             this.lbTienStatus.ForeColor = System.Drawing.Color.Black;
-            this.lbTienStatus.Location = new System.Drawing.Point(456, 135);
+            this.lbTienStatus.Location = new System.Drawing.Point(487, 135);
             this.lbTienStatus.Name = "lbTienStatus";
-            this.lbTienStatus.Size = new System.Drawing.Size(81, 16);
+            this.lbTienStatus.Size = new System.Drawing.Size(50, 16);
             this.lbTienStatus.TabIndex = 142;
-            this.lbTienStatus.Text = "Tiền hồi lại:";
+            this.lbTienStatus.Text = "Hồi lại:";
             // 
             // dtpNgayGio
             // 
@@ -424,7 +424,7 @@
             this.pnTitle.Controls.Add(this.pbTitle);
             this.pnTitle.Location = new System.Drawing.Point(381, 3);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(267, 38);
+            this.pnTitle.Size = new System.Drawing.Size(249, 38);
             this.pnTitle.TabIndex = 55;
             // 
             // lbSelect
@@ -512,11 +512,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(706, 31);
+            this.label10.Location = new System.Drawing.Point(740, 31);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(102, 16);
+            this.label10.Size = new System.Drawing.Size(68, 16);
             this.label10.TabIndex = 106;
-            this.label10.Text = "Tổng hóa đơn:";
+            this.label10.Text = "Tổng HĐ:";
             // 
             // lvThongTin
             // 

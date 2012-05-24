@@ -118,7 +118,7 @@
             // 
             // tbMa
             // 
-            this.tbMa.Location = new System.Drawing.Point(129, 25);
+            this.tbMa.Location = new System.Drawing.Point(98, 25);
             this.tbMa.MaxLength = 6;
             this.tbMa.Name = "tbMa";
             this.tbMa.Size = new System.Drawing.Size(82, 23);
@@ -130,7 +130,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(87, 28);
+            this.label1.Location = new System.Drawing.Point(56, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 95;
@@ -196,7 +196,7 @@
             // 
             // tbTen
             // 
-            this.tbTen.Location = new System.Drawing.Point(129, 65);
+            this.tbTen.Location = new System.Drawing.Point(98, 65);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(224, 23);
@@ -207,7 +207,7 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(81, 68);
+            this.lbMa.Location = new System.Drawing.Point(50, 68);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(42, 16);
             this.lbMa.TabIndex = 90;
@@ -215,7 +215,7 @@
             // 
             // tbMoTa
             // 
-            this.tbMoTa.Location = new System.Drawing.Point(129, 105);
+            this.tbMoTa.Location = new System.Drawing.Point(98, 105);
             this.tbMoTa.MaxLength = 200;
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
@@ -226,7 +226,7 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(76, 108);
+            this.lbTen.Location = new System.Drawing.Point(45, 108);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(47, 16);
             this.lbTen.TabIndex = 4;
