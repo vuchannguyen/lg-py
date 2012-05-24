@@ -33,6 +33,8 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbConLai = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbMa = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -41,13 +43,11 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
             this.pbHuy = new System.Windows.Forms.PictureBox();
-            this.tbTien = new System.Windows.Forms.TextBox();
+            this.tbThanhToan = new System.Windows.Forms.TextBox();
             this.lbMa = new System.Windows.Forms.Label();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.tbConLai = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.gbInfo.SuspendLayout();
@@ -108,7 +108,7 @@
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.panel12);
             this.gbInfo.Controls.Add(this.panel8);
-            this.gbInfo.Controls.Add(this.tbTien);
+            this.gbInfo.Controls.Add(this.tbThanhToan);
             this.gbInfo.Controls.Add(this.lbMa);
             this.gbInfo.Controls.Add(this.tbGhiChu);
             this.gbInfo.Controls.Add(this.lbTen);
@@ -119,6 +119,27 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // tbConLai
+            // 
+            this.tbConLai.Location = new System.Drawing.Point(115, 75);
+            this.tbConLai.MaxLength = 6;
+            this.tbConLai.Name = "tbConLai";
+            this.tbConLai.ReadOnly = true;
+            this.tbConLai.Size = new System.Drawing.Size(100, 23);
+            this.tbConLai.TabIndex = 96;
+            this.tbConLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbConLai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbConLai_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(53, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Còn lại:";
             // 
             // tbMa
             // 
@@ -144,7 +165,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(435, 256);
+            this.panel12.Location = new System.Drawing.Point(435, 263);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -173,7 +194,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(64, 256);
+            this.panel8.Location = new System.Drawing.Point(64, 263);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -198,22 +219,22 @@
             this.pbHuy.MouseEnter += new System.EventHandler(this.pbHuy_MouseEnter);
             this.pbHuy.MouseLeave += new System.EventHandler(this.pbHuy_MouseLeave);
             // 
-            // tbTien
+            // tbThanhToan
             // 
-            this.tbTien.Location = new System.Drawing.Point(115, 128);
-            this.tbTien.MaxLength = 11;
-            this.tbTien.Name = "tbTien";
-            this.tbTien.Size = new System.Drawing.Size(100, 23);
-            this.tbTien.TabIndex = 1;
-            this.tbTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbTien.TextChanged += new System.EventHandler(this.tbTien_TextChanged);
-            this.tbTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTien_KeyPress);
+            this.tbThanhToan.Location = new System.Drawing.Point(115, 125);
+            this.tbThanhToan.MaxLength = 11;
+            this.tbThanhToan.Name = "tbThanhToan";
+            this.tbThanhToan.Size = new System.Drawing.Size(100, 23);
+            this.tbThanhToan.TabIndex = 1;
+            this.tbThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbThanhToan.TextChanged += new System.EventHandler(this.tbTien_TextChanged);
+            this.tbThanhToan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTien_KeyPress);
             // 
             // lbMa
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(18, 131);
+            this.lbMa.Location = new System.Drawing.Point(18, 128);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(90, 16);
             this.lbMa.TabIndex = 90;
@@ -221,7 +242,7 @@
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(115, 168);
+            this.tbGhiChu.Location = new System.Drawing.Point(115, 175);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
@@ -233,7 +254,7 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(47, 171);
+            this.lbTen.Location = new System.Drawing.Point(47, 178);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
@@ -247,26 +268,6 @@
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(580, 353);
             this.pnInfo.TabIndex = 49;
-            // 
-            // tbConLai
-            // 
-            this.tbConLai.Location = new System.Drawing.Point(115, 70);
-            this.tbConLai.MaxLength = 6;
-            this.tbConLai.Name = "tbConLai";
-            this.tbConLai.ReadOnly = true;
-            this.tbConLai.Size = new System.Drawing.Size(100, 23);
-            this.tbConLai.TabIndex = 96;
-            this.tbConLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(53, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 97;
-            this.label2.Text = "Còn lại:";
             // 
             // UcInfo
             // 
@@ -307,7 +308,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.PictureBox pbHuy;
-        private System.Windows.Forms.TextBox tbTien;
+        private System.Windows.Forms.TextBox tbThanhToan;
         private System.Windows.Forms.Label lbMa;
         private System.Windows.Forms.TextBox tbGhiChu;
         private System.Windows.Forms.Label lbTen;

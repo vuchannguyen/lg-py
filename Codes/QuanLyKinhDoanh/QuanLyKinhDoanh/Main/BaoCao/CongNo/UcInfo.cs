@@ -39,7 +39,7 @@ namespace QuanLyKinhDoanh.CongNo
             Init();
 
             tbMa.Text = data.MaHoaDon;
-            tbTien.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbThanhToan.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbGhiChu.Text = data.GhiChu;
         }
 
@@ -70,7 +70,7 @@ namespace QuanLyKinhDoanh.CongNo
 
             ValidateInput();
 
-            tbTien.Focus();
+            tbThanhToan.Focus();
         }
 
 
@@ -84,7 +84,7 @@ namespace QuanLyKinhDoanh.CongNo
         private void RefreshData()
         {
             tbMa.Text = string.Empty;
-            tbTien.Text = string.Empty;
+            tbThanhToan.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
             CreateNewId();
@@ -92,9 +92,7 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void ValidateInput()
         {
-            if (!string.IsNullOrEmpty(tbTien.Text) &&
-                !string.IsNullOrEmpty(tbGhiChu.Text)
-                )
+            if (!string.IsNullOrEmpty(tbThanhToan.Text))
             {
                 pbHoanTat.Enabled = true;
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
@@ -123,7 +121,7 @@ namespace QuanLyKinhDoanh.CongNo
             data.MaHoaDon = tbMa.Text;
             data.IdType = Constant.ID_TYPE_CHI;
             data.IdStatus = Constant.ID_STATUS_DONE;
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            data.ThanhTien = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
             data.CreateBy = data.UpdateBy = "";
@@ -149,7 +147,7 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void UpdateData()
         {
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            data.ThanhTien = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
             data.UpdateBy = "";
@@ -222,10 +220,10 @@ namespace QuanLyKinhDoanh.CongNo
         #region Controls
         private void tbTien_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
 
-            tbTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-            tbTien.Select(tbTien.Text.Length, 0);
+            tbThanhToan.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbThanhToan.Select(tbThanhToan.Text.Length, 0);
 
             ValidateInput();
         }
@@ -242,5 +240,10 @@ namespace QuanLyKinhDoanh.CongNo
             ValidateInput();
         }
         #endregion
+
+        private void tbConLai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
     }
 }
