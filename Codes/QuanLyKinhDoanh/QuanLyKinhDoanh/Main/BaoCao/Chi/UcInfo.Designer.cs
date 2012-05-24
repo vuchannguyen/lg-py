@@ -109,16 +109,16 @@
             this.gbInfo.Controls.Add(this.tbGhiChu);
             this.gbInfo.Controls.Add(this.lbTen);
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
-            this.gbInfo.Location = new System.Drawing.Point(7, 3);
+            this.gbInfo.Location = new System.Drawing.Point(5, 3);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(562, 280);
+            this.gbInfo.Size = new System.Drawing.Size(550, 280);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
             // tbMa
             // 
-            this.tbMa.Location = new System.Drawing.Point(129, 25);
+            this.tbMa.Location = new System.Drawing.Point(90, 25);
             this.tbMa.MaxLength = 6;
             this.tbMa.Name = "tbMa";
             this.tbMa.ReadOnly = true;
@@ -130,17 +130,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(92, 28);
+            this.label1.Location = new System.Drawing.Point(30, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 95;
-            this.label1.Text = "Mã:";
+            this.label1.Text = "Mã HĐ:";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(435, 193);
+            this.panel12.Location = new System.Drawing.Point(415, 193);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -196,7 +196,7 @@
             // 
             // tbTien
             // 
-            this.tbTien.Location = new System.Drawing.Point(129, 65);
+            this.tbTien.Location = new System.Drawing.Point(90, 65);
             this.tbTien.MaxLength = 11;
             this.tbTien.Name = "tbTien";
             this.tbTien.Size = new System.Drawing.Size(100, 23);
@@ -209,7 +209,7 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(78, 68);
+            this.lbMa.Location = new System.Drawing.Point(39, 68);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(45, 16);
             this.lbMa.TabIndex = 90;
@@ -217,7 +217,7 @@
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(129, 105);
+            this.tbGhiChu.Location = new System.Drawing.Point(90, 105);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
@@ -229,7 +229,7 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(71, 108);
+            this.lbTen.Location = new System.Drawing.Point(32, 108);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(52, 16);
             this.lbTen.TabIndex = 4;
@@ -239,9 +239,9 @@
             // 
             this.pnInfo.Controls.Add(this.gbInfo);
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
-            this.pnInfo.Location = new System.Drawing.Point(214, 220);
+            this.pnInfo.Location = new System.Drawing.Point(220, 220);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(580, 290);
+            this.pnInfo.Size = new System.Drawing.Size(560, 290);
             this.pnInfo.TabIndex = 49;
             // 
             // UcInfo

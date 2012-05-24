@@ -16,6 +16,8 @@ namespace Library
         public const int ID_TYPE_BAN = 2;
         public const int ID_TYPE_THU = 3;
         public const int ID_TYPE_CHI = 4;
+        public const int ID_TYPE_MUA_CHI = 5;
+        public const int ID_TYPE_BAN_THU = 6;
 
         public const int ID_STATUS_DONE = 1;
         public const int ID_STATUS_DEBT = 2;

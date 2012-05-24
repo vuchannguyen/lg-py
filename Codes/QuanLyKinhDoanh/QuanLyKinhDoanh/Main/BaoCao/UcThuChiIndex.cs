@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using QuanLyKinhDoanh.Thu;
 using QuanLyKinhDoanh.Chi;
+using QuanLyKinhDoanh.CongNo;
 using Library;
 
 namespace QuanLyKinhDoanh
@@ -23,6 +24,7 @@ namespace QuanLyKinhDoanh
         {
             try
             {
+                pbCongNo.Image = Image.FromFile(ConstantResource.THUCHI_ICON_CONGNO_INDEX);
                 pbThu.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THU_INDEX);
                 pbChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_CHI_INDEX);
                 pbLoiNhuan.Image = Image.FromFile(ConstantResource.THUCHI_ICON_LOINHUAN_INDEX);
@@ -91,6 +93,21 @@ namespace QuanLyKinhDoanh
         {
             pbLoiNhuan.Image = Image.FromFile(ConstantResource.THUCHI_ICON_LOINHUAN_INDEX);
             lbLoiNhuan.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbCongNo_Click(object sender, EventArgs e)
+        {
+            this.Controls.Add(new UcCongNo());
+        }
+
+        private void pbCongNo_MouseEnter(object sender, EventArgs e)
+        {
+            pbCongNo.Image = Image.FromFile(ConstantResource.THUCHI_ICON_CONGNO_INDEX_MOUSEOVER);
+        }
+
+        private void pbCongNo_MouseLeave(object sender, EventArgs e)
+        {
+            pbCongNo.Image = Image.FromFile(ConstantResource.THUCHI_ICON_CONGNO_INDEX);
         }
     }
 }

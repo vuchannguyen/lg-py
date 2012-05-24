@@ -40,11 +40,12 @@ namespace QuanLyKinhDoanh.KhachHang
 
             this.data = data;
             isUpdate = true;
+            lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
             if (Init())
             {
                 tbTen.Text = data.Ten;
-                tbDiem.Text = data.TichLuy.Value.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                tbDiem.Text = data.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbDiaChi.Text = data.DiaChi;
                 tbDienThoai.Text = data.DienThoai;
                 tbFax.Text = data.Fax;

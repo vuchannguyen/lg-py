@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanh.Thu
+﻿namespace QuanLyKinhDoanh.CongNo
 {
     partial class UcInfo
     {
@@ -46,6 +46,8 @@
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.tbConLai = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.gbInfo.SuspendLayout();
@@ -63,7 +65,7 @@
             this.pnTitle.Controls.Add(this.pbTitle);
             this.pnTitle.Location = new System.Drawing.Point(390, 3);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(219, 38);
+            this.pnTitle.Size = new System.Drawing.Size(262, 38);
             this.pnTitle.TabIndex = 50;
             // 
             // lbSelect
@@ -84,9 +86,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(122, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(49, 22);
+            this.lbTitle.Size = new System.Drawing.Size(101, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "THU";
+            this.lbTitle.Text = "CÔNG NỢ";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -100,6 +102,8 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbConLai);
+            this.gbInfo.Controls.Add(this.label2);
             this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.panel12);
@@ -109,16 +113,16 @@
             this.gbInfo.Controls.Add(this.tbGhiChu);
             this.gbInfo.Controls.Add(this.lbTen);
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
-            this.gbInfo.Location = new System.Drawing.Point(5, 3);
+            this.gbInfo.Location = new System.Drawing.Point(7, 3);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(550, 280);
+            this.gbInfo.Size = new System.Drawing.Size(562, 347);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
             // tbMa
             // 
-            this.tbMa.Location = new System.Drawing.Point(90, 25);
+            this.tbMa.Location = new System.Drawing.Point(115, 25);
             this.tbMa.MaxLength = 6;
             this.tbMa.Name = "tbMa";
             this.tbMa.ReadOnly = true;
@@ -130,7 +134,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(30, 28);
+            this.label1.Location = new System.Drawing.Point(55, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 95;
@@ -140,7 +144,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(415, 193);
+            this.panel12.Location = new System.Drawing.Point(435, 256);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -169,7 +173,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(64, 193);
+            this.panel8.Location = new System.Drawing.Point(64, 256);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -196,7 +200,7 @@
             // 
             // tbTien
             // 
-            this.tbTien.Location = new System.Drawing.Point(90, 65);
+            this.tbTien.Location = new System.Drawing.Point(115, 128);
             this.tbTien.MaxLength = 11;
             this.tbTien.Name = "tbTien";
             this.tbTien.Size = new System.Drawing.Size(100, 23);
@@ -209,15 +213,15 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(39, 68);
+            this.lbMa.Location = new System.Drawing.Point(18, 131);
             this.lbMa.Name = "lbMa";
-            this.lbMa.Size = new System.Drawing.Size(45, 16);
+            this.lbMa.Size = new System.Drawing.Size(90, 16);
             this.lbMa.TabIndex = 90;
-            this.lbMa.Text = "*Tiền:";
+            this.lbMa.Text = "*Thanh toán:";
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(90, 105);
+            this.tbGhiChu.Location = new System.Drawing.Point(115, 168);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
@@ -229,20 +233,40 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(32, 108);
+            this.lbTen.Location = new System.Drawing.Point(47, 171);
             this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(52, 16);
+            this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
-            this.lbTen.Text = "*Lý do:";
+            this.lbTen.Text = "Ghi chú:";
             // 
             // pnInfo
             // 
             this.pnInfo.Controls.Add(this.gbInfo);
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
-            this.pnInfo.Location = new System.Drawing.Point(220, 220);
+            this.pnInfo.Location = new System.Drawing.Point(214, 140);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(560, 290);
+            this.pnInfo.Size = new System.Drawing.Size(580, 353);
             this.pnInfo.TabIndex = 49;
+            // 
+            // tbConLai
+            // 
+            this.tbConLai.Location = new System.Drawing.Point(115, 70);
+            this.tbConLai.MaxLength = 6;
+            this.tbConLai.Name = "tbConLai";
+            this.tbConLai.ReadOnly = true;
+            this.tbConLai.Size = new System.Drawing.Size(100, 23);
+            this.tbConLai.TabIndex = 96;
+            this.tbConLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(53, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Còn lại:";
             // 
             // UcInfo
             // 
@@ -290,5 +314,7 @@
         private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.TextBox tbMa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbConLai;
+        private System.Windows.Forms.Label label2;
     }
 }

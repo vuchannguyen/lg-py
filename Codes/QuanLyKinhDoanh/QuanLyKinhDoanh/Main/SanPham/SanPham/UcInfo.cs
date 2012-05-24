@@ -40,6 +40,7 @@ namespace QuanLyKinhDoanh.SanPham
 
             this.data = data;
             isUpdate = true;
+            lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
             if (Init())
             {

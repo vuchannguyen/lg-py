@@ -36,7 +36,7 @@
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMaHD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNguoiNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -134,7 +134,7 @@
             this.chCheckBox,
             this.chId,
             this.chSTT,
-            this.chMa,
+            this.chMaHD,
             this.chNguoiNhap,
             this.chNgayGio,
             this.chGhiChu,
@@ -171,11 +171,11 @@
             this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chSTT.Width = 39;
             // 
-            // chMa
+            // chMaHD
             // 
-            this.chMa.Text = "Mã";
-            this.chMa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chMa.Width = 77;
+            this.chMaHD.Text = "Mã HĐ";
+            this.chMaHD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chMaHD.Width = 77;
             // 
             // chNguoiNhap
             // 
@@ -546,7 +546,7 @@
         private System.Windows.Forms.Panel pnQuanLy;
         private System.Windows.Forms.ListView lvThongTin;
         private System.Windows.Forms.ColumnHeader chSTT;
-        private System.Windows.Forms.ColumnHeader chMa;
+        private System.Windows.Forms.ColumnHeader chMaHD;
         private System.Windows.Forms.ColumnHeader chNgayGio;
         private System.Windows.Forms.ColumnHeader chNguoiNhap;
         private System.Windows.Forms.ColumnHeader chGhiChu;

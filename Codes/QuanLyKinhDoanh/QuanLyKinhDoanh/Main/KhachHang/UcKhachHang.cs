@@ -136,7 +136,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.DiaChi);
                 lvi.SubItems.Add(data.DienThoai);
                 lvi.SubItems.Add(data.Email);
-                lvi.SubItems.Add(data.TichLuy.Value.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
                 if (CommonFunc.IsBirthDay(data.DOB.Value, 7))
                 {

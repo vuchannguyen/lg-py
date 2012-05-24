@@ -150,7 +150,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, status,
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, idGroup, false, status,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -235,7 +235,7 @@ namespace QuanLyKinhDoanh
 
             if (data.SoLuong == 0)
             {
-                return true;
+                return false;
             }
 
             data.IsSold = !data.IsSold;

@@ -53,6 +53,8 @@ namespace QuanLyKinhDoanh.Mua
             InitializeComponent();
 
             isUpdate = true;
+            lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
+
             cbChangeMoney.SelectedIndex = 0;
             this.dataHoaDonDetail = data;
 

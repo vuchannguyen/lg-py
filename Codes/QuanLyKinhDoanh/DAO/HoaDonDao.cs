@@ -12,7 +12,7 @@ namespace DAO
 {
     public class HoaDonDao : SQLConnection
     {
-        public static IQueryable<HoaDon> GetQuery(string text, int type, string timeType, DateTime date)
+        public static IQueryable<HoaDon> GetQuery(string text, int type, int status, string timeType, DateTime date)
         {
             var sql = from data in dbContext.HoaDons
                       select data;
@@ -25,12 +25,22 @@ namespace DAO
                     );
             }
 
-            if (type != 0)
+            switch (type)
             {
-                sql = sql.Where(p => p.IdType == type);
+                case CommonDao.ID_TYPE_BAN_THU:
+                    sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_BAN || p.IdType == CommonDao.ID_TYPE_THU);
+                    break;
+
+                case CommonDao.ID_TYPE_MUA_CHI:
+                    sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_MUA || p.IdType == CommonDao.ID_TYPE_CHI);
+                    break;
+
+                default:
+                    sql = sql.Where(p => p.IdType == type);
+                    break;
             }
 
-            sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
+            sql = sql.Where(p => p.IdStatus == status);
             sql = sql.Where(p => p.DeleteFlag == false);
 
             switch (timeType)
@@ -55,19 +65,19 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text, int type, string timeType, DateTime date)
+        public static int GetCount(string text, int type, int status, string timeType, DateTime date)
         {
-            return GetQuery(text, type, timeType, date).Count();
+            return GetQuery(text, type, status, timeType, date).Count();
         }
 
-        public static List<HoaDon> GetList(string text, int type, string timeType, DateTime date,
+        public static List<HoaDon> GetList(string text, int type, int status, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
 
             switch (sortColumn)
             {
-                case "Mã":
+                case "Mã HĐ":
                     sortSQL += "MaHoaDon " + sortOrder;
                     break;
 
@@ -87,7 +97,11 @@ namespace DAO
                     sortSQL += "GhiChu " + sortOrder;
                     break;
 
-                case "Tiền":
+                case "Còn lại":
+                    sortSQL += "ThanhTien " + sortOrder;
+                    break;
+
+                case "Tổng HĐ":
                     sortSQL += "ThanhTien " + sortOrder;
                     break;
 
@@ -96,7 +110,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, type, timeType, date).OrderBy(sortSQL);
+            var sql = GetQuery(text, type, status, timeType, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
@@ -105,196 +119,6 @@ namespace DAO
 
             return sql.Skip(skip).Take(take).ToList();
         }
-
-
-
-        #region Thu
-        public static IQueryable<HoaDon> GetQueryThu(string text, string timeType, DateTime date)
-        {
-            var sql = from data in dbContext.HoaDons
-                      select data;
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.MaHoaDon, text) ||
-                    SqlMethods.Like(p.GhiChu, text)
-                    );
-            }
-
-            sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_BAN || p.IdType == CommonDao.ID_TYPE_THU);
-            sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
-            sql = sql.Where(p => p.DeleteFlag == false);
-
-            switch (timeType)
-            {
-                case CommonDao.DEFAULT_TYPE_DAY:
-                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_MONTH:
-                    sql = sql.Where(p => p.CreateDate.Month == date.Month);
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_YEAR:
-                    sql = sql.Where(p => p.CreateDate.Year == date.Year);
-                    break;
-
-                default:
-                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
-                    break;
-            }
-
-            return sql;
-        }
-
-        public static int GetCountThu(string text, string timeType, DateTime date)
-        {
-            return GetQueryThu(text, timeType, date).Count();
-        }
-
-        public static List<HoaDon> GetListThu(string text, string timeType, DateTime date,
-            string sortColumn, string sortOrder, int skip, int take)
-        {
-            string sortSQL = string.Empty;
-
-            switch (sortColumn)
-            {
-                case "Mã":
-                    sortSQL += "MaHoaDon " + sortOrder;
-                    break;
-
-                case "Người nhập":
-                    sortSQL += "User.UserName " + sortOrder;
-                    break;
-
-                case "Khách hàng":
-                    sortSQL += "KhachHang.MaKhachHang " + sortOrder;
-                    break;
-
-                case "Ngày giờ":
-                    sortSQL += "CreateDate " + sortOrder;
-                    break;
-
-                case "Ghi chú":
-                    sortSQL += "GhiChu " + sortOrder;
-                    break;
-
-                case "Tiền":
-                    sortSQL += "ThanhTien " + sortOrder;
-                    break;
-
-                default:
-                    sortSQL += "CreateDate " + sortOrder;
-                    break;
-            }
-
-            var sql = GetQueryThu(text, timeType, date).OrderBy(sortSQL);
-
-            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
-            {
-                return sql.ToList();
-            }
-
-            return sql.Skip(skip).Take(take).ToList();
-        }
-        #endregion
-
-
-
-        #region Chi
-        public static IQueryable<HoaDon> GetQueryChi(string text, string timeType, DateTime date)
-        {
-            var sql = from data in dbContext.HoaDons
-                      select data;
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.MaHoaDon, text) ||
-                    SqlMethods.Like(p.GhiChu, text)
-                    );
-            }
-
-            sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_MUA || p.IdType == CommonDao.ID_TYPE_CHI);
-            sql = sql.Where(p => p.IdStatus == CommonDao.ID_STATUS_DONE);
-            sql = sql.Where(p => p.DeleteFlag == false);
-
-            switch (timeType)
-            {
-                case CommonDao.DEFAULT_TYPE_DAY:
-                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_MONTH:
-                    sql = sql.Where(p => p.CreateDate.Month == date.Month);
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_YEAR:
-                    sql = sql.Where(p => p.CreateDate.Year == date.Year);
-                    break;
-
-                default:
-                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
-                    break;
-            }
-
-            return sql;
-        }
-
-        public static int GetCountChi(string text, string timeType, DateTime date)
-        {
-            return GetQueryChi(text, timeType, date).Count();
-        }
-
-        public static List<HoaDon> GetListChi(string text, string timeType, DateTime date,
-            string sortColumn, string sortOrder, int skip, int take)
-        {
-            string sortSQL = string.Empty;
-
-            switch (sortColumn)
-            {
-                case "Mã":
-                    sortSQL += "MaHoaDon " + sortOrder;
-                    break;
-
-                case "Người nhập":
-                    sortSQL += "User.UserName " + sortOrder;
-                    break;
-
-                case "Khách hàng":
-                    sortSQL += "KhachHang.MaKhachHang " + sortOrder;
-                    break;
-
-                case "Ngày giờ":
-                    sortSQL += "CreateDate " + sortOrder;
-                    break;
-
-                case "Ghi chú":
-                    sortSQL += "GhiChu " + sortOrder;
-                    break;
-
-                case "Tiền":
-                    sortSQL += "ThanhTien " + sortOrder;
-                    break;
-
-                default:
-                    sortSQL += "CreateDate " + sortOrder;
-                    break;
-            }
-
-            var sql = GetQueryChi(text, timeType, date).OrderBy(sortSQL);
-
-            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
-            {
-                return sql.ToList();
-            }
-
-            return sql.Skip(skip).Take(take).ToList();
-        }
-        #endregion
-
-
 
         public static HoaDon GetLastData()
         {

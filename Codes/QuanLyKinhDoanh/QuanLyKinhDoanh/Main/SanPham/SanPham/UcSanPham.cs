@@ -25,8 +25,6 @@ namespace QuanLyKinhDoanh
         private string sortOrder;
         private Image imgCheck;
         private Image imgWarning;
-        private int lvWidth;
-        private int centerX;
 
         public UcSanPham()
         {
@@ -84,17 +82,6 @@ namespace QuanLyKinhDoanh
         {
             imgCheck = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CHECK);
             imgWarning = Image.FromFile(ConstantResource.CHUC_NANG_ICON_WARNING);
-
-            lvWidth = 0;
-
-            for (int i = 0; i < lvThongTin.Columns.Count; i++)
-            {
-                lvWidth += lvThongTin.Columns[i].Width;
-            }
-
-            centerX = lvThongTin.Columns[8].Width / 2;
-
-            lvThongTin.OwnerDraw = true;
 
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_ASCENDING;
@@ -161,15 +148,6 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.DonViTinh);
                 lvi.SubItems.Add(data.MoTa);
-
-                if (data.IsSold)
-                {
-                    lvi.SubItems.Add(Constant.IS_SOLD);
-                }
-                else
-                {
-                    lvi.SubItems.Add(string.Empty);
-                }
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -504,7 +482,7 @@ namespace QuanLyKinhDoanh
         #region Controls
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int n = 0;
+            //
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -520,15 +498,6 @@ namespace QuanLyKinhDoanh
                 e.NewWidth = 0;
                 e.Cancel = true;
             }
-
-            lvWidth = 0;
-
-            for (int i = 0; i < lvThongTin.Columns.Count; i++)
-            {
-                lvWidth += lvThongTin.Columns[i].Width;
-            }
-
-            centerX = lvThongTin.Columns[8].Width / 2;
         }
 
         private void lvThongTin_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -557,60 +526,6 @@ namespace QuanLyKinhDoanh
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
-        }
-
-        private void lvThongTin_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
-        {
-            e.DrawDefault = true;
-        }
-
-        private void lvThongTin_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
-        {
-            if (e.ColumnIndex == 8)
-            {
-                if (e.SubItem.Text == Constant.IS_SOLD)
-                {
-                    e.Graphics.DrawImage(imgWarning, new System.Drawing.RectangleF(e.Item.Position.X + lvWidth - centerX - 30, e.Item.Position.Y, imgWarning.Width * 1f, imgWarning.Height * 1f));
-                }
-                else
-                {
-                    e.Graphics.DrawImage(imgCheck, new System.Drawing.RectangleF(e.Item.Position.X + lvWidth - centerX - 30, e.Item.Position.Y, imgCheck.Width * 1f, imgCheck.Height * 1f));
-                }
-            }
-            else
-            {
-                e.DrawDefault = true;
-            }
-        }
-
-        private void lvThongTin_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.X > lvWidth - centerX - 12 && e.X < lvWidth - centerX + 12)
-            {
-                this.Cursor = Cursors.Hand;
-            }
-            else
-            {
-                this.Cursor = Cursors.Default;
-            }
-        }
-
-        private void lvThongTin_MouseUp(object sender, MouseEventArgs e)
-        {
-            ListViewItem item = lvThongTin.GetItemAt(e.X, e.Y);
-
-            if (e.X > lvWidth - centerX - 12 && e.X < lvWidth - centerX + 12)
-            {
-                if (item != null && item.SubItems[8].Text == Constant.IS_SOLD)
-                {
-                    if (UpdateStatusSold(ConvertUtil.ConvertToInt(item.SubItems[1].Text)))
-                    {
-                        RefreshListView(tbSearch.Text, 0,
-                            sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-                        SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
-                    }
-                }
-            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)
