@@ -20,6 +20,11 @@ namespace BUS
             return HoaDonDetailDao.GetList(text, type, timeType, date, sortColumn, sortOrder, skip, take);
         }
 
+        public static List<HoaDonDetail> GetListByIdHoaDon(int idHoaDon)
+        {
+            return HoaDonDetailDao.GetListByIdHoaDon(idHoaDon);
+        }
+
         public static HoaDonDetail GetLastData()
         {
             return HoaDonDetailDao.GetLastData();

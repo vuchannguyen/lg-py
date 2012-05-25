@@ -240,6 +240,7 @@
             this.pbKhoHang.Click += new System.EventHandler(this.pbKhoHang_Click);
             this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
             this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);
+            this.pbKhoHang.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbKhoHang_MouseMove);
             // 
             // lbThuChi
             // 
@@ -264,6 +265,7 @@
             this.pbThuChi.Click += new System.EventHandler(this.pbThuChi_Click);
             this.pbThuChi.MouseEnter += new System.EventHandler(this.pbThuChi_MouseEnter);
             this.pbThuChi.MouseLeave += new System.EventHandler(this.pbThuChi_MouseLeave);
+            this.pbThuChi.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbThuChi_MouseMove);
             // 
             // lbThanhToan
             // 
@@ -288,6 +290,7 @@
             this.pbThanhToan.Click += new System.EventHandler(this.pbThanhToan_Click);
             this.pbThanhToan.MouseEnter += new System.EventHandler(this.pbThanhToan_MouseEnter);
             this.pbThanhToan.MouseLeave += new System.EventHandler(this.pbThanhToan_MouseLeave);
+            this.pbThanhToan.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbThanhToan_MouseMove);
             // 
             // pbHeader
             // 
@@ -355,6 +358,7 @@
             this.pbSanPham.Click += new System.EventHandler(this.pbSanPham_Click);
             this.pbSanPham.MouseEnter += new System.EventHandler(this.pbSanPham_MouseEnter);
             this.pbSanPham.MouseLeave += new System.EventHandler(this.pbSanPham_MouseLeave);
+            this.pbSanPham.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbSanPham_MouseMove);
             // 
             // pbUser
             // 
@@ -368,6 +372,7 @@
             this.pbUser.Click += new System.EventHandler(this.pbUser_Click);
             this.pbUser.MouseEnter += new System.EventHandler(this.pbUser_MouseEnter);
             this.pbUser.MouseLeave += new System.EventHandler(this.pbUser_MouseLeave);
+            this.pbUser.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbUser_MouseMove);
             // 
             // pbKhachHang
             // 
@@ -381,6 +386,7 @@
             this.pbKhachHang.Click += new System.EventHandler(this.pbKhachHang_Click);
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
+            this.pbKhachHang.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbKhachHang_MouseMove);
             // 
             // FormMain
             // 
@@ -395,7 +401,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUẢN LÝ KINH DOANH 2.6";
+            this.Text = "QUAN LY KINH DOANH 3.0";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);

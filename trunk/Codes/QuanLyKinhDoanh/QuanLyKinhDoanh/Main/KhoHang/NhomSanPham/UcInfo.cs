@@ -133,6 +133,20 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
             if (SanPhamGroupBus.Update(data))
             {
+                List<DTO.SanPham> listSP = SanPhamBus.GetListByIdGroup(data.Id);
+
+                foreach (DTO.SanPham dataSP in listSP)
+                {
+                    int id = 0;
+
+                    string oldIdNumber = dataSP.MaSanPham.Substring(dataSP.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                    id = ConvertUtil.ConvertToInt(oldIdNumber);
+
+                    dataSP.MaSanPham = data.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+
+                    SanPhamBus.Update(dataSP);
+                }
+
                 this.Dispose();
             }
             else

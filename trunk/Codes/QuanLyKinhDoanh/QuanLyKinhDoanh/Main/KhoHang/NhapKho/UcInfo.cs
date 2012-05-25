@@ -10,7 +10,7 @@ using Library;
 using DTO;
 using BUS;
 
-namespace QuanLyKinhDoanh.Mua
+namespace QuanLyKinhDoanh.NhapKho
 {
     public partial class UcInfo : UserControl
     {
@@ -31,6 +31,7 @@ namespace QuanLyKinhDoanh.Mua
             dataHoaDon = new HoaDon();
             dataHoaDonDetail = new HoaDonDetail();
             dataSP = new DTO.SanPham();
+            dataChietKhau = new ChietKhau();
 
             isUpdate = false;
 
@@ -51,6 +52,11 @@ namespace QuanLyKinhDoanh.Mua
         public UcInfo(DTO.HoaDonDetail data)
         {
             InitializeComponent();
+
+            dataHoaDon = data.HoaDon;
+            dataSP = data.SanPham;
+            dataChietKhau = ChietKhauBus.GetByIdSP(data.IdSanPham);
+            dataXuatXu = data.SanPham.XuatXu;
 
             isUpdate = true;
             lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
@@ -172,7 +178,7 @@ namespace QuanLyKinhDoanh.Mua
 
         private void CalculateTotalMoney()
         {
-            long giaNhap = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long giaNhap = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             int soLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
 
             tbThanhTien.Text = giaNhap * soLuong == 0 ? string.Empty : (giaNhap * soLuong).ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -193,7 +199,7 @@ namespace QuanLyKinhDoanh.Mua
             dataHoaDon.MaHoaDon = tbMaNhap.Text;
             dataHoaDon.IdType = Constant.ID_TYPE_MUA;
             dataHoaDon.IdStatus = Constant.ID_STATUS_DONE;
-            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
             dataHoaDon.CreateBy = dataHoaDon.UpdateBy = "";
@@ -232,7 +238,7 @@ namespace QuanLyKinhDoanh.Mua
             dataHoaDonDetail.IdHoaDon = idHoaDon;
             dataHoaDonDetail.IdSanPham = dataSP.Id;
             dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
             if (HoaDonDetailBus.Insert(dataHoaDonDetail))
             {
@@ -320,7 +326,7 @@ namespace QuanLyKinhDoanh.Mua
             dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
-            //dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            //dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             //dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
             dataSP.UpdateBy = "";
@@ -343,9 +349,7 @@ namespace QuanLyKinhDoanh.Mua
 
         private void UpdateDataHoaDon()
         {
-            dataHoaDon = HoaDonBus.GetById(dataHoaDonDetail.IdHoaDon);
-
-            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
             dataHoaDon.UpdateBy = "";
@@ -380,7 +384,7 @@ namespace QuanLyKinhDoanh.Mua
         private void UpdateDataHoaDonDetail()
         {
             dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
             if (HoaDonDetailBus.Update(dataHoaDonDetail))
             {
@@ -390,31 +394,36 @@ namespace QuanLyKinhDoanh.Mua
 
         private void UpdateChietKhau()
         {
-            dataChietKhau = ChietKhauBus.GetByIdSP(dataHoaDonDetail.IdSanPham);
-
-            dataChietKhau.Value = ConvertUtil.ConvertToInt(string.IsNullOrEmpty(tbChietKhau.Text) ? "0" : tbChietKhau.Text);
-
-            dataChietKhau.UpdateBy = "";
-            dataChietKhau.UpdateDate = DateTime.Now;
-
-            if (ChietKhauBus.Update(dataChietKhau))
+            if (dataChietKhau == null)
             {
-                UpdatePriceSP();
+                InsertChietKhau();
             }
             else
             {
-                try
-                {
-                    ChietKhauBus.Delete(dataChietKhau);
-                }
-                catch
-                {
-                    //
-                }
+                dataChietKhau.Value = ConvertUtil.ConvertToInt(string.IsNullOrEmpty(tbChietKhau.Text) ? "0" : tbChietKhau.Text);
 
-                if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                dataChietKhau.UpdateBy = "";
+                dataChietKhau.UpdateDate = DateTime.Now;
+
+                if (ChietKhauBus.Update(dataChietKhau))
                 {
-                    this.Dispose();
+                    UpdatePriceSP();
+                }
+                else
+                {
+                    try
+                    {
+                        ChietKhauBus.Delete(dataChietKhau);
+                    }
+                    catch
+                    {
+                        //
+                    }
+
+                    if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        this.Dispose();
+                    }
                 }
             }
         }
@@ -492,7 +501,7 @@ namespace QuanLyKinhDoanh.Mua
 
         private void tbGiaNhap_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
             tbGiaNhap.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbGiaNhap.Select(tbGiaNhap.Text.Length, 0);
@@ -527,8 +536,8 @@ namespace QuanLyKinhDoanh.Mua
             {
                 isFixedMoney = true;
 
-                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
                 double laiSuat = (moneySell * 1.0 / moneyBuy * 100) - 100;
 
@@ -561,7 +570,7 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (tbGiaBan.Enabled)
             {
-                long money = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long money = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
                 tbGiaBan.Text = money == 0 ? "0" : money.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGiaBan.Select(tbGiaBan.Text.Length, 0);
@@ -579,8 +588,8 @@ namespace QuanLyKinhDoanh.Mua
         {
             if (tbLaiSuat.Enabled)
             {
-                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                long moneySell = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                long moneyBuy = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
                 if (cbChangeMoney.SelectedIndex == 0)
                 {
@@ -712,7 +721,7 @@ namespace QuanLyKinhDoanh.Mua
             if (isUpdate)
             {
                 string oldIdNumber = dataSP == null ? string.Empty : dataSP.MaSanPham.Substring(dataSP.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-                id = dataSP == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+                id = dataSP == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
             }
             else
             {
@@ -784,8 +793,8 @@ namespace QuanLyKinhDoanh.Mua
         private void UpdatePriceSP()
         {
             dataSP.SoLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            dataSP.GiaMua = ConvertUtil.ConvertToLong(tbGiaNhap.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
             dataSP.UpdateBy = "";
@@ -827,10 +836,7 @@ namespace QuanLyKinhDoanh.Mua
         #region Controls SP
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!isUpdate)
-            {
-                CreateNewIdSP();
-            }
+            CreateNewIdSP();
         }
 
         private void tbTenSP_TextChanged(object sender, EventArgs e)
@@ -930,6 +936,18 @@ namespace QuanLyKinhDoanh.Mua
             {
                 ttDetail.SetToolTip(cbXuatXu, string.Format(Constant.TOOLTIP_DETAIL_XUATXU,
                     dataXuatXu.Ten, dataXuatXu.DiaChi, dataXuatXu.DienThoai, dataXuatXu.Fax, dataXuatXu.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
+            }
+        }
+
+        private void cbXuatXu_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbXuatXu.Text))
+            {
+                dataXuatXu = null;
             }
         }
     }

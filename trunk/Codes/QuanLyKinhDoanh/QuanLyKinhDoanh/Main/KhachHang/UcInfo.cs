@@ -162,7 +162,7 @@ namespace QuanLyKinhDoanh.KhachHang
             if (isUpdate)
             {
                 string oldIdNumber = data == null ? string.Empty : data.MaKhachHang.Substring(data.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
             }
             else
             {
@@ -214,6 +214,7 @@ namespace QuanLyKinhDoanh.KhachHang
 
         private void UpdateData()
         {
+            data.MaKhachHang = tbMa.Text;
             data.Ten = tbTen.Text;
             data.KhachHangGroup = KhachHangGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             data.GioiTinh = cbGioiTinh.Text;
@@ -328,6 +329,15 @@ namespace QuanLyKinhDoanh.KhachHang
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             CreateNewIdKH();
+
+            if (ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value) == Constant.ID_GROUP_KHACH_THUONG)
+            {
+                tbDiem.Text = "0";
+            }
+            else
+            {
+                tbDiem.Text = data.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            }
         }
         #endregion
     }

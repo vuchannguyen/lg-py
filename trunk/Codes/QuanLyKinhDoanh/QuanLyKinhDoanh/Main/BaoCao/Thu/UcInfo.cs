@@ -113,7 +113,7 @@ namespace QuanLyKinhDoanh.Thu
             DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_THU);
 
             string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaHoaDon.Substring(dataTemp.MaHoaDon.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
 
             tbMa.Text = Constant.PREFIX_THU + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
         }
@@ -222,7 +222,7 @@ namespace QuanLyKinhDoanh.Thu
         #region Controls
         private void tbTien_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
             tbTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbTien.Select(tbTien.Text.Length, 0);

@@ -119,63 +119,10 @@ namespace DAO
 
 
 
-        #region Kho hang
-        public static IQueryable<SanPham> GetQueryKho(string text)
+        public static List<SanPham> GetListByIdGroup(int idGroup)
         {
-            var sql = from data in dbContext.SanPhams
-                      select data;
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.MaSanPham, text) ||
-                    SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.SanPhamGroup.Ten, text)
-                    );
-            }
-
-            sql = sql.Where(p => p.DeleteFlag == false);
-
-            return sql;
+            return dbContext.SanPhams.Where(p => p.IdGroup == idGroup).ToList();
         }
-
-        public static int GetCountKho(string text)
-        {
-            return GetQueryKho(text).Count();
-        }
-
-        public static List<SanPham> GetListKho(string text,
-            string sortColumn, string sortOrder, int skip, int take)
-        {
-            string sortSQL = string.Empty;
-
-            switch (sortColumn)
-            {
-                case "chId":
-                    sortSQL += "Id " + sortOrder;
-                    break;
-
-                case "chTen":
-                    sortSQL += "Ten " + sortOrder;
-                    break;
-
-                default:
-                    sortSQL += "Ten " + sortOrder;
-                    break;
-            }
-
-            var sql = GetQueryKho(text).OrderBy(sortSQL);
-
-            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
-            {
-                return sql.ToList();
-            }
-
-            return sql.Skip(skip).Take(take).ToList();
-        }
-        #endregion
-
-
 
         public static SanPham GetLastData()
         {

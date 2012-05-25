@@ -146,7 +146,7 @@ namespace QuanLyKinhDoanh.SanPham
             if (isUpdate)
             {
                 string oldIdNumber = data == null ? string.Empty : data.MaSanPham.Substring(data.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
             }
             else
             {

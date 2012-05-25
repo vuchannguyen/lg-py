@@ -179,6 +179,20 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
 
+        private void CheckListViewItemsIsChecked()
+        {
+            if (lvThongTin.CheckedItems.Count > 0)
+            {
+                pbXoa.Enabled = true;
+                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+            }
+            else
+            {
+                pbXoa.Enabled = false;
+                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+            }
+        }
+
         private void CalculateMoney()
         {
             long money = 0;
@@ -737,6 +751,14 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbTienThanhToan.ReadOnly = false;
         }
 
+        private void cbMaKH_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbMaKH.Text))
+            {
+                dataKH = null;
+            }
+        }
+
         private void tbChietKhau_Leave(object sender, EventArgs e)
         {
             if (dataCK != null && ConvertUtil.ConvertToInt(tbChietKhau.Text) < dataCK.Value)
@@ -775,12 +797,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (lvThongTin.SelectedIndices.Count > 0)
-            //{
-            //    int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
-
-            //    lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
-            //}
+            //
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -814,20 +831,6 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
-        }
-
-        private void CheckListViewItemsIsChecked()
-        {
-            if (lvThongTin.CheckedItems.Count > 0)
-            {
-                pbXoa.Enabled = true;
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
-            }
-            else
-            {
-                pbXoa.Enabled = false;
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
-            }
         }
 
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -945,6 +948,10 @@ namespace QuanLyKinhDoanh.GiaoDich
             {
                 ttDetail.SetToolTip(tbTenKH, string.Format(Constant.TOOLTIP_DETAIL_KHACHHANG,
                     dataKH.Ten, dataKH.GioiTinh, dataKH.DOB, dataKH.CMND, dataKH.DiaChi, dataKH.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
             }
         }
         #endregion
