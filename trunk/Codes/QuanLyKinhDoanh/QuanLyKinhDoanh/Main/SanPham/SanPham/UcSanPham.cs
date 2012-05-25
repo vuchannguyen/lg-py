@@ -146,6 +146,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.MaSanPham);
                 lvi.SubItems.Add(data.SanPhamGroup.Ten);
                 lvi.SubItems.Add(data.Ten);
+                lvi.SubItems.Add(data.XuatXu == null ? string.Empty : data.XuatXu.Ten);
                 lvi.SubItems.Add(data.DonViTinh);
                 lvi.SubItems.Add(data.MoTa);
 
@@ -489,7 +490,7 @@ namespace QuanLyKinhDoanh
         {
             if (e.ColumnIndex == 0)
             {
-                e.NewWidth = 30;
+                e.NewWidth = 0;
                 e.Cancel = true;
             }
 

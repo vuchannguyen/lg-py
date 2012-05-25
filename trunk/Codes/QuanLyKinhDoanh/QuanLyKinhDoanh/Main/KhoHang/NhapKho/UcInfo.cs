@@ -80,8 +80,8 @@ namespace QuanLyKinhDoanh.NhapKho
                 tbMaNhap.Text = data.HoaDon.MaHoaDon;
                 tbGiaNhap.Text = data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbSoLuong.Text = data.SoLuong.ToString();
-                tbGiaNhap.Text = data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbLaiSuat.Text = data.SanPham.LaiSuat.ToString();
+                tbGiaBan.Text = data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGhiChu.Text = data.HoaDon.GhiChu;
 
                 tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? "" : ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
@@ -698,9 +698,7 @@ namespace QuanLyKinhDoanh.NhapKho
 
             if (listData.Count == 0)
             {
-                //MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Xuất xứ"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                //return false;
+                //
             }
 
             cbXuatXu.Items.Clear();

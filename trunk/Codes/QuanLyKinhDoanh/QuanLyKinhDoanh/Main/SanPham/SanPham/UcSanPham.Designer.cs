@@ -65,6 +65,7 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.chXuatXu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -276,6 +277,7 @@
             this.chMaSanPham,
             this.chGroup,
             this.chTen,
+            this.chXuatXu,
             this.chDVT,
             this.chMoTa});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -297,7 +299,7 @@
             // 
             this.chCheckBox.Text = "All";
             this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chCheckBox.Width = 30;
+            this.chCheckBox.Width = 0;
             // 
             // chMa
             // 
@@ -320,23 +322,23 @@
             // chGroup
             // 
             this.chGroup.Text = "Nhóm";
-            this.chGroup.Width = 138;
+            this.chGroup.Width = 132;
             // 
             // chTen
             // 
             this.chTen.Text = "Tên";
-            this.chTen.Width = 164;
+            this.chTen.Width = 152;
             // 
             // chDVT
             // 
             this.chDVT.Text = "ĐVT";
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDVT.Width = 103;
+            this.chDVT.Width = 83;
             // 
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 262;
+            this.chMoTa.Width = 209;
             // 
             // pnTraCuu
             // 
@@ -464,6 +466,11 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
+            // chXuatXu
+            // 
+            this.chXuatXu.Text = "Xuất xứ";
+            this.chXuatXu.Width = 120;
+            // 
             // UcSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -544,5 +551,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExcel;
+        private System.Windows.Forms.ColumnHeader chXuatXu;
     }
 }
