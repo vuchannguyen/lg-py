@@ -25,7 +25,6 @@ namespace QuanLyKinhDoanh
             {
                 pbNhapKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_NHAP_INDEX);
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_SEARCH_INDEX);
-                pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_NHOM_SANPHAM_INDEX);
             }
             catch
             {
@@ -74,23 +73,6 @@ namespace QuanLyKinhDoanh
         {
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_SEARCH_INDEX);
             lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
-        }
-
-        private void pbNhomSanPham_Click(object sender, EventArgs e)
-        {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcNhomSanPham());
-        }
-
-        private void pbNhomSanPham_MouseEnter(object sender, EventArgs e)
-        {
-            pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER);
-            lbNhomSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
-        }
-
-        private void pbNhomSanPham_MouseLeave(object sender, EventArgs e)
-        {
-            pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_NHOM_SANPHAM_INDEX);
-            lbNhomSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
     }
 }

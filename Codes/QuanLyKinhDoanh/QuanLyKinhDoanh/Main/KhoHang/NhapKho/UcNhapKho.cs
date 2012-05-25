@@ -498,5 +498,11 @@ namespace QuanLyKinhDoanh
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
+
+        private void lvThongTin_DoubleClick(object sender, EventArgs e)
+        {
+            FormBill frm = new FormBill();
+            frm.ShowDialog();
+        }
     }
 }

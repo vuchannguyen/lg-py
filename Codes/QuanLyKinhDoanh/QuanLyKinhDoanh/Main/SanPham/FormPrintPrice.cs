@@ -118,6 +118,7 @@ namespace QuanLyKinhDoanh
             }
 
             cbGroup.Items.Clear();
+            cbGroup.Items.Add(new CommonComboBoxItems(Constant.DEFAULT_FIRST_VALUE_COMBOBOX, 0));
 
             foreach (DTO.SanPhamGroup data in listData)
             {

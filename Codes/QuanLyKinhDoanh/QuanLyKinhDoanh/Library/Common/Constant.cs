@@ -176,10 +176,10 @@ namespace Library
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
-        public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Mô tả";
+        public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Xuất xứ - Mô tả";
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
         public const string SEARCH_NHAPKHO_TIP = "Mã nhập - Mã SP - Tên SP";
-        public const string SEARCH_THU_TIP = "Mã Hóa đơn - Lý do";
-        public const string SEARCH_CHI_TIP = "Mã Hóa đơn - Lý do";
+        public const string SEARCH_THU_TIP = "Mã HĐ - Lý do";
+        public const string SEARCH_CHI_TIP = "Mã HĐ - Lý do";
     }
 }
