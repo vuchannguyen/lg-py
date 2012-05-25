@@ -268,6 +268,7 @@
             this.cbMaKH.Size = new System.Drawing.Size(127, 24);
             this.cbMaKH.TabIndex = 8;
             this.cbMaKH.SelectedIndexChanged += new System.EventHandler(this.cbMaKH_SelectedIndexChanged);
+            this.cbMaKH.TextChanged += new System.EventHandler(this.cbMaKH_TextChanged);
             this.cbMaKH.Leave += new System.EventHandler(this.cbMaKH_Leave);
             // 
             // cbStatus

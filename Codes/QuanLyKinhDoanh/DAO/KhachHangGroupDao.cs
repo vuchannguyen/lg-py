@@ -144,6 +144,7 @@ namespace DAO
             catch
             {
                 if (trans != null) trans.Rollback();
+
                 return false;
             }
         }

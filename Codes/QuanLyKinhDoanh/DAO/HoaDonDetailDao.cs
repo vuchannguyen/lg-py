@@ -118,6 +118,11 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
+        public static List<HoaDonDetail> GetListByIdHoaDon(int idHoaDon)
+        {
+            return dbContext.HoaDonDetails.Where(p => p.IdHoaDon == idHoaDon).ToList();
+        }
+
         public static HoaDonDetail GetLastData()
         {
             var sql = dbContext.HoaDonDetails.OrderBy("Id " + CommonDao.SORT_DESCENDING);

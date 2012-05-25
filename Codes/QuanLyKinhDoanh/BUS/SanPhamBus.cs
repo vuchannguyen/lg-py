@@ -20,15 +20,9 @@ namespace BUS
             return SanPhamDao.GetList(text, idGroup, isHavePrice, status, sortColumn, sortOrder, skip, take);
         }
 
-        public static int GetCountKho(string text)
+        public static List<SanPham> GetListByIdGroup(int idGroup)
         {
-            return SanPhamDao.GetCountKho(text);
-        }
-
-        public static List<SanPham> GetListKho(string text,
-            string sortColumn, string sortOrder, int skip, int take)
-        {
-            return SanPhamDao.GetListKho(text, sortColumn, sortOrder, skip, take);
+            return SanPhamDao.GetListByIdGroup(idGroup);
         }
 
         public static SanPham GetLastData()

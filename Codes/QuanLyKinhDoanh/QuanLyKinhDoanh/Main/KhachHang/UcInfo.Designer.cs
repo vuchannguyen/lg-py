@@ -287,7 +287,6 @@
             this.tbDiem.TabIndex = 5;
             this.tbDiem.Text = "0";
             this.tbDiem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbDiem.TextChanged += new System.EventHandler(this.tbDiem_TextChanged);
             this.tbDiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDiem_KeyPress);
             // 
             // label1

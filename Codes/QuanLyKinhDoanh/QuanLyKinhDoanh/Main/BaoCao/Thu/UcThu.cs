@@ -222,8 +222,6 @@ namespace QuanLyKinhDoanh.Thu
         private void pbThem_MouseEnter(object sender, EventArgs e)
         {
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
-
-            //ttDetail.SetToolTip(pbThem, Constant.TOOLTIP_MUA_THEM);
         }
 
         private void pbThem_MouseLeave(object sender, EventArgs e)

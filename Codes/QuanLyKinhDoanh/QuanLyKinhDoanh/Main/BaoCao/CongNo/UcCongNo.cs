@@ -219,8 +219,6 @@ namespace QuanLyKinhDoanh.CongNo
         private void pbThem_MouseEnter(object sender, EventArgs e)
         {
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
-
-            //ttDetail.SetToolTip(pbThem, Constant.TOOLTIP_MUA_THEM);
         }
 
         private void pbThem_MouseLeave(object sender, EventArgs e)
@@ -264,7 +262,11 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void pbSua_Click(object sender, EventArgs e)
         {
-            //
+            int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+
+            uc = new UcInfo(HoaDonBus.GetById(id));
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)

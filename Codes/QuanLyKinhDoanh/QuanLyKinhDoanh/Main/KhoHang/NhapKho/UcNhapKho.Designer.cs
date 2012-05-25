@@ -164,6 +164,7 @@
             this.pbThem.Click += new System.EventHandler(this.pbThem_Click);
             this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
             this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
+            this.pbThem.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbThem_MouseMove);
             // 
             // panel3
             // 
@@ -541,7 +542,6 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcNhapKho";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.ttDetail.SetToolTip(this, "te");
             this.Load += new System.EventHandler(this.UcNhapKho_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();

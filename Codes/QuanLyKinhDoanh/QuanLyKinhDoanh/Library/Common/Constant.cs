@@ -171,6 +171,7 @@ namespace Library
         public const string MESSAGE_ERROR_EDIT_DATA = "Không thể thay đổi dữ liệu này!";
 
         public const string MESSAGE_SUCCESS_EXPORT_EXCEL = "Dữ liệu đã xuất thành công.";
+        public const string MESSAGE_PAY_ALL_DEBT = "Hóa đơn đã được thanh toán hết.";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";

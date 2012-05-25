@@ -39,8 +39,13 @@ namespace QuanLyKinhDoanh.CongNo
             Init();
 
             tbMa.Text = data.MaHoaDon;
-            tbThanhToan.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbNgayGio.Text = data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            tbKhachHang.Text = data.KhachHang.MaKhachHang + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten;
+            tbConLai.Text = data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTongHD.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbGhiChu.Text = data.GhiChu;
+
+            LoadBill(HoaDonDetailBus.GetListByIdHoaDon(data.Id));
         }
 
         private void LoadResource()
@@ -84,10 +89,14 @@ namespace QuanLyKinhDoanh.CongNo
         private void RefreshData()
         {
             tbMa.Text = string.Empty;
+            lbNgayGio.Text = DateTime.Now.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            tbKhachHang.Text = string.Empty;
+            tbConLai.Text = string.Empty;
             tbThanhToan.Text = string.Empty;
+            tbTongHD.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
-            CreateNewId();
+            lvThongTin.Items.Clear();
         }
 
         private void ValidateInput()
@@ -104,57 +113,47 @@ namespace QuanLyKinhDoanh.CongNo
             }
         }
 
-        private void CreateNewId()
+        private void LoadBill(List<HoaDonDetail> listDetail)
         {
-            int id = 0;
-
-            DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_CHI);
-
-            string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaHoaDon.Substring(dataTemp.MaHoaDon.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
-
-            tbMa.Text = Constant.PREFIX_CHI + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
-        }
-
-        private void InsertData()
-        {
-            data.MaHoaDon = tbMa.Text;
-            data.IdType = Constant.ID_TYPE_CHI;
-            data.IdStatus = Constant.ID_STATUS_DONE;
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-            data.GhiChu = tbGhiChu.Text;
-
-            data.CreateBy = data.UpdateBy = "";
-            data.CreateDate = data.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Insert(data))
+            foreach (HoaDonDetail detail in listDetail)
             {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + data.MaHoaDon) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE,
-                    Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
-                {
-                    this.Dispose();
-                }
-            }
-            else
-            {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_ERROR_DUPLICATE, tbMa.Text) + 
-                    Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                {
-                    this.Dispose();
-                }
+                ListViewItem lvi = new ListViewItem();
+
+                lvi.SubItems.Add(detail.Id.ToString());
+                lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
+                lvi.SubItems.Add(detail.SanPham.Ten);
+                lvi.SubItems.Add(detail.SoLuong.ToString());
+                lvi.SubItems.Add(detail.SanPham.DonViTinh);
+                lvi.SubItems.Add(detail.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(detail.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
+
+                lvThongTin.Items.Add(lvi);
             }
         }
 
         private void UpdateData()
         {
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            long money = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
+            data.ConLai += money;
             data.GhiChu = tbGhiChu.Text;
+
+            if (data.ConLai == 0)
+            {
+                data.IdStatus = Constant.ID_STATUS_DONE;
+            }
 
             data.UpdateBy = "";
             data.UpdateDate = DateTime.Now;
 
             if (HoaDonBus.Update(data))
             {
+                if (data.ConLai == 0)
+                {
+                    MessageBox.Show(Constant.MESSAGE_PAY_ALL_DEBT,
+                        Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 this.Dispose();
             }
             else
@@ -193,14 +192,7 @@ namespace QuanLyKinhDoanh.CongNo
         {
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (!isUpdate)
-                {
-                    InsertData();
-                }
-                else
-                {
-                    UpdateData();
-                }
+                UpdateData();
             }
         }
 
@@ -218,9 +210,14 @@ namespace QuanLyKinhDoanh.CongNo
 
 
         #region Controls
-        private void tbTien_TextChanged(object sender, EventArgs e)
+        private void tbThanhToan_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
+            if (money > -data.ConLai)
+            {
+                money = -data.ConLai;
+            }
 
             tbThanhToan.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbThanhToan.Select(tbThanhToan.Text.Length, 0);
@@ -228,22 +225,27 @@ namespace QuanLyKinhDoanh.CongNo
             ValidateInput();
         }
 
-        private void tbTien_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbThanhToan_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
 
             ValidateInput();
         }
 
-        private void tbGhiChu_TextChanged(object sender, EventArgs e)
+        private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
-            ValidateInput();
+            if (e.ColumnIndex == 0)
+            {
+                e.NewWidth = 0;
+                e.Cancel = true;
+            }
+
+            if (e.ColumnIndex == 1)
+            {
+                e.NewWidth = 0;
+                e.Cancel = true;
+            }
         }
         #endregion
-
-        private void tbConLai_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            CommonFunc.ValidateNumeric(e);
-        }
     }
 }
