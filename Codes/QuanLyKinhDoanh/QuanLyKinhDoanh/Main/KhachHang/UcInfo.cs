@@ -48,6 +48,7 @@ namespace QuanLyKinhDoanh.KhachHang
                 tbDiem.Text = data.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbDiaChi.Text = data.DiaChi;
                 tbDienThoai.Text = data.DienThoai;
+                tbDTDD.Text = data.DTDD;
                 tbFax.Text = data.Fax;
                 tbEmail.Text = data.Email;
                 tbCMND.Text = data.CMND;
@@ -187,6 +188,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.DOB = dtpDOB.Value;
             data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
+            data.DTDD = tbDTDD.Text;
             data.Fax = tbFax.Text;
             data.Email = tbEmail.Text;
             data.CMND = tbCMND.Text;
@@ -221,12 +223,13 @@ namespace QuanLyKinhDoanh.KhachHang
             data.DOB = dtpDOB.Value;
             data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
+            data.DTDD = tbDTDD.Text;
             data.Fax = tbFax.Text;
             data.Email = tbEmail.Text;
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            //data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
             data.GhiChu = tbGhiChu.Text;
 
             data.UpdateBy = "";
@@ -312,6 +315,11 @@ namespace QuanLyKinhDoanh.KhachHang
         }
 
         private void tbDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateSpace(e);
+        }
+
+        private void tbDTDD_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateSpace(e);
         }

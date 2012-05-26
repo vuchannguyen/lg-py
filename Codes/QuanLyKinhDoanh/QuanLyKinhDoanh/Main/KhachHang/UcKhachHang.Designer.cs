@@ -54,6 +54,7 @@
             this.chDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDiaChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDTDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTichLuy = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
@@ -262,7 +263,7 @@
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
             this.pnQuanLy.Location = new System.Drawing.Point(40, 87);
             this.pnQuanLy.Name = "pnQuanLy";
-            this.pnQuanLy.Size = new System.Drawing.Size(910, 480);
+            this.pnQuanLy.Size = new System.Drawing.Size(950, 480);
             this.pnQuanLy.TabIndex = 48;
             // 
             // lvThongTin
@@ -277,6 +278,7 @@
             this.chDOB,
             this.chDiaChi,
             this.chDienThoai,
+            this.chDTDD,
             this.chEmail,
             this.chTichLuy});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,7 +287,7 @@
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
             this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(900, 430);
+            this.lvThongTin.Size = new System.Drawing.Size(940, 430);
             this.lvThongTin.TabIndex = 86;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -321,7 +323,7 @@
             // chHoTen
             // 
             this.chHoTen.Text = "Họ và tên";
-            this.chHoTen.Width = 181;
+            this.chHoTen.Width = 145;
             // 
             // chDOB
             // 
@@ -332,24 +334,29 @@
             // chDiaChi
             // 
             this.chDiaChi.Text = "Địa chỉ";
-            this.chDiaChi.Width = 135;
+            this.chDiaChi.Width = 156;
             // 
             // chDienThoai
             // 
             this.chDienThoai.Text = "Điện thoại";
             this.chDienThoai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDienThoai.Width = 103;
+            this.chDienThoai.Width = 100;
+            // 
+            // chDTDD
+            // 
+            this.chDTDD.Text = "ĐTDĐ";
+            this.chDTDD.Width = 100;
             // 
             // chEmail
             // 
             this.chEmail.Text = "Email";
-            this.chEmail.Width = 147;
+            this.chEmail.Width = 124;
             // 
             // chTichLuy
             // 
             this.chTichLuy.Text = "Tích lũy";
             this.chTichLuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chTichLuy.Width = 100;
+            this.chTichLuy.Width = 80;
             // 
             // pnTraCuu
             // 
@@ -364,12 +371,12 @@
             this.pnTraCuu.Controls.Add(this.pnPage);
             this.pnTraCuu.Location = new System.Drawing.Point(3, 439);
             this.pnTraCuu.Name = "pnTraCuu";
-            this.pnTraCuu.Size = new System.Drawing.Size(900, 33);
+            this.pnTraCuu.Size = new System.Drawing.Size(940, 33);
             this.pnTraCuu.TabIndex = 85;
             // 
             // tbPage
             // 
-            this.tbPage.Location = new System.Drawing.Point(621, 6);
+            this.tbPage.Location = new System.Drawing.Point(661, 6);
             this.tbPage.MaxLength = 3;
             this.tbPage.Name = "tbPage";
             this.tbPage.Size = new System.Drawing.Size(40, 23);
@@ -383,7 +390,7 @@
             this.lbTotalPage.AutoSize = true;
             this.lbTotalPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbTotalPage.Location = new System.Drawing.Point(715, 6);
+            this.lbTotalPage.Location = new System.Drawing.Point(755, 6);
             this.lbTotalPage.Name = "lbTotalPage";
             this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
             this.lbTotalPage.TabIndex = 2;
@@ -392,7 +399,7 @@
             // pbNextPage
             // 
             this.pbNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNextPage.Location = new System.Drawing.Point(875, 0);
+            this.pbNextPage.Location = new System.Drawing.Point(915, 0);
             this.pbNextPage.Name = "pbNextPage";
             this.pbNextPage.Size = new System.Drawing.Size(25, 32);
             this.pbNextPage.TabIndex = 88;
@@ -404,7 +411,7 @@
             // pbBackPage
             // 
             this.pbBackPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBackPage.Location = new System.Drawing.Point(810, 0);
+            this.pbBackPage.Location = new System.Drawing.Point(850, 0);
             this.pbBackPage.Name = "pbBackPage";
             this.pbBackPage.Size = new System.Drawing.Size(25, 32);
             this.pbBackPage.TabIndex = 87;
@@ -416,7 +423,7 @@
             // pbTotalPage
             // 
             this.pbTotalPage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTotalPage.Location = new System.Drawing.Point(677, 0);
+            this.pbTotalPage.Location = new System.Drawing.Point(717, 0);
             this.pbTotalPage.Name = "pbTotalPage";
             this.pbTotalPage.Size = new System.Drawing.Size(32, 33);
             this.pbTotalPage.TabIndex = 86;
@@ -437,7 +444,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
-            this.tbSearch.MaxLength = 10;
+            this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(200, 23);
             this.tbSearch.TabIndex = 84;
@@ -458,7 +465,7 @@
             // pnPage
             // 
             this.pnPage.Controls.Add(this.lbPage);
-            this.pnPage.Location = new System.Drawing.Point(833, 5);
+            this.pnPage.Location = new System.Drawing.Point(873, 5);
             this.pnPage.Name = "pnPage";
             this.pnPage.Size = new System.Drawing.Size(45, 22);
             this.pnPage.TabIndex = 86;
@@ -559,5 +566,6 @@
         private System.Windows.Forms.Label lbBirthDay;
         private System.Windows.Forms.PictureBox pbBirthDay;
         private System.Windows.Forms.ColumnHeader chDOB;
+        private System.Windows.Forms.ColumnHeader chDTDD;
     }
 }

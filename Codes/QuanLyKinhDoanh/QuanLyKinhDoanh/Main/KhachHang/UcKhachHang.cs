@@ -86,6 +86,11 @@ namespace QuanLyKinhDoanh
             RefreshListView(tbSearch.Text, false,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+
+            if (tbSearch.Focused)
+            {
+                tbSearch.Text = string.Empty;
+            }
         }
 
         private int GetTotalPage(int total)
@@ -135,6 +140,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT));
                 lvi.SubItems.Add(data.DiaChi);
                 lvi.SubItems.Add(data.DienThoai);
+                lvi.SubItems.Add(data.DTDD);
                 lvi.SubItems.Add(data.Email);
                 lvi.SubItems.Add(data.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
@@ -460,7 +466,6 @@ namespace QuanLyKinhDoanh
         {
             pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
         }
-        #endregion
 
         private void pbBirthDay_Click(object sender, EventArgs e)
         {
@@ -478,5 +483,6 @@ namespace QuanLyKinhDoanh
         {
             pbBirthDay.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BITRHDAY);
         }
+        #endregion
     }
 }

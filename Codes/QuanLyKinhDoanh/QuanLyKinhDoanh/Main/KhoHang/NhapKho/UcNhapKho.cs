@@ -89,6 +89,11 @@ namespace QuanLyKinhDoanh
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+
+            if (tbSearch.Focused)
+            {
+                tbSearch.Text = string.Empty;
+            }
         }
 
         private int GetTotalPage(int total)
@@ -147,7 +152,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.HoaDon.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
                 lvi.SubItems.Add(data.HoaDon.User == null ? string.Empty : data.HoaDon.User.UserName);
-                lvi.SubItems.Add(data.HoaDon.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.HoaDon.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.SoLuong.ToString());
                 lvi.SubItems.Add(data.SanPham.DonViTinh);
                 lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
@@ -228,16 +233,13 @@ namespace QuanLyKinhDoanh
         private void pbThem_MouseEnter(object sender, EventArgs e)
         {
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
+
+            ttDetail.SetToolTip(pbThem, Constant.TOOLTIP_MUA_THEM);
         }
 
         private void pbThem_MouseLeave(object sender, EventArgs e)
         {
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
-        }
-
-        private void pbThem_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbThem, Constant.TOOLTIP_MUA_THEM);
         }
 
         private void pbXoa_Click(object sender, EventArgs e)
@@ -498,11 +500,5 @@ namespace QuanLyKinhDoanh
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
-
-        private void lvThongTin_DoubleClick(object sender, EventArgs e)
-        {
-            FormBill frm = new FormBill();
-            frm.ShowDialog();
-        }
     }
 }

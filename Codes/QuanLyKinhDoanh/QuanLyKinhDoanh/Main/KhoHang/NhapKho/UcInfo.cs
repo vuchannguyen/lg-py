@@ -61,6 +61,7 @@ namespace QuanLyKinhDoanh.NhapKho
             isUpdate = true;
             lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
+            tbSoLuong.ReadOnly = true;
             cbChangeMoney.SelectedIndex = 0;
             this.dataHoaDonDetail = data;
 
@@ -84,7 +85,8 @@ namespace QuanLyKinhDoanh.NhapKho
                 tbGiaBan.Text = data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGhiChu.Text = data.HoaDon.GhiChu;
 
-                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? "" : ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
+                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? string.Empty :
+                    ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
             }
             else
             {
@@ -140,6 +142,7 @@ namespace QuanLyKinhDoanh.NhapKho
             tbGhiChu.Text = string.Empty;
 
             cbChangeMoney.SelectedIndex = 0;
+            cbDonViThoiHan.SelectedIndex = 1;
 
             isFixedMoney = false;
         }
@@ -267,7 +270,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataChietKhau = new ChietKhau();
 
             dataChietKhau.IdSanPham = dataSP.Id;
-            dataChietKhau.Value = ConvertUtil.ConvertToInt(string.IsNullOrEmpty(tbChietKhau.Text) ? "0" : tbChietKhau.Text);
+            dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
 
             dataChietKhau.CreateBy = dataChietKhau.UpdateBy = "";
             dataChietKhau.CreateDate = dataChietKhau.UpdateDate = DateTime.Now;
@@ -400,7 +403,7 @@ namespace QuanLyKinhDoanh.NhapKho
             }
             else
             {
-                dataChietKhau.Value = ConvertUtil.ConvertToInt(string.IsNullOrEmpty(tbChietKhau.Text) ? "0" : tbChietKhau.Text);
+                dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
 
                 dataChietKhau.UpdateBy = "";
                 dataChietKhau.UpdateDate = DateTime.Now;
@@ -620,6 +623,9 @@ namespace QuanLyKinhDoanh.NhapKho
 
         private void tbSoLuong_TextChanged(object sender, EventArgs e)
         {
+            tbSoLuong.Text = ConvertUtil.ConvertToInt(tbSoLuong.Text) == 0 ? string.Empty :
+                ConvertUtil.ConvertToInt(tbSoLuong.Text).ToString();
+
             CalculateTotalMoney();
             ValidateInput();
         }
@@ -915,10 +921,8 @@ namespace QuanLyKinhDoanh.NhapKho
 
         private void tbChietKhau_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbChietKhau.Text))
-            {
-                tbChietKhau.Text = "0";
-            }
+            tbChietKhau.Text = ConvertUtil.ConvertToInt(tbChietKhau.Text) == 0 ? string.Empty :
+                ConvertUtil.ConvertToInt(tbChietKhau.Text).ToString();
         }
 
         private void cbXuatXu_SelectedIndexChanged(object sender, EventArgs e)
@@ -928,7 +932,7 @@ namespace QuanLyKinhDoanh.NhapKho
             tbThoiHan.Focus();
         }
 
-        private void cbXuatXu_MouseMove(object sender, MouseEventArgs e)
+        private void cbXuatXu_MouseEnter(object sender, EventArgs e)
         {
             if (dataXuatXu != null)
             {

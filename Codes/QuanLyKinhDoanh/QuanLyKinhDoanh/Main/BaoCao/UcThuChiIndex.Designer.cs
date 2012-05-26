@@ -47,7 +47,7 @@
             // pbChi
             // 
             this.pbChi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbChi.Location = new System.Drawing.Point(397, 10);
+            this.pbChi.Location = new System.Drawing.Point(389, 10);
             this.pbChi.Name = "pbChi";
             this.pbChi.Size = new System.Drawing.Size(100, 100);
             this.pbChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -75,7 +75,7 @@
             this.lbThu.AutoSize = true;
             this.lbThu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbThu.ForeColor = System.Drawing.Color.Gray;
-            this.lbThu.Location = new System.Drawing.Point(234, 120);
+            this.lbThu.Location = new System.Drawing.Point(238, 120);
             this.lbThu.Name = "lbThu";
             this.lbThu.Size = new System.Drawing.Size(36, 16);
             this.lbThu.TabIndex = 4;
@@ -86,7 +86,7 @@
             this.lbChi.AutoSize = true;
             this.lbChi.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbChi.ForeColor = System.Drawing.Color.Gray;
-            this.lbChi.Location = new System.Drawing.Point(431, 120);
+            this.lbChi.Location = new System.Drawing.Point(424, 120);
             this.lbChi.Name = "lbChi";
             this.lbChi.Size = new System.Drawing.Size(32, 16);
             this.lbChi.TabIndex = 6;

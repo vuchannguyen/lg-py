@@ -169,6 +169,8 @@ namespace QuanLyKinhDoanh
         {
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
             lbUser.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_USER);
         }
 
         private void pbUser_MouseLeave(object sender, EventArgs e)
@@ -204,6 +206,8 @@ namespace QuanLyKinhDoanh
         {
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
             lbKhachHang.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbKhachHang, Constant.TOOLTIP_KHACHHANG);
         }
 
         private void pbKhachHang_MouseLeave(object sender, EventArgs e)
@@ -239,6 +243,8 @@ namespace QuanLyKinhDoanh
         {
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
             lbSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbSanPham, Constant.TOOLTIP_SANPHAM);
         }
 
         private void pbSanPham_MouseLeave(object sender, EventArgs e)
@@ -274,6 +280,8 @@ namespace QuanLyKinhDoanh
         {
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
             lbKhoHang.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbKhoHang, Constant.TOOLTIP_KHOHANG);
         }
 
         private void pbKhoHang_MouseLeave(object sender, EventArgs e)
@@ -309,6 +317,8 @@ namespace QuanLyKinhDoanh
         {
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
             lbThuChi.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbThuChi, Constant.TOOLTIP_THUCHI);
         }
 
         private void pbThuChi_MouseLeave(object sender, EventArgs e)
@@ -344,6 +354,8 @@ namespace QuanLyKinhDoanh
         {
             pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
             lbThanhToan.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbThanhToan, Constant.TOOLTIP_THANHTOAN);
         }
 
         private void pbThanhToan_MouseLeave(object sender, EventArgs e)
@@ -358,36 +370,6 @@ namespace QuanLyKinhDoanh
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
                 lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
             }
-        }
-
-        private void pbUser_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_USER);
-        }
-
-        private void pbKhachHang_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbKhachHang, Constant.TOOLTIP_KHACHHANG);
-        }
-
-        private void pbSanPham_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbSanPham, Constant.TOOLTIP_SANPHAM);
-        }
-
-        private void pbKhoHang_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbKhoHang, Constant.TOOLTIP_KHOHANG);
-        }
-
-        private void pbThuChi_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbThuChi, Constant.TOOLTIP_THUCHI);
-        }
-
-        private void pbThanhToan_MouseMove(object sender, MouseEventArgs e)
-        {
-            ttDetail.SetToolTip(pbThanhToan, Constant.TOOLTIP_THANHTOAN);
         }
         #endregion
 

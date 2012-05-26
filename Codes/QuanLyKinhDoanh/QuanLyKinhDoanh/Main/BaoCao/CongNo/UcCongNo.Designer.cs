@@ -44,6 +44,7 @@
             this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chConLai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.pbOk = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -69,7 +70,6 @@
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFilter = new System.Windows.Forms.DateTimePicker();
-            this.chTong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnQuanLy.SuspendLayout();
@@ -123,7 +123,7 @@
             // tbTong
             // 
             this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(775, 55);
+            this.tbTong.Location = new System.Drawing.Point(825, 55);
             this.tbTong.MaxLength = 10;
             this.tbTong.Name = "tbTong";
             this.tbTong.ReadOnly = true;
@@ -135,7 +135,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(724, 60);
+            this.label3.Location = new System.Drawing.Point(774, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 58;
@@ -163,7 +163,7 @@
             this.chNgayGio,
             this.chGhiChu,
             this.chConLai,
-            this.chTong});
+            this.chThanhTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -209,8 +209,7 @@
             // chKhachHang
             // 
             this.chKhachHang.Text = "Khách hàng";
-            this.chKhachHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chKhachHang.Width = 147;
+            this.chKhachHang.Width = 166;
             // 
             // chNgayGio
             // 
@@ -227,7 +226,13 @@
             // 
             this.chConLai.Text = "Còn lại";
             this.chConLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chConLai.Width = 90;
+            this.chConLai.Width = 80;
+            // 
+            // chThanhTien
+            // 
+            this.chThanhTien.Text = "Thành tiền";
+            this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chThanhTien.Width = 80;
             // 
             // pnTraCuu
             // 
@@ -260,7 +265,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
-            this.tbSearch.MaxLength = 10;
+            this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(200, 23);
             this.tbSearch.TabIndex = 91;
@@ -504,12 +509,6 @@
             this.dtpFilter.TabIndex = 3;
             this.dtpFilter.ValueChanged += new System.EventHandler(this.dtpFilter_ValueChanged);
             // 
-            // chTong
-            // 
-            this.chTong.Text = "Tổng HĐ";
-            this.chTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chTong.Width = 90;
-            // 
             // UcCongNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -597,6 +596,6 @@
         private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFilter;
-        private System.Windows.Forms.ColumnHeader chTong;
+        private System.Windows.Forms.ColumnHeader chThanhTien;
     }
 }

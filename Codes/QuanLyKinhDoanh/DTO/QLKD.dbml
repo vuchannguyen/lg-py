@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyKinhDoanh" Class="QLKDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LGVN13311-XPB01\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CONAN-PC\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChietKhau" Member="ChietKhaus">
     <Type Name="ChietKhau">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -25,9 +25,9 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="XuatXu_SanPham" Member="SanPhams" ThisKey="Id" OtherKey="IdXuatXu" Type="SanPham" />
     </Type>
@@ -95,15 +95,16 @@
       <Column Name="NoiCap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="DienThoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DTDD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Fax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="TichLuy" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
       <Column Name="Diem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdKhachHang" Type="HoaDon" />
       <Association Name="KhachHangGroup_KhachHang" Member="KhachHangGroup" ThisKey="IdGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
@@ -138,12 +139,12 @@
       <Column Name="ThoiHan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="DonViThoiHan" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="ThoiGianBaoHanh" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="DonViBaoHanh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="IsSold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="DonViBaoHanh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="SanPham_ChietKhau" Member="ChietKhaus" ThisKey="Id" OtherKey="IdSanPham" Type="ChietKhau" />
       <Association Name="SanPham_HoaDonDetail" Member="HoaDonDetails" ThisKey="Id" OtherKey="IdSanPham" Type="HoaDonDetail" />
@@ -173,9 +174,9 @@
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CreateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="User_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdUser" Type="HoaDon" />
       <Association Name="UserGroup_User" Member="UserGroup" ThisKey="IdGroup" OtherKey="Id" Type="UserGroup" IsForeignKey="true" />

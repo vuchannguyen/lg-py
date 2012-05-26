@@ -209,7 +209,6 @@
             this.tbSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbSuDung.TextChanged += new System.EventHandler(this.tbSuDung_TextChanged);
             this.tbSuDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSuDung_KeyPress);
-            this.tbSuDung.Leave += new System.EventHandler(this.tbSuDung_Leave);
             // 
             // label15
             // 
@@ -256,7 +255,7 @@
             this.tbTenKH.Size = new System.Drawing.Size(258, 29);
             this.tbTenKH.TabIndex = 10;
             this.tbTenKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbTenKH.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tbTenKH_MouseMove);
+            this.tbTenKH.MouseEnter += new System.EventHandler(this.tbTenKH_MouseEnter);
             // 
             // cbMaKH
             // 
@@ -264,6 +263,7 @@
             this.cbMaKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbMaKH.FormattingEnabled = true;
             this.cbMaKH.Location = new System.Drawing.Point(543, 30);
+            this.cbMaKH.MaxLength = 10;
             this.cbMaKH.Name = "cbMaKH";
             this.cbMaKH.Size = new System.Drawing.Size(127, 24);
             this.cbMaKH.TabIndex = 8;
@@ -831,7 +831,6 @@
             this.tbSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbSoLuong.TextChanged += new System.EventHandler(this.tbSoLuong_TextChanged);
             this.tbSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSoLuong_KeyPress);
-            this.tbSoLuong.Leave += new System.EventHandler(this.tbSoLuong_Leave);
             // 
             // label14
             // 

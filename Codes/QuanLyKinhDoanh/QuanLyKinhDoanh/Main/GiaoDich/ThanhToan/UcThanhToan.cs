@@ -19,6 +19,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private DTO.ChietKhau dataCK;
         private DTO.HoaDon dataHoaDon;
         private DTO.HoaDonDetail dataHoaDonDetail;
+        private List<DTO.SanPham> listDataSP;
 
         private long totalMoney;
         private long totalDiscount;
@@ -70,7 +71,10 @@ namespace QuanLyKinhDoanh.GiaoDich
         #region Function
         private bool Init()
         {
-            GetListSP();
+            listDataSP = SanPhamBus.GetList(string.Empty, 0, true, Constant.DEFAULT_STATUS_SP_NOT_ZERO,
+                string.Empty, string.Empty, 0, 0);
+
+            GetListSP(listDataSP);
             GetListKhachHang();
             GetListHoaDonStatus();
 
@@ -160,7 +164,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 }
                 else
                 {
-                    if (money > 0 && money < totalMoney)
+                    if (money < totalMoney)
                     {
                         pbHoanTat.Enabled = true;
                         pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
@@ -221,11 +225,11 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             long money = 0;
 
-            if (!string.IsNullOrEmpty(tbTienThanhToan.Text))
-            {
+            //if (!string.IsNullOrEmpty(tbTienThanhToan.Text))
+            //{
                 money = (ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
                     ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) - totalMoney);
-            }
+            //}
 
             tbTienHoiLai.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
@@ -270,8 +274,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbTongCK.Text = string.Empty;
             }
 
-            cbMaSP.Items.RemoveAt(cbMaSP.SelectedIndex);
-            cbMaSP.SelectedIndex = cbMaSP.Items.Count > 0 ? 0 : -1;
+            tbSoLuong.Text = "1";
 
             if (cbMaSP.Items.Count == 0)
             {
@@ -280,6 +283,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbTenSP.Text = string.Empty;
                 tbChietKhau.Text = string.Empty;
                 tbTienCK.Text = string.Empty;
+                tbSoLuong.Text = string.Empty;
                 tbDVT.Text = string.Empty;
                 tbGiaBan.Text = string.Empty;
                 tbThanhTien.Text = string.Empty;
@@ -313,7 +317,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                         tbTongCK.Text = string.Empty;
                     }
 
-                    RestoreSanPham(ConvertUtil.ConvertToInt(lvi.SubItems[1].Text));
+                    //RestoreSanPham(ConvertUtil.ConvertToInt(lvi.SubItems[1].Text));
 
                     lvThongTin.Items.Remove(lvi);
 
@@ -353,20 +357,39 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbMaHD.Text = Constant.PREFIX_BAN + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
         }
 
-        private void GetListSP()
+        private void GetListSP(List<DTO.SanPham> listData)
         {
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, 0, true, Constant.DEFAULT_STATUS_SP_NOT_ZERO,
-                string.Empty, string.Empty, 0, 0);
-
             cbMaSP.Text = string.Empty;
             cbMaSP.Items.Clear();
 
             foreach (DTO.SanPham data in listData)
             {
-                cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
+                if (lvThongTin.Items.Count == 0)
+                {
+                    cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
+                }
+                else
+                {
+                    bool isDuplicated = false;
+
+                    foreach (ListViewItem item in lvThongTin.Items)
+                    {
+                        if (item.SubItems[1].Text == data.Id.ToString())
+                        {
+                            isDuplicated = true;
+
+                            break;
+                        }
+                    }
+
+                    if (!isDuplicated)
+                    {
+                        cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
+                    }
+                }
             }
 
-            if (listData.Count > 0)
+            if (cbMaSP.Items.Count > 0)
             {
                 cbMaSP.SelectedIndex = 0;
             }
@@ -635,6 +658,8 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             AddToBill();
 
+            GetListSP(listDataSP);
+
             ValidateHoanTat();
 
             CalculateTienHoiLai();
@@ -687,6 +712,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             RemoveFromBill();
 
+            GetListSP(listDataSP);
+
             ValidateHoanTat();
         }
 
@@ -706,7 +733,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         #region Controls
         private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetListSP();
+            GetListSP(listDataSP);
         }
 
         private void cbMaSP_SelectedIndexChanged(object sender, EventArgs e)
@@ -784,9 +811,12 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void tbSoLuong_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbSoLuong.Text))
+            tbSoLuong.Text = ConvertUtil.ConvertToInt(tbSoLuong.Text) == 0 ? string.Empty :
+                ConvertUtil.ConvertToInt(tbSoLuong.Text).ToString();
+
+            if (ConvertUtil.ConvertToInt(tbSoLuong.Text) > dataSP.SoLuong)
             {
-                tbSoLuong.Text = "1";
+                tbSoLuong.Text = dataSP.SoLuong.ToString();
             }
 
             CalculateMoney();
@@ -853,6 +883,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbTongCK.Text = string.Empty;
             }
 
+            CalculateTienHoiLai();
             ValidateHoanTat();
         }
 
@@ -892,9 +923,6 @@ namespace QuanLyKinhDoanh.GiaoDich
             if (!tbSuDung.ReadOnly && ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) >= tichLuy)
             {
                 tbSuDung.Text = tichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
-
-                tbTienThanhToan.Text = string.Empty;
-                tbTienThanhToan.ReadOnly = true;
             }
             else
             {
@@ -904,19 +932,6 @@ namespace QuanLyKinhDoanh.GiaoDich
             CalculateTienHoiLai();
 
             ValidateHoanTat();
-        }
-
-        private void tbSuDung_Leave(object sender, EventArgs e)
-        {
-            //
-        }
-
-        private void tbSoLuong_Leave(object sender, EventArgs e)
-        {
-            if (ConvertUtil.ConvertToInt(tbSoLuong.Text) > dataSP.SoLuong)
-            {
-                tbSoLuong.Text = dataSP.SoLuong.ToString();
-            }
         }
 
         private void tbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
@@ -942,7 +957,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
 
-        private void tbTenKH_MouseMove(object sender, MouseEventArgs e)
+        private void tbTenKH_MouseEnter(object sender, EventArgs e)
         {
             if (dataKH != null)
             {

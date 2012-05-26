@@ -474,7 +474,7 @@
             this.cbXuatXu.TabIndex = 10;
             this.cbXuatXu.SelectedIndexChanged += new System.EventHandler(this.cbXuatXu_SelectedIndexChanged);
             this.cbXuatXu.TextChanged += new System.EventHandler(this.cbXuatXu_TextChanged);
-            this.cbXuatXu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.cbXuatXu_MouseMove);
+            this.cbXuatXu.MouseEnter += new System.EventHandler(this.cbXuatXu_MouseEnter);
             // 
             // panel8
             // 
@@ -516,6 +516,7 @@
             "Mét",
             "Bộ"});
             this.cbDVTSP.Location = new System.Drawing.Point(82, 80);
+            this.cbDVTSP.MaxLength = 10;
             this.cbDVTSP.Name = "cbDVTSP";
             this.cbDVTSP.Size = new System.Drawing.Size(137, 24);
             this.cbDVTSP.TabIndex = 4;

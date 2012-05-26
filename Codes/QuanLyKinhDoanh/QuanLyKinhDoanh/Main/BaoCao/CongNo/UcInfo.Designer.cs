@@ -246,7 +246,7 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.Width = 177;
+            this.chSanPham.Width = 298;
             // 
             // chSoLuong
             // 
@@ -258,7 +258,7 @@
             // 
             this.chDVT.Text = "ĐVT";
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDVT.Width = 71;
+            this.chDVT.Width = 79;
             // 
             // chDonGia
             // 

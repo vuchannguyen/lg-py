@@ -21,6 +21,8 @@ namespace DAO
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.MaHoaDon, text) ||
+                    SqlMethods.Like(p.KhachHang.MaKhachHang, text) ||
+                    SqlMethods.Like(p.KhachHang.Ten, text) ||
                     SqlMethods.Like(p.GhiChu, text)
                     );
             }
@@ -90,7 +92,7 @@ namespace DAO
                     break;
 
                 case "Ngày giờ":
-                    sortSQL += "CreateDate " + sortOrder;
+                    sortSQL += "UpdateDate " + sortOrder;
                     break;
 
                 case "Ghi chú":
@@ -98,7 +100,7 @@ namespace DAO
                     break;
 
                 case "Còn lại":
-                    sortSQL += "ThanhTien " + sortOrder;
+                    sortSQL += "ConLai " + sortOrder;
                     break;
 
                 case "Tổng HĐ":
@@ -106,7 +108,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "CreateDate " + sortOrder;
+                    sortSQL += "UpdateDate " + sortOrder;
                     break;
             }
 
