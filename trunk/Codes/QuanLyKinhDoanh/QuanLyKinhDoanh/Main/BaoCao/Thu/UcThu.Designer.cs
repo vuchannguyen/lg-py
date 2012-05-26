@@ -122,7 +122,7 @@
             // tbTong
             // 
             this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(775, 55);
+            this.tbTong.Location = new System.Drawing.Point(825, 55);
             this.tbTong.MaxLength = 10;
             this.tbTong.Name = "tbTong";
             this.tbTong.ReadOnly = true;
@@ -134,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(724, 60);
+            this.label3.Location = new System.Drawing.Point(774, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 58;
@@ -207,7 +207,6 @@
             // chKhachHang
             // 
             this.chKhachHang.Text = "Khách hàng";
-            this.chKhachHang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chKhachHang.Width = 186;
             // 
             // chNgayGio
@@ -258,7 +257,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
-            this.tbSearch.MaxLength = 10;
+            this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(200, 23);
             this.tbSearch.TabIndex = 91;

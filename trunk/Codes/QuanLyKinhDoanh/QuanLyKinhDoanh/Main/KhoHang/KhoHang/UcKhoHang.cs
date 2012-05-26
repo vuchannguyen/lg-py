@@ -122,6 +122,11 @@ namespace QuanLyKinhDoanh
             RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+
+            if (tbSearch.Focused)
+            {
+                tbSearch.Text = string.Empty;
+            }
         }
 
         private int GetTotalPage(int total)

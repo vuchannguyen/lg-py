@@ -65,9 +65,9 @@ namespace QuanLyKinhDoanh.CongNo
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_ASCENDING;
 
-            cbFilter.SelectedIndex = 1;
+            cbFilter.SelectedIndex = 0;
 
-            tbSearch.Text = Constant.SEARCH_THU_TIP;
+            tbSearch.Text = Constant.SEARCH_CONGNO_TIP;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrder, 1);
@@ -81,11 +81,16 @@ namespace QuanLyKinhDoanh.CongNo
         #region Function
         private void uc_Disposed(object sender, EventArgs e)
         {
-            tbSearch.Text = Constant.SEARCH_THU_TIP;
+            tbSearch.Text = Constant.SEARCH_CONGNO_TIP;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+
+            if (tbSearch.Focused)
+            {
+                tbSearch.Text = string.Empty;
+            }
         }
 
         private int GetTotalPage(int total)
@@ -103,7 +108,7 @@ namespace QuanLyKinhDoanh.CongNo
         private void RefreshListView(string text, int type, int status, string timeType, DateTime date,
             string sortColumn, string sortOrder, int page)
         {
-            if (text == Constant.SEARCH_THU_TIP)
+            if (text == Constant.SEARCH_CONGNO_TIP)
             {
                 text = string.Empty;
             }
@@ -143,8 +148,9 @@ namespace QuanLyKinhDoanh.CongNo
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
-                lvi.SubItems.Add(data.KhachHang == null ? string.Empty : data.KhachHang.MaKhachHang.ToString());
-                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.KhachHang == null ? string.Empty :
+                    data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten);
+                lvi.SubItems.Add(data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
                 lvi.SubItems.Add(data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
@@ -414,7 +420,7 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_THU_TIP)
+            if (tbSearch.Text == Constant.SEARCH_CONGNO_TIP)
             {
                 tbSearch.Text = string.Empty;
             }
@@ -424,7 +430,7 @@ namespace QuanLyKinhDoanh.CongNo
         {
             if (tbSearch.Text == string.Empty)
             {
-                tbSearch.Text = Constant.SEARCH_THU_TIP;
+                tbSearch.Text = Constant.SEARCH_CONGNO_TIP;
             }
         }
 
@@ -438,7 +444,7 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_THU_TIP)
+            if (tbSearch.Text == Constant.SEARCH_CONGNO_TIP)
             {
                 pbOk.Enabled = false;
                 pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE_DISABLE);

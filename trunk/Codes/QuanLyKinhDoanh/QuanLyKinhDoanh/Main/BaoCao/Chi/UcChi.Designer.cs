@@ -230,7 +230,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
-            this.tbSearch.MaxLength = 10;
+            this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(200, 23);
             this.tbSearch.TabIndex = 91;

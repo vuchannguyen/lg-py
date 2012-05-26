@@ -107,7 +107,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "Ten " + sortOrder;
+                    sortSQL += "MaSanPham " + sortOrder;
                     break;
             }
 

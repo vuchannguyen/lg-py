@@ -164,7 +164,6 @@
             this.pbThem.Click += new System.EventHandler(this.pbThem_Click);
             this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
             this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
-            this.pbThem.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbThem_MouseMove);
             // 
             // panel3
             // 
@@ -269,7 +268,6 @@
             this.lvThongTin.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTin_ColumnWidthChanging);
             this.lvThongTin.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvThongTin_ItemChecked);
             this.lvThongTin.SelectedIndexChanged += new System.EventHandler(this.lvThongTin_SelectedIndexChanged);
-            this.lvThongTin.DoubleClick += new System.EventHandler(this.lvThongTin_DoubleClick);
             // 
             // chCheckBox
             // 
@@ -427,7 +425,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
-            this.tbSearch.MaxLength = 10;
+            this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(200, 23);
             this.tbSearch.TabIndex = 84;

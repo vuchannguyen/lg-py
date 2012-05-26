@@ -69,6 +69,10 @@ namespace DAO
                     sortSQL += "DienThoai " + sortOrder;
                     break;
 
+                case "ĐTDĐ":
+                    sortSQL += "DTDD " + sortOrder;
+                    break;
+
                 case "Email":
                     sortSQL += "Email " + sortOrder;
                     break;
@@ -78,7 +82,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "Ten " + sortOrder;
+                    sortSQL += "MaKhachHang " + sortOrder;
                     break;
             }
 
@@ -100,15 +104,11 @@ namespace DAO
         public static KhachHang GetLastData()
         {
             return dbContext.KhachHangs.OrderByDescending(p => p.Id).FirstOrDefault();
-
-            //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static KhachHang GetLastData(int idGroup)
         {
             return dbContext.KhachHangs.Where(p => p.IdGroup == idGroup).OrderByDescending(p => p.MaKhachHang).FirstOrDefault();
-
-            //return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
         public static bool Insert(KhachHang data)

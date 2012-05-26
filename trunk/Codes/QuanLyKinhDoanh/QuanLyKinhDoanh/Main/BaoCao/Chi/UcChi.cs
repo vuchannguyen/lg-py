@@ -65,7 +65,7 @@ namespace QuanLyKinhDoanh.Chi
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_ASCENDING;
 
-            cbFilter.SelectedIndex = 1;
+            cbFilter.SelectedIndex = 0;
 
             tbSearch.Text = Constant.SEARCH_CHI_TIP;
 
@@ -86,6 +86,11 @@ namespace QuanLyKinhDoanh.Chi
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
+
+            if (tbSearch.Focused)
+            {
+                tbSearch.Text = string.Empty;
+            }
         }
 
         private int GetTotalPage(int total)
@@ -143,7 +148,7 @@ namespace QuanLyKinhDoanh.Chi
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
-                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
