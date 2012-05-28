@@ -239,7 +239,7 @@
             // 
             this.pnInfo.Controls.Add(this.gbInfo);
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
-            this.pnInfo.Location = new System.Drawing.Point(220, 220);
+            this.pnInfo.Location = new System.Drawing.Point(220, 150);
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(560, 290);
             this.pnInfo.TabIndex = 49;

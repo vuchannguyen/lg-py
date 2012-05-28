@@ -269,6 +269,12 @@
     <Compile Include="Main\BaoCao\UcThuChiIndex.Designer.cs">
       <DependentUpon>UcThuChiIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\SanPham\XuatXu\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\XuatXu\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\SanPham\XuatXu\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -390,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\UcThuChiIndex.resx">
       <DependentUpon>UcThuChiIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\XuatXu\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\XuatXu\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>

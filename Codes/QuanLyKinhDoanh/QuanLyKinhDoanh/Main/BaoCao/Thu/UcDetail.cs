@@ -14,9 +14,9 @@ namespace QuanLyKinhDoanh.Thu
 {
     public partial class UcDetail : UserControl
     {
-        List<DTO.HoaDonDetail> listHoaDonDetail;
-        DTO.User dataUser;
-        DTO.KhachHang dataKH;
+        private List<DTO.HoaDonDetail> listHoaDonDetail;
+        private DTO.User dataUser;
+        private DTO.KhachHang dataKH;
 
         public UcDetail()
         {

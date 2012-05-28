@@ -52,6 +52,8 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
+            this.tbDTDD = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -110,11 +112,13 @@
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
             this.pnInfo.Location = new System.Drawing.Point(210, 100);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(580, 400);
+            this.pnInfo.Size = new System.Drawing.Size(580, 440);
             this.pnInfo.TabIndex = 52;
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbDTDD);
+            this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.tbFax);
             this.gbInfo.Controls.Add(this.label6);
             this.gbInfo.Controls.Add(this.tbDienThoai);
@@ -132,25 +136,25 @@
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
             this.gbInfo.Location = new System.Drawing.Point(7, 3);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(562, 390);
+            this.gbInfo.Size = new System.Drawing.Size(562, 430);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
             // tbFax
             // 
-            this.tbFax.Location = new System.Drawing.Point(107, 145);
+            this.tbFax.Location = new System.Drawing.Point(106, 185);
             this.tbFax.MaxLength = 20;
             this.tbFax.Name = "tbFax";
             this.tbFax.Size = new System.Drawing.Size(223, 23);
-            this.tbFax.TabIndex = 6;
+            this.tbFax.TabIndex = 8;
             this.tbFax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFax_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(65, 148);
+            this.label6.Location = new System.Drawing.Point(64, 188);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 16);
             this.label6.TabIndex = 109;
@@ -162,7 +166,7 @@
             this.tbDienThoai.MaxLength = 20;
             this.tbDienThoai.Name = "tbDienThoai";
             this.tbDienThoai.Size = new System.Drawing.Size(223, 23);
-            this.tbDienThoai.TabIndex = 5;
+            this.tbDienThoai.TabIndex = 4;
             this.tbDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDienThoai_KeyPress);
             // 
             // label3
@@ -177,18 +181,18 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(107, 185);
+            this.tbEmail.Location = new System.Drawing.Point(106, 225);
             this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(223, 23);
-            this.tbEmail.TabIndex = 7;
+            this.tbEmail.Size = new System.Drawing.Size(419, 23);
+            this.tbEmail.TabIndex = 10;
             this.tbEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEmail_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(55, 188);
+            this.label5.Location = new System.Drawing.Point(54, 228);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 102;
@@ -196,17 +200,17 @@
             // 
             // tbDiaChi
             // 
-            this.tbDiaChi.Location = new System.Drawing.Point(107, 65);
+            this.tbDiaChi.Location = new System.Drawing.Point(106, 65);
             this.tbDiaChi.MaxLength = 100;
             this.tbDiaChi.Name = "tbDiaChi";
-            this.tbDiaChi.Size = new System.Drawing.Size(419, 23);
-            this.tbDiaChi.TabIndex = 4;
+            this.tbDiaChi.Size = new System.Drawing.Size(420, 23);
+            this.tbDiaChi.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(46, 68);
+            this.label4.Location = new System.Drawing.Point(45, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 16);
             this.label4.TabIndex = 97;
@@ -216,7 +220,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(435, 313);
+            this.panel12.Location = new System.Drawing.Point(434, 353);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -245,7 +249,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(64, 313);
+            this.panel8.Location = new System.Drawing.Point(63, 353);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -272,10 +276,10 @@
             // 
             // tbTen
             // 
-            this.tbTen.Location = new System.Drawing.Point(107, 25);
+            this.tbTen.Location = new System.Drawing.Point(106, 25);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
-            this.tbTen.Size = new System.Drawing.Size(313, 23);
+            this.tbTen.Size = new System.Drawing.Size(420, 23);
             this.tbTen.TabIndex = 0;
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
@@ -283,7 +287,7 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(59, 28);
+            this.lbMa.Location = new System.Drawing.Point(58, 28);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(42, 16);
             this.lbMa.TabIndex = 90;
@@ -291,22 +295,40 @@
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(107, 225);
+            this.tbGhiChu.Location = new System.Drawing.Point(106, 265);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
             this.tbGhiChu.Size = new System.Drawing.Size(419, 66);
-            this.tbGhiChu.TabIndex = 8;
+            this.tbGhiChu.TabIndex = 12;
             // 
             // lbTen
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(40, 228);
+            this.lbTen.Location = new System.Drawing.Point(39, 268);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Ghi chú:";
+            // 
+            // tbDTDD
+            // 
+            this.tbDTDD.Location = new System.Drawing.Point(106, 145);
+            this.tbDTDD.MaxLength = 20;
+            this.tbDTDD.Name = "tbDTDD";
+            this.tbDTDD.Size = new System.Drawing.Size(223, 23);
+            this.tbDTDD.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(49, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "ĐTDĐ:";
             // 
             // UcInfo
             // 
@@ -360,5 +382,7 @@
         private System.Windows.Forms.Label lbMa;
         private System.Windows.Forms.TextBox tbGhiChu;
         private System.Windows.Forms.Label lbTen;
+        private System.Windows.Forms.TextBox tbDTDD;
+        private System.Windows.Forms.Label label1;
     }
 }

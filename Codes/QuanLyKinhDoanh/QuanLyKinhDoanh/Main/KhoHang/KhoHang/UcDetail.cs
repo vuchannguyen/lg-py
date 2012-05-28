@@ -14,7 +14,7 @@ namespace QuanLyKinhDoanh.KhoHang
 {
     public partial class UcDetail : UserControl
     {
-        DTO.XuatXu dataXuatXu;
+        private DTO.XuatXu dataXuatXu;
 
         public UcDetail()
         {

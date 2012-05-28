@@ -137,7 +137,7 @@
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
             this.gbInfo.Location = new System.Drawing.Point(5, 3);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(680, 520);
+            this.gbInfo.Size = new System.Drawing.Size(700, 520);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
@@ -146,7 +146,7 @@
             // 
             this.lbNgayGio.AutoSize = true;
             this.lbNgayGio.ForeColor = System.Drawing.Color.Black;
-            this.lbNgayGio.Location = new System.Drawing.Point(300, 28);
+            this.lbNgayGio.Location = new System.Drawing.Point(301, 28);
             this.lbNgayGio.Name = "lbNgayGio";
             this.lbNgayGio.Size = new System.Drawing.Size(149, 16);
             this.lbNgayGio.TabIndex = 142;
@@ -156,7 +156,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(234, 28);
+            this.label5.Location = new System.Drawing.Point(235, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 16);
             this.label5.TabIndex = 141;
@@ -164,7 +164,7 @@
             // 
             // tbKhachHang
             // 
-            this.tbKhachHang.Location = new System.Drawing.Point(101, 65);
+            this.tbKhachHang.Location = new System.Drawing.Point(108, 65);
             this.tbKhachHang.MaxLength = 70;
             this.tbKhachHang.Name = "tbKhachHang";
             this.tbKhachHang.ReadOnly = true;
@@ -176,7 +176,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(7, 68);
+            this.label4.Location = new System.Drawing.Point(14, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 16);
             this.label4.TabIndex = 102;
@@ -184,7 +184,7 @@
             // 
             // tbTongHD
             // 
-            this.tbTongHD.Location = new System.Drawing.Point(565, 105);
+            this.tbTongHD.Location = new System.Drawing.Point(574, 105);
             this.tbTongHD.MaxLength = 11;
             this.tbTongHD.Name = "tbTongHD";
             this.tbTongHD.ReadOnly = true;
@@ -196,7 +196,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(491, 108);
+            this.label3.Location = new System.Drawing.Point(500, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 100;
@@ -217,7 +217,7 @@
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
-            this.lvThongTin.Location = new System.Drawing.Point(15, 150);
+            this.lvThongTin.Location = new System.Drawing.Point(25, 150);
             this.lvThongTin.Name = "lvThongTin";
             this.lvThongTin.Size = new System.Drawing.Size(650, 285);
             this.lvThongTin.TabIndex = 98;
@@ -274,7 +274,7 @@
             // 
             // tbConLai
             // 
-            this.tbConLai.Location = new System.Drawing.Point(565, 25);
+            this.tbConLai.Location = new System.Drawing.Point(574, 25);
             this.tbConLai.MaxLength = 11;
             this.tbConLai.Name = "tbConLai";
             this.tbConLai.ReadOnly = true;
@@ -286,7 +286,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(503, 28);
+            this.label2.Location = new System.Drawing.Point(512, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 97;
@@ -294,7 +294,7 @@
             // 
             // tbMa
             // 
-            this.tbMa.Location = new System.Drawing.Point(101, 25);
+            this.tbMa.Location = new System.Drawing.Point(108, 25);
             this.tbMa.MaxLength = 6;
             this.tbMa.Name = "tbMa";
             this.tbMa.ReadOnly = true;
@@ -306,7 +306,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(41, 28);
+            this.label1.Location = new System.Drawing.Point(48, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
             this.label1.TabIndex = 95;
@@ -316,7 +316,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(471, 441);
+            this.panel12.Location = new System.Drawing.Point(481, 441);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -345,7 +345,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(100, 441);
+            this.panel8.Location = new System.Drawing.Point(110, 441);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -372,7 +372,7 @@
             // 
             // tbThanhToan
             // 
-            this.tbThanhToan.Location = new System.Drawing.Point(565, 65);
+            this.tbThanhToan.Location = new System.Drawing.Point(574, 65);
             this.tbThanhToan.MaxLength = 11;
             this.tbThanhToan.Name = "tbThanhToan";
             this.tbThanhToan.Size = new System.Drawing.Size(100, 23);
@@ -385,7 +385,7 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(468, 68);
+            this.lbMa.Location = new System.Drawing.Point(477, 68);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(90, 16);
             this.lbMa.TabIndex = 90;
@@ -393,7 +393,7 @@
             // 
             // tbGhiChu
             // 
-            this.tbGhiChu.Location = new System.Drawing.Point(101, 105);
+            this.tbGhiChu.Location = new System.Drawing.Point(108, 105);
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Name = "tbGhiChu";
             this.tbGhiChu.Size = new System.Drawing.Size(323, 23);
@@ -403,7 +403,7 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(34, 108);
+            this.lbTen.Location = new System.Drawing.Point(41, 108);
             this.lbTen.Name = "lbTen";
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
@@ -415,7 +415,7 @@
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
             this.pnInfo.Location = new System.Drawing.Point(154, 55);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(690, 530);
+            this.pnInfo.Size = new System.Drawing.Size(710, 530);
             this.pnInfo.TabIndex = 49;
             // 
             // UcInfo
