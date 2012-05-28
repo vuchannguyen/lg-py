@@ -322,6 +322,20 @@ namespace QuanLyKinhDoanh
             CheckListViewItemsIsChecked();
         }
 
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(SanPhamGroupBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
+        }
+
         private void lbPage_Click(object sender, EventArgs e)
         {
             pbBackPage.Enabled = false;

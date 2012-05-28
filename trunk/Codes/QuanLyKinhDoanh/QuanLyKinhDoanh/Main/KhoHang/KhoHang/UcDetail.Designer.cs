@@ -114,9 +114,9 @@
             this.lbMa.Location = new System.Drawing.Point(121, 30);
             this.lbMa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMa.Name = "lbMa";
-            this.lbMa.Size = new System.Drawing.Size(30, 18);
+            this.lbMa.Size = new System.Drawing.Size(56, 18);
             this.lbMa.TabIndex = 112;
-            this.lbMa.Text = "Mã";
+            this.lbMa.Text = "Mã SP";
             // 
             // label6
             // 
@@ -393,12 +393,12 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(76, 30);
+            this.label12.Location = new System.Drawing.Point(50, 30);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 19);
+            this.label12.Size = new System.Drawing.Size(63, 19);
             this.label12.TabIndex = 132;
-            this.label12.Text = "Mã:";
+            this.label12.Text = "Mã SP:";
             // 
             // pnTitle
             // 

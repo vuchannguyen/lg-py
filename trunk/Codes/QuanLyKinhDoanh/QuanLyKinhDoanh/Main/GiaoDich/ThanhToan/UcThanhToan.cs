@@ -962,7 +962,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             if (dataKH != null)
             {
                 ttDetail.SetToolTip(tbTenKH, string.Format(Constant.TOOLTIP_DETAIL_KHACHHANG,
-                    dataKH.Ten, dataKH.GioiTinh, dataKH.DOB, dataKH.CMND, dataKH.DiaChi, dataKH.Email));
+                    dataKH.Ten, dataKH.GioiTinh, dataKH.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT),
+                    dataKH.CMND, dataKH.DiaChi, dataKH.DienThoai, dataKH.DTDD, dataKH.Email));
             }
             else
             {

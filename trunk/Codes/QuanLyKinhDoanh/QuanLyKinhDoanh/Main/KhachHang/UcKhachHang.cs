@@ -148,7 +148,6 @@ namespace QuanLyKinhDoanh
                 {
                     lvi.UseItemStyleForSubItems = false;
                     lvi.SubItems[5].ForeColor = Color.Red;
-                    //lvi.BackColor = Color.LightBlue;
                 }
 
                 lvThongTin.Items.Add(lvi);
@@ -285,12 +284,7 @@ namespace QuanLyKinhDoanh
         #region Controls
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (lvThongTin.SelectedIndices.Count > 0)
-            //{
-            //    int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
 
-            //    lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
-            //}
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -334,6 +328,20 @@ namespace QuanLyKinhDoanh
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
+        }
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(KhachHangBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)

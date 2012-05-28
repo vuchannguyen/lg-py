@@ -64,12 +64,17 @@ namespace Library
         public const string TOOLTIP_THUCHI = "Quản lý thu nhập hàng ngày";
         public const string TOOLTIP_THANHTOAN = "Tính hóa đơn cho khách hàng";
 
+        /// <summary>
+        /// Ho ten, Gioi tinh, Ngay sinh, CMND, Dia chi, Dien thoai, DTDD, Email
+        /// </summary>
         public const string TOOLTIP_DETAIL_KHACHHANG = "Họ tên: {0}\n" +
             "Giới tính: {1}\n" +
             "Ngày sinh: {2}\n" +
             "CMND: {3}\n" +
             "Địa chỉ: {4}\n" +
-            "Email: {5}";
+            "Điện thoại: {5}\n" +
+            "ĐTDĐ: {6}\n" +
+            "Email: {7}";
 
         /// <summary>
         /// Ten, Dia chi, Dien Thoai, Fax, Email

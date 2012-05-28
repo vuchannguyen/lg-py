@@ -194,7 +194,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
             data.CreateBy = data.UpdateBy = "";
@@ -229,7 +229,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.CMND = tbCMND.Text;
             data.NoiCap = tbNoiCap.Text;
             data.NgayCap = dtpNgayCap.Value;
-            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text);
+            data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
             data.UpdateBy = "";
@@ -311,7 +311,7 @@ namespace QuanLyKinhDoanh.KhachHang
 
         private void tbDiem_TextChanged(object sender, EventArgs e)
         {
-            tbDiem.Text = ConvertUtil.ConvertToInt(tbDiem.Text).ToString();
+            tbDiem.Text = ConvertUtil.ConvertToInt(tbDiem.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)).ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private void tbDienThoai_KeyPress(object sender, KeyPressEventArgs e)

@@ -112,6 +112,12 @@
     <Compile Include="Main\BaoCao\Thu\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\KhachHang\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\KhoHang\KhoHang\UcDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +208,12 @@
     </Compile>
     <Compile Include="Main\KhoHang\UcKhoHangIndex.Designer.cs">
       <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\NhomSanPham\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\NhomSanPham\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\NhomSanPham\UcInfo.cs">
       <SubType>UserControl</SubType>
@@ -313,6 +325,9 @@
     <EmbeddedResource Include="Main\BaoCao\Thu\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\UcKhoHangIndex.resx">
       <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
