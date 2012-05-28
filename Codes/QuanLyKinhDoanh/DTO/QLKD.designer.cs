@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -362,7 +362,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
 		public System.DateTime CreateDate
 		{
 			get
@@ -402,7 +402,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
 		public System.DateTime UpdateDate
 		{
 			get
@@ -759,7 +759,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="Date NOT NULL")]
 		public System.DateTime CreateDate
 		{
 			get
@@ -799,7 +799,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="Date NOT NULL")]
 		public System.DateTime UpdateDate
 		{
 			get
@@ -1229,7 +1229,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
 		public System.DateTime UpdateDate
 		{
 			get
@@ -2854,9 +2854,9 @@ namespace DTO
 		
 		private System.Nullable<byte> _ThoiGianBaoHanh;
 		
-		private bool _IsSold;
-		
 		private string _DonViBaoHanh;
+		
+		private bool _IsSold;
 		
 		private string _CreateBy;
 		
@@ -2912,10 +2912,10 @@ namespace DTO
     partial void OnDonViThoiHanChanged();
     partial void OnThoiGianBaoHanhChanging(System.Nullable<byte> value);
     partial void OnThoiGianBaoHanhChanged();
-    partial void OnIsSoldChanging(bool value);
-    partial void OnIsSoldChanged();
     partial void OnDonViBaoHanhChanging(string value);
     partial void OnDonViBaoHanhChanged();
+    partial void OnIsSoldChanging(bool value);
+    partial void OnIsSoldChanged();
     partial void OnCreateByChanging(string value);
     partial void OnCreateByChanged();
     partial void OnCreateDateChanging(System.DateTime value);
@@ -3265,26 +3265,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSold", DbType="Bit NOT NULL")]
-		public bool IsSold
-		{
-			get
-			{
-				return this._IsSold;
-			}
-			set
-			{
-				if ((this._IsSold != value))
-				{
-					this.OnIsSoldChanging(value);
-					this.SendPropertyChanging();
-					this._IsSold = value;
-					this.SendPropertyChanged("IsSold");
-					this.OnIsSoldChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViBaoHanh", DbType="NVarChar(5)")]
 		public string DonViBaoHanh
 		{
@@ -3301,6 +3281,26 @@ namespace DTO
 					this._DonViBaoHanh = value;
 					this.SendPropertyChanged("DonViBaoHanh");
 					this.OnDonViBaoHanhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSold", DbType="Bit NOT NULL")]
+		public bool IsSold
+		{
+			get
+			{
+				return this._IsSold;
+			}
+			set
+			{
+				if ((this._IsSold != value))
+				{
+					this.OnIsSoldChanging(value);
+					this.SendPropertyChanging();
+					this._IsSold = value;
+					this.SendPropertyChanged("IsSold");
+					this.OnIsSoldChanged();
 				}
 			}
 		}

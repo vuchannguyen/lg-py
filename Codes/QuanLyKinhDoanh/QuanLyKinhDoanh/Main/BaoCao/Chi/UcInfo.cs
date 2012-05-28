@@ -113,13 +113,15 @@ namespace QuanLyKinhDoanh.Chi
             DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_CHI);
 
             string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaHoaDon.Substring(dataTemp.MaHoaDon.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
+            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
 
             tbMa.Text = Constant.PREFIX_CHI + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
         }
 
         private void InsertData()
         {
+            data = new HoaDon();
+
             data.MaHoaDon = tbMa.Text;
             data.IdType = Constant.ID_TYPE_CHI;
             data.IdStatus = Constant.ID_STATUS_DONE;
@@ -135,6 +137,10 @@ namespace QuanLyKinhDoanh.Chi
                     Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                 {
                     this.Dispose();
+                }
+                else
+                {
+                    CreateNewId();
                 }
             }
             else

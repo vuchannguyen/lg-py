@@ -34,6 +34,7 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.cbDVT = new System.Windows.Forms.ComboBox();
             this.cbXuatXu = new System.Windows.Forms.ComboBox();
             this.cbDonViThoiHan = new System.Windows.Forms.ComboBox();
             this.tbThoiHan = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
-            this.cbDVT = new System.Windows.Forms.ComboBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -150,6 +150,22 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // cbDVT
+            // 
+            this.cbDVT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbDVT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbDVT.FormattingEnabled = true;
+            this.cbDVT.Items.AddRange(new object[] {
+            "Đôi",
+            "Cái",
+            "Mét",
+            "Bộ"});
+            this.cbDVT.Location = new System.Drawing.Point(100, 80);
+            this.cbDVT.Name = "cbDVT";
+            this.cbDVT.Size = new System.Drawing.Size(181, 24);
+            this.cbDVT.TabIndex = 113;
+            this.cbDVT.SelectedIndexChanged += new System.EventHandler(this.cbDVT_SelectedIndexChanged);
             // 
             // cbXuatXu
             // 
@@ -384,22 +400,6 @@
             this.lbTen.Size = new System.Drawing.Size(59, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Xuất xứ:";
-            // 
-            // cbDVT
-            // 
-            this.cbDVT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbDVT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbDVT.FormattingEnabled = true;
-            this.cbDVT.Items.AddRange(new object[] {
-            "Đôi",
-            "Cái",
-            "Mét",
-            "Bộ"});
-            this.cbDVT.Location = new System.Drawing.Point(100, 80);
-            this.cbDVT.Name = "cbDVT";
-            this.cbDVT.Size = new System.Drawing.Size(181, 24);
-            this.cbDVT.TabIndex = 113;
-            this.cbDVT.SelectedIndexChanged += new System.EventHandler(this.cbDVT_SelectedIndexChanged);
             // 
             // UcInfo
             // 

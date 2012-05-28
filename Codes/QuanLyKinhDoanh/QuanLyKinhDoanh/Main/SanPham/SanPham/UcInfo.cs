@@ -347,5 +347,6 @@ namespace QuanLyKinhDoanh.SanPham
             CommonFunc.ValidateNumeric(e);
         }
         #endregion
+
     }
 }

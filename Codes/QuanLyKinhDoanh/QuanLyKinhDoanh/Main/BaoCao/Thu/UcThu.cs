@@ -326,16 +326,6 @@ namespace QuanLyKinhDoanh.Thu
 
         private void lvThongTin_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            //if (e.Column == 0 && lvThongTin.Items.Count > 0)
-            //{
-            //    bool isChecked = lvThongTin.Items[0].Checked;
-
-            //    foreach (ListViewItem item in lvThongTin.Items)
-            //    {
-            //        item.Checked = !isChecked;
-            //    }
-            //}
-
             if (e.Column != 0 && e.Column != 1 && e.Column != 2)
             {
                 sortColumn = lvThongTin.Columns[e.Column].Text;
@@ -350,6 +340,20 @@ namespace QuanLyKinhDoanh.Thu
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
+        }
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(HoaDonBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)
