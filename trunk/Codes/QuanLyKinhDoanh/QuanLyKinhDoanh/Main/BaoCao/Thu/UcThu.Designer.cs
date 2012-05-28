@@ -64,7 +64,7 @@
             this.pbSua = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.pbXoa = new System.Windows.Forms.PictureBox();
+            this.pbTraSP = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTraSP)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -398,7 +398,7 @@
             // 
             this.panel3.Controls.Add(this.label30);
             this.panel3.Controls.Add(this.pbSua);
-            this.panel3.Location = new System.Drawing.Point(158, 3);
+            this.panel3.Location = new System.Drawing.Point(82, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(70, 70);
             this.panel3.TabIndex = 28;
@@ -429,8 +429,8 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.label28);
-            this.panel4.Controls.Add(this.pbXoa);
-            this.panel4.Location = new System.Drawing.Point(82, 3);
+            this.panel4.Controls.Add(this.pbTraSP);
+            this.panel4.Location = new System.Drawing.Point(158, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(70, 70);
             this.panel4.TabIndex = 27;
@@ -440,24 +440,24 @@
             // 
             this.label28.AutoSize = true;
             this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(19, 53);
+            this.label28.Location = new System.Drawing.Point(10, 53);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(32, 16);
+            this.label28.Size = new System.Drawing.Size(52, 16);
             this.label28.TabIndex = 1;
-            this.label28.Text = "Xóa";
+            this.label28.Text = "Trả SP";
             // 
-            // pbXoa
+            // pbTraSP
             // 
-            this.pbXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbXoa.Enabled = false;
-            this.pbXoa.Location = new System.Drawing.Point(10, 0);
-            this.pbXoa.Name = "pbXoa";
-            this.pbXoa.Size = new System.Drawing.Size(50, 50);
-            this.pbXoa.TabIndex = 1;
-            this.pbXoa.TabStop = false;
-            this.pbXoa.Click += new System.EventHandler(this.pbXoa_Click);
-            this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
-            this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
+            this.pbTraSP.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbTraSP.Enabled = false;
+            this.pbTraSP.Location = new System.Drawing.Point(10, 0);
+            this.pbTraSP.Name = "pbTraSP";
+            this.pbTraSP.Size = new System.Drawing.Size(50, 50);
+            this.pbTraSP.TabIndex = 1;
+            this.pbTraSP.TabStop = false;
+            this.pbTraSP.Click += new System.EventHandler(this.pbTraSP_Click);
+            this.pbTraSP.MouseEnter += new System.EventHandler(this.pbTraSP_MouseEnter);
+            this.pbTraSP.MouseLeave += new System.EventHandler(this.pbTraSP_MouseLeave);
             // 
             // panel1
             // 
@@ -537,7 +537,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTraSP)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -582,7 +582,7 @@
         private System.Windows.Forms.PictureBox pbSua;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.PictureBox pbXoa;
+        private System.Windows.Forms.PictureBox pbTraSP;
         private System.Windows.Forms.ColumnHeader chId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cbFilter;

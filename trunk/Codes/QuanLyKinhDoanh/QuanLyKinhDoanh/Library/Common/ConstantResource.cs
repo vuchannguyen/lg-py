@@ -13,7 +13,7 @@ namespace Library
 
 
 
-        #region
+        #region Chuc nang
         public const string CHUC_NANG_BUTTON_MINIMIZE = @"Resources\ChucNang\button_minimize.png";
         public const string CHUC_NANG_BUTTON_MINIMIZE_MOUSEOVER = @"Resources\ChucNang\button_minimize_mouseover.png";
         public const string CHUC_NANG_BUTTON_EXIT = @"Resources\ChucNang\button_exit.png";
@@ -55,6 +55,9 @@ namespace Library
         public const string CHUC_NANG_ICON_BITRHDAY_MOUSEROVER = @"Resources\ChucNang\icon_birthday_mouseover.png";
         public const string CHUC_NANG_ICON_CHECK = @"Resources\ChucNang\icon_check.png";
         public const string CHUC_NANG_ICON_WARNING = @"Resources\ChucNang\icon_warning.png";
+        public const string CHUC_NANG_ICON_SEND_BACK = @"Resources\ChucNang\icon_send_back.png";
+        public const string CHUC_NANG_ICON_SEND_BACK_MOUSEOVER = @"Resources\ChucNang\icon_send_back_mouseover.png";
+        public const string CHUC_NANG_ICON_SEND_BACK_DISABLE = @"Resources\ChucNang\icon_send_back_disable.png";
         #endregion
 
 

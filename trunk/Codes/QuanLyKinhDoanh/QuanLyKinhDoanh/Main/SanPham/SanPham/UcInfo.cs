@@ -206,6 +206,8 @@ namespace QuanLyKinhDoanh.SanPham
 
         private void InsertData()
         {
+            data = new DTO.SanPham();
+
             data.MaSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
             data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);

@@ -14,8 +14,8 @@ namespace QuanLyKinhDoanh.Chi
 {
     public partial class UcDetail : UserControl
     {
-        List<DTO.HoaDonDetail> listHoaDonDetail;
-        DTO.User dataUser;
+        private List<DTO.HoaDonDetail> listHoaDonDetail;
+        private DTO.User dataUser;
 
         public UcDetail()
         {

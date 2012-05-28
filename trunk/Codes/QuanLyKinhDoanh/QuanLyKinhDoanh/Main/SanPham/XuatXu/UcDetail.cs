@@ -10,18 +10,16 @@ using Library;
 using DTO;
 using BUS;
 
-namespace QuanLyKinhDoanh.SanPham
+namespace QuanLyKinhDoanh.XuatXu
 {
     public partial class UcDetail : UserControl
     {
-        private DTO.XuatXu dataXuatXu;
-
         public UcDetail()
         {
             InitializeComponent();
         }
 
-        public UcDetail(DTO.SanPham data)
+        public UcDetail(DTO.XuatXu data)
         {
             InitializeComponent();
 
@@ -57,42 +55,24 @@ namespace QuanLyKinhDoanh.SanPham
 
         private void Init()
         {
-            lbMa.Text = string.Empty;
-            lbGroup.Text = string.Empty;
             lbTen.Text = string.Empty;
-            lbMoTa.Text = string.Empty;
-            lbDVT.Text = string.Empty;
-            lbSize.Text = string.Empty;
-            lbHieu.Text = string.Empty;
-            lbXuatXu.Text = string.Empty;
-            lbThoiHan.Text = string.Empty;
+            lbDiaChi.Text = string.Empty;
+            lbDienThoai.Text = string.Empty;
+            lbDTDD.Text = string.Empty;
+            lbFax.Text = string.Empty;
+            lbEmail.Text = string.Empty;
+            lbGhiChu.Text = string.Empty;
         }
 
-        private void LoadData(DTO.SanPham data)
+        private void LoadData(DTO.XuatXu data)
         {
-            lbMa.Text = data.MaSanPham;
-            lbGroup.Text = data.SanPhamGroup.Ten;
             lbTen.Text = data.Ten;
-            lbMoTa.Text = data.MoTa;
-            lbDVT.Text = data.DonViTinh;
-            lbSize.Text = data.Size;
-            lbHieu.Text = data.Hieu;
-            dataXuatXu = data.XuatXu;
-            lbXuatXu.Text = dataXuatXu == null ? string.Empty : dataXuatXu.Ten;
-            lbThoiHan.Text = data.ThoiHan == 0 ? string.Empty : (data.ThoiHan.Value.ToString() + " " + data.DonViThoiHan);
-        }
-
-        private void lbXuatXu_MouseEnter(object sender, EventArgs e)
-        {
-            if (dataXuatXu != null)
-            {
-                ttDetail.SetToolTip(lbXuatXu, string.Format(Constant.TOOLTIP_DETAIL_XUATXU,
-                    dataXuatXu.Ten, dataXuatXu.DiaChi, dataXuatXu.DienThoai, dataXuatXu.Fax, dataXuatXu.Email));
-            }
-            else
-            {
-                ttDetail.RemoveAll();
-            }
+            lbDiaChi.Text = data.DiaChi;
+            lbDienThoai.Text = data.DienThoai;
+            lbDTDD.Text = data.DTDD;
+            lbFax.Text = data.Fax;
+            lbEmail.Text = data.Email;
+            lbGhiChu.Text = data.GhiChu;
         }
 
         private void pbHoanTat_Click(object sender, EventArgs e)

@@ -46,7 +46,8 @@ namespace QuanLyKinhDoanh.XuatXu
             {
                 tbTen.Text = data.Ten;
                 tbDiaChi.Text = data.DiaChi;
-                tbDienThoai.Text = data.DienThoai;
+                tbDienThoai.Text = data.DTDD;
+                tbDTDD.Text = data.DienThoai;
                 tbFax.Text = data.Fax;
                 tbEmail.Text = data.Email;
                 tbGhiChu.Text = data.GhiChu;
@@ -98,6 +99,7 @@ namespace QuanLyKinhDoanh.XuatXu
             tbTen.Text = string.Empty;
             tbDiaChi.Text = string.Empty;
             tbDienThoai.Text = string.Empty;
+            tbDTDD.Text = string.Empty;
             tbFax.Text = string.Empty;
             tbEmail.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
@@ -120,9 +122,12 @@ namespace QuanLyKinhDoanh.XuatXu
 
         private void InsertData()
         {
+            data = new DTO.XuatXu();
+
             data.Ten = tbTen.Text;
             data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
+            data.DTDD = tbDTDD.Text;
             data.Fax = tbFax.Text;
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
@@ -149,6 +154,7 @@ namespace QuanLyKinhDoanh.XuatXu
             data.Ten = tbTen.Text;
             data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
+            data.DTDD = tbDTDD.Text;
             data.Fax = tbFax.Text;
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;

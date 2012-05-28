@@ -329,9 +329,6 @@ namespace QuanLyKinhDoanh.NhapKho
             dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
-            //dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-            //dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
-
             dataSP.UpdateBy = "";
             dataSP.UpdateDate = DateTime.Now;
 

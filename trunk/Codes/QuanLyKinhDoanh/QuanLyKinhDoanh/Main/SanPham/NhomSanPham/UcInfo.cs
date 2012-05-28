@@ -104,6 +104,8 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
         private void InsertData()
         {
+            data = new SanPhamGroup();
+
             data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
             data.Mota = tbMoTa.Text;

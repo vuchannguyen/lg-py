@@ -29,7 +29,7 @@ namespace QuanLyKinhDoanh.Thu
             try
             {
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
@@ -175,13 +175,13 @@ namespace QuanLyKinhDoanh.Thu
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
                 }
 
-                pbXoa.Enabled = true;
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+                pbTraSP.Enabled = true;
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
             }
             else
             {
-                pbXoa.Enabled = false;
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+                pbTraSP.Enabled = false;
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Enabled = false;
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
             }
@@ -235,7 +235,7 @@ namespace QuanLyKinhDoanh.Thu
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
         }
 
-        private void pbXoa_Click(object sender, EventArgs e)
+        private void pbTraSP_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show(Constant.MESSAGE_DELETE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
@@ -259,14 +259,14 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
 
-        private void pbXoa_MouseEnter(object sender, EventArgs e)
+        private void pbTraSP_MouseEnter(object sender, EventArgs e)
         {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
+            pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
         }
 
-        private void pbXoa_MouseLeave(object sender, EventArgs e)
+        private void pbTraSP_MouseLeave(object sender, EventArgs e)
         {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+            pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
         }
 
         private void pbSua_Click(object sender, EventArgs e)

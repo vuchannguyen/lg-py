@@ -19,6 +19,8 @@ namespace QuanLyKinhDoanh.CongNo
         private string sortColumn;
         private string sortOrder;
 
+        private DTO.SanPham dataSP;
+
         public UcCongNo()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace QuanLyKinhDoanh.CongNo
             try
             {
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
@@ -167,22 +169,23 @@ namespace QuanLyKinhDoanh.CongNo
             {
                 if (lvThongTin.CheckedItems.Count == 1)
                 {
+                    pbTraSP.Enabled = true;
+                    pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
                     pbSua.Enabled = true;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
                 }
                 else
                 {
+                    pbTraSP.Enabled = true;
+                    pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                     pbSua.Enabled = false;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
                 }
-
-                pbXoa.Enabled = true;
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
             }
             else
             {
-                pbXoa.Enabled = false;
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+                pbTraSP.Enabled = false;
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                 pbSua.Enabled = false;
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
             }
@@ -232,19 +235,37 @@ namespace QuanLyKinhDoanh.CongNo
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
         }
 
-        private void pbXoa_Click(object sender, EventArgs e)
+        private bool UpdateData(DTO.HoaDon data)
         {
-            if (MessageBox.Show(Constant.MESSAGE_DELETE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            List<DTO.HoaDonDetail> listDetail = HoaDonDetailBus.GetListByIdHoaDon(data.Id);
+
+            foreach (DTO.HoaDonDetail detail in listDetail)
             {
-                string ids = string.Empty;
+                detail.SanPham.SoLuong += detail.SoLuong;
 
-                foreach (ListViewItem item in lvThongTin.CheckedItems)
+                detail.SanPham.UpdateBy = "";
+                detail.SanPham.UpdateDate = DateTime.Now;
+
+                if (!SanPhamBus.Update(detail.SanPham))
                 {
-                    ids += (item.SubItems[2].Text + Constant.SEPERATE_STRING);
+                    return false;
                 }
+            }
 
-                if (HoaDonBus.DeleteList(ids))
+            return true;
+        }
+
+        private void pbTraSP_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_SEND_BACK_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+                DTO.HoaDon data = HoaDonBus.GetById(id);
+
+                if (UpdateData(data) && HoaDonBus.Delete(data))
                 {
+                    MessageBox.Show(Constant.MESSAGE_SEND_BACK_SUCCESS, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
                         string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
@@ -256,14 +277,14 @@ namespace QuanLyKinhDoanh.CongNo
             }
         }
 
-        private void pbXoa_MouseEnter(object sender, EventArgs e)
+        private void pbTraSP_MouseEnter(object sender, EventArgs e)
         {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
+            pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_MOUSEOVER);
         }
 
-        private void pbXoa_MouseLeave(object sender, EventArgs e)
+        private void pbTraSP_MouseLeave(object sender, EventArgs e)
         {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+            pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
         }
 
         private void pbSua_Click(object sender, EventArgs e)

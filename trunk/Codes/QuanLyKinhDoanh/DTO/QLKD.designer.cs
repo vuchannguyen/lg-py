@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -545,6 +545,8 @@ namespace DTO
 		
 		private string _DienThoai;
 		
+		private string _DTDD;
+		
 		private string _Fax;
 		
 		private string _Email;
@@ -575,6 +577,8 @@ namespace DTO
     partial void OnDiaChiChanged();
     partial void OnDienThoaiChanging(string value);
     partial void OnDienThoaiChanged();
+    partial void OnDTDDChanging(string value);
+    partial void OnDTDDChanged();
     partial void OnFaxChanging(string value);
     partial void OnFaxChanged();
     partial void OnEmailChanging(string value);
@@ -679,6 +683,26 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DTDD", DbType="NVarChar(20)")]
+		public string DTDD
+		{
+			get
+			{
+				return this._DTDD;
+			}
+			set
+			{
+				if ((this._DTDD != value))
+				{
+					this.OnDTDDChanging(value);
+					this.SendPropertyChanging();
+					this._DTDD = value;
+					this.SendPropertyChanged("DTDD");
+					this.OnDTDDChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fax", DbType="NVarChar(20)")]
 		public string Fax
 		{
@@ -759,7 +783,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
 		public System.DateTime CreateDate
 		{
 			get
@@ -799,7 +823,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
 		public System.DateTime UpdateDate
 		{
 			get
@@ -2854,9 +2878,9 @@ namespace DTO
 		
 		private System.Nullable<byte> _ThoiGianBaoHanh;
 		
-		private string _DonViBaoHanh;
-		
 		private bool _IsSold;
+		
+		private string _DonViBaoHanh;
 		
 		private string _CreateBy;
 		
@@ -2912,10 +2936,10 @@ namespace DTO
     partial void OnDonViThoiHanChanged();
     partial void OnThoiGianBaoHanhChanging(System.Nullable<byte> value);
     partial void OnThoiGianBaoHanhChanged();
-    partial void OnDonViBaoHanhChanging(string value);
-    partial void OnDonViBaoHanhChanged();
     partial void OnIsSoldChanging(bool value);
     partial void OnIsSoldChanged();
+    partial void OnDonViBaoHanhChanging(string value);
+    partial void OnDonViBaoHanhChanged();
     partial void OnCreateByChanging(string value);
     partial void OnCreateByChanged();
     partial void OnCreateDateChanging(System.DateTime value);
@@ -3265,26 +3289,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViBaoHanh", DbType="NVarChar(5)")]
-		public string DonViBaoHanh
-		{
-			get
-			{
-				return this._DonViBaoHanh;
-			}
-			set
-			{
-				if ((this._DonViBaoHanh != value))
-				{
-					this.OnDonViBaoHanhChanging(value);
-					this.SendPropertyChanging();
-					this._DonViBaoHanh = value;
-					this.SendPropertyChanged("DonViBaoHanh");
-					this.OnDonViBaoHanhChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSold", DbType="Bit NOT NULL")]
 		public bool IsSold
 		{
@@ -3301,6 +3305,26 @@ namespace DTO
 					this._IsSold = value;
 					this.SendPropertyChanged("IsSold");
 					this.OnIsSoldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViBaoHanh", DbType="NVarChar(5)")]
+		public string DonViBaoHanh
+		{
+			get
+			{
+				return this._DonViBaoHanh;
+			}
+			set
+			{
+				if ((this._DonViBaoHanh != value))
+				{
+					this.OnDonViBaoHanhChanging(value);
+					this.SendPropertyChanging();
+					this._DonViBaoHanh = value;
+					this.SendPropertyChanged("DonViBaoHanh");
+					this.OnDonViBaoHanhChanged();
 				}
 			}
 		}
