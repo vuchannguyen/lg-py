@@ -254,6 +254,7 @@
             this.lvThongTin.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTin_ColumnWidthChanging);
             this.lvThongTin.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.lvThongTin_DrawColumnHeader);
             this.lvThongTin.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.lvThongTin_DrawSubItem);
+            this.lvThongTin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseClick);
             this.lvThongTin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseMove);
             this.lvThongTin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseUp);
             // 

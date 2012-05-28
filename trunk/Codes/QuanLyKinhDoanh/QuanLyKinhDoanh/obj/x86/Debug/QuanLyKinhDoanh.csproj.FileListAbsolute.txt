@@ -109,3 +109,8 @@ C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKin
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.CongNo.UcCongNo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.CongNo.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhapKho.UcInfo.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.KhoHang.UcDetail.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPham.UcDetail.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Thu.UcDetail.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Chi.UcDetail.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.CongNo.UcDetail.resources

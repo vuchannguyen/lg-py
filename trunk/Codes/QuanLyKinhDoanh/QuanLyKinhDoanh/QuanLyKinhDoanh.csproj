@@ -70,6 +70,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\BaoCao\Chi\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\Chi\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\BaoCao\Chi\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,17 +88,35 @@
     <Compile Include="Main\BaoCao\CongNo\UcCongNo.Designer.cs">
       <DependentUpon>UcCongNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\BaoCao\CongNo\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\CongNo\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\BaoCao\CongNo\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\BaoCao\CongNo\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\BaoCao\Thu\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\Thu\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\BaoCao\Thu\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\BaoCao\Thu\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhoHang\KhoHang\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\KhoHang\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\FormPrintPrice.cs">
       <SubType>Form</SubType>
@@ -185,6 +209,12 @@
     <Compile Include="Main\SanPham\NhomSanPham\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\SanPham\SanPham\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -262,17 +292,29 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\Chi\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Chi\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\CongNo\UcCongNo.resx">
       <DependentUpon>UcCongNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\CongNo\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\CongNo\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\Thu\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Thu\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\FormPrintPrice.resx">
       <DependentUpon>FormPrintPrice.cs</DependentUpon>
@@ -306,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>

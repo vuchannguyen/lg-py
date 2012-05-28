@@ -289,16 +289,6 @@ namespace QuanLyKinhDoanh.CongNo
 
 
         #region Controls
-        private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //if (lvThongTin.SelectedIndices.Count > 0)
-            //{
-            //    int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
-
-            //    lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
-            //}
-        }
-
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -316,16 +306,6 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void lvThongTin_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            //if (e.Column == 0 && lvThongTin.Items.Count > 0)
-            //{
-            //    bool isChecked = lvThongTin.Items[0].Checked;
-
-            //    foreach (ListViewItem item in lvThongTin.Items)
-            //    {
-            //        item.Checked = !isChecked;
-            //    }
-            //}
-
             if (e.Column != 0 && e.Column != 1 && e.Column != 2)
             {
                 sortColumn = lvThongTin.Columns[e.Column].Text;
@@ -489,5 +469,19 @@ namespace QuanLyKinhDoanh.CongNo
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(HoaDonBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
+        }
     }
 }
