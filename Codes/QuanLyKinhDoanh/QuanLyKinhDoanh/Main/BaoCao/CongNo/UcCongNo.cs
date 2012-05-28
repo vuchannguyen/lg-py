@@ -332,6 +332,20 @@ namespace QuanLyKinhDoanh.CongNo
             tbPage.Focus();
         }
 
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(HoaDonBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
+        }
+
         private void lbPage_TextChanged(object sender, EventArgs e)
         {
             if (ConvertUtil.ConvertToInt(lbPage.Text) == 0)
@@ -469,19 +483,5 @@ namespace QuanLyKinhDoanh.CongNo
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
-
-        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (lvThongTin.SelectedItems.Count > 0)
-                {
-                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
-
-                    UserControl uc = new UcDetail(HoaDonBus.GetById(id));
-                    this.Controls.Add(uc);
-                }
-            }
-        }
     }
 }

@@ -534,6 +534,20 @@ namespace QuanLyKinhDoanh
             CheckListViewItemsIsChecked();
         }
 
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(SanPhamBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
+        }
+
         private void lbPage_Click(object sender, EventArgs e)
         {
             pbBackPage.Enabled = false;
@@ -665,19 +679,5 @@ namespace QuanLyKinhDoanh
             pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
         }
         #endregion
-
-        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (lvThongTin.SelectedItems.Count > 0)
-                {
-                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
-
-                    UserControl uc = new UcDetail(SanPhamBus.GetById(id));
-                    this.Controls.Add(uc);
-                }
-            }
-        }
     }
 }
