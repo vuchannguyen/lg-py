@@ -229,11 +229,11 @@
             // 
             this.lbTen.AutoSize = true;
             this.lbTen.ForeColor = System.Drawing.Color.Black;
-            this.lbTen.Location = new System.Drawing.Point(32, 108);
+            this.lbTen.Location = new System.Drawing.Point(18, 108);
             this.lbTen.Name = "lbTen";
-            this.lbTen.Size = new System.Drawing.Size(52, 16);
+            this.lbTen.Size = new System.Drawing.Size(66, 16);
             this.lbTen.TabIndex = 4;
-            this.lbTen.Text = "*Lý do:";
+            this.lbTen.Text = "*Ghi chú:";
             // 
             // pnInfo
             // 

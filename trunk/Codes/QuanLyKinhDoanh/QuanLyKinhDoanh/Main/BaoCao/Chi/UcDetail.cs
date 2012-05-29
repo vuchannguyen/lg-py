@@ -84,6 +84,7 @@ namespace QuanLyKinhDoanh.Chi
                 lvi.SubItems.Add(detail.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten);
                 lvi.SubItems.Add(detail.SoLuong.ToString());
                 lvi.SubItems.Add(detail.SanPham.DonViTinh);
+                lvi.SubItems.Add(detail.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 lvi.SubItems.Add(detail.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 lvi.SubItems.Add(detail.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
