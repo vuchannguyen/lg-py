@@ -59,7 +59,7 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void Init()
         {
-            lbMaHĐ.Text = string.Empty;
+            lbMaHD.Text = string.Empty;
             lbNguoiBan.Text = string.Empty;
             lbKhachHang.Text = string.Empty;
             lbNgayGio.Text = string.Empty;
@@ -74,7 +74,7 @@ namespace QuanLyKinhDoanh.CongNo
             dataUser = data.User;
             dataKH = data.KhachHang;
 
-            lbMaHĐ.Text = data.MaHoaDon;
+            lbMaHD.Text = data.MaHoaDon;
             lbNguoiBan.Text = dataUser == null ? string.Empty : dataUser.UserName;
             lbKhachHang.Text = dataKH == null ? string.Empty : (dataKH.MaKhachHang + Constant.SYMBOL_LINK_STRING + dataKH.Ten);
             lbNgayGio.Text = data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);

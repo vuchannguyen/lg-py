@@ -327,6 +327,16 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void lvThongTin_ColumnClick(object sender, ColumnClickEventArgs e)
         {
+            if (e.Column == 0 && lvThongTin.Items.Count > 0)
+            {
+                bool isChecked = lvThongTin.Items[0].Checked;
+
+                foreach (ListViewItem item in lvThongTin.Items)
+                {
+                    item.Checked = !isChecked;
+                }
+            }
+
             if (e.Column != 0 && e.Column != 1 && e.Column != 2)
             {
                 sortColumn = lvThongTin.Columns[e.Column].Text;

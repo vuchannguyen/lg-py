@@ -58,7 +58,7 @@ namespace QuanLyKinhDoanh.Chi
 
         private void Init()
         {
-            lbMaHĐ.Text = string.Empty;
+            lbMaHD.Text = string.Empty;
             lbNguoiBan.Text = string.Empty;
             lbNgayGio.Text = string.Empty;
             lbGhiChu.Text = string.Empty;
@@ -70,7 +70,7 @@ namespace QuanLyKinhDoanh.Chi
             listHoaDonDetail = HoaDonDetailBus.GetListByIdHoaDon(data.Id);
             dataUser = data.User;
 
-            lbMaHĐ.Text = data.MaHoaDon;
+            lbMaHD.Text = data.MaHoaDon;
             lbNguoiBan.Text = dataUser == null ? string.Empty : dataUser.UserName;
             lbNgayGio.Text = data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
             lbGhiChu.Text = data.GhiChu;

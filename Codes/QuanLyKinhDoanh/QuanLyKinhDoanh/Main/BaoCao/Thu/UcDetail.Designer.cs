@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbMaHĐ = new System.Windows.Forms.Label();
+            this.lbMaHD = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -72,16 +72,16 @@
             this.pnInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbMaHĐ
+            // lbMaHD
             // 
-            this.lbMaHĐ.AutoSize = true;
-            this.lbMaHĐ.ForeColor = System.Drawing.Color.Black;
-            this.lbMaHĐ.Location = new System.Drawing.Point(125, 30);
-            this.lbMaHĐ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbMaHĐ.Name = "lbMaHĐ";
-            this.lbMaHĐ.Size = new System.Drawing.Size(57, 18);
-            this.lbMaHĐ.TabIndex = 112;
-            this.lbMaHĐ.Text = "Mã HĐ";
+            this.lbMaHD.AutoSize = true;
+            this.lbMaHD.ForeColor = System.Drawing.Color.Black;
+            this.lbMaHD.Location = new System.Drawing.Point(125, 30);
+            this.lbMaHD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaHD.Name = "lbMaHD";
+            this.lbMaHD.Size = new System.Drawing.Size(57, 18);
+            this.lbMaHD.TabIndex = 112;
+            this.lbMaHD.Text = "Mã HĐ";
             // 
             // label1
             // 
@@ -118,7 +118,7 @@
             this.groupBox1.Controls.Add(this.lbKhachHang);
             this.groupBox1.Controls.Add(this.lbNguoiBan);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.lbMaHĐ);
+            this.groupBox1.Controls.Add(this.lbMaHD);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lvThongTin);
@@ -441,7 +441,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbMaHĐ;
+        private System.Windows.Forms.Label lbMaHD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
