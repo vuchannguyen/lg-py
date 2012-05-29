@@ -62,7 +62,8 @@ namespace QuanLyKinhDoanh.Thu
         {
             LoadResource();
 
-            pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
+            pnInfoThu.Location = CommonFunc.SetCenterLocation(this.Size, pnInfoThu.Size);
+            pnInfoTraSP.Location = CommonFunc.SetCenterLocation(this.Size, pnInfoTraSP.Size);
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
@@ -248,5 +249,10 @@ namespace QuanLyKinhDoanh.Thu
             ValidateInput();
         }
         #endregion
+
+
+
+
+
     }
 }
