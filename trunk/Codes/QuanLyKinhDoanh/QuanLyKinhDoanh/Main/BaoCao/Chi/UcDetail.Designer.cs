@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbMaHĐ = new System.Windows.Forms.Label();
+            this.lbMaHD = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbNgayGio = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGiaNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGiaBan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTongNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel12 = new System.Windows.Forms.Panel();
@@ -58,7 +59,6 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.chGiaNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -67,16 +67,16 @@
             this.pnInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbMaHĐ
+            // lbMaHD
             // 
-            this.lbMaHĐ.AutoSize = true;
-            this.lbMaHĐ.ForeColor = System.Drawing.Color.Black;
-            this.lbMaHĐ.Location = new System.Drawing.Point(125, 30);
-            this.lbMaHĐ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbMaHĐ.Name = "lbMaHĐ";
-            this.lbMaHĐ.Size = new System.Drawing.Size(57, 18);
-            this.lbMaHĐ.TabIndex = 112;
-            this.lbMaHĐ.Text = "Mã HĐ";
+            this.lbMaHD.AutoSize = true;
+            this.lbMaHD.ForeColor = System.Drawing.Color.Black;
+            this.lbMaHD.Location = new System.Drawing.Point(125, 30);
+            this.lbMaHD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaHD.Name = "lbMaHD";
+            this.lbMaHD.Size = new System.Drawing.Size(57, 18);
+            this.lbMaHD.TabIndex = 112;
+            this.lbMaHD.Text = "Mã HĐ";
             // 
             // label1
             // 
@@ -99,7 +99,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbNguoiBan);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.lbMaHĐ);
+            this.groupBox1.Controls.Add(this.lbMaHD);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lvThongTin);
             this.groupBox1.Controls.Add(this.panel12);
@@ -258,6 +258,12 @@
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chDVT.Width = 79;
             // 
+            // chGiaNhap
+            // 
+            this.chGiaNhap.Text = "Giá nhập";
+            this.chGiaNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chGiaNhap.Width = 90;
+            // 
             // chGiaBan
             // 
             this.chGiaBan.Text = "Gia bán";
@@ -349,12 +355,6 @@
             this.pnInfo.Size = new System.Drawing.Size(800, 530);
             this.pnInfo.TabIndex = 133;
             // 
-            // chGiaNhap
-            // 
-            this.chGiaNhap.Text = "Giá nhập";
-            this.chGiaNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaNhap.Width = 90;
-            // 
             // UcDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -381,7 +381,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbMaHĐ;
+        private System.Windows.Forms.Label lbMaHD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnTitle;

@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lbMaHĐ = new System.Windows.Forms.Label();
+            this.lbMaHD = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbKhachHang = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbConLai = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbNgayGio = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbGhiChu = new System.Windows.Forms.Label();
@@ -58,10 +62,6 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.lbConLai = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbKhachHang = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -70,16 +70,16 @@
             this.pnInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbMaHĐ
+            // lbMaHD
             // 
-            this.lbMaHĐ.AutoSize = true;
-            this.lbMaHĐ.ForeColor = System.Drawing.Color.Black;
-            this.lbMaHĐ.Location = new System.Drawing.Point(125, 30);
-            this.lbMaHĐ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbMaHĐ.Name = "lbMaHĐ";
-            this.lbMaHĐ.Size = new System.Drawing.Size(57, 18);
-            this.lbMaHĐ.TabIndex = 112;
-            this.lbMaHĐ.Text = "Mã HĐ";
+            this.lbMaHD.AutoSize = true;
+            this.lbMaHD.ForeColor = System.Drawing.Color.Black;
+            this.lbMaHD.Location = new System.Drawing.Point(125, 30);
+            this.lbMaHD.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaHD.Name = "lbMaHD";
+            this.lbMaHD.Size = new System.Drawing.Size(57, 18);
+            this.lbMaHD.TabIndex = 112;
+            this.lbMaHD.Text = "Mã HĐ";
             // 
             // label1
             // 
@@ -106,7 +106,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbNguoiBan);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.lbMaHĐ);
+            this.groupBox1.Controls.Add(this.lbMaHD);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lvThongTin);
             this.groupBox1.Controls.Add(this.panel12);
@@ -117,6 +117,50 @@
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // lbKhachHang
+            // 
+            this.lbKhachHang.AutoSize = true;
+            this.lbKhachHang.ForeColor = System.Drawing.Color.Black;
+            this.lbKhachHang.Location = new System.Drawing.Point(123, 110);
+            this.lbKhachHang.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lbKhachHang.Name = "lbKhachHang";
+            this.lbKhachHang.Size = new System.Drawing.Size(90, 18);
+            this.lbKhachHang.TabIndex = 158;
+            this.lbKhachHang.Text = "Khách hàng";
+            this.lbKhachHang.MouseEnter += new System.EventHandler(this.lbKhachHang_MouseEnter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(9, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 19);
+            this.label7.TabIndex = 157;
+            this.label7.Text = "Khách hàng:";
+            // 
+            // lbConLai
+            // 
+            this.lbConLai.AutoSize = true;
+            this.lbConLai.ForeColor = System.Drawing.Color.Red;
+            this.lbConLai.Location = new System.Drawing.Point(663, 70);
+            this.lbConLai.Name = "lbConLai";
+            this.lbConLai.Size = new System.Drawing.Size(97, 18);
+            this.lbConLai.TabIndex = 156;
+            this.lbConLai.Text = "999,999,999";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(595, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 19);
+            this.label4.TabIndex = 155;
+            this.label4.Text = "Còn lại:";
             // 
             // lbNgayGio
             // 
@@ -355,50 +399,6 @@
             this.pnInfo.Size = new System.Drawing.Size(800, 530);
             this.pnInfo.TabIndex = 133;
             // 
-            // lbConLai
-            // 
-            this.lbConLai.AutoSize = true;
-            this.lbConLai.ForeColor = System.Drawing.Color.Red;
-            this.lbConLai.Location = new System.Drawing.Point(663, 70);
-            this.lbConLai.Name = "lbConLai";
-            this.lbConLai.Size = new System.Drawing.Size(97, 18);
-            this.lbConLai.TabIndex = 156;
-            this.lbConLai.Text = "999,999,999";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(595, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 19);
-            this.label4.TabIndex = 155;
-            this.label4.Text = "Còn lại:";
-            // 
-            // lbKhachHang
-            // 
-            this.lbKhachHang.AutoSize = true;
-            this.lbKhachHang.ForeColor = System.Drawing.Color.Black;
-            this.lbKhachHang.Location = new System.Drawing.Point(123, 110);
-            this.lbKhachHang.MaximumSize = new System.Drawing.Size(200, 0);
-            this.lbKhachHang.Name = "lbKhachHang";
-            this.lbKhachHang.Size = new System.Drawing.Size(90, 18);
-            this.lbKhachHang.TabIndex = 158;
-            this.lbKhachHang.Text = "Khách hàng";
-            this.lbKhachHang.MouseEnter += new System.EventHandler(this.lbKhachHang_MouseEnter);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(9, 110);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 19);
-            this.label7.TabIndex = 157;
-            this.label7.Text = "Khách hàng:";
-            // 
             // UcDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -425,7 +425,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lbMaHĐ;
+        private System.Windows.Forms.Label lbMaHD;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel pnTitle;

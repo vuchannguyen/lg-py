@@ -273,16 +273,9 @@ namespace QuanLyKinhDoanh.Thu
         {
             int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
 
-            if (HoaDonBus.GetById(id).IdType == Constant.ID_TYPE_THU)
-            {
-                uc = new UcInfo(HoaDonBus.GetById(id));
-                uc.Disposed += new EventHandler(uc_Disposed);
-                this.Controls.Add(uc);
-            }
-            else
-            {
-                MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            uc = new UcInfo(HoaDonBus.GetById(id));
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
