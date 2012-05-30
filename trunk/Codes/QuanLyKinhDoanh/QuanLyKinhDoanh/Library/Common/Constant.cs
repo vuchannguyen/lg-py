@@ -182,6 +182,9 @@ namespace Library
         public const string MESSAGE_SUCCESS_EXPORT_EXCEL = "Dữ liệu đã xuất thành công.";
         public const string MESSAGE_PAY_ALL_DEBT = "Hóa đơn đã được thanh toán hết.";
 
+        public const string MESSAGE_LOGIN_WRONG_USERNAME = "Tài khoản không tồn tai!";
+        public const string MESSAGE_LOGIN_WRONG_PASS = "Mật khẩu không chính xác!";
+
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";

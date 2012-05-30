@@ -53,6 +53,10 @@ namespace DAO
                     sortSQL += "DienThoai " + sortOrder;
                     break;
 
+                case "ĐTDĐ":
+                    sortSQL += "DTDD " + sortOrder;
+                    break;
+
                 case "Fax":
                     sortSQL += "Fax " + sortOrder;
                     break;
@@ -81,30 +85,33 @@ namespace DAO
             return dbContext.XuatXus.Where(p => p.Id == id).SingleOrDefault<XuatXu>();
         }
 
-        public static XuatXu GetByUserMa(string text)
+        public static bool Insert(XuatXu data, User user)
         {
-            return dbContext.XuatXus.Where(p => p.Ten == text).SingleOrDefault<XuatXu>();
-        }
+            try
+            {
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
 
-        public static bool Insert(XuatXu data)
-        {
-            if (GetByUserMa(data.Ten) != null)
+                dbContext.XuatXus.InsertOnSubmit(data);
+                dbContext.SubmitChanges();
+
+                return true;
+            }
+            catch
             {
                 return false;
             }
-
-            dbContext.XuatXus.InsertOnSubmit(data);
-            dbContext.SubmitChanges();
-
-            return true;
         }
 
-        public static bool Delete(XuatXu data)
+        public static bool Delete(XuatXu data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.XuatXus.DeleteOnSubmit(data);
                     dbContext.SubmitChanges();
 
@@ -119,7 +126,7 @@ namespace DAO
             }
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -143,7 +150,7 @@ namespace DAO
                         {
                             XuatXu data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 CreateSQlConnection();
 
@@ -176,12 +183,15 @@ namespace DAO
             }
         }
 
-        public static bool Update(XuatXu data)
+        public static bool Update(XuatXu data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SubmitChanges();
                     return true;
                 }

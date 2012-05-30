@@ -143,10 +143,7 @@ namespace QuanLyKinhDoanh.CongNo
                 data.IdStatus = Constant.ID_STATUS_DONE;
             }
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Update(data))
+            if (HoaDonBus.Update(data, FormMain.user))
             {
                 if (data.ConLai == 0)
                 {

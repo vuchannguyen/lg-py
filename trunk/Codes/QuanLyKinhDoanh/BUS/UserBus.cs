@@ -25,24 +25,29 @@ namespace BUS
             return UserDao.GetById(id);
         }
 
-        public static bool Insert(User data)
+        public static User GetByUserName(string text)
         {
-            return UserDao.Insert(data);
+            return UserDao.GetByUserName(text);
         }
 
-        public static bool Delete(User data)
+        public static bool Insert(User data, User user)
         {
-            return UserDao.Delete(data);
+            return UserDao.Insert(data, user);
         }
 
-        public static bool DeleteList(string ids)
+        public static bool Delete(User data, User user)
         {
-            return UserDao.DeleteList(ids);
+            return UserDao.Delete(data, user);
         }
 
-        public static bool Update(User data)
+        public static bool DeleteList(string ids, User user)
         {
-            return UserDao.Update(data);
+            return UserDao.DeleteList(ids, user);
+        }
+
+        public static bool Update(User data, User user)
+        {
+            return UserDao.Update(data, user);
         }
     }
 }

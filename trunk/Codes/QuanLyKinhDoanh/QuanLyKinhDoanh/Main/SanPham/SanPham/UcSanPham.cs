@@ -219,10 +219,7 @@ namespace QuanLyKinhDoanh
 
             data.IsSold = !data.IsSold;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Update(data))
+            if (SanPhamBus.Update(data, FormMain.user))
             {
                 return true;
                 //this.Dispose();
@@ -415,7 +412,7 @@ namespace QuanLyKinhDoanh
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (SanPhamBus.DeleteList(ids))
+                if (SanPhamBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text, 0,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

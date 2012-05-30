@@ -25,24 +25,24 @@ namespace BUS
             return XuatXuDao.GetById(id);
         }
 
-        public static bool Insert(XuatXu data)
+        public static bool Insert(XuatXu data, User user)
         {
-            return XuatXuDao.Insert(data);
+            return XuatXuDao.Insert(data, user);
         }
 
-        public static bool Delete(XuatXu data)
+        public static bool Delete(XuatXu data, User user)
         {
-            return XuatXuDao.Delete(data);
+            return XuatXuDao.Delete(data, user);
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
-            return XuatXuDao.DeleteList(ids);
+            return XuatXuDao.DeleteList(ids, user);
         }
 
-        public static bool Update(XuatXu data)
+        public static bool Update(XuatXu data, User user)
         {
-            return XuatXuDao.Update(data);
+            return XuatXuDao.Update(data, user);
         }
     }
 }

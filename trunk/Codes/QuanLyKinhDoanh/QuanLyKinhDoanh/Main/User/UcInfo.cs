@@ -160,10 +160,7 @@ namespace QuanLyKinhDoanh.User
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
 
-            data.CreateBy = data.UpdateBy = "";
-            data.CreateDate = data.UpdateDate = DateTime.Now;
-
-            if (UserBus.Insert(data))
+            if (UserBus.Insert(data, FormMain.user))
             {
                 this.Dispose();
             }
@@ -189,10 +186,7 @@ namespace QuanLyKinhDoanh.User
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (UserBus.Update(data))
+            if (UserBus.Update(data, FormMain.user))
             {
                 this.Dispose();
             }

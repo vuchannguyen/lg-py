@@ -139,10 +139,13 @@ namespace DAO
             return dbContext.HoaDons.Where(p => p.Id == id).SingleOrDefault<HoaDon>();
         }
 
-        public static bool Insert(HoaDon data)
+        public static bool Insert(HoaDon data, User user)
         {
             try
             {
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
+
                 dbContext.HoaDons.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
@@ -154,7 +157,7 @@ namespace DAO
             }
         }
 
-        public static bool Delete(HoaDon data)
+        public static bool Delete(HoaDon data, User user)
         {
             if (data != null)
             {
@@ -162,6 +165,9 @@ namespace DAO
 
                 if (objDb != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     objDb.DeleteFlag = true;
                     dbContext.SubmitChanges();
 
@@ -172,7 +178,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -196,7 +202,7 @@ namespace DAO
                         {
                             HoaDon data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 return false;
                             }
@@ -222,25 +228,14 @@ namespace DAO
             }
         }
 
-        public static bool Update(HoaDon data)
+        public static bool Update(HoaDon data, User user)
         {
             try
             {
                 if (data != null)
                 {
-                    //HoaDon objDb = GetById(data.Id);
-
-                    //objDb.IdType = data.IdType;
-                    //objDb.IdStatus = data.IdStatus;
-                    //objDb.IdUser = data.IdUser;
-                    //objDb.IdKhachHang = data.IdKhachHang;
-                    //objDb.ThanhTien = data.ThanhTien;
-                    //objDb.GhiChu = data.GhiChu;
-
-                    //objDb.CreateBy = data.CreateBy;
-                    //objDb.CreateDate = data.CreateDate;
-                    //objDb.UpdateBy = data.UpdateBy;
-                    //objDb.UpdateDate = data.UpdateDate;
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
 
                     dbContext.SubmitChanges();
                     return true;

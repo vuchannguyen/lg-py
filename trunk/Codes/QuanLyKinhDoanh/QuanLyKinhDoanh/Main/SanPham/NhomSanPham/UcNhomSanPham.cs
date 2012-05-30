@@ -228,7 +228,7 @@ namespace QuanLyKinhDoanh
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (SanPhamGroupBus.DeleteList(ids))
+                if (SanPhamGroupBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

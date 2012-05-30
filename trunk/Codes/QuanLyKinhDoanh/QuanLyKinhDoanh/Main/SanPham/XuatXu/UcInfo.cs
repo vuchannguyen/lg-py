@@ -46,8 +46,8 @@ namespace QuanLyKinhDoanh.XuatXu
             {
                 tbTen.Text = data.Ten;
                 tbDiaChi.Text = data.DiaChi;
-                tbDienThoai.Text = data.DTDD;
-                tbDTDD.Text = data.DienThoai;
+                tbDienThoai.Text = data.DienThoai;
+                tbDTDD.Text = data.DTDD;
                 tbFax.Text = data.Fax;
                 tbEmail.Text = data.Email;
                 tbGhiChu.Text = data.GhiChu;
@@ -132,10 +132,7 @@ namespace QuanLyKinhDoanh.XuatXu
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
 
-            data.CreateBy = data.UpdateBy = "";
-            data.CreateDate = data.UpdateDate = DateTime.Now;
-
-            if (XuatXuBus.Insert(data))
+            if (XuatXuBus.Insert(data, FormMain.user))
             {
                 this.Dispose();
             }
@@ -159,10 +156,7 @@ namespace QuanLyKinhDoanh.XuatXu
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (XuatXuBus.Update(data))
+            if (XuatXuBus.Update(data, FormMain.user))
             {
                 this.Dispose();
             }
@@ -229,6 +223,11 @@ namespace QuanLyKinhDoanh.XuatXu
         }
 
         private void tbDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateSpace(e);
+        }
+
+        private void tbDTDD_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateSpace(e);
         }

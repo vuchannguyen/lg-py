@@ -240,7 +240,7 @@ namespace QuanLyKinhDoanh
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (KhachHangBus.DeleteList(ids))
+                if (KhachHangBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text, false,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

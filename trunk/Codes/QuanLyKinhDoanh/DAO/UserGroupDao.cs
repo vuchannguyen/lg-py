@@ -81,15 +81,22 @@ namespace DAO
 
         public static bool Delete(UserGroup data)
         {
-            if (data != null)
+            try
             {
-                dbContext.UserGroups.DeleteOnSubmit(data);
-                dbContext.SubmitChanges();
+                if (data != null)
+                {
+                    dbContext.UserGroups.DeleteOnSubmit(data);
+                    dbContext.SubmitChanges();
 
-                return true;
+                    return true;
+                }
+
+                return false;
             }
-
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public static bool DeleteList(string ids)

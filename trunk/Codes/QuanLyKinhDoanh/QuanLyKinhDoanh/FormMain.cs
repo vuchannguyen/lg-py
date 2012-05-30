@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Library;
+using DTO;
+using BUS;
 
 namespace QuanLyKinhDoanh
 {
     public partial class FormMain : Form
     {
         #region Variables
+        public static DTO.User user;
         public static bool isPrintUsing = false;
 
         private bool isMainMenuClickUser;
@@ -83,7 +86,17 @@ namespace QuanLyKinhDoanh
 
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
 
-            pbThanhToan_Click(sender, e);
+            FormLogin frm = new FormLogin();
+            frm.ShowDialog();
+
+            if (user != null)
+            {
+                pbThanhToan_Click(sender, e);
+            }
+            else
+            {
+                this.Dispose();
+            }
         }
 
         private void Init()

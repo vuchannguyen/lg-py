@@ -244,7 +244,7 @@ namespace QuanLyKinhDoanh.Chi
                     ids += (item.SubItems[2].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (HoaDonBus.DeleteList(ids))
+                if (HoaDonBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
                         string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
@@ -271,7 +271,7 @@ namespace QuanLyKinhDoanh.Chi
         {
             int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
 
-            if (HoaDonBus.GetById(id).IdType == Constant.ID_TYPE_MUA_CHI)
+            if (HoaDonBus.GetById(id).IdType == Constant.ID_TYPE_CHI)
             {
                 uc = new UcInfo(HoaDonBus.GetById(id));
                 uc.Disposed += new EventHandler(uc_Disposed);

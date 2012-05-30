@@ -246,7 +246,7 @@ namespace QuanLyKinhDoanh.Thu
                     ids += (item.SubItems[2].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (HoaDonBus.DeleteList(ids))
+                if (HoaDonBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
                         string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

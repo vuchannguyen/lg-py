@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyKinhDoanh" Class="QLKDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=CONAN-PC\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LGVN13311-XPB01\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChietKhau" Member="ChietKhaus">
     <Type Name="ChietKhau">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -29,7 +29,6 @@
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="XuatXu_SanPham" Member="SanPhams" ThisKey="Id" OtherKey="IdXuatXu" Type="SanPham" />
     </Type>
   </Table>
@@ -65,6 +64,7 @@
       <Column Name="SoLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ChietKhau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ThanhTien" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsSendBack" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonDetail" Member="HoaDon" ThisKey="IdHoaDon" OtherKey="Id" Type="HoaDon" IsForeignKey="true" />
       <Association Name="SanPham_HoaDonDetail" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
@@ -140,8 +140,8 @@
       <Column Name="ThoiHan" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="DonViThoiHan" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
       <Column Name="ThoiGianBaoHanh" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
-      <Column Name="IsSold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DonViBaoHanh" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="IsSold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -159,6 +159,10 @@
       <Column Name="Ma" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Mota" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="SanPhamGroup_SanPham" Member="SanPhams" ThisKey="Id" OtherKey="IdGroup" Type="SanPham" />
     </Type>
   </Table>

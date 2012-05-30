@@ -40,24 +40,24 @@ namespace BUS
             return SanPhamDao.GetById(id);
         }
 
-        public static bool Insert(SanPham data)
+        public static bool Insert(SanPham data, User user)
         {
-            return SanPhamDao.Insert(data);
+            return SanPhamDao.Insert(data, user);
         }
 
-        public static bool Delete(SanPham data)
+        public static bool Delete(SanPham data, User user)
         {
-            return SanPhamDao.Delete(data);
+            return SanPhamDao.Delete(data, user);
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
-            return SanPhamDao.DeleteList(ids);
+            return SanPhamDao.DeleteList(ids, user);
         }
 
-        public static bool Update(SanPham data)
+        public static bool Update(SanPham data, User user)
         {
-            return SanPhamDao.Update(data);
+            return SanPhamDao.Update(data, user);
         }
     }
 }

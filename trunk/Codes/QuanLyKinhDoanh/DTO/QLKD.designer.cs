@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -561,8 +561,6 @@ namespace DTO
 		
 		private System.DateTime _UpdateDate;
 		
-		private bool _DeleteFlag;
-		
 		private EntitySet<SanPham> _SanPhams;
 		
     #region Extensibility Method Definitions
@@ -593,8 +591,6 @@ namespace DTO
     partial void OnUpdateByChanged();
     partial void OnUpdateDateChanging(System.DateTime value);
     partial void OnUpdateDateChanged();
-    partial void OnDeleteFlagChanging(bool value);
-    partial void OnDeleteFlagChanged();
     #endregion
 		
 		public XuatXu()
@@ -839,26 +835,6 @@ namespace DTO
 					this._UpdateDate = value;
 					this.SendPropertyChanged("UpdateDate");
 					this.OnUpdateDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeleteFlag", DbType="Bit NOT NULL")]
-		public bool DeleteFlag
-		{
-			get
-			{
-				return this._DeleteFlag;
-			}
-			set
-			{
-				if ((this._DeleteFlag != value))
-				{
-					this.OnDeleteFlagChanging(value);
-					this.SendPropertyChanging();
-					this._DeleteFlag = value;
-					this.SendPropertyChanged("DeleteFlag");
-					this.OnDeleteFlagChanged();
 				}
 			}
 		}
@@ -1495,6 +1471,8 @@ namespace DTO
 		
 		private long _ThanhTien;
 		
+		private bool _IsSendBack;
+		
 		private EntityRef<HoaDon> _HoaDon;
 		
 		private EntityRef<SanPham> _SanPham;
@@ -1517,6 +1495,8 @@ namespace DTO
     partial void OnChietKhauChanged();
     partial void OnThanhTienChanging(long value);
     partial void OnThanhTienChanged();
+    partial void OnIsSendBackChanging(bool value);
+    partial void OnIsSendBackChanged();
     #endregion
 		
 		public HoaDonDetail()
@@ -1670,6 +1650,26 @@ namespace DTO
 					this._ThanhTien = value;
 					this.SendPropertyChanged("ThanhTien");
 					this.OnThanhTienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSendBack", DbType="Bit NOT NULL")]
+		public bool IsSendBack
+		{
+			get
+			{
+				return this._IsSendBack;
+			}
+			set
+			{
+				if ((this._IsSendBack != value))
+				{
+					this.OnIsSendBackChanging(value);
+					this.SendPropertyChanging();
+					this._IsSendBack = value;
+					this.SendPropertyChanged("IsSendBack");
+					this.OnIsSendBackChanged();
 				}
 			}
 		}
@@ -2878,9 +2878,9 @@ namespace DTO
 		
 		private System.Nullable<byte> _ThoiGianBaoHanh;
 		
-		private bool _IsSold;
-		
 		private string _DonViBaoHanh;
+		
+		private bool _IsSold;
 		
 		private string _CreateBy;
 		
@@ -2936,10 +2936,10 @@ namespace DTO
     partial void OnDonViThoiHanChanged();
     partial void OnThoiGianBaoHanhChanging(System.Nullable<byte> value);
     partial void OnThoiGianBaoHanhChanged();
-    partial void OnIsSoldChanging(bool value);
-    partial void OnIsSoldChanged();
     partial void OnDonViBaoHanhChanging(string value);
     partial void OnDonViBaoHanhChanged();
+    partial void OnIsSoldChanging(bool value);
+    partial void OnIsSoldChanged();
     partial void OnCreateByChanging(string value);
     partial void OnCreateByChanged();
     partial void OnCreateDateChanging(System.DateTime value);
@@ -3289,26 +3289,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSold", DbType="Bit NOT NULL")]
-		public bool IsSold
-		{
-			get
-			{
-				return this._IsSold;
-			}
-			set
-			{
-				if ((this._IsSold != value))
-				{
-					this.OnIsSoldChanging(value);
-					this.SendPropertyChanging();
-					this._IsSold = value;
-					this.SendPropertyChanged("IsSold");
-					this.OnIsSoldChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonViBaoHanh", DbType="NVarChar(5)")]
 		public string DonViBaoHanh
 		{
@@ -3325,6 +3305,26 @@ namespace DTO
 					this._DonViBaoHanh = value;
 					this.SendPropertyChanged("DonViBaoHanh");
 					this.OnDonViBaoHanhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSold", DbType="Bit NOT NULL")]
+		public bool IsSold
+		{
+			get
+			{
+				return this._IsSold;
+			}
+			set
+			{
+				if ((this._IsSold != value))
+				{
+					this.OnIsSoldChanging(value);
+					this.SendPropertyChanging();
+					this._IsSold = value;
+					this.SendPropertyChanged("IsSold");
+					this.OnIsSoldChanged();
 				}
 			}
 		}
@@ -3582,6 +3582,14 @@ namespace DTO
 		
 		private string _Mota;
 		
+		private string _CreateBy;
+		
+		private System.DateTime _CreateDate;
+		
+		private string _UpdateBy;
+		
+		private System.DateTime _UpdateDate;
+		
 		private EntitySet<SanPham> _SanPhams;
 		
     #region Extensibility Method Definitions
@@ -3596,6 +3604,14 @@ namespace DTO
     partial void OnTenChanged();
     partial void OnMotaChanging(string value);
     partial void OnMotaChanged();
+    partial void OnCreateByChanging(string value);
+    partial void OnCreateByChanged();
+    partial void OnCreateDateChanging(System.DateTime value);
+    partial void OnCreateDateChanged();
+    partial void OnUpdateByChanging(string value);
+    partial void OnUpdateByChanged();
+    partial void OnUpdateDateChanging(System.DateTime value);
+    partial void OnUpdateDateChanged();
     #endregion
 		
 		public SanPhamGroup()
@@ -3680,6 +3696,86 @@ namespace DTO
 					this._Mota = value;
 					this.SendPropertyChanged("Mota");
 					this.OnMotaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateBy", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CreateBy
+		{
+			get
+			{
+				return this._CreateBy;
+			}
+			set
+			{
+				if ((this._CreateBy != value))
+				{
+					this.OnCreateByChanging(value);
+					this.SendPropertyChanging();
+					this._CreateBy = value;
+					this.SendPropertyChanged("CreateBy");
+					this.OnCreateByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateBy", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string UpdateBy
+		{
+			get
+			{
+				return this._UpdateBy;
+			}
+			set
+			{
+				if ((this._UpdateBy != value))
+				{
+					this.OnUpdateByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateBy = value;
+					this.SendPropertyChanged("UpdateBy");
+					this.OnUpdateByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime UpdateDate
+		{
+			get
+			{
+				return this._UpdateDate;
+			}
+			set
+			{
+				if ((this._UpdateDate != value))
+				{
+					this.OnUpdateDateChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateDate = value;
+					this.SendPropertyChanged("UpdateDate");
+					this.OnUpdateDateChanged();
 				}
 			}
 		}
