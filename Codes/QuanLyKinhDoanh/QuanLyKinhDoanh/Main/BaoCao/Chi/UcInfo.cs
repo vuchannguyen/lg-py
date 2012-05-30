@@ -123,6 +123,7 @@ namespace QuanLyKinhDoanh.Chi
             data = new HoaDon();
 
             data.MaHoaDon = tbMa.Text;
+            data.IdUser = FormMain.user.Id;
             data.IdType = Constant.ID_TYPE_CHI;
             data.IdStatus = Constant.ID_STATUS_DONE;
             data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));

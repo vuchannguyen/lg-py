@@ -200,6 +200,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataHoaDon = new HoaDon();
 
             dataHoaDon.MaHoaDon = tbMaNhap.Text;
+            dataHoaDon.IdUser = FormMain.user.Id;
             dataHoaDon.IdType = Constant.ID_TYPE_MUA;
             dataHoaDon.IdStatus = Constant.ID_STATUS_DONE;
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));

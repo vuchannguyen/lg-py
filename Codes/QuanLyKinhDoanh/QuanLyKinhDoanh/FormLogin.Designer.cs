@@ -52,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(149, 20);
+            this.label1.Location = new System.Drawing.Point(149, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 18);
             this.label1.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // tbUserName
             // 
-            this.tbUserName.Location = new System.Drawing.Point(270, 17);
+            this.tbUserName.Location = new System.Drawing.Point(270, 27);
             this.tbUserName.MaxLength = 20;
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(200, 26);
@@ -69,7 +69,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(270, 60);
+            this.tbPassword.Location = new System.Drawing.Point(270, 70);
             this.tbPassword.MaxLength = 20;
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(200, 26);
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(189, 63);
+            this.label2.Location = new System.Drawing.Point(189, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 3;
@@ -88,6 +88,7 @@
             // 
             // pbLogin
             // 
+            this.pbLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogin.Location = new System.Drawing.Point(400, 95);
             this.pbLogin.Name = "pbLogin";
             this.pbLogin.Size = new System.Drawing.Size(50, 50);
@@ -115,12 +116,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 160);
             this.Controls.Add(this.lbError);
-            this.Controls.Add(this.pbLogin);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbTitle);
+            this.Controls.Add(this.pbLogin);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
