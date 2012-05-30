@@ -45,8 +45,6 @@ namespace QuanLyKinhDoanh
             {
                 //this.BackgroundImage = Image.FromFile(@"Resources\background.jpg");
                 pnTopBar.BackgroundImage = Image.FromFile(ConstantResource.MAIN_TOP_BAR);
-                pbMinimize.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_MINIMIZE);
-                pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT);
 
                 //pbHeader.Image = Image.FromFile(@"Resources\Main\brand.png");
                 pbHorizonline.Image = Image.FromFile(ConstantResource.MAIN_HORIZONLINE);
@@ -70,6 +68,8 @@ namespace QuanLyKinhDoanh
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
+
             LoadResource();
 
             pnMain.BackColor = Color.White;
@@ -78,7 +78,7 @@ namespace QuanLyKinhDoanh
 
             pnHeaderAndMainMenu.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnHeaderAndMainMenu.Size, 30);
 
-            pnHello.Left = pnHeaderAndMainMenu.Left;
+            //pnHello.Left = pnHeaderAndMainMenu.Left;
             lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
 
             pnBody.Width = pnMain.Width;
@@ -87,10 +87,18 @@ namespace QuanLyKinhDoanh
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
 
             FormLogin frm = new FormLogin();
+            frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
             frm.ShowDialog();
+        }
 
+        private void FormLogin_Closed(object sender, FormClosedEventArgs e)
+        {
             if (user != null)
             {
+                this.Visible = true;
+
+                lbAccount.Text = user.UserName;
+
                 pbThanhToan_Click(sender, e);
             }
             else
@@ -136,31 +144,6 @@ namespace QuanLyKinhDoanh
         private void pbMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pbMinimize_MouseEnter(object sender, EventArgs e)
-        {
-            pbMinimize.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_MINIMIZE_MOUSEOVER);
-        }
-
-        private void pbMinimize_MouseLeave(object sender, EventArgs e)
-        {
-            pbMinimize.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_MINIMIZE);
-        }
-
-        private void pbExit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
-        private void pbExit_MouseEnter(object sender, EventArgs e)
-        {
-            pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT_MOUSEOVER);
-        }
-
-        private void pbExit_MouseLeave(object sender, EventArgs e)
-        {
-            pbExit.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_EXIT);
         }
 
         private void pbUser_Click(object sender, EventArgs e)
@@ -434,6 +417,26 @@ namespace QuanLyKinhDoanh
                     }
                 }
             }
+        }
+
+        private void lbExit_MouseEnter(object sender, EventArgs e)
+        {
+            lbExit.ForeColor = Color.Red;
+        }
+
+        private void lbExit_MouseLeave(object sender, EventArgs e)
+        {
+            lbExit.ForeColor = Color.White;
+        }
+
+        private void lbExit_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            user = null;
+
+            FormLogin frm = new FormLogin();
+            frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
+            frm.ShowDialog();
         }
     }
 }

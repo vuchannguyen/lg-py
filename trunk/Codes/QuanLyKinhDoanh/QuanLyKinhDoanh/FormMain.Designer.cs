@@ -35,11 +35,9 @@
             this.lbAbout = new System.Windows.Forms.Label();
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnTopBar = new System.Windows.Forms.Panel();
-            this.pbMinimize = new System.Windows.Forms.PictureBox();
             this.pnHello = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbAccount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbExit = new System.Windows.Forms.PictureBox();
             this.pnHeaderAndMainMenu = new System.Windows.Forms.Panel();
             this.lbKhoHang = new System.Windows.Forms.Label();
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
@@ -56,12 +54,11 @@
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
+            this.lbExit = new System.Windows.Forms.Label();
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).BeginInit();
             this.pnHello.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
             this.pnHeaderAndMainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbThuChi)).BeginInit();
@@ -120,53 +117,36 @@
             // 
             this.pnTopBar.BackColor = System.Drawing.Color.Transparent;
             this.pnTopBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnTopBar.Controls.Add(this.pbMinimize);
             this.pnTopBar.Controls.Add(this.pnHello);
-            this.pnTopBar.Controls.Add(this.pbExit);
             this.pnTopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnTopBar.Location = new System.Drawing.Point(0, 0);
             this.pnTopBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnTopBar.Name = "pnTopBar";
             this.pnTopBar.Size = new System.Drawing.Size(973, 26);
             this.pnTopBar.TabIndex = 0;
-            this.pnTopBar.Visible = false;
-            // 
-            // pbMinimize
-            // 
-            this.pbMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.pbMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMinimize.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbMinimize.Location = new System.Drawing.Point(927, 0);
-            this.pbMinimize.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pbMinimize.Name = "pbMinimize";
-            this.pbMinimize.Size = new System.Drawing.Size(21, 26);
-            this.pbMinimize.TabIndex = 9;
-            this.pbMinimize.TabStop = false;
-            this.pbMinimize.Click += new System.EventHandler(this.pbMinimize_Click);
-            this.pbMinimize.MouseEnter += new System.EventHandler(this.pbMinimize_MouseEnter);
-            this.pbMinimize.MouseLeave += new System.EventHandler(this.pbMinimize_MouseLeave);
             // 
             // pnHello
             // 
             this.pnHello.BackColor = System.Drawing.Color.Transparent;
-            this.pnHello.Controls.Add(this.label2);
+            this.pnHello.Controls.Add(this.lbExit);
+            this.pnHello.Controls.Add(this.lbAccount);
             this.pnHello.Controls.Add(this.label1);
-            this.pnHello.Location = new System.Drawing.Point(261, 4);
+            this.pnHello.Location = new System.Drawing.Point(0, 0);
             this.pnHello.Name = "pnHello";
             this.pnHello.Size = new System.Drawing.Size(230, 18);
             this.pnHello.TabIndex = 8;
             // 
-            // label2
+            // lbAccount
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Orange;
-            this.label2.Location = new System.Drawing.Point(29, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 14);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Admin";
+            this.lbAccount.AutoSize = true;
+            this.lbAccount.BackColor = System.Drawing.Color.Transparent;
+            this.lbAccount.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAccount.ForeColor = System.Drawing.Color.Orange;
+            this.lbAccount.Location = new System.Drawing.Point(90, 2);
+            this.lbAccount.Name = "lbAccount";
+            this.lbAccount.Size = new System.Drawing.Size(37, 14);
+            this.lbAccount.TabIndex = 7;
+            this.lbAccount.Text = "Admin";
             // 
             // label1
             // 
@@ -174,26 +154,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1, 2);
+            this.label1.Location = new System.Drawing.Point(62, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 14);
+            this.label1.Size = new System.Drawing.Size(32, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chào Admin";
-            // 
-            // pbExit
-            // 
-            this.pbExit.BackColor = System.Drawing.Color.Transparent;
-            this.pbExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbExit.Location = new System.Drawing.Point(948, 0);
-            this.pbExit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.pbExit.Name = "pbExit";
-            this.pbExit.Size = new System.Drawing.Size(25, 26);
-            this.pbExit.TabIndex = 6;
-            this.pbExit.TabStop = false;
-            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
-            this.pbExit.MouseEnter += new System.EventHandler(this.pbExit_MouseEnter);
-            this.pbExit.MouseLeave += new System.EventHandler(this.pbExit_MouseLeave);
+            this.label1.Text = "Chào";
             // 
             // pnHeaderAndMainMenu
             // 
@@ -382,6 +347,22 @@
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
+            // lbExit
+            // 
+            this.lbExit.AutoSize = true;
+            this.lbExit.BackColor = System.Drawing.Color.Transparent;
+            this.lbExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbExit.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbExit.ForeColor = System.Drawing.Color.White;
+            this.lbExit.Location = new System.Drawing.Point(3, 2);
+            this.lbExit.Name = "lbExit";
+            this.lbExit.Size = new System.Drawing.Size(40, 14);
+            this.lbExit.TabIndex = 8;
+            this.lbExit.Text = "Thoát?";
+            this.lbExit.Click += new System.EventHandler(this.lbExit_Click);
+            this.lbExit.MouseEnter += new System.EventHandler(this.lbExit_MouseEnter);
+            this.lbExit.MouseLeave += new System.EventHandler(this.lbExit_MouseLeave);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -402,10 +383,8 @@
             this.pnAbout.ResumeLayout(false);
             this.pnAbout.PerformLayout();
             this.pnTopBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbMinimize)).EndInit();
             this.pnHello.ResumeLayout(false);
             this.pnHello.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
             this.pnHeaderAndMainMenu.ResumeLayout(false);
             this.pnHeaderAndMainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
@@ -426,11 +405,9 @@
         private System.Windows.Forms.Panel pnAbout;
         private System.Windows.Forms.Label lbAbout;
         private System.Windows.Forms.Panel pnTopBar;
-        private System.Windows.Forms.PictureBox pbMinimize;
         private System.Windows.Forms.Panel pnHello;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbAccount;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbExit;
         private System.Windows.Forms.Panel pnHeaderAndMainMenu;
         private System.Windows.Forms.Label lbThanhToan;
         private System.Windows.Forms.PictureBox pbThanhToan;
@@ -448,6 +425,7 @@
         private System.Windows.Forms.Label lbKhoHang;
         private System.Windows.Forms.PictureBox pbKhoHang;
         private System.Windows.Forms.ToolTip ttDetail;
+        private System.Windows.Forms.Label lbExit;
     }
 }
 

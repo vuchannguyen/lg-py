@@ -143,6 +143,7 @@ namespace Library
         public const string MESSAGE_EXIT = "Thoát?";
         public const string MESSAGE_CONTINUE = "Bạn có muốn tiếp tục?";
 
+        public const string MESSAGE_SEND_BACK_NOTE = "Trả SP: {0}";
         public const string MESSAGE_SEND_BACK_CONFIRM = "Hoàn trả sản phẩm?";
         public const string MESSAGE_SEND_BACK_SUCCESS = "Sản phẩm đã được hoàn trả vào kho.";
         public const string MESSAGE_SEND_BACK_ERROR = "Quá trình hoàn trả thất bại!";
@@ -179,11 +180,15 @@ namespace Library
         public const string MESSAGE_ERROR_EXPORT_EXCEL_NULL_DATA = "Không có dữ liệu để xuất!";
         public const string MESSAGE_ERROR_EDIT_DATA = "Không thể thay đổi dữ liệu này!";
 
+        public const string MESSAGE_ERROR_INSERT_HD_CHI = "Quá trình tạo hóa đơn Chi thất bại!";
+
         public const string MESSAGE_SUCCESS_EXPORT_EXCEL = "Dữ liệu đã xuất thành công.";
         public const string MESSAGE_PAY_ALL_DEBT = "Hóa đơn đã được thanh toán hết.";
 
         public const string MESSAGE_LOGIN_WRONG_USERNAME = "Tài khoản không tồn tai!";
         public const string MESSAGE_LOGIN_WRONG_PASS = "Mật khẩu không chính xác!";
+
+        public const string MESSAGE_ERROR_TICH_LUY = "Không thể cập nhật Tích lũy của KH!";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";
