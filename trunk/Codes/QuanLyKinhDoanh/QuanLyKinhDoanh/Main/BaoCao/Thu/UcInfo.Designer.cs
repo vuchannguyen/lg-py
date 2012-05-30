@@ -289,7 +289,7 @@
             // 
             this.pnInfoThu.Controls.Add(this.gbInfo);
             this.pnInfoThu.ForeColor = System.Drawing.Color.Black;
-            this.pnInfoThu.Location = new System.Drawing.Point(904, 11);
+            this.pnInfoThu.Location = new System.Drawing.Point(464, 47);
             this.pnInfoThu.Name = "pnInfoThu";
             this.pnInfoThu.Size = new System.Drawing.Size(560, 290);
             this.pnInfoThu.TabIndex = 49;

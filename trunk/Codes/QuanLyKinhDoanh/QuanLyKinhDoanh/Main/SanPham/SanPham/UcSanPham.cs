@@ -222,15 +222,10 @@ namespace QuanLyKinhDoanh
             if (SanPhamBus.Update(data, FormMain.user))
             {
                 return true;
-                //this.Dispose();
             }
             else
             {
                 return false;
-                //if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                //{
-                //    this.Dispose();
-                //}
             }
         }
         #endregion

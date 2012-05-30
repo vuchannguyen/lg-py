@@ -534,6 +534,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             dataHoaDon = new HoaDon();
 
             dataHoaDon.MaHoaDon = tbMaHD.Text;
+            dataHoaDon.IdUser = FormMain.user.Id;
 
             if (cbMaKH.SelectedItem != null)
             {
