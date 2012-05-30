@@ -125,7 +125,7 @@ namespace QuanLyKinhDoanh.Thu
             tbMaHDTraSP.Text = dataHoaDon.MaHoaDon;
             tbNguoiBanTraSP.Text = dataUser == null ? string.Empty : dataUser.UserName;
             tbKhachHangTraSP.Text = dataKH == null ? string.Empty : dataKH.MaKhachHang + Constant.SYMBOL_LINK_STRING + dataKH.Ten;
-            tbGhiChu.Text = dataHoaDon.GhiChu;
+            tbGhiChuTraSP.Text = dataHoaDon.GhiChu;
 
             lbNgayGioTraSP.Text = dataHoaDon.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
 
@@ -214,6 +214,18 @@ namespace QuanLyKinhDoanh.Thu
             id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
 
             tbMa.Text = Constant.PREFIX_THU + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
+        }
+
+        private string CreateNewIdChi()
+        {
+            int id = 0;
+
+            DTO.HoaDon dataTemp = HoaDonBus.GetLastData(Constant.ID_TYPE_CHI);
+
+            string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaHoaDon.Substring(dataTemp.MaHoaDon.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+            id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
+
+            return Constant.PREFIX_CHI + id.ToString(Constant.DEFAULT_FORMAT_ID_BILL);
         }
 
         private void ValidateInputThu()
@@ -346,14 +358,65 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
 
+        private bool InsertDataHoaDonChi()
+        {
+            DTO.HoaDon data = new HoaDon();
+
+            data.MaHoaDon = CreateNewIdChi();
+            data.IdUser = FormMain.user.Id;
+            data.IdType = Constant.ID_TYPE_CHI;
+            data.IdStatus = Constant.ID_STATUS_DONE;
+
+            long money = 0;
+            string maSP = string.Empty;
+
+            foreach (ListViewItem item in lvTraSP.Items)
+            {
+                money += ConvertUtil.ConvertToLong(item.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                string[] sanPham = item.SubItems[3].Text.Split(new string[] { Constant.SYMBOL_LINK_STRING }, StringSplitOptions.RemoveEmptyEntries);
+                maSP += sanPham[0] + " ";
+            }
+
+            data.ThanhTien = money;
+            data.GhiChu = string.Format(Constant.MESSAGE_SEND_BACK_NOTE, maSP);
+
+            if (!HoaDonBus.Insert(data, FormMain.user))
+            {
+                return true;
+            }
+
+            return true;
+        }
+
         private bool UpdateDataTraSP(DTO.HoaDonDetail data)
         {
             data.SanPham.SoLuong += data.SoLuong;
             data.IsSendBack = true;
 
+            dataHoaDon.GhiChu = tbGhiChuTraSP.Text;
+
             if (!SanPhamBus.Update(data.SanPham, FormMain.user) ||
                 !HoaDonDetailBus.Update(data) ||
                 !HoaDonBus.Update(dataHoaDon, FormMain.user))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool UpdateDataKH()
+        {
+            long money = 0;
+
+            foreach (ListViewItem item in lvTraSP.Items)
+            {
+                money += ConvertUtil.ConvertToLong(item.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            }
+
+            dataKH.TichLuy -= money;
+
+            if (!KhachHangBus.Update(dataKH, FormMain.user))
             {
                 return false;
             }
@@ -430,22 +493,41 @@ namespace QuanLyKinhDoanh.Thu
         {
             if (MessageBox.Show(Constant.MESSAGE_SEND_BACK_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                bool isSuccess = true;
+
                 foreach (ListViewItem item in lvTraSP.Items)
                 {
                     int id = ConvertUtil.ConvertToInt(item.SubItems[1].Text);
                     DTO.HoaDonDetail data = HoaDonDetailBus.GetById(id);
 
-                    if (UpdateDataTraSP(data))
+                    if (!UpdateDataTraSP(data))
                     {
-                        MessageBox.Show(Constant.MESSAGE_SEND_BACK_SUCCESS, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        isSuccess = false;
 
-                        this.Dispose();
-                    }
-                    else
-                    {
-                        MessageBox.Show(Constant.MESSAGE_ERROR_DELETE_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(Constant.MESSAGE_SEND_BACK_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        break;
                     }
                 }
+
+                if (isSuccess)
+                {
+                    MessageBox.Show(Constant.MESSAGE_SEND_BACK_SUCCESS, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (!UpdateDataKH())
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_TICH_LUY, Constant.CAPTION_ERROR,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    if (!InsertDataHoaDonChi())
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_INSERT_HD_CHI, Constant.CAPTION_ERROR,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                this.Dispose();
             }
         }
 
@@ -513,6 +595,14 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
 
+        private void lvThongTinTraSP_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (lvThongTinTraSP.Items[e.Index].SubItems[1].ForeColor == Color.Red)
+            {
+                e.NewValue = e.CurrentValue;
+            }
+        }
+
         private void lvThongTinTraSP_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             ValidateInputTraSP();
@@ -571,13 +661,5 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
         #endregion
-
-        private void lvThongTinTraSP_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (lvThongTinTraSP.Items[e.Index].SubItems[1].ForeColor == Color.Red)
-            {
-                e.NewValue = e.CurrentValue;
-            }
-        }
     }
 }

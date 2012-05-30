@@ -24,6 +24,8 @@ namespace QuanLyKinhDoanh
         private int lvWidth;
         private int centerX;
         private int idGroup;
+        private string status;
+        private string search;
 
         public UcKhoHang()
         {
@@ -109,7 +111,7 @@ namespace QuanLyKinhDoanh
                 cbStatus.SelectedIndex = 0;
                 cbGroup.SelectedIndex = 0;
 
-                RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
+                RefreshListView(search, idGroup, status,
                     sortColumn, sortOrder, 1);
                 SetStatusButtonPage(1);
 
@@ -120,7 +122,7 @@ namespace QuanLyKinhDoanh
         {
             tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
 
-            RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
+            RefreshListView(search, idGroup, status,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
 
@@ -264,7 +266,10 @@ namespace QuanLyKinhDoanh
         {
             pbFind.Focus();
 
-            RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
+            search = tbSearch.Text;
+            status = cbStatus.Text;
+
+            RefreshListView(search, idGroup, status,
                     sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
         }
@@ -315,12 +320,12 @@ namespace QuanLyKinhDoanh
                 }
             }
 
-            if (e.Column != 0 && e.Column != 1 && e.Column != 2 && e.Column != lvThongTin.Columns.Count - 1)
+            if (e.Column != 0 && e.Column != 1 && e.Column != 2)
             {
                 sortColumn = lvThongTin.Columns[e.Column].Text;
                 sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
+                RefreshListView(search, idGroup, status,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -372,7 +377,7 @@ namespace QuanLyKinhDoanh
                 {
                     if (UpdateStatusSold(ConvertUtil.ConvertToInt(item.SubItems[1].Text)))
                     {
-                        RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
+                        RefreshListView(search, idGroup, status,
                             sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                         SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                     }
@@ -412,7 +417,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListView(tbSearch.Text, idGroup, cbStatus.Text,
+                RefreshListView(search, idGroup, status,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -481,6 +486,16 @@ namespace QuanLyKinhDoanh
             if (string.IsNullOrEmpty(cbGroup.Text))
             {
                 cbGroup.SelectedIndex = 0;
+            }
+        }
+
+        private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                pbFind_Click(sender, e);
+
+                tbSearch.Focus();
             }
         }
         #endregion

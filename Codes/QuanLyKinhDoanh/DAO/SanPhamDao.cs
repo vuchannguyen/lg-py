@@ -12,7 +12,6 @@ namespace DAO
 {
     public class SanPhamDao : SQLConnection
     {
-        #region SanPham
         public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHavePrice, string status)
         {
             var sql = from data in dbContext.SanPhams
@@ -106,6 +105,10 @@ namespace DAO
                     sortSQL += "GiaBan " + sortOrder;
                     break;
 
+                case "Xuất kho":
+                    sortSQL += "IsSold " + sortOrder;
+                    break;
+
                 default:
                     sortSQL += "MaSanPham " + sortOrder;
                     break;
@@ -120,9 +123,6 @@ namespace DAO
 
             return sql.Skip(skip).Take(take).ToList();
         }
-        #endregion
-
-
 
         public static List<SanPham> GetListByIdGroup(int idGroup)
         {

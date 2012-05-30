@@ -289,6 +289,7 @@
             this.tbMaHD.ReadOnly = true;
             this.tbMaHD.Size = new System.Drawing.Size(77, 23);
             this.tbMaHD.TabIndex = 0;
+            this.tbMaHD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
