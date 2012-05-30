@@ -40,24 +40,8 @@ namespace DAO
 
             switch (sortColumn)
             {
-                case "chTen":
-                    sortSQL += "SanPham.Ten " + sortOrder;
-                    break;
-
-                //case "ExamQuestion":
-                //    sortSQL += "LOT_ExamQuestion.Title " + sortOrder;
-                //    break;
-
-                //case "ExamDate":
-                //    sortSQL += "ExamDate " + sortOrder;
-                //    break;
-
-                //case "ExamType":
-                //    sortSQL += "ExamType " + sortOrder;
-                //    break;
-
                 default:
-                    sortSQL += "SanPham.Ten " + sortOrder;
+                    sortSQL += "Id " + sortOrder;
                     break;
             }
 
@@ -81,7 +65,7 @@ namespace DAO
             return dbContext.ChietKhaus.Where(p => p.IdSanPham == id && p.SanPham.DeleteFlag == false).SingleOrDefault<ChietKhau>();
         }
 
-        public static bool Insert(ChietKhau data)
+        public static bool Insert(ChietKhau data, User user)
         {
             try
             {
@@ -89,6 +73,9 @@ namespace DAO
                 {
                     return false;
                 }
+
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
 
                 dbContext.ChietKhaus.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
@@ -101,7 +88,7 @@ namespace DAO
             }
         }
 
-        public static bool Delete(ChietKhau data)
+        public static bool Delete(ChietKhau data, User user)
         {
             if (data != null)
             {
@@ -109,6 +96,9 @@ namespace DAO
 
                 if (objDb != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     objDb.DeleteFlag = true;
                     dbContext.SubmitChanges();
 
@@ -119,7 +109,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -143,7 +133,7 @@ namespace DAO
                         {
                             ChietKhau data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 CreateSQlConnection();
 
@@ -175,12 +165,15 @@ namespace DAO
             }
         }
 
-        public static bool Update(ChietKhau data)
+        public static bool Update(ChietKhau data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SubmitChanges();
                     return true;
                 }

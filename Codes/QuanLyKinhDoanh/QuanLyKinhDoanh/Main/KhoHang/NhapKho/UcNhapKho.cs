@@ -259,9 +259,9 @@ namespace QuanLyKinhDoanh
                     idCKs += (ChietKhauBus.GetByIdSP(temp.IdSanPham) == null ? string.Empty : (ChietKhauBus.GetByIdSP(temp.IdSanPham).Id.ToString() + Constant.SEPERATE_STRING));
                 }
 
-                if (SanPhamBus.DeleteList(idSPs) && HoaDonBus.DeleteList(ids))
+                if (SanPhamBus.DeleteList(idSPs, FormMain.user) && HoaDonBus.DeleteList(ids, FormMain.user))
                 {
-                    ChietKhauBus.DeleteList(idCKs);
+                    ChietKhauBus.DeleteList(idCKs, FormMain.user);
 
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

@@ -148,10 +148,13 @@ namespace DAO
             return dbContext.SanPhams.Where(p => p.Id == id).SingleOrDefault<SanPham>();
         }
 
-        public static bool Insert(SanPham data)
+        public static bool Insert(SanPham data, User user)
         {
             try
             {
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
+
                 dbContext.SanPhams.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
@@ -163,7 +166,7 @@ namespace DAO
             }
         }
 
-        public static bool Delete(SanPham data)
+        public static bool Delete(SanPham data, User user)
         {
             if (data != null)
             {
@@ -187,6 +190,9 @@ namespace DAO
 
                         if (objDb != null)
                         {
+                            data.UpdateBy = user.UserName;
+                            data.UpdateDate = DateTime.Now;
+
                             objDb.DeleteFlag = true;
                             dbContext.SubmitChanges();
 
@@ -199,7 +205,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -223,7 +229,7 @@ namespace DAO
                         {
                             SanPham data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 return false;
                             }
@@ -249,12 +255,15 @@ namespace DAO
             }
         }
 
-        public static bool Update(SanPham data)
+        public static bool Update(SanPham data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SubmitChanges();
 
                     return true;

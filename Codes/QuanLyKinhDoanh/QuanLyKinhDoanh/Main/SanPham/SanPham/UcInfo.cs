@@ -224,10 +224,7 @@ namespace QuanLyKinhDoanh.SanPham
             data.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             data.DonViThoiHan = cbDonViThoiHan.Text;
 
-            data.CreateBy = data.UpdateBy = "";
-            data.CreateDate = data.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Insert(data))
+            if (SanPhamBus.Insert(data, FormMain.user))
             {
                 this.Dispose();
             }
@@ -262,10 +259,7 @@ namespace QuanLyKinhDoanh.SanPham
             data.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             data.DonViThoiHan = cbDonViThoiHan.Text;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Update(data))
+            if (SanPhamBus.Update(data, FormMain.user))
             {
                 this.Dispose();
             }

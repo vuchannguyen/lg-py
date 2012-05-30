@@ -551,10 +551,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             dataHoaDon.ThanhTien = totalMoney;
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
-            dataHoaDon.CreateBy = dataHoaDon.UpdateBy = "";
-            dataHoaDon.CreateDate = dataHoaDon.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Insert(dataHoaDon))
+            if (HoaDonBus.Insert(dataHoaDon, FormMain.user))
             {
                 InsertDataHoaDonDetail(dataHoaDon.Id);
             }
@@ -562,7 +559,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             {
                 try
                 {
-                    HoaDonBus.Delete(dataHoaDon);
+                    HoaDonBus.Delete(dataHoaDon, FormMain.user);
                 }
                 catch
                 {
@@ -613,10 +610,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 dataKH.TichLuy -= ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 dataKH.TichLuy += totalDiscount;
 
-                dataKH.UpdateBy = "";
-                dataKH.UpdateDate = DateTime.Now;
-
-                if (KhachHangBus.Update(dataKH))
+                if (KhachHangBus.Update(dataKH, FormMain.user))
                 {
                     //this.Dispose();
                 }
@@ -634,10 +628,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 dataUpdate.SoLuong -= soLuong;
                 dataUpdate.IsSold = true;
 
-                dataUpdate.UpdateBy = "";
-                dataUpdate.UpdateDate = DateTime.Now;
-
-                if (SanPhamBus.Update(dataUpdate))
+                if (SanPhamBus.Update(dataUpdate, FormMain.user))
                 {
                     //this.Dispose();
                 }

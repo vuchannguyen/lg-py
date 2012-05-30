@@ -246,10 +246,7 @@ namespace QuanLyKinhDoanh
 
             data.IsSold = !data.IsSold;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Update(data))
+            if (SanPhamBus.Update(data, FormMain.user))
             {
                 return true;
             }

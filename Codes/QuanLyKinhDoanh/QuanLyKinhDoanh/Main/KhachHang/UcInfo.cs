@@ -197,10 +197,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
-            data.CreateBy = data.UpdateBy = "";
-            data.CreateDate = data.UpdateDate = DateTime.Now;
-
-            if (KhachHangBus.Insert(data))
+            if (KhachHangBus.Insert(data, FormMain.user))
             {
                 this.Dispose();
             }
@@ -232,10 +229,7 @@ namespace QuanLyKinhDoanh.KhachHang
             data.TichLuy = ConvertUtil.ConvertToInt(tbDiem.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (KhachHangBus.Update(data))
+            if (KhachHangBus.Update(data, FormMain.user))
             {
                 this.Dispose();
             }

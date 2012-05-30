@@ -128,10 +128,7 @@ namespace QuanLyKinhDoanh.Chi
             data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
-            data.CreateBy = data.UpdateBy = "";
-            data.CreateDate = data.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Insert(data))
+            if (HoaDonBus.Insert(data, FormMain.user))
             {
                 if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + data.MaHoaDon) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE,
                     Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
@@ -158,10 +155,7 @@ namespace QuanLyKinhDoanh.Chi
             data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Update(data))
+            if (HoaDonBus.Update(data, FormMain.user))
             {
                 this.Dispose();
             }

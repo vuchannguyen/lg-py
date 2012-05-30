@@ -88,7 +88,7 @@ namespace DAO
             return dbContext.Users.Where(p => p.UserName == text && p.DeleteFlag == false).SingleOrDefault<User>();
         }
 
-        public static bool Insert(User data)
+        public static bool Insert(User data, User user)
         {
             try
             {
@@ -96,6 +96,9 @@ namespace DAO
                 {
                     return false;
                 }
+
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
 
                 dbContext.Users.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
@@ -108,10 +111,13 @@ namespace DAO
             }
         }
 
-        public static bool Delete(User data)
+        public static bool Delete(User data, User user)
         {
             if (data != null)
             {
+                data.UpdateBy = user.UserName;
+                data.UpdateDate = DateTime.Now;
+
                 data.DeleteFlag = true;
                 dbContext.SubmitChanges();
 
@@ -121,7 +127,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -145,7 +151,7 @@ namespace DAO
                         {
                             User data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 return false;
                             }
@@ -173,12 +179,15 @@ namespace DAO
             }
         }
 
-        public static bool Update(User data)
+        public static bool Update(User data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SubmitChanges();
 
                     return true;

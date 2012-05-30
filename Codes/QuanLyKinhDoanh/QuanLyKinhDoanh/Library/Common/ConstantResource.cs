@@ -10,6 +10,10 @@ namespace Library
         public const string MAIN_TOP_BAR = @"Resources\Main\topbar.png";
         public const string MAIN_HORIZONLINE = @"Resources\Main\horizonline.png";
         public const string MAIN_BOTTOM_HORIZONLINE = @"Resources\Main\bottom_horizonline.png";
+        public const string MAIN_LOGIN = @"Resources\Main\login.png";
+        public const string MAIN_ICON_KEY = @"Resources\Main\icon_key.png";
+        public const string MAIN_ICON_KEY_MOUSEOVER = @"Resources\Main\icon_key_mouseover.png";
+        public const string MAIN_ICON_KEY_DISABLE = @"Resources\Main\icon_key_disable.png";
 
 
 

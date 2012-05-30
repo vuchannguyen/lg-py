@@ -78,7 +78,7 @@ namespace DAO
             return dbContext.SanPhamGroups.Where(p => p.Ma == text).SingleOrDefault<SanPhamGroup>();
         }
 
-        public static bool Insert(SanPhamGroup data)
+        public static bool Insert(SanPhamGroup data, User user)
         {
             try
             {
@@ -86,6 +86,9 @@ namespace DAO
                 {
                     return false;
                 }
+
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
 
                 dbContext.SanPhamGroups.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
@@ -98,12 +101,15 @@ namespace DAO
             }
         }
 
-        public static bool Delete(SanPhamGroup data)
+        public static bool Delete(SanPhamGroup data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SanPhamGroups.DeleteOnSubmit(data);
                     dbContext.SubmitChanges();
 
@@ -118,7 +124,7 @@ namespace DAO
             }
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -142,7 +148,7 @@ namespace DAO
                         {
                             SanPhamGroup data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 CreateSQlConnection();
 
@@ -175,12 +181,15 @@ namespace DAO
             }
         }
 
-        public static bool Update(SanPhamGroup data)
+        public static bool Update(SanPhamGroup data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SubmitChanges();
                     return true;
                 }

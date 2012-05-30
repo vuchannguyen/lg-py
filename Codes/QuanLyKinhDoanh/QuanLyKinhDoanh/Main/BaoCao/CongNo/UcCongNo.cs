@@ -235,21 +235,14 @@ namespace QuanLyKinhDoanh.CongNo
             pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
         }
 
-        private bool UpdateData(DTO.HoaDon data)
+        private bool UpdateData(DTO.HoaDonDetail data)
         {
-            List<DTO.HoaDonDetail> listDetail = HoaDonDetailBus.GetListByIdHoaDon(data.Id);
+            data.SanPham.SoLuong += data.SoLuong;
+            data.IsSendBack = true;
 
-            foreach (DTO.HoaDonDetail detail in listDetail)
+            if (!SanPhamBus.Update(data.SanPham, FormMain.user) || !HoaDonDetailBus.Update(data))
             {
-                detail.SanPham.SoLuong += detail.SoLuong;
-
-                detail.SanPham.UpdateBy = "";
-                detail.SanPham.UpdateDate = DateTime.Now;
-
-                if (!SanPhamBus.Update(detail.SanPham))
-                {
-                    return false;
-                }
+                return false;
             }
 
             return true;
@@ -262,7 +255,19 @@ namespace QuanLyKinhDoanh.CongNo
                 int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
                 DTO.HoaDon data = HoaDonBus.GetById(id);
 
-                if (UpdateData(data) && HoaDonBus.Delete(data))
+                List<DTO.HoaDonDetail> listDetail = HoaDonDetailBus.GetListByIdHoaDon(data.Id);
+
+                foreach (DTO.HoaDonDetail detail in listDetail)
+                {
+                    if (!UpdateData(detail))
+                    {
+                        MessageBox.Show(Constant.MESSAGE_SEND_BACK_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return;
+                    }
+                }
+
+                if (HoaDonBus.Delete(data, FormMain.user))
                 {
                     MessageBox.Show(Constant.MESSAGE_SEND_BACK_SUCCESS, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -272,7 +277,7 @@ namespace QuanLyKinhDoanh.CongNo
                 }
                 else
                 {
-                    MessageBox.Show(Constant.MESSAGE_ERROR_DELETE_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(Constant.MESSAGE_SEND_BACK_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

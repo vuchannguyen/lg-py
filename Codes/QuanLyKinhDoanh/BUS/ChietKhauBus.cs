@@ -30,24 +30,24 @@ namespace BUS
             return ChietKhauDao.GetByIdSP(id);
         }
 
-        public static bool Insert(ChietKhau data)
+        public static bool Insert(ChietKhau data, User user)
         {
-            return ChietKhauDao.Insert(data);
+            return ChietKhauDao.Insert(data, user);
         }
 
-        public static bool Delete(ChietKhau data)
+        public static bool Delete(ChietKhau data, User user)
         {
-            return ChietKhauDao.Delete(data);
+            return ChietKhauDao.Delete(data, user);
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
-            return ChietKhauDao.DeleteList(ids);
+            return ChietKhauDao.DeleteList(ids, user);
         }
 
-        public static bool Update(ChietKhau data)
+        public static bool Update(ChietKhau data, User user)
         {
-            return ChietKhauDao.Update(data);
+            return ChietKhauDao.Update(data, user);
         }
     }
 }

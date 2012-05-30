@@ -205,10 +205,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
-            dataHoaDon.CreateBy = dataHoaDon.UpdateBy = "";
-            dataHoaDon.CreateDate = dataHoaDon.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Insert(dataHoaDon))
+            if (HoaDonBus.Insert(dataHoaDon, FormMain.user))
             {
                 InsertDataHoaDonDetail(dataHoaDon.Id);
             }
@@ -216,7 +213,7 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 try
                 {
-                    HoaDonBus.Delete(dataHoaDon);
+                    HoaDonBus.Delete(dataHoaDon, FormMain.user);
                 }
                 catch
                 { 
@@ -272,10 +269,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataChietKhau.IdSanPham = dataSP.Id;
             dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
 
-            dataChietKhau.CreateBy = dataChietKhau.UpdateBy = "";
-            dataChietKhau.CreateDate = dataChietKhau.UpdateDate = DateTime.Now;
-
-            if (ChietKhauBus.Insert(dataChietKhau))
+            if (ChietKhauBus.Insert(dataChietKhau, FormMain.user))
             {
                 UpdatePriceSP();
             }
@@ -283,7 +277,7 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 try
                 {
-                    ChietKhauBus.Delete(dataChietKhau);
+                    ChietKhauBus.Delete(dataChietKhau, FormMain.user);
                 }
                 catch
                 {
@@ -329,10 +323,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
-            dataSP.UpdateBy = "";
-            dataSP.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Update(dataSP))
+            if (SanPhamBus.Update(dataSP, FormMain.user))
             {
                 return true;
             }
@@ -352,10 +343,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
-            dataHoaDon.UpdateBy = "";
-            dataHoaDon.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Update(dataHoaDon))
+            if (HoaDonBus.Update(dataHoaDon, FormMain.user))
             {
                 UpdateDataHoaDonDetail();
             }
@@ -363,7 +351,7 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 try
                 {
-                    HoaDonBus.Delete(dataHoaDon);
+                    HoaDonBus.Delete(dataHoaDon, FormMain.user);
                 }
                 catch
                 {
@@ -402,10 +390,7 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 dataChietKhau.Value = ConvertUtil.ConvertToInt(tbChietKhau.Text);
 
-                dataChietKhau.UpdateBy = "";
-                dataChietKhau.UpdateDate = DateTime.Now;
-
-                if (ChietKhauBus.Update(dataChietKhau))
+                if (ChietKhauBus.Update(dataChietKhau, FormMain.user))
                 {
                     UpdatePriceSP();
                 }
@@ -413,7 +398,7 @@ namespace QuanLyKinhDoanh.NhapKho
                 {
                     try
                     {
-                        ChietKhauBus.Delete(dataChietKhau);
+                        ChietKhauBus.Delete(dataChietKhau, FormMain.user);
                     }
                     catch
                     {
@@ -773,10 +758,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataSP.ThoiHan = ConvertUtil.ConvertToByte(tbThoiHan.Text);
             dataSP.DonViThoiHan = cbDonViThoiHan.Text;
 
-            dataSP.CreateBy = dataSP.UpdateBy = "";
-            dataSP.CreateDate = dataSP.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Insert(dataSP))
+            if (SanPhamBus.Insert(dataSP, FormMain.user))
             {
                 return true;
             }
@@ -798,10 +780,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
-            dataSP.UpdateBy = "";
-            dataSP.UpdateDate = DateTime.Now;
-
-            if (SanPhamBus.Update(dataSP))
+            if (SanPhamBus.Update(dataSP, FormMain.user))
             {
                 if (!isUpdate)
                 {

@@ -59,7 +59,7 @@ namespace QuanLyKinhDoanh.Thu
                 pbHuyTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
                 pbHoanTatTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
 
-                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
             }
             catch
             {
@@ -77,6 +77,20 @@ namespace QuanLyKinhDoanh.Thu
             pnInfoTraSP.Location = CommonFunc.SetCenterLocation(this.Size, pnInfoTraSP.Size);
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
+
+            if (data.IdType == Constant.ID_TYPE_BAN)
+            {
+                ValidateInputTraSP();
+                ValidateHoanTatTraSP();
+
+                tbGhiChuTraSP.Focus();
+            }
+            else
+            {
+                ValidateInputThu();
+
+                tbTien.Focus();
+            }
 
             this.BringToFront();
         }
@@ -98,10 +112,6 @@ namespace QuanLyKinhDoanh.Thu
             {
                 RefreshDataThu();
             }
-
-            ValidateInputThu();
-
-            tbTien.Focus();
         }
 
         private void InitTraSP()
@@ -125,7 +135,13 @@ namespace QuanLyKinhDoanh.Thu
             {
                 ListViewItem lvi = new ListViewItem();
 
-                lvi.SubItems.Add(detail.SanPham.Id.ToString());
+                if (detail.IsSendBack)
+                {
+                    lvi.UseItemStyleForSubItems = false;
+                    lvi.ForeColor = Color.Red;
+                }
+
+                lvi.SubItems.Add(detail.Id.ToString());
                 lvi.SubItems.Add((lvThongTinTraSP.Items.Count + 1).ToString());
                 lvi.SubItems.Add(detail.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten);
 
@@ -154,8 +170,6 @@ namespace QuanLyKinhDoanh.Thu
 
             tbTongCKTraSP.Text = totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbTongHDTraSP.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
-
-            tbGhiChu.Focus();
         }
 
         private void RefreshDataThu()
@@ -165,6 +179,8 @@ namespace QuanLyKinhDoanh.Thu
             tbGhiChu.Text = string.Empty;
 
             CreateNewId();
+
+            ValidateInputThu();
         }
 
         private void RefreshDataTraSP()
@@ -177,6 +193,9 @@ namespace QuanLyKinhDoanh.Thu
             tbGhiChuTraSP.Text = string.Empty;
 
             lbNgayGioTraSP.Text = string.Empty;
+
+            ValidateInputTraSP();
+            ValidateHoanTatTraSP();
         }
 
         private void CreateNewId()
@@ -223,25 +242,17 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
 
-        private void UpdateData()
+        private void ValidateHoanTatTraSP()
         {
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-            data.GhiChu = tbGhiChu.Text;
-
-            data.UpdateBy = "";
-            data.UpdateDate = DateTime.Now;
-
-            if (HoaDonBus.Update(data))
+            if (lvTraSP.Items.Count > 0)
             {
-                this.Dispose();
+                pbHoanTatTraSP.Enabled = true;
+                pbHoanTatTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
             }
             else
             {
-                if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT,
-                    Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                {
-                    this.Dispose();
-                }
+                pbHoanTatTraSP.Enabled = false;
+                pbHoanTatTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
             }
         }
 
@@ -272,6 +283,22 @@ namespace QuanLyKinhDoanh.Thu
             {
                 lvTraSP.Items[i].SubItems[2].Text = (i + 1).ToString();
             }
+
+            pbTraSP.Enabled = false;
+            pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
+        }
+
+        private bool UpdateData(DTO.HoaDonDetail data)
+        {
+            data.SanPham.SoLuong += data.SoLuong;
+            data.IsSendBack = true;
+
+            if (!SanPhamBus.Update(data.SanPham, FormMain.user) || !HoaDonDetailBus.Update(data))
+            {
+                return false;
+            }
+
+            return true;
         }
         #endregion
 
@@ -300,7 +327,17 @@ namespace QuanLyKinhDoanh.Thu
         {
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                UpdateData();
+                foreach (ListViewItem item in lvTraSP.Items)
+                {
+                    DTO.HoaDonDetail detail = HoaDonDetailBus.GetById(ConvertUtil.ConvertToInt(item.SubItems[1].Text));
+
+                    if (!UpdateData(detail))
+                    {
+                        MessageBox.Show(Constant.MESSAGE_SEND_BACK_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return;
+                    }
+                }
             }
         }
 
@@ -334,7 +371,25 @@ namespace QuanLyKinhDoanh.Thu
 
         private void pbHoanTatTraSP_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show(Constant.MESSAGE_SEND_BACK_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                foreach (ListViewItem item in lvTraSP.Items)
+                {
+                    int id = ConvertUtil.ConvertToInt(item.SubItems[1].Text);
+                    DTO.HoaDonDetail data = HoaDonDetailBus.GetById(id);
 
+                    if (UpdateData(data))
+                    {
+                        MessageBox.Show(Constant.MESSAGE_SEND_BACK_SUCCESS, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_DELETE_DATA, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void pbHoanTatTraSP_MouseEnter(object sender, EventArgs e)
@@ -442,6 +497,8 @@ namespace QuanLyKinhDoanh.Thu
         private void pbTraSP_Click(object sender, EventArgs e)
         {
             SendBack();
+
+            ValidateHoanTatTraSP();
         }
 
         private void pbTraSP_MouseEnter(object sender, EventArgs e)
@@ -451,8 +508,19 @@ namespace QuanLyKinhDoanh.Thu
 
         private void pbTraSP_MouseLeave(object sender, EventArgs e)
         {
-            pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
+            if (pbTraSP.Enabled)
+            {
+                pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
+            }
         }
         #endregion
+
+        private void lvThongTinTraSP_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (lvThongTinTraSP.Items[e.Index].ForeColor == Color.Red)
+            {
+                e.NewValue = e.CurrentValue;
+            }
+        }
     }
 }

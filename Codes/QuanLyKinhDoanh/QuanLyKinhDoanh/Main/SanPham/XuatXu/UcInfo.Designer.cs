@@ -34,6 +34,8 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbDTDD = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbFax = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbDienThoai = new System.Windows.Forms.TextBox();
@@ -52,8 +54,6 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
-            this.tbDTDD = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -140,6 +140,25 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // tbDTDD
+            // 
+            this.tbDTDD.Location = new System.Drawing.Point(106, 145);
+            this.tbDTDD.MaxLength = 20;
+            this.tbDTDD.Name = "tbDTDD";
+            this.tbDTDD.Size = new System.Drawing.Size(223, 23);
+            this.tbDTDD.TabIndex = 6;
+            this.tbDTDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDTDD_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(49, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "ĐTDĐ:";
             // 
             // tbFax
             // 
@@ -311,24 +330,6 @@
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Ghi chú:";
-            // 
-            // tbDTDD
-            // 
-            this.tbDTDD.Location = new System.Drawing.Point(106, 145);
-            this.tbDTDD.MaxLength = 20;
-            this.tbDTDD.Name = "tbDTDD";
-            this.tbDTDD.Size = new System.Drawing.Size(223, 23);
-            this.tbDTDD.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(49, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "ĐTDĐ:";
             // 
             // UcInfo
             // 

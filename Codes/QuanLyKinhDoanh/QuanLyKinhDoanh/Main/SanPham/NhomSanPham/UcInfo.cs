@@ -110,7 +110,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
             data.Ten = tbTen.Text;
             data.Mota = tbMoTa.Text;
 
-            if (SanPhamGroupBus.Insert(data))
+            if (SanPhamGroupBus.Insert(data, FormMain.user))
             {
                 if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + data.Ma) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                 {
@@ -133,7 +133,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
             data.Ten = tbTen.Text;
             data.Mota = tbMoTa.Text;
 
-            if (SanPhamGroupBus.Update(data))
+            if (SanPhamGroupBus.Update(data, FormMain.user))
             {
                 List<DTO.SanPham> listSP = SanPhamBus.GetListByIdGroup(data.Id);
 
@@ -146,7 +146,7 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
                     dataSP.MaSanPham = data.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 
-                    SanPhamBus.Update(dataSP);
+                    SanPhamBus.Update(dataSP, FormMain.user);
                 }
 
                 this.Dispose();

@@ -35,24 +35,24 @@ namespace BUS
             return KhachHangDao.GetLastData(idGroup);
         }
 
-        public static bool Insert(KhachHang data)
+        public static bool Insert(KhachHang data, User user)
         {
-            return KhachHangDao.Insert(data);
+            return KhachHangDao.Insert(data, user);
         }
 
-        public static bool Delete(KhachHang data)
+        public static bool Delete(KhachHang data, User user)
         {
-            return KhachHangDao.Delete(data);
+            return KhachHangDao.Delete(data, user);
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
-            return KhachHangDao.DeleteList(ids);
+            return KhachHangDao.DeleteList(ids, user);
         }
 
-        public static bool Update(KhachHang data)
+        public static bool Update(KhachHang data, User user)
         {
-            return KhachHangDao.Update(data);
+            return KhachHangDao.Update(data, user);
         }
     }
 }

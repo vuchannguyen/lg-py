@@ -35,24 +35,24 @@ namespace BUS
             return HoaDonDao.GetById(id);
         }
 
-        public static bool Insert(HoaDon data)
+        public static bool Insert(HoaDon data, User user)
         {
-            return HoaDonDao.Insert(data);
+            return HoaDonDao.Insert(data, user);
         }
 
-        public static bool Delete(HoaDon data)
+        public static bool Delete(HoaDon data, User user)
         {
-            return HoaDonDao.Delete(data);
+            return HoaDonDao.Delete(data, user);
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
-            return HoaDonDao.DeleteList(ids);
+            return HoaDonDao.DeleteList(ids, user);
         }
 
-        public static bool Update(HoaDon data)
+        public static bool Update(HoaDon data, User user)
         {
-            return HoaDonDao.Update(data);
+            return HoaDonDao.Update(data, user);
         }
     }
 }

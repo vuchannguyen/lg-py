@@ -136,6 +136,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.DiaChi);
                 lvi.SubItems.Add(data.DienThoai);
+                lvi.SubItems.Add(data.DTDD);
                 lvi.SubItems.Add(data.Fax);
                 lvi.SubItems.Add(data.Email);
 
@@ -229,7 +230,7 @@ namespace QuanLyKinhDoanh
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (XuatXuBus.DeleteList(ids))
+                if (XuatXuBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

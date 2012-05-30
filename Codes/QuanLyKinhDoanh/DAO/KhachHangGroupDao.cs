@@ -81,15 +81,22 @@ namespace DAO
 
         public static bool Delete(KhachHangGroup data)
         {
-            if (data != null)
+            try
             {
-                dbContext.KhachHangGroups.DeleteOnSubmit(data);
-                dbContext.SubmitChanges();
+                if (data != null)
+                {
+                    dbContext.KhachHangGroups.DeleteOnSubmit(data);
+                    dbContext.SubmitChanges();
 
-                return true;
+                    return true;
+                }
+
+                return false;
             }
-
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         public static bool DeleteList(string ids)
