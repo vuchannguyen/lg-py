@@ -36,6 +36,8 @@
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnTopBar = new System.Windows.Forms.Panel();
             this.pnHello = new System.Windows.Forms.Panel();
+            this.lbHuyTaiKhoan = new System.Windows.Forms.Label();
+            this.lbNgay = new System.Windows.Forms.Label();
             this.lbExit = new System.Windows.Forms.Label();
             this.lbAccount = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
-            this.lbNgay = new System.Windows.Forms.Label();
-            this.lbHuyTaiKhoan = new System.Windows.Forms.Label();
             this.pnMain.SuspendLayout();
             this.pnAbout.SuspendLayout();
             this.pnTopBar.SuspendLayout();
@@ -139,6 +139,34 @@
             this.pnHello.Name = "pnHello";
             this.pnHello.Size = new System.Drawing.Size(441, 18);
             this.pnHello.TabIndex = 8;
+            // 
+            // lbHuyTaiKhoan
+            // 
+            this.lbHuyTaiKhoan.AutoSize = true;
+            this.lbHuyTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.lbHuyTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbHuyTaiKhoan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHuyTaiKhoan.ForeColor = System.Drawing.Color.White;
+            this.lbHuyTaiKhoan.Location = new System.Drawing.Point(57, 3);
+            this.lbHuyTaiKhoan.Name = "lbHuyTaiKhoan";
+            this.lbHuyTaiKhoan.Size = new System.Drawing.Size(74, 14);
+            this.lbHuyTaiKhoan.TabIndex = 10;
+            this.lbHuyTaiKhoan.Text = "Hủy tài khoản!";
+            this.lbHuyTaiKhoan.Click += new System.EventHandler(this.lbHuyTaiKhoan_Click);
+            this.lbHuyTaiKhoan.MouseEnter += new System.EventHandler(this.lbHuyTaiKhoan_MouseEnter);
+            this.lbHuyTaiKhoan.MouseLeave += new System.EventHandler(this.lbHuyTaiKhoan_MouseLeave);
+            // 
+            // lbNgay
+            // 
+            this.lbNgay.AutoSize = true;
+            this.lbNgay.BackColor = System.Drawing.Color.Transparent;
+            this.lbNgay.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNgay.ForeColor = System.Drawing.Color.White;
+            this.lbNgay.Location = new System.Drawing.Point(145, 3);
+            this.lbNgay.Name = "lbNgay";
+            this.lbNgay.Size = new System.Drawing.Size(65, 14);
+            this.lbNgay.TabIndex = 9;
+            this.lbNgay.Text = "dd/MM/yyyy";
             // 
             // lbExit
             // 
@@ -366,33 +394,6 @@
             this.pbKhachHang.Click += new System.EventHandler(this.pbKhachHang_Click);
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
-            // 
-            // lbNgay
-            // 
-            this.lbNgay.AutoSize = true;
-            this.lbNgay.BackColor = System.Drawing.Color.Transparent;
-            this.lbNgay.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNgay.ForeColor = System.Drawing.Color.White;
-            this.lbNgay.Location = new System.Drawing.Point(145, 3);
-            this.lbNgay.Name = "lbNgay";
-            this.lbNgay.Size = new System.Drawing.Size(65, 14);
-            this.lbNgay.TabIndex = 9;
-            this.lbNgay.Text = "dd/MM/yyyy";
-            // 
-            // lbHuyTaiKhoan
-            // 
-            this.lbHuyTaiKhoan.AutoSize = true;
-            this.lbHuyTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.lbHuyTaiKhoan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHuyTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.lbHuyTaiKhoan.Location = new System.Drawing.Point(57, 3);
-            this.lbHuyTaiKhoan.Name = "lbHuyTaiKhoan";
-            this.lbHuyTaiKhoan.Size = new System.Drawing.Size(74, 14);
-            this.lbHuyTaiKhoan.TabIndex = 10;
-            this.lbHuyTaiKhoan.Text = "Hủy tài khoản!";
-            this.lbHuyTaiKhoan.Click += new System.EventHandler(this.lbHuyTaiKhoan_Click);
-            this.lbHuyTaiKhoan.MouseEnter += new System.EventHandler(this.lbHuyTaiKhoan_MouseEnter);
-            this.lbHuyTaiKhoan.MouseLeave += new System.EventHandler(this.lbHuyTaiKhoan_MouseLeave);
             // 
             // FormMain
             // 

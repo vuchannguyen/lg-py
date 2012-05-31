@@ -100,6 +100,7 @@ namespace Library
         public const string TOOLTIP_BAN_THEM = "Nhập sản phẩm vào kho hàng để bán";
 
         public const string TOOLTIP_TRA_SP_CONGNO = "Trả SP và hủy hóa đơn";
+        public const string TOOLTIP_XUAT_KHO = "Xuất SP tồn trong kho";
 
         public const string DEFAULT_STATUS_SP_ALL = "Tất cả";
         public const string DEFAULT_STATUS_SP_NOT_ZERO = "Còn";

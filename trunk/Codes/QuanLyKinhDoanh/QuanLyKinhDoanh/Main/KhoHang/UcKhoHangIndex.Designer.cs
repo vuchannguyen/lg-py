@@ -33,13 +33,18 @@
             this.lbNhapKho = new System.Windows.Forms.Label();
             this.pbNhapKho = new System.Windows.Forms.PictureBox();
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
+            this.lbXuatKho = new System.Windows.Forms.Label();
+            this.pbXuatKho = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.lbXuatKho);
+            this.pnSelect.Controls.Add(this.pbXuatKho);
             this.pnSelect.Controls.Add(this.lbKhoHang);
             this.pnSelect.Controls.Add(this.lbNhapKho);
             this.pnSelect.Controls.Add(this.pbNhapKho);
@@ -97,6 +102,30 @@
             this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
             this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);
             // 
+            // lbXuatKho
+            // 
+            this.lbXuatKho.AutoSize = true;
+            this.lbXuatKho.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbXuatKho.ForeColor = System.Drawing.Color.Gray;
+            this.lbXuatKho.Location = new System.Drawing.Point(241, 120);
+            this.lbXuatKho.Name = "lbXuatKho";
+            this.lbXuatKho.Size = new System.Drawing.Size(79, 16);
+            this.lbXuatKho.TabIndex = 8;
+            this.lbXuatKho.Text = "XUẤT KHO";
+            // 
+            // pbXuatKho
+            // 
+            this.pbXuatKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXuatKho.Location = new System.Drawing.Point(231, 10);
+            this.pbXuatKho.Name = "pbXuatKho";
+            this.pbXuatKho.Size = new System.Drawing.Size(100, 100);
+            this.pbXuatKho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbXuatKho.TabIndex = 7;
+            this.pbXuatKho.TabStop = false;
+            this.pbXuatKho.Click += new System.EventHandler(this.pbXuatKho_Click);
+            this.pbXuatKho.MouseEnter += new System.EventHandler(this.pbXuatKho_MouseEnter);
+            this.pbXuatKho.MouseLeave += new System.EventHandler(this.pbXuatKho_MouseLeave);
+            // 
             // UcKhoHangIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -111,6 +140,7 @@
             this.pnSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,5 +152,7 @@
         private System.Windows.Forms.Label lbNhapKho;
         private System.Windows.Forms.PictureBox pbNhapKho;
         private System.Windows.Forms.PictureBox pbKhoHang;
+        private System.Windows.Forms.Label lbXuatKho;
+        private System.Windows.Forms.PictureBox pbXuatKho;
     }
 }
