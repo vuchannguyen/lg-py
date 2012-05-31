@@ -70,7 +70,7 @@ namespace QuanLyKinhDoanh.Chi
             tbSearch.Text = Constant.SEARCH_CHI_TIP;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                    string.Empty, sortOrder, 1);
+                    sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
             this.Visible = true;
@@ -148,7 +148,7 @@ namespace QuanLyKinhDoanh.Chi
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
-                lvi.SubItems.Add(data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
@@ -247,7 +247,7 @@ namespace QuanLyKinhDoanh.Chi
                 if (HoaDonBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                        string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                        sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
@@ -347,8 +347,17 @@ namespace QuanLyKinhDoanh.Chi
                 if (lvThongTin.SelectedItems.Count > 0)
                 {
                     int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+                    DTO.HoaDon data = HoaDonBus.GetById(id);
 
-                    UserControl uc = new UcDetail(HoaDonBus.GetById(id));
+                    if (data.IdType == Constant.ID_TYPE_MUA && FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_DO_NOT_HAVE_PERMISSION, Constant.CAPTION_ERROR,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return;
+                    }
+
+                    UserControl uc = new UcDetail(data);
                     this.Controls.Add(uc);
                 }
             }
@@ -373,7 +382,7 @@ namespace QuanLyKinhDoanh.Chi
             else
             {
                 RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                    string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -473,7 +482,7 @@ namespace QuanLyKinhDoanh.Chi
             sortOrder = Constant.SORT_ASCENDING;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 

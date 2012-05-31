@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
@@ -41,7 +42,7 @@
             this.chMaHD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNguoiNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chKhachHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chNgayTạo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chConLai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,6 +71,7 @@
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnQuanLy.SuspendLayout();
@@ -160,7 +162,7 @@
             this.chMaHD,
             this.chNguoiNhap,
             this.chKhachHang,
-            this.chNgayGio,
+            this.chNgayTạo,
             this.chGhiChu,
             this.chConLai,
             this.chThanhTien});
@@ -211,11 +213,11 @@
             this.chKhachHang.Text = "Khách hàng";
             this.chKhachHang.Width = 166;
             // 
-            // chNgayGio
+            // chNgayTạo
             // 
-            this.chNgayGio.Text = "Ngày giờ";
-            this.chNgayGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNgayGio.Width = 146;
+            this.chNgayTạo.Text = "Ngày tạo";
+            this.chNgayTạo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chNgayTạo.Width = 146;
             // 
             // chGhiChu
             // 
@@ -561,7 +563,7 @@
         private System.Windows.Forms.ListView lvThongTin;
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chMaHD;
-        private System.Windows.Forms.ColumnHeader chNgayGio;
+        private System.Windows.Forms.ColumnHeader chNgayTạo;
         private System.Windows.Forms.ColumnHeader chNguoiNhap;
         private System.Windows.Forms.ColumnHeader chKhachHang;
         private System.Windows.Forms.ColumnHeader chGhiChu;
@@ -596,5 +598,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFilter;
         private System.Windows.Forms.ColumnHeader chThanhTien;
+        private System.Windows.Forms.ToolTip ttDetail;
     }
 }

@@ -203,12 +203,6 @@
     <Compile Include="Main\KhoHang\NhapKho\UcNhapKho.Designer.cs">
       <DependentUpon>UcNhapKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\GiaoDich\UcGiaoDichIndex.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\GiaoDich\UcGiaoDichIndex.Designer.cs">
-      <DependentUpon>UcGiaoDichIndex.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main\KhoHang\UcKhoHangIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -257,10 +251,10 @@
     <Compile Include="Main\SanPham\UcSanPhamIndex.Designer.cs">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\GiaoDich\ThanhToan\UcThanhToan.cs">
+    <Compile Include="ThanhToan\UcThanhToan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\GiaoDich\ThanhToan\UcThanhToan.Designer.cs">
+    <Compile Include="ThanhToan\UcThanhToan.Designer.cs">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\BaoCao\Thu\UcThu.cs">
@@ -292,6 +286,12 @@
     </Compile>
     <Compile Include="Main\SanPham\XuatXu\UcXuatXu.Designer.cs">
       <DependentUpon>UcXuatXu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\User\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\User\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\User\UcInfo.cs">
       <SubType>UserControl</SubType>
@@ -370,9 +370,6 @@
     <EmbeddedResource Include="Main\KhoHang\NhapKho\UcNhapKho.resx">
       <DependentUpon>UcNhapKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\GiaoDich\UcGiaoDichIndex.resx">
-      <DependentUpon>UcGiaoDichIndex.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\UcKhoHangIndex.resx">
       <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
     </EmbeddedResource>
@@ -397,7 +394,7 @@
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\GiaoDich\ThanhToan\UcThanhToan.resx">
+    <EmbeddedResource Include="ThanhToan\UcThanhToan.resx">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Thu\UcThu.resx">
@@ -414,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\XuatXu\UcXuatXu.resx">
       <DependentUpon>UcXuatXu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\User\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\User\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>

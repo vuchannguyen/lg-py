@@ -30,6 +30,12 @@
         {
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbOldPassword = new System.Windows.Forms.TextBox();
+            this.lbOldPassword = new System.Windows.Forms.Label();
+            this.tbConfirmPassword = new System.Windows.Forms.TextBox();
+            this.lbConfirmPassword = new System.Windows.Forms.Label();
+            this.tbDTDD = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbCMND = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbGioiTinh = new System.Windows.Forms.ComboBox();
@@ -41,7 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbGroup = new System.Windows.Forms.ComboBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbPassword = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
             this.pbHoanTat = new System.Windows.Forms.PictureBox();
@@ -73,11 +79,17 @@
             this.pnInfo.ForeColor = System.Drawing.Color.Black;
             this.pnInfo.Location = new System.Drawing.Point(3, 47);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(580, 480);
+            this.pnInfo.Size = new System.Drawing.Size(650, 480);
             this.pnInfo.TabIndex = 45;
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbOldPassword);
+            this.gbInfo.Controls.Add(this.lbOldPassword);
+            this.gbInfo.Controls.Add(this.tbConfirmPassword);
+            this.gbInfo.Controls.Add(this.lbConfirmPassword);
+            this.gbInfo.Controls.Add(this.tbDTDD);
+            this.gbInfo.Controls.Add(this.label7);
             this.gbInfo.Controls.Add(this.tbCMND);
             this.gbInfo.Controls.Add(this.label6);
             this.gbInfo.Controls.Add(this.cbGioiTinh);
@@ -89,7 +101,7 @@
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.cbGroup);
             this.gbInfo.Controls.Add(this.tbPassword);
-            this.gbInfo.Controls.Add(this.label4);
+            this.gbInfo.Controls.Add(this.lbPassword);
             this.gbInfo.Controls.Add(this.panel12);
             this.gbInfo.Controls.Add(this.panel8);
             this.gbInfo.Controls.Add(this.tbTen);
@@ -98,12 +110,70 @@
             this.gbInfo.Controls.Add(this.tbGhiChu);
             this.gbInfo.Controls.Add(this.lbTen);
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
-            this.gbInfo.Location = new System.Drawing.Point(7, 3);
+            this.gbInfo.Location = new System.Drawing.Point(5, 5);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(562, 470);
+            this.gbInfo.Size = new System.Drawing.Size(640, 470);
             this.gbInfo.TabIndex = 15;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // tbOldPassword
+            // 
+            this.tbOldPassword.Location = new System.Drawing.Point(420, 105);
+            this.tbOldPassword.MaxLength = 20;
+            this.tbOldPassword.Name = "tbOldPassword";
+            this.tbOldPassword.Size = new System.Drawing.Size(186, 23);
+            this.tbOldPassword.TabIndex = 8;
+            this.tbOldPassword.UseSystemPasswordChar = true;
+            this.tbOldPassword.TextChanged += new System.EventHandler(this.tbOldPassword_TextChanged);
+            // 
+            // lbOldPassword
+            // 
+            this.lbOldPassword.AutoSize = true;
+            this.lbOldPassword.ForeColor = System.Drawing.Color.Black;
+            this.lbOldPassword.Location = new System.Drawing.Point(320, 108);
+            this.lbOldPassword.Name = "lbOldPassword";
+            this.lbOldPassword.Size = new System.Drawing.Size(94, 16);
+            this.lbOldPassword.TabIndex = 114;
+            this.lbOldPassword.Text = "*Mật khẩu cũ:";
+            // 
+            // tbConfirmPassword
+            // 
+            this.tbConfirmPassword.Location = new System.Drawing.Point(420, 145);
+            this.tbConfirmPassword.MaxLength = 20;
+            this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.Size = new System.Drawing.Size(186, 23);
+            this.tbConfirmPassword.TabIndex = 12;
+            this.tbConfirmPassword.UseSystemPasswordChar = true;
+            this.tbConfirmPassword.TextChanged += new System.EventHandler(this.tbConfirmPassword_TextChanged);
+            // 
+            // lbConfirmPassword
+            // 
+            this.lbConfirmPassword.AutoSize = true;
+            this.lbConfirmPassword.ForeColor = System.Drawing.Color.Black;
+            this.lbConfirmPassword.Location = new System.Drawing.Point(338, 148);
+            this.lbConfirmPassword.Name = "lbConfirmPassword";
+            this.lbConfirmPassword.Size = new System.Drawing.Size(76, 16);
+            this.lbConfirmPassword.TabIndex = 112;
+            this.lbConfirmPassword.Text = "*Xác nhận:";
+            // 
+            // tbDTDD
+            // 
+            this.tbDTDD.Location = new System.Drawing.Point(420, 225);
+            this.tbDTDD.MaxLength = 20;
+            this.tbDTDD.Name = "tbDTDD";
+            this.tbDTDD.Size = new System.Drawing.Size(186, 23);
+            this.tbDTDD.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(363, 228);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 16);
+            this.label7.TabIndex = 110;
+            this.label7.Text = "ĐTDĐ:";
             // 
             // tbCMND
             // 
@@ -111,8 +181,8 @@
             this.tbCMND.Location = new System.Drawing.Point(129, 185);
             this.tbCMND.MaxLength = 10;
             this.tbCMND.Name = "tbCMND";
-            this.tbCMND.Size = new System.Drawing.Size(223, 23);
-            this.tbCMND.TabIndex = 5;
+            this.tbCMND.Size = new System.Drawing.Size(186, 23);
+            this.tbCMND.TabIndex = 14;
             this.tbCMND.Enter += new System.EventHandler(this.tbCMND_Enter);
             this.tbCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCMND_KeyPress);
             // 
@@ -133,18 +203,18 @@
             this.cbGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbGioiTinh.Location = new System.Drawing.Point(475, 25);
+            this.cbGioiTinh.Location = new System.Drawing.Point(533, 25);
             this.cbGioiTinh.Name = "cbGioiTinh";
             this.cbGioiTinh.Size = new System.Drawing.Size(73, 24);
-            this.cbGioiTinh.TabIndex = 1;
+            this.cbGioiTinh.TabIndex = 2;
             // 
             // tbDienThoai
             // 
             this.tbDienThoai.Location = new System.Drawing.Point(130, 225);
             this.tbDienThoai.MaxLength = 20;
             this.tbDienThoai.Name = "tbDienThoai";
-            this.tbDienThoai.Size = new System.Drawing.Size(223, 23);
-            this.tbDienThoai.TabIndex = 6;
+            this.tbDienThoai.Size = new System.Drawing.Size(185, 23);
+            this.tbDienThoai.TabIndex = 16;
             // 
             // label3
             // 
@@ -158,18 +228,18 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(130, 265);
+            this.tbEmail.Location = new System.Drawing.Point(129, 265);
             this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(312, 23);
-            this.tbEmail.TabIndex = 7;
+            this.tbEmail.Size = new System.Drawing.Size(477, 23);
+            this.tbEmail.TabIndex = 20;
             this.tbEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEmail_KeyPress);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(77, 268);
+            this.label5.Location = new System.Drawing.Point(76, 268);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 102;
@@ -180,8 +250,8 @@
             this.tbUserName.Location = new System.Drawing.Point(129, 105);
             this.tbUserName.MaxLength = 20;
             this.tbUserName.Name = "tbUserName";
-            this.tbUserName.Size = new System.Drawing.Size(224, 23);
-            this.tbUserName.TabIndex = 3;
+            this.tbUserName.Size = new System.Drawing.Size(186, 23);
+            this.tbUserName.TabIndex = 6;
             this.tbUserName.TextChanged += new System.EventHandler(this.tbUserName_TextChanged);
             this.tbUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbUserName_KeyPress);
             // 
@@ -201,35 +271,35 @@
             this.cbGroup.FormattingEnabled = true;
             this.cbGroup.Location = new System.Drawing.Point(129, 65);
             this.cbGroup.Name = "cbGroup";
-            this.cbGroup.Size = new System.Drawing.Size(155, 24);
-            this.cbGroup.TabIndex = 2;
+            this.cbGroup.Size = new System.Drawing.Size(186, 24);
+            this.cbGroup.TabIndex = 4;
             // 
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(129, 145);
             this.tbPassword.MaxLength = 20;
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(224, 23);
-            this.tbPassword.TabIndex = 4;
+            this.tbPassword.Size = new System.Drawing.Size(186, 23);
+            this.tbPassword.TabIndex = 10;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             this.tbPassword.Enter += new System.EventHandler(this.tbPassword_Enter);
             // 
-            // label4
+            // lbPassword
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(44, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
-            this.label4.TabIndex = 97;
-            this.label4.Text = "* Mật khẩu:";
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.ForeColor = System.Drawing.Color.Black;
+            this.lbPassword.Location = new System.Drawing.Point(20, 148);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(102, 16);
+            this.lbPassword.TabIndex = 97;
+            this.lbPassword.Text = "*Mật khẩu mới:";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(435, 393);
+            this.panel12.Location = new System.Drawing.Point(491, 393);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 93;
@@ -258,7 +328,7 @@
             // 
             this.panel8.Controls.Add(this.label39);
             this.panel8.Controls.Add(this.pbHuy);
-            this.panel8.Location = new System.Drawing.Point(64, 393);
+            this.panel8.Location = new System.Drawing.Point(63, 393);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(70, 70);
             this.panel8.TabIndex = 92;
@@ -288,7 +358,7 @@
             this.tbTen.Location = new System.Drawing.Point(129, 25);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
-            this.tbTen.Size = new System.Drawing.Size(313, 23);
+            this.tbTen.Size = new System.Drawing.Size(382, 23);
             this.tbTen.TabIndex = 0;
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
@@ -318,8 +388,8 @@
             this.tbGhiChu.MaxLength = 200;
             this.tbGhiChu.Multiline = true;
             this.tbGhiChu.Name = "tbGhiChu";
-            this.tbGhiChu.Size = new System.Drawing.Size(419, 66);
-            this.tbGhiChu.TabIndex = 8;
+            this.tbGhiChu.Size = new System.Drawing.Size(477, 66);
+            this.tbGhiChu.TabIndex = 22;
             // 
             // lbTen
             // 
@@ -411,7 +481,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.PictureBox pbHoanTat;
@@ -430,6 +500,12 @@
         private System.Windows.Forms.ComboBox cbGioiTinh;
         private System.Windows.Forms.TextBox tbCMND;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbDTDD;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbConfirmPassword;
+        private System.Windows.Forms.Label lbConfirmPassword;
+        private System.Windows.Forms.TextBox tbOldPassword;
+        private System.Windows.Forms.Label lbOldPassword;
 
     }
 }

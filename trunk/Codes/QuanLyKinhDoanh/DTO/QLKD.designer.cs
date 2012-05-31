@@ -3848,6 +3848,8 @@ namespace DTO
 		
 		private string _DienThoai;
 		
+		private string _DTDD;
+		
 		private string _Email;
 		
 		private string _GhiChu;
@@ -3886,6 +3888,8 @@ namespace DTO
     partial void OnGioiTinhChanged();
     partial void OnDienThoaiChanging(string value);
     partial void OnDienThoaiChanged();
+    partial void OnDTDDChanging(string value);
+    partial void OnDTDDChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
     partial void OnGhiChuChanging(string value);
@@ -4069,6 +4073,26 @@ namespace DTO
 					this._DienThoai = value;
 					this.SendPropertyChanged("DienThoai");
 					this.OnDienThoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DTDD", DbType="NVarChar(20)")]
+		public string DTDD
+		{
+			get
+			{
+				return this._DTDD;
+			}
+			set
+			{
+				if ((this._DTDD != value))
+				{
+					this.OnDTDDChanging(value);
+					this.SendPropertyChanging();
+					this._DTDD = value;
+					this.SendPropertyChanged("DTDD");
+					this.OnDTDDChanged();
 				}
 			}
 		}

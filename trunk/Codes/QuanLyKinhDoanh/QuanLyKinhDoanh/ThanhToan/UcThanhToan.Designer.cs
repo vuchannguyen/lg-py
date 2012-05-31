@@ -338,6 +338,7 @@
             this.tbNguoiBan.ReadOnly = true;
             this.tbNguoiBan.Size = new System.Drawing.Size(126, 23);
             this.tbNguoiBan.TabIndex = 2;
+            this.tbNguoiBan.MouseEnter += new System.EventHandler(this.tbNguoiBan_MouseEnter);
             // 
             // lbMa
             // 

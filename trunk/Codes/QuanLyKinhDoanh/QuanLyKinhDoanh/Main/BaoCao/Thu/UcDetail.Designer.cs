@@ -168,11 +168,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(249, 30);
+            this.label6.Location = new System.Drawing.Point(250, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 150;
-            this.label6.Text = "Ngày giờ:";
+            this.label6.Text = "Ngày tạo:";
             // 
             // lbGhiChu
             // 
@@ -239,6 +239,7 @@
             this.lbNguoiBan.Size = new System.Drawing.Size(84, 18);
             this.lbNguoiBan.TabIndex = 134;
             this.lbNguoiBan.Text = "Người bán";
+            this.lbNguoiBan.MouseEnter += new System.EventHandler(this.lbNguoiBan_MouseEnter);
             // 
             // label12
             // 

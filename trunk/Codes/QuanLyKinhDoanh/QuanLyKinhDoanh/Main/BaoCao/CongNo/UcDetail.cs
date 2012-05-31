@@ -77,7 +77,7 @@ namespace QuanLyKinhDoanh.CongNo
             lbMaHD.Text = data.MaHoaDon;
             lbNguoiBan.Text = dataUser == null ? string.Empty : dataUser.UserName;
             lbKhachHang.Text = dataKH == null ? string.Empty : (dataKH.MaKhachHang + Constant.SYMBOL_LINK_STRING + dataKH.Ten);
-            lbNgayGio.Text = data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            lbNgayGio.Text = data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
             lbGhiChu.Text = data.GhiChu;
 
             foreach (DTO.HoaDonDetail detail in listHoaDonDetail)
@@ -140,6 +140,20 @@ namespace QuanLyKinhDoanh.CongNo
             {
                 e.NewWidth = 0;
                 e.Cancel = true;
+            }
+        }
+
+        private void lbNguoiBan_MouseEnter(object sender, EventArgs e)
+        {
+            if (dataUser != null)
+            {
+                ttDetail.SetToolTip(lbNguoiBan, string.Format(Constant.TOOLTIP_DETAIL_USER,
+                    dataUser.Ten, dataUser.GioiTinh, dataUser.UserGroup.Ten, dataUser.UserName,
+                    dataUser.CMND, dataUser.DienThoai, dataUser.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
             }
         }
     }

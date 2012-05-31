@@ -39,6 +39,16 @@ namespace QuanLyKinhDoanh
             LoadResource();
 
             pnSelect.Location = CommonFunc.SetWidthCenter(this.Size, pnSelect.Size, Constant.DEFAULT_TOP_HEIGHT);
+
+            InitPermission();
+        }
+
+        private void InitPermission()
+        {
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                CommonFunc.NewControl(this.Controls, ref uc, new UcKhoHang());
+            }
         }
 
         private void pbNhapKho_Click(object sender, EventArgs e)

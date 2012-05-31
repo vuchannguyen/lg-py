@@ -79,8 +79,12 @@ namespace DAO
                     sortSQL += "HoaDon.User.UserName " + sortOrder;
                     break;
 
-                case "Ngày giờ":
+                case "Ngày tạo":
                     sortSQL += "HoaDon.CreateDate " + sortOrder;
+                    break;
+
+                case "Ngày cập nhật":
+                    sortSQL += "HoaDon.UpdateDate " + sortOrder;
                     break;
 
                 case "SL":
@@ -104,7 +108,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "HoaDon.CreateDate " + sortOrder;
+                    sortSQL += "HoaDon.MaHoaDon " + sortOrder;
                     break;
             }
 

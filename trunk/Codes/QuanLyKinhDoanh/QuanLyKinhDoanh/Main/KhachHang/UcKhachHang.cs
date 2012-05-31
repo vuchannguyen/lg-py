@@ -73,12 +73,22 @@ namespace QuanLyKinhDoanh
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
+            InitPermission();
+
             this.Visible = true;
         }
 
 
 
         #region Function
+        private void InitPermission()
+        {
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                pnXoa.Visible = false;
+            }
+        }
+
         private void uc_Disposed(object sender, EventArgs e)
         {
             tbSearch.Text = Constant.SEARCH_KHACHHANG_TIP;

@@ -176,6 +176,7 @@
       <Column Name="CMND" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DienThoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DTDD" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="CreateBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />

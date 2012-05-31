@@ -72,12 +72,23 @@ namespace QuanLyKinhDoanh
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
+            InitPermission();
+
             this.Visible = true;
         }
 
 
 
         #region Function
+        private void InitPermission()
+        {
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                pnThem.Visible = false;
+                pnXoa.Visible = false;
+            }
+        }
+
         private void uc_Disposed(object sender, EventArgs e)
         {
             tbSearch.Text = Constant.SEARCH_USER_TIP;
@@ -138,6 +149,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.UserName);
                 lvi.SubItems.Add(data.DienThoai);
+                lvi.SubItems.Add(data.DTDD);
                 lvi.SubItems.Add(data.Email);
 
                 lvThongTin.Items.Add(lvi);
@@ -197,6 +209,50 @@ namespace QuanLyKinhDoanh
                 pbNextPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_NEXT_PAGE);
             }
         }
+
+        private bool ValidateDeletePermission(DTO.User data)
+        {
+            if (data.Id == FormMain.user.Id)
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_SELF_DESTRUCTION, Constant.CAPTION_WARNING,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return false;
+            }
+            else if (data.IdGroup == Constant.ID_GROUP_ADMIN &&
+                FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN)
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_PROFILE_ADMIN, Constant.CAPTION_ERROR,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ValidateEditPermission(DTO.User data)
+        {
+            if (data.IdGroup == Constant.ID_GROUP_ADMIN &&
+                FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN &&
+                data.Id != FormMain.user.Id)
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_PROFILE_ADMIN, Constant.CAPTION_ERROR,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            if (data.IdGroup == Constant.ID_GROUP_ADMIN && FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_DO_NOT_HAVE_PERMISSION, Constant.CAPTION_ERROR,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+
+            return true;
+        }
         #endregion
 
 
@@ -227,6 +283,14 @@ namespace QuanLyKinhDoanh
 
                 foreach (ListViewItem item in lvThongTin.CheckedItems)
                 {
+                    int id = ConvertUtil.ConvertToInt(item.SubItems[1].Text);
+                    DTO.User data = UserBus.GetById(id);
+
+                    if (!ValidateDeletePermission(data))
+                    {
+                        return;
+                    }
+
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
@@ -252,10 +316,14 @@ namespace QuanLyKinhDoanh
         private void pbSua_Click(object sender, EventArgs e)
         {
             int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+            DTO.User dataEdit = UserBus.GetById(id);
 
-            uc = new UcInfo(UserBus.GetById(id));
-            uc.Disposed += new EventHandler(uc_Disposed);
-            this.Controls.Add(uc);
+            if (ValidateEditPermission(dataEdit))
+            {
+                uc = new UcInfo(dataEdit);
+                uc.Disposed += new EventHandler(uc_Disposed);
+                this.Controls.Add(uc);
+            }
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
@@ -274,12 +342,7 @@ namespace QuanLyKinhDoanh
         #region Controls
         private void lvThongTin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (lvThongTin.SelectedIndices.Count > 0)
-            //{
-            //    int n = ConvertUtil.ConvertToInt(lvThongTin.SelectedIndices[0]);
 
-            //    lvThongTin.Items[n].Checked = !lvThongTin.Items[n].Checked;
-            //}
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
@@ -323,6 +386,20 @@ namespace QuanLyKinhDoanh
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
+        }
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(UserBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)

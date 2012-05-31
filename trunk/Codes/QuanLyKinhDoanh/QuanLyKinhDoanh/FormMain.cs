@@ -97,6 +97,7 @@ namespace QuanLyKinhDoanh
             {
                 this.Visible = true;
 
+                lbNgay.Text = DateTime.Now.ToString(Constant.DEFAULT_DATE_FORMAT);
                 lbAccount.Text = user.UserName;
 
                 pbThanhToan_Click(sender, e);
@@ -419,6 +420,16 @@ namespace QuanLyKinhDoanh
             }
         }
 
+        private void Exit()
+        {
+            this.Visible = false;
+            user = null;
+
+            FormLogin frm = new FormLogin();
+            frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
+            frm.ShowDialog();
+        }
+
         private void lbExit_MouseEnter(object sender, EventArgs e)
         {
             lbExit.ForeColor = Color.Red;
@@ -431,12 +442,36 @@ namespace QuanLyKinhDoanh
 
         private void lbExit_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            user = null;
+            if (MessageBox.Show(Constant.MESSAGE_EXIT, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Exit();
+            }
+        }
 
-            FormLogin frm = new FormLogin();
-            frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
-            frm.ShowDialog();
+        private void lbHuyTaiKhoan_MouseEnter(object sender, EventArgs e)
+        {
+            lbHuyTaiKhoan.ForeColor = Color.Red;
+        }
+
+        private void lbHuyTaiKhoan_MouseLeave(object sender, EventArgs e)
+        {
+            lbHuyTaiKhoan.ForeColor = Color.White;
+        }
+
+        private void lbHuyTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM_SELF_DESTRUCTION, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (!UserBus.Delete(user, user))
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR, Constant.CAPTION_ERROR,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                Exit();
+            }
         }
     }
 }

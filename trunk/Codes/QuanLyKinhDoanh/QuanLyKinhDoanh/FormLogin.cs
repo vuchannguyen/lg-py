@@ -91,11 +91,15 @@ namespace QuanLyKinhDoanh
                 else
                 {
                     lbError.Text = Constant.MESSAGE_LOGIN_WRONG_PASS;
+
+                    FormMain.user = null;
                 }
             }
             else
             {
                 lbError.Text = Constant.MESSAGE_LOGIN_WRONG_USERNAME;
+
+                FormMain.user = null;
             }
         }
 
