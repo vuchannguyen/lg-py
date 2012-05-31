@@ -107,8 +107,8 @@ namespace Library
         public const string KHOHANG_ICON_KHOHANG_NHAP_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_nhap_index_mouseover.png";
         public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX = @"Resources\KhoHang\icon_khohang_search_index.png";
         public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_search_index_mouseover.png";
-        public const string KHOHANG_ICON_NHOM_SANPHAM_INDEX = @"Resources\KhoHang\icon_nhom_sanpham_index.png";
-        public const string KHOHANG_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_nhom_sanpham_index_mouseover.png";
+        public const string KHOHANG_ICON_XUAT_KHO_INDEX = @"Resources\KhoHang\icon_xuat_kho_index.png";
+        public const string KHOHANG_ICON_XUAT_KHO_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_xuat_kho_index_mouseover.png";
 
         public const string THUCHI_ICON_THUCHI = @"Resources\ThuChi\icon_thuchi.png";
         public const string THUCHI_ICON_THUCHI_MOUSEOVER = @"Resources\ThuChi\icon_thuchi_mouseover.png";

@@ -130,6 +130,18 @@
     <Compile Include="Main\KhoHang\KhoHang\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\KhoHang\XuatKho\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\XuatKho\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhoHang\XuatKho\UcXuatKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\XuatKho\UcXuatKho.Designer.cs">
+      <DependentUpon>UcXuatKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\SanPham\FormPrintPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,10 +263,10 @@
     <Compile Include="Main\SanPham\UcSanPhamIndex.Designer.cs">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThanhToan\UcThanhToan.cs">
+    <Compile Include="Main\ThanhToan\UcThanhToan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ThanhToan\UcThanhToan.Designer.cs">
+    <Compile Include="Main\ThanhToan\UcThanhToan.Designer.cs">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\BaoCao\Thu\UcThu.cs">
@@ -346,6 +358,12 @@
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\XuatKho\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\XuatKho\UcXuatKho.resx">
+      <DependentUpon>UcXuatKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\FormPrintPrice.resx">
       <DependentUpon>FormPrintPrice.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,7 +412,7 @@
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThanhToan\UcThanhToan.resx">
+    <EmbeddedResource Include="Main\ThanhToan\UcThanhToan.resx">
       <DependentUpon>UcThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Thu\UcThu.resx">
