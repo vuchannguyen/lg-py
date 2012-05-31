@@ -38,7 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbTongHD = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbNguoiBan = new System.Windows.Forms.Label();
+            this.lbNguoiNhap = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lvThongTin = new System.Windows.Forms.ListView();
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -97,7 +97,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lbTongHD);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lbNguoiBan);
+            this.groupBox1.Controls.Add(this.lbNguoiNhap);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.lbMaHD);
             this.groupBox1.Controls.Add(this.label1);
@@ -127,11 +127,11 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(249, 30);
+            this.label6.Location = new System.Drawing.Point(250, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 19);
+            this.label6.Size = new System.Drawing.Size(83, 19);
             this.label6.TabIndex = 150;
-            this.label6.Text = "Ngày giờ:";
+            this.label6.Text = "Ngày tạo:";
             // 
             // lbGhiChu
             // 
@@ -176,16 +176,17 @@
             this.label3.TabIndex = 146;
             this.label3.Text = "Tổng HĐ:";
             // 
-            // lbNguoiBan
+            // lbNguoiNhap
             // 
-            this.lbNguoiBan.AutoSize = true;
-            this.lbNguoiBan.ForeColor = System.Drawing.Color.Black;
-            this.lbNguoiBan.Location = new System.Drawing.Point(123, 70);
-            this.lbNguoiBan.MaximumSize = new System.Drawing.Size(500, 0);
-            this.lbNguoiBan.Name = "lbNguoiBan";
-            this.lbNguoiBan.Size = new System.Drawing.Size(84, 18);
-            this.lbNguoiBan.TabIndex = 134;
-            this.lbNguoiBan.Text = "Người bán";
+            this.lbNguoiNhap.AutoSize = true;
+            this.lbNguoiNhap.ForeColor = System.Drawing.Color.Black;
+            this.lbNguoiNhap.Location = new System.Drawing.Point(123, 70);
+            this.lbNguoiNhap.MaximumSize = new System.Drawing.Size(500, 0);
+            this.lbNguoiNhap.Name = "lbNguoiNhap";
+            this.lbNguoiNhap.Size = new System.Drawing.Size(92, 18);
+            this.lbNguoiNhap.TabIndex = 134;
+            this.lbNguoiNhap.Text = "Người nhập";
+            this.lbNguoiNhap.MouseEnter += new System.EventHandler(this.lbNguoiNhap_MouseEnter);
             // 
             // label12
             // 
@@ -389,7 +390,7 @@
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lbNguoiBan;
+        private System.Windows.Forms.Label lbNguoiNhap;
         private System.Windows.Forms.ToolTip ttDetail;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label47;

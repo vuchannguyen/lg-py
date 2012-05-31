@@ -86,7 +86,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             totalMoney = 0;
             totalDiscount = 0;
 
-            tbNguoiBan.Text = string.Empty;
+            tbNguoiBan.Text = FormMain.user.UserName;
             tbGhiChu.Text = string.Empty;
 
             tbSoLuong.Text = "1";
@@ -956,6 +956,20 @@ namespace QuanLyKinhDoanh.GiaoDich
                 ttDetail.SetToolTip(tbTenKH, string.Format(Constant.TOOLTIP_DETAIL_KHACHHANG,
                     dataKH.Ten, dataKH.GioiTinh, dataKH.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT),
                     dataKH.CMND, dataKH.DiaChi, dataKH.DienThoai, dataKH.DTDD, dataKH.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
+            }
+        }
+
+        private void tbNguoiBan_MouseEnter(object sender, EventArgs e)
+        {
+            if (FormMain.user != null)
+            {
+                ttDetail.SetToolTip(tbNguoiBan, string.Format(Constant.TOOLTIP_DETAIL_USER,
+                    FormMain.user.Ten, FormMain.user.GioiTinh, FormMain.user.UserGroup.Ten, FormMain.user.UserName,
+                    FormMain.user.CMND, FormMain.user.DienThoai, FormMain.user.Email));
             }
             else
             {

@@ -50,7 +50,7 @@
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chNgayCapNhat = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGiaNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -248,7 +248,7 @@
             this.chMa,
             this.chSanPham,
             this.chUser,
-            this.chNgayGio,
+            this.chNgayCapNhat,
             this.chSoLuong,
             this.chDVT,
             this.chGiaNhap,
@@ -303,11 +303,11 @@
             this.chUser.Text = "Người nhập";
             this.chUser.Width = 106;
             // 
-            // chNgayGio
+            // chNgayCapNhat
             // 
-            this.chNgayGio.Text = "Ngày giờ";
-            this.chNgayGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNgayGio.Width = 152;
+            this.chNgayCapNhat.Text = "Ngày cập nhật";
+            this.chNgayCapNhat.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chNgayCapNhat.Width = 152;
             // 
             // chSoLuong
             // 
@@ -611,7 +611,7 @@
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chSanPham;
         private System.Windows.Forms.ColumnHeader chUser;
-        private System.Windows.Forms.ColumnHeader chNgayGio;
+        private System.Windows.Forms.ColumnHeader chNgayCapNhat;
         private System.Windows.Forms.ColumnHeader chSoLuong;
         private System.Windows.Forms.ColumnHeader chDVT;
         private System.Windows.Forms.ColumnHeader chGiaNhap;

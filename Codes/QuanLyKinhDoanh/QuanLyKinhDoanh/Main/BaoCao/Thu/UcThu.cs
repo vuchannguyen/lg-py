@@ -70,7 +70,7 @@ namespace QuanLyKinhDoanh.Thu
             tbSearch.Text = Constant.SEARCH_THU_TIP;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                    string.Empty, sortOrder, 1);
+                    sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
             this.Visible = true;
@@ -150,7 +150,7 @@ namespace QuanLyKinhDoanh.Thu
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
                 lvi.SubItems.Add(data.KhachHang == null ? string.Empty :
                     data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten);
-                lvi.SubItems.Add(data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
@@ -249,7 +249,7 @@ namespace QuanLyKinhDoanh.Thu
                 if (HoaDonBus.DeleteList(ids, FormMain.user))
                 {
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                        string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                        sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
@@ -368,7 +368,7 @@ namespace QuanLyKinhDoanh.Thu
             else
             {
                 RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                    string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -468,7 +468,7 @@ namespace QuanLyKinhDoanh.Thu
             sortOrder = Constant.SORT_ASCENDING;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
-                string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 

@@ -59,7 +59,7 @@ namespace QuanLyKinhDoanh.Chi
         private void Init()
         {
             lbMaHD.Text = string.Empty;
-            lbNguoiBan.Text = string.Empty;
+            lbNguoiNhap.Text = string.Empty;
             lbNgayGio.Text = string.Empty;
             lbGhiChu.Text = string.Empty;
             lbTongHD.Text = string.Empty;
@@ -71,8 +71,8 @@ namespace QuanLyKinhDoanh.Chi
             dataUser = data.User;
 
             lbMaHD.Text = data.MaHoaDon;
-            lbNguoiBan.Text = dataUser == null ? string.Empty : dataUser.UserName;
-            lbNgayGio.Text = data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            lbNguoiNhap.Text = dataUser == null ? string.Empty : dataUser.UserName;
+            lbNgayGio.Text = data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
             lbGhiChu.Text = data.GhiChu;
 
             foreach (DTO.HoaDonDetail detail in listHoaDonDetail)
@@ -121,6 +121,20 @@ namespace QuanLyKinhDoanh.Chi
             {
                 e.NewWidth = 0;
                 e.Cancel = true;
+            }
+        }
+
+        private void lbNguoiNhap_MouseEnter(object sender, EventArgs e)
+        {
+            if (dataUser != null)
+            {
+                ttDetail.SetToolTip(lbNguoiNhap, string.Format(Constant.TOOLTIP_DETAIL_USER,
+                    dataUser.Ten, dataUser.GioiTinh, dataUser.UserGroup.Ten, dataUser.UserName,
+                    dataUser.CMND, dataUser.DienThoai, dataUser.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
             }
         }
     }

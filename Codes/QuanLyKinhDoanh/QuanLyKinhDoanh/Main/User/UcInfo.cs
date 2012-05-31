@@ -28,6 +28,9 @@ namespace QuanLyKinhDoanh.User
             if (Init())
             {
                 RefreshData();
+
+                lbOldPassword.Visible = false;
+                tbOldPassword.Visible = false;
             }
             else
             {
@@ -47,17 +50,30 @@ namespace QuanLyKinhDoanh.User
             {
                 tbTen.Text = data.Ten;
                 tbUserName.Text = data.UserName;
-                tbPassword.Text = Constant.DEFAULT_PASSWORD;
+                //tbPassword.Text = Constant.DEFAULT_PASSWORD;
                 tbCMND.Text = data.CMND;
                 tbDienThoai.Text = data.DienThoai;
+                tbDTDD.Text = data.DTDD;
                 tbEmail.Text = data.Email;
                 tbGhiChu.Text = data.GhiChu;
 
                 cbGioiTinh.Text = data.GioiTinh;
                 cbGroup.Text = data.UserGroup.Ten;
 
-                tbUserName.Enabled = false;
-                tbPassword.Enabled = false;
+                cbGroup.Enabled = false;
+                tbUserName.ReadOnly = true;
+
+                if (data.Id != FormMain.user.Id)
+                {
+                    lbOldPassword.Visible = false;
+                    tbOldPassword.Visible = false;
+
+                    lbPassword.Visible = false;
+                    tbPassword.Visible = false;
+
+                    lbConfirmPassword.Visible = false;
+                    tbConfirmPassword.Visible = false;
+                }
             }
             else
             {
@@ -133,19 +149,46 @@ namespace QuanLyKinhDoanh.User
 
         private void ValidateInput()
         {
-            if (!string.IsNullOrEmpty(tbTen.Text) &&
-                !string.IsNullOrEmpty(tbUserName.Text) &&
-                !string.IsNullOrEmpty(tbPassword.Text)
-                )
+            if (!isUpdate)
             {
-                pbHoanTat.Enabled = true;
-                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+                if (!string.IsNullOrEmpty(tbTen.Text) &&
+                !string.IsNullOrEmpty(tbUserName.Text) &&
+                !string.IsNullOrEmpty(tbPassword.Text) &&
+                !string.IsNullOrEmpty(tbConfirmPassword.Text)
+                )
+                {
+                    pbHoanTat.Enabled = true;
+                    pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+
+                    return;
+                }
             }
             else
             {
-                pbHoanTat.Enabled = false;
-                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+                if (!string.IsNullOrEmpty(tbTen.Text) &&
+                !string.IsNullOrEmpty(tbUserName.Text)
+                )
+                {
+                    if (FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN && data.IdGroup != Constant.ID_GROUP_ADMIN)
+                    {
+                        pbHoanTat.Enabled = true;
+                        pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+
+                        return;
+                    }
+
+                    if (FormMain.user.Id == data.Id && !string.IsNullOrEmpty(tbOldPassword.Text))
+                    {
+                        pbHoanTat.Enabled = true;
+                        pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+
+                        return;
+                    }
+                }
             }
+
+            pbHoanTat.Enabled = false;
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
         }
 
         private void InsertData()
@@ -157,6 +200,7 @@ namespace QuanLyKinhDoanh.User
             data.GioiTinh = cbGioiTinh.Text;
             data.CMND = tbCMND.Text;
             data.DienThoai = tbDienThoai.Text;
+            data.DTDD = tbDTDD.Text;
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
 
@@ -179,10 +223,16 @@ namespace QuanLyKinhDoanh.User
             data.Ten = tbTen.Text;
             data.UserGroup = UserGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             //data.UserName = tbUserName.Text;
-            //data.Password = Crypto.EncryptText(tbPassword.Text);
+
+            if (!string.IsNullOrEmpty(tbPassword.Text))
+            {
+                data.Password = Crypto.EncryptText(tbPassword.Text);
+            }
+
             data.GioiTinh = cbGioiTinh.Text;
             data.CMND = tbCMND.Text;
             data.DienThoai = tbDienThoai.Text;
+            data.DTDD = tbDTDD.Text;
             data.Email = tbEmail.Text;
             data.GhiChu = tbGhiChu.Text;
 
@@ -223,13 +273,47 @@ namespace QuanLyKinhDoanh.User
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            if (!isUpdate)
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                InsertData();
-            }
-            else
-            {
-                UpdateData();
+                if (!isUpdate)
+                {
+                    if (tbPassword.Text != tbConfirmPassword.Text)
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_CONFIRM_PASS, Constant.CAPTION_ERROR,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return;
+                    }
+
+                    InsertData();
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(tbPassword.Text) && tbPassword.Text != tbConfirmPassword.Text)
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_CONFIRM_PASS, Constant.CAPTION_ERROR,
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        return;
+                    }
+
+                    if (FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN && data.IdGroup != Constant.ID_GROUP_ADMIN)
+                    {
+                        UpdateData();
+                    }
+                    else
+                    {
+                        if (Crypto.EncryptText(tbOldPassword.Text) != FormMain.user.Password)
+                        {
+                            MessageBox.Show(Constant.MESSAGE_ERROR_VERIFY_OLD_PASS, Constant.CAPTION_ERROR,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            return;
+                        }
+
+                        UpdateData();
+                    }
+                }
             }
         }
 
@@ -288,5 +372,15 @@ namespace QuanLyKinhDoanh.User
             CommonFunc.ValidateSpace(e);
         }
         #endregion
+
+        private void tbConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void tbOldPassword_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
     }
 }

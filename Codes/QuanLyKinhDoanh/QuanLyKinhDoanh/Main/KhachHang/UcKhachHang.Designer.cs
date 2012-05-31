@@ -32,16 +32,16 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnSinhNhat = new System.Windows.Forms.Panel();
             this.lbBirthDay = new System.Windows.Forms.Label();
             this.pbBirthDay = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnThem = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThem = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnSua = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.pbSua = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnXoa = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
@@ -71,13 +71,13 @@
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnSinhNhat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.pnThem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.pnSua.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.pnXoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
             this.pnQuanLy.SuspendLayout();
             this.pnTraCuu.SuspendLayout();
@@ -121,23 +121,23 @@
             // 
             // pnSelect
             // 
-            this.pnSelect.Controls.Add(this.panel1);
-            this.pnSelect.Controls.Add(this.panel2);
-            this.pnSelect.Controls.Add(this.panel3);
-            this.pnSelect.Controls.Add(this.panel4);
+            this.pnSelect.Controls.Add(this.pnSinhNhat);
+            this.pnSelect.Controls.Add(this.pnThem);
+            this.pnSelect.Controls.Add(this.pnSua);
+            this.pnSelect.Controls.Add(this.pnXoa);
             this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(310, 78);
             this.pnSelect.TabIndex = 49;
             // 
-            // panel1
+            // pnSinhNhat
             // 
-            this.panel1.Controls.Add(this.lbBirthDay);
-            this.panel1.Controls.Add(this.pbBirthDay);
-            this.panel1.Location = new System.Drawing.Point(234, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 70);
-            this.panel1.TabIndex = 29;
+            this.pnSinhNhat.Controls.Add(this.lbBirthDay);
+            this.pnSinhNhat.Controls.Add(this.pbBirthDay);
+            this.pnSinhNhat.Location = new System.Drawing.Point(234, 3);
+            this.pnSinhNhat.Name = "pnSinhNhat";
+            this.pnSinhNhat.Size = new System.Drawing.Size(70, 70);
+            this.pnSinhNhat.TabIndex = 29;
             // 
             // lbBirthDay
             // 
@@ -162,14 +162,14 @@
             this.pbBirthDay.MouseEnter += new System.EventHandler(this.pbBirthDay_MouseEnter);
             this.pbBirthDay.MouseLeave += new System.EventHandler(this.pbBirthDay_MouseLeave);
             // 
-            // panel2
+            // pnThem
             // 
-            this.panel2.Controls.Add(this.label24);
-            this.panel2.Controls.Add(this.pbThem);
-            this.panel2.Location = new System.Drawing.Point(6, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(70, 70);
-            this.panel2.TabIndex = 26;
+            this.pnThem.Controls.Add(this.label24);
+            this.pnThem.Controls.Add(this.pbThem);
+            this.pnThem.Location = new System.Drawing.Point(6, 3);
+            this.pnThem.Name = "pnThem";
+            this.pnThem.Size = new System.Drawing.Size(70, 70);
+            this.pnThem.TabIndex = 26;
             // 
             // label24
             // 
@@ -193,14 +193,14 @@
             this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
             this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
             // 
-            // panel3
+            // pnSua
             // 
-            this.panel3.Controls.Add(this.label30);
-            this.panel3.Controls.Add(this.pbSua);
-            this.panel3.Location = new System.Drawing.Point(158, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(70, 70);
-            this.panel3.TabIndex = 28;
+            this.pnSua.Controls.Add(this.label30);
+            this.pnSua.Controls.Add(this.pbSua);
+            this.pnSua.Location = new System.Drawing.Point(158, 3);
+            this.pnSua.Name = "pnSua";
+            this.pnSua.Size = new System.Drawing.Size(70, 70);
+            this.pnSua.TabIndex = 28;
             // 
             // label30
             // 
@@ -225,14 +225,14 @@
             this.pbSua.MouseEnter += new System.EventHandler(this.pbSua_MouseEnter);
             this.pbSua.MouseLeave += new System.EventHandler(this.pbSua_MouseLeave);
             // 
-            // panel4
+            // pnXoa
             // 
-            this.panel4.Controls.Add(this.label28);
-            this.panel4.Controls.Add(this.pbXoa);
-            this.panel4.Location = new System.Drawing.Point(82, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(70, 70);
-            this.panel4.TabIndex = 27;
+            this.pnXoa.Controls.Add(this.label28);
+            this.pnXoa.Controls.Add(this.pbXoa);
+            this.pnXoa.Location = new System.Drawing.Point(82, 3);
+            this.pnXoa.Name = "pnXoa";
+            this.pnXoa.Size = new System.Drawing.Size(70, 70);
+            this.pnXoa.TabIndex = 27;
             // 
             // label28
             // 
@@ -500,17 +500,17 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnSinhNhat.ResumeLayout(false);
+            this.pnSinhNhat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnThem.ResumeLayout(false);
+            this.pnThem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnSua.ResumeLayout(false);
+            this.pnSua.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnXoa.ResumeLayout(false);
+            this.pnXoa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
             this.pnQuanLy.ResumeLayout(false);
             this.pnTraCuu.ResumeLayout(false);
@@ -532,13 +532,13 @@
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.PictureBox pbTitle;
         private System.Windows.Forms.Panel pnSelect;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnThem;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbThem;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnSua;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.PictureBox pbSua;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnXoa;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.PictureBox pbXoa;
         private System.Windows.Forms.Panel pnQuanLy;
@@ -563,7 +563,7 @@
         private System.Windows.Forms.ColumnHeader chTichLuy;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chMaKH;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnSinhNhat;
         private System.Windows.Forms.Label lbBirthDay;
         private System.Windows.Forms.PictureBox pbBirthDay;
         private System.Windows.Forms.ColumnHeader chDOB;

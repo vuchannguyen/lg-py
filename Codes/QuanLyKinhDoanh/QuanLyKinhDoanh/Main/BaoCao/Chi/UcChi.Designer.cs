@@ -38,7 +38,7 @@
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMaHD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNguoiNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chNgayGio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chNgayTao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
@@ -136,7 +136,7 @@
             this.chSTT,
             this.chMaHD,
             this.chNguoiNhap,
-            this.chNgayGio,
+            this.chNgayTao,
             this.chGhiChu,
             this.chTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -183,11 +183,11 @@
             this.chNguoiNhap.Text = "Người nhập";
             this.chNguoiNhap.Width = 143;
             // 
-            // chNgayGio
+            // chNgayTao
             // 
-            this.chNgayGio.Text = "Ngày giờ";
-            this.chNgayGio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chNgayGio.Width = 149;
+            this.chNgayTao.Text = "Ngày tạo";
+            this.chNgayTao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chNgayTao.Width = 149;
             // 
             // chGhiChu
             // 
@@ -548,7 +548,7 @@
         private System.Windows.Forms.ListView lvThongTin;
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chMaHD;
-        private System.Windows.Forms.ColumnHeader chNgayGio;
+        private System.Windows.Forms.ColumnHeader chNgayTao;
         private System.Windows.Forms.ColumnHeader chNguoiNhap;
         private System.Windows.Forms.ColumnHeader chGhiChu;
         private System.Windows.Forms.ColumnHeader chTien;

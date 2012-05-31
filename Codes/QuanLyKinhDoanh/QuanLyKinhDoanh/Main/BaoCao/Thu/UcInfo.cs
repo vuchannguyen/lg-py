@@ -127,7 +127,7 @@ namespace QuanLyKinhDoanh.Thu
             tbKhachHangTraSP.Text = dataKH == null ? string.Empty : dataKH.MaKhachHang + Constant.SYMBOL_LINK_STRING + dataKH.Ten;
             tbGhiChuTraSP.Text = dataHoaDon.GhiChu;
 
-            lbNgayGioTraSP.Text = dataHoaDon.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            lbNgayGioTraSP.Text = dataHoaDon.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
 
             long totalDiscount = 0;
 

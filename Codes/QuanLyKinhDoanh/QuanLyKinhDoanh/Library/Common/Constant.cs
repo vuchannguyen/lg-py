@@ -56,13 +56,23 @@ namespace Library
         public static Color COLOR_IN_USE = Color.Red;
         public static Color COLOR_CHOOSEN_PRICE = Color.LightBlue;
 
-        public const string TOOLTIP_USER = "Quản lý thông tin User";
-        public const string TOOLTIP_KHACHHANG = "Quản lý thông tin Khách hàng";
-        public const string TOOLTIP_SANPHAM = "Quản lý Sản Phẩm và Nhóm Sản Phẩm";
-        public const string TOOLTIP_MUABAN = "Quản lý giao dịch trong kho hàng";
-        public const string TOOLTIP_KHOHANG = "Tra cứu danh mục sản phẩm đang bán";
-        public const string TOOLTIP_THUCHI = "Quản lý thu nhập hàng ngày";
-        public const string TOOLTIP_THANHTOAN = "Tính hóa đơn cho khách hàng";
+        public const string TOOLTIP_USER = "Quản lý User";
+        public const string TOOLTIP_KHACHHANG = "Quản lý Khách hàng";
+        public const string TOOLTIP_SANPHAM = "Quản lý Sản phẩm";
+        public const string TOOLTIP_KHOHANG = "Quản lý Kho hàng";
+        public const string TOOLTIP_THUCHI = "Quản lý Thu - Chi";
+        public const string TOOLTIP_THANHTOAN = "Thanh toán hóa đơn bán hàng";
+
+        /// <summary>
+        /// Ho ten, Gioi tinh, Nhom, Ten dang nhap, CMND, Dien thoai, Email
+        /// </summary>
+        public const string TOOLTIP_DETAIL_USER = "Họ tên: {0}\n" +
+            "Giới tính: {1}\n" +
+            "Nhóm: {2}\n" +
+            "Tên đăng nhập: {3}\n" +
+            "CMND: {4}\n" +
+            "Điện thoại: {5}\n" +
+            "Email: {6}";
 
         /// <summary>
         /// Ho ten, Gioi tinh, Ngay sinh, CMND, Dia chi, Dien thoai, DTDD, Email
@@ -89,6 +99,8 @@ namespace Library
         public const string TOOLTIP_MUA_THEM_SAN_PHAM = "Thêm sản phẩm mới vào danh mục";
         public const string TOOLTIP_BAN_THEM = "Nhập sản phẩm vào kho hàng để bán";
 
+        public const string TOOLTIP_TRA_SP_CONGNO = "Trả SP và hủy hóa đơn";
+
         public const string DEFAULT_STATUS_SP_ALL = "Tất cả";
         public const string DEFAULT_STATUS_SP_NOT_ZERO = "Còn";
         public const string DEFAULT_STATUS_SP_ZERO = "Hết";
@@ -98,6 +110,9 @@ namespace Library
         public const string SYMBOL_LINK_STRING = " - ";
         public const string SYMBOL_LINK_MONEY = ",";
         public const string SYMBOL_DISCOUNT = "%";
+
+        public const int ID_GROUP_ADMIN = 1;
+        public const int ID_GROUP_USER = 2;
 
         public const int ID_GROUP_KHACH_THUONG = 1;
         public const int ID_GROUP_KHTT = 2;
@@ -189,6 +204,13 @@ namespace Library
         public const string MESSAGE_LOGIN_WRONG_PASS = "Mật khẩu không chính xác!";
 
         public const string MESSAGE_ERROR_TICH_LUY = "Không thể cập nhật Tích lũy của KH!";
+        public const string MESSAGE_ERROR_CONFIRM_PASS = "Mật khẩu mới và xác nhận chưa trùng nhau!";
+        public const string MESSAGE_ERROR_VERIFY_OLD_PASS = "Mật khẩu cũ không chính xác!";
+        public const string MESSAGE_ERROR_DO_NOT_HAVE_PERMISSION = "Tài khoản không có quyền!";
+        public const string MESSAGE_ERROR_EDIT_PROFILE_ADMIN = "Không thể thay đổi thông tin Admin khác!";
+        public const string MESSAGE_ERROR_SELF_DESTRUCTION = "Vui lòng sử dụng chức năng \"Hủy tài khoản\"!";
+
+        public const string MESSAGE_CONFIRM_SELF_DESTRUCTION = "Hủy tài khoản và thoát chương trình?";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";

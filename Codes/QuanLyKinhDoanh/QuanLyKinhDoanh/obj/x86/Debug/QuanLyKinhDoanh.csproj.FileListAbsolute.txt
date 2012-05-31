@@ -61,7 +61,6 @@ C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKin
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhachHang.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhoHang.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcNhapKho.resources
-C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcMuaBanIndex.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhomSanPham.UcInfo.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPham.UcInfo.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPham.resources
@@ -127,3 +126,4 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\Q
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.XuatXu.UcDetail.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormLogin.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.FormLogin.resources
+C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.User.UcDetail.resources

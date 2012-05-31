@@ -91,7 +91,11 @@ namespace DAO
                     sortSQL += "KhachHang.MaKhachHang " + sortOrder;
                     break;
 
-                case "Ngày giờ":
+                case "Ngày tạo":
+                    sortSQL += "CreateDate " + sortOrder;
+                    break;
+
+                case "Ngày cập nhật":
                     sortSQL += "UpdateDate " + sortOrder;
                     break;
 
@@ -108,7 +112,7 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "UpdateDate " + sortOrder;
+                    sortSQL += "MaHoaDon " + sortOrder;
                     break;
             }
 

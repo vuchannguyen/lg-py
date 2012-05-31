@@ -72,7 +72,7 @@ namespace QuanLyKinhDoanh.CongNo
             tbSearch.Text = Constant.SEARCH_CONGNO_TIP;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
-                    string.Empty, sortOrder, 1);
+                    sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
             this.Visible = true;
@@ -152,7 +152,7 @@ namespace QuanLyKinhDoanh.CongNo
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
                 lvi.SubItems.Add(data.KhachHang == null ? string.Empty :
                     data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten);
-                lvi.SubItems.Add(data.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
                 lvi.SubItems.Add(data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
@@ -272,7 +272,7 @@ namespace QuanLyKinhDoanh.CongNo
                     MessageBox.Show(Constant.MESSAGE_SEND_BACK_SUCCESS, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
-                        string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                        sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
                 else
@@ -285,6 +285,8 @@ namespace QuanLyKinhDoanh.CongNo
         private void pbTraSP_MouseEnter(object sender, EventArgs e)
         {
             pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_MOUSEOVER);
+
+            ttDetail.SetToolTip(pbTraSP, Constant.TOOLTIP_TRA_SP_CONGNO);
         }
 
         private void pbTraSP_MouseLeave(object sender, EventArgs e)
@@ -391,7 +393,7 @@ namespace QuanLyKinhDoanh.CongNo
             else
             {
                 RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
-                    string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
         }
@@ -491,7 +493,7 @@ namespace QuanLyKinhDoanh.CongNo
             sortOrder = Constant.SORT_ASCENDING;
 
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, cbFilter.Text, dtpFilter.Value,
-                string.Empty, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+                sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
