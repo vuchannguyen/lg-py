@@ -34,6 +34,8 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbDTDD = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.dtpNgayCap = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.tbCMND = new System.Windows.Forms.TextBox();
@@ -67,8 +69,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
-            this.tbDTDD = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -171,19 +171,38 @@
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
+            // tbDTDD
+            // 
+            this.tbDTDD.Location = new System.Drawing.Point(110, 190);
+            this.tbDTDD.MaxLength = 20;
+            this.tbDTDD.Name = "tbDTDD";
+            this.tbDTDD.Size = new System.Drawing.Size(189, 23);
+            this.tbDTDD.TabIndex = 14;
+            this.tbDTDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDTDD_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(53, 193);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 16);
+            this.label12.TabIndex = 121;
+            this.label12.Text = "ĐTDĐ:";
+            // 
             // dtpNgayCap
             // 
             this.dtpNgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayCap.Location = new System.Drawing.Point(454, 268);
+            this.dtpNgayCap.Location = new System.Drawing.Point(484, 270);
             this.dtpNgayCap.Name = "dtpNgayCap";
-            this.dtpNgayCap.Size = new System.Drawing.Size(150, 23);
+            this.dtpNgayCap.Size = new System.Drawing.Size(120, 23);
             this.dtpNgayCap.TabIndex = 26;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(377, 273);
+            this.label9.Location = new System.Drawing.Point(407, 275);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 16);
             this.label9.TabIndex = 119;
@@ -229,7 +248,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(374, 151);
+            this.label8.Location = new System.Drawing.Point(404, 153);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 16);
             this.label8.TabIndex = 113;
@@ -238,9 +257,9 @@
             // dtpDOB
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDOB.Location = new System.Drawing.Point(454, 148);
+            this.dtpDOB.Location = new System.Drawing.Point(484, 150);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(150, 23);
+            this.dtpDOB.Size = new System.Drawing.Size(120, 23);
             this.dtpDOB.TabIndex = 20;
             // 
             // tbMa
@@ -339,7 +358,7 @@
             this.tbEmail.Location = new System.Drawing.Point(110, 270);
             this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(189, 23);
+            this.tbEmail.Size = new System.Drawing.Size(269, 23);
             this.tbEmail.TabIndex = 18;
             this.tbEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEmail_KeyPress);
             // 
@@ -447,7 +466,7 @@
             this.tbTen.Location = new System.Drawing.Point(110, 70);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
-            this.tbTen.Size = new System.Drawing.Size(304, 23);
+            this.tbTen.Size = new System.Drawing.Size(269, 23);
             this.tbTen.TabIndex = 6;
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
@@ -489,25 +508,6 @@
             this.lbTen.Size = new System.Drawing.Size(61, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Ghi chú:";
-            // 
-            // tbDTDD
-            // 
-            this.tbDTDD.Location = new System.Drawing.Point(110, 190);
-            this.tbDTDD.MaxLength = 20;
-            this.tbDTDD.Name = "tbDTDD";
-            this.tbDTDD.Size = new System.Drawing.Size(189, 23);
-            this.tbDTDD.TabIndex = 14;
-            this.tbDTDD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDTDD_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(53, 193);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 16);
-            this.label12.TabIndex = 121;
-            this.label12.Text = "ĐTDĐ:";
             // 
             // UcInfo
             // 

@@ -55,8 +55,24 @@ namespace DAO
                     sortSQL += "UserGroup.Ten " + sortOrder;
                     break;
 
+                case "Ngày sinh":
+                    sortSQL += "DOB " + sortOrder;
+                    break;
+
+                case "CMND":
+                    sortSQL += "CMND " + sortOrder;
+                    break;
+
+                case "Địa chỉ":
+                    sortSQL += "DiaChi " + sortOrder;
+                    break;
+
                 case "Điện thoại":
                     sortSQL += "DienThoai " + sortOrder;
+                    break;
+
+                case "ĐTDĐ":
+                    sortSQL += "DTDD " + sortOrder;
                     break;
 
                 case "Email":

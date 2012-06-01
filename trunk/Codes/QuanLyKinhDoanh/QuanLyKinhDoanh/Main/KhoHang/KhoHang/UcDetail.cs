@@ -69,6 +69,8 @@ namespace QuanLyKinhDoanh.KhoHang
             lbHieu.Text = string.Empty;
             lbXuatXu.Text = string.Empty;
             lbThoiHan.Text = string.Empty;
+            lbNgayNhap.Text = string.Empty;
+            lbNgayHetHan.Text = string.Empty;
         }
 
         private void LoadData(DTO.SanPham data)
@@ -94,6 +96,45 @@ namespace QuanLyKinhDoanh.KhoHang
             lbXuatXu.Text = dataXuatXu == null ? string.Empty : dataXuatXu.Ten;
             
             lbThoiHan.Text = data.ThoiHan == 0 ? string.Empty : (data.ThoiHan.Value.ToString() + " " + data.DonViThoiHan);
+
+            DateTime usedDay = data.CreateDate;
+
+            switch (data.DonViThoiHan)
+            {
+                case Constant.DEFAULT_TYPE_DAY:
+                    usedDay = data.CreateDate.AddDays(data.ThoiHan.Value);
+                    break;
+
+                case Constant.DEFAULT_TYPE_MONTH:
+                    usedDay = data.CreateDate.AddMonths(data.ThoiHan.Value);
+                    break;
+
+                case Constant.DEFAULT_TYPE_YEAR:
+                    usedDay = data.CreateDate.AddYears(data.ThoiHan.Value);
+                    break;
+
+                default:
+                    usedDay = data.CreateDate.AddDays(data.ThoiHan.Value);
+                    break;
+            }
+
+            lbNgayNhap.Text = data.CreateDate.ToString(Constant.DEFAULT_DATE_FORMAT);
+            lbNgayHetHan.Text = usedDay.ToString(Constant.DEFAULT_DATE_FORMAT);
+
+            if (data.SoLuong != 0)
+            {
+                switch (CommonFunc.IsEndOfUseDate(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_USED_DATE,
+                    data.ThoiHan.Value, data.DonViThoiHan))
+                {
+                    case Constant.DEFAULT_STATUS_USED_DATE_NEAR:
+                        lbNgayHetHan.ForeColor = Color.Orange;
+                        break;
+
+                    case Constant.DEFAULT_STATUS_USED_DATE_END:
+                        lbNgayHetHan.ForeColor = Color.Red;
+                        break;
+                }
+            }
         }
 
         private void lbXuatXu_MouseEnter(object sender, EventArgs e)

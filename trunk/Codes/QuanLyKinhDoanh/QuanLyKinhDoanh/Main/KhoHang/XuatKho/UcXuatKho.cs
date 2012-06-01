@@ -62,7 +62,7 @@ namespace QuanLyKinhDoanh
             this.BringToFront();
 
             sortColumn = string.Empty;
-            sortOrder = Constant.SORT_DESCENDING;
+            sortOrder = Constant.SORT_ASCENDING;
 
             tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
 
@@ -128,20 +128,37 @@ namespace QuanLyKinhDoanh
 
             foreach (DTO.SanPham data in list)
             {
+                Color color = Color.Black;
                 ListViewItem lvi = new ListViewItem();
+                lvi.UseItemStyleForSubItems = false;
 
-                lvi.SubItems.Add(data.Id.ToString());
-                lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.MaSanPham);
-                lvi.SubItems.Add(data.Ten);
-                lvi.SubItems.Add(data.MoTa);
-                lvi.SubItems.Add(data.SoLuong.ToString());
-                lvi.SubItems.Add(data.DonViTinh);
-                lvi.SubItems.Add(data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                if (data.SoLuong != 0)
+                {
+                    switch (CommonFunc.IsEndOfUseDate(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_USED_DATE,
+                        data.ThoiHan.Value, data.DonViThoiHan))
+                    {
+                        case Constant.DEFAULT_STATUS_USED_DATE_NEAR:
+                            color = Color.Orange;
+                            break;
+
+                        case Constant.DEFAULT_STATUS_USED_DATE_END:
+                            color = Color.Red;
+                            break;
+                    }
+                }
+
+                lvi.SubItems.Add(data.Id.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.MaSanPham, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.Ten, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.MoTa, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.SoLuong.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.DonViTinh, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
 
                 if (data.IsSold)
                 {
-                    lvi.SubItems.Add(Constant.IS_SOLD);
+                    lvi.SubItems.Add(Constant.IS_SOLD, color, Color.Transparent, this.Font);
                 }
                 else
                 {

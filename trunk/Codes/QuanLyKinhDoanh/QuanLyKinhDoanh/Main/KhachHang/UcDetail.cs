@@ -85,10 +85,10 @@ namespace QuanLyKinhDoanh.KhachHang
             lbFax.Text = data.Fax;
             lbDTDD.Text = data.DTDD;
             lbEmail.Text = data.Email;
+            lbDOB.Text = data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT);
 
             if (CommonFunc.IsBirthDay(data.DOB.Value, 7))
             {
-                lbDOB.Text = data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT);
                 lbDOB.ForeColor = Color.Red;
 
                 pbBirthDay.Visible = true;

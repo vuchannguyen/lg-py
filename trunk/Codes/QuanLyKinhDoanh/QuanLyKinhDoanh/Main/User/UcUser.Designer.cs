@@ -49,6 +49,7 @@
             this.chGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHoTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDTDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -236,6 +237,7 @@
             this.chGroup,
             this.chHoTen,
             this.chUserName,
+            this.chDOB,
             this.chDienThoai,
             this.chDTDD,
             this.chEmail});
@@ -281,12 +283,17 @@
             // chHoTen
             // 
             this.chHoTen.Text = "Họ và tên";
-            this.chHoTen.Width = 182;
+            this.chHoTen.Width = 156;
             // 
             // chUserName
             // 
             this.chUserName.Text = "Tên đăng nhập";
             this.chUserName.Width = 144;
+            // 
+            // chDOB
+            // 
+            this.chDOB.Text = "Ngày sinh";
+            this.chDOB.Width = 76;
             // 
             // chDienThoai
             // 
@@ -303,7 +310,7 @@
             // chEmail
             // 
             this.chEmail.Text = "Email";
-            this.chEmail.Width = 193;
+            this.chEmail.Width = 143;
             // 
             // pnTraCuu
             // 
@@ -506,5 +513,6 @@
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chUserName;
         private System.Windows.Forms.ColumnHeader chDTDD;
+        private System.Windows.Forms.ColumnHeader chDOB;
     }
 }

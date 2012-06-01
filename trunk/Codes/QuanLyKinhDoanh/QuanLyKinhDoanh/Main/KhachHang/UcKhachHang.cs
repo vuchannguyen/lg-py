@@ -154,7 +154,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.Email);
                 lvi.SubItems.Add(data.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
-                if (CommonFunc.IsBirthDay(data.DOB.Value, 7))
+                if (CommonFunc.IsBirthDay(data.DOB.Value, Constant.DEFAULT_WARNING_DAYS_DOB))
                 {
                     lvi.UseItemStyleForSubItems = false;
                     lvi.SubItems[5].ForeColor = Color.Red;

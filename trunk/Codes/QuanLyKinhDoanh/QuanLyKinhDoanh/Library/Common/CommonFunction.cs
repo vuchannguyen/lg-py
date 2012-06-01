@@ -233,10 +233,52 @@ namespace Library
             controls.Add(oldControl);
         }
 
-        public static bool IsBirthDay(DateTime DOB, int days)
+        public static bool IsBirthDay(DateTime DOB, int warningDays)
         {
             return (DOB.AddYears(DateTime.Now.Year - DOB.Year) >= DateTime.Now.AddDays(-1) &&
-                    DOB.AddYears(DateTime.Now.Year - DOB.Year) <= DateTime.Now.AddDays(days));
+                    DOB.AddYears(DateTime.Now.Year - DOB.Year) <= DateTime.Now.AddDays(warningDays));
+        }
+
+        public static int IsEndOfUseDate(DateTime createDate, int warningDays, int value, string typeOfValue)
+        {
+            DateTime usedDay = createDate;
+
+            switch (typeOfValue)
+            { 
+                case Constant.DEFAULT_TYPE_DAY:
+                    usedDay = createDate.AddDays(value);
+                    break;
+
+                case Constant.DEFAULT_TYPE_MONTH:
+                    usedDay = createDate.AddMonths(value);
+                    break;
+
+                case Constant.DEFAULT_TYPE_YEAR:
+                    usedDay = createDate.AddYears(value);
+                    break;
+
+                default:
+                    usedDay = createDate.AddDays(value);
+                    break;
+            }
+
+            if (DateTime.Now.AddDays(warningDays) < usedDay)
+            {
+                return Constant.DEFAULT_STATUS_USED_DATE_BEFORE;
+            }
+
+            if (DateTime.Now.AddDays(warningDays) >= usedDay &&
+                DateTime.Now.AddDays(-1) <= usedDay)
+            {
+                return Constant.DEFAULT_STATUS_USED_DATE_NEAR;
+            }
+
+            if (DateTime.Now.AddDays(-1) > usedDay)
+            {
+                return Constant.DEFAULT_STATUS_USED_DATE_END;
+            }
+
+            return 0;
         }
     }
 }
