@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Library;
 using DTO;
 using BUS;
+using System.IO;
 
 namespace QuanLyKinhDoanh.NhapKho
 {
@@ -24,6 +25,19 @@ namespace QuanLyKinhDoanh.NhapKho
 
         private bool isUpdate;
 
+        private Point point_Pic;
+        private Point point_PicBound;
+        private Size size_Pic;
+        private Size size_PicRec;
+
+        private int iZoom;
+        private Image imgZoom;
+        private Image imgAvatar;
+        private bool bNewAvatar;
+        private List<string> list_FolderAvatar;
+
+        private string avatarPath;
+
         public UcInfo()
         {
             InitializeComponent();
@@ -34,6 +48,7 @@ namespace QuanLyKinhDoanh.NhapKho
             dataChietKhau = new ChietKhau();
 
             isUpdate = false;
+            bNewAvatar = false;
 
             if (InitSP() && Init())
             {
@@ -85,6 +100,17 @@ namespace QuanLyKinhDoanh.NhapKho
                 tbGiaBan.Text = data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGhiChu.Text = data.HoaDon.GhiChu;
 
+                avatarPath = Path.Combine(File_Function.getFinalFolder(list_FolderAvatar), setAvatarPath(data.SanPham.MaSanPham, data.SanPham.CreateDate));
+
+                if (File.Exists(avatarPath))
+                {
+                    string sImage = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(Image.FromFile(avatarPath)));
+                    pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(sImage));
+
+                    //pbAvatar.Image = Image.FromFile(sAvatarPath);
+                    bNewAvatar = true;
+                }
+
                 tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? string.Empty :
                     ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
             }
@@ -92,6 +118,13 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 this.Visible = false;
             }
+        }
+
+        private string setAvatarPath(string ma, DateTime date)
+        {
+            avatarPath = ma + Constant.DEFAULT_DATE_TIME_AVATAR_FORMAT;
+
+            return avatarPath;
         }
 
         private void LoadResource()
@@ -120,6 +153,8 @@ namespace QuanLyKinhDoanh.NhapKho
 
             this.BringToFront();
 
+            pbAvatar.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pbAvatar_MouseWheel);
+
             ValidateInput();
         }
 
@@ -128,6 +163,10 @@ namespace QuanLyKinhDoanh.NhapKho
         #region Function
         private bool Init()
         {
+            list_FolderAvatar = new List<string>();
+            list_FolderAvatar.Add("Store");
+            list_FolderAvatar.Add("SP");
+
             return true;
         }
 
@@ -928,6 +967,155 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 dataXuatXu = null;
             }
+        }
+
+        private void pbBrowse_Click(object sender, EventArgs e)
+        {
+            string sPath = File_Function.OpenDialog("JPG file", "jpg");
+
+            if (sPath != null)
+            {
+                try
+                {
+                    imgAvatar = Image.FromFile(sPath);
+                }
+                catch
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR_OPEN_AVATAR, Constant.CAPTION_ERROR,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                if (imgAvatar.Width > Constant.DEFAULT_AVATAR_MAX_WIDTH || imgAvatar.Height > Constant.DEFAULT_AVATAR_MAX_HEIGHT)
+                {
+                    imgZoom = Image_Function.resizeImage(imgAvatar, new Size(Constant.DEFAULT_AVATAR_MAX_WIDTH, Constant.DEFAULT_AVATAR_MAX_HEIGHT));
+                }
+                else
+                {
+                    imgZoom = imgAvatar;
+                }
+
+                if (imgAvatar.Width >= Constant.DEFAULT_AVATAR_WIDTH && imgAvatar.Height >= Constant.DEFAULT_AVATAR_HEIGHT)
+                {
+                    pbAvatar.Cursor = Cursors.SizeAll;
+                    pbAvatar.Enabled = true;
+
+                    if (imgZoom.Width > imgZoom.Height)
+                    {
+                        iZoom = imgZoom.Width;
+                    }
+                    else
+                    {
+                        iZoom = imgZoom.Height;
+                    }
+
+                    point_Pic = new Point(imgZoom.Width / 2 - size_PicRec.Width / 2, imgZoom.Height / 2 - size_PicRec.Height / 2);
+                    point_PicBound = point_Pic;
+                    size_Pic.Width = imgZoom.Width;
+                    size_Pic.Height = imgZoom.Height;
+
+                    //pbAvatar.Image.Dispose();
+                    pbAvatar.Image = Image_Function.CropImage(imgZoom, new Rectangle(point_PicBound, size_PicRec), pbAvatar.ClientRectangle);
+                    bNewAvatar = true;
+                }
+                else
+                {
+                    MessageBox.Show(Constant.MESSAGE_ERROR_TOO_SMALL_AVATAR, Constant.CAPTION_ERROR,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void pbBrowse_MouseEnter(object sender, EventArgs e)
+        {
+            pbBrowse.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BROWSE_MOUSEOVER);
+        }
+
+        private void pbBrowse_MouseLeave(object sender, EventArgs e)
+        {
+            pbBrowse.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BROWSE);
+        }
+
+        private void pbAvatar_MouseDown(object sender, MouseEventArgs e)
+        {
+            point_Pic.X += e.X;
+            point_Pic.Y += e.Y;
+        }
+
+        private void pbAvatar_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                point_PicBound.X = point_Pic.X - e.X;
+                point_PicBound.Y = point_Pic.Y - e.Y;
+
+                point_PicBound = Image_Function.setPicBound(point_PicBound, size_Pic, size_PicRec);
+                pbAvatar.Image = Image_Function.CropImage(imgZoom, new Rectangle(point_PicBound, size_PicRec), pbAvatar.ClientRectangle);
+            }
+        }
+
+        private void pbAvatar_MouseUp(object sender, MouseEventArgs e)
+        {
+            point_Pic.X = point_PicBound.X;
+            point_Pic.Y = point_PicBound.Y;
+        }
+
+        private void pbAvatar_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                if (iZoom + 100 < 1000)
+                {
+                    iZoom += 100;
+                    imgZoom = Image_Function.resizeImage(imgAvatar, new Size(iZoom, iZoom));
+
+                    size_Pic.Width = imgZoom.Width;
+                    size_Pic.Height = imgZoom.Height;
+                    point_PicBound = Image_Function.setPicBound(point_PicBound, size_Pic, size_PicRec);
+
+                    pbAvatar.Image = Image_Function.CropImage(imgZoom, new Rectangle(point_PicBound, size_PicRec), pbAvatar.ClientRectangle);
+                    pbAvatar_MouseUp(sender, e);
+                }
+            }
+
+            if (e.Delta < 0)
+            {
+                if (iZoom - 100 > 100)
+                {
+                    iZoom -= 100;
+                    imgZoom = Image_Function.resizeImage(imgAvatar, new Size(iZoom, iZoom));
+
+                    if (imgZoom.Width >= size_PicRec.Width && imgZoom.Height >= size_PicRec.Height)
+                    {
+                        size_Pic.Width = imgZoom.Width;
+                        size_Pic.Height = imgZoom.Height;
+                        point_PicBound = Image_Function.setPicBound(point_PicBound, size_Pic, size_PicRec);
+                    }
+                    else
+                    {
+                        iZoom += 100;
+                        imgZoom = Image_Function.resizeImage(imgAvatar, new Size(iZoom, iZoom));
+
+                        size_Pic.Width = imgZoom.Width;
+                        size_Pic.Height = imgZoom.Height;
+                        point_PicBound = Image_Function.setPicBound(point_PicBound, size_Pic, size_PicRec);
+                    }
+
+                    pbAvatar.Image = Image_Function.CropImage(imgZoom, new Rectangle(point_PicBound, size_PicRec), pbAvatar.ClientRectangle);
+                    pbAvatar_MouseUp(sender, e);
+                }
+            }
+        }
+
+        private void pbAvatar_MouseEnter(object sender, EventArgs e)
+        {
+            pbAvatar.Focus();
+        }
+
+        private void pbAvatar_MouseLeave(object sender, EventArgs e)
+        {
+            pbBrowse.Focus();
         }
     }
 }

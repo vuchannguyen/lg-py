@@ -148,6 +148,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.UserGroup.Ten);
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.UserName);
+                lvi.SubItems.Add(data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT));
                 lvi.SubItems.Add(data.DienThoai);
                 lvi.SubItems.Add(data.DTDD);
                 lvi.SubItems.Add(data.Email);

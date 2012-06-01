@@ -62,6 +62,8 @@ namespace Library
         public const string CHUC_NANG_ICON_SEND_BACK = @"Resources\ChucNang\icon_send_back.png";
         public const string CHUC_NANG_ICON_SEND_BACK_MOUSEOVER = @"Resources\ChucNang\icon_send_back_mouseover.png";
         public const string CHUC_NANG_ICON_SEND_BACK_DISABLE = @"Resources\ChucNang\icon_send_back_disable.png";
+        public const string CHUC_NANG_ICON_BROWSE = @"Resources\ChucNang\icon_browser.png";
+        public const string CHUC_NANG_ICON_BROWSE_MOUSEOVER = @"Resources\ChucNang\icon_browse_mouseover.png";
         #endregion
 
 

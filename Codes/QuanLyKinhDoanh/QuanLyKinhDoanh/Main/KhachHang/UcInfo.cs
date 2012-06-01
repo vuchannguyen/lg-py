@@ -90,9 +90,10 @@ namespace QuanLyKinhDoanh.KhachHang
 
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
-            dtpDOB.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
-
             this.BringToFront();
+
+            dtpDOB.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
+            dtpNgayCap.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
 
             ValidateInput();
         }

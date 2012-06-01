@@ -8,6 +8,12 @@ namespace Library
 {
     class Constant
     {
+        public const int DEFAULT_AVATAR_WIDTH = 100;
+        public const int DEFAULT_AVATAR_HEIGHT = 100;
+
+        public const int DEFAULT_AVATAR_MAX_WIDTH = 300;
+        public const int DEFAULT_AVATAR_MAX_HEIGHT = 300;
+
         public const int DEFAULT_TOP_HEIGHT = 150;
         public const int DEFAULT_BOT_HEIGHT = 20;
 
@@ -23,6 +29,13 @@ namespace Library
         public const int DEFAULT_NUMS_DECAL_ROWS = 12;
         public const int DEFAULT_NUMS_DECAL_COLUMNS = 7;
 
+        public const int DEFAULT_WARNING_DAYS_DOB = 7;
+        public const int DEFAULT_WARNING_DAYS_USED_DATE = 7;
+
+        public const int DEFAULT_STATUS_USED_DATE_BEFORE = 0;
+        public const int DEFAULT_STATUS_USED_DATE_NEAR = 1;
+        public const int DEFAULT_STATUS_USED_DATE_END = 2;
+
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
         public static Size DEFAULT_SIZE_LISTVIEWEX_EXPORT = new Size(770, 485);
 
@@ -31,7 +44,8 @@ namespace Library
 
         public static DateTime DEFAULT_DATE = new DateTime(2000, 1, 1);
         public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
-        public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - hh:mm tt";
+        public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - HH:mm";
+        public const string DEFAULT_DATE_TIME_AVATAR_FORMAT = "ddMMyyyyHHmmss";
         public const string DEFAULT_TYPE_DAY = "Ngày";
         public const string DEFAULT_TYPE_MONTH = "Tháng";
         public const string DEFAULT_TYPE_YEAR = "Năm";
@@ -210,6 +224,9 @@ namespace Library
         public const string MESSAGE_ERROR_DO_NOT_HAVE_PERMISSION = "Tài khoản không có quyền!";
         public const string MESSAGE_ERROR_EDIT_PROFILE_ADMIN = "Không thể thay đổi thông tin Admin khác!";
         public const string MESSAGE_ERROR_SELF_DESTRUCTION = "Vui lòng sử dụng chức năng \"Hủy tài khoản\"!";
+
+        public const string MESSAGE_ERROR_OPEN_AVATAR = "Không thể mở hình!";
+        public const string MESSAGE_ERROR_TOO_SMALL_AVATAR = "Kích thước ảnh quá nhỏ!";
 
         public const string MESSAGE_CONFIRM_SELF_DESTRUCTION = "Hủy tài khoản và thoát chương trình?";
 

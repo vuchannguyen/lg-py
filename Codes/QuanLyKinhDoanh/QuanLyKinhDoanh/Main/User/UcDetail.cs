@@ -59,10 +59,13 @@ namespace QuanLyKinhDoanh.User
             lbTen.Text = string.Empty;
             lbGioiTinh.Text = string.Empty;
             lbTenDangNhap.Text = string.Empty;
-            lbCMND.Text = string.Empty;
             lbDienThoai.Text = string.Empty;
             lbDTDD.Text = string.Empty;
             lbEmail.Text = string.Empty;
+            lbDOB.Text = string.Empty;
+            lbCMND.Text = string.Empty;
+            lbNoiCap.Text = string.Empty;
+            lbNgayCap.Text = string.Empty;
             lbGhiChu.Text = string.Empty;
         }
 
@@ -72,10 +75,13 @@ namespace QuanLyKinhDoanh.User
             lbTen.Text = data.Ten;
             lbGioiTinh.Text = data.GioiTinh;
             lbTenDangNhap.Text = data.UserName;
-            lbCMND.Text = data.CMND;
             lbDienThoai.Text = data.DienThoai;
             lbDTDD.Text = data.DTDD;
             lbEmail.Text = data.Email;
+            lbDOB.Text = data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT);
+            lbCMND.Text = data.CMND;
+            lbNoiCap.Text = data.NoiCap;
+            lbNgayCap.Text = data.NgayCap.Value.ToString(Constant.DEFAULT_DATE_FORMAT);
             lbGhiChu.Text = data.GhiChu;
         }
 

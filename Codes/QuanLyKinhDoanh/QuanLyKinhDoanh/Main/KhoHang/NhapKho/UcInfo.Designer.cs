@@ -86,6 +86,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThemNhomSP = new System.Windows.Forms.PictureBox();
+            this.pnAvatar = new System.Windows.Forms.Panel();
+            this.pbBrowse = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnFix_Avatar = new System.Windows.Forms.Panel();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -97,6 +102,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThemNhomSP)).BeginInit();
+            this.pnAvatar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBrowse)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.pnFix_Avatar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -435,6 +445,7 @@
             // 
             // gbInfoSP
             // 
+            this.gbInfoSP.Controls.Add(this.pnAvatar);
             this.gbInfoSP.Controls.Add(this.cbXuatXu);
             this.gbInfoSP.Controls.Add(this.panel8);
             this.gbInfoSP.Controls.Add(this.cbDVTSP);
@@ -581,7 +592,7 @@
             this.tbMoTa.MaxLength = 200;
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
-            this.tbMoTa.Size = new System.Drawing.Size(428, 66);
+            this.tbMoTa.Size = new System.Drawing.Size(268, 116);
             this.tbMoTa.TabIndex = 18;
             // 
             // tbHieu
@@ -723,6 +734,62 @@
             this.pbThemNhomSP.MouseEnter += new System.EventHandler(this.pbThemNhomSP_MouseEnter);
             this.pbThemNhomSP.MouseLeave += new System.EventHandler(this.pbThemNhomSP_MouseLeave);
             // 
+            // pnAvatar
+            // 
+            this.pnAvatar.Controls.Add(this.pbBrowse);
+            this.pnAvatar.Controls.Add(this.panel1);
+            this.pnAvatar.Location = new System.Drawing.Point(390, 230);
+            this.pnAvatar.Name = "pnAvatar";
+            this.pnAvatar.Size = new System.Drawing.Size(120, 140);
+            this.pnAvatar.TabIndex = 112;
+            this.pnAvatar.Visible = false;
+            // 
+            // pbBrowse
+            // 
+            this.pbBrowse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBrowse.Location = new System.Drawing.Point(43, 110);
+            this.pbBrowse.Name = "pbBrowse";
+            this.pbBrowse.Size = new System.Drawing.Size(37, 25);
+            this.pbBrowse.TabIndex = 2;
+            this.pbBrowse.TabStop = false;
+            this.pbBrowse.Click += new System.EventHandler(this.pbBrowse_Click);
+            this.pbBrowse.MouseEnter += new System.EventHandler(this.pbBrowse_MouseEnter);
+            this.pbBrowse.MouseLeave += new System.EventHandler(this.pbBrowse_MouseLeave);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.pnFix_Avatar);
+            this.panel1.Location = new System.Drawing.Point(10, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(104, 104);
+            this.panel1.TabIndex = 60;
+            // 
+            // pnFix_Avatar
+            // 
+            this.pnFix_Avatar.BackColor = System.Drawing.Color.Gray;
+            this.pnFix_Avatar.Controls.Add(this.pbAvatar);
+            this.pnFix_Avatar.Location = new System.Drawing.Point(2, 2);
+            this.pnFix_Avatar.Name = "pnFix_Avatar";
+            this.pnFix_Avatar.Size = new System.Drawing.Size(100, 100);
+            this.pnFix_Avatar.TabIndex = 61;
+            // 
+            // pbAvatar
+            // 
+            this.pbAvatar.BackColor = System.Drawing.Color.Blue;
+            this.pbAvatar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbAvatar.Enabled = false;
+            this.pbAvatar.Location = new System.Drawing.Point(0, 0);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(100, 100);
+            this.pbAvatar.TabIndex = 58;
+            this.pbAvatar.TabStop = false;
+            this.pbAvatar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbAvatar_MouseDown);
+            this.pbAvatar.MouseEnter += new System.EventHandler(this.pbAvatar_MouseEnter);
+            this.pbAvatar.MouseLeave += new System.EventHandler(this.pbAvatar_MouseLeave);
+            this.pbAvatar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbAvatar_MouseMove);
+            this.pbAvatar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbAvatar_MouseUp);
+            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -751,6 +818,11 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThemNhomSP)).EndInit();
+            this.pnAvatar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBrowse)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.pnFix_Avatar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -814,5 +886,10 @@
         private System.Windows.Forms.TextBox tbChietKhau;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel pnAvatar;
+        private System.Windows.Forms.PictureBox pbBrowse;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnFix_Avatar;
+        private System.Windows.Forms.PictureBox pbAvatar;
     }
 }

@@ -39,6 +39,7 @@
             this.lbFax = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pbBirthDay = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lbGhiChu = new System.Windows.Forms.Label();
             this.lbNgayCap = new System.Windows.Forms.Label();
@@ -69,14 +70,13 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.pbBirthDay = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -96,7 +96,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(395, 180);
+            this.label7.Location = new System.Drawing.Point(362, 180);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 19);
@@ -131,7 +131,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(423, 230);
+            this.label6.Location = new System.Drawing.Point(390, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 19);
             this.label6.TabIndex = 119;
@@ -222,6 +222,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // pbBirthDay
+            // 
+            this.pbBirthDay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBirthDay.Location = new System.Drawing.Point(557, 170);
+            this.pbBirthDay.Name = "pbBirthDay";
+            this.pbBirthDay.Size = new System.Drawing.Size(30, 30);
+            this.pbBirthDay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBirthDay.TabIndex = 157;
+            this.pbBirthDay.TabStop = false;
+            this.pbBirthDay.Visible = false;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -248,7 +259,7 @@
             // 
             this.lbNgayCap.AutoSize = true;
             this.lbNgayCap.ForeColor = System.Drawing.Color.Black;
-            this.lbNgayCap.Location = new System.Drawing.Point(495, 330);
+            this.lbNgayCap.Location = new System.Drawing.Point(462, 330);
             this.lbNgayCap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNgayCap.Name = "lbNgayCap";
             this.lbNgayCap.Size = new System.Drawing.Size(88, 18);
@@ -260,7 +271,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(400, 330);
+            this.label17.Location = new System.Drawing.Point(367, 330);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(87, 19);
@@ -271,7 +282,7 @@
             // 
             this.lbNoiCap.AutoSize = true;
             this.lbNoiCap.ForeColor = System.Drawing.Color.Black;
-            this.lbNoiCap.Location = new System.Drawing.Point(495, 280);
+            this.lbNoiCap.Location = new System.Drawing.Point(462, 280);
             this.lbNoiCap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNoiCap.MaximumSize = new System.Drawing.Size(200, 0);
             this.lbNoiCap.Name = "lbNoiCap";
@@ -284,7 +295,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(413, 280);
+            this.label15.Location = new System.Drawing.Point(380, 280);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 19);
@@ -307,7 +318,7 @@
             this.lbEmail.AutoSize = true;
             this.lbEmail.ForeColor = System.Drawing.Color.Black;
             this.lbEmail.Location = new System.Drawing.Point(118, 330);
-            this.lbEmail.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lbEmail.MaximumSize = new System.Drawing.Size(200, 0);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(48, 18);
             this.lbEmail.TabIndex = 149;
@@ -410,7 +421,7 @@
             // 
             this.lbCMND.AutoSize = true;
             this.lbCMND.ForeColor = System.Drawing.Color.Black;
-            this.lbCMND.Location = new System.Drawing.Point(493, 230);
+            this.lbCMND.Location = new System.Drawing.Point(460, 230);
             this.lbCMND.Name = "lbCMND";
             this.lbCMND.Size = new System.Drawing.Size(56, 18);
             this.lbCMND.TabIndex = 139;
@@ -431,7 +442,7 @@
             // 
             this.lbDOB.AutoSize = true;
             this.lbDOB.ForeColor = System.Drawing.Color.Black;
-            this.lbDOB.Location = new System.Drawing.Point(495, 180);
+            this.lbDOB.Location = new System.Drawing.Point(462, 180);
             this.lbDOB.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDOB.Name = "lbDOB";
             this.lbDOB.Size = new System.Drawing.Size(88, 18);
@@ -533,17 +544,6 @@
             this.pnInfo.Size = new System.Drawing.Size(710, 520);
             this.pnInfo.TabIndex = 133;
             // 
-            // pbBirthDay
-            // 
-            this.pbBirthDay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBirthDay.Location = new System.Drawing.Point(590, 170);
-            this.pbBirthDay.Name = "pbBirthDay";
-            this.pbBirthDay.Size = new System.Drawing.Size(30, 30);
-            this.pbBirthDay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBirthDay.TabIndex = 157;
-            this.pbBirthDay.TabStop = false;
-            this.pbBirthDay.Visible = false;
-            // 
             // UcDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -557,6 +557,7 @@
             this.Load += new System.EventHandler(this.UcDetail_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).EndInit();
@@ -564,7 +565,6 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).EndInit();
             this.ResumeLayout(false);
 
         }

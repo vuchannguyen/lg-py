@@ -51,11 +51,16 @@ namespace QuanLyKinhDoanh.User
                 tbTen.Text = data.Ten;
                 tbUserName.Text = data.UserName;
                 //tbPassword.Text = Constant.DEFAULT_PASSWORD;
-                tbCMND.Text = data.CMND;
+                tbDiaChi.Text = data.DiaChi;
                 tbDienThoai.Text = data.DienThoai;
                 tbDTDD.Text = data.DTDD;
                 tbEmail.Text = data.Email;
+                tbCMND.Text = data.CMND;
+                tbNoiCap.Text = data.NoiCap;
                 tbGhiChu.Text = data.GhiChu;
+
+                dtpDOB.Value = data.DOB.HasValue ? data.DOB.Value : DateTime.Now;
+                dtpNgayCap.Value = data.NgayCap.HasValue ? data.NgayCap.Value : DateTime.Now;
 
                 cbGioiTinh.Text = data.GioiTinh;
                 cbGroup.Text = data.UserGroup.Ten;
@@ -106,6 +111,9 @@ namespace QuanLyKinhDoanh.User
 
             this.BringToFront();
 
+            dtpDOB.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
+            dtpNgayCap.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
+
             ValidateInput();
         }
 
@@ -138,10 +146,15 @@ namespace QuanLyKinhDoanh.User
             tbTen.Text = string.Empty;
             tbUserName.Text = string.Empty;
             tbPassword.Text = string.Empty;
-            tbCMND.Text = string.Empty;
+            tbDiaChi.Text = string.Empty;
             tbDienThoai.Text = string.Empty;
             tbEmail.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
+            tbCMND.Text = string.Empty;
+            tbNoiCap.Text = string.Empty;
+
+            dtpDOB.Value = Constant.DEFAULT_DATE;
+            dtpNgayCap.Value = Constant.DEFAULT_DATE;
 
             cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
             cbGioiTinh.SelectedIndex = 0;
@@ -198,10 +211,14 @@ namespace QuanLyKinhDoanh.User
             data.UserName = tbUserName.Text;
             data.Password = Crypto.EncryptText(tbPassword.Text);
             data.GioiTinh = cbGioiTinh.Text;
-            data.CMND = tbCMND.Text;
+            data.DOB = dtpDOB.Value;
+            data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
             data.DTDD = tbDTDD.Text;
             data.Email = tbEmail.Text;
+            data.CMND = tbCMND.Text;
+            data.NoiCap = tbNoiCap.Text;
+            data.NgayCap = dtpNgayCap.Value;
             data.GhiChu = tbGhiChu.Text;
 
             if (UserBus.Insert(data, FormMain.user))
@@ -230,10 +247,14 @@ namespace QuanLyKinhDoanh.User
             }
 
             data.GioiTinh = cbGioiTinh.Text;
-            data.CMND = tbCMND.Text;
+            data.DOB = dtpDOB.Value;
+            data.DiaChi = tbDiaChi.Text;
             data.DienThoai = tbDienThoai.Text;
             data.DTDD = tbDTDD.Text;
             data.Email = tbEmail.Text;
+            data.CMND = tbCMND.Text;
+            data.NoiCap = tbNoiCap.Text;
+            data.NgayCap = dtpNgayCap.Value;
             data.GhiChu = tbGhiChu.Text;
 
             if (UserBus.Update(data, FormMain.user))

@@ -63,6 +63,10 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.lbNgayNhap = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbNgayHetHan = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -156,7 +160,7 @@
             this.lbXuatXu.AutoSize = true;
             this.lbXuatXu.ForeColor = System.Drawing.Color.Black;
             this.lbXuatXu.Location = new System.Drawing.Point(355, 280);
-            this.lbXuatXu.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lbXuatXu.MaximumSize = new System.Drawing.Size(200, 0);
             this.lbXuatXu.Name = "lbXuatXu";
             this.lbXuatXu.Size = new System.Drawing.Size(62, 18);
             this.lbXuatXu.TabIndex = 116;
@@ -209,6 +213,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbNgayHetHan);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.lbNgayNhap);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.panel12);
             this.groupBox1.Controls.Add(this.lbMoTa);
             this.groupBox1.Controls.Add(this.lbThoiHan);
@@ -237,7 +245,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Orange;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(700, 450);
+            this.groupBox1.Size = new System.Drawing.Size(740, 450);
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
@@ -246,7 +254,7 @@
             // 
             this.panel12.Controls.Add(this.label47);
             this.panel12.Controls.Add(this.pbHoanTat);
-            this.panel12.Location = new System.Drawing.Point(316, 370);
+            this.panel12.Location = new System.Drawing.Point(335, 370);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(70, 70);
             this.panel12.TabIndex = 144;
@@ -318,6 +326,7 @@
             this.lbHieu.AutoSize = true;
             this.lbHieu.ForeColor = System.Drawing.Color.Black;
             this.lbHieu.Location = new System.Drawing.Point(355, 230);
+            this.lbHieu.MaximumSize = new System.Drawing.Size(300, 0);
             this.lbHieu.Name = "lbHieu";
             this.lbHieu.Size = new System.Drawing.Size(40, 18);
             this.lbHieu.TabIndex = 139;
@@ -340,6 +349,7 @@
             this.lbSize.ForeColor = System.Drawing.Color.Black;
             this.lbSize.Location = new System.Drawing.Point(357, 180);
             this.lbSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSize.MaximumSize = new System.Drawing.Size(300, 0);
             this.lbSize.Name = "lbSize";
             this.lbSize.Size = new System.Drawing.Size(39, 18);
             this.lbSize.TabIndex = 137;
@@ -447,8 +457,54 @@
             this.pnInfo.Controls.Add(this.groupBox1);
             this.pnInfo.Location = new System.Drawing.Point(141, 61);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(710, 460);
+            this.pnInfo.Size = new System.Drawing.Size(750, 460);
             this.pnInfo.TabIndex = 133;
+            // 
+            // lbNgayNhap
+            // 
+            this.lbNgayNhap.AutoSize = true;
+            this.lbNgayNhap.ForeColor = System.Drawing.Color.Black;
+            this.lbNgayNhap.Location = new System.Drawing.Point(640, 280);
+            this.lbNgayNhap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNgayNhap.Name = "lbNgayNhap";
+            this.lbNgayNhap.Size = new System.Drawing.Size(88, 18);
+            this.lbNgayNhap.TabIndex = 146;
+            this.lbNgayNhap.Text = "dd/MM/yyyy";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(534, 280);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 19);
+            this.label13.TabIndex = 145;
+            this.label13.Text = "Ngày nhập:";
+            // 
+            // lbNgayHetHan
+            // 
+            this.lbNgayHetHan.AutoSize = true;
+            this.lbNgayHetHan.ForeColor = System.Drawing.Color.Black;
+            this.lbNgayHetHan.Location = new System.Drawing.Point(640, 330);
+            this.lbNgayHetHan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNgayHetHan.Name = "lbNgayHetHan";
+            this.lbNgayHetHan.Size = new System.Drawing.Size(88, 18);
+            this.lbNgayHetHan.TabIndex = 148;
+            this.lbNgayHetHan.Text = "dd/MM/yyyy";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(516, 330);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(116, 19);
+            this.label15.TabIndex = 147;
+            this.label15.Text = "Ngày hết hạn:";
             // 
             // UcDetail
             // 
@@ -510,5 +566,9 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.PictureBox pbHoanTat;
         private System.Windows.Forms.Panel pnInfo;
+        private System.Windows.Forms.Label lbNgayHetHan;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbNgayNhap;
+        private System.Windows.Forms.Label label13;
     }
 }
