@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Library;
 using DTO;
 using BUS;
+using System.IO;
 
 namespace QuanLyKinhDoanh.KhoHang
 {
@@ -134,6 +135,18 @@ namespace QuanLyKinhDoanh.KhoHang
                         lbNgayHetHan.ForeColor = Color.Red;
                         break;
                 }
+            }
+
+            string avatarPath = Path.Combine(File_Function.getFinalFolder(Constant.listFolderAvatar), CommonFunc.setAvatarPath(data.MaSanPham, data.UpdateDate));
+
+            if (File.Exists(avatarPath))
+            {
+                string sImage = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(Image.FromFile(avatarPath)));
+                pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(sImage));
+            }
+            else
+            {
+                pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
             }
         }
 

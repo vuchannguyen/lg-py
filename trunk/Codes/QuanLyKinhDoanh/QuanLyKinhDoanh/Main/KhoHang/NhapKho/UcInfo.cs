@@ -10,6 +10,7 @@ using Library;
 using DTO;
 using BUS;
 using System.IO;
+using System.Threading;
 
 namespace QuanLyKinhDoanh.NhapKho
 {
@@ -33,10 +34,11 @@ namespace QuanLyKinhDoanh.NhapKho
         private int iZoom;
         private Image imgZoom;
         private Image imgAvatar;
-        private bool bNewAvatar;
-        private List<string> list_FolderAvatar;
+        private bool isNewAvatar;
+        private List<string> listFolderAvatar;
 
         private string avatarPath;
+        DateTime oldDate;
 
         public UcInfo()
         {
@@ -48,7 +50,6 @@ namespace QuanLyKinhDoanh.NhapKho
             dataChietKhau = new ChietKhau();
 
             isUpdate = false;
-            bNewAvatar = false;
 
             if (InitSP() && Init())
             {
@@ -57,6 +58,8 @@ namespace QuanLyKinhDoanh.NhapKho
                 RefreshData();
 
                 CreateNewId();
+
+                pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
             }
             else
             {
@@ -68,63 +71,59 @@ namespace QuanLyKinhDoanh.NhapKho
         {
             InitializeComponent();
 
+            dataHoaDonDetail = data;
             dataHoaDon = data.HoaDon;
             dataSP = data.SanPham;
             dataChietKhau = ChietKhauBus.GetByIdSP(data.IdSanPham);
-            dataXuatXu = data.SanPham.XuatXu;
+            dataXuatXu = dataSP.XuatXu;
 
             isUpdate = true;
             lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
             tbSoLuong.ReadOnly = true;
             cbChangeMoney.SelectedIndex = 0;
-            this.dataHoaDonDetail = data;
 
             if (InitSP() && Init())
             {
-                tbMaSP.Text = data.SanPham.MaSanPham;
-                cbGroup.Text = data.SanPham.SanPhamGroup.Ten;
-                cbDVTSP.Text = data.SanPham.DonViTinh;
-                tbTenSP.Text = data.SanPham.Ten;
-                tbSize.Text = data.SanPham.Size;
-                cbXuatXu.Text = data.SanPham.XuatXu == null ? string.Empty : data.SanPham.XuatXu.Ten;
-                tbHieu.Text = data.SanPham.Hieu;
-                tbThoiHan.Text = data.SanPham.ThoiHan == 0 ? string.Empty : data.SanPham.ThoiHan.ToString();
-                cbDonViThoiHan.Text = data.SanPham.DonViThoiHan;
-                tbMoTa.Text = data.SanPham.MoTa;
+                tbMaSP.Text = dataSP.MaSanPham;
+                cbGroup.Text = dataSP.SanPhamGroup.Ten;
+                cbDVTSP.Text = dataSP.DonViTinh;
+                tbTenSP.Text = dataSP.Ten;
+                tbSize.Text = dataSP.Size;
+                cbXuatXu.Text = dataXuatXu == null ? string.Empty : dataXuatXu.Ten;
+                tbHieu.Text = dataSP.Hieu;
+                tbThoiHan.Text = dataSP.ThoiHan == 0 ? string.Empty : dataSP.ThoiHan.ToString();
+                cbDonViThoiHan.Text = dataSP.DonViThoiHan;
+                tbMoTa.Text = dataSP.MoTa;
 
-                tbMaNhap.Text = data.HoaDon.MaHoaDon;
-                tbGiaNhap.Text = data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                tbMaNhap.Text = dataHoaDon.MaHoaDon;
+                tbGiaNhap.Text = dataSP.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbSoLuong.Text = data.SoLuong.ToString();
-                tbLaiSuat.Text = data.SanPham.LaiSuat.ToString();
-                tbGiaBan.Text = data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
-                tbGhiChu.Text = data.HoaDon.GhiChu;
+                tbLaiSuat.Text = dataSP.LaiSuat.ToString();
+                tbGiaBan.Text = dataSP.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                tbGhiChu.Text = dataHoaDon.GhiChu;
 
-                avatarPath = Path.Combine(File_Function.getFinalFolder(list_FolderAvatar), setAvatarPath(data.SanPham.MaSanPham, data.SanPham.CreateDate));
+                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? string.Empty :
+                    ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
+
+                avatarPath = Path.Combine(File_Function.getFinalFolder(listFolderAvatar), CommonFunc.setAvatarPath(dataSP.MaSanPham, dataSP.CreateDate));
 
                 if (File.Exists(avatarPath))
                 {
                     string sImage = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(Image.FromFile(avatarPath)));
                     pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(sImage));
-
-                    //pbAvatar.Image = Image.FromFile(sAvatarPath);
-                    bNewAvatar = true;
+                }
+                else
+                {
+                    pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
                 }
 
-                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? string.Empty :
-                    ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
+                oldDate = dataSP.UpdateDate;
             }
             else
             {
                 this.Visible = false;
             }
-        }
-
-        private string setAvatarPath(string ma, DateTime date)
-        {
-            avatarPath = ma + Constant.DEFAULT_DATE_TIME_AVATAR_FORMAT;
-
-            return avatarPath;
         }
 
         private void LoadResource()
@@ -135,6 +134,8 @@ namespace QuanLyKinhDoanh.NhapKho
 
                 pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+
+                pbBrowse.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BROWSE);
             }
             catch
             {
@@ -153,8 +154,6 @@ namespace QuanLyKinhDoanh.NhapKho
 
             this.BringToFront();
 
-            pbAvatar.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pbAvatar_MouseWheel);
-
             ValidateInput();
         }
 
@@ -163,9 +162,19 @@ namespace QuanLyKinhDoanh.NhapKho
         #region Function
         private bool Init()
         {
-            list_FolderAvatar = new List<string>();
-            list_FolderAvatar.Add("Store");
-            list_FolderAvatar.Add("SP");
+            isNewAvatar = false;
+            oldDate = Constant.DEFAULT_DATE;
+
+            size_PicRec.Width = Constant.DEFAULT_AVATAR_WIDTH;
+            size_PicRec.Height = Constant.DEFAULT_AVATAR_HEIGHT;
+
+            pbAvatar.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pbAvatar_MouseWheel);
+
+            iZoom = 1;
+
+            listFolderAvatar = new List<string>();
+            listFolderAvatar.Add("Store");
+            listFolderAvatar.Add("SP");
 
             return true;
         }
@@ -224,6 +233,30 @@ namespace QuanLyKinhDoanh.NhapKho
             int soLuong = ConvertUtil.ConvertToInt(tbSoLuong.Text);
 
             tbThanhTien.Text = giaNhap * soLuong == 0 ? string.Empty : (giaNhap * soLuong).ToString(Constant.DEFAULT_FORMAT_MONEY);
+        }
+
+        private void SaveAvatar()
+        {
+            avatarPath = CommonFunc.setAvatarPath(dataSP.MaSanPham, dataSP.CreateDate);
+            avatarPath = Path.Combine(File_Function.getFinalFolder(listFolderAvatar), avatarPath);
+
+            if (File.Exists(avatarPath))
+            {
+                try
+                {
+                    File.Delete(avatarPath);
+                }
+                catch
+                {
+                    //
+                }
+            }
+
+            if (!File_Function.savePic(listFolderAvatar, CommonFunc.setAvatarPath(dataSP.MaSanPham, dataSP.CreateDate), (Bitmap)pbAvatar.Image))
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_SAVE_AVATAR, Constant.CAPTION_ERROR,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InsertData()
@@ -349,11 +382,11 @@ namespace QuanLyKinhDoanh.NhapKho
 
             if (cbXuatXu.SelectedItem != null)
             {
-                dataSP.XuatXu = XuatXuBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value));
+                dataXuatXu = XuatXuBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbXuatXu.SelectedItem).Value));
             }
             else
             {
-                dataSP.XuatXu = null;
+                dataXuatXu = null;
             }
 
             dataSP.MoTa = tbMoTa.Text;
@@ -824,6 +857,8 @@ namespace QuanLyKinhDoanh.NhapKho
             {
                 if (!isUpdate)
                 {
+                    SaveAvatar();
+
                     if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSP.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE,
                         Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                     {
@@ -833,10 +868,18 @@ namespace QuanLyKinhDoanh.NhapKho
                     {
                         CreateNewIdSP();
                         CreateNewId();
+
+                        pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
+                        isNewAvatar = false;
                     }
                 }
                 else
                 {
+                    if (isNewAvatar)
+                    {
+                        SaveAvatar();
+                    }
+
                     this.Dispose();
                 }
             }
@@ -1017,7 +1060,7 @@ namespace QuanLyKinhDoanh.NhapKho
 
                     //pbAvatar.Image.Dispose();
                     pbAvatar.Image = Image_Function.CropImage(imgZoom, new Rectangle(point_PicBound, size_PicRec), pbAvatar.ClientRectangle);
-                    bNewAvatar = true;
+                    isNewAvatar = true;
                 }
                 else
                 {

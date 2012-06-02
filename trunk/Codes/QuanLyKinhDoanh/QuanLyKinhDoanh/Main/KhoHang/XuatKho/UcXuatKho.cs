@@ -132,7 +132,7 @@ namespace QuanLyKinhDoanh
                 ListViewItem lvi = new ListViewItem();
                 lvi.UseItemStyleForSubItems = false;
 
-                if (data.SoLuong != 0)
+                if (data.SoLuong != 0 && data.ThoiHan.Value != 0)
                 {
                     switch (CommonFunc.IsEndOfUseDate(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_USED_DATE,
                         data.ThoiHan.Value, data.DonViThoiHan))
@@ -280,6 +280,20 @@ namespace QuanLyKinhDoanh
             }
 
             CheckListViewItemsIsChecked();
+        }
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new QuanLyKinhDoanh.KhoHang.UcDetail(SanPhamBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)

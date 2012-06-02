@@ -173,7 +173,7 @@ namespace QuanLyKinhDoanh
                 {
                     color = Color.Red;
                 }
-                else
+                else if (data.ThoiHan.Value != 0)
                 {
                     switch (CommonFunc.IsEndOfUseDate(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_USED_DATE,
                         data.ThoiHan.Value, data.DonViThoiHan))

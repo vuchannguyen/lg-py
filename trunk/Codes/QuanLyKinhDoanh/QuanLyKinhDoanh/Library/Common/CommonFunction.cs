@@ -280,5 +280,12 @@ namespace Library
 
             return 0;
         }
+
+        public static string setAvatarPath(string ma, DateTime date)
+        {
+            string avatarPath = ma + Constant.SYMBOL_LINK_PATH + date.ToString(Constant.DEFAULT_DATE_TIME_AVATAR_FORMAT) + Constant.DEFAULT_AVATAR_EXT;
+
+            return avatarPath;
+        }
     }
 }

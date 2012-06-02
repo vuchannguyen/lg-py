@@ -62,7 +62,7 @@ namespace Library
         public const string CHUC_NANG_ICON_SEND_BACK = @"Resources\ChucNang\icon_send_back.png";
         public const string CHUC_NANG_ICON_SEND_BACK_MOUSEOVER = @"Resources\ChucNang\icon_send_back_mouseover.png";
         public const string CHUC_NANG_ICON_SEND_BACK_DISABLE = @"Resources\ChucNang\icon_send_back_disable.png";
-        public const string CHUC_NANG_ICON_BROWSE = @"Resources\ChucNang\icon_browser.png";
+        public const string CHUC_NANG_ICON_BROWSE = @"Resources\ChucNang\icon_browse.png";
         public const string CHUC_NANG_ICON_BROWSE_MOUSEOVER = @"Resources\ChucNang\icon_browse_mouseover.png";
         #endregion
 
@@ -78,12 +78,11 @@ namespace Library
         public const string SANPHAM_ICON_SANPHAM_MOUSEOVER = @"Resources\SanPham\icon_sanpham_mouseover.png";
         public const string SANPHAM_ICON_SANPHAM_INDEX = @"Resources\SanPham\icon_sanpham_index.png";
         public const string SANPHAM_ICON_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_sanpham_index_mouseover.png";
-
         public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX = @"Resources\SanPham\icon_nhom_sanpham_index.png";
         public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_nhom_sanpham_index_mouseover.png";
-
         public const string SANPHAM_ICON_XUATXU_INDEX = @"Resources\SanPham\icon_xuatxu_index.png";
         public const string SANPHAM_ICON_XUATXU_INDEX_MOUSEOVER = @"Resources\SanPham\icon_xuatxu_index_mouseover.png";
+        public const string SANPHAM_DEFAULT_SP = @"Resources\SanPham\default_SP.png";
 
         public const string ICON_PRINT = @"Resources\SanPham\icon_print.png";
         public const string ICON_PRINT_MOUSEOVER = @"Resources\SanPham\icon_print_mouseover.png";
