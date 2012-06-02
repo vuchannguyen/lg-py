@@ -8,6 +8,7 @@ namespace Library
 {
     class Constant
     {
+        public static List<string> listFolderAvatar = new List<string>() { "Store", "SP" };
         public const int DEFAULT_AVATAR_WIDTH = 100;
         public const int DEFAULT_AVATAR_HEIGHT = 100;
 
@@ -123,8 +124,11 @@ namespace Library
         public const string PAGE_TEXT = " Trang";
         public const string SEPERATE_STRING = ", ";
         public const string SYMBOL_LINK_STRING = " - ";
+        public const string SYMBOL_LINK_PATH = "_";
         public const string SYMBOL_LINK_MONEY = ",";
         public const string SYMBOL_DISCOUNT = "%";
+
+        public const string DEFAULT_AVATAR_EXT = ".jpg";
 
         public const int ID_GROUP_ADMIN = 1;
         public const int ID_GROUP_USER = 2;
@@ -227,6 +231,7 @@ namespace Library
 
         public const string MESSAGE_ERROR_OPEN_AVATAR = "Không thể mở hình!";
         public const string MESSAGE_ERROR_TOO_SMALL_AVATAR = "Kích thước ảnh quá nhỏ!";
+        public const string MESSAGE_ERROR_SAVE_AVATAR = "Không lưu được hình! Vui lòng thử lại.";
 
         public const string MESSAGE_CONFIRM_SELF_DESTRUCTION = "Hủy tài khoản và thoát chương trình?";
 

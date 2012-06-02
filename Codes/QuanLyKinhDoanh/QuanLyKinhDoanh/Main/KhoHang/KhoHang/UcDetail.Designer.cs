@@ -42,6 +42,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbNgayHetHan = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lbNgayNhap = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
             this.pbHoanTat = new System.Windows.Forms.PictureBox();
@@ -63,16 +67,18 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.lbNgayNhap = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lbNgayHetHan = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnFix_Avatar = new System.Windows.Forms.Panel();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.pnFix_Avatar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -213,6 +219,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.lbNgayHetHan);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.lbNgayNhap);
@@ -249,6 +256,52 @@
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // lbNgayHetHan
+            // 
+            this.lbNgayHetHan.AutoSize = true;
+            this.lbNgayHetHan.ForeColor = System.Drawing.Color.Black;
+            this.lbNgayHetHan.Location = new System.Drawing.Point(640, 330);
+            this.lbNgayHetHan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNgayHetHan.Name = "lbNgayHetHan";
+            this.lbNgayHetHan.Size = new System.Drawing.Size(88, 18);
+            this.lbNgayHetHan.TabIndex = 148;
+            this.lbNgayHetHan.Text = "dd/MM/yyyy";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(516, 330);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(116, 19);
+            this.label15.TabIndex = 147;
+            this.label15.Text = "Ngày hết hạn:";
+            // 
+            // lbNgayNhap
+            // 
+            this.lbNgayNhap.AutoSize = true;
+            this.lbNgayNhap.ForeColor = System.Drawing.Color.Black;
+            this.lbNgayNhap.Location = new System.Drawing.Point(640, 280);
+            this.lbNgayNhap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNgayNhap.Name = "lbNgayNhap";
+            this.lbNgayNhap.Size = new System.Drawing.Size(88, 18);
+            this.lbNgayNhap.TabIndex = 146;
+            this.lbNgayNhap.Text = "dd/MM/yyyy";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(534, 280);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 19);
+            this.label13.TabIndex = 145;
+            this.label13.Text = "Ngày nhập:";
             // 
             // panel12
             // 
@@ -460,51 +513,34 @@
             this.pnInfo.Size = new System.Drawing.Size(750, 460);
             this.pnInfo.TabIndex = 133;
             // 
-            // lbNgayNhap
+            // panel1
             // 
-            this.lbNgayNhap.AutoSize = true;
-            this.lbNgayNhap.ForeColor = System.Drawing.Color.Black;
-            this.lbNgayNhap.Location = new System.Drawing.Point(640, 280);
-            this.lbNgayNhap.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbNgayNhap.Name = "lbNgayNhap";
-            this.lbNgayNhap.Size = new System.Drawing.Size(88, 18);
-            this.lbNgayNhap.TabIndex = 146;
-            this.lbNgayNhap.Text = "dd/MM/yyyy";
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.pnFix_Avatar);
+            this.panel1.Location = new System.Drawing.Point(624, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(104, 104);
+            this.panel1.TabIndex = 134;
             // 
-            // label13
+            // pnFix_Avatar
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(534, 280);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 19);
-            this.label13.TabIndex = 145;
-            this.label13.Text = "Ngày nhập:";
+            this.pnFix_Avatar.BackColor = System.Drawing.Color.Gray;
+            this.pnFix_Avatar.Controls.Add(this.pbAvatar);
+            this.pnFix_Avatar.Location = new System.Drawing.Point(2, 2);
+            this.pnFix_Avatar.Name = "pnFix_Avatar";
+            this.pnFix_Avatar.Size = new System.Drawing.Size(100, 100);
+            this.pnFix_Avatar.TabIndex = 61;
             // 
-            // lbNgayHetHan
+            // pbAvatar
             // 
-            this.lbNgayHetHan.AutoSize = true;
-            this.lbNgayHetHan.ForeColor = System.Drawing.Color.Black;
-            this.lbNgayHetHan.Location = new System.Drawing.Point(640, 330);
-            this.lbNgayHetHan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbNgayHetHan.Name = "lbNgayHetHan";
-            this.lbNgayHetHan.Size = new System.Drawing.Size(88, 18);
-            this.lbNgayHetHan.TabIndex = 148;
-            this.lbNgayHetHan.Text = "dd/MM/yyyy";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(516, 330);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(116, 19);
-            this.label15.TabIndex = 147;
-            this.label15.Text = "Ngày hết hạn:";
+            this.pbAvatar.BackColor = System.Drawing.Color.Blue;
+            this.pbAvatar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbAvatar.Enabled = false;
+            this.pbAvatar.Location = new System.Drawing.Point(0, 0);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(100, 100);
+            this.pbAvatar.TabIndex = 58;
+            this.pbAvatar.TabStop = false;
             // 
             // UcDetail
             // 
@@ -526,6 +562,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnInfo.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.pnFix_Avatar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -570,5 +609,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lbNgayNhap;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnFix_Avatar;
+        private System.Windows.Forms.PictureBox pbAvatar;
     }
 }
