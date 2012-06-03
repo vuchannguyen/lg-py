@@ -72,6 +72,9 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnFix_Avatar = new System.Windows.Forms.Panel();
+            this.pbAvatar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
@@ -81,6 +84,9 @@
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.pnFix_Avatar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -198,6 +204,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.tbMoTa);
             this.groupBox1.Controls.Add(this.lbNgayHetHan);
             this.groupBox1.Controls.Add(this.label15);
@@ -575,6 +582,35 @@
             this.pnInfo.Size = new System.Drawing.Size(750, 460);
             this.pnInfo.TabIndex = 133;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.pnFix_Avatar);
+            this.panel1.Location = new System.Drawing.Point(617, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(104, 104);
+            this.panel1.TabIndex = 135;
+            // 
+            // pnFix_Avatar
+            // 
+            this.pnFix_Avatar.BackColor = System.Drawing.Color.Gray;
+            this.pnFix_Avatar.Controls.Add(this.pbAvatar);
+            this.pnFix_Avatar.Location = new System.Drawing.Point(2, 2);
+            this.pnFix_Avatar.Name = "pnFix_Avatar";
+            this.pnFix_Avatar.Size = new System.Drawing.Size(100, 100);
+            this.pnFix_Avatar.TabIndex = 61;
+            // 
+            // pbAvatar
+            // 
+            this.pbAvatar.BackColor = System.Drawing.Color.Blue;
+            this.pbAvatar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbAvatar.Enabled = false;
+            this.pbAvatar.Location = new System.Drawing.Point(0, 0);
+            this.pbAvatar.Name = "pbAvatar";
+            this.pbAvatar.Size = new System.Drawing.Size(100, 100);
+            this.pbAvatar.TabIndex = 58;
+            this.pbAvatar.TabStop = false;
+            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -599,6 +635,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnInfo.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.pnFix_Avatar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -648,5 +687,8 @@
         private System.Windows.Forms.Label lbNgayNhap;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbMoTa;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnFix_Avatar;
+        private System.Windows.Forms.PictureBox pbAvatar;
     }
 }

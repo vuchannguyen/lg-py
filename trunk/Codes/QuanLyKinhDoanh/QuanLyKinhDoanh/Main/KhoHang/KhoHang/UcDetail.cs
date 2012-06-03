@@ -137,12 +137,9 @@ namespace QuanLyKinhDoanh.KhoHang
                 }
             }
 
-            string avatarPath = Path.Combine(File_Function.getFinalFolder(Constant.listFolderAvatar), CommonFunc.setAvatarPath(data.MaSanPham, data.UpdateDate));
-
-            if (File.Exists(avatarPath))
+            if (!string.IsNullOrEmpty(data.Avatar))
             {
-                string sImage = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(Image.FromFile(avatarPath)));
-                pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(sImage));
+                pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(data.Avatar));
             }
             else
             {

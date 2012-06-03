@@ -106,12 +106,12 @@ namespace QuanLyKinhDoanh.NhapKho
                 tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? string.Empty :
                     ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
 
-                avatarPath = Path.Combine(File_Function.getFinalFolder(listFolderAvatar), CommonFunc.setAvatarPath(dataSP.MaSanPham, dataSP.CreateDate));
+                //avatarPath = Path.Combine(File_Function.getFinalFolder(listFolderAvatar), CommonFunc.setAvatarPath(dataSP.MaSanPham, dataSP.CreateDate));
 
-                if (File.Exists(avatarPath))
+                if (!string.IsNullOrEmpty(dataSP.Avatar))
                 {
-                    string sImage = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(Image.FromFile(avatarPath)));
-                    pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(sImage));
+                    //string sImage = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(Image.FromFile(avatarPath)));
+                    pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(dataSP.Avatar));
                 }
                 else
                 {
@@ -853,12 +853,15 @@ namespace QuanLyKinhDoanh.NhapKho
             dataSP.GiaBan = ConvertUtil.ConvertToLong(tbGiaBan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataSP.LaiSuat = ConvertUtil.ConvertToDouble(tbLaiSuat.Text);
 
+            if (isNewAvatar)
+            { 
+                dataSP.Avatar = Convert_Function.ConvertByteArrayToString(Convert_Function.ConvertImageToByteArray(pbAvatar.Image));
+            }
+
             if (SanPhamBus.Update(dataSP, FormMain.user))
             {
                 if (!isUpdate)
                 {
-                    SaveAvatar();
-
                     if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + dataSP.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE,
                         Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                     {
@@ -875,11 +878,6 @@ namespace QuanLyKinhDoanh.NhapKho
                 }
                 else
                 {
-                    if (isNewAvatar)
-                    {
-                        SaveAvatar();
-                    }
-
                     this.Dispose();
                 }
             }
