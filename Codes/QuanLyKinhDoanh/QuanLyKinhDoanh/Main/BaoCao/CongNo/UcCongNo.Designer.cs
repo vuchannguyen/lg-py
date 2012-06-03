@@ -432,6 +432,7 @@
             this.pbSua.Size = new System.Drawing.Size(50, 50);
             this.pbSua.TabIndex = 1;
             this.pbSua.TabStop = false;
+            this.pbSua.Click += new System.EventHandler(this.pbSua_Click);
             this.pbSua.MouseEnter += new System.EventHandler(this.pbSua_MouseEnter);
             this.pbSua.MouseLeave += new System.EventHandler(this.pbSua_MouseLeave);
             // 

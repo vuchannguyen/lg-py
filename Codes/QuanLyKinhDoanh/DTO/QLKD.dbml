@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyKinhDoanh" Class="QLKDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LGVN13311-XPB01\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CONAN-PC\SQLEXPRESS;Initial Catalog=QuanLyKinhDoanh;Integrated Security=True" SettingsObjectName="DTO.Properties.Settings" SettingsPropertyName="QuanLyKinhDoanhConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChietKhau" Member="ChietKhaus">
     <Type Name="ChietKhau">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -128,6 +128,7 @@
       <Column Name="MaSanPham" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="IdGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdXuatXu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="GiaMua" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />

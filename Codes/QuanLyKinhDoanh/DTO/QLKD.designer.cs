@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2854,6 +2854,8 @@ namespace DTO
 		
 		private System.Nullable<int> _IdXuatXu;
 		
+		private string _Avatar;
+		
 		private string _Ten;
 		
 		private string _MoTa;
@@ -2912,6 +2914,8 @@ namespace DTO
     partial void OnIdGroupChanged();
     partial void OnIdXuatXuChanging(System.Nullable<int> value);
     partial void OnIdXuatXuChanged();
+    partial void OnAvatarChanging(string value);
+    partial void OnAvatarChanged();
     partial void OnTenChanging(string value);
     partial void OnTenChanged();
     partial void OnMoTaChanging(string value);
@@ -3045,6 +3049,26 @@ namespace DTO
 					this._IdXuatXu = value;
 					this.SendPropertyChanged("IdXuatXu");
 					this.OnIdXuatXuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Avatar", DbType="NVarChar(MAX)")]
+		public string Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+			set
+			{
+				if ((this._Avatar != value))
+				{
+					this.OnAvatarChanging(value);
+					this.SendPropertyChanging();
+					this._Avatar = value;
+					this.SendPropertyChanged("Avatar");
+					this.OnAvatarChanged();
 				}
 			}
 		}

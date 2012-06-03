@@ -144,6 +144,15 @@ namespace QuanLyKinhDoanh.XuatKho
                         break;
                 }
             }
+
+            if (!string.IsNullOrEmpty(data.Avatar))
+            {
+                pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(data.Avatar));
+            }
+            else
+            {
+                pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
+            }
         }
 
         private void UpdateData()
