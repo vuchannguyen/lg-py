@@ -29,37 +29,90 @@
         private void InitializeComponent()
         {
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.lbTonKho = new System.Windows.Forms.Label();
+            this.pbTonKho = new System.Windows.Forms.PictureBox();
+            this.lbXuatKho = new System.Windows.Forms.Label();
+            this.pbXuatKho = new System.Windows.Forms.PictureBox();
             this.lbKhoHang = new System.Windows.Forms.Label();
             this.lbNhapKho = new System.Windows.Forms.Label();
             this.pbNhapKho = new System.Windows.Forms.PictureBox();
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
-            this.lbXuatKho = new System.Windows.Forms.Label();
-            this.pbXuatKho = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTonKho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.lbTonKho);
+            this.pnSelect.Controls.Add(this.pbTonKho);
             this.pnSelect.Controls.Add(this.lbXuatKho);
             this.pnSelect.Controls.Add(this.pbXuatKho);
             this.pnSelect.Controls.Add(this.lbKhoHang);
             this.pnSelect.Controls.Add(this.lbNhapKho);
             this.pnSelect.Controls.Add(this.pbNhapKho);
             this.pnSelect.Controls.Add(this.pbKhoHang);
-            this.pnSelect.Location = new System.Drawing.Point(220, 230);
+            this.pnSelect.Location = new System.Drawing.Point(150, 230);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(560, 140);
+            this.pnSelect.Size = new System.Drawing.Size(714, 140);
             this.pnSelect.TabIndex = 6;
+            // 
+            // lbTonKho
+            // 
+            this.lbTonKho.AutoSize = true;
+            this.lbTonKho.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTonKho.ForeColor = System.Drawing.Color.Gray;
+            this.lbTonKho.Location = new System.Drawing.Point(610, 120);
+            this.lbTonKho.Name = "lbTonKho";
+            this.lbTonKho.Size = new System.Drawing.Size(72, 16);
+            this.lbTonKho.TabIndex = 10;
+            this.lbTonKho.Text = "TỒN KHO";
+            // 
+            // pbTonKho
+            // 
+            this.pbTonKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbTonKho.Location = new System.Drawing.Point(597, 10);
+            this.pbTonKho.Name = "pbTonKho";
+            this.pbTonKho.Size = new System.Drawing.Size(100, 100);
+            this.pbTonKho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTonKho.TabIndex = 9;
+            this.pbTonKho.TabStop = false;
+            this.pbTonKho.Click += new System.EventHandler(this.pbTonKho_Click);
+            this.pbTonKho.MouseEnter += new System.EventHandler(this.pbTonKho_MouseEnter);
+            this.pbTonKho.MouseLeave += new System.EventHandler(this.pbTonKho_MouseLeave);
+            // 
+            // lbXuatKho
+            // 
+            this.lbXuatKho.AutoSize = true;
+            this.lbXuatKho.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbXuatKho.ForeColor = System.Drawing.Color.Gray;
+            this.lbXuatKho.Location = new System.Drawing.Point(221, 120);
+            this.lbXuatKho.Name = "lbXuatKho";
+            this.lbXuatKho.Size = new System.Drawing.Size(79, 16);
+            this.lbXuatKho.TabIndex = 8;
+            this.lbXuatKho.Text = "XUẤT KHO";
+            // 
+            // pbXuatKho
+            // 
+            this.pbXuatKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXuatKho.Location = new System.Drawing.Point(211, 10);
+            this.pbXuatKho.Name = "pbXuatKho";
+            this.pbXuatKho.Size = new System.Drawing.Size(100, 100);
+            this.pbXuatKho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbXuatKho.TabIndex = 7;
+            this.pbXuatKho.TabStop = false;
+            this.pbXuatKho.Click += new System.EventHandler(this.pbXuatKho_Click);
+            this.pbXuatKho.MouseEnter += new System.EventHandler(this.pbXuatKho_MouseEnter);
+            this.pbXuatKho.MouseLeave += new System.EventHandler(this.pbXuatKho_MouseLeave);
             // 
             // lbKhoHang
             // 
             this.lbKhoHang.AutoSize = true;
             this.lbKhoHang.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbKhoHang.ForeColor = System.Drawing.Color.Gray;
-            this.lbKhoHang.Location = new System.Drawing.Point(452, 120);
+            this.lbKhoHang.Location = new System.Drawing.Point(417, 120);
             this.lbKhoHang.Name = "lbKhoHang";
             this.lbKhoHang.Size = new System.Drawing.Size(84, 16);
             this.lbKhoHang.TabIndex = 6;
@@ -92,7 +145,7 @@
             // pbKhoHang
             // 
             this.pbKhoHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbKhoHang.Location = new System.Drawing.Point(443, 10);
+            this.pbKhoHang.Location = new System.Drawing.Point(408, 10);
             this.pbKhoHang.Name = "pbKhoHang";
             this.pbKhoHang.Size = new System.Drawing.Size(100, 100);
             this.pbKhoHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -101,30 +154,6 @@
             this.pbKhoHang.Click += new System.EventHandler(this.pbKhoHang_Click);
             this.pbKhoHang.MouseEnter += new System.EventHandler(this.pbKhoHang_MouseEnter);
             this.pbKhoHang.MouseLeave += new System.EventHandler(this.pbKhoHang_MouseLeave);
-            // 
-            // lbXuatKho
-            // 
-            this.lbXuatKho.AutoSize = true;
-            this.lbXuatKho.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbXuatKho.ForeColor = System.Drawing.Color.Gray;
-            this.lbXuatKho.Location = new System.Drawing.Point(241, 120);
-            this.lbXuatKho.Name = "lbXuatKho";
-            this.lbXuatKho.Size = new System.Drawing.Size(79, 16);
-            this.lbXuatKho.TabIndex = 8;
-            this.lbXuatKho.Text = "XUẤT KHO";
-            // 
-            // pbXuatKho
-            // 
-            this.pbXuatKho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbXuatKho.Location = new System.Drawing.Point(231, 10);
-            this.pbXuatKho.Name = "pbXuatKho";
-            this.pbXuatKho.Size = new System.Drawing.Size(100, 100);
-            this.pbXuatKho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbXuatKho.TabIndex = 7;
-            this.pbXuatKho.TabStop = false;
-            this.pbXuatKho.Click += new System.EventHandler(this.pbXuatKho_Click);
-            this.pbXuatKho.MouseEnter += new System.EventHandler(this.pbXuatKho_MouseEnter);
-            this.pbXuatKho.MouseLeave += new System.EventHandler(this.pbXuatKho_MouseLeave);
             // 
             // UcKhoHangIndex
             // 
@@ -138,9 +167,10 @@
             this.Load += new System.EventHandler(this.UcKhoHangIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTonKho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,5 +184,7 @@
         private System.Windows.Forms.PictureBox pbKhoHang;
         private System.Windows.Forms.Label lbXuatKho;
         private System.Windows.Forms.PictureBox pbXuatKho;
+        private System.Windows.Forms.Label lbTonKho;
+        private System.Windows.Forms.PictureBox pbTonKho;
     }
 }

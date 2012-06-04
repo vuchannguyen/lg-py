@@ -12,7 +12,8 @@ namespace DAO
 {
     public class SanPhamDao : SQLConnection
     {
-        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHavePrice, string status)
+        public static IQueryable<SanPham> GetQuery(string text, int idGroup, bool isHavePrice, string status,
+            bool isExpired, int warningDays)
         {
             var sql = from data in dbContext.SanPhams
                       select data;
@@ -56,17 +57,27 @@ namespace DAO
                     break;
             }
 
+            if (isExpired)
+            {
+                sql = sql.Where(p => p.ThoiHan.Value != 0 &&
+                    DateTime.Now.AddDays(warningDays) >= (p.DonViThoiHan == CommonDao.DEFAULT_TYPE_DAY ?
+                    p.CreateDate.AddDays(p.ThoiHan.Value) : p.DonViThoiHan == CommonDao.DEFAULT_TYPE_MONTH ?
+                    p.CreateDate.AddMonths(p.ThoiHan.Value) : p.CreateDate.AddYears(p.ThoiHan.Value)));
+            }
+
             sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
 
-        public static int GetCount(string text, int idGroup, bool isHavePrice, string status)
+        public static int GetCount(string text, int idGroup, bool isHavePrice, string status,
+            bool isExpired, int warningDays)
         {
-            return GetQuery(text, idGroup, isHavePrice, status).Count();
+            return GetQuery(text, idGroup, isHavePrice, status, isExpired, warningDays).Count();
         }
 
         public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan, string status,
+            bool isExpired, int warningDays,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -114,7 +125,31 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, idGroup, isHaveGiaBan, status).OrderBy(sortSQL);
+            IQueryable<SanPham> sql = null;
+
+            if (sortColumn != "Ngày hết hạn")
+            {
+                sql = GetQuery(text, idGroup, isHaveGiaBan, status, isExpired, warningDays).OrderBy(sortSQL);
+            }
+            else
+            {
+                if (sortOrder == CommonDao.SORT_ASCENDING)
+                {
+                    sql = GetQuery(text, idGroup, isHaveGiaBan, status, isExpired, warningDays).OrderBy(
+                        p => p.ThoiHan.Value != 0 &&
+                        p.DonViThoiHan == CommonDao.DEFAULT_TYPE_DAY ?
+                        p.CreateDate.AddDays(p.ThoiHan.Value) : p.DonViThoiHan == CommonDao.DEFAULT_TYPE_MONTH ?
+                        p.CreateDate.AddMonths(p.ThoiHan.Value) : p.CreateDate.AddYears(p.ThoiHan.Value));
+                }
+                else
+                {
+                    sql = GetQuery(text, idGroup, isHaveGiaBan, status, isExpired, warningDays).OrderByDescending(
+                        p => p.ThoiHan.Value != 0 &&
+                        p.DonViThoiHan == CommonDao.DEFAULT_TYPE_DAY ?
+                        p.CreateDate.AddDays(p.ThoiHan.Value) : p.DonViThoiHan == CommonDao.DEFAULT_TYPE_MONTH ?
+                        p.CreateDate.AddMonths(p.ThoiHan.Value) : p.CreateDate.AddYears(p.ThoiHan.Value));
+                }
+            }
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

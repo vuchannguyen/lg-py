@@ -64,6 +64,8 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
+            FormMain.isEditing = false;
+
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_ASCENDING;
 
@@ -101,6 +103,8 @@ namespace QuanLyKinhDoanh
             {
                 tbSearch.Text = string.Empty;
             }
+
+            FormMain.isEditing = false;
         }
 
         private int GetTotalPage(int total)

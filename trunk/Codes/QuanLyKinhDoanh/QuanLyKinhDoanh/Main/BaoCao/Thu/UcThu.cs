@@ -91,6 +91,8 @@ namespace QuanLyKinhDoanh.Thu
             {
                 tbSearch.Text = string.Empty;
             }
+
+            FormMain.isEditing = false;
         }
 
         private int GetTotalPage(int total)

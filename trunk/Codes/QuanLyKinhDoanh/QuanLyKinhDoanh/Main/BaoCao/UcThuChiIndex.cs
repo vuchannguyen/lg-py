@@ -42,6 +42,26 @@ namespace QuanLyKinhDoanh
             LoadResource();
 
             pnSelect.Location = CommonFunc.SetWidthCenter(this.Size, pnSelect.Size, Constant.DEFAULT_TOP_HEIGHT);
+
+            FormMain.isEditing = false;
+
+            InitPermission();
+        }
+
+        private void InitPermission()
+        {
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                pbLoiNhuan.Visible = false;
+                lbLoiNhuan.Visible = false;
+
+                pbThu.Location = CommonFunc.SetWidthCenter(pnSelect.Size, pbThu.Size, pbThu.Top);
+                lbThu.Location = CommonFunc.SetWidthCenter(pnSelect.Size, lbThu.Size, lbThu.Top);
+
+                int distance = pbLoiNhuan.Left - pbChi.Left;
+                pbChi.Left += distance;
+                lbChi.Left += distance;
+            }
         }
 
         private void pbThu_Click(object sender, EventArgs e)

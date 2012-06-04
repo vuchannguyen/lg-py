@@ -46,6 +46,22 @@ namespace QuanLyKinhDoanh
             {
                 pbPrint.Enabled = false;
             }
+
+            FormMain.isEditing = false;
+
+            InitPermission();
+        }
+
+        private void InitPermission()
+        {
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                pbXuatXu.Visible = false;
+                lbXuatXu.Visible = false;
+
+                pbNhomSanPham.Location = CommonFunc.SetWidthCenter(pnSelect.Size, pbNhomSanPham.Size, pbNhomSanPham.Top);
+                lbNhomSanPham.Location = CommonFunc.SetWidthCenter(pnSelect.Size, lbNhomSanPham.Size, lbNhomSanPham.Top);
+            }
         }
 
         private void pbSanPham_Click(object sender, EventArgs e)

@@ -151,9 +151,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(113, 22);
+            this.lbTitle.Size = new System.Drawing.Size(97, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "LỢI NHUẬN";
+            this.lbTitle.Text = "THU - CHI";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -532,6 +532,7 @@
             this.pnLoiNhuan.Name = "pnLoiNhuan";
             this.pnLoiNhuan.Size = new System.Drawing.Size(100, 70);
             this.pnLoiNhuan.TabIndex = 69;
+            this.pnLoiNhuan.Visible = false;
             // 
             // lbLoiNhuan
             // 

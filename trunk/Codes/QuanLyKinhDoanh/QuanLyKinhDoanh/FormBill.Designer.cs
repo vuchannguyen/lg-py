@@ -34,9 +34,9 @@
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
@@ -84,6 +84,12 @@
             this.chSanPham.Text = "Sản phẩm";
             this.chSanPham.Width = 248;
             // 
+            // chChietKhau
+            // 
+            this.chChietKhau.Text = "CK";
+            this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chChietKhau.Width = 50;
+            // 
             // chSoLuong
             // 
             this.chSoLuong.Text = "SL";
@@ -95,12 +101,6 @@
             this.chDonGia.Text = "Đơn giá";
             this.chDonGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.chDonGia.Width = 100;
-            // 
-            // chChietKhau
-            // 
-            this.chChietKhau.Text = "CK";
-            this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chChietKhau.Width = 50;
             // 
             // chThanhTien
             // 

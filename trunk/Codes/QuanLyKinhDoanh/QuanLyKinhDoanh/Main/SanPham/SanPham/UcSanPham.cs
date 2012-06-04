@@ -92,6 +92,7 @@ namespace QuanLyKinhDoanh
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
         }
+
         private void uc_Disposed(object sender, EventArgs e)
         {
             tbSearch.Text = Constant.SEARCH_SANPHAM_TIP;
@@ -104,6 +105,8 @@ namespace QuanLyKinhDoanh
             {
                 tbSearch.Text = string.Empty;
             }
+
+            FormMain.isEditing = false;
         }
 
         private int GetTotalPage(int total)
@@ -126,7 +129,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            int total = SanPhamBus.GetCount(text, idGroup, false, Constant.DEFAULT_STATUS_SP_ALL);
+            int total = SanPhamBus.GetCount(text, idGroup, false, Constant.DEFAULT_STATUS_SP_ALL, false, 0);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -138,6 +141,7 @@ namespace QuanLyKinhDoanh
             }
 
             List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, Constant.DEFAULT_STATUS_SP_ALL,
+                false, 0,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -294,6 +298,7 @@ namespace QuanLyKinhDoanh
             }
 
             List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, Constant.DEFAULT_STATUS_SP_ALL,
+                false, 0,
                 string.Empty, string.Empty, 0, 0);
 
             for (int i = 0; i < list.Count; i++)

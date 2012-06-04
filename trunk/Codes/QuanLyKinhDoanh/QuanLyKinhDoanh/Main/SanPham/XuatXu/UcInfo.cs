@@ -83,6 +83,8 @@ namespace QuanLyKinhDoanh.XuatXu
 
             this.BringToFront();
 
+            FormMain.isEditing = true;
+
             ValidateInput();
         }
 

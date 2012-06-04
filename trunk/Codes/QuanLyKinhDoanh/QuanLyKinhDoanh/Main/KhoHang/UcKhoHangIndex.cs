@@ -26,6 +26,7 @@ namespace QuanLyKinhDoanh
                 pbNhapKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_NHAP_INDEX);
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_SEARCH_INDEX);
                 pbXuatKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_XUAT_KHO_INDEX);
+                pbTonKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_HANG_HET_HAN_INDEX);
             }
             catch
             {
@@ -40,6 +41,8 @@ namespace QuanLyKinhDoanh
             LoadResource();
 
             pnSelect.Location = CommonFunc.SetWidthCenter(this.Size, pnSelect.Size, Constant.DEFAULT_TOP_HEIGHT);
+
+            FormMain.isEditing = false;
 
             InitPermission();
         }
@@ -101,6 +104,21 @@ namespace QuanLyKinhDoanh
         {
             pbXuatKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_XUAT_KHO_INDEX);
             lbXuatKho.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbTonKho_Click(object sender, EventArgs e)
+        {
+            CommonFunc.NewControl(this.Controls, ref uc, new UcTonKho());
+        }
+
+        private void pbTonKho_MouseEnter(object sender, EventArgs e)
+        {
+            pbTonKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_HANG_HET_HAN_INDEX_MOUSEOVER);
+        }
+
+        private void pbTonKho_MouseLeave(object sender, EventArgs e)
+        {
+            pbTonKho.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_HANG_HET_HAN_INDEX);
         }
     }
 }

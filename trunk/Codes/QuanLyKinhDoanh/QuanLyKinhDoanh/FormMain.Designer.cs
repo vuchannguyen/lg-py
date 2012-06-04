@@ -305,10 +305,11 @@
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pbHeader.Location = new System.Drawing.Point(636, 0);
+            this.pbHeader.Location = new System.Drawing.Point(784, 0);
             this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(318, 69);
+            this.pbHeader.Size = new System.Drawing.Size(170, 70);
+            this.pbHeader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHeader.TabIndex = 7;
             this.pbHeader.TabStop = false;
             // 
@@ -408,7 +409,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUAN LY KINH DOANH 3.4";
+            this.Text = "QUAN LY KINH DOANH 3.5";
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);

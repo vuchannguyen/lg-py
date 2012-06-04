@@ -16,7 +16,8 @@ namespace QuanLyKinhDoanh
     {
         #region Variables
         public static DTO.User user;
-        public static bool isPrintUsing = false;
+        public static bool isPrintUsing;
+        public static bool isEditing;
 
         private bool isMainMenuClickUser;
         private bool isMainMenuClickKhachHang;
@@ -46,7 +47,7 @@ namespace QuanLyKinhDoanh
                 //this.BackgroundImage = Image.FromFile(@"Resources\background.jpg");
                 pnTopBar.BackgroundImage = Image.FromFile(ConstantResource.MAIN_TOP_BAR);
 
-                //pbHeader.Image = Image.FromFile(@"Resources\Main\brand.png");
+                pbHeader.Image = Image.FromFile(ConstantResource.MAIN_LOGOND);
                 pbHorizonline.Image = Image.FromFile(ConstantResource.MAIN_HORIZONLINE);
 
                 pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
@@ -97,6 +98,9 @@ namespace QuanLyKinhDoanh
             {
                 this.Visible = true;
 
+                isPrintUsing = false;
+                isEditing = false;
+
                 lbNgay.Text = DateTime.Now.ToString(Constant.DEFAULT_DATE_FORMAT);
                 lbAccount.Text = user.UserName;
 
@@ -139,6 +143,16 @@ namespace QuanLyKinhDoanh
             isMainMenuClickThanhToan = false;
         }
 
+        private bool WarningEditingDialog()
+        {
+            if (isEditing)
+            {
+                return MessageBox.Show(Constant.MESSAGE_EXIT, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes;
+            }
+
+            return true;
+        }
+
 
 
         #region Main Button
@@ -149,17 +163,20 @@ namespace QuanLyKinhDoanh
 
         private void pbUser_Click(object sender, EventArgs e)
         {
-            ScaleNormalControls();
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcUser());
 
-            Init();
-            isMainMenuClickUser = true;
+                Init();
+                isMainMenuClickUser = true;
 
-            pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
-            lbUser.ForeColor = Constant.COLOR_IN_USE;
+                pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
+                lbUser.ForeColor = Constant.COLOR_IN_USE;
 
-            ScaleMaximizedControls();
+                ScaleMaximizedControls();
+            }
         }
 
         private void pbUser_MouseEnter(object sender, EventArgs e)
@@ -186,17 +203,20 @@ namespace QuanLyKinhDoanh
 
         private void pbKhachHang_Click(object sender, EventArgs e)
         {
-            ScaleNormalControls();
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
 
-            Init();
-            isMainMenuClickKhachHang = true;
+                Init();
+                isMainMenuClickKhachHang = true;
 
-            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
-            lbKhachHang.ForeColor = Constant.COLOR_IN_USE;
+                pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
+                lbKhachHang.ForeColor = Constant.COLOR_IN_USE;
 
-            ScaleMaximizedControls();
+                ScaleMaximizedControls();
+            }
         }
 
         private void pbKhachHang_MouseEnter(object sender, EventArgs e)
@@ -223,17 +243,20 @@ namespace QuanLyKinhDoanh
 
         private void pbSanPham_Click(object sender, EventArgs e)
         {
-            ScaleNormalControls();
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
 
-            Init();
-            isMainMenuClickSP = true;
+                Init();
+                isMainMenuClickSP = true;
 
-            pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
-            lbSanPham.ForeColor = Constant.COLOR_IN_USE;
+                pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
+                lbSanPham.ForeColor = Constant.COLOR_IN_USE;
 
-            ScaleMaximizedControls();
+                ScaleMaximizedControls();
+            }
         }
 
         private void pbSanPham_MouseEnter(object sender, EventArgs e)
@@ -260,17 +283,20 @@ namespace QuanLyKinhDoanh
 
         private void pbKhoHang_Click(object sender, EventArgs e)
         {
-            ScaleNormalControls();
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhoHangIndex());
 
-            Init();
-            isMainMenuClickKho = true;
+                Init();
+                isMainMenuClickKho = true;
 
-            pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
-            lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
+                pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG_MOUSEOVER);
+                lbKhoHang.ForeColor = Constant.COLOR_IN_USE;
 
-            ScaleMaximizedControls();
+                ScaleMaximizedControls();
+            }
         }
 
         private void pbKhoHang_MouseEnter(object sender, EventArgs e)
@@ -297,17 +323,20 @@ namespace QuanLyKinhDoanh
 
         private void pbThuChi_Click(object sender, EventArgs e)
         {
-            ScaleNormalControls();
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcThuChiIndex());
 
-            Init();
-            isMainMenuClickThuChi = true;
+                Init();
+                isMainMenuClickThuChi = true;
 
-            pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
-            lbThuChi.ForeColor = Constant.COLOR_IN_USE;
+                pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI_MOUSEOVER);
+                lbThuChi.ForeColor = Constant.COLOR_IN_USE;
 
-            ScaleMaximizedControls();
+                ScaleMaximizedControls();
+            }
         }
 
         private void pbThuChi_MouseEnter(object sender, EventArgs e)
@@ -334,17 +363,20 @@ namespace QuanLyKinhDoanh
 
         private void pbThanhToan_Click(object sender, EventArgs e)
         {
-            ScaleNormalControls();
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
 
-            Init();
-            isMainMenuClickThanhToan = true;
+                Init();
+                isMainMenuClickThanhToan = true;
 
-            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
-            lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
+                pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
+                lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
 
-            CommonFunc.NewControl(pnBody.Controls, ref uc, new QuanLyKinhDoanh.GiaoDich.UcThanhToan());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new QuanLyKinhDoanh.GiaoDich.UcThanhToan());
 
-            ScaleMaximizedControls();
+                ScaleMaximizedControls();
+            }
         }
 
         private void pbThanhToan_MouseEnter(object sender, EventArgs e)

@@ -9,15 +9,17 @@ namespace BUS
 {
     public class SanPhamBus
     {
-        public static int GetCount(string text, int idGroup, bool isHavePrice, string status)
+        public static int GetCount(string text, int idGroup, bool isHavePrice, string status,
+            bool isExpired, int warningDays)
         {
-            return SanPhamDao.GetCount(text, idGroup, isHavePrice, status);
+            return SanPhamDao.GetCount(text, idGroup, isHavePrice, status, isExpired, warningDays);
         }
 
         public static List<SanPham> GetList(string text, int idGroup, bool isHavePrice, string status,
+            bool isExpired, int warningDays,
             string sortColumn, string sortOrder, int skip, int take)
         {
-            return SanPhamDao.GetList(text, idGroup, isHavePrice, status, sortColumn, sortOrder, skip, take);
+            return SanPhamDao.GetList(text, idGroup, isHavePrice, status, isExpired, warningDays, sortColumn, sortOrder, skip, take);
         }
 
         public static List<SanPham> GetListByIdGroup(int idGroup)
