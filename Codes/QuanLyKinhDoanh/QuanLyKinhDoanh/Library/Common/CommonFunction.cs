@@ -239,28 +239,9 @@ namespace Library
                     DOB.AddYears(DateTime.Now.Year - DOB.Year) <= DateTime.Now.AddDays(warningDays));
         }
 
-        public static int IsEndOfUseDate(DateTime createDate, int warningDays, int value, string typeOfValue)
+        public static int IsExpired(DateTime createDate, int warningDays, int value, string typeOfValue)
         {
-            DateTime usedDay = createDate;
-
-            switch (typeOfValue)
-            { 
-                case Constant.DEFAULT_TYPE_DAY:
-                    usedDay = createDate.AddDays(value);
-                    break;
-
-                case Constant.DEFAULT_TYPE_MONTH:
-                    usedDay = createDate.AddMonths(value);
-                    break;
-
-                case Constant.DEFAULT_TYPE_YEAR:
-                    usedDay = createDate.AddYears(value);
-                    break;
-
-                default:
-                    usedDay = createDate.AddDays(value);
-                    break;
-            }
+            DateTime usedDay = CalculateExpiredDate(createDate, value, typeOfValue);
 
             if (DateTime.Now.AddDays(warningDays) < usedDay)
             {
@@ -279,6 +260,32 @@ namespace Library
             }
 
             return 0;
+        }
+
+        public static DateTime CalculateExpiredDate(DateTime createDate, int value, string typeOfValue)
+        {
+            DateTime usedDay = createDate;
+
+            switch (typeOfValue)
+            {
+                case Constant.DEFAULT_TYPE_DAY:
+                    usedDay = createDate.AddDays(value);
+                    break;
+
+                case Constant.DEFAULT_TYPE_MONTH:
+                    usedDay = createDate.AddMonths(value);
+                    break;
+
+                case Constant.DEFAULT_TYPE_YEAR:
+                    usedDay = createDate.AddYears(value);
+                    break;
+
+                default:
+                    usedDay = createDate.AddDays(value);
+                    break;
+            }
+
+            return usedDay;
         }
 
         public static string setAvatarPath(string ma, DateTime date)

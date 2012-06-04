@@ -92,6 +92,8 @@ namespace QuanLyKinhDoanh.KhachHang
 
             this.BringToFront();
 
+            FormMain.isEditing = true;
+
             dtpDOB.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
             dtpNgayCap.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
 

@@ -31,7 +31,7 @@ namespace Library
         public const int DEFAULT_NUMS_DECAL_COLUMNS = 7;
 
         public const int DEFAULT_WARNING_DAYS_DOB = 7;
-        public const int DEFAULT_WARNING_DAYS_USED_DATE = 7;
+        public const int DEFAULT_WARNING_DAYS_EXPIRED = 7;
 
         public const int DEFAULT_STATUS_USED_DATE_BEFORE = 0;
         public const int DEFAULT_STATUS_USED_DATE_NEAR = 1;
@@ -236,13 +236,13 @@ namespace Library
         public const string MESSAGE_CONFIRM_SELF_DESTRUCTION = "Hủy tài khoản và thoát chương trình?";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
-        public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";
-        public const string SEARCH_SANPHAMGROUP_TIP = "Mã - Tên - Mô tả";
-        public const string SEARCH_SANPHAM_TIP = "Mã - Tên - Xuất xứ - Mô tả";
+        public const string SEARCH_KHACHHANG_TIP = "Mã KH - Họ tên - Điện thoại - Email";
+        public const string SEARCH_SANPHAMGROUP_TIP = "Mã nhóm SP - Tên - Mô tả";
+        public const string SEARCH_SANPHAM_TIP = "Mã SP - Tên - Xuất xứ - Mô tả";
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
-        public const string SEARCH_NHAPKHO_TIP = "Mã nhập - Mã SP - Tên SP";
-        public const string SEARCH_THU_TIP = "Mã HĐ - Mã KH - Tên KH - Lý do";
-        public const string SEARCH_CHI_TIP = "Mã HĐ - Mã KH - Tên KH - Lý do";
-        public const string SEARCH_CONGNO_TIP = "Mã HĐ - Mã KH - Tên KH - Lý do";
+        public const string SEARCH_NHAPKHO_TIP = "Mã HĐ - Mã SP - Tên SP";
+        public const string SEARCH_THU_TIP = "Mã HĐ - Mã KH - Tên KH - Ghi chú";
+        public const string SEARCH_CHI_TIP = "Mã HĐ - Mã KH - Tên KH - Ghi chú";
+        public const string SEARCH_CONGNO_TIP = "Mã HĐ - Mã KH - Tên KH - Ghi chú";
     }
 }

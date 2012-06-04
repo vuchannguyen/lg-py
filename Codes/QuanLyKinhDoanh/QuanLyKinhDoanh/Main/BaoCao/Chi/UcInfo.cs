@@ -68,6 +68,8 @@ namespace QuanLyKinhDoanh.Chi
 
             this.BringToFront();
 
+            FormMain.isEditing = true;
+
             ValidateInput();
 
             tbTien.Focus();

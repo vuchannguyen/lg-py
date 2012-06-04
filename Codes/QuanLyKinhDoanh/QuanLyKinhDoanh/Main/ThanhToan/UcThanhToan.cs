@@ -63,6 +63,8 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             this.BringToFront();
 
+            FormMain.isEditing = false;
+
             ValidateInput();
         }
 
@@ -72,6 +74,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private bool Init()
         {
             listDataSP = SanPhamBus.GetList(string.Empty, 0, true, Constant.DEFAULT_STATUS_SP_NOT_ZERO,
+                false, 0,
                 string.Empty, string.Empty, 0, 0);
 
             GetListSP(listDataSP);

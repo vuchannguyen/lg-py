@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>iconCD.ico</ApplicationIcon>
+    <ApplicationIcon>iconND.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
@@ -129,6 +129,12 @@
     </Compile>
     <Compile Include="Main\KhoHang\KhoHang\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhoHang\TonKho\UcTonKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\TonKho\UcTonKho.Designer.cs">
+      <DependentUpon>UcTonKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhoHang\XuatKho\UcInfo.cs">
       <SubType>UserControl</SubType>
@@ -358,6 +364,9 @@
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\TonKho\UcTonKho.resx">
+      <DependentUpon>UcTonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\XuatKho\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,6 +469,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconCD.ico" />
+    <Content Include="iconND.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">

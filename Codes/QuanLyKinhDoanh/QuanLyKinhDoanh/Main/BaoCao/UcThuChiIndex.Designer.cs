@@ -136,11 +136,11 @@
             this.lbLoiNhuan.AutoSize = true;
             this.lbLoiNhuan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLoiNhuan.ForeColor = System.Drawing.Color.Gray;
-            this.lbLoiNhuan.Location = new System.Drawing.Point(596, 120);
+            this.lbLoiNhuan.Location = new System.Drawing.Point(603, 120);
             this.lbLoiNhuan.Name = "lbLoiNhuan";
-            this.lbLoiNhuan.Size = new System.Drawing.Size(85, 16);
+            this.lbLoiNhuan.Size = new System.Drawing.Size(73, 16);
             this.lbLoiNhuan.TabIndex = 8;
-            this.lbLoiNhuan.Text = "LỢI NHUẬN";
+            this.lbLoiNhuan.Text = "THU - CHI";
             // 
             // pbLoiNhuan
             // 

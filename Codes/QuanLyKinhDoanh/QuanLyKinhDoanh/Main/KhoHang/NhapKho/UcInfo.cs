@@ -154,6 +154,8 @@ namespace QuanLyKinhDoanh.NhapKho
 
             this.BringToFront();
 
+            FormMain.isEditing = true;
+
             ValidateInput();
         }
 

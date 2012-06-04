@@ -147,7 +147,7 @@ namespace QuanLyKinhDoanh
         private void RefreshListView(string text, int idGroup, string status,
             string sortColumn, string sortOrder, int page)
         {
-            int total = SanPhamBus.GetCount(text, idGroup, false, status);
+            int total = SanPhamBus.GetCount(text, idGroup, false, status, false, 0);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -159,6 +159,7 @@ namespace QuanLyKinhDoanh
             }
 
             List<DTO.SanPham> list = SanPhamBus.GetList(text, idGroup, false, status,
+                false, 0,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -175,7 +176,7 @@ namespace QuanLyKinhDoanh
                 }
                 else if (data.ThoiHan.Value != 0)
                 {
-                    switch (CommonFunc.IsEndOfUseDate(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_USED_DATE,
+                    switch (CommonFunc.IsExpired(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_EXPIRED,
                         data.ThoiHan.Value, data.DonViThoiHan))
                     { 
                         case Constant.DEFAULT_STATUS_USED_DATE_NEAR:
@@ -193,6 +194,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add(data.MaSanPham, color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.Ten, color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.MoTa, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.XuatXu == null ? string.Empty : data.XuatXu.Ten, color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.SoLuong.ToString(), color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.DonViTinh, color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);

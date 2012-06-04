@@ -93,6 +93,8 @@ namespace QuanLyKinhDoanh.Thu
             }
 
             this.BringToFront();
+
+            FormMain.isEditing = true;
         }
 
 
@@ -415,6 +417,11 @@ namespace QuanLyKinhDoanh.Thu
             }
 
             dataKH.TichLuy -= money;
+
+            if (dataKH.TichLuy < 0)
+            {
+                dataKH.TichLuy = 0;
+            }
 
             if (!KhachHangBus.Update(dataKH, FormMain.user))
             {

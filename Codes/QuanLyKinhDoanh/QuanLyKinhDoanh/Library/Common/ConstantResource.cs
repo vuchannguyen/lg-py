@@ -14,6 +14,7 @@ namespace Library
         public const string MAIN_ICON_KEY = @"Resources\Main\icon_key.png";
         public const string MAIN_ICON_KEY_MOUSEOVER = @"Resources\Main\icon_key_mouseover.png";
         public const string MAIN_ICON_KEY_DISABLE = @"Resources\Main\icon_key_disable.png";
+        public const string MAIN_LOGOND = @"Resources\Main\logoND.png";
 
 
 
@@ -110,6 +111,8 @@ namespace Library
         public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_search_index_mouseover.png";
         public const string KHOHANG_ICON_XUAT_KHO_INDEX = @"Resources\KhoHang\icon_xuat_kho_index.png";
         public const string KHOHANG_ICON_XUAT_KHO_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_xuat_kho_index_mouseover.png";
+        public const string KHOHANG_ICON_HANG_HET_HAN_INDEX = @"Resources\KhoHang\icon_recycle.png";
+        public const string KHOHANG_ICON_HANG_HET_HAN_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_recycle_mouseover.png";
 
         public const string THUCHI_ICON_THUCHI = @"Resources\ThuChi\icon_thuchi.png";
         public const string THUCHI_ICON_THUCHI_MOUSEOVER = @"Resources\ThuChi\icon_thuchi_mouseover.png";

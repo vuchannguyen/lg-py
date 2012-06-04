@@ -73,6 +73,8 @@ namespace QuanLyKinhDoanh.CongNo
 
             this.BringToFront();
 
+            FormMain.isEditing = true;
+
             ValidateInput();
 
             tbThanhToan.Focus();

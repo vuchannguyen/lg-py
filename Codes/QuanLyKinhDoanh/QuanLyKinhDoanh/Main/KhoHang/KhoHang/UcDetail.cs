@@ -124,7 +124,7 @@ namespace QuanLyKinhDoanh.KhoHang
 
             if (data.SoLuong != 0)
             {
-                switch (CommonFunc.IsEndOfUseDate(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_USED_DATE,
+                switch (CommonFunc.IsExpired(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_EXPIRED,
                     data.ThoiHan.Value, data.DonViThoiHan))
                 {
                     case Constant.DEFAULT_STATUS_USED_DATE_NEAR:

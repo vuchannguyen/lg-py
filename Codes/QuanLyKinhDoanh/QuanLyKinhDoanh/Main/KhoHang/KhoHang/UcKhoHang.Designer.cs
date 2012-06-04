@@ -61,6 +61,7 @@
             this.pbTotalPage = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.chXuatXu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnFind.SuspendLayout();
@@ -237,6 +238,7 @@
             this.chMaSP,
             this.chTen,
             this.chMoTa,
+            this.chXuatXu,
             this.chSoLuong,
             this.chDVT,
             this.chGiaBan,
@@ -286,12 +288,12 @@
             // chTen
             // 
             this.chTen.Text = "Tên";
-            this.chTen.Width = 207;
+            this.chTen.Width = 180;
             // 
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 275;
+            this.chMoTa.Width = 202;
             // 
             // chSoLuong
             // 
@@ -407,6 +409,11 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
+            // chXuatXu
+            // 
+            this.chXuatXu.Text = "Xuất xứ";
+            this.chXuatXu.Width = 99;
+            // 
             // UcKhoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -473,6 +480,7 @@
         private System.Windows.Forms.ColumnHeader chTen;
         private System.Windows.Forms.ColumnHeader chMoTa;
         private System.Windows.Forms.ColumnHeader chCheckBox;
+        private System.Windows.Forms.ColumnHeader chXuatXu;
 
     }
 }

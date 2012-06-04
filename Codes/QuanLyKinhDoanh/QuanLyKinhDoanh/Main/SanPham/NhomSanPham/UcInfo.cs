@@ -68,6 +68,8 @@ namespace QuanLyKinhDoanh.NhomSanPham
 
             this.BringToFront();
 
+            FormMain.isEditing = false;
+
             ValidateInput();
         }
 
