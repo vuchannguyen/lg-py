@@ -647,7 +647,7 @@
             this.tbMoTa.MaxLength = 200;
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
-            this.tbMoTa.Size = new System.Drawing.Size(268, 116);
+            this.tbMoTa.Size = new System.Drawing.Size(268, 104);
             this.tbMoTa.TabIndex = 18;
             // 
             // tbHieu
