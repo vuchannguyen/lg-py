@@ -85,6 +85,7 @@ namespace QuanLyKinhDoanh.KhoHang
             lbGiaBan.Text = data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             DTO.ChietKhau dataCK = ChietKhauBus.GetByIdSP(data.Id);
+
             if (dataCK != null)
             {
                 lbChietKhau.Text = dataCK.Value == 0 ? string.Empty : (dataCK.Value.ToString() + Constant.SYMBOL_DISCOUNT);

@@ -441,6 +441,15 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbChietKhau.Text = dataCK == null ? string.Empty : dataCK.Value.ToString();
                 tbDVT.Text = dataSP.DonViTinh;
                 tbGiaBan.Text = dataSP.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
+
+                if (!string.IsNullOrEmpty(dataSP.Avatar))
+                {
+                    pbAvatar.Image = Convert_Function.ConvertByteArrayToImage(Convert_Function.ConvertStringToByteArray(dataSP.Avatar));
+                }
+                else
+                {
+                    pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
+                }
             }
             catch
             {
