@@ -146,18 +146,25 @@ namespace QuanLyKinhDoanh.CongNo
 
             foreach (DTO.HoaDon data in list)
             {
+                Color color = Color.Black;
                 ListViewItem lvi = new ListViewItem();
+                lvi.UseItemStyleForSubItems = false;
 
-                lvi.SubItems.Add(data.Id.ToString());
-                lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.MaHoaDon.ToString());
-                lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
+                if (data.CreateDate.AddMonths(1) < DateTime.Now)
+                {
+                    color = Color.Red;
+                }
+
+                lvi.SubItems.Add(data.Id.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.MaHoaDon.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString(), color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.KhachHang == null ? string.Empty :
-                    data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten);
-                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
-                lvi.SubItems.Add(data.GhiChu);
-                lvi.SubItems.Add(data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY));
-                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                    data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.GhiChu, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
 
                 lvThongTin.Items.Add(lvi);
             }
