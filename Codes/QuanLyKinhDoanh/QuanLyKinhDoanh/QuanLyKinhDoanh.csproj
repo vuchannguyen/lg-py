@@ -52,6 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutCD.Designer.cs">
+      <DependentUpon>AboutCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutSoftware.Designer.cs">
+      <DependentUpon>AboutSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +337,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutCD.resx">
+      <DependentUpon>AboutCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutSoftware.resx">
+      <DependentUpon>AboutSoftware.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBill.resx">
       <DependentUpon>FormBill.cs</DependentUpon>
     </EmbeddedResource>

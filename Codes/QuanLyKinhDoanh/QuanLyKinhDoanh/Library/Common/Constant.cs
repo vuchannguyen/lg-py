@@ -43,6 +43,8 @@ namespace Library
         public const string DEFAULT_TITLE_ADD = "THÊM";
         public const string DEFAULT_TITLE_EDIT = "SỬA";
 
+        public const string DEFAULT_WELCOME_DATE_TIME_FORMAT = "Hôm nay là {0}, {1}";
+
         public static DateTime DEFAULT_DATE = new DateTime(2000, 1, 1);
         public const string DEFAULT_DATE_FORMAT = "dd/MM/yyyy";
         public const string DEFAULT_DATE_TIME_FORMAT = "dd/MM/yyyy - HH:mm";

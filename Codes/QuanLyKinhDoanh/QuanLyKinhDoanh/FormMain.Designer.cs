@@ -32,10 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.pnMain = new System.Windows.Forms.Panel();
             this.pnAbout = new System.Windows.Forms.Panel();
+            this.lbAboutCD = new System.Windows.Forms.Label();
+            this.lbAboutSoftware = new System.Windows.Forms.Label();
             this.lbAbout = new System.Windows.Forms.Label();
             this.pnBody = new System.Windows.Forms.Panel();
             this.pnTopBar = new System.Windows.Forms.Panel();
             this.pnHello = new System.Windows.Forms.Panel();
+            this.lbEdit = new System.Windows.Forms.Label();
             this.lbHuyTaiKhoan = new System.Windows.Forms.Label();
             this.lbNgay = new System.Windows.Forms.Label();
             this.lbExit = new System.Windows.Forms.Label();
@@ -87,6 +90,8 @@
             // pnAbout
             // 
             this.pnAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnAbout.Controls.Add(this.lbAboutCD);
+            this.pnAbout.Controls.Add(this.lbAboutSoftware);
             this.pnAbout.Controls.Add(this.lbAbout);
             this.pnAbout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnAbout.Location = new System.Drawing.Point(0, 478);
@@ -94,6 +99,34 @@
             this.pnAbout.Name = "pnAbout";
             this.pnAbout.Size = new System.Drawing.Size(973, 20);
             this.pnAbout.TabIndex = 9;
+            // 
+            // lbAboutCD
+            // 
+            this.lbAboutCD.AutoSize = true;
+            this.lbAboutCD.BackColor = System.Drawing.Color.Transparent;
+            this.lbAboutCD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbAboutCD.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAboutCD.ForeColor = System.Drawing.Color.Gray;
+            this.lbAboutCD.Location = new System.Drawing.Point(578, 2);
+            this.lbAboutCD.Name = "lbAboutCD";
+            this.lbAboutCD.Size = new System.Drawing.Size(53, 14);
+            this.lbAboutCD.TabIndex = 10;
+            this.lbAboutCD.Text = "About CD";
+            this.lbAboutCD.Click += new System.EventHandler(this.lbAboutCD_Click);
+            // 
+            // lbAboutSoftware
+            // 
+            this.lbAboutSoftware.AutoSize = true;
+            this.lbAboutSoftware.BackColor = System.Drawing.Color.Transparent;
+            this.lbAboutSoftware.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbAboutSoftware.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAboutSoftware.ForeColor = System.Drawing.Color.Gray;
+            this.lbAboutSoftware.Location = new System.Drawing.Point(487, 2);
+            this.lbAboutSoftware.Name = "lbAboutSoftware";
+            this.lbAboutSoftware.Size = new System.Drawing.Size(85, 14);
+            this.lbAboutSoftware.TabIndex = 9;
+            this.lbAboutSoftware.Text = "About Software";
+            this.lbAboutSoftware.Click += new System.EventHandler(this.lbAboutSoftware_Click);
             // 
             // lbAbout
             // 
@@ -103,10 +136,9 @@
             this.lbAbout.ForeColor = System.Drawing.Color.Gray;
             this.lbAbout.Location = new System.Drawing.Point(197, 2);
             this.lbAbout.Name = "lbAbout";
-            this.lbAbout.Size = new System.Drawing.Size(427, 14);
+            this.lbAbout.Size = new System.Drawing.Size(284, 14);
             this.lbAbout.TabIndex = 8;
-            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD. | About Software | About CD" +
-                "";
+            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD";
             // 
             // pnBody
             // 
@@ -130,6 +162,7 @@
             // pnHello
             // 
             this.pnHello.BackColor = System.Drawing.Color.Transparent;
+            this.pnHello.Controls.Add(this.lbEdit);
             this.pnHello.Controls.Add(this.lbHuyTaiKhoan);
             this.pnHello.Controls.Add(this.lbNgay);
             this.pnHello.Controls.Add(this.lbExit);
@@ -137,8 +170,24 @@
             this.pnHello.Controls.Add(this.label1);
             this.pnHello.Location = new System.Drawing.Point(0, 0);
             this.pnHello.Name = "pnHello";
-            this.pnHello.Size = new System.Drawing.Size(441, 18);
+            this.pnHello.Size = new System.Drawing.Size(806, 18);
             this.pnHello.TabIndex = 8;
+            // 
+            // lbEdit
+            // 
+            this.lbEdit.AutoSize = true;
+            this.lbEdit.BackColor = System.Drawing.Color.Transparent;
+            this.lbEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbEdit.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEdit.ForeColor = System.Drawing.Color.White;
+            this.lbEdit.Location = new System.Drawing.Point(137, 3);
+            this.lbEdit.Name = "lbEdit";
+            this.lbEdit.Size = new System.Drawing.Size(71, 14);
+            this.lbEdit.TabIndex = 12;
+            this.lbEdit.Text = "Sửa thông tin";
+            this.lbEdit.Click += new System.EventHandler(this.lbEdit_Click);
+            this.lbEdit.MouseEnter += new System.EventHandler(this.lbEdit_MouseEnter);
+            this.lbEdit.MouseLeave += new System.EventHandler(this.lbEdit_MouseLeave);
             // 
             // lbHuyTaiKhoan
             // 
@@ -147,7 +196,7 @@
             this.lbHuyTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbHuyTaiKhoan.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHuyTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.lbHuyTaiKhoan.Location = new System.Drawing.Point(57, 3);
+            this.lbHuyTaiKhoan.Location = new System.Drawing.Point(53, 3);
             this.lbHuyTaiKhoan.Name = "lbHuyTaiKhoan";
             this.lbHuyTaiKhoan.Size = new System.Drawing.Size(74, 14);
             this.lbHuyTaiKhoan.TabIndex = 10;
@@ -162,11 +211,11 @@
             this.lbNgay.BackColor = System.Drawing.Color.Transparent;
             this.lbNgay.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNgay.ForeColor = System.Drawing.Color.White;
-            this.lbNgay.Location = new System.Drawing.Point(145, 3);
+            this.lbNgay.Location = new System.Drawing.Point(244, 3);
             this.lbNgay.Name = "lbNgay";
-            this.lbNgay.Size = new System.Drawing.Size(65, 14);
+            this.lbNgay.Size = new System.Drawing.Size(164, 14);
             this.lbNgay.TabIndex = 9;
-            this.lbNgay.Text = "dd/MM/yyyy";
+            this.lbNgay.Text = "Hôm nay là thứ xyz, dd/MM/yyyy";
             // 
             // lbExit
             // 
@@ -190,7 +239,7 @@
             this.lbAccount.BackColor = System.Drawing.Color.Transparent;
             this.lbAccount.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAccount.ForeColor = System.Drawing.Color.Orange;
-            this.lbAccount.Location = new System.Drawing.Point(253, 3);
+            this.lbAccount.Location = new System.Drawing.Point(468, 3);
             this.lbAccount.Name = "lbAccount";
             this.lbAccount.Size = new System.Drawing.Size(37, 14);
             this.lbAccount.TabIndex = 7;
@@ -202,7 +251,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(223, 3);
+            this.label1.Location = new System.Drawing.Point(438, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 14);
             this.label1.TabIndex = 0;
@@ -305,10 +354,10 @@
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pbHeader.Location = new System.Drawing.Point(784, 0);
+            this.pbHeader.Location = new System.Drawing.Point(760, 0);
             this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(170, 70);
+            this.pbHeader.Size = new System.Drawing.Size(194, 80);
             this.pbHeader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHeader.TabIndex = 7;
             this.pbHeader.TabStop = false;
@@ -409,7 +458,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUAN LY KINH DOANH 3.5";
+            this.Text = "QUAN LY KINH DOANH 4.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);
@@ -461,6 +511,9 @@
         private System.Windows.Forms.Label lbExit;
         private System.Windows.Forms.Label lbNgay;
         private System.Windows.Forms.Label lbHuyTaiKhoan;
+        private System.Windows.Forms.Label lbEdit;
+        private System.Windows.Forms.Label lbAboutSoftware;
+        private System.Windows.Forms.Label lbAboutCD;
     }
 }
 
