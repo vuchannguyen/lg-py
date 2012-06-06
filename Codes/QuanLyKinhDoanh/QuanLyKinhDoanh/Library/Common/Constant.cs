@@ -177,6 +177,7 @@ namespace Library
 
         public const string MESSAGE_NEW_LINE = "\r\n";
         public const string MESSAGE_EXIT = "Thoát?";
+        public const string MESSAGE_EXIT_APP = "Thoát chương trình?";
         public const string MESSAGE_CONTINUE = "Bạn có muốn tiếp tục?";
 
         public const string MESSAGE_SEND_BACK_NOTE = "Trả SP: {0}";
