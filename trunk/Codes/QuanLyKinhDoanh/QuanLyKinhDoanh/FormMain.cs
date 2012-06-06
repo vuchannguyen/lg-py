@@ -101,7 +101,8 @@ namespace QuanLyKinhDoanh
                 isPrintUsing = false;
                 isEditing = false;
 
-                lbNgay.Text = DateTime.Now.ToString(Constant.DEFAULT_DATE_FORMAT);
+                lbNgay.Text = string.Format(Constant.DEFAULT_WELCOME_DATE_TIME_FORMAT,
+                    GetDayOfWeek(), DateTime.Now.ToString(Constant.DEFAULT_DATE_FORMAT));
                 lbAccount.Text = user.UserName;
 
                 pbThanhToan_Click(sender, e);
@@ -141,6 +142,44 @@ namespace QuanLyKinhDoanh
             isMainMenuClickKho = false;
             isMainMenuClickThuChi = false;
             isMainMenuClickThanhToan = false;
+        }
+
+        private string GetDayOfWeek()
+        {
+            string day = string.Empty;
+
+            switch (DateTime.Now.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    day = "thứ Hai";
+                    break;
+
+                case DayOfWeek.Tuesday:
+                    day = "thứ Ba";
+                    break;
+
+                case DayOfWeek.Wednesday:
+                    day = "thứ Tư";
+                    break;
+
+                case DayOfWeek.Thursday:
+                    day = "thứ Năm";
+                    break;
+
+                case DayOfWeek.Friday:
+                    day = "thứ Sáu";
+                    break;
+
+                case DayOfWeek.Saturday:
+                    day = "thứ Bảy";
+                    break;
+
+                case DayOfWeek.Sunday:
+                    day = "Chủ Nhật";
+                    break;
+            }
+
+            return day;
         }
 
         private bool WarningEditingDialog()
@@ -503,6 +542,48 @@ namespace QuanLyKinhDoanh
                 }
 
                 Exit();
+            }
+        }
+
+        private void lbEdit_Click(object sender, EventArgs e)
+        {
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
+
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new User.UcInfo(user));
+
+                Init();
+
+                ScaleMaximizedControls();
+            }
+        }
+
+        private void lbEdit_MouseEnter(object sender, EventArgs e)
+        {
+            lbEdit.ForeColor = Color.Red;
+        }
+
+        private void lbEdit_MouseLeave(object sender, EventArgs e)
+        {
+            lbEdit.ForeColor = Color.White;
+        }
+
+        private void lbAboutSoftware_Click(object sender, EventArgs e)
+        {
+            new AboutSoftware().ShowDialog();
+        }
+
+        private void lbAboutCD_Click(object sender, EventArgs e)
+        {
+            new AboutCD().ShowDialog();
+        }
+
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show(Constant.MESSAGE_EXIT + "chương trình", Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }
