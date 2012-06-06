@@ -63,7 +63,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             this.BringToFront();
 
-            FormMain.isEditing = false;
+            FormMain.isEditing = true;
 
             ValidateInput();
         }

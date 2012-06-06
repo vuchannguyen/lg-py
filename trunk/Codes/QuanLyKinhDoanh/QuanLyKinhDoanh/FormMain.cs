@@ -105,7 +105,7 @@ namespace QuanLyKinhDoanh
                     GetDayOfWeek(), DateTime.Now.ToString(Constant.DEFAULT_DATE_FORMAT));
                 lbAccount.Text = user.UserName;
 
-                pbThanhToan_Click(sender, e);
+                //pbThanhToan_Click(sender, e);
             }
             else
             {
@@ -581,7 +581,7 @@ namespace QuanLyKinhDoanh
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show(Constant.MESSAGE_EXIT + "chương trình", Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+            if (MessageBox.Show(Constant.MESSAGE_EXIT_APP, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
             {
                 e.Cancel = true;
             }
