@@ -29,6 +29,9 @@ namespace Library
         public const string CHUC_NANG_ICON_OK = @"Resources\ChucNang\icon_ok.png";
         public const string CHUC_NANG_ICON_OK_MOUSEOVER = @"Resources\ChucNang\icon_ok_mouseover.png";
         public const string CHUC_NANG_ICON_OK_DISABLE = @"Resources\ChucNang\icon_ok_disable.png";
+        public const string CHUC_NANG_BACK = @"Resources\ChucNang\back.png";
+        public const string CHUC_NANG_BACK_MOUSEOVER = @"Resources\ChucNang\back_mouseover.png";
+        public const string CHUC_NANG_BACK_DISABLE = @"Resources\ChucNang\back_disable.png";
         public const string CHUC_NANG_ICON_ADD = @"Resources\ChucNang\icon_them.png";
         public const string CHUC_NANG_ICON_ADD_MOUSEROVER = @"Resources\ChucNang\icon_them_mouseover.png";
         public const string CHUC_NANG_ICON_ADD_DISABLE = @"Resources\ChucNang\icon_them_disable.png";
@@ -74,6 +77,9 @@ namespace Library
 
         public const string KHACHHANG_ICON_KHACHHANG = @"Resources\KhachHang\icon_khachhang.png";
         public const string KHACHHANG_ICON_KHACHHANG_MOUSEOVER = @"Resources\KhachHang\icon_khachhang_mouseover.png";
+        public const string KHACHHANG_ICON_HISTORY = @"Resources\KhachHang\icon_history.png";
+        public const string KHACHHANG_ICON_HISTORY_MOUSEOVER = @"Resources\KhachHang\icon_history_mouseover.png";
+        public const string KHACHHANG_ICON_HISTORY_DISABLE = @"Resources\KhachHang\icon_history_disable.png";
 
         public const string SANPHAM_ICON_SANPHAM = @"Resources\SanPham\icon_sanpham.png";
         public const string SANPHAM_ICON_SANPHAM_MOUSEOVER = @"Resources\SanPham\icon_sanpham_mouseover.png";

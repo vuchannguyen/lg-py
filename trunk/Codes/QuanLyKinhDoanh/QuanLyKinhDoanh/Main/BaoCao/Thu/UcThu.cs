@@ -69,7 +69,7 @@ namespace QuanLyKinhDoanh.Thu
 
             tbSearch.Text = Constant.SEARCH_THU_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
@@ -83,7 +83,7 @@ namespace QuanLyKinhDoanh.Thu
         {
             tbSearch.Text = Constant.SEARCH_THU_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
 
@@ -107,7 +107,7 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
 
-        private void RefreshListView(string text, int type, int status, string timeType, DateTime date,
+        private void RefreshListView(string text, int type, int status, int idKH, string timeType, DateTime date,
             string sortColumn, string sortOrder, int page)
         {
             if (text == Constant.SEARCH_THU_TIP)
@@ -115,7 +115,7 @@ namespace QuanLyKinhDoanh.Thu
                 text = string.Empty;
             }
 
-            int total = HoaDonBus.GetCount(text, type, status, timeType, date);
+            int total = HoaDonBus.GetCount(text, type, status, idKH, timeType, date);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -126,7 +126,7 @@ namespace QuanLyKinhDoanh.Thu
                 return;
             }
 
-            List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, timeType, date,
+            List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 string.Empty, string.Empty, 0, 0);
             long totalMoney = 0;
 
@@ -137,7 +137,7 @@ namespace QuanLyKinhDoanh.Thu
 
             tbTong.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
-            List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, timeType, date,
+            List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -250,7 +250,7 @@ namespace QuanLyKinhDoanh.Thu
 
                 if (HoaDonBus.DeleteList(ids, FormMain.user))
                 {
-                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                    RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
                 }
@@ -326,7 +326,7 @@ namespace QuanLyKinhDoanh.Thu
                 sortColumn = lvThongTin.Columns[e.Column].Text;
                 sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -369,7 +369,7 @@ namespace QuanLyKinhDoanh.Thu
             }
             else
             {
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -469,7 +469,7 @@ namespace QuanLyKinhDoanh.Thu
         {
             sortOrder = Constant.SORT_ASCENDING;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
@@ -486,14 +486,14 @@ namespace QuanLyKinhDoanh.Thu
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
