@@ -68,6 +68,9 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbHistory = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -87,6 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).BeginInit();
             this.pnPage.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -121,20 +126,21 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.panel1);
             this.pnSelect.Controls.Add(this.pnSinhNhat);
             this.pnSelect.Controls.Add(this.pnThem);
             this.pnSelect.Controls.Add(this.pnSua);
             this.pnSelect.Controls.Add(this.pnXoa);
             this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(310, 78);
+            this.pnSelect.Size = new System.Drawing.Size(387, 78);
             this.pnSelect.TabIndex = 49;
             // 
             // pnSinhNhat
             // 
             this.pnSinhNhat.Controls.Add(this.lbBirthDay);
             this.pnSinhNhat.Controls.Add(this.pbBirthDay);
-            this.pnSinhNhat.Location = new System.Drawing.Point(234, 3);
+            this.pnSinhNhat.Location = new System.Drawing.Point(310, 3);
             this.pnSinhNhat.Name = "pnSinhNhat";
             this.pnSinhNhat.Size = new System.Drawing.Size(70, 70);
             this.pnSinhNhat.TabIndex = 29;
@@ -485,6 +491,38 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbHistory);
+            this.panel1.Location = new System.Drawing.Point(234, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(70, 70);
+            this.panel1.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(8, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Lịch sử";
+            // 
+            // pbHistory
+            // 
+            this.pbHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHistory.Location = new System.Drawing.Point(10, 0);
+            this.pbHistory.Name = "pbHistory";
+            this.pbHistory.Size = new System.Drawing.Size(50, 50);
+            this.pbHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbHistory.TabIndex = 1;
+            this.pbHistory.TabStop = false;
+            this.pbHistory.Click += new System.EventHandler(this.pbHistory_Click);
+            this.pbHistory.MouseEnter += new System.EventHandler(this.pbHistory_MouseEnter);
+            this.pbHistory.MouseLeave += new System.EventHandler(this.pbHistory_MouseLeave);
+            // 
             // UcKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -522,6 +560,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).EndInit();
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -568,5 +609,8 @@
         private System.Windows.Forms.PictureBox pbBirthDay;
         private System.Windows.Forms.ColumnHeader chDOB;
         private System.Windows.Forms.ColumnHeader chDTDD;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbHistory;
     }
 }

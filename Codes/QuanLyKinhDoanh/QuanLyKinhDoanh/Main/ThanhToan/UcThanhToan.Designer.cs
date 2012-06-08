@@ -42,13 +42,6 @@
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbInfo = new System.Windows.Forms.GroupBox();
-            this.tbTienHoiLai = new System.Windows.Forms.TextBox();
-            this.tbTichLuy = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbSuDung = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tbTienThanhToan = new System.Windows.Forms.TextBox();
             this.tbTenKH = new System.Windows.Forms.TextBox();
             this.cbMaKH = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -60,6 +53,13 @@
             this.lbMa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTen = new System.Windows.Forms.Label();
+            this.tbTienHoiLai = new System.Windows.Forms.TextBox();
+            this.tbTichLuy = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbSuDung = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbTienThanhToan = new System.Windows.Forms.TextBox();
             this.lbTienStatus = new System.Windows.Forms.Label();
             this.lbNgayGio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -237,87 +237,6 @@
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin chung";
             // 
-            // tbTienHoiLai
-            // 
-            this.tbTienHoiLai.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTienHoiLai.Location = new System.Drawing.Point(587, 52);
-            this.tbTienHoiLai.MaxLength = 11;
-            this.tbTienHoiLai.Name = "tbTienHoiLai";
-            this.tbTienHoiLai.ReadOnly = true;
-            this.tbTienHoiLai.Size = new System.Drawing.Size(127, 23);
-            this.tbTienHoiLai.TabIndex = 16;
-            this.tbTienHoiLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tbTichLuy
-            // 
-            this.tbTichLuy.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTichLuy.Location = new System.Drawing.Point(587, 90);
-            this.tbTichLuy.MaxLength = 11;
-            this.tbTichLuy.Name = "tbTichLuy";
-            this.tbTichLuy.ReadOnly = true;
-            this.tbTichLuy.Size = new System.Drawing.Size(127, 23);
-            this.tbTichLuy.TabIndex = 20;
-            this.tbTichLuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbTichLuy.TextChanged += new System.EventHandler(this.tbTichLuy_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(746, 93);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 16);
-            this.label13.TabIndex = 138;
-            this.label13.Text = "Sử dụng:";
-            // 
-            // tbSuDung
-            // 
-            this.tbSuDung.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSuDung.Location = new System.Drawing.Point(818, 90);
-            this.tbSuDung.MaxLength = 11;
-            this.tbSuDung.Name = "tbSuDung";
-            this.tbSuDung.ReadOnly = true;
-            this.tbSuDung.Size = new System.Drawing.Size(127, 23);
-            this.tbSuDung.TabIndex = 22;
-            this.tbSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbSuDung.TextChanged += new System.EventHandler(this.tbSuDung_TextChanged);
-            this.tbSuDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSuDung_KeyPress);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(519, 93);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 16);
-            this.label15.TabIndex = 135;
-            this.label15.Text = "Tích lũy:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(722, 55);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 16);
-            this.label12.TabIndex = 134;
-            this.label12.Text = "*Thanh toán:";
-            // 
-            // tbTienThanhToan
-            // 
-            this.tbTienThanhToan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTienThanhToan.ForeColor = System.Drawing.Color.Red;
-            this.tbTienThanhToan.Location = new System.Drawing.Point(818, 50);
-            this.tbTienThanhToan.MaxLength = 11;
-            this.tbTienThanhToan.Name = "tbTienThanhToan";
-            this.tbTienThanhToan.ReadOnly = true;
-            this.tbTienThanhToan.Size = new System.Drawing.Size(127, 26);
-            this.tbTienThanhToan.TabIndex = 18;
-            this.tbTienThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbTienThanhToan.TextChanged += new System.EventHandler(this.tbTienThanhToan_TextChanged);
-            this.tbTienThanhToan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTienThanhToan_KeyPress);
-            this.tbTienThanhToan.Leave += new System.EventHandler(this.tbTienThanhToan_Leave);
-            // 
             // tbTenKH
             // 
             this.tbTenKH.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -432,6 +351,87 @@
             this.lbTen.Size = new System.Drawing.Size(88, 16);
             this.lbTen.TabIndex = 4;
             this.lbTen.Text = "Khách hàng:";
+            // 
+            // tbTienHoiLai
+            // 
+            this.tbTienHoiLai.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTienHoiLai.Location = new System.Drawing.Point(587, 52);
+            this.tbTienHoiLai.MaxLength = 11;
+            this.tbTienHoiLai.Name = "tbTienHoiLai";
+            this.tbTienHoiLai.ReadOnly = true;
+            this.tbTienHoiLai.Size = new System.Drawing.Size(127, 23);
+            this.tbTienHoiLai.TabIndex = 16;
+            this.tbTienHoiLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tbTichLuy
+            // 
+            this.tbTichLuy.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTichLuy.Location = new System.Drawing.Point(587, 90);
+            this.tbTichLuy.MaxLength = 11;
+            this.tbTichLuy.Name = "tbTichLuy";
+            this.tbTichLuy.ReadOnly = true;
+            this.tbTichLuy.Size = new System.Drawing.Size(127, 23);
+            this.tbTichLuy.TabIndex = 20;
+            this.tbTichLuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTichLuy.TextChanged += new System.EventHandler(this.tbTichLuy_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(746, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 16);
+            this.label13.TabIndex = 138;
+            this.label13.Text = "Sử dụng:";
+            // 
+            // tbSuDung
+            // 
+            this.tbSuDung.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSuDung.Location = new System.Drawing.Point(818, 90);
+            this.tbSuDung.MaxLength = 11;
+            this.tbSuDung.Name = "tbSuDung";
+            this.tbSuDung.ReadOnly = true;
+            this.tbSuDung.Size = new System.Drawing.Size(127, 23);
+            this.tbSuDung.TabIndex = 22;
+            this.tbSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbSuDung.TextChanged += new System.EventHandler(this.tbSuDung_TextChanged);
+            this.tbSuDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSuDung_KeyPress);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(519, 93);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 16);
+            this.label15.TabIndex = 135;
+            this.label15.Text = "Tích lũy:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(722, 55);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(90, 16);
+            this.label12.TabIndex = 134;
+            this.label12.Text = "*Thanh toán:";
+            // 
+            // tbTienThanhToan
+            // 
+            this.tbTienThanhToan.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTienThanhToan.ForeColor = System.Drawing.Color.Red;
+            this.tbTienThanhToan.Location = new System.Drawing.Point(818, 50);
+            this.tbTienThanhToan.MaxLength = 11;
+            this.tbTienThanhToan.Name = "tbTienThanhToan";
+            this.tbTienThanhToan.ReadOnly = true;
+            this.tbTienThanhToan.Size = new System.Drawing.Size(127, 26);
+            this.tbTienThanhToan.TabIndex = 18;
+            this.tbTienThanhToan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTienThanhToan.TextChanged += new System.EventHandler(this.tbTienThanhToan_TextChanged);
+            this.tbTienThanhToan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTienThanhToan_KeyPress);
+            this.tbTienThanhToan.Leave += new System.EventHandler(this.tbTienThanhToan_Leave);
             // 
             // lbTienStatus
             // 

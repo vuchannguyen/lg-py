@@ -12,7 +12,7 @@ namespace DAO
 {
     public class HoaDonDao : SQLConnection
     {
-        public static IQueryable<HoaDon> GetQuery(string text, int type, int status, string timeType, DateTime date)
+        public static IQueryable<HoaDon> GetQuery(string text, int type, int status, int idKH, string timeType, DateTime date)
         {
             var sql = from data in dbContext.HoaDons
                       select data;
@@ -42,6 +42,11 @@ namespace DAO
                     break;
             }
 
+            if (idKH != 0)
+            {
+                sql = sql.Where(p => p.IdKhachHang == idKH);
+            }
+
             sql = sql.Where(p => p.IdStatus == status);
             sql = sql.Where(p => p.DeleteFlag == false);
 
@@ -67,12 +72,12 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text, int type, int status, string timeType, DateTime date)
+        public static int GetCount(string text, int type, int status, int idKH, string timeType, DateTime date)
         {
-            return GetQuery(text, type, status, timeType, date).Count();
+            return GetQuery(text, type, status, idKH, timeType, date).Count();
         }
 
-        public static List<HoaDon> GetList(string text, int type, int status, string timeType, DateTime date,
+        public static List<HoaDon> GetList(string text, int type, int status, int idKH, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -116,7 +121,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, type, status, timeType, date).OrderBy(sortSQL);
+            var sql = GetQuery(text, type, status, idKH, timeType, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

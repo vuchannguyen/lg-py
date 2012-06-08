@@ -84,11 +84,11 @@ namespace QuanLyKinhDoanh
 
             cbFilter.SelectedIndex = 0;
 
-            RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrderThu, 1);
             SetStatusButtonPageThu(1);
 
-            RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrderChi, 1);
             SetStatusButtonPageChi(1);
         }
@@ -130,10 +130,10 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListViewThu(string text, int type, int status, string timeType, DateTime date,
+        private void RefreshListViewThu(string text, int type, int status, int idKH, string timeType, DateTime date,
             string sortColumn, string sortOrder, int page)
         {
-            int total = HoaDonBus.GetCount(text, type, status, timeType, date);
+            int total = HoaDonBus.GetCount(text, type, status, idKH, timeType, date);
             int maxPage = GetTotalPageThu(total) == 0 ? 1 : GetTotalPageThu(total);
             lbTotalPageThu.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -144,7 +144,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, timeType, date,
+            List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 string.Empty, string.Empty, 0, 0);
             totalThu = 0;
 
@@ -155,7 +155,7 @@ namespace QuanLyKinhDoanh
 
             tbTongThu.Text = totalThu.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
-            List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, timeType, date,
+            List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTinThu);
@@ -216,10 +216,10 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void RefreshListViewChi(string text, int type, int status, string timeType, DateTime date,
+        private void RefreshListViewChi(string text, int type, int status, int idKH, string timeType, DateTime date,
             string sortColumn, string sortOrder, int page)
         {
-            int total = HoaDonBus.GetCount(text, type, status, timeType, date);
+            int total = HoaDonBus.GetCount(text, type, status, idKH, timeType, date);
             int maxPage = GetTotalPageChi(total) == 0 ? 1 : GetTotalPageChi(total);
             lbTotalPageChi.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -230,7 +230,7 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, timeType, date,
+            List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 string.Empty, string.Empty, 0, 0);
             totalChi = 0;
 
@@ -241,7 +241,7 @@ namespace QuanLyKinhDoanh
 
             tbTongChi.Text = totalChi.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
-            List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, timeType, date,
+            List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTinChi);
@@ -291,11 +291,11 @@ namespace QuanLyKinhDoanh
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrderThu, ConvertUtil.ConvertToInt(lbPageThu.Text));
             SetStatusButtonPageThu(ConvertUtil.ConvertToInt(lbPageThu.Text));
 
-            RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrderChi, ConvertUtil.ConvertToInt(lbPageChi.Text));
             SetStatusButtonPageChi(ConvertUtil.ConvertToInt(lbPageChi.Text));
 
@@ -304,11 +304,11 @@ namespace QuanLyKinhDoanh
 
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
         {
-            RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrderThu, ConvertUtil.ConvertToInt(lbPageThu.Text));
             SetStatusButtonPageThu(ConvertUtil.ConvertToInt(lbPageThu.Text));
 
-            RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+            RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     string.Empty, sortOrderChi, ConvertUtil.ConvertToInt(lbPageChi.Text));
             SetStatusButtonPageChi(ConvertUtil.ConvertToInt(lbPageChi.Text));
 
@@ -325,7 +325,7 @@ namespace QuanLyKinhDoanh
                 sortColumnThu = lvThongTinThu.Columns[e.Column].Text;
                 sortOrderThu = sortOrderThu == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     sortColumnThu, sortOrderThu, ConvertUtil.ConvertToInt(lbPageThu.Text));
                 SetStatusButtonPageThu(ConvertUtil.ConvertToInt(lbPageThu.Text));
             }
@@ -378,7 +378,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListViewThu(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                    sortColumnThu, sortOrderThu, ConvertUtil.ConvertToInt(lbPageThu.Text));
                 SetStatusButtonPageThu(ConvertUtil.ConvertToInt(lbPageThu.Text));
             }
@@ -447,7 +447,7 @@ namespace QuanLyKinhDoanh
                 sortColumnChi = lvThongTinChi.Columns[e.Column].Text;
                 sortOrderChi = sortOrderChi == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListViewChi(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListViewChi(string.Empty, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                     sortColumnChi, sortOrderChi, ConvertUtil.ConvertToInt(lbPageChi.Text));
                 SetStatusButtonPageChi(ConvertUtil.ConvertToInt(lbPageChi.Text));
             }
@@ -500,7 +500,7 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, cbFilter.Text, dtpFilter.Value,
+                RefreshListViewChi(string.Empty, Constant.ID_TYPE_MUA_CHI, Constant.ID_STATUS_DONE, 0, cbFilter.Text, dtpFilter.Value,
                    sortColumnChi, sortOrderChi, ConvertUtil.ConvertToInt(lbPageChi.Text));
                 SetStatusButtonPageChi(ConvertUtil.ConvertToInt(lbPageChi.Text));
             }
