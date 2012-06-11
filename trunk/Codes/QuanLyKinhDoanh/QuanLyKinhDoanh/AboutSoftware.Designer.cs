@@ -42,7 +42,7 @@
             // 
             // btOK
             // 
-            this.btOK.Location = new System.Drawing.Point(85, 250);
+            this.btOK.Location = new System.Drawing.Point(85, 260);
             this.btOK.Margin = new System.Windows.Forms.Padding(4);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(118, 33);
@@ -57,7 +57,7 @@
             this.gbAbout.Controls.Add(this.lbProductName);
             this.gbAbout.Controls.Add(this.lbVersion);
             this.gbAbout.Controls.Add(this.lbCopyright);
-            this.gbAbout.Location = new System.Drawing.Point(15, 90);
+            this.gbAbout.Location = new System.Drawing.Point(15, 100);
             this.gbAbout.Margin = new System.Windows.Forms.Padding(4);
             this.gbAbout.Name = "gbAbout";
             this.gbAbout.Padding = new System.Windows.Forms.Padding(4);
@@ -109,10 +109,10 @@
             // pbHeader
             // 
             this.pbHeader.BackColor = System.Drawing.Color.Transparent;
-            this.pbHeader.Location = new System.Drawing.Point(60, 15);
+            this.pbHeader.Location = new System.Drawing.Point(50, 15);
             this.pbHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pbHeader.Name = "pbHeader";
-            this.pbHeader.Size = new System.Drawing.Size(170, 70);
+            this.pbHeader.Size = new System.Drawing.Size(194, 80);
             this.pbHeader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbHeader.TabIndex = 11;
             this.pbHeader.TabStop = false;
@@ -121,11 +121,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 296);
+            this.ClientSize = new System.Drawing.Size(294, 304);
             this.Controls.Add(this.pbHeader);
             this.Controls.Add(this.btOK);
             this.Controls.Add(this.gbAbout);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AboutSoftware";

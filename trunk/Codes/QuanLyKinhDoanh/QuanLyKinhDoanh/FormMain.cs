@@ -57,7 +57,7 @@ namespace QuanLyKinhDoanh
                 pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
 
-                pnAbout.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
+                pnBottom.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
             }
             catch
             {
@@ -80,7 +80,7 @@ namespace QuanLyKinhDoanh
             pnHeaderAndMainMenu.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnHeaderAndMainMenu.Size, 30);
 
             //pnHello.Left = pnHeaderAndMainMenu.Left;
-            lbAbout.Location = CommonFunc.SetWidthCenter(pnMain.Size, lbAbout.Size, lbAbout.Top);
+            pnGeneralInfo.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnGeneralInfo.Size, pnGeneralInfo.Top);
 
             pnBody.Width = pnMain.Width;
             pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
@@ -585,6 +585,26 @@ namespace QuanLyKinhDoanh
             {
                 e.Cancel = true;
             }
+        }
+
+        private void lbAboutSoftware_MouseEnter(object sender, EventArgs e)
+        {
+            lbAboutSoftware.ForeColor = Color.Orange;
+        }
+
+        private void lbAboutSoftware_MouseLeave(object sender, EventArgs e)
+        {
+            lbAboutSoftware.ForeColor = Color.Gray;
+        }
+
+        private void lbAboutCD_MouseEnter(object sender, EventArgs e)
+        {
+            lbAboutCD.ForeColor = Color.Orange;
+        }
+
+        private void lbAboutCD_MouseLeave(object sender, EventArgs e)
+        {
+            lbAboutCD.ForeColor = Color.Gray;
         }
     }
 }
