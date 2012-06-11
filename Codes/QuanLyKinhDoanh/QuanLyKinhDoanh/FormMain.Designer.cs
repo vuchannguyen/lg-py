@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.pnMain = new System.Windows.Forms.Panel();
-            this.pnAbout = new System.Windows.Forms.Panel();
+            this.pnBottom = new System.Windows.Forms.Panel();
             this.lbAboutCD = new System.Windows.Forms.Label();
             this.lbAboutSoftware = new System.Windows.Forms.Label();
             this.lbAbout = new System.Windows.Forms.Label();
@@ -60,8 +60,9 @@
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
+            this.pnGeneralInfo = new System.Windows.Forms.Panel();
             this.pnMain.SuspendLayout();
-            this.pnAbout.SuspendLayout();
+            this.pnBottom.SuspendLayout();
             this.pnTopBar.SuspendLayout();
             this.pnHello.SuspendLayout();
             this.pnHeaderAndMainMenu.SuspendLayout();
@@ -73,11 +74,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).BeginInit();
+            this.pnGeneralInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnMain
             // 
-            this.pnMain.Controls.Add(this.pnAbout);
+            this.pnMain.Controls.Add(this.pnBottom);
             this.pnMain.Controls.Add(this.pnBody);
             this.pnMain.Controls.Add(this.pnTopBar);
             this.pnMain.Controls.Add(this.pnHeaderAndMainMenu);
@@ -87,18 +89,16 @@
             this.pnMain.TabIndex = 11;
             this.pnMain.Visible = false;
             // 
-            // pnAbout
+            // pnBottom
             // 
-            this.pnAbout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnAbout.Controls.Add(this.lbAboutCD);
-            this.pnAbout.Controls.Add(this.lbAboutSoftware);
-            this.pnAbout.Controls.Add(this.lbAbout);
-            this.pnAbout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnAbout.Location = new System.Drawing.Point(0, 478);
-            this.pnAbout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnAbout.Name = "pnAbout";
-            this.pnAbout.Size = new System.Drawing.Size(973, 20);
-            this.pnAbout.TabIndex = 9;
+            this.pnBottom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnBottom.Controls.Add(this.pnGeneralInfo);
+            this.pnBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnBottom.Location = new System.Drawing.Point(0, 478);
+            this.pnBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnBottom.Name = "pnBottom";
+            this.pnBottom.Size = new System.Drawing.Size(973, 20);
+            this.pnBottom.TabIndex = 9;
             // 
             // lbAboutCD
             // 
@@ -107,12 +107,14 @@
             this.lbAboutCD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbAboutCD.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAboutCD.ForeColor = System.Drawing.Color.Gray;
-            this.lbAboutCD.Location = new System.Drawing.Point(578, 2);
+            this.lbAboutCD.Location = new System.Drawing.Point(384, 3);
             this.lbAboutCD.Name = "lbAboutCD";
             this.lbAboutCD.Size = new System.Drawing.Size(53, 14);
             this.lbAboutCD.TabIndex = 10;
             this.lbAboutCD.Text = "About CD";
             this.lbAboutCD.Click += new System.EventHandler(this.lbAboutCD_Click);
+            this.lbAboutCD.MouseEnter += new System.EventHandler(this.lbAboutCD_MouseEnter);
+            this.lbAboutCD.MouseLeave += new System.EventHandler(this.lbAboutCD_MouseLeave);
             // 
             // lbAboutSoftware
             // 
@@ -121,12 +123,14 @@
             this.lbAboutSoftware.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbAboutSoftware.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAboutSoftware.ForeColor = System.Drawing.Color.Gray;
-            this.lbAboutSoftware.Location = new System.Drawing.Point(487, 2);
+            this.lbAboutSoftware.Location = new System.Drawing.Point(293, 3);
             this.lbAboutSoftware.Name = "lbAboutSoftware";
             this.lbAboutSoftware.Size = new System.Drawing.Size(85, 14);
             this.lbAboutSoftware.TabIndex = 9;
             this.lbAboutSoftware.Text = "About Software";
             this.lbAboutSoftware.Click += new System.EventHandler(this.lbAboutSoftware_Click);
+            this.lbAboutSoftware.MouseEnter += new System.EventHandler(this.lbAboutSoftware_MouseEnter);
+            this.lbAboutSoftware.MouseLeave += new System.EventHandler(this.lbAboutSoftware_MouseLeave);
             // 
             // lbAbout
             // 
@@ -134,7 +138,7 @@
             this.lbAbout.BackColor = System.Drawing.Color.Transparent;
             this.lbAbout.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAbout.ForeColor = System.Drawing.Color.Gray;
-            this.lbAbout.Location = new System.Drawing.Point(197, 2);
+            this.lbAbout.Location = new System.Drawing.Point(3, 3);
             this.lbAbout.Name = "lbAbout";
             this.lbAbout.Size = new System.Drawing.Size(284, 14);
             this.lbAbout.TabIndex = 8;
@@ -445,6 +449,16 @@
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
+            // pnGeneralInfo
+            // 
+            this.pnGeneralInfo.Controls.Add(this.lbAboutCD);
+            this.pnGeneralInfo.Controls.Add(this.lbAbout);
+            this.pnGeneralInfo.Controls.Add(this.lbAboutSoftware);
+            this.pnGeneralInfo.Location = new System.Drawing.Point(238, 0);
+            this.pnGeneralInfo.Name = "pnGeneralInfo";
+            this.pnGeneralInfo.Size = new System.Drawing.Size(440, 20);
+            this.pnGeneralInfo.TabIndex = 11;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -463,8 +477,7 @@
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);
-            this.pnAbout.ResumeLayout(false);
-            this.pnAbout.PerformLayout();
+            this.pnBottom.ResumeLayout(false);
             this.pnTopBar.ResumeLayout(false);
             this.pnHello.ResumeLayout(false);
             this.pnHello.PerformLayout();
@@ -478,6 +491,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).EndInit();
+            this.pnGeneralInfo.ResumeLayout(false);
+            this.pnGeneralInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -485,7 +500,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnMain;
-        private System.Windows.Forms.Panel pnAbout;
+        private System.Windows.Forms.Panel pnBottom;
         private System.Windows.Forms.Label lbAbout;
         private System.Windows.Forms.Panel pnTopBar;
         private System.Windows.Forms.Panel pnHello;
@@ -514,6 +529,7 @@
         private System.Windows.Forms.Label lbEdit;
         private System.Windows.Forms.Label lbAboutSoftware;
         private System.Windows.Forms.Label lbAboutCD;
+        private System.Windows.Forms.Panel pnGeneralInfo;
     }
 }
 
