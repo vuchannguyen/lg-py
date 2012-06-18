@@ -206,7 +206,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             if (dataSP != null && dataSP.GiaBan != 0)
             {
-                money = dataSP.GiaBan  * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+                money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
             }
 
             tbThanhTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -989,5 +989,15 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
         #endregion
+
+        private void rbTichLuy_CheckedChanged(object sender, EventArgs e)
+        {
+            CalculateCK();
+        }
+
+        private void rbTrucTiep_CheckedChanged(object sender, EventArgs e)
+        {
+            CalculateCK();
+        }
     }
 }
