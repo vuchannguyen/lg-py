@@ -188,19 +188,20 @@
             // 
             this.lbGhiChu.AutoSize = true;
             this.lbGhiChu.ForeColor = System.Drawing.Color.Black;
-            this.lbGhiChu.Location = new System.Drawing.Point(392, 70);
-            this.lbGhiChu.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lbGhiChu.Location = new System.Drawing.Point(401, 70);
+            this.lbGhiChu.MaximumSize = new System.Drawing.Size(180, 0);
             this.lbGhiChu.Name = "lbGhiChu";
-            this.lbGhiChu.Size = new System.Drawing.Size(60, 18);
+            this.lbGhiChu.Size = new System.Drawing.Size(180, 72);
             this.lbGhiChu.TabIndex = 149;
-            this.lbGhiChu.Text = "Ghi chú";
+            this.lbGhiChu.Text = "Ghi chúfsdjhfsjflsdjflsdjflsj ljsklafjs lkfjsdlf\r\nsfjlsdkjfklsjflksjflsdkfjklsdjf" +
+                "klsdjfklsdjflksjfklsdj";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(312, 70);
+            this.label5.Location = new System.Drawing.Point(321, 70);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 19);
             this.label5.TabIndex = 148;
@@ -232,11 +233,11 @@
             this.lbNguoiBan.AutoSize = true;
             this.lbNguoiBan.ForeColor = System.Drawing.Color.Black;
             this.lbNguoiBan.Location = new System.Drawing.Point(123, 70);
-            this.lbNguoiBan.MaximumSize = new System.Drawing.Size(500, 0);
+            this.lbNguoiBan.MaximumSize = new System.Drawing.Size(200, 0);
             this.lbNguoiBan.Name = "lbNguoiBan";
-            this.lbNguoiBan.Size = new System.Drawing.Size(84, 18);
+            this.lbNguoiBan.Size = new System.Drawing.Size(200, 54);
             this.lbNguoiBan.TabIndex = 134;
-            this.lbNguoiBan.Text = "Người bán";
+            this.lbNguoiBan.Text = "Người bánfdsfsdklfjksdlkfjsdkljfklsdjfa";
             this.lbNguoiBan.MouseEnter += new System.EventHandler(this.lbNguoiBan_MouseEnter);
             // 
             // label12
