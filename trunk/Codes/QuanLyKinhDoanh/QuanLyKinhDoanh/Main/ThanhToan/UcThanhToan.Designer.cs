@@ -76,7 +76,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.tbTongHoaDon = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pbXoa = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbTichLuy = new System.Windows.Forms.RadioButton();
+            this.rbTrucTiep = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnFix_Avatar = new System.Windows.Forms.Panel();
             this.pbAvatar = new System.Windows.Forms.PictureBox();
@@ -100,11 +104,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tbSoLuong = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pbXoa = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
-            this.rbTrucTiep = new System.Windows.Forms.RadioButton();
-            this.rbTichLuy = new System.Windows.Forms.RadioButton();
+            this.chTongHoaDon = new System.Windows.Forms.CheckBox();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -112,14 +113,14 @@
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnDetail.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnFix_Avatar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
             this.SuspendLayout();
             // 
             // pnInfo
@@ -614,8 +615,30 @@
             this.label10.TabIndex = 106;
             this.label10.Text = "Tổng HĐ:";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pbXoa);
+            this.panel4.Location = new System.Drawing.Point(785, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(70, 70);
+            this.panel4.TabIndex = 129;
+            // 
+            // pbXoa
+            // 
+            this.pbXoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXoa.Enabled = false;
+            this.pbXoa.Location = new System.Drawing.Point(10, 0);
+            this.pbXoa.Name = "pbXoa";
+            this.pbXoa.Size = new System.Drawing.Size(50, 50);
+            this.pbXoa.TabIndex = 1;
+            this.pbXoa.TabStop = false;
+            this.pbXoa.Click += new System.EventHandler(this.pbXoa_Click);
+            this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
+            this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chTongHoaDon);
             this.groupBox1.Controls.Add(this.rbTichLuy);
             this.groupBox1.Controls.Add(this.rbTrucTiep);
             this.groupBox1.Controls.Add(this.panel1);
@@ -645,11 +668,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
             // 
+            // rbTichLuy
+            // 
+            this.rbTichLuy.AutoSize = true;
+            this.rbTichLuy.Checked = true;
+            this.rbTichLuy.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTichLuy.ForeColor = System.Drawing.Color.Black;
+            this.rbTichLuy.Location = new System.Drawing.Point(7, 160);
+            this.rbTichLuy.Name = "rbTichLuy";
+            this.rbTichLuy.Size = new System.Drawing.Size(66, 19);
+            this.rbTichLuy.TabIndex = 8;
+            this.rbTichLuy.TabStop = true;
+            this.rbTichLuy.Text = "Tích lũy";
+            this.rbTichLuy.UseVisualStyleBackColor = true;
+            this.rbTichLuy.CheckedChanged += new System.EventHandler(this.rbTichLuy_CheckedChanged);
+            // 
+            // rbTrucTiep
+            // 
+            this.rbTrucTiep.AutoSize = true;
+            this.rbTrucTiep.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbTrucTiep.ForeColor = System.Drawing.Color.Black;
+            this.rbTrucTiep.Location = new System.Drawing.Point(7, 180);
+            this.rbTrucTiep.Name = "rbTrucTiep";
+            this.rbTrucTiep.Size = new System.Drawing.Size(73, 19);
+            this.rbTrucTiep.TabIndex = 9;
+            this.rbTrucTiep.TabStop = true;
+            this.rbTrucTiep.Text = "Trực tiếp";
+            this.rbTrucTiep.UseVisualStyleBackColor = true;
+            this.rbTrucTiep.CheckedChanged += new System.EventHandler(this.rbTrucTiep_CheckedChanged);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.pnFix_Avatar);
-            this.panel1.Location = new System.Drawing.Point(7, 223);
+            this.panel1.Location = new System.Drawing.Point(7, 220);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(104, 104);
             this.panel1.TabIndex = 135;
@@ -882,61 +934,23 @@
             this.label14.TabIndex = 4;
             this.label14.Text = "*Mã SP:";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pbXoa);
-            this.panel4.Location = new System.Drawing.Point(785, 6);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(70, 70);
-            this.panel4.TabIndex = 129;
-            // 
-            // pbXoa
-            // 
-            this.pbXoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbXoa.Enabled = false;
-            this.pbXoa.Location = new System.Drawing.Point(10, 0);
-            this.pbXoa.Name = "pbXoa";
-            this.pbXoa.Size = new System.Drawing.Size(50, 50);
-            this.pbXoa.TabIndex = 1;
-            this.pbXoa.TabStop = false;
-            this.pbXoa.Click += new System.EventHandler(this.pbXoa_Click);
-            this.pbXoa.MouseEnter += new System.EventHandler(this.pbXoa_MouseEnter);
-            this.pbXoa.MouseLeave += new System.EventHandler(this.pbXoa_MouseLeave);
-            // 
             // ttDetail
             // 
             this.ttDetail.AutoPopDelay = 10000;
             this.ttDetail.InitialDelay = 500;
             this.ttDetail.ReshowDelay = 100;
             // 
-            // rbTrucTiep
+            // chTongHoaDon
             // 
-            this.rbTrucTiep.AutoSize = true;
-            this.rbTrucTiep.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTrucTiep.ForeColor = System.Drawing.Color.Black;
-            this.rbTrucTiep.Location = new System.Drawing.Point(7, 185);
-            this.rbTrucTiep.Name = "rbTrucTiep";
-            this.rbTrucTiep.Size = new System.Drawing.Size(73, 19);
-            this.rbTrucTiep.TabIndex = 9;
-            this.rbTrucTiep.TabStop = true;
-            this.rbTrucTiep.Text = "Trực tiếp";
-            this.rbTrucTiep.UseVisualStyleBackColor = true;
-            this.rbTrucTiep.CheckedChanged += new System.EventHandler(this.rbTrucTiep_CheckedChanged);
-            // 
-            // rbTichLuy
-            // 
-            this.rbTichLuy.AutoSize = true;
-            this.rbTichLuy.Checked = true;
-            this.rbTichLuy.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTichLuy.ForeColor = System.Drawing.Color.Black;
-            this.rbTichLuy.Location = new System.Drawing.Point(7, 165);
-            this.rbTichLuy.Name = "rbTichLuy";
-            this.rbTichLuy.Size = new System.Drawing.Size(66, 19);
-            this.rbTichLuy.TabIndex = 8;
-            this.rbTichLuy.TabStop = true;
-            this.rbTichLuy.Text = "Tích lũy";
-            this.rbTichLuy.UseVisualStyleBackColor = true;
-            this.rbTichLuy.CheckedChanged += new System.EventHandler(this.rbTichLuy_CheckedChanged);
+            this.chTongHoaDon.AutoSize = true;
+            this.chTongHoaDon.Font = new System.Drawing.Font("Arial", 9F);
+            this.chTongHoaDon.ForeColor = System.Drawing.Color.Black;
+            this.chTongHoaDon.Location = new System.Drawing.Point(7, 200);
+            this.chTongHoaDon.Name = "chTongHoaDon";
+            this.chTongHoaDon.Size = new System.Drawing.Size(75, 19);
+            this.chTongHoaDon.TabIndex = 125;
+            this.chTongHoaDon.Text = "Tổng HĐ";
+            this.chTongHoaDon.UseVisualStyleBackColor = true;
             // 
             // UcThanhToan
             // 
@@ -963,6 +977,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnDetail.ResumeLayout(false);
             this.pnDetail.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -971,8 +987,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1056,6 +1070,7 @@
         private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.RadioButton rbTichLuy;
         private System.Windows.Forms.RadioButton rbTrucTiep;
+        private System.Windows.Forms.CheckBox chTongHoaDon;
 
     }
 }
