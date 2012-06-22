@@ -206,7 +206,14 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             if (dataSP != null && dataSP.GiaBan != 0)
             {
-                money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+                if (rbTichLuy.Checked)
+                {
+                    money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+                }
+                else
+                {
+                    money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text) - ConvertUtil.ConvertToInt(tbTienCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                }
             }
 
             tbThanhTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -806,6 +813,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void tbChietKhau_TextChanged(object sender, EventArgs e)
         {
             CalculateCK();
+
+            CalculateMoney();
         }
 
         private void tbGiaBan_TextChanged(object sender, EventArgs e)
@@ -823,8 +832,9 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbSoLuong.Text = dataSP.SoLuong.ToString();
             }
 
-            CalculateMoney();
             CalculateCK();
+
+            CalculateMoney();
 
             ValidateInput();
         }
@@ -992,12 +1002,12 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void rbTichLuy_CheckedChanged(object sender, EventArgs e)
         {
-            CalculateCK();
+            CalculateMoney();
         }
 
         private void rbTrucTiep_CheckedChanged(object sender, EventArgs e)
         {
-            CalculateCK();
+            CalculateMoney();
         }
     }
 }
