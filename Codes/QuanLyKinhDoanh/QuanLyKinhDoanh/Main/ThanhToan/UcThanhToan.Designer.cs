@@ -72,6 +72,8 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnDetail = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tbTongCK = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tbTongHoaDon = new System.Windows.Forms.TextBox();
@@ -79,6 +81,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chbTongHD = new System.Windows.Forms.CheckBox();
             this.rbTichLuy = new System.Windows.Forms.RadioButton();
             this.rbTrucTiep = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -105,7 +108,6 @@
             this.tbSoLuong = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
-            this.chTongHoaDon = new System.Windows.Forms.CheckBox();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -370,10 +372,10 @@
             // 
             this.tbTichLuy.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTichLuy.Location = new System.Drawing.Point(410, 90);
-            this.tbTichLuy.MaxLength = 11;
+            this.tbTichLuy.MaxLength = 7;
             this.tbTichLuy.Name = "tbTichLuy";
             this.tbTichLuy.ReadOnly = true;
-            this.tbTichLuy.Size = new System.Drawing.Size(127, 23);
+            this.tbTichLuy.Size = new System.Drawing.Size(54, 23);
             this.tbTichLuy.TabIndex = 20;
             this.tbTichLuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbTichLuy.TextChanged += new System.EventHandler(this.tbTichLuy_TextChanged);
@@ -382,7 +384,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(569, 93);
+            this.label13.Location = new System.Drawing.Point(471, 93);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 16);
             this.label13.TabIndex = 138;
@@ -391,11 +393,11 @@
             // tbSuDung
             // 
             this.tbSuDung.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSuDung.Location = new System.Drawing.Point(641, 90);
+            this.tbSuDung.Location = new System.Drawing.Point(543, 90);
             this.tbSuDung.MaxLength = 11;
             this.tbSuDung.Name = "tbSuDung";
             this.tbSuDung.ReadOnly = true;
-            this.tbSuDung.Size = new System.Drawing.Size(127, 23);
+            this.tbSuDung.Size = new System.Drawing.Size(54, 23);
             this.tbSuDung.TabIndex = 22;
             this.tbSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbSuDung.TextChanged += new System.EventHandler(this.tbSuDung_TextChanged);
@@ -405,11 +407,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(342, 93);
+            this.label15.Location = new System.Drawing.Point(360, 93);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 16);
+            this.label15.Size = new System.Drawing.Size(44, 16);
             this.label15.TabIndex = 135;
-            this.label15.Text = "Tích lũy:";
+            this.label15.Text = "Điểm:";
             // 
             // label12
             // 
@@ -551,6 +553,8 @@
             // 
             // pnDetail
             // 
+            this.pnDetail.Controls.Add(this.textBox1);
+            this.pnDetail.Controls.Add(this.label17);
             this.pnDetail.Controls.Add(this.tbTienHoiLai);
             this.pnDetail.Controls.Add(this.gbInfo);
             this.pnDetail.Controls.Add(this.tbTichLuy);
@@ -572,6 +576,26 @@
             this.pnDetail.Name = "pnDetail";
             this.pnDetail.Size = new System.Drawing.Size(950, 350);
             this.pnDetail.TabIndex = 57;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(641, 90);
+            this.textBox1.MaxLength = 5;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(126, 23);
+            this.textBox1.TabIndex = 143;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(603, 93);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(32, 16);
+            this.label17.TabIndex = 144;
+            this.label17.Text = "% =";
             // 
             // tbTongCK
             // 
@@ -638,7 +662,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.chTongHoaDon);
+            this.groupBox1.Controls.Add(this.chbTongHD);
             this.groupBox1.Controls.Add(this.rbTichLuy);
             this.groupBox1.Controls.Add(this.rbTrucTiep);
             this.groupBox1.Controls.Add(this.panel1);
@@ -668,13 +692,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
             // 
+            // chbTongHD
+            // 
+            this.chbTongHD.AutoSize = true;
+            this.chbTongHD.Font = new System.Drawing.Font("Arial", 9F);
+            this.chbTongHD.ForeColor = System.Drawing.Color.Black;
+            this.chbTongHD.Location = new System.Drawing.Point(12, 182);
+            this.chbTongHD.Name = "chbTongHD";
+            this.chbTongHD.Size = new System.Drawing.Size(75, 19);
+            this.chbTongHD.TabIndex = 125;
+            this.chbTongHD.Text = "Tổng HĐ";
+            this.chbTongHD.UseVisualStyleBackColor = true;
+            // 
             // rbTichLuy
             // 
             this.rbTichLuy.AutoSize = true;
             this.rbTichLuy.Checked = true;
             this.rbTichLuy.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTichLuy.ForeColor = System.Drawing.Color.Black;
-            this.rbTichLuy.Location = new System.Drawing.Point(7, 160);
+            this.rbTichLuy.Location = new System.Drawing.Point(12, 142);
             this.rbTichLuy.Name = "rbTichLuy";
             this.rbTichLuy.Size = new System.Drawing.Size(66, 19);
             this.rbTichLuy.TabIndex = 8;
@@ -688,7 +724,7 @@
             this.rbTrucTiep.AutoSize = true;
             this.rbTrucTiep.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTrucTiep.ForeColor = System.Drawing.Color.Black;
-            this.rbTrucTiep.Location = new System.Drawing.Point(7, 180);
+            this.rbTrucTiep.Location = new System.Drawing.Point(12, 162);
             this.rbTrucTiep.Name = "rbTrucTiep";
             this.rbTrucTiep.Size = new System.Drawing.Size(73, 19);
             this.rbTrucTiep.TabIndex = 9;
@@ -728,11 +764,11 @@
             // 
             // tbTienCK
             // 
-            this.tbTienCK.Location = new System.Drawing.Point(162, 140);
+            this.tbTienCK.Location = new System.Drawing.Point(206, 140);
             this.tbTienCK.MaxLength = 5;
             this.tbTienCK.Name = "tbTienCK";
             this.tbTienCK.ReadOnly = true;
-            this.tbTienCK.Size = new System.Drawing.Size(144, 23);
+            this.tbTienCK.Size = new System.Drawing.Size(100, 23);
             this.tbTienCK.TabIndex = 7;
             this.tbTienCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -885,7 +921,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(131, 143);
+            this.label8.Location = new System.Drawing.Point(168, 143);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 16);
             this.label8.TabIndex = 120;
@@ -893,7 +929,7 @@
             // 
             // tbChietKhau
             // 
-            this.tbChietKhau.Location = new System.Drawing.Point(90, 140);
+            this.tbChietKhau.Location = new System.Drawing.Point(127, 140);
             this.tbChietKhau.MaxLength = 2;
             this.tbChietKhau.Name = "tbChietKhau";
             this.tbChietKhau.Size = new System.Drawing.Size(40, 23);
@@ -907,11 +943,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(4, 143);
+            this.label9.Location = new System.Drawing.Point(90, 143);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 16);
+            this.label9.Size = new System.Drawing.Size(31, 16);
             this.label9.TabIndex = 116;
-            this.label9.Text = "Chiết khấu:";
+            this.label9.Text = "CK:";
             // 
             // tbSoLuong
             // 
@@ -939,18 +975,6 @@
             this.ttDetail.AutoPopDelay = 10000;
             this.ttDetail.InitialDelay = 500;
             this.ttDetail.ReshowDelay = 100;
-            // 
-            // chTongHoaDon
-            // 
-            this.chTongHoaDon.AutoSize = true;
-            this.chTongHoaDon.Font = new System.Drawing.Font("Arial", 9F);
-            this.chTongHoaDon.ForeColor = System.Drawing.Color.Black;
-            this.chTongHoaDon.Location = new System.Drawing.Point(7, 200);
-            this.chTongHoaDon.Name = "chTongHoaDon";
-            this.chTongHoaDon.Size = new System.Drawing.Size(75, 19);
-            this.chTongHoaDon.TabIndex = 125;
-            this.chTongHoaDon.Text = "Tổng HĐ";
-            this.chTongHoaDon.UseVisualStyleBackColor = true;
             // 
             // UcThanhToan
             // 
@@ -1070,7 +1094,9 @@
         private System.Windows.Forms.PictureBox pbAvatar;
         private System.Windows.Forms.RadioButton rbTichLuy;
         private System.Windows.Forms.RadioButton rbTrucTiep;
-        private System.Windows.Forms.CheckBox chTongHoaDon;
+        private System.Windows.Forms.CheckBox chbTongHD;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label17;
 
     }
 }

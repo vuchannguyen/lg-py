@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -903,6 +903,12 @@ namespace DTO
 		
 		private int _IdStatus;
 		
+		private bool _IsCKTichLuy;
+		
+		private bool _IsCKTongHD;
+		
+		private long _TienChietKhau;
+		
 		private long _ConLai;
 		
 		private long _ThanhTien;
@@ -945,6 +951,12 @@ namespace DTO
     partial void OnIdKhachHangChanged();
     partial void OnIdStatusChanging(int value);
     partial void OnIdStatusChanged();
+    partial void OnIsCKTichLuyChanging(bool value);
+    partial void OnIsCKTichLuyChanged();
+    partial void OnIsCKTongHDChanging(bool value);
+    partial void OnIsCKTongHDChanged();
+    partial void OnTienChietKhauChanging(long value);
+    partial void OnTienChietKhauChanged();
     partial void OnConLaiChanging(long value);
     partial void OnConLaiChanged();
     partial void OnThanhTienChanging(long value);
@@ -1105,6 +1117,66 @@ namespace DTO
 					this._IdStatus = value;
 					this.SendPropertyChanged("IdStatus");
 					this.OnIdStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsCKTichLuy", DbType="Bit NOT NULL")]
+		public bool IsCKTichLuy
+		{
+			get
+			{
+				return this._IsCKTichLuy;
+			}
+			set
+			{
+				if ((this._IsCKTichLuy != value))
+				{
+					this.OnIsCKTichLuyChanging(value);
+					this.SendPropertyChanging();
+					this._IsCKTichLuy = value;
+					this.SendPropertyChanged("IsCKTichLuy");
+					this.OnIsCKTichLuyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsCKTongHD", DbType="Bit NOT NULL")]
+		public bool IsCKTongHD
+		{
+			get
+			{
+				return this._IsCKTongHD;
+			}
+			set
+			{
+				if ((this._IsCKTongHD != value))
+				{
+					this.OnIsCKTongHDChanging(value);
+					this.SendPropertyChanging();
+					this._IsCKTongHD = value;
+					this.SendPropertyChanged("IsCKTongHD");
+					this.OnIsCKTongHDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TienChietKhau", DbType="BigInt NOT NULL")]
+		public long TienChietKhau
+		{
+			get
+			{
+				return this._TienChietKhau;
+			}
+			set
+			{
+				if ((this._TienChietKhau != value))
+				{
+					this.OnTienChietKhauChanging(value);
+					this.SendPropertyChanging();
+					this._TienChietKhau = value;
+					this.SendPropertyChanged("TienChietKhau");
+					this.OnTienChietKhauChanged();
 				}
 			}
 		}

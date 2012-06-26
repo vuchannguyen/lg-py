@@ -178,11 +178,22 @@ namespace QuanLyKinhDoanh.GiaoDich
                         pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
                     }
                 }
+
+                rbTichLuy.Enabled = false;
+                rbTrucTiep.Enabled = false;
+                chbTongHD.Enabled = false;
             }
             else
             {
                 pbHoanTat.Enabled = false;
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+
+                pbXoa.Enabled = false;
+                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+
+                rbTichLuy.Enabled = true;
+                rbTrucTiep.Enabled = true;
+                chbTongHD.Enabled = true;
             }
         }
 
@@ -206,11 +217,9 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             if (dataSP != null && dataSP.GiaBan != 0)
             {
-                if (rbTichLuy.Checked)
-                {
-                    money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
-                }
-                else
+                money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+
+                if (rbTrucTiep.Checked && !chbTongHD.Checked)
                 {
                     money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text) - ConvertUtil.ConvertToInt(tbTienCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 }
@@ -225,7 +234,16 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             if (!string.IsNullOrEmpty(tbChietKhau.Text))
             {
-                money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+                if (!chbTongHD.Checked)
+                {
+                    money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+                }
+                else
+                {
+                    money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * ConvertUtil.ConvertToInt(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) / 100);
+
+                    tbTongCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                } 
             }
 
             tbTienCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -272,7 +290,8 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             lvThongTin.Items.Add(lvi);
 
-            totalMoney += dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            //totalMoney += dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            totalMoney += ConvertUtil.ConvertToInt(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             tbTongHoaDon.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             if (cbStatus.SelectedIndex == 0)
@@ -311,11 +330,11 @@ namespace QuanLyKinhDoanh.GiaoDich
 
                 foreach (ListViewItem lvi in lvThongTin.CheckedItems)
                 {
-                    long money = ConvertUtil.ConvertToLong(lvi.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                    long money = ConvertUtil.ConvertToLong(lvi.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     totalMoney -= ConvertUtil.ConvertToLong(money);
                     tbTongHoaDon.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
-                    money = ConvertUtil.ConvertToLong(lvi.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                    money = ConvertUtil.ConvertToLong(lvi.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     totalDiscount -= ConvertUtil.ConvertToLong(money);
 
                     if (cbStatus.SelectedIndex == 0)
@@ -334,12 +353,6 @@ namespace QuanLyKinhDoanh.GiaoDich
                     for (int i = 0; i < lvThongTin.Items.Count; i++)
                     {
                         lvThongTin.Items[i].SubItems[2].Text = (i + 1).ToString();
-                    }
-
-                    if (lvThongTin.Items.Count == 0)
-                    {
-                        pbXoa.Enabled = false;
-                        pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                     }
                 }
             }
@@ -563,6 +576,14 @@ namespace QuanLyKinhDoanh.GiaoDich
             dataHoaDon.IdType = Constant.ID_TYPE_BAN;
             dataHoaDon.IdStatus = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbStatus.SelectedItem).Value);
 
+            dataHoaDon.IsCKTichLuy = rbTichLuy.Checked;
+            dataHoaDon.IsCKTongHD = chbTongHD.Checked;
+
+            if (dataHoaDon.IsCKTongHD)
+            {
+                dataHoaDon.TienChietKhau = ConvertUtil.ConvertToInt(tbTongCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            }
+
             if (dataHoaDon.IdStatus == Constant.ID_STATUS_DEBT)
             { 
                 dataHoaDon.ConLai = ConvertUtil.ConvertToLong(tbTienHoiLai.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
@@ -600,8 +621,8 @@ namespace QuanLyKinhDoanh.GiaoDich
                 dataHoaDonDetail.IdSanPham = ConvertUtil.ConvertToInt(lvi.SubItems[1].Text);
                 dataHoaDonDetail.ChietKhau = ConvertUtil.ConvertToInt(lvi.SubItems[4].Text.Replace(Constant.SYMBOL_DISCOUNT, ""));
                 dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(lvi.SubItems[6].Text);
-                dataHoaDonDetail.DonGia = ConvertUtil.ConvertToInt(lvi.SubItems[8].Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
-                dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(lvi.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+                dataHoaDonDetail.DonGia = ConvertUtil.ConvertToInt(lvi.SubItems[8].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(lvi.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
                 if (HoaDonDetailBus.Insert(dataHoaDonDetail))
                 {
@@ -726,6 +747,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             GetListSP(listDataSP);
 
             ValidateHoanTat();
+
+            CalculateTienHoiLai();
         }
 
         private void pbXoa_MouseEnter(object sender, EventArgs e)
@@ -898,6 +921,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
 
             CalculateTienHoiLai();
+
             ValidateHoanTat();
         }
 
@@ -908,7 +932,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void tbTienThanhToan_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
             tbTienThanhToan.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbTienThanhToan.Select(tbTienThanhToan.Text.Length, 0);
@@ -928,7 +952,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void tbSuDung_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, ""));
+            long money = ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             long tichLuy = dataKH == null ? 0 : dataKH.TichLuy;
 
             tbSuDung.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
