@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lbSelect = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
@@ -46,6 +47,10 @@
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.tbTenKH = new System.Windows.Forms.TextBox();
+            this.cbMaKH = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.gbInfo.SuspendLayout();
@@ -100,6 +105,9 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbTenKH);
+            this.gbInfo.Controls.Add(this.cbMaKH);
+            this.gbInfo.Controls.Add(this.label2);
             this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.panel12);
@@ -244,6 +252,49 @@
             this.pnInfo.Size = new System.Drawing.Size(560, 290);
             this.pnInfo.TabIndex = 49;
             // 
+            // tbTenKH
+            // 
+            this.tbTenKH.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenKH.Location = new System.Drawing.Point(306, 60);
+            this.tbTenKH.MaxLength = 50;
+            this.tbTenKH.Name = "tbTenKH";
+            this.tbTenKH.ReadOnly = true;
+            this.tbTenKH.Size = new System.Drawing.Size(203, 29);
+            this.tbTenKH.TabIndex = 97;
+            this.tbTenKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTenKH.TextChanged += new System.EventHandler(this.tbTenKH_TextChanged);
+            this.tbTenKH.MouseEnter += new System.EventHandler(this.tbTenKH_MouseEnter);
+            // 
+            // cbMaKH
+            // 
+            this.cbMaKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbMaKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbMaKH.FormattingEnabled = true;
+            this.cbMaKH.Location = new System.Drawing.Point(306, 25);
+            this.cbMaKH.MaxLength = 10;
+            this.cbMaKH.Name = "cbMaKH";
+            this.cbMaKH.Size = new System.Drawing.Size(92, 24);
+            this.cbMaKH.TabIndex = 96;
+            this.cbMaKH.SelectedIndexChanged += new System.EventHandler(this.cbMaKH_SelectedIndexChanged);
+            this.cbMaKH.TextChanged += new System.EventHandler(this.cbMaKH_TextChanged);
+            this.cbMaKH.Leave += new System.EventHandler(this.cbMaKH_Leave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(207, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 16);
+            this.label2.TabIndex = 98;
+            this.label2.Text = "*Khách hàng:";
+            // 
+            // ttDetail
+            // 
+            this.ttDetail.AutoPopDelay = 10000;
+            this.ttDetail.InitialDelay = 500;
+            this.ttDetail.ReshowDelay = 100;
+            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -290,5 +341,9 @@
         private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.TextBox tbMa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbTenKH;
+        private System.Windows.Forms.ComboBox cbMaKH;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip ttDetail;
     }
 }

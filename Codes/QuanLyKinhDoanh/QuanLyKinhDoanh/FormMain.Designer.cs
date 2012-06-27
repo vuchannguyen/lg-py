@@ -32,10 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.pnMain = new System.Windows.Forms.Panel();
             this.pnBottom = new System.Windows.Forms.Panel();
+            this.pnGeneralInfo = new System.Windows.Forms.Panel();
             this.lbAboutCD = new System.Windows.Forms.Label();
-            this.lbAboutSoftware = new System.Windows.Forms.Label();
             this.lbAbout = new System.Windows.Forms.Label();
+            this.lbAboutSoftware = new System.Windows.Forms.Label();
             this.pnBody = new System.Windows.Forms.Panel();
+            this.pbStartup = new System.Windows.Forms.PictureBox();
             this.pnTopBar = new System.Windows.Forms.Panel();
             this.pnHello = new System.Windows.Forms.Panel();
             this.lbEdit = new System.Windows.Forms.Label();
@@ -60,9 +62,11 @@
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.pbKhachHang = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
-            this.pnGeneralInfo = new System.Windows.Forms.Panel();
             this.pnMain.SuspendLayout();
             this.pnBottom.SuspendLayout();
+            this.pnGeneralInfo.SuspendLayout();
+            this.pnBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStartup)).BeginInit();
             this.pnTopBar.SuspendLayout();
             this.pnHello.SuspendLayout();
             this.pnHeaderAndMainMenu.SuspendLayout();
@@ -74,7 +78,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).BeginInit();
-            this.pnGeneralInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnMain
@@ -100,6 +103,17 @@
             this.pnBottom.Size = new System.Drawing.Size(973, 20);
             this.pnBottom.TabIndex = 9;
             // 
+            // pnGeneralInfo
+            // 
+            this.pnGeneralInfo.BackColor = System.Drawing.Color.Transparent;
+            this.pnGeneralInfo.Controls.Add(this.lbAboutCD);
+            this.pnGeneralInfo.Controls.Add(this.lbAbout);
+            this.pnGeneralInfo.Controls.Add(this.lbAboutSoftware);
+            this.pnGeneralInfo.Location = new System.Drawing.Point(238, 0);
+            this.pnGeneralInfo.Name = "pnGeneralInfo";
+            this.pnGeneralInfo.Size = new System.Drawing.Size(440, 20);
+            this.pnGeneralInfo.TabIndex = 11;
+            // 
             // lbAboutCD
             // 
             this.lbAboutCD.AutoSize = true;
@@ -115,6 +129,18 @@
             this.lbAboutCD.Click += new System.EventHandler(this.lbAboutCD_Click);
             this.lbAboutCD.MouseEnter += new System.EventHandler(this.lbAboutCD_MouseEnter);
             this.lbAboutCD.MouseLeave += new System.EventHandler(this.lbAboutCD_MouseLeave);
+            // 
+            // lbAbout
+            // 
+            this.lbAbout.AutoSize = true;
+            this.lbAbout.BackColor = System.Drawing.Color.Transparent;
+            this.lbAbout.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAbout.ForeColor = System.Drawing.Color.Gray;
+            this.lbAbout.Location = new System.Drawing.Point(3, 3);
+            this.lbAbout.Name = "lbAbout";
+            this.lbAbout.Size = new System.Drawing.Size(284, 14);
+            this.lbAbout.TabIndex = 8;
+            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD";
             // 
             // lbAboutSoftware
             // 
@@ -132,24 +158,22 @@
             this.lbAboutSoftware.MouseEnter += new System.EventHandler(this.lbAboutSoftware_MouseEnter);
             this.lbAboutSoftware.MouseLeave += new System.EventHandler(this.lbAboutSoftware_MouseLeave);
             // 
-            // lbAbout
-            // 
-            this.lbAbout.AutoSize = true;
-            this.lbAbout.BackColor = System.Drawing.Color.Transparent;
-            this.lbAbout.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbAbout.ForeColor = System.Drawing.Color.Gray;
-            this.lbAbout.Location = new System.Drawing.Point(3, 3);
-            this.lbAbout.Name = "lbAbout";
-            this.lbAbout.Size = new System.Drawing.Size(284, 14);
-            this.lbAbout.TabIndex = 8;
-            this.lbAbout.Text = "Phần mềm Quản Lý Kinh Doanh - Copyright © 2012 by CD";
-            // 
             // pnBody
             // 
+            this.pnBody.Controls.Add(this.pbStartup);
             this.pnBody.Location = new System.Drawing.Point(12, 185);
             this.pnBody.Name = "pnBody";
             this.pnBody.Size = new System.Drawing.Size(794, 286);
             this.pnBody.TabIndex = 10;
+            // 
+            // pbStartup
+            // 
+            this.pbStartup.Location = new System.Drawing.Point(3, 3);
+            this.pbStartup.Name = "pbStartup";
+            this.pbStartup.Size = new System.Drawing.Size(349, 160);
+            this.pbStartup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbStartup.TabIndex = 0;
+            this.pbStartup.TabStop = false;
             // 
             // pnTopBar
             // 
@@ -449,16 +473,6 @@
             this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
             this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
-            // pnGeneralInfo
-            // 
-            this.pnGeneralInfo.Controls.Add(this.lbAboutCD);
-            this.pnGeneralInfo.Controls.Add(this.lbAbout);
-            this.pnGeneralInfo.Controls.Add(this.lbAboutSoftware);
-            this.pnGeneralInfo.Location = new System.Drawing.Point(238, 0);
-            this.pnGeneralInfo.Name = "pnGeneralInfo";
-            this.pnGeneralInfo.Size = new System.Drawing.Size(440, 20);
-            this.pnGeneralInfo.TabIndex = 11;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -472,12 +486,16 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QUAN LY KINH DOANH 4.0";
+            this.Text = "QUAN LY KINH DOANH 4.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.pnMain.ResumeLayout(false);
             this.pnBottom.ResumeLayout(false);
+            this.pnGeneralInfo.ResumeLayout(false);
+            this.pnGeneralInfo.PerformLayout();
+            this.pnBody.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbStartup)).EndInit();
             this.pnTopBar.ResumeLayout(false);
             this.pnHello.ResumeLayout(false);
             this.pnHello.PerformLayout();
@@ -491,8 +509,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).EndInit();
-            this.pnGeneralInfo.ResumeLayout(false);
-            this.pnGeneralInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -530,6 +546,7 @@
         private System.Windows.Forms.Label lbAboutSoftware;
         private System.Windows.Forms.Label lbAboutCD;
         private System.Windows.Forms.Panel pnGeneralInfo;
+        private System.Windows.Forms.PictureBox pbStartup;
     }
 }
 

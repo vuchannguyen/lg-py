@@ -38,7 +38,7 @@ namespace DAO
                     break;
 
                 default:
-                    sql = sql.Where(p => p.IdType == type);
+                    //sql = sql.Where(p => p.IdType == type);
                     break;
             }
 
@@ -47,17 +47,21 @@ namespace DAO
                 sql = sql.Where(p => p.IdKhachHang == idKH);
             }
 
-            sql = sql.Where(p => p.IdStatus == status);
+            if (status != 0)
+            {
+                sql = sql.Where(p => p.IdStatus == status);
+            }
+
             sql = sql.Where(p => p.DeleteFlag == false);
 
             switch (timeType)
             {
                 case CommonDao.DEFAULT_TYPE_DAY:
-                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
+                    sql = sql.Where(p => p.CreateDate.Day == date.Day && p.CreateDate.Month == date.Month && p.CreateDate.Year == date.Year);
                     break;
 
                 case CommonDao.DEFAULT_TYPE_MONTH:
-                    sql = sql.Where(p => p.CreateDate.Month == date.Month);
+                    sql = sql.Where(p => p.CreateDate.Month == date.Month && p.CreateDate.Year == date.Year);
                     break;
 
                 case CommonDao.DEFAULT_TYPE_YEAR:
@@ -65,7 +69,7 @@ namespace DAO
                     break;
 
                 default:
-                    sql = sql.Where(p => p.CreateDate.Day == date.Day);
+                    sql = sql.Where(p => p.CreateDate.Day == date.Day && p.CreateDate.Month == date.Month && p.CreateDate.Year == date.Year);
                     break;
             }
 

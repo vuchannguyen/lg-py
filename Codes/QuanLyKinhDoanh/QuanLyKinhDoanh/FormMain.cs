@@ -58,6 +58,8 @@ namespace QuanLyKinhDoanh
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
 
                 pnBottom.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
+
+                pbStartup.BackgroundImage = Image.FromFile(ConstantResource.MAIN_STARTUP);
             }
             catch
             {
@@ -86,6 +88,9 @@ namespace QuanLyKinhDoanh
             pnBody.Height = pnMain.Height - 100 - Constant.DEFAULT_BOT_HEIGHT;
 
             pnBody.Location = CommonFunc.SetWidthCenter(pnMain.Size, pnBody.Size, Constant.DEFAULT_TOP_HEIGHT);
+
+            pbStartup.Size = new System.Drawing.Size(1000, 413);
+            pbStartup.Location = CommonFunc.SetCenterLocation(pnBody.Size, pbStartup.Size);
 
             FormLogin frm = new FormLogin();
             frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
