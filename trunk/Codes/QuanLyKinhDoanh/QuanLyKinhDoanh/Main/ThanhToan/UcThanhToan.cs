@@ -106,10 +106,14 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbTenKH.Text = string.Empty;
             tbTichLuy.Text = string.Empty;
             tbSuDung.Text = string.Empty;
+            tbTienSuDung.Text = string.Empty;
             tbTienHoiLai.Text = string.Empty;
             tbTienThanhToan.Text = string.Empty;
             tbTongCK.Text = string.Empty;
             tbTongHoaDon.Text = string.Empty;
+
+            rbTichLuy.Checked = true;
+            chbTongHD.Checked = false;
 
             foreach (ListViewItem lvi in lvThongTin.Items)
             {
@@ -150,7 +154,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 long money = 0;
 
                 money = ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
-                        ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                        ConvertUtil.ConvertToLong(tbTienSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
                 if (cbStatus.SelectedIndex == 0)
                 {
@@ -221,7 +225,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
                 if (rbTrucTiep.Checked && !chbTongHD.Checked)
                 {
-                    money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text) - ConvertUtil.ConvertToInt(tbTienCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    money = dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text) - ConvertUtil.ConvertToLong(tbTienCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 }
             }
 
@@ -232,18 +236,17 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             long money = 0;
 
-            if (!string.IsNullOrEmpty(tbChietKhau.Text))
+            if (!chbTongHD.Checked)
             {
-                if (!chbTongHD.Checked)
-                {
-                    money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
-                }
-                else
-                {
-                    money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * ConvertUtil.ConvertToInt(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) / 100);
+                money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            }
+            else
+            {
+                money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * totalMoney / 100);
 
-                    tbTongCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-                } 
+                totalDiscount = money;
+                tbTongCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                tbTongHoaDon.Text = (totalMoney - totalDiscount).ToString(Constant.DEFAULT_FORMAT_MONEY);
             }
 
             tbTienCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -256,7 +259,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             //if (!string.IsNullOrEmpty(tbTienThanhToan.Text))
             //{
                 money = (ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
-                    ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) - totalMoney);
+                    ConvertUtil.ConvertToLong(tbTienSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) -
+                    ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)));
             //}
 
             tbTienHoiLai.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -270,7 +274,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
             lvi.SubItems.Add(dataSP.Ten);
 
-            if (!string.IsNullOrEmpty(tbChietKhau.Text) && tbChietKhau.Text != "0")
+            if (!chbTongHD.Checked && !string.IsNullOrEmpty(tbChietKhau.Text) && tbChietKhau.Text != "0")
             {
                 totalDiscount += ConvertUtil.ConvertToLong(tbTienCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
@@ -290,10 +294,6 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             lvThongTin.Items.Add(lvi);
 
-            //totalMoney += dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
-            totalMoney += ConvertUtil.ConvertToInt(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-            tbTongHoaDon.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
-
             if (cbStatus.SelectedIndex == 0)
             {
                 tbTongCK.Text = totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY);
@@ -302,6 +302,10 @@ namespace QuanLyKinhDoanh.GiaoDich
             {
                 tbTongCK.Text = string.Empty;
             }
+
+            //totalMoney += dataSP.GiaBan * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            totalMoney += ConvertUtil.ConvertToLong(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            tbTongHoaDon.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             tbSoLuong.Text = "1";
 
@@ -335,7 +339,11 @@ namespace QuanLyKinhDoanh.GiaoDich
                     tbTongHoaDon.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
                     money = ConvertUtil.ConvertToLong(lvi.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                    totalDiscount -= ConvertUtil.ConvertToLong(money);
+
+                    if (!chbTongHD.Checked)
+                    {
+                        totalDiscount -= ConvertUtil.ConvertToLong(money);
+                    }
 
                     if (cbStatus.SelectedIndex == 0)
                     {
@@ -458,7 +466,12 @@ namespace QuanLyKinhDoanh.GiaoDich
 
                 tbTenSP.Text = dataSP.Ten;
                 tbTon.Text = dataSP.SoLuong.ToString();
-                tbChietKhau.Text = dataCK == null ? string.Empty : dataCK.Value.ToString();
+
+                if (!chbTongHD.Checked)
+                {
+                    tbChietKhau.Text = dataCK == null ? string.Empty : dataCK.Value.ToString();
+                }
+
                 tbDVT.Text = dataSP.DonViTinh;
                 tbGiaBan.Text = dataSP.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
@@ -621,7 +634,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 dataHoaDonDetail.IdSanPham = ConvertUtil.ConvertToInt(lvi.SubItems[1].Text);
                 dataHoaDonDetail.ChietKhau = ConvertUtil.ConvertToInt(lvi.SubItems[4].Text.Replace(Constant.SYMBOL_DISCOUNT, ""));
                 dataHoaDonDetail.SoLuong = ConvertUtil.ConvertToInt(lvi.SubItems[6].Text);
-                dataHoaDonDetail.DonGia = ConvertUtil.ConvertToInt(lvi.SubItems[8].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                dataHoaDonDetail.DonGia = ConvertUtil.ConvertToLong(lvi.SubItems[8].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 dataHoaDonDetail.ThanhTien = ConvertUtil.ConvertToLong(lvi.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
                 if (HoaDonDetailBus.Insert(dataHoaDonDetail))
@@ -649,7 +662,11 @@ namespace QuanLyKinhDoanh.GiaoDich
             if (dataKH != null && dataKH.IdGroup != Constant.ID_GROUP_KHACH_THUONG)
             {
                 dataKH.TichLuy -= ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                dataKH.TichLuy += totalDiscount;
+
+                if (rbTichLuy.Checked)
+                {
+                    dataKH.TichLuy += totalDiscount / 100;
+                }
 
                 if (KhachHangBus.Update(dataKH, FormMain.user))
                 {
@@ -693,6 +710,11 @@ namespace QuanLyKinhDoanh.GiaoDich
             GetListSP(listDataSP);
 
             ValidateHoanTat();
+
+            if (chbTongHD.Checked)
+            {
+                CalculateCK();
+            }
 
             CalculateTienHoiLai();
         }
@@ -790,16 +812,17 @@ namespace QuanLyKinhDoanh.GiaoDich
                 {
                     tbTienThanhToan.ReadOnly = false;
                     tbTenKH.Text = dataKH.Ten;
-                    tbTichLuy.Text = dataKH.TichLuy == 0 ? "0" : dataKH.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
-
-                    return;
+                    tbTichLuy.Text = dataKH.TichLuy == 0 ? "0" : dataKH.TichLuy.ToString();
                 }
             }
-
-            tbTienThanhToan.ReadOnly = true;
-            tbTienThanhToan.Text = string.Empty;
-            tbTenKH.Text = string.Empty;
-            tbTichLuy.Text = string.Empty;
+            else
+            {
+                dataKH = null;
+                tbTienThanhToan.ReadOnly = true;
+                tbTienThanhToan.Text = string.Empty;
+                tbTenKH.Text = string.Empty;
+                tbTichLuy.Text = string.Empty;
+            }
         }
 
         private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
@@ -807,7 +830,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
 
             tbTenKH.Text = dataKH == null ? string.Empty : dataKH.Ten;
-            tbTichLuy.Text = dataKH.TichLuy == 0 ? "0" : dataKH.TichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTichLuy.Text = dataKH.TichLuy == 0 ? "0" : dataKH.TichLuy.ToString();
 
             tbTienThanhToan.ReadOnly = false;
         }
@@ -902,9 +925,9 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbStatus.SelectedIndex == 0)
+            if (cbStatus.SelectedIndex == 0 && !string.IsNullOrEmpty(tbTichLuy.Text) && tbTichLuy.Text != "0")
             {
-                tbSuDung.Enabled = true;
+                tbSuDung.ReadOnly = false;
 
                 lbTienStatus.Text = Constant.DEFAULT_MONEY_STATUS_DONE;
 
@@ -913,7 +936,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             else
             {
                 tbSuDung.Text = string.Empty;
-                tbSuDung.Enabled = false;
+                tbSuDung.ReadOnly = true;
 
                 lbTienStatus.Text = Constant.DEFAULT_MONEY_STATUS_DEBT;
 
@@ -950,23 +973,13 @@ namespace QuanLyKinhDoanh.GiaoDich
             }
         }
 
-        private void tbSuDung_TextChanged(object sender, EventArgs e)
+        private void tbTienSuDung_KeyPress(object sender, KeyPressEventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-            long tichLuy = dataKH == null ? 0 : dataKH.TichLuy;
+            CommonFunc.ValidateNumeric(e);
+        }
 
-            tbSuDung.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-            tbSuDung.Select(tbSuDung.Text.Length, 0);
-
-            if (!tbSuDung.ReadOnly && ConvertUtil.ConvertToLong(tbSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) >= tichLuy)
-            {
-                tbSuDung.Text = tichLuy.ToString(Constant.DEFAULT_FORMAT_MONEY);
-            }
-            else
-            {
-                tbTienThanhToan.ReadOnly = false;
-            }
-
+        private void tbTienSuDung_TextChanged(object sender, EventArgs e)
+        {
             CalculateTienHoiLai();
 
             ValidateHoanTat();
@@ -977,14 +990,9 @@ namespace QuanLyKinhDoanh.GiaoDich
             CommonFunc.ValidateNumeric(e);
         }
 
-        private void tbSuDung_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            CommonFunc.ValidateNumeric(e);
-        }
-
         private void tbTichLuy_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbTichLuy.Text) && tbTichLuy.Text != "0")
+            if (cbStatus.SelectedIndex == 0 && !string.IsNullOrEmpty(tbTichLuy.Text) && tbTichLuy.Text != "0")
             {
                 tbSuDung.ReadOnly = false;
             }
@@ -1022,15 +1030,62 @@ namespace QuanLyKinhDoanh.GiaoDich
                 ttDetail.RemoveAll();
             }
         }
-        #endregion
 
         private void rbTichLuy_CheckedChanged(object sender, EventArgs e)
         {
+            CalculateCK();
+
             CalculateMoney();
         }
 
         private void rbTrucTiep_CheckedChanged(object sender, EventArgs e)
         {
+            CalculateCK();
+
+            CalculateMoney();
+        }
+
+        private void tbSuDung_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
+
+        private void tbSuDung_TextChanged(object sender, EventArgs e)
+        {
+            long tichLuy = dataKH == null ? 0 : dataKH.TichLuy;
+
+            if (!tbSuDung.ReadOnly && ConvertUtil.ConvertToLong(tbSuDung.Text) >= tichLuy)
+            {
+                tbSuDung.Text = tichLuy.ToString();
+            }
+            else
+            {
+                tbTienThanhToan.ReadOnly = false;
+            }
+
+            tbTienSuDung.Text = (ConvertUtil.ConvertToLong(tbSuDung.Text) * 100).ToString(Constant.DEFAULT_FORMAT_MONEY);
+        }
+        #endregion
+
+        private void tbTongCK_TextChanged(object sender, EventArgs e)
+        {
+            CalculateCK();
+        }
+
+        private void tbTongHoaDon_TextChanged(object sender, EventArgs e)
+        {
+            CalculateCK();
+
+            CalculateTienHoiLai();
+        }
+
+        private void chbTongHD_CheckedChanged(object sender, EventArgs e)
+        {
+            totalDiscount = 0;
+            totalMoney = 0;
+
+            CalculateCK();
+
             CalculateMoney();
         }
     }

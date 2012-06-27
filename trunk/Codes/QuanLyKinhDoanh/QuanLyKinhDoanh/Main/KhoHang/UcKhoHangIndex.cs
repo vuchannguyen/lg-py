@@ -45,6 +45,8 @@ namespace QuanLyKinhDoanh
             FormMain.isEditing = false;
 
             InitPermission();
+
+            this.BringToFront();
         }
 
         private void InitPermission()

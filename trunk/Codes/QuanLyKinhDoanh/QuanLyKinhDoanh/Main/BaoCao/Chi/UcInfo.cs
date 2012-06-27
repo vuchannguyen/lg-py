@@ -15,6 +15,7 @@ namespace QuanLyKinhDoanh.Chi
     public partial class UcInfo : UserControl
     {
         private DTO.HoaDon data;
+        private DTO.KhachHang dataKH;
         private bool isUpdate;
 
         public UcInfo()
@@ -80,7 +81,7 @@ namespace QuanLyKinhDoanh.Chi
         #region Function
         private void Init()
         {
-            //
+            GetListKhachHang();
         }
 
         private void RefreshData()
@@ -95,6 +96,7 @@ namespace QuanLyKinhDoanh.Chi
         private void ValidateInput()
         {
             if (!string.IsNullOrEmpty(tbTien.Text) &&
+                !string.IsNullOrEmpty(tbTenKH.Text) &&
                 !string.IsNullOrEmpty(tbGhiChu.Text)
                 )
             {
@@ -171,6 +173,18 @@ namespace QuanLyKinhDoanh.Chi
                 }
             }
         }
+
+        private void GetListKhachHang()
+        {
+            List<DTO.KhachHang> listData = KhachHangBus.GetList(string.Empty, false, string.Empty, string.Empty, 0, 0);
+
+            cbMaKH.Items.Clear();
+
+            foreach (DTO.KhachHang data in listData)
+            {
+                cbMaKH.Items.Add(new CommonComboBoxItems(data.MaKhachHang, data.Id));
+            }
+        }
         #endregion
 
 
@@ -196,7 +210,9 @@ namespace QuanLyKinhDoanh.Chi
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            pbHoanTat.Focus();
+
+            if (dataKH != null && MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 if (!isUpdate)
                 {
@@ -245,5 +261,57 @@ namespace QuanLyKinhDoanh.Chi
             ValidateInput();
         }
         #endregion
+
+        private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
+
+            tbTenKH.Text = dataKH == null ? string.Empty : dataKH.Ten;
+        }
+
+        private void cbMaKH_Leave(object sender, EventArgs e)
+        {
+            if (cbMaKH.SelectedItem != null)
+            {
+                dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
+
+                if (dataKH != null)
+                {
+                    tbTenKH.Text = dataKH.Ten;
+                }
+            }
+            else
+            {
+                dataKH = null;
+                tbTenKH.Text = string.Empty;
+            }
+        }
+
+        private void cbMaKH_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbMaKH.Text))
+            {
+                dataKH = null;
+            }
+        }
+
+        private void tbTenKH_MouseEnter(object sender, EventArgs e)
+        {
+            if (dataKH != null)
+            {
+                ttDetail.SetToolTip(tbTenKH, string.Format(Constant.TOOLTIP_DETAIL_KHACHHANG,
+                    dataKH.Ten, dataKH.GioiTinh, dataKH.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT),
+                    dataKH.CMND, dataKH.DiaChi, dataKH.DienThoai, dataKH.DTDD, dataKH.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
+            }
+        }
+
+        private void tbTenKH_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
     }
 }

@@ -56,7 +56,7 @@
             this.tbTienHoiLai = new System.Windows.Forms.TextBox();
             this.tbTichLuy = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.tbSuDung = new System.Windows.Forms.TextBox();
+            this.tbTienSuDung = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbTienThanhToan = new System.Windows.Forms.TextBox();
@@ -72,7 +72,7 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnDetail = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSuDung = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tbTongCK = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -375,7 +375,7 @@
             this.tbTichLuy.MaxLength = 7;
             this.tbTichLuy.Name = "tbTichLuy";
             this.tbTichLuy.ReadOnly = true;
-            this.tbTichLuy.Size = new System.Drawing.Size(54, 23);
+            this.tbTichLuy.Size = new System.Drawing.Size(55, 23);
             this.tbTichLuy.TabIndex = 20;
             this.tbTichLuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbTichLuy.TextChanged += new System.EventHandler(this.tbTichLuy_TextChanged);
@@ -384,24 +384,24 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(471, 93);
+            this.label13.Location = new System.Drawing.Point(486, 93);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 16);
             this.label13.TabIndex = 138;
             this.label13.Text = "Sử dụng:";
             // 
-            // tbSuDung
+            // tbTienSuDung
             // 
-            this.tbSuDung.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSuDung.Location = new System.Drawing.Point(543, 90);
-            this.tbSuDung.MaxLength = 11;
-            this.tbSuDung.Name = "tbSuDung";
-            this.tbSuDung.ReadOnly = true;
-            this.tbSuDung.Size = new System.Drawing.Size(54, 23);
-            this.tbSuDung.TabIndex = 22;
-            this.tbSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbSuDung.TextChanged += new System.EventHandler(this.tbSuDung_TextChanged);
-            this.tbSuDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSuDung_KeyPress);
+            this.tbTienSuDung.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTienSuDung.Location = new System.Drawing.Point(641, 90);
+            this.tbTienSuDung.MaxLength = 11;
+            this.tbTienSuDung.Name = "tbTienSuDung";
+            this.tbTienSuDung.ReadOnly = true;
+            this.tbTienSuDung.Size = new System.Drawing.Size(126, 23);
+            this.tbTienSuDung.TabIndex = 24;
+            this.tbTienSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTienSuDung.TextChanged += new System.EventHandler(this.tbTienSuDung_TextChanged);
+            this.tbTienSuDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbTienSuDung_KeyPress);
             // 
             // label15
             // 
@@ -553,7 +553,7 @@
             // 
             // pnDetail
             // 
-            this.pnDetail.Controls.Add(this.textBox1);
+            this.pnDetail.Controls.Add(this.tbSuDung);
             this.pnDetail.Controls.Add(this.label17);
             this.pnDetail.Controls.Add(this.tbTienHoiLai);
             this.pnDetail.Controls.Add(this.gbInfo);
@@ -561,7 +561,7 @@
             this.pnDetail.Controls.Add(this.tbTongCK);
             this.pnDetail.Controls.Add(this.label13);
             this.pnDetail.Controls.Add(this.label18);
-            this.pnDetail.Controls.Add(this.tbSuDung);
+            this.pnDetail.Controls.Add(this.tbTienSuDung);
             this.pnDetail.Controls.Add(this.label15);
             this.pnDetail.Controls.Add(this.tbTongHoaDon);
             this.pnDetail.Controls.Add(this.label12);
@@ -577,25 +577,27 @@
             this.pnDetail.Size = new System.Drawing.Size(950, 350);
             this.pnDetail.TabIndex = 57;
             // 
-            // textBox1
+            // tbSuDung
             // 
-            this.textBox1.Location = new System.Drawing.Point(641, 90);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(126, 23);
-            this.textBox1.TabIndex = 143;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbSuDung.Location = new System.Drawing.Point(558, 90);
+            this.tbSuDung.MaxLength = 7;
+            this.tbSuDung.Name = "tbSuDung";
+            this.tbSuDung.ReadOnly = true;
+            this.tbSuDung.Size = new System.Drawing.Size(55, 23);
+            this.tbSuDung.TabIndex = 22;
+            this.tbSuDung.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbSuDung.TextChanged += new System.EventHandler(this.tbSuDung_TextChanged);
+            this.tbSuDung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSuDung_KeyPress);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(603, 93);
+            this.label17.Location = new System.Drawing.Point(619, 93);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(32, 16);
+            this.label17.Size = new System.Drawing.Size(16, 16);
             this.label17.TabIndex = 144;
-            this.label17.Text = "% =";
+            this.label17.Text = "=";
             // 
             // tbTongCK
             // 
@@ -607,6 +609,7 @@
             this.tbTongCK.Size = new System.Drawing.Size(127, 23);
             this.tbTongCK.TabIndex = 12;
             this.tbTongCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTongCK.TextChanged += new System.EventHandler(this.tbTongCK_TextChanged);
             // 
             // label18
             // 
@@ -628,6 +631,7 @@
             this.tbTongHoaDon.Size = new System.Drawing.Size(127, 26);
             this.tbTongHoaDon.TabIndex = 14;
             this.tbTongHoaDon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTongHoaDon.TextChanged += new System.EventHandler(this.tbTongHoaDon_TextChanged);
             // 
             // label10
             // 
@@ -703,6 +707,7 @@
             this.chbTongHD.TabIndex = 125;
             this.chbTongHD.Text = "Tổng HĐ";
             this.chbTongHD.UseVisualStyleBackColor = true;
+            this.chbTongHD.CheckedChanged += new System.EventHandler(this.chbTongHD_CheckedChanged);
             // 
             // rbTichLuy
             // 
@@ -1074,7 +1079,7 @@
         private System.Windows.Forms.TextBox tbTienThanhToan;
         private System.Windows.Forms.TextBox tbTichLuy;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbSuDung;
+        private System.Windows.Forms.TextBox tbTienSuDung;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbTenSP;
         private System.Windows.Forms.Label label11;
@@ -1095,7 +1100,7 @@
         private System.Windows.Forms.RadioButton rbTichLuy;
         private System.Windows.Forms.RadioButton rbTrucTiep;
         private System.Windows.Forms.CheckBox chbTongHD;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSuDung;
         private System.Windows.Forms.Label label17;
 
     }

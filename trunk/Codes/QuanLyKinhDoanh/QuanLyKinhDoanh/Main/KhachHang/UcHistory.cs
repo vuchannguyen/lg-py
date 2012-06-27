@@ -77,7 +77,7 @@ namespace QuanLyKinhDoanh.KhachHang
 
             tbSearch.Text = Constant.SEARCH_THU_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
@@ -91,7 +91,7 @@ namespace QuanLyKinhDoanh.KhachHang
         {
             tbSearch.Text = Constant.SEARCH_THU_TIP;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
 
@@ -136,13 +136,16 @@ namespace QuanLyKinhDoanh.KhachHang
 
             List<DTO.HoaDon> listTotal = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
                 string.Empty, string.Empty, 0, 0);
+            long totalDept = 0;
             long totalMoney = 0;
 
             foreach (DTO.HoaDon data in listTotal)
             {
+                totalDept += data.ConLai;
                 totalMoney += data.ThanhTien;
             }
 
+            tbTongNo.Text = totalDept.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbTong.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             List<DTO.HoaDon> list = HoaDonBus.GetList(text, type, status, idKH, timeType, date,
@@ -152,17 +155,25 @@ namespace QuanLyKinhDoanh.KhachHang
 
             foreach (DTO.HoaDon data in list)
             {
+                Color color = Color.Black;
                 ListViewItem lvi = new ListViewItem();
+                lvi.UseItemStyleForSubItems = false;
 
-                lvi.SubItems.Add(data.Id.ToString());
-                lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.MaHoaDon.ToString());
-                lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
+                if (data.IdStatus == Constant.ID_STATUS_DEBT)
+                {
+                    color = Color.Red;
+                }
+
+                lvi.SubItems.Add(data.Id.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.MaHoaDon.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString(), color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.KhachHang == null ? string.Empty :
-                    data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten);
-                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
-                lvi.SubItems.Add(data.GhiChu);
-                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                    data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.GhiChu, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.ConLai == 0 ? string.Empty : data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -258,7 +269,7 @@ namespace QuanLyKinhDoanh.KhachHang
                 sortColumn = lvThongTin.Columns[e.Column].Text;
                 sortOrder = sortOrder == Constant.SORT_ASCENDING ? Constant.SORT_DESCENDING : Constant.SORT_ASCENDING;
 
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -277,7 +288,17 @@ namespace QuanLyKinhDoanh.KhachHang
                 {
                     int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
 
-                    UserControl uc = new QuanLyKinhDoanh.Thu.UcDetail(HoaDonBus.GetById(id));
+                    UserControl uc = new UserControl();
+
+                    if (lvThongTin.SelectedItems[0].SubItems[1].ForeColor == Color.Black)
+                    {
+                        uc = new QuanLyKinhDoanh.Thu.UcDetail(HoaDonBus.GetById(id));
+                    }
+                    else
+                    {
+                        uc = new QuanLyKinhDoanh.CongNo.UcDetail(HoaDonBus.GetById(id));
+                    }
+
                     this.Controls.Add(uc);
                 }
             }
@@ -301,7 +322,7 @@ namespace QuanLyKinhDoanh.KhachHang
             }
             else
             {
-                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
             }
@@ -401,7 +422,7 @@ namespace QuanLyKinhDoanh.KhachHang
         {
             sortOrder = Constant.SORT_ASCENDING;
 
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
@@ -418,14 +439,14 @@ namespace QuanLyKinhDoanh.KhachHang
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
 
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, Constant.ID_STATUS_DONE, idKH, cbFilter.Text, dtpFilter.Value,
+            RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN_THU, 0, idKH, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
