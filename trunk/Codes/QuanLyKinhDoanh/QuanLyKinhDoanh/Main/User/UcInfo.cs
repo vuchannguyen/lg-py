@@ -225,6 +225,8 @@ namespace QuanLyKinhDoanh.User
 
             if (UserBus.Insert(data, FormMain.user))
             {
+                FormMain.isEditing = false;
+
                 this.Dispose();
             }
             else
@@ -232,6 +234,8 @@ namespace QuanLyKinhDoanh.User
                 if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_ERROR_DUPLICATE, tbUserName.Text) +
                     Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
+                    FormMain.isEditing = false;
+
                     this.Dispose();
                 }
             }
@@ -261,12 +265,16 @@ namespace QuanLyKinhDoanh.User
 
             if (UserBus.Update(data, FormMain.user))
             {
+                FormMain.isEditing = false;
+
                 this.Dispose();
             }
             else
             {
                 if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 {
+                    FormMain.isEditing = false;
+
                     this.Dispose();
                 }
             }
@@ -280,6 +288,8 @@ namespace QuanLyKinhDoanh.User
         {
             if (MessageBox.Show(Constant.MESSAGE_EXIT, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                FormMain.isEditing = false;
+
                 this.Dispose();
             }
         }
