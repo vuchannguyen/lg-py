@@ -30,7 +30,7 @@ namespace QuanLyKinhDoanh.CongNo
         {
             try
             {
-                pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
+                pbThem.Image = Image.FromFile(ConstantResource.THUCHI_ICON_PAY_DEBT_DISABLE);
                 pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 

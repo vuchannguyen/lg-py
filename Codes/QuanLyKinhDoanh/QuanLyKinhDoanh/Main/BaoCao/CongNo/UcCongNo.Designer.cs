@@ -376,9 +376,9 @@
             // 
             this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.pbThem);
-            this.panel2.Location = new System.Drawing.Point(6, 3);
+            this.panel2.Location = new System.Drawing.Point(5, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(70, 70);
+            this.panel2.Size = new System.Drawing.Size(72, 70);
             this.panel2.TabIndex = 26;
             this.panel2.Visible = false;
             // 
@@ -386,16 +386,16 @@
             // 
             this.label24.AutoSize = true;
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(14, 53);
+            this.label24.Location = new System.Drawing.Point(-4, 53);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(44, 16);
+            this.label24.Size = new System.Drawing.Size(81, 16);
             this.label24.TabIndex = 1;
-            this.label24.Text = "Thêm";
+            this.label24.Text = "Thanh toán";
             // 
             // pbThem
             // 
             this.pbThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThem.Location = new System.Drawing.Point(10, 0);
+            this.pbThem.Location = new System.Drawing.Point(11, 0);
             this.pbThem.Name = "pbThem";
             this.pbThem.Size = new System.Drawing.Size(50, 50);
             this.pbThem.TabIndex = 1;
