@@ -60,7 +60,7 @@
             this.pnSelect = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
-            this.pbThem = new System.Windows.Forms.PictureBox();
+            this.pbThanhToan = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.pbSua = new System.Windows.Forms.PictureBox();
@@ -84,7 +84,7 @@
             this.pnPage.SuspendLayout();
             this.pnSelect.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThanhToan)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).BeginInit();
             this.panel4.SuspendLayout();
@@ -375,12 +375,11 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label24);
-            this.panel2.Controls.Add(this.pbThem);
+            this.panel2.Controls.Add(this.pbThanhToan);
             this.panel2.Location = new System.Drawing.Point(5, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(72, 70);
             this.panel2.TabIndex = 26;
-            this.panel2.Visible = false;
             // 
             // label24
             // 
@@ -392,17 +391,18 @@
             this.label24.TabIndex = 1;
             this.label24.Text = "Thanh toán";
             // 
-            // pbThem
+            // pbThanhToan
             // 
-            this.pbThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbThem.Location = new System.Drawing.Point(11, 0);
-            this.pbThem.Name = "pbThem";
-            this.pbThem.Size = new System.Drawing.Size(50, 50);
-            this.pbThem.TabIndex = 1;
-            this.pbThem.TabStop = false;
-            this.pbThem.Click += new System.EventHandler(this.pbThem_Click);
-            this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
-            this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
+            this.pbThanhToan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbThanhToan.Location = new System.Drawing.Point(11, 0);
+            this.pbThanhToan.Name = "pbThanhToan";
+            this.pbThanhToan.Size = new System.Drawing.Size(50, 50);
+            this.pbThanhToan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbThanhToan.TabIndex = 1;
+            this.pbThanhToan.TabStop = false;
+            this.pbThanhToan.Click += new System.EventHandler(this.pbThanhToan_Click);
+            this.pbThanhToan.MouseEnter += new System.EventHandler(this.pbThanhToan_MouseEnter);
+            this.pbThanhToan.MouseLeave += new System.EventHandler(this.pbThanhToan_MouseLeave);
             // 
             // panel3
             // 
@@ -541,7 +541,7 @@
             this.pnSelect.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThanhToan)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).EndInit();
@@ -586,7 +586,7 @@
         private System.Windows.Forms.Panel pnSelect;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.PictureBox pbThem;
+        private System.Windows.Forms.PictureBox pbThanhToan;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.PictureBox pbSua;

@@ -72,6 +72,7 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnDetail = new System.Windows.Forms.Panel();
+            this.chbCKTongHD = new System.Windows.Forms.CheckBox();
             this.tbSuDung = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tbTongCK = new System.Windows.Forms.TextBox();
@@ -81,7 +82,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chbCKTongHD = new System.Windows.Forms.CheckBox();
             this.rbTichLuy = new System.Windows.Forms.RadioButton();
             this.rbTrucTiep = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -578,6 +578,19 @@
             this.pnDetail.Size = new System.Drawing.Size(950, 350);
             this.pnDetail.TabIndex = 57;
             // 
+            // chbCKTongHD
+            // 
+            this.chbCKTongHD.AutoSize = true;
+            this.chbCKTongHD.Font = new System.Drawing.Font("Arial", 9F);
+            this.chbCKTongHD.ForeColor = System.Drawing.Color.Black;
+            this.chbCKTongHD.Location = new System.Drawing.Point(339, 39);
+            this.chbCKTongHD.Name = "chbCKTongHD";
+            this.chbCKTongHD.Size = new System.Drawing.Size(95, 19);
+            this.chbCKTongHD.TabIndex = 125;
+            this.chbCKTongHD.Text = "CK Tổng HĐ";
+            this.chbCKTongHD.UseVisualStyleBackColor = true;
+            this.chbCKTongHD.CheckedChanged += new System.EventHandler(this.chbCKTongHD_CheckedChanged);
+            // 
             // tbSuDung
             // 
             this.tbSuDung.Location = new System.Drawing.Point(558, 100);
@@ -696,26 +709,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
             // 
-            // chbCKTongHD
-            // 
-            this.chbCKTongHD.AutoSize = true;
-            this.chbCKTongHD.Font = new System.Drawing.Font("Arial", 9F);
-            this.chbCKTongHD.ForeColor = System.Drawing.Color.Black;
-            this.chbCKTongHD.Location = new System.Drawing.Point(339, 39);
-            this.chbCKTongHD.Name = "chbCKTongHD";
-            this.chbCKTongHD.Size = new System.Drawing.Size(95, 19);
-            this.chbCKTongHD.TabIndex = 125;
-            this.chbCKTongHD.Text = "CK Tổng HĐ";
-            this.chbCKTongHD.UseVisualStyleBackColor = true;
-            this.chbCKTongHD.CheckedChanged += new System.EventHandler(this.chbCKTongHD_CheckedChanged);
-            // 
             // rbTichLuy
             // 
             this.rbTichLuy.AutoSize = true;
             this.rbTichLuy.Checked = true;
             this.rbTichLuy.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTichLuy.ForeColor = System.Drawing.Color.Black;
-            this.rbTichLuy.Location = new System.Drawing.Point(12, 142);
+            this.rbTichLuy.Location = new System.Drawing.Point(12, 135);
             this.rbTichLuy.Name = "rbTichLuy";
             this.rbTichLuy.Size = new System.Drawing.Size(66, 19);
             this.rbTichLuy.TabIndex = 8;
@@ -729,7 +729,7 @@
             this.rbTrucTiep.AutoSize = true;
             this.rbTrucTiep.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbTrucTiep.ForeColor = System.Drawing.Color.Black;
-            this.rbTrucTiep.Location = new System.Drawing.Point(12, 162);
+            this.rbTrucTiep.Location = new System.Drawing.Point(12, 160);
             this.rbTrucTiep.Name = "rbTrucTiep";
             this.rbTrucTiep.Size = new System.Drawing.Size(73, 19);
             this.rbTrucTiep.TabIndex = 9;

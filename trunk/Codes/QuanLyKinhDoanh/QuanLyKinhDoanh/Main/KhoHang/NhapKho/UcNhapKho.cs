@@ -234,7 +234,7 @@ namespace QuanLyKinhDoanh
 
         private void pbThem_MouseEnter(object sender, EventArgs e)
         {
-            pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
+            pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEOVER);
 
             ttDetail.SetToolTip(pbThem, Constant.TOOLTIP_MUA_THEM);
         }
@@ -278,7 +278,7 @@ namespace QuanLyKinhDoanh
 
         private void pbXoa_MouseEnter(object sender, EventArgs e)
         {
-            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEROVER);
+            pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_MOUSEOVER);
         }
 
         private void pbXoa_MouseLeave(object sender, EventArgs e)
@@ -297,7 +297,7 @@ namespace QuanLyKinhDoanh
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
         {
-            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_MOUSEROVER);
+            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_MOUSEOVER);
         }
 
         private void pbSua_MouseLeave(object sender, EventArgs e)

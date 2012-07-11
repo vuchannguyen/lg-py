@@ -945,7 +945,7 @@ namespace QuanLyKinhDoanh.NhapKho
 
         private void pbThemNhomSP_MouseEnter(object sender, EventArgs e)
         {
-            pbThemNhomSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
+            pbThemNhomSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEOVER);
         }
 
         private void pbThemNhomSP_MouseLeave(object sender, EventArgs e)

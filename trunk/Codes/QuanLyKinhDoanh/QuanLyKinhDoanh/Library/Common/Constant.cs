@@ -200,6 +200,8 @@ namespace Library
         public const string MESSAGE_CONFIRM = "Hoàn tất?";
         public const string MESSAGE_CONFIRM_DELETE_ALL_PRICE = "Xóa hết tất cả các ô?";
         public const string MESSAGE_CONFIRM_EXPORT = "Xuất dữ liệu ra file Excel?";
+        public const string MESSAGE_CONFIRM_SELF_DESTRUCTION = "Hủy tài khoản và thoát chương trình?";
+        public const string MESSAGE_CONFIRM_PAY_DEBT = "Thanh toán hóa đơn?";
 
         public const string MESSAGE_ERROR = "Có lỗi!";
         public const string MESSAGE_ERROR_NULL_DATA = "Dữ liệu không tồn tại!";
@@ -235,8 +237,6 @@ namespace Library
         public const string MESSAGE_ERROR_OPEN_AVATAR = "Không thể mở hình!";
         public const string MESSAGE_ERROR_TOO_SMALL_AVATAR = "Kích thước ảnh quá nhỏ!";
         public const string MESSAGE_ERROR_SAVE_AVATAR = "Không lưu được hình! Vui lòng thử lại.";
-
-        public const string MESSAGE_CONFIRM_SELF_DESTRUCTION = "Hủy tài khoản và thoát chương trình?";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã KH - Họ tên - Điện thoại - Email";

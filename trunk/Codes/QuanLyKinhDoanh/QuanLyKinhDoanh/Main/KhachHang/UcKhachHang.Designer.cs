@@ -32,6 +32,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbHistory = new System.Windows.Forms.PictureBox();
             this.pnSinhNhat = new System.Windows.Forms.Panel();
             this.lbBirthDay = new System.Windows.Forms.Label();
             this.pbBirthDay = new System.Windows.Forms.PictureBox();
@@ -68,12 +71,11 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pbHistory = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).BeginInit();
             this.pnSinhNhat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).BeginInit();
             this.pnThem.SuspendLayout();
@@ -90,8 +92,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).BeginInit();
             this.pnPage.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -135,6 +135,38 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(387, 78);
             this.pnSelect.TabIndex = 49;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbHistory);
+            this.panel1.Location = new System.Drawing.Point(234, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(70, 70);
+            this.panel1.TabIndex = 30;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(8, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Lịch sử";
+            // 
+            // pbHistory
+            // 
+            this.pbHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbHistory.Location = new System.Drawing.Point(10, 0);
+            this.pbHistory.Name = "pbHistory";
+            this.pbHistory.Size = new System.Drawing.Size(50, 50);
+            this.pbHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbHistory.TabIndex = 1;
+            this.pbHistory.TabStop = false;
+            this.pbHistory.Click += new System.EventHandler(this.pbHistory_Click);
+            this.pbHistory.MouseEnter += new System.EventHandler(this.pbHistory_MouseEnter);
+            this.pbHistory.MouseLeave += new System.EventHandler(this.pbHistory_MouseLeave);
             // 
             // pnSinhNhat
             // 
@@ -439,7 +471,7 @@
             // pbOk
             // 
             this.pbOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbOk.Location = new System.Drawing.Point(252, 6);
+            this.pbOk.Location = new System.Drawing.Point(272, 6);
             this.pbOk.Name = "pbOk";
             this.pbOk.Size = new System.Drawing.Size(64, 21);
             this.pbOk.TabIndex = 85;
@@ -453,7 +485,7 @@
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
             this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(200, 23);
+            this.tbSearch.Size = new System.Drawing.Size(220, 23);
             this.tbSearch.TabIndex = 84;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
@@ -491,38 +523,6 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pbHistory);
-            this.panel1.Location = new System.Drawing.Point(234, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 70);
-            this.panel1.TabIndex = 30;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(8, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Lịch sử";
-            // 
-            // pbHistory
-            // 
-            this.pbHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHistory.Location = new System.Drawing.Point(10, 0);
-            this.pbHistory.Name = "pbHistory";
-            this.pbHistory.Size = new System.Drawing.Size(50, 50);
-            this.pbHistory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbHistory.TabIndex = 1;
-            this.pbHistory.TabStop = false;
-            this.pbHistory.Click += new System.EventHandler(this.pbHistory_Click);
-            this.pbHistory.MouseEnter += new System.EventHandler(this.pbHistory_MouseEnter);
-            this.pbHistory.MouseLeave += new System.EventHandler(this.pbHistory_MouseLeave);
-            // 
             // UcKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -538,6 +538,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).EndInit();
             this.pnSinhNhat.ResumeLayout(false);
             this.pnSinhNhat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBirthDay)).EndInit();
@@ -560,9 +563,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).EndInit();
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHistory)).EndInit();
             this.ResumeLayout(false);
 
         }

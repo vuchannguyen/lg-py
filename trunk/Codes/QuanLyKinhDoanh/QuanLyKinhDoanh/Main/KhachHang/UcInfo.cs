@@ -163,19 +163,19 @@ namespace QuanLyKinhDoanh.KhachHang
             int id = 0;
             KhachHangGroup SPGroup = KhachHangGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
 
-            if (isUpdate)
-            {
-                string oldIdNumber = data == null ? string.Empty : data.MaKhachHang.Substring(data.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
-                id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
-            }
-            else
-            {
+            //if (isUpdate)
+            //{
+            //    string oldIdNumber = data == null ? string.Empty : data.MaKhachHang.Substring(data.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+            //    id = data == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber);
+            //}
+            //else
+            //{
                 string idSanPham = string.Empty;
                 DTO.KhachHang dataTemp = KhachHangBus.GetLastData(SPGroup.Id);
 
                 string oldIdNumber = dataTemp == null ? string.Empty : dataTemp.MaKhachHang.Substring(dataTemp.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
                 id = dataTemp == null ? 1 : ConvertUtil.ConvertToInt(oldIdNumber) + 1;
-            }
+            //}
 
             tbMa.Text = SPGroup.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 
