@@ -233,6 +233,7 @@ namespace QuanLyKinhDoanh.Thu
         private void ValidateInputThu()
         {
             if (!string.IsNullOrEmpty(tbTien.Text) &&
+                !string.IsNullOrEmpty(tbTenKH.Text) &&
                 !string.IsNullOrEmpty(tbGhiChu.Text)
                 )
             {
@@ -314,6 +315,7 @@ namespace QuanLyKinhDoanh.Thu
 
             dataHoaDon.MaHoaDon = tbMa.Text;
             dataHoaDon.IdUser = FormMain.user.Id;
+            dataHoaDon.IdKhachHang = dataKH.Id;
             dataHoaDon.IdType = Constant.ID_TYPE_THU;
             dataHoaDon.IdStatus = Constant.ID_STATUS_DONE;
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
@@ -666,6 +668,58 @@ namespace QuanLyKinhDoanh.Thu
             {
                 pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
             }
+        }
+
+        private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
+
+            tbTenKH.Text = dataKH == null ? string.Empty : dataKH.Ten;
+        }
+
+        private void cbMaKH_Leave(object sender, EventArgs e)
+        {
+            if (cbMaKH.SelectedItem != null)
+            {
+                dataKH = KhachHangBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value));
+
+                if (dataKH != null)
+                {
+                    tbTenKH.Text = dataKH.Ten;
+                }
+            }
+            else
+            {
+                dataKH = null;
+                tbTenKH.Text = string.Empty;
+            }
+        }
+
+        private void cbMaKH_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbMaKH.Text))
+            {
+                dataKH = null;
+            }
+        }
+
+        private void tbTenKH_MouseEnter(object sender, EventArgs e)
+        {
+            if (dataKH != null)
+            {
+                ttDetail.SetToolTip(tbTenKH, string.Format(Constant.TOOLTIP_DETAIL_KHACHHANG,
+                    dataKH.Ten, dataKH.GioiTinh, dataKH.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT),
+                    dataKH.CMND, dataKH.DiaChi, dataKH.DienThoai, dataKH.DTDD, dataKH.Email));
+            }
+            else
+            {
+                ttDetail.RemoveAll();
+            }
+        }
+
+        private void tbTenKH_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInputThu();
         }
         #endregion
     }

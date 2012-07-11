@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnTitle = new System.Windows.Forms.Panel();
             this.lbSelect = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
@@ -90,6 +91,10 @@
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tbTenKH = new System.Windows.Forms.TextBox();
+            this.cbMaKH = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.gbInfo.SuspendLayout();
@@ -150,6 +155,9 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbTenKH);
+            this.gbInfo.Controls.Add(this.cbMaKH);
+            this.gbInfo.Controls.Add(this.label9);
             this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.panel12);
@@ -717,6 +725,49 @@
             this.chThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.chThanhTien.Width = 90;
             // 
+            // tbTenKH
+            // 
+            this.tbTenKH.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTenKH.Location = new System.Drawing.Point(306, 60);
+            this.tbTenKH.MaxLength = 50;
+            this.tbTenKH.Name = "tbTenKH";
+            this.tbTenKH.ReadOnly = true;
+            this.tbTenKH.Size = new System.Drawing.Size(203, 29);
+            this.tbTenKH.TabIndex = 100;
+            this.tbTenKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTenKH.TextChanged += new System.EventHandler(this.tbTenKH_TextChanged);
+            this.tbTenKH.MouseEnter += new System.EventHandler(this.tbTenKH_MouseEnter);
+            // 
+            // cbMaKH
+            // 
+            this.cbMaKH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbMaKH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbMaKH.FormattingEnabled = true;
+            this.cbMaKH.Location = new System.Drawing.Point(306, 25);
+            this.cbMaKH.MaxLength = 10;
+            this.cbMaKH.Name = "cbMaKH";
+            this.cbMaKH.Size = new System.Drawing.Size(92, 24);
+            this.cbMaKH.TabIndex = 99;
+            this.cbMaKH.SelectedIndexChanged += new System.EventHandler(this.cbMaKH_SelectedIndexChanged);
+            this.cbMaKH.TextChanged += new System.EventHandler(this.cbMaKH_TextChanged);
+            this.cbMaKH.Leave += new System.EventHandler(this.cbMaKH_Leave);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(207, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(93, 16);
+            this.label9.TabIndex = 101;
+            this.label9.Text = "*Khách hàng:";
+            // 
+            // ttDetail
+            // 
+            this.ttDetail.AutoPopDelay = 10000;
+            this.ttDetail.InitialDelay = 500;
+            this.ttDetail.ReshowDelay = 100;
+            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -816,5 +867,9 @@
         private System.Windows.Forms.TextBox tbKhachHangTraSP;
         private System.Windows.Forms.TextBox tbNguoiBanTraSP;
         private System.Windows.Forms.PictureBox pbHuyTraSP;
+        private System.Windows.Forms.TextBox tbTenKH;
+        private System.Windows.Forms.ComboBox cbMaKH;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolTip ttDetail;
     }
 }

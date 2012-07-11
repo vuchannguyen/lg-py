@@ -30,7 +30,7 @@ namespace QuanLyKinhDoanh.CongNo
         {
             try
             {
-                pbThem.Image = Image.FromFile(ConstantResource.THUCHI_ICON_PAY_DEBT_DISABLE);
+                pbThanhToan.Image = Image.FromFile(ConstantResource.THUCHI_ICON_PAY_DEBT_DISABLE);
                 pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
@@ -185,14 +185,19 @@ namespace QuanLyKinhDoanh.CongNo
                 }
                 else
                 {
-                    pbTraSP.Enabled = true;
+                    pbTraSP.Enabled = false;
                     pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                     pbSua.Enabled = false;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
                 }
+
+                pbThanhToan.Enabled = true;
+                pbThanhToan.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_PAY_DEBT);
             }
             else
             {
+                pbThanhToan.Enabled = false;
+                pbThanhToan.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_PAY_DEBT_DISABLE);
                 pbTraSP.Enabled = false;
                 pbTraSP.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                 pbSua.Enabled = false;
@@ -224,24 +229,56 @@ namespace QuanLyKinhDoanh.CongNo
                 pbNextPage.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_NEXT_PAGE);
             }
         }
+
+        private bool UpdateData(DTO.HoaDon data)
+        {
+            data.ConLai = 0;
+            data.IdStatus = Constant.ID_STATUS_DONE;
+
+            if (HoaDonBus.Update(data, FormMain.user))
+            {
+                return true;
+            }
+
+            return false;
+        }
         #endregion
 
 
 
         #region Thêm Xóa Sửa
-        private void pbThem_Click(object sender, EventArgs e)
+        private void pbThanhToan_Click(object sender, EventArgs e)
         {
-            //
+            if (MessageBox.Show(Constant.MESSAGE_CONFIRM_PAY_DEBT, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                string ids = string.Empty;
+
+                foreach (ListViewItem item in lvThongTin.CheckedItems)
+                {
+                    int id = ConvertUtil.ConvertToInt(item.SubItems[1].Text);
+                    DTO.HoaDon data = HoaDonBus.GetById(id);
+
+                    if (!UpdateData(data))
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        break;
+                    }
+                }
+
+                RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, 0, cbFilter.Text, dtpFilter.Value,
+                    sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
+            }
         }
 
-        private void pbThem_MouseEnter(object sender, EventArgs e)
+        private void pbThanhToan_MouseEnter(object sender, EventArgs e)
         {
-            pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD_MOUSEROVER);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_PAY_DEBT_MOUSEOVER);
         }
 
-        private void pbThem_MouseLeave(object sender, EventArgs e)
+        private void pbThanhToan_MouseLeave(object sender, EventArgs e)
         {
-            pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_PAY_DEBT);
         }
 
         private bool UpdateData(DTO.HoaDonDetail data)
@@ -314,7 +351,7 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
         {
-            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_MOUSEROVER);
+            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_MOUSEOVER);
         }
 
         private void pbSua_MouseLeave(object sender, EventArgs e)
