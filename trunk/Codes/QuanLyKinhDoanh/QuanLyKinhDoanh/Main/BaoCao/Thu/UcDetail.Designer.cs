@@ -64,6 +64,7 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.lbStatusCK = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -107,6 +108,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbStatusCK);
             this.groupBox1.Controls.Add(this.lbTongCK);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.lbNgayGio);
@@ -416,6 +418,17 @@
             this.pnInfo.Size = new System.Drawing.Size(800, 530);
             this.pnInfo.TabIndex = 133;
             // 
+            // lbStatusCK
+            // 
+            this.lbStatusCK.AutoSize = true;
+            this.lbStatusCK.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusCK.ForeColor = System.Drawing.Color.Black;
+            this.lbStatusCK.Location = new System.Drawing.Point(580, 30);
+            this.lbStatusCK.Name = "lbStatusCK";
+            this.lbStatusCK.Size = new System.Drawing.Size(82, 19);
+            this.lbStatusCK.TabIndex = 155;
+            this.lbStatusCK.Text = "StatusCK";
+            // 
             // UcDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -477,5 +490,6 @@
         private System.Windows.Forms.ColumnHeader chDVT;
         private System.Windows.Forms.ColumnHeader chDonGia;
         private System.Windows.Forms.ColumnHeader chThanhTien;
+        private System.Windows.Forms.Label lbStatusCK;
     }
 }

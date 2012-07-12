@@ -63,6 +63,7 @@ namespace QuanLyKinhDoanh.Thu
             lbNguoiBan.Text = string.Empty;
             lbKhachHang.Text = string.Empty;
             lbNgayGio.Text = string.Empty;
+            lbStatusCK.Text = string.Empty;
             lbGhiChu.Text = string.Empty;
             lbTongCK.Text = string.Empty;
             lbTongHD.Text = string.Empty;
@@ -78,6 +79,7 @@ namespace QuanLyKinhDoanh.Thu
             lbNguoiBan.Text = dataUser == null ? string.Empty : dataUser.UserName;
             lbKhachHang.Text = dataKH == null ? string.Empty : (dataKH.MaKhachHang + Constant.SYMBOL_LINK_STRING + dataKH.Ten);
             lbNgayGio.Text = data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            lbStatusCK.Text = data.IsCKTichLuy ? Constant.DEFAULT_INDIRECT_DISCOUNT : Constant.DEFAULT_DIRECT_DISCOUNT;
             lbGhiChu.Text = data.GhiChu;
 
             long totalDiscount = 0;
@@ -113,7 +115,7 @@ namespace QuanLyKinhDoanh.Thu
                 lvThongTin.Items.Add(lvi);
             }
 
-            lbTongCK.Text = totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbTongCK.Text = data.IsCKTichLuy ? totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY) : data.TienChietKhau.ToString(Constant.DEFAULT_FORMAT_MONEY);
             lbTongHD.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 

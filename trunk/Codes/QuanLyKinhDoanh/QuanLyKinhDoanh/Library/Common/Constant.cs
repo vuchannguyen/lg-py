@@ -62,10 +62,13 @@ namespace Library
 
         public const string DEFAULT_PASSWORD = "admin";
 
-        public static string IS_SOLD = "Is Sold";
+        public const string DEFAULT_DIRECT_DISCOUNT = "Trực tiếp";
+        public const string DEFAULT_INDIRECT_DISCOUNT = "Tích lũy";
 
-        public static string SORT_ASCENDING = "asc";
-        public static string SORT_DESCENDING = "desc";
+        public const string IS_SOLD = "Is Sold";
+
+        public const string SORT_ASCENDING = "asc";
+        public const string SORT_DESCENDING = "desc";
 
         public static Color COLOR_NORMAL = Color.Gray;
         public static Color COLOR_MOUSEOVER = Color.Orange;

@@ -104,6 +104,7 @@ namespace QuanLyKinhDoanh.GiaoDich
             cbMaKH.Text = string.Empty;
 
             dataKH = null;
+            tbTienThanhToan.ReadOnly = true;
 
             tbTenKH.Text = string.Empty;
             tbTichLuy.Text = string.Empty;
@@ -153,38 +154,6 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             if (lvThongTin.Items.Count > 0)
             {
-                long money = 0;
-
-                money = ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
-                        ConvertUtil.ConvertToLong(tbTienSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-
-                if (cbStatus.SelectedIndex == 0)
-                {
-                    if (dataKH != null && money >= ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)))
-                    {
-                        pbHoanTat.Enabled = true;
-                        pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
-                    }
-                    else
-                    {
-                        pbHoanTat.Enabled = false;
-                        pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
-                    }
-                }
-                else
-                {
-                    if (money < ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)))
-                    {
-                        pbHoanTat.Enabled = true;
-                        pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
-                    }
-                    else
-                    {
-                        pbHoanTat.Enabled = false;
-                        pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
-                    }
-                }
-
                 rbTichLuy.Enabled = false;
                 rbTrucTiep.Enabled = false;
                 chbCKTongHD.Enabled = false;
@@ -192,6 +161,34 @@ namespace QuanLyKinhDoanh.GiaoDich
                 if (chbCKTongHD.Checked)
                 {
                     tbTongCK.ReadOnly = false;
+                }
+
+                pbHoanTat.Enabled = false;
+                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+
+                if (dataKH != null)
+                {
+                    long money = 0;
+
+                    money = ConvertUtil.ConvertToLong(tbTienThanhToan.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
+                            ConvertUtil.ConvertToLong(tbTienSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
+                    if (cbStatus.SelectedIndex == 0)
+                    {
+                        if (dataKH != null && money >= ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)))
+                        {
+                            pbHoanTat.Enabled = true;
+                            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+                        }
+                    }
+                    else
+                    {
+                        if (money < ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)))
+                        {
+                            pbHoanTat.Enabled = true;
+                            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+                        }
+                    }
                 }
             }
             else
@@ -206,7 +203,6 @@ namespace QuanLyKinhDoanh.GiaoDich
                 rbTrucTiep.Enabled = true;
                 chbCKTongHD.Enabled = true;
 
-                tbTongCK.Text = string.Empty;
                 tbTongCK.ReadOnly = true;
             }
         }
@@ -246,29 +242,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             long money = 0;
 
-            if (!chbCKTongHD.Checked)
-            {
-                money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
-
-                tbTienCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-            }
-            else
-            {
-                //money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * totalMoney / 100);
-                money = ConvertUtil.ConvertToInt(tbTongCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-
-                totalDiscount = money;
-                //tbTongCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-
-                if (rbTichLuy.Checked)
-                {
-                    tbTongHoaDon.Text = totalMoney.ToString(Constant.DEFAULT_FORMAT_MONEY);
-                }
-                else
-                {
-                    tbTongHoaDon.Text = (totalMoney - totalDiscount).ToString(Constant.DEFAULT_FORMAT_MONEY);
-                }
-            }
+            money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            tbTienCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private void CalculateTienHoiLai()
@@ -296,10 +271,10 @@ namespace QuanLyKinhDoanh.GiaoDich
                 {
                     soLuong = ConvertUtil.ConvertToInt(item.SubItems[6].Text) + ConvertUtil.ConvertToInt(tbSoLuong.Text);
                     item.SubItems[5].Text = (ConvertUtil.ConvertToInt(tbTienCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
-                        ConvertUtil.ConvertToInt(item.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty))).ToString();
+                        ConvertUtil.ConvertToInt(item.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty))).ToString(Constant.DEFAULT_FORMAT_MONEY);
                     item.SubItems[6].Text = soLuong.ToString();
                     item.SubItems[9].Text = (ConvertUtil.ConvertToInt(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty)) +
-                        ConvertUtil.ConvertToInt(item.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty))).ToString();
+                        ConvertUtil.ConvertToInt(item.SubItems[9].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty))).ToString(Constant.DEFAULT_FORMAT_MONEY);
 
                     isDuplicated = true;
 
@@ -426,30 +401,6 @@ namespace QuanLyKinhDoanh.GiaoDich
             foreach (DTO.SanPham data in listData)
             {
                 cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
-
-                //if (lvThongTin.Items.Count == 0)
-                //{
-                //    cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
-                //}
-                //else
-                //{
-                //    bool isDuplicated = false;
-
-                //    foreach (ListViewItem item in lvThongTin.Items)
-                //    {
-                //        if (item.SubItems[1].Text == data.Id.ToString())
-                //        {
-                //            isDuplicated = true;
-
-                //            break;
-                //        }
-                //    }
-
-                //    if (!isDuplicated)
-                //    {
-                //        cbMaSP.Items.Add(new CommonComboBoxItems(data.MaSanPham, data.Id));
-                //    }
-                //}
             }
 
             if (cbMaSP.Items.Count > 0)
@@ -644,12 +595,7 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             dataHoaDon.MaHoaDon = tbMaHD.Text;
             dataHoaDon.IdUser = FormMain.user.Id;
-
-            if (cbMaKH.SelectedItem != null)
-            {
-                dataHoaDon.IdKhachHang = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbMaKH.SelectedItem).Value);
-            }
-
+            dataHoaDon.IdKhachHang = dataKH.Id;
             dataHoaDon.IdType = Constant.ID_TYPE_BAN;
             dataHoaDon.IdStatus = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbStatus.SelectedItem).Value);
 
@@ -666,7 +612,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 dataHoaDon.ConLai = ConvertUtil.ConvertToLong(tbTienHoiLai.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             }
 
-            dataHoaDon.ThanhTien = totalMoney;
+            dataHoaDon.ThanhTien = ConvertUtil.ConvertToInt(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
             if (HoaDonBus.Insert(dataHoaDon, FormMain.user))
@@ -776,12 +722,9 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             ValidateHoanTat();
 
-            if (chbCKTongHD.Checked)
-            {
-                CalculateCK();
-            }
-
             CalculateTienHoiLai();
+
+            cbMaSP.Focus();
         }
 
         private void pbAdd_MouseEnter(object sender, EventArgs e)
@@ -923,6 +866,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void tbChietKhau_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
+
+            AddToBillWhenPressEnter(sender, e);
         }
 
         private void tbChietKhau_TextChanged(object sender, EventArgs e)
@@ -1060,6 +1005,8 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void tbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
+
+            AddToBillWhenPressEnter(sender, e);
         }
 
         private void tbTichLuy_TextChanged(object sender, EventArgs e)
@@ -1141,19 +1088,28 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void tbTongCK_TextChanged(object sender, EventArgs e)
         {
-            long money = ConvertUtil.ConvertToLong(tbTongCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-
-            if (money > totalMoney)
+            if (chbCKTongHD.Checked)
             {
-                money = totalMoney;
+                long money = ConvertUtil.ConvertToLong(tbTongCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
+                if (money > totalMoney)
+                {
+                    money = totalMoney;
+                }
+
+                totalDiscount = money;
+                tbTongCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                tbTongCK.Select(tbTongCK.Text.Length, 0);
+
+                //CalculateCK();
+
+                if (!rbTichLuy.Checked)
+                {
+                    tbTongHoaDon.Text = (totalMoney - totalDiscount).ToString(Constant.DEFAULT_FORMAT_MONEY);
+                }
+
+                ValidateHoanTat();
             }
-
-            tbTongCK.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-            tbTongCK.Select(tbTongCK.Text.Length, 0);
-
-            CalculateCK();
-
-            ValidateHoanTat();
         }
 
         private void tbTongHoaDon_TextChanged(object sender, EventArgs e)
@@ -1182,6 +1138,49 @@ namespace QuanLyKinhDoanh.GiaoDich
             CalculateCK();
 
             CalculateMoney();
+        }
+
+        private void AddToBillWhenPressEnter(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && pbAdd.Enabled)
+            {
+                pbAdd_Click(sender, e);
+            }
+        }
+
+        private void cbMaSP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
+        }
+
+        private void tbTon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
+        }
+
+        private void tbTenSP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
+        }
+
+        private void tbDVT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
+        }
+
+        private void tbTienCK_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
+        }
+
+        private void tbGiaBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
+        }
+
+        private void tbThanhTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            AddToBillWhenPressEnter(sender, e);
         }
     }
 }
