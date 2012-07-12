@@ -143,6 +143,21 @@ namespace QuanLyKinhDoanh.CongNo
             if (data.ConLai == 0)
             {
                 data.IdStatus = Constant.ID_STATUS_DONE;
+
+                if (data.IsCKTichLuy)
+                {
+                    long totalDiscount = 0;
+
+                    foreach (DTO.HoaDonDetail detail in HoaDonDetailBus.GetListByIdHoaDon(data.Id))
+                    {
+                        if (detail.ChietKhau != 0)
+                        {
+                            totalDiscount += (detail.ChietKhau * detail.SanPham.GiaBan / 100) * detail.SoLuong;
+                        }
+                    }
+
+                    data.KhachHang.TichLuy += totalDiscount / 100;
+                }
             }
 
             if (HoaDonBus.Update(data, FormMain.user))

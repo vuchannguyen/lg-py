@@ -249,7 +249,6 @@
             this.pbOk.Location = new System.Drawing.Point(252, 6);
             this.pbOk.Name = "pbOk";
             this.pbOk.Size = new System.Drawing.Size(64, 21);
-            this.pbOk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbOk.TabIndex = 92;
             this.pbOk.TabStop = false;
             this.pbOk.Click += new System.EventHandler(this.pbOk_Click);

@@ -235,6 +235,21 @@ namespace QuanLyKinhDoanh.CongNo
             data.ConLai = 0;
             data.IdStatus = Constant.ID_STATUS_DONE;
 
+            if (data.IsCKTichLuy)
+            {
+                long totalDiscount = 0;
+
+                foreach (DTO.HoaDonDetail detail in HoaDonDetailBus.GetListByIdHoaDon(data.Id))
+                {
+                    if (detail.ChietKhau != 0)
+                    {
+                        totalDiscount += (detail.ChietKhau * detail.SanPham.GiaBan / 100) * detail.SoLuong;
+                    }
+                }
+
+                data.KhachHang.TichLuy += totalDiscount / 100;
+            }
+
             if (HoaDonBus.Update(data, FormMain.user))
             {
                 return true;
@@ -252,6 +267,7 @@ namespace QuanLyKinhDoanh.CongNo
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM_PAY_DEBT, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 string ids = string.Empty;
+                bool isSuccess = true;
 
                 foreach (ListViewItem item in lvThongTin.CheckedItems)
                 {
@@ -262,8 +278,14 @@ namespace QuanLyKinhDoanh.CongNo
                     {
                         MessageBox.Show(Constant.MESSAGE_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                        isSuccess = false;
                         break;
                     }
+                }
+
+                if (isSuccess)
+                {
+                    MessageBox.Show(Constant.MESSAGE_PAY_ALL_DEBT, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 RefreshListView(tbSearch.Text, Constant.ID_TYPE_BAN, Constant.ID_STATUS_DEBT, 0, cbFilter.Text, dtpFilter.Value,

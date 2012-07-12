@@ -63,9 +63,11 @@ namespace QuanLyKinhDoanh.CongNo
             lbNguoiBan.Text = string.Empty;
             lbKhachHang.Text = string.Empty;
             lbNgayGio.Text = string.Empty;
+            lbStatusCK.Text = string.Empty;
             lbGhiChu.Text = string.Empty;
-            lbConLai.Text = string.Empty;
+            lbTongCK.Text = string.Empty;
             lbTongHD.Text = string.Empty;
+            lbConLai.Text = string.Empty;
         }
 
         private void LoadData(DTO.HoaDon data)
@@ -78,7 +80,10 @@ namespace QuanLyKinhDoanh.CongNo
             lbNguoiBan.Text = dataUser == null ? string.Empty : dataUser.UserName;
             lbKhachHang.Text = dataKH == null ? string.Empty : (dataKH.MaKhachHang + Constant.SYMBOL_LINK_STRING + dataKH.Ten);
             lbNgayGio.Text = data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            lbStatusCK.Text = data.IsCKTichLuy ? Constant.DEFAULT_INDIRECT_DISCOUNT : Constant.DEFAULT_DIRECT_DISCOUNT;
             lbGhiChu.Text = data.GhiChu;
+
+            long totalDiscount = 0;
 
             foreach (DTO.HoaDonDetail detail in listHoaDonDetail)
             {
@@ -87,6 +92,22 @@ namespace QuanLyKinhDoanh.CongNo
                 lvi.SubItems.Add(detail.SanPham.Id.ToString());
                 lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(detail.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten);
+
+                if (detail.ChietKhau != 0)
+                {
+                    long money = (detail.ChietKhau * detail.SanPham.GiaBan / 100) * detail.SoLuong;
+
+                    totalDiscount += money;
+
+                    lvi.SubItems.Add(detail.ChietKhau.ToString() + Constant.SYMBOL_DISCOUNT);
+                    lvi.SubItems.Add(money.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                }
+                else
+                {
+                    lvi.SubItems.Add(string.Empty);
+                    lvi.SubItems.Add(string.Empty);
+                }
+
                 lvi.SubItems.Add(detail.SoLuong.ToString());
                 lvi.SubItems.Add(detail.SanPham.DonViTinh);
                 lvi.SubItems.Add(detail.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
@@ -95,8 +116,9 @@ namespace QuanLyKinhDoanh.CongNo
                 lvThongTin.Items.Add(lvi);
             }
 
-            lbConLai.Text = data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbTongCK.Text = data.IsCKTichLuy ? totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY) : data.TienChietKhau.ToString(Constant.DEFAULT_FORMAT_MONEY);
             lbTongHD.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbConLai.Text = data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private void pbHoanTat_Click(object sender, EventArgs e)
