@@ -43,6 +43,7 @@
             this.chKhachHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chNgayTao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chConLai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.pbOk = new System.Windows.Forms.PictureBox();
@@ -71,7 +72,6 @@
             this.dtpFilter = new System.Windows.Forms.DateTimePicker();
             this.tbTongNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.chCongNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnQuanLy.SuspendLayout();
@@ -164,7 +164,7 @@
             this.chKhachHang,
             this.chNgayTao,
             this.chGhiChu,
-            this.chCongNo,
+            this.chConLai,
             this.chTien});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
@@ -224,6 +224,12 @@
             // 
             this.chGhiChu.Text = "Ghi Chú";
             this.chGhiChu.Width = 160;
+            // 
+            // chConLai
+            // 
+            this.chConLai.Text = "Còn lại";
+            this.chConLai.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chConLai.Width = 90;
             // 
             // chTien
             // 
@@ -523,11 +529,6 @@
             this.label2.TabIndex = 61;
             this.label2.Text = "Tổng nợ:";
             // 
-            // chCongNo
-            // 
-            this.chCongNo.Text = "Công nợ";
-            this.chCongNo.Width = 90;
-            // 
             // UcHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -619,6 +620,6 @@
         private System.Windows.Forms.DateTimePicker dtpFilter;
         private System.Windows.Forms.TextBox tbTongNo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ColumnHeader chCongNo;
+        private System.Windows.Forms.ColumnHeader chConLai;
     }
 }

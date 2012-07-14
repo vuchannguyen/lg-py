@@ -102,12 +102,15 @@ namespace QuanLyKinhDoanh.Thu
         #region Function
         private void InitThu()
         {
+            GetListKhachHang();
+
             pnInfoTraSP.Visible = false;
 
             if (isUpdate)
             {
                 tbMa.Text = dataHoaDon.MaHoaDon;
                 tbTien.Text = dataHoaDon.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                cbMaKH.Text = dataHoaDon.KhachHang == null ? string.Empty : dataHoaDon.KhachHang.MaKhachHang;
                 tbGhiChu.Text = dataHoaDon.GhiChu;
             }
             else
@@ -184,6 +187,7 @@ namespace QuanLyKinhDoanh.Thu
         {
             tbMa.Text = string.Empty;
             tbTien.Text = string.Empty;
+            cbMaKH.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
 
             CreateNewId();
@@ -277,6 +281,18 @@ namespace QuanLyKinhDoanh.Thu
             }
         }
 
+        private void GetListKhachHang()
+        {
+            List<DTO.KhachHang> listData = KhachHangBus.GetList(string.Empty, false, string.Empty, string.Empty, 0, 0);
+
+            cbMaKH.Items.Clear();
+
+            foreach (DTO.KhachHang data in listData)
+            {
+                cbMaKH.Items.Add(new CommonComboBoxItems(data.MaKhachHang, data.Id));
+            }
+        }
+
         private void SendBack()
         {
             foreach (ListViewItem lvi in lvThongTinTraSP.CheckedItems)
@@ -345,6 +361,7 @@ namespace QuanLyKinhDoanh.Thu
 
         private void UpdateData()
         {
+            dataHoaDon.KhachHang = dataKH;
             dataHoaDon.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             dataHoaDon.GhiChu = tbGhiChu.Text;
 
@@ -368,6 +385,7 @@ namespace QuanLyKinhDoanh.Thu
 
             data.MaHoaDon = CreateNewIdChi();
             data.IdUser = FormMain.user.Id;
+            data.IdKhachHang = dataKH.Id;
             data.IdType = Constant.ID_TYPE_CHI;
             data.IdStatus = Constant.ID_STATUS_DONE;
 
@@ -418,7 +436,7 @@ namespace QuanLyKinhDoanh.Thu
                 money += ConvertUtil.ConvertToLong(item.SubItems[5].Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             }
 
-            dataKH.TichLuy -= money;
+            dataKH.TichLuy -= money / 100;
 
             if (dataKH.TichLuy < 0)
             {

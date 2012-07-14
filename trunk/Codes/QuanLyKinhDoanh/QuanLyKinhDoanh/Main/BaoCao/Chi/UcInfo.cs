@@ -41,6 +41,7 @@ namespace QuanLyKinhDoanh.Chi
 
             tbMa.Text = data.MaHoaDon;
             tbTien.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            cbMaKH.Text = data.KhachHang == null ? string.Empty : data.KhachHang.MaKhachHang;
             tbGhiChu.Text = data.GhiChu;
 
             cbMaKH.Enabled = false;
@@ -160,6 +161,7 @@ namespace QuanLyKinhDoanh.Chi
 
         private void UpdateData()
         {
+            data.KhachHang = dataKH;
             data.ThanhTien = ConvertUtil.ConvertToLong(tbTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
@@ -263,7 +265,6 @@ namespace QuanLyKinhDoanh.Chi
         {
             ValidateInput();
         }
-        #endregion
 
         private void cbMaKH_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -316,5 +317,6 @@ namespace QuanLyKinhDoanh.Chi
         {
             ValidateInput();
         }
+        #endregion
     }
 }

@@ -139,6 +139,11 @@ namespace DAO
             return dbContext.HoaDonDetails.Where(p => p.Id == id).SingleOrDefault<HoaDonDetail>();
         }
 
+        public static bool CheckIfSold(int idSP)
+        {
+            return dbContext.HoaDonDetails.Where(p => p.IdSanPham == idSP && p.HoaDon.IdType == CommonDao.ID_TYPE_BAN).FirstOrDefault<HoaDonDetail>() != null;
+        }
+
         public static bool Insert(HoaDonDetail data)
         {
             try

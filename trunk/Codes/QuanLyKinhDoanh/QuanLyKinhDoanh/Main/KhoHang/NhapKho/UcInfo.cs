@@ -80,7 +80,11 @@ namespace QuanLyKinhDoanh.NhapKho
             isUpdate = true;
             lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
-            tbSoLuong.ReadOnly = true;
+            if (HoaDonDetailBus.CheckIfSold(data.IdSanPham))
+            {
+                tbSoLuong.ReadOnly = true;
+            }
+
             cbChangeMoney.SelectedIndex = 0;
 
             if (InitSP() && Init())
