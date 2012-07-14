@@ -150,6 +150,8 @@ namespace QuanLyKinhDoanh.Chi
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.MaHoaDon.ToString());
                 lvi.SubItems.Add(data.User == null ? string.Empty : data.User.UserName.ToString());
+                lvi.SubItems.Add(data.KhachHang == null ? string.Empty :
+                    data.KhachHang.MaKhachHang.ToString() + Constant.SYMBOL_LINK_STRING + data.KhachHang.Ten);
                 lvi.SubItems.Add(data.CreateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.GhiChu);
                 lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));

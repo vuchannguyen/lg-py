@@ -35,6 +35,11 @@ namespace BUS
             return HoaDonDetailDao.GetById(id);
         }
 
+        public static bool CheckIfSold(int idSP)
+        {
+            return HoaDonDetailDao.CheckIfSold(idSP);
+        }
+
         public static bool Insert(HoaDonDetail data)
         {
             return HoaDonDetailDao.Insert(data);
