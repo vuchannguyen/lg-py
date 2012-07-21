@@ -8,25 +8,60 @@ using System.Text;
 using System.Windows.Forms;
 using Library;
 using BUS;
+using System.Diagnostics;
 
 namespace QuanLyKinhDoanh
 {
     public partial class FormExportExcel : Form
     {
+        private string typeExport;
         private string sheetName;
+        private string fileName;
         private ListViewEx lvEx;
+
+        private int soSP;
+        private int tongSoLuong;
+        private int soSPHetHan;
+        private int tongSoLuongHetHan;
 
         public FormExportExcel()
         {
             InitializeComponent();
+
+            typeExport = string.Empty;
         }
 
-        public FormExportExcel(string sheetName, ListViewEx lvEx)
+        public FormExportExcel(string typeExport, string sheetName, string fileName,
+            ListViewEx lvEx, int soSP, int tongSoLuong, int soSPHetHan, int tongSoLuongHetHan)
         {
             InitializeComponent();
 
+            this.typeExport = typeExport;
+
             this.sheetName = sheetName;
+            this.fileName = fileName;
             this.lvEx = lvEx;
+
+            this.soSP = soSP;
+            this.tongSoLuong = tongSoLuong;
+            this.soSPHetHan = soSPHetHan;
+            this.tongSoLuongHetHan = tongSoLuongHetHan;
+
+            pnInfo.Controls.Add(this.lvEx);
+        }
+
+        public FormExportExcel(string typeExport, string sheetName, string fileName,
+            ListViewEx lvEx, int soSP)
+        {
+            InitializeComponent();
+
+            this.typeExport = typeExport;
+
+            this.sheetName = sheetName;
+            this.fileName = fileName;
+            this.lvEx = lvEx;
+
+            this.soSP = soSP;
 
             pnInfo.Controls.Add(this.lvEx);
         }
@@ -68,21 +103,48 @@ namespace QuanLyKinhDoanh
             pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
         }
 
+        private void ExportSanPham()
+        {
+            ExportExcel.InitWorkBook(sheetName);
+            ExportExcel.CreateSummarySanPham(soSP);
+            ExportExcel.CreateDetailsTableSanPham(lvEx);
+        }
+
+        private void ExportKhoHang()
+        {
+            ExportExcel.InitWorkBook(sheetName);
+            ExportExcel.CreateSummaryKhoHang(soSP, tongSoLuong, soSPHetHan, tongSoLuongHetHan);
+            ExportExcel.CreateDetailsTableKhoHang(lvEx);
+        }
+
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
-            string sPath = File_Function.SaveDialog("SanPham_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+            string path = File_Function.SaveDialog(fileName + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
-            if (sPath != null)
+            if (path != null)
             {
-                List<ListView> list = new List<ListView>();
-
-                list.Add(lvEx);
-
-                if (Office_Function.ExportListViews2Excel(sheetName, sPath, list))
+                try
                 {
-                    MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    switch (typeExport)
+                    {
+                        case Constant.DEFAULT_TYPE_EXPORT_SANPHAM:
+                            ExportSanPham();
+                            break;
+
+                        case Constant.DEFAULT_TYPE_EXPORT_KHOHANG:
+                            ExportKhoHang();
+                            break;
+                    }
+
+                    ExportExcel.SaveExcel(fileName, path);
+
+                    if (MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_SUCCESS_EXPORT_EXCEL_OPEN,
+                        Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        Process.Start(path);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
                     MessageBox.Show(Constant.MESSAGE_ERROR_EXPORT_EXCEL, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

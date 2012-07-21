@@ -37,6 +37,8 @@ namespace Library
         public const int DEFAULT_STATUS_USED_DATE_NEAR = 1;
         public const int DEFAULT_STATUS_USED_DATE_END = 2;
 
+        public const int DEFAULT_CHANGE_RATE = 100;
+
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
         public static Size DEFAULT_SIZE_LISTVIEWEX_EXPORT = new Size(770, 485);
 
@@ -64,6 +66,11 @@ namespace Library
 
         public const string DEFAULT_DIRECT_DISCOUNT = "Trực tiếp";
         public const string DEFAULT_INDIRECT_DISCOUNT = "Tích lũy";
+
+        public const string DEFAULT_TYPE_EXPORT_SANPHAM = "SanPham";
+        public const string DEFAULT_SHEET_NAME_EXPORT_SANPHAM = "Sản phẩm";
+        public const string DEFAULT_TYPE_EXPORT_KHOHANG = "KhoHang";
+        public const string DEFAULT_SHEET_NAME_EXPORT_KHOHANG = "Kho hàng";
 
         public const string IS_SOLD = "Is Sold";
 
@@ -171,8 +178,8 @@ namespace Library
         public const string DEFAULT_MONEY_STATUS_DEBT = "Còn lại:";
 
         public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME = "Excel File";
-        public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE = "xls";
-        public const string DEFAULT_EXPORT_EXCEL_DATE_FORMAT = "ddMMyyyy";
+        public const string DEFAULT_EXPORT_EXCEL_FILE_TYPE = "xlsx";
+        public const string DEFAULT_EXPORT_EXCEL_DATE_FORMAT = "_ddMMyyyy_HHmmss";
 
         public const string CAPTION_CONFIRM = "CONFIRM";
         public const string CAPTION_WARNING = "WARNING";
@@ -225,6 +232,7 @@ namespace Library
         public const string MESSAGE_ERROR_INSERT_HD_CHI = "Quá trình tạo hóa đơn Chi thất bại!";
 
         public const string MESSAGE_SUCCESS_EXPORT_EXCEL = "Dữ liệu đã xuất thành công.";
+        public const string MESSAGE_SUCCESS_EXPORT_EXCEL_OPEN = "Mở dữ liệu?";
         public const string MESSAGE_PAY_ALL_DEBT = "Hóa đơn đã được thanh toán hết.";
 
         public const string MESSAGE_LOGIN_WRONG_USERNAME = "Tài khoản không tồn tai!";
@@ -247,8 +255,9 @@ namespace Library
         public const string SEARCH_SANPHAM_TIP = "Mã SP - Tên - Xuất xứ - Mô tả";
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
         public const string SEARCH_NHAPKHO_TIP = "Mã HĐ - Mã SP - Tên SP";
-        public const string SEARCH_THU_TIP = "Mã HĐ - Mã KH - Tên KH - Ghi chú";
-        public const string SEARCH_CHI_TIP = "Mã HĐ - Mã KH - Tên KH - Ghi chú";
-        public const string SEARCH_CONGNO_TIP = "Mã HĐ - Mã KH - Tên KH - Ghi chú";
+        public const string SEARCH_THU_TIP = "Mã HĐ - Tên User - Mã KH - Ghi chú";
+        public const string SEARCH_CHI_TIP = "Mã HĐ - Tên User - Mã KH - Ghi chú";
+        public const string SEARCH_CONGNO_TIP = "Mã HĐ - Tên User - Tên KH - Ghi chú";
+        public const string SEARCH_XUATXU_HISTORY_TIP = "Mã HĐ - Tên User - Ghi chú";
     }
 }

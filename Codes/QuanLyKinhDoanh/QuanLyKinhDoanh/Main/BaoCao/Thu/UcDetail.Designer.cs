@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbStatusCK = new System.Windows.Forms.Label();
             this.lbTongCK = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbNgayGio = new System.Windows.Forms.Label();
@@ -64,7 +65,10 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.lbStatusCK = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbTienThanhToan = new System.Windows.Forms.Label();
+            this.lbTienSuDung = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -108,6 +112,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbTienSuDung);
+            this.groupBox1.Controls.Add(this.lbTienThanhToan);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lbStatusCK);
             this.groupBox1.Controls.Add(this.lbTongCK);
             this.groupBox1.Controls.Add(this.label7);
@@ -133,11 +141,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // lbStatusCK
+            // 
+            this.lbStatusCK.AutoSize = true;
+            this.lbStatusCK.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusCK.ForeColor = System.Drawing.Color.Black;
+            this.lbStatusCK.Location = new System.Drawing.Point(579, 30);
+            this.lbStatusCK.Name = "lbStatusCK";
+            this.lbStatusCK.Size = new System.Drawing.Size(82, 19);
+            this.lbStatusCK.TabIndex = 155;
+            this.lbStatusCK.Text = "StatusCK";
+            // 
             // lbTongCK
             // 
             this.lbTongCK.AutoSize = true;
             this.lbTongCK.ForeColor = System.Drawing.Color.Black;
-            this.lbTongCK.Location = new System.Drawing.Point(663, 70);
+            this.lbTongCK.Location = new System.Drawing.Point(449, 70);
             this.lbTongCK.Name = "lbTongCK";
             this.lbTongCK.Size = new System.Drawing.Size(97, 18);
             this.lbTongCK.TabIndex = 153;
@@ -148,7 +167,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(580, 70);
+            this.label7.Location = new System.Drawing.Point(360, 70);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 19);
             this.label7.TabIndex = 152;
@@ -180,8 +199,8 @@
             // 
             this.lbGhiChu.AutoSize = true;
             this.lbGhiChu.ForeColor = System.Drawing.Color.Black;
-            this.lbGhiChu.Location = new System.Drawing.Point(392, 70);
-            this.lbGhiChu.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lbGhiChu.Location = new System.Drawing.Point(123, 150);
+            this.lbGhiChu.MaximumSize = new System.Drawing.Size(500, 0);
             this.lbGhiChu.Name = "lbGhiChu";
             this.lbGhiChu.Size = new System.Drawing.Size(60, 18);
             this.lbGhiChu.TabIndex = 149;
@@ -192,7 +211,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(312, 70);
+            this.label5.Location = new System.Drawing.Point(43, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 19);
             this.label5.TabIndex = 148;
@@ -201,8 +220,8 @@
             // lbTongHD
             // 
             this.lbTongHD.AutoSize = true;
-            this.lbTongHD.ForeColor = System.Drawing.Color.Red;
-            this.lbTongHD.Location = new System.Drawing.Point(663, 110);
+            this.lbTongHD.ForeColor = System.Drawing.Color.Black;
+            this.lbTongHD.Location = new System.Drawing.Point(668, 70);
             this.lbTongHD.Name = "lbTongHD";
             this.lbTongHD.Size = new System.Drawing.Size(97, 18);
             this.lbTongHD.TabIndex = 147;
@@ -213,7 +232,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(580, 110);
+            this.label3.Location = new System.Drawing.Point(579, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 19);
             this.label3.TabIndex = 146;
@@ -272,9 +291,9 @@
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
-            this.lvThongTin.Location = new System.Drawing.Point(30, 160);
+            this.lvThongTin.Location = new System.Drawing.Point(30, 200);
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(730, 285);
+            this.lvThongTin.Size = new System.Drawing.Size(730, 245);
             this.lvThongTin.TabIndex = 154;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -418,16 +437,47 @@
             this.pnInfo.Size = new System.Drawing.Size(800, 530);
             this.pnInfo.TabIndex = 133;
             // 
-            // lbStatusCK
+            // label13
             // 
-            this.lbStatusCK.AutoSize = true;
-            this.lbStatusCK.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatusCK.ForeColor = System.Drawing.Color.Black;
-            this.lbStatusCK.Location = new System.Drawing.Point(580, 30);
-            this.lbStatusCK.Name = "lbStatusCK";
-            this.lbStatusCK.Size = new System.Drawing.Size(82, 19);
-            this.lbStatusCK.TabIndex = 155;
-            this.lbStatusCK.Text = "StatusCK";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(361, 110);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 19);
+            this.label13.TabIndex = 159;
+            this.label13.Text = "Sử dụng:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(560, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 19);
+            this.label2.TabIndex = 158;
+            this.label2.Text = "Thanh toán:";
+            // 
+            // lbTienThanhToan
+            // 
+            this.lbTienThanhToan.AutoSize = true;
+            this.lbTienThanhToan.ForeColor = System.Drawing.Color.Red;
+            this.lbTienThanhToan.Location = new System.Drawing.Point(668, 110);
+            this.lbTienThanhToan.Name = "lbTienThanhToan";
+            this.lbTienThanhToan.Size = new System.Drawing.Size(97, 18);
+            this.lbTienThanhToan.TabIndex = 160;
+            this.lbTienThanhToan.Text = "999,999,999";
+            // 
+            // lbTienSuDung
+            // 
+            this.lbTienSuDung.AutoSize = true;
+            this.lbTienSuDung.ForeColor = System.Drawing.Color.Black;
+            this.lbTienSuDung.Location = new System.Drawing.Point(449, 111);
+            this.lbTienSuDung.Name = "lbTienSuDung";
+            this.lbTienSuDung.Size = new System.Drawing.Size(97, 18);
+            this.lbTienSuDung.TabIndex = 161;
+            this.lbTienSuDung.Text = "999,999,999";
             // 
             // UcDetail
             // 
@@ -491,5 +541,9 @@
         private System.Windows.Forms.ColumnHeader chDonGia;
         private System.Windows.Forms.ColumnHeader chThanhTien;
         private System.Windows.Forms.Label lbStatusCK;
+        private System.Windows.Forms.Label lbTienSuDung;
+        private System.Windows.Forms.Label lbTienThanhToan;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label2;
     }
 }

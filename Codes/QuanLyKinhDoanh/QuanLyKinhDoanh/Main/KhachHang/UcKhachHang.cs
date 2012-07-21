@@ -32,8 +32,8 @@ namespace QuanLyKinhDoanh
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-                pbBirthDay.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BITRHDAY);
                 pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY);
+                pbBirthDay.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_BITRHDAY);
                 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
 
