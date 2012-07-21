@@ -607,6 +607,8 @@ namespace QuanLyKinhDoanh.GiaoDich
                 dataHoaDon.TienChietKhau = ConvertUtil.ConvertToInt(tbTongCK.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             }
 
+            dataHoaDon.SuDung = ConvertUtil.ConvertToInt(tbTienSuDung.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
             if (dataHoaDon.IdStatus == Constant.ID_STATUS_DEBT)
             { 
                 dataHoaDon.ConLai = ConvertUtil.ConvertToLong(tbTienHoiLai.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
@@ -751,7 +753,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                     UpdateDataKH();
                 }
 
-                if (MessageBox.Show(Constant.MESSAGE_CONFIRM_EXPORT, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show(Constant.MESSAGE_CONFIRM_EXPORT, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     ExportBill();
                 }
@@ -1082,7 +1084,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 tbTienThanhToan.ReadOnly = false;
             }
 
-            tbTienSuDung.Text = (ConvertUtil.ConvertToLong(tbSuDung.Text) * 100).ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTienSuDung.Text = (ConvertUtil.ConvertToLong(tbSuDung.Text) * Constant.DEFAULT_CHANGE_RATE).ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
         #endregion
 

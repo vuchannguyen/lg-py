@@ -67,6 +67,8 @@ namespace QuanLyKinhDoanh.Thu
             lbGhiChu.Text = string.Empty;
             lbTongCK.Text = string.Empty;
             lbTongHD.Text = string.Empty;
+            lbTienSuDung.Text = string.Empty;
+            lbTienThanhToan.Text = string.Empty;
         }
 
         private void LoadData(DTO.HoaDon data)
@@ -117,6 +119,9 @@ namespace QuanLyKinhDoanh.Thu
 
             lbTongCK.Text = data.IsCKTichLuy ? totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY) : data.TienChietKhau.ToString(Constant.DEFAULT_FORMAT_MONEY);
             lbTongHD.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbTienSuDung.Text = data.SuDung == 0 ? string.Empty : data.SuDung.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbTienThanhToan.Text = (data.ThanhTien - data.SuDung) == 0 ? string.Empty :
+                (data.ThanhTien - data.SuDung).ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private void pbHoanTat_Click(object sender, EventArgs e)

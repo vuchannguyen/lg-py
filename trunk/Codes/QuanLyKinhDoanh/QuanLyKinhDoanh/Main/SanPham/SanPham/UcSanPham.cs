@@ -26,6 +26,8 @@ namespace QuanLyKinhDoanh
         private Image imgCheck;
         private Image imgWarning;
 
+        private int soSP;
+
         public UcSanPham()
         {
             InitializeComponent();
@@ -250,23 +252,27 @@ namespace QuanLyKinhDoanh
             lvEx.TabIndex = 0;
             lvEx.UseCompatibleStateImageBehavior = false;
             lvEx.View = System.Windows.Forms.View.Details;
-            lvEx.ColumnWidthChanged += new ColumnWidthChangedEventHandler(LvEx_ColumnWidthChanged);
         }
 
         private void LoadLvExLData()
         {
             lvEx.Columns.Add("Mã", 10, HorizontalAlignment.Left); //0
             lvEx.Columns.Add("STT", 50, HorizontalAlignment.Center); //1
-            lvEx.Columns.Add("Mã SP", 100, HorizontalAlignment.Center); //2
-            lvEx.Columns.Add("Nhóm", 100, HorizontalAlignment.Left); //3
-            lvEx.Columns.Add("Tên", 100, HorizontalAlignment.Left); //4
-            lvEx.Columns.Add("Mô tả", 100, HorizontalAlignment.Left); //5
-            lvEx.Columns.Add("Đơn giá", 100, HorizontalAlignment.Right); //6
-            lvEx.Columns.Add("ĐVT", 100, HorizontalAlignment.Left); //7
-            lvEx.Columns.Add("Xuất xứ", 100, HorizontalAlignment.Left); //8
-            lvEx.Columns.Add("Hiệu", 100, HorizontalAlignment.Left); //9
-            lvEx.Columns.Add("Size", 100, HorizontalAlignment.Left); //10
-            lvEx.Columns.Add("Thời hạn", 100, HorizontalAlignment.Left); //11
+            lvEx.Columns.Add("Mã SP     ", 100, HorizontalAlignment.Center); //2
+            lvEx.Columns.Add("Nhóm                    ", 100, HorizontalAlignment.Left); //3
+            lvEx.Columns.Add("Tên                    ", 100, HorizontalAlignment.Left); //4
+            lvEx.Columns.Add("Mô tả                              ", 100, HorizontalAlignment.Left); //5
+            lvEx.Columns.Add("Đơn giá     ", 100, HorizontalAlignment.Right); //6
+            lvEx.Columns.Add("ĐVT     ", 100, HorizontalAlignment.Left); //7
+            lvEx.Columns.Add("Xuất xứ                    ", 100, HorizontalAlignment.Left); //8
+            lvEx.Columns.Add("Hiệu                    ", 100, HorizontalAlignment.Left); //9
+            lvEx.Columns.Add("Size                    ", 100, HorizontalAlignment.Left); //10
+            lvEx.Columns.Add("Thời hạn", 100, HorizontalAlignment.Center); //11
+
+            for (int i = 1; i < lvEx.Columns.Count; i++)
+            {
+                lvEx.Columns[i].VisibleChanged += new EventHandler(LvEx_ColumnVisibleChanged);
+            }
         }
 
         private void HideColumn()
@@ -300,67 +306,98 @@ namespace QuanLyKinhDoanh
             List<DTO.SanPham> list = SanPhamBus.GetList(text, 0, false, Constant.DEFAULT_STATUS_SP_ALL,
                 false, 0,
                 string.Empty, string.Empty, 0, 0);
+            soSP = lvEx.Items.Count;
 
             for (int i = 0; i < list.Count; i++)
             {
                 ListViewItem lvi = new ListViewItem();
+                int colNum = 0;
 
                 //if (lvEx.Columns[0].Visible)
                 //{
                 //    lvi.Text = list_dto[i].Ma;
                 //}
 
-                if (lvEx.Columns[1].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.Text = (i + 1).ToString();
                 }
 
-                if (lvEx.Columns[2].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
-                    lvi.SubItems.Add(list[i].MaSanPham);
+                    if (!lvEx.Columns[1].Visible)
+                    {
+                        lvi.Text = list[i].MaSanPham;
+                    }
+                    else
+                    {
+                        lvi.SubItems.Add(list[i].MaSanPham);
+                    }
                 }
 
-                if (lvEx.Columns[3].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].SanPhamGroup.Ten);
                 }
 
-                if (lvEx.Columns[4].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].Ten);
                 }
 
-                if (lvEx.Columns[5].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].MoTa);
                 }
 
-                if (lvEx.Columns[6].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 }
 
-                if (lvEx.Columns[7].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].DonViTinh);
                 }
 
-                if (lvEx.Columns[8].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].XuatXu == null ? string.Empty : list[i].XuatXu.Ten);
                 }
 
-                if (lvEx.Columns[9].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].Hieu);
                 }
 
-                if (lvEx.Columns[10].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].Size);
                 }
 
-                if (lvEx.Columns[11].Visible)
+                colNum++;
+
+                if (lvEx.Columns[colNum].Visible)
                 {
                     lvi.SubItems.Add(list[i].ThoiHan.ToString() + " " + list[i].DonViThoiHan);
                 }
@@ -369,13 +406,9 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void LvEx_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
+        private void LvEx_ColumnVisibleChanged(object sender, EventArgs e)
         {
-            if (lvEx.Columns.Count != columnCount)
-            {
-                columnCount = lvEx.Columns.Count;
-                RefreshLvEx(tbSearch.Text);
-            }
+            RefreshLvEx(tbSearch.Text);
         }
         #endregion
 
@@ -460,7 +493,8 @@ namespace QuanLyKinhDoanh
 
                 RefreshLvEx(tbSearch.Text);
 
-                FormExportExcel frm = new FormExportExcel("Sản phẩm", lvEx);
+                FormExportExcel frm = new FormExportExcel(Constant.DEFAULT_TYPE_EXPORT_SANPHAM, Constant.DEFAULT_SHEET_NAME_EXPORT_KHOHANG, Constant.DEFAULT_TYPE_EXPORT_KHOHANG,
+                    lvEx, soSP);
                 frm.ShowDialog();
             }
             else

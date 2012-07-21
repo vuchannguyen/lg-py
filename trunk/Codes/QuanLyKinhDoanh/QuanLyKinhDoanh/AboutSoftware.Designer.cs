@@ -94,7 +94,7 @@
             this.lbVersion.Name = "lbVersion";
             this.lbVersion.Size = new System.Drawing.Size(84, 16);
             this.lbVersion.TabIndex = 2;
-            this.lbVersion.Text = "Version: 4.2";
+            this.lbVersion.Text = "Version: 4.3";
             // 
             // lbCopyright
             // 

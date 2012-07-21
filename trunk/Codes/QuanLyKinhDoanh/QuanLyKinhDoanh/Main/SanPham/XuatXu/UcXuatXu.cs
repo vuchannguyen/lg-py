@@ -32,6 +32,7 @@ namespace QuanLyKinhDoanh
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY);
 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
 
@@ -156,11 +157,15 @@ namespace QuanLyKinhDoanh
                 {
                     pbSua.Enabled = true;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
+                    pbHistory.Enabled = true;
+                    pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY);
                 }
                 else
                 {
                     pbSua.Enabled = false;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                    pbHistory.Enabled = false;
+                    pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY_DISABLE);
                 }
 
                 pbXoa.Enabled = true;
@@ -172,6 +177,8 @@ namespace QuanLyKinhDoanh
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Enabled = false;
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                pbHistory.Enabled = false;
+                pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY_DISABLE);
             }
         }
 
@@ -471,5 +478,24 @@ namespace QuanLyKinhDoanh
             pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
         }
         #endregion
+
+        private void pbHistory_Click(object sender, EventArgs e)
+        {
+            int id = ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text);
+
+            uc = new UcHistory(id);
+            uc.Disposed += new EventHandler(uc_Disposed);
+            this.Controls.Add(uc);
+        }
+
+        private void pbHistory_MouseEnter(object sender, EventArgs e)
+        {
+            pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY_MOUSEOVER);
+        }
+
+        private void pbHistory_MouseLeave(object sender, EventArgs e)
+        {
+            pbHistory.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_HISTORY);
+        }
     }
 }

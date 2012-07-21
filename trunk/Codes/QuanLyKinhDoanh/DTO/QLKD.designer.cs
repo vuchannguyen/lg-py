@@ -69,7 +69,7 @@ namespace DTO
     #endregion
 		
 		public QLKDDataContext() : 
-				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString1, mappingSource)
+				base(global::DTO.Properties.Settings.Default.QuanLyKinhDoanhConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -909,6 +909,8 @@ namespace DTO
 		
 		private long _TienChietKhau;
 		
+		private long _SuDung;
+		
 		private long _ConLai;
 		
 		private long _ThanhTien;
@@ -957,6 +959,8 @@ namespace DTO
     partial void OnIsCKTongHDChanged();
     partial void OnTienChietKhauChanging(long value);
     partial void OnTienChietKhauChanged();
+    partial void OnSuDungChanging(long value);
+    partial void OnSuDungChanged();
     partial void OnConLaiChanging(long value);
     partial void OnConLaiChanged();
     partial void OnThanhTienChanging(long value);
@@ -1177,6 +1181,26 @@ namespace DTO
 					this._TienChietKhau = value;
 					this.SendPropertyChanged("TienChietKhau");
 					this.OnTienChietKhauChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SuDung", DbType="BigInt NOT NULL")]
+		public long SuDung
+		{
+			get
+			{
+				return this._SuDung;
+			}
+			set
+			{
+				if ((this._SuDung != value))
+				{
+					this.OnSuDungChanging(value);
+					this.SendPropertyChanging();
+					this._SuDung = value;
+					this.SendPropertyChanged("SuDung");
+					this.OnSuDungChanged();
 				}
 			}
 		}
@@ -2099,8 +2123,6 @@ namespace DTO
 		
 		private long _TichLuy;
 		
-		private int _Diem;
-		
 		private string _GhiChu;
 		
 		private string _CreateBy;
@@ -2151,8 +2173,6 @@ namespace DTO
     partial void OnEmailChanged();
     partial void OnTichLuyChanging(long value);
     partial void OnTichLuyChanged();
-    partial void OnDiemChanging(int value);
-    partial void OnDiemChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
     partial void OnCreateByChanging(string value);
@@ -2474,26 +2494,6 @@ namespace DTO
 					this._TichLuy = value;
 					this.SendPropertyChanged("TichLuy");
 					this.OnTichLuyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diem", DbType="Int NOT NULL")]
-		public int Diem
-		{
-			get
-			{
-				return this._Diem;
-			}
-			set
-			{
-				if ((this._Diem != value))
-				{
-					this.OnDiemChanging(value);
-					this.SendPropertyChanging();
-					this._Diem = value;
-					this.SendPropertyChanged("Diem");
-					this.OnDiemChanged();
 				}
 			}
 		}

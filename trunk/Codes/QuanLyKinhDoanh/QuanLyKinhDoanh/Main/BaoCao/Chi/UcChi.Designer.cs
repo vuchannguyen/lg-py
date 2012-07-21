@@ -227,7 +227,7 @@
             // pbOk
             // 
             this.pbOk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbOk.Location = new System.Drawing.Point(252, 6);
+            this.pbOk.Location = new System.Drawing.Point(272, 6);
             this.pbOk.Name = "pbOk";
             this.pbOk.Size = new System.Drawing.Size(64, 21);
             this.pbOk.TabIndex = 92;
@@ -241,7 +241,7 @@
             this.tbSearch.Location = new System.Drawing.Point(46, 5);
             this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(200, 23);
+            this.tbSearch.Size = new System.Drawing.Size(220, 23);
             this.tbSearch.TabIndex = 91;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);

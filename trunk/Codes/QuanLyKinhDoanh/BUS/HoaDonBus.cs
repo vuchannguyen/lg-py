@@ -20,6 +20,17 @@ namespace BUS
             return HoaDonDao.GetList(text, type, status, idKH, timeType, date, sortColumn, sortOrder, skip, take);
         }
 
+        public static int GetCountXuatXu(string text, int type, int status, int idKH, int idXuatXu, string timeType, DateTime date)
+        {
+            return HoaDonDao.GetCountXuatXu(text, type, status, idKH, idXuatXu, timeType, date);
+        }
+
+        public static List<HoaDon> GetListXuatXu(string text, int type, int status, int idKH, int idXuatXu, string timeType, DateTime date,
+            string sortColumn, string sortOrder, int skip, int take)
+        {
+            return HoaDonDao.GetListXuatXu(text, type, status, idKH, idXuatXu, timeType, date, sortColumn, sortOrder, skip, take);
+        }
+
         public static HoaDon GetLastData()
         {
             return HoaDonDao.GetLastData();

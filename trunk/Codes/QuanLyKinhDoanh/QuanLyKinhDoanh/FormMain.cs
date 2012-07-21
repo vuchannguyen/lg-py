@@ -197,6 +197,50 @@ namespace QuanLyKinhDoanh
             return true;
         }
 
+        private void ScaleMaximizedControls()
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                float ratioWidth = this.Width / 1014f;
+                float ratioHeight = this.Height / 764f;
+
+                for (int i = 0; i < this.Controls.Count; i++)
+                {
+                    this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                }
+            }
+        }
+
+        private void ScaleNormalControls()
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                if (this.Width >= 1014 || this.Height >= 764)
+                {
+                    float ratioWidth = 1014f / this.Width;
+                    float ratioHeight = 764f / this.Height;
+
+                    for (int i = 0; i < this.Controls.Count; i++)
+                    {
+                        this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
+                    }
+                }
+            }
+        }
+
+        private void Exit()
+        {
+            this.Visible = false;
+            user = null;
+
+            FormLogin frm = new FormLogin();
+            frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
+            frm.ShowDialog();
+
+            pnBody.Controls.Remove(uc);
+            Init();
+        }
+
 
 
         #region Main Button
@@ -463,47 +507,6 @@ namespace QuanLyKinhDoanh
                     this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
                 }
             }
-        }
-
-        private void ScaleMaximizedControls()
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                float ratioWidth = this.Width / 1014f;
-                float ratioHeight = this.Height / 764f;
-
-                for (int i = 0; i < this.Controls.Count; i++)
-                {
-                    this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
-                }
-            }
-        }
-
-        private void ScaleNormalControls()
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                if (this.Width >= 1014 || this.Height >= 764)
-                {
-                    float ratioWidth = 1014f / this.Width;
-                    float ratioHeight = 764f / this.Height;
-
-                    for (int i = 0; i < this.Controls.Count; i++)
-                    {
-                        this.Controls[i].Scale(new SizeF(ratioWidth, ratioHeight));
-                    }
-                }
-            }
-        }
-
-        private void Exit()
-        {
-            this.Visible = false;
-            user = null;
-
-            FormLogin frm = new FormLogin();
-            frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
-            frm.ShowDialog();
         }
 
         private void lbExit_MouseEnter(object sender, EventArgs e)
