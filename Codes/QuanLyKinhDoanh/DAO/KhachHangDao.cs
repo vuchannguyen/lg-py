@@ -99,7 +99,7 @@ namespace DAO
 
         public static KhachHang GetById(int id)
         {
-            return dbContext.KhachHangs.Where(p => p.Id == id).SingleOrDefault<KhachHang>();
+            return dbContext.KhachHangs.Where(p => p.Id == id).FirstOrDefault<KhachHang>();
         }
 
         public static KhachHang GetLastData()

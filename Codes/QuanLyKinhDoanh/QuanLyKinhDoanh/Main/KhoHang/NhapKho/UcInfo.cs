@@ -781,7 +781,7 @@ namespace QuanLyKinhDoanh.NhapKho
         private void CreateNewIdSP()
         {
             int id = 0;
-            SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+            DTO.SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
 
             if (isUpdate)
             {
@@ -942,7 +942,7 @@ namespace QuanLyKinhDoanh.NhapKho
 
         private void pbThemNhomSP_Click(object sender, EventArgs e)
         {
-            uc = new NhomSanPham.UcInfo();
+            uc = new SanPhamGroup.UcInfo();
             uc.Disposed += new EventHandler(uc_Disposed);
             this.Controls.Add(uc);
         }

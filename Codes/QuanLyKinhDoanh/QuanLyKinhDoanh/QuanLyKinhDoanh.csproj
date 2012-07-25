@@ -44,6 +44,10 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -135,17 +139,41 @@
     <Compile Include="Main\BaoCao\Thu\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhachHang\UcDetail.cs">
+    <Compile Include="Main\KhachHang\KhachHangGroup\UcDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhachHang\UcDetail.Designer.cs">
+    <Compile Include="Main\KhachHang\KhachHangGroup\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhachHang\UcHistory.cs">
+    <Compile Include="Main\KhachHang\KhachHangGroup\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhachHang\UcHistory.Designer.cs">
+    <Compile Include="Main\KhachHang\KhachHangGroup\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhachHang\KhachHangGroup\UcKhachHangGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\KhachHangGroup\UcKhachHangGroup.Designer.cs">
+      <DependentUpon>UcKhachHangGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhachHang\KhachHang\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\KhachHang\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhachHang\KhachHang\UcHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\KhachHang\UcHistory.Designer.cs">
       <DependentUpon>UcHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhachHang\UcKhachHangIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhachHang\UcKhachHangIndex.Designer.cs">
+      <DependentUpon>UcKhachHangIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhoHang\KhoHang\UcDetail.cs">
       <SubType>UserControl</SubType>
@@ -214,16 +242,16 @@
     <Compile Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.Designer.cs">
       <DependentUpon>UcLoiNhuan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhachHang\UcInfo.cs">
+    <Compile Include="Main\KhachHang\KhachHang\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhachHang\UcInfo.Designer.cs">
+    <Compile Include="Main\KhachHang\KhachHang\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhachHang\UcKhachHang.cs">
+    <Compile Include="Main\KhachHang\KhachHang\UcKhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhachHang\UcKhachHang.Designer.cs">
+    <Compile Include="Main\KhachHang\KhachHang\UcKhachHang.Designer.cs">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.cs">
@@ -250,16 +278,16 @@
     <Compile Include="Main\KhoHang\UcKhoHangIndex.Designer.cs">
       <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcDetail.cs">
+    <Compile Include="Main\SanPham\SanPhamGroup\UcDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcDetail.Designer.cs">
+    <Compile Include="Main\SanPham\SanPhamGroup\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcInfo.cs">
+    <Compile Include="Main\SanPham\SanPhamGroup\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcInfo.Designer.cs">
+    <Compile Include="Main\SanPham\SanPhamGroup\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\SanPham\UcDetail.cs">
@@ -280,11 +308,11 @@
     <Compile Include="Main\SanPham\SanPham\UcSanPham.Designer.cs">
       <DependentUpon>UcSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcNhomSanPham.cs">
+    <Compile Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\SanPham\NhomSanPham\UcNhomSanPham.Designer.cs">
-      <DependentUpon>UcNhomSanPham.cs</DependentUpon>
+    <Compile Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.Designer.cs">
+      <DependentUpon>UcSanPhamGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\UcSanPhamIndex.cs">
       <SubType>UserControl</SubType>
@@ -393,11 +421,23 @@
     <EmbeddedResource Include="Main\BaoCao\Thu\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhachHang\UcDetail.resx">
+    <EmbeddedResource Include="Main\KhachHang\KhachHangGroup\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhachHang\UcHistory.resx">
+    <EmbeddedResource Include="Main\KhachHang\KhachHangGroup\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\KhachHangGroup\UcKhachHangGroup.resx">
+      <DependentUpon>UcKhachHangGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\KhachHang\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\KhachHang\UcHistory.resx">
       <DependentUpon>UcHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhachHang\UcKhachHangIndex.resx">
+      <DependentUpon>UcKhachHangIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
@@ -420,10 +460,10 @@
     <EmbeddedResource Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.resx">
       <DependentUpon>UcLoiNhuan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhachHang\UcInfo.resx">
+    <EmbeddedResource Include="Main\KhachHang\KhachHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhachHang\UcKhachHang.resx">
+    <EmbeddedResource Include="Main\KhachHang\KhachHang\UcKhachHang.resx">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcKhoHang.resx">
@@ -438,10 +478,10 @@
     <EmbeddedResource Include="Main\KhoHang\UcKhoHangIndex.resx">
       <DependentUpon>UcKhoHangIndex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcDetail.resx">
+    <EmbeddedResource Include="Main\SanPham\SanPhamGroup\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcInfo.resx">
+    <EmbeddedResource Include="Main\SanPham\SanPhamGroup\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPham\UcDetail.resx">
@@ -453,8 +493,8 @@
     <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
       <DependentUpon>UcSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\SanPham\NhomSanPham\UcNhomSanPham.resx">
-      <DependentUpon>UcNhomSanPham.cs</DependentUpon>
+    <EmbeddedResource Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.resx">
+      <DependentUpon>UcSanPhamGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>

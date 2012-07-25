@@ -82,7 +82,7 @@ namespace DAO
 
         public static XuatXu GetById(int id)
         {
-            return dbContext.XuatXus.Where(p => p.Id == id).SingleOrDefault<XuatXu>();
+            return dbContext.XuatXus.Where(p => p.Id == id).FirstOrDefault<XuatXu>();
         }
 
         public static bool Insert(XuatXu data, User user)

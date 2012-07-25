@@ -85,7 +85,7 @@ namespace QuanLyKinhDoanh
 
         private void pbNhomSanPham_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcNhomSanPham());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcSanPhamGroup());
         }
 
         private void pbNhomSanPham_MouseEnter(object sender, EventArgs e)

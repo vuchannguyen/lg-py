@@ -61,13 +61,26 @@ namespace DAO
 
         public static KhachHangGroup GetById(int id)
         {
-            return dbContext.KhachHangGroups.Where(p => p.Id == id).SingleOrDefault<KhachHangGroup>();
+            return dbContext.KhachHangGroups.Where(p => p.Id == id).FirstOrDefault<KhachHangGroup>();
         }
 
-        public static bool Insert(KhachHangGroup data)
+        public static KhachHangGroup GetByMa(string text)
+        {
+            return dbContext.KhachHangGroups.Where(p => p.Ma == text).FirstOrDefault<KhachHangGroup>();
+        }
+
+        public static bool Insert(KhachHangGroup data, User user)
         {
             try
             {
+                if (GetByMa(data.Ma) != null)
+                {
+                    return false;
+                }
+
+                data.CreateBy = data.UpdateBy = user.UserName;
+                data.CreateDate = data.UpdateDate = DateTime.Now;
+
                 dbContext.KhachHangGroups.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
@@ -79,12 +92,15 @@ namespace DAO
             }
         }
 
-        public static bool Delete(KhachHangGroup data)
+        public static bool Delete(KhachHangGroup data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.KhachHangGroups.DeleteOnSubmit(data);
                     dbContext.SubmitChanges();
 
@@ -99,7 +115,7 @@ namespace DAO
             }
         }
 
-        public static bool DeleteList(string ids)
+        public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
             try
@@ -123,7 +139,7 @@ namespace DAO
                         {
                             KhachHangGroup data = GetById(result);
 
-                            if (!Delete(data))
+                            if (!Delete(data, user))
                             {
                                 CreateSQlConnection();
 
@@ -156,12 +172,15 @@ namespace DAO
             }
         }
 
-        public static bool Update(KhachHangGroup data)
+        public static bool Update(KhachHangGroup data, User user)
         {
             try
             {
                 if (data != null)
                 {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
+
                     dbContext.SubmitChanges();
                     return true;
                 }

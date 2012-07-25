@@ -57,12 +57,12 @@ namespace DAO
 
         public static ChietKhau GetById(int id)
         {
-            return dbContext.ChietKhaus.Where(p => p.Id == id).SingleOrDefault<ChietKhau>();
+            return dbContext.ChietKhaus.Where(p => p.Id == id).FirstOrDefault<ChietKhau>();
         }
 
         public static ChietKhau GetByIdSP(int id)
         {
-            return dbContext.ChietKhaus.Where(p => p.IdSanPham == id && p.SanPham.DeleteFlag == false).SingleOrDefault<ChietKhau>();
+            return dbContext.ChietKhaus.Where(p => p.IdSanPham == id && p.SanPham.DeleteFlag == false).FirstOrDefault<ChietKhau>();
         }
 
         public static bool Insert(ChietKhau data, User user)

@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.lbPrint = new System.Windows.Forms.Label();
+            this.pbPrint = new System.Windows.Forms.PictureBox();
             this.lbXuatXu = new System.Windows.Forms.Label();
             this.pbXuatXu = new System.Windows.Forms.PictureBox();
             this.lbNhomSanPham = new System.Windows.Forms.Label();
             this.lbSanPham = new System.Windows.Forms.Label();
             this.pbSanPham = new System.Windows.Forms.PictureBox();
             this.pbNhomSanPham = new System.Windows.Forms.PictureBox();
-            this.lbPrint = new System.Windows.Forms.Label();
-            this.pbPrint = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbXuatXu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
@@ -58,6 +58,30 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(710, 140);
             this.pnSelect.TabIndex = 5;
+            // 
+            // lbPrint
+            // 
+            this.lbPrint.AutoSize = true;
+            this.lbPrint.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrint.ForeColor = System.Drawing.Color.Gray;
+            this.lbPrint.Location = new System.Drawing.Point(600, 120);
+            this.lbPrint.Name = "lbPrint";
+            this.lbPrint.Size = new System.Drawing.Size(71, 16);
+            this.lbPrint.TabIndex = 10;
+            this.lbPrint.Text = "IN MÃ SP";
+            // 
+            // pbPrint
+            // 
+            this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbPrint.Location = new System.Drawing.Point(588, 10);
+            this.pbPrint.Name = "pbPrint";
+            this.pbPrint.Size = new System.Drawing.Size(100, 100);
+            this.pbPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPrint.TabIndex = 9;
+            this.pbPrint.TabStop = false;
+            this.pbPrint.Click += new System.EventHandler(this.pbPrint_Click);
+            this.pbPrint.MouseEnter += new System.EventHandler(this.pbPrint_MouseEnter);
+            this.pbPrint.MouseLeave += new System.EventHandler(this.pbPrint_MouseLeave);
             // 
             // lbXuatXu
             // 
@@ -131,30 +155,6 @@
             this.pbNhomSanPham.MouseEnter += new System.EventHandler(this.pbNhomSanPham_MouseEnter);
             this.pbNhomSanPham.MouseLeave += new System.EventHandler(this.pbNhomSanPham_MouseLeave);
             // 
-            // lbPrint
-            // 
-            this.lbPrint.AutoSize = true;
-            this.lbPrint.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrint.ForeColor = System.Drawing.Color.Gray;
-            this.lbPrint.Location = new System.Drawing.Point(600, 120);
-            this.lbPrint.Name = "lbPrint";
-            this.lbPrint.Size = new System.Drawing.Size(71, 16);
-            this.lbPrint.TabIndex = 10;
-            this.lbPrint.Text = "IN MÃ SP";
-            // 
-            // pbPrint
-            // 
-            this.pbPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbPrint.Location = new System.Drawing.Point(588, 10);
-            this.pbPrint.Name = "pbPrint";
-            this.pbPrint.Size = new System.Drawing.Size(100, 100);
-            this.pbPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPrint.TabIndex = 9;
-            this.pbPrint.TabStop = false;
-            this.pbPrint.Click += new System.EventHandler(this.pbPrint_Click);
-            this.pbPrint.MouseEnter += new System.EventHandler(this.pbPrint_MouseEnter);
-            this.pbPrint.MouseLeave += new System.EventHandler(this.pbPrint_MouseLeave);
-            // 
             // UcSanPhamIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -166,10 +166,10 @@
             this.Load += new System.EventHandler(this.UcSanPhamIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbXuatXu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPrint)).EndInit();
             this.ResumeLayout(false);
 
         }

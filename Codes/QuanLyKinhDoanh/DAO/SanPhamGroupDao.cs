@@ -22,7 +22,7 @@ namespace DAO
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.Ma, text) ||
                     SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.Mota, text)
+                    SqlMethods.Like(p.MoTa, text)
                     );
             }
 
@@ -70,12 +70,12 @@ namespace DAO
 
         public static SanPhamGroup GetById(int id)
         {
-            return dbContext.SanPhamGroups.Where(p => p.Id == id).SingleOrDefault<SanPhamGroup>();
+            return dbContext.SanPhamGroups.Where(p => p.Id == id).FirstOrDefault<SanPhamGroup>();
         }
 
         public static SanPhamGroup GetByMa(string text)
         {
-            return dbContext.SanPhamGroups.Where(p => p.Ma == text).SingleOrDefault<SanPhamGroup>();
+            return dbContext.SanPhamGroups.Where(p => p.Ma == text).FirstOrDefault<SanPhamGroup>();
         }
 
         public static bool Insert(SanPhamGroup data, User user)

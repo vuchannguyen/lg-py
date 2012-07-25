@@ -60,7 +60,7 @@ namespace DAO
 
         public static HoaDonType GetById(int id)
         {
-            return dbContext.HoaDonTypes.Where(p => p.Id == id).SingleOrDefault<HoaDonType>();
+            return dbContext.HoaDonTypes.Where(p => p.Id == id).FirstOrDefault<HoaDonType>();
         }
 
         public static bool Insert(HoaDonType data)
