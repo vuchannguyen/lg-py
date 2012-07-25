@@ -143,7 +143,7 @@ namespace QuanLyKinhDoanh.SanPham
         private void CreateNewIdSP()
         {
             int id = 0;
-            SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+            DTO.SanPhamGroup SPGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
 
             if (isUpdate)
             {

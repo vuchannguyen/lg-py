@@ -136,7 +136,7 @@ namespace DAO
 
         public static HoaDonDetail GetById(int id)
         {
-            return dbContext.HoaDonDetails.Where(p => p.Id == id).SingleOrDefault<HoaDonDetail>();
+            return dbContext.HoaDonDetails.Where(p => p.Id == id).FirstOrDefault<HoaDonDetail>();
         }
 
         public static bool CheckIfSold(int idSP)

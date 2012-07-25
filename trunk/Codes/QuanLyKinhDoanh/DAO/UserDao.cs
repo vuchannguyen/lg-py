@@ -96,12 +96,12 @@ namespace DAO
 
         public static User GetById(int id)
         {
-            return dbContext.Users.Where(p => p.Id == id).SingleOrDefault<User>();
+            return dbContext.Users.Where(p => p.Id == id).FirstOrDefault<User>();
         }
 
         public static User GetByUserName(string text)
         {
-            return dbContext.Users.Where(p => p.UserName == text && p.DeleteFlag == false).SingleOrDefault<User>();
+            return dbContext.Users.Where(p => p.UserName == text && p.DeleteFlag == false).FirstOrDefault<User>();
         }
 
         public static bool Insert(User data, User user)

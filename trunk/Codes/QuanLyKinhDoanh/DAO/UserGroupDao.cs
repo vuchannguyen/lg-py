@@ -61,7 +61,7 @@ namespace DAO
 
         public static UserGroup GetById(int id)
         {
-            return dbContext.UserGroups.Where(p => p.Id == id).SingleOrDefault<UserGroup>();
+            return dbContext.UserGroups.Where(p => p.Id == id).FirstOrDefault<UserGroup>();
         }
 
         public static bool Insert(UserGroup data)

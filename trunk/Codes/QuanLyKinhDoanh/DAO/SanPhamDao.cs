@@ -180,7 +180,7 @@ namespace DAO
 
         public static SanPham GetById(int id)
         {
-            return dbContext.SanPhams.Where(p => p.Id == id).SingleOrDefault<SanPham>();
+            return dbContext.SanPhams.Where(p => p.Id == id).FirstOrDefault<SanPham>();
         }
 
         public static bool Insert(SanPham data, User user)

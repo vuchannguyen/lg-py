@@ -252,6 +252,7 @@ namespace Library
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã KH - Họ tên - Điện thoại - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã nhóm SP - Tên - Mô tả";
+        public const string SEARCH_KHACHHANGGROUP_TIP = "Mã nhóm KH - Tên - Mô tả";
         public const string SEARCH_SANPHAM_TIP = "Mã SP - Tên - Xuất xứ - Mô tả";
         public const string SEARCH_XUATXU_TIP = "Tên - Địa chỉ - Email";
         public const string SEARCH_NHAPKHO_TIP = "Mã HĐ - Mã SP - Tên SP";

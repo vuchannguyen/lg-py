@@ -272,7 +272,7 @@ namespace DAO
 
         public static HoaDon GetById(int id)
         {
-            return dbContext.HoaDons.Where(p => p.Id == id).SingleOrDefault<HoaDon>();
+            return dbContext.HoaDons.Where(p => p.Id == id).FirstOrDefault<HoaDon>();
         }
 
         public static bool Insert(HoaDon data, User user)
