@@ -122,7 +122,7 @@
             // tbTong
             // 
             this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(843, 55);
+            this.tbTong.Location = new System.Drawing.Point(833, 55);
             this.tbTong.MaxLength = 10;
             this.tbTong.Name = "tbTong";
             this.tbTong.ReadOnly = true;
@@ -134,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(792, 60);
+            this.label3.Location = new System.Drawing.Point(782, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 58;
@@ -180,7 +180,7 @@
             // chCheckBox
             // 
             this.chCheckBox.Text = "All";
-            this.chCheckBox.Width = 30;
+            this.chCheckBox.Width = 0;
             // 
             // chId
             // 
@@ -219,7 +219,7 @@
             // chGhiChu
             // 
             this.chGhiChu.Text = "Ghi Chú";
-            this.chGhiChu.Width = 195;
+            this.chGhiChu.Width = 225;
             // 
             // chTien
             // 
@@ -249,7 +249,6 @@
             this.pbOk.Location = new System.Drawing.Point(252, 6);
             this.pbOk.Name = "pbOk";
             this.pbOk.Size = new System.Drawing.Size(64, 21);
-            this.pbOk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbOk.TabIndex = 92;
             this.pbOk.TabStop = false;
             this.pbOk.Click += new System.EventHandler(this.pbOk_Click);

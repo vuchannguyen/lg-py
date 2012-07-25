@@ -103,16 +103,19 @@ namespace QuanLyKinhDoanh.CongNo
 
         private void ValidateInput()
         {
-            if (!string.IsNullOrEmpty(tbThanhToan.Text))
-            {
-                pbHoanTat.Enabled = true;
-                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
-            }
-            else
-            {
-                pbHoanTat.Enabled = false;
-                pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
-            }
+            pbHoanTat.Enabled = true;
+            pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+
+            //if (!string.IsNullOrEmpty(tbThanhToan.Text))
+            //{
+            //    pbHoanTat.Enabled = true;
+            //    pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
+            //}
+            //else
+            //{
+            //    pbHoanTat.Enabled = false;
+            //    pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
+            //}
         }
 
         private void LoadBill(List<HoaDonDetail> listDetail)
@@ -236,14 +239,14 @@ namespace QuanLyKinhDoanh.CongNo
             tbThanhToan.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
             tbThanhToan.Select(tbThanhToan.Text.Length, 0);
 
-            ValidateInput();
+            //ValidateInput();
         }
 
         private void tbThanhToan_KeyPress(object sender, KeyPressEventArgs e)
         {
             CommonFunc.ValidateNumeric(e);
 
-            ValidateInput();
+            //ValidateInput();
         }
 
         private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
