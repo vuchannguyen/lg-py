@@ -251,7 +251,7 @@ namespace QuanLyKinhDoanh.KhachHang
         {
             if (e.ColumnIndex == 0)
             {
-                e.NewWidth = 30;
+                e.NewWidth = 0;
                 e.Cancel = true;
             }
 

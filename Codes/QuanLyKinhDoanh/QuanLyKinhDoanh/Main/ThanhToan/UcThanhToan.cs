@@ -484,7 +484,12 @@ namespace QuanLyKinhDoanh.GiaoDich
                 {
                     tbChietKhau.ReadOnly = false;
 
-                    tbChietKhau.Text = dataCK == null ? string.Empty : dataCK.Value.ToString();
+                    tbChietKhau.Text = dataKH == null ? string.Empty : dataKH.KhachHangGroup.ChietKhau.ToString();
+
+                    if (dataCK != null && dataCK.Value != 0)
+                    {
+                        tbChietKhau.Text = dataCK.Value.ToString();
+                    }
                 }
 
                 tbDVT.Text = dataSP.DonViTinh;
@@ -845,6 +850,8 @@ namespace QuanLyKinhDoanh.GiaoDich
             tbTichLuy.Text = dataKH.TichLuy == 0 ? "0" : dataKH.TichLuy.ToString();
 
             tbTienThanhToan.ReadOnly = false;
+
+            GetInfoSP();
 
             ValidateHoanTat();
         }
