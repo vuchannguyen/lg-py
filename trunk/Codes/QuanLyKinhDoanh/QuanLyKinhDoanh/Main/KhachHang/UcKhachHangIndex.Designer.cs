@@ -105,7 +105,7 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UcKhachHangIndex";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.Load += new System.EventHandler(this.UcSanPhamIndex_Load);
+            this.Load += new System.EventHandler(this.UcKhachHangIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();

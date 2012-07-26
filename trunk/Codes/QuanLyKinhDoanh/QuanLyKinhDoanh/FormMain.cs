@@ -295,7 +295,7 @@ namespace QuanLyKinhDoanh
             {
                 ScaleNormalControls();
 
-                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHang());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcKhachHangIndex());
 
                 Init();
                 isMainMenuClickKhachHang = true;
