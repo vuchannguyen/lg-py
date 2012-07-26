@@ -84,13 +84,17 @@ namespace Library
         public const string KHACHHANG_ICON_PAY_DEBT = @"Resources\KhachHang\icon_pay_debt.png";
         public const string KHACHHANG_ICON_PAY_DEBT_MOUSEOVER = @"Resources\KhachHang\icon_pay_debt_mouseover.png";
         public const string KHACHHANG_ICON_PAY_DEBT_DISABLE = @"Resources\KhachHang\icon_pay_debt_disable.png";
+        public const string KHACHHANG_ICON_KHACHHANG_INDEX = @"Resources\KhachHang\icon_khachhang_index.png";
+        public const string KHACHHANG_ICON_KHACHHANG_INDEX_MOUSEOVER = @"Resources\KhachHang\icon_khachhang_index_mouseover.png";
+        public const string KHACHHANG_ICON_KHACHHANG_GROUP_INDEX = @"Resources\KhachHang\icon_khachhang_group_index.png";
+        public const string KHACHHANG_ICON_KHACHHANG_GROUP_INDEX_MOUSEOVER = @"Resources\KhachHang\icon_khachhang_group_index_mouseover.png";
 
         public const string SANPHAM_ICON_SANPHAM = @"Resources\SanPham\icon_sanpham.png";
         public const string SANPHAM_ICON_SANPHAM_MOUSEOVER = @"Resources\SanPham\icon_sanpham_mouseover.png";
         public const string SANPHAM_ICON_SANPHAM_INDEX = @"Resources\SanPham\icon_sanpham_index.png";
         public const string SANPHAM_ICON_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_sanpham_index_mouseover.png";
-        public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX = @"Resources\SanPham\icon_nhom_sanpham_index.png";
-        public const string SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER = @"Resources\SanPham\icon_nhom_sanpham_index_mouseover.png";
+        public const string SANPHAM_ICON_SANPHAM_GROUP_INDEX = @"Resources\SanPham\icon_sanpham_group_index.png";
+        public const string SANPHAM_ICON_SANPHAM_GROUP_INDEX_MOUSEOVER = @"Resources\SanPham\icon_sanpham_group_index_mouseover.png";
         public const string SANPHAM_ICON_XUATXU_INDEX = @"Resources\SanPham\icon_xuatxu_index.png";
         public const string SANPHAM_ICON_XUATXU_INDEX_MOUSEOVER = @"Resources\SanPham\icon_xuatxu_index_mouseover.png";
         public const string SANPHAM_DEFAULT_SP = @"Resources\SanPham\default_SP.png";

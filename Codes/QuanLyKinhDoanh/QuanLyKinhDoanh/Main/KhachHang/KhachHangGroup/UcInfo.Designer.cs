@@ -46,6 +46,9 @@
             this.tbMoTa = new System.Windows.Forms.TextBox();
             this.lbTen = new System.Windows.Forms.Label();
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.tbChietKhau = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.gbInfo.SuspendLayout();
@@ -100,6 +103,9 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.label3);
+            this.gbInfo.Controls.Add(this.tbChietKhau);
+            this.gbInfo.Controls.Add(this.label2);
             this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.panel12);
@@ -200,7 +206,7 @@
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(224, 23);
-            this.tbTen.TabIndex = 1;
+            this.tbTen.TabIndex = 2;
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
             // lbMa
@@ -220,7 +226,7 @@
             this.tbMoTa.Multiline = true;
             this.tbMoTa.Name = "tbMoTa";
             this.tbMoTa.Size = new System.Drawing.Size(419, 66);
-            this.tbMoTa.TabIndex = 2;
+            this.tbMoTa.TabIndex = 6;
             // 
             // lbTen
             // 
@@ -240,6 +246,37 @@
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(580, 290);
             this.pnInfo.TabIndex = 49;
+            // 
+            // tbChietKhau
+            // 
+            this.tbChietKhau.Location = new System.Drawing.Point(451, 65);
+            this.tbChietKhau.MaxLength = 2;
+            this.tbChietKhau.Name = "tbChietKhau";
+            this.tbChietKhau.Size = new System.Drawing.Size(40, 23);
+            this.tbChietKhau.TabIndex = 4;
+            this.tbChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbChietKhau.TextChanged += new System.EventHandler(this.tbChietKhau_TextChanged);
+            this.tbChietKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbChietKhau_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(365, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Chiết khấu:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(497, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 16);
+            this.label3.TabIndex = 98;
+            this.label3.Text = "%";
             // 
             // UcInfo
             // 
@@ -287,5 +324,8 @@
         private System.Windows.Forms.Panel pnInfo;
         private System.Windows.Forms.TextBox tbMa;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbChietKhau;
+        private System.Windows.Forms.Label label2;
     }
 }

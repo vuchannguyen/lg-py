@@ -20,6 +20,11 @@ namespace BUS
             return KhachHangDao.GetList(text, isBirthDay, sortColumn, sortOrder, skip, take);
         }
 
+        public static List<KhachHang> GetListByIdGroup(int idGroup)
+        {
+            return KhachHangDao.GetListByIdGroup(idGroup);
+        }
+
         public static KhachHang GetById(int id)
         {
             return KhachHangDao.GetById(id);

@@ -97,6 +97,11 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
+        public static List<KhachHang> GetListByIdGroup(int idGroup)
+        {
+            return dbContext.KhachHangs.Where(p => p.IdGroup == idGroup).ToList();
+        }
+
         public static KhachHang GetById(int id)
         {
             return dbContext.KhachHangs.Where(p => p.Id == id).FirstOrDefault<KhachHang>();

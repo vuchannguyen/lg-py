@@ -40,6 +40,7 @@ namespace QuanLyKinhDoanh.KhachHangGroup
 
             tbMa.Text = data.Ma;
             tbTen.Text = data.Ten;
+            tbChietKhau.Text = data.ChietKhau.ToString();
             tbMoTa.Text = data.MoTa;
         }
 
@@ -110,6 +111,7 @@ namespace QuanLyKinhDoanh.KhachHangGroup
 
             data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
+            data.ChietKhau = ConvertUtil.ConvertToInt(tbChietKhau.Text);
             data.MoTa = tbMoTa.Text;
 
             if (KhachHangGroupBus.Insert(data, FormMain.user))
@@ -133,22 +135,23 @@ namespace QuanLyKinhDoanh.KhachHangGroup
         {
             data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
+            data.ChietKhau = ConvertUtil.ConvertToInt(tbChietKhau.Text);
             data.MoTa = tbMoTa.Text;
 
             if (KhachHangGroupBus.Update(data, FormMain.user))
             {
-                List<DTO.SanPham> listSP = SanPhamBus.GetListByIdGroup(data.Id);
+                List<DTO.KhachHang> listKH = KhachHangBus.GetListByIdGroup(data.Id);
 
-                foreach (DTO.SanPham dataSP in listSP)
+                foreach (DTO.KhachHang dataKH in listKH)
                 {
                     int id = 0;
 
-                    string oldIdNumber = dataSP.MaSanPham.Substring(dataSP.MaSanPham.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
+                    string oldIdNumber = dataKH.MaKhachHang.Substring(dataKH.MaKhachHang.Length - Constant.DEFAULT_FORMAT_ID_PRODUCT.Length);
                     id = ConvertUtil.ConvertToInt(oldIdNumber);
 
-                    dataSP.MaSanPham = data.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
+                    dataKH.MaKhachHang = data.Ma + id.ToString(Constant.DEFAULT_FORMAT_ID_PRODUCT);
 
-                    SanPhamBus.Update(dataSP, FormMain.user);
+                    KhachHangBus.Update(dataKH, FormMain.user);
                 }
 
                 this.Dispose();
@@ -230,5 +233,18 @@ namespace QuanLyKinhDoanh.KhachHangGroup
             ValidateInput();
         }
         #endregion
+
+
+
+        private void tbChietKhau_TextChanged(object sender, EventArgs e)
+        {
+            tbChietKhau.Text = ConvertUtil.ConvertToInt(tbChietKhau.Text) == 0 ? string.Empty :
+                ConvertUtil.ConvertToInt(tbChietKhau.Text).ToString();
+        }
+
+        private void tbChietKhau_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
+        }
     }
 }

@@ -136,6 +136,7 @@ namespace QuanLyKinhDoanh
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.Ma);
                 lvi.SubItems.Add(data.Ten);
+                lvi.SubItems.Add(data.ChietKhau == 0 ? string.Empty : data.ChietKhau.ToString() + Constant.SYMBOL_DISCOUNT);
                 lvi.SubItems.Add(data.MoTa);
 
                 lvThongTin.Items.Add(lvi);

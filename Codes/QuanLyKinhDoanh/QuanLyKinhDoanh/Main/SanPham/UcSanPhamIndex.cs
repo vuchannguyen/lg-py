@@ -24,7 +24,7 @@ namespace QuanLyKinhDoanh
             try
             {
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_INDEX);
-                pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX);
+                pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_GROUP_INDEX);
                 pbXuatXu.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_XUATXU_INDEX);
                 pbPrint.Image = Image.FromFile(ConstantResource.ICON_PRINT);
             }
@@ -90,13 +90,13 @@ namespace QuanLyKinhDoanh
 
         private void pbNhomSanPham_MouseEnter(object sender, EventArgs e)
         {
-            pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX_MOUSEOVER);
+            pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_GROUP_INDEX_MOUSEOVER);
             lbNhomSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbNhomSanPham_MouseLeave(object sender, EventArgs e)
         {
-            pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_NHOM_SANPHAM_INDEX);
+            pbNhomSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_GROUP_INDEX);
             lbNhomSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
 
