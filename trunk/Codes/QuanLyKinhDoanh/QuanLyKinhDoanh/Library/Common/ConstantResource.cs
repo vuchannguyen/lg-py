@@ -146,5 +146,10 @@ namespace Library
         public const string THUCHI_ICON_PAY_DEBT = @"Resources\ThuChi\icon_pay_debt.png";
         public const string THUCHI_ICON_PAY_DEBT_MOUSEOVER = @"Resources\ThuChi\icon_pay_debt_mouseover.png";
         public const string THUCHI_ICON_PAY_DEBT_DISABLE = @"Resources\ThuChi\icon_pay_debt_disable.png";
+
+        public const string TOOL_ICON_TOOL = @"Resources\Tool\icon_tool.png";
+        public const string TOOL_ICON_TOOL_MOUSEOVER = @"Resources\Tool\icon_tool_mouseover.png";
+        public const string TOOL_ICON_DB_INDEX = @"Resources\Tool\icon_db_index.png";
+        public const string TOOL_ICON_DB_INDEX_MOUSEOVER = @"Resources\Tool\icon_db_index_mouseover.png";
     }
 }

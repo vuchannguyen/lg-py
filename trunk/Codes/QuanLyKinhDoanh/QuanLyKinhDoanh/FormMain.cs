@@ -56,6 +56,7 @@ namespace QuanLyKinhDoanh
                 pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
                 pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
+                pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL);
 
                 pnBottom.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
 
@@ -335,7 +336,7 @@ namespace QuanLyKinhDoanh
             {
                 ScaleNormalControls();
 
-                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcToolIndex());
 
                 Init();
                 isMainMenuClickSP = true;
@@ -486,6 +487,46 @@ namespace QuanLyKinhDoanh
             {
                 pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN_MOUSEOVER);
                 lbThanhToan.ForeColor = Constant.COLOR_IN_USE;
+            }
+        }
+
+        private void pbTool_Click(object sender, EventArgs e)
+        {
+            if (WarningEditingDialog())
+            {
+                ScaleNormalControls();
+
+                Init();
+                isMainMenuClickThanhToan = true;
+
+                pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL_MOUSEOVER);
+                lbTool.ForeColor = Constant.COLOR_IN_USE;
+
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcToolIndex());
+
+                ScaleMaximizedControls();
+            }
+        }
+
+        private void pbTool_MouseEnter(object sender, EventArgs e)
+        {
+            pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL_MOUSEOVER);
+            lbTool.ForeColor = Constant.COLOR_MOUSEOVER;
+
+            ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_TOOL);
+        }
+
+        private void pbTool_MouseLeave(object sender, EventArgs e)
+        {
+            if (!isMainMenuClickUser)
+            {
+                pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL);
+                lbTool.ForeColor = Constant.COLOR_NORMAL;
+            }
+            else
+            {
+                pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL_MOUSEOVER);
+                lbTool.ForeColor = Constant.COLOR_IN_USE;
             }
         }
         #endregion

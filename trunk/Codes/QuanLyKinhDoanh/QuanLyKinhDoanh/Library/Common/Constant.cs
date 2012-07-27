@@ -89,6 +89,7 @@ namespace Library
         public const string TOOLTIP_KHOHANG = "Quản lý Kho hàng";
         public const string TOOLTIP_THUCHI = "Quản lý Thu - Chi";
         public const string TOOLTIP_THANHTOAN = "Thanh toán hóa đơn bán hàng";
+        public const string TOOLTIP_TOOL = "Công cụ hỗ trợ khác";
 
         /// <summary>
         /// Ho ten, Gioi tinh, Nhom, Ten dang nhap, CMND, Dien thoai, Email

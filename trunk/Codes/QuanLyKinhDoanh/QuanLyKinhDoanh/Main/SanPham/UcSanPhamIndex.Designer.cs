@@ -88,7 +88,7 @@
             this.lbXuatXu.AutoSize = true;
             this.lbXuatXu.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbXuatXu.ForeColor = System.Drawing.Color.Gray;
-            this.lbXuatXu.Location = new System.Drawing.Point(221, 120);
+            this.lbXuatXu.Location = new System.Drawing.Point(223, 120);
             this.lbXuatXu.Name = "lbXuatXu";
             this.lbXuatXu.Size = new System.Drawing.Size(69, 16);
             this.lbXuatXu.TabIndex = 8;
