@@ -302,12 +302,6 @@
     <Compile Include="Main\SanPham\SanPham\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\SanPham\SanPham\UcSanPham.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\SanPham\SanPham\UcSanPham.Designer.cs">
-      <DependentUpon>UcSanPham.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,6 +355,18 @@
     </Compile>
     <Compile Include="Main\SanPham\XuatXu\UcXuatXu.Designer.cs">
       <DependentUpon>UcXuatXu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Tool\DB\UcDB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Tool\DB\UcDB.Designer.cs">
+      <DependentUpon>UcDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Tool\UcToolIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Tool\UcToolIndex.Designer.cs">
+      <DependentUpon>UcToolIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\User\UcDetail.cs">
       <SubType>UserControl</SubType>
@@ -490,9 +496,6 @@
     <EmbeddedResource Include="Main\SanPham\SanPham\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
-      <DependentUpon>UcSanPham.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.resx">
       <DependentUpon>UcSanPhamGroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -520,6 +523,12 @@
     <EmbeddedResource Include="Main\SanPham\XuatXu\UcXuatXu.resx">
       <DependentUpon>UcXuatXu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\Tool\DB\UcDB.resx">
+      <DependentUpon>UcDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Tool\UcToolIndex.resx">
+      <DependentUpon>UcToolIndex.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\User\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -538,6 +547,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

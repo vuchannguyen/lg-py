@@ -86,6 +86,9 @@ namespace QuanLyKinhDoanh
         private void FormExportExcel_Load(object sender, EventArgs e)
         {
             LoadResource();
+
+            lvEx.MouseEnter += new EventHandler(lvEx_MouseEnter);
+            lvEx.MouseLeave += new EventHandler(lvEx_MouseLeave);
         }
 
         private void pbHuy_Click(object sender, EventArgs e)
@@ -162,6 +165,16 @@ namespace QuanLyKinhDoanh
             {
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
             }
+        }
+
+        private void lvEx_MouseEnter(object sender, EventArgs e)
+        {
+            lbTip.Visible = true;
+        }
+
+        private void lvEx_MouseLeave(object sender, EventArgs e)
+        {
+            lbTip.Visible = false;
         }
     }
 }

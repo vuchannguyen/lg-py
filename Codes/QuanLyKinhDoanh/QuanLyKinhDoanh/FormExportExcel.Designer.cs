@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbSelect = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.lbTip = new System.Windows.Forms.Label();
             this.pnSelect.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
@@ -170,11 +171,23 @@
             this.pbTitle.TabIndex = 1;
             this.pbTitle.TabStop = false;
             // 
+            // lbTip
+            // 
+            this.lbTip.AutoSize = true;
+            this.lbTip.ForeColor = System.Drawing.Color.Red;
+            this.lbTip.Location = new System.Drawing.Point(64, 75);
+            this.lbTip.Name = "lbTip";
+            this.lbTip.Size = new System.Drawing.Size(272, 16);
+            this.lbTip.TabIndex = 45;
+            this.lbTip.Text = "Click chuột phải để hiển thị thêm thông tin";
+            this.lbTip.Visible = false;
+            // 
             // FormExportExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 594);
+            this.Controls.Add(this.lbTip);
             this.Controls.Add(this.pnInfo);
             this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.panel4);
@@ -198,6 +211,7 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -215,5 +229,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbSelect;
         private System.Windows.Forms.PictureBox pbTitle;
+        private System.Windows.Forms.Label lbTip;
     }
 }
