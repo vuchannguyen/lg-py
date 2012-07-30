@@ -49,7 +49,7 @@
             this.lbSanPham.AutoSize = true;
             this.lbSanPham.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSanPham.ForeColor = System.Drawing.Color.Gray;
-            this.lbSanPham.Location = new System.Drawing.Point(336, 120);
+            this.lbSanPham.Location = new System.Drawing.Point(325, 120);
             this.lbSanPham.Name = "lbSanPham";
             this.lbSanPham.Size = new System.Drawing.Size(65, 16);
             this.lbSanPham.TabIndex = 4;
@@ -58,7 +58,7 @@
             // pbDB
             // 
             this.pbDB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbDB.Location = new System.Drawing.Point(317, 10);
+            this.pbDB.Location = new System.Drawing.Point(306, 10);
             this.pbDB.Name = "pbDB";
             this.pbDB.Size = new System.Drawing.Size(100, 100);
             this.pbDB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -10,6 +10,8 @@ using Library;
 using QuanLyKinhDoanh.SanPham;
 using DTO;
 using BUS;
+using Microsoft.SqlServer.Management.Smo;
+using Microsoft.SqlServer.Management.Common;
 
 namespace QuanLyKinhDoanh
 {
@@ -37,10 +39,8 @@ namespace QuanLyKinhDoanh
         {
             try
             {
-                pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
-                pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
-                pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-                pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL);
+                pbBackup.Image = Image.FromFile(ConstantResource.TOOL_ICON_DB_BACKUP);
+                pbRestore.Image = Image.FromFile(ConstantResource.TOOL_ICON_DB_RESTORE);
             }
             catch
             {
@@ -64,7 +64,153 @@ namespace QuanLyKinhDoanh
 
 
         #region Function
-        
+        private void BackupDB(string fileName)
+        {
+            // create instance of SMO Server object
+            Server myServer = new Server("(local)");
+
+            Backup sqlBackup = new Backup();
+
+            sqlBackup.Action = BackupActionType.Database;
+
+            sqlBackup.BackupSetDescription = "ArchiveDataBase:" + DateTime.Now.ToShortDateString();
+
+            sqlBackup.BackupSetName = "Archive";
+
+            sqlBackup.Database = "QuanLyKinhDoanh";
+
+            BackupDeviceItem deviceItem = new BackupDeviceItem(fileName, DeviceType.File);
+
+            ServerConnection connection = new ServerConnection(@".\SQLEXPRESS");
+
+            Server sqlServer = new Server(connection);
+
+            Database db = sqlServer.Databases["QuanLyKinhDoanh"];
+
+            sqlBackup.Initialize = true;
+
+            sqlBackup.Checksum = true;
+
+            sqlBackup.ContinueAfterError = true;
+
+            sqlBackup.Devices.Add(deviceItem);
+
+            sqlBackup.Incremental = false;
+
+            //sqlBackup.ExpirationDate = DateTime.Now.AddDays(3);
+
+            sqlBackup.LogTruncation = BackupTruncateLogType.Truncate;
+
+            sqlBackup.FormatMedia = false;
+
+            sqlBackup.SqlBackup(sqlServer);
+        }
+
+        private void Restore()
+        {
+            try
+            {
+                // Create a new database restore operation
+                Restore rstDatabase = new Restore();
+                // Set the restore type to a database restore
+                rstDatabase.Action = RestoreActionType.Database;
+                // Set the database that we want to perform the restore on
+                rstDatabase.Database = "QuanLyKinhDoanh";
+
+                // Set the backup device from which we want to restore, to a file
+                BackupDeviceItem bkpDevice = new BackupDeviceItem(@"C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\Backup\test.bak", DeviceType.File);
+                // Add the backup device to the restore type
+                rstDatabase.Devices.Add(bkpDevice);
+                // If the database already exists, replace it
+                rstDatabase.ReplaceDatabase = true;
+
+                Server myServer = new Server("(local)");
+
+                // Perform the restore
+                rstDatabase.SqlRestore(myServer);
+            }
+            catch (Exception ex)
+            { 
+                //
+            }
+        }
+
+        private void RS()
+        {
+            Restore sqlRestore = new Restore();
+
+            BackupDeviceItem deviceItem = new BackupDeviceItem(@"C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\Backup\test.bak", DeviceType.File);
+            sqlRestore.Devices.Add(deviceItem);
+            sqlRestore.Database = "QuanLyKinhDoanh";
+
+            ServerConnection connection = new ServerConnection(@".\SQLEXPRESS");
+
+            Server sqlServer = new Server(connection);
+
+            Database db = sqlServer.Databases["QuanLyKinhDoanh"];
+            sqlRestore.Action = RestoreActionType.Database;
+            String dataFileLocation = @"C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\QuanLyKinhDoanh.mdf";
+            String logFileLocation = @"C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\DATA\QuanLyKinhDoanh_Log.ldf";
+            db = sqlServer.Databases["QuanLyKinhDoanh"];
+            RelocateFile rf = new RelocateFile("QuanLyKinhDoanh", dataFileLocation);
+
+            //sqlRestore.RelocateFiles.Add(new RelocateFile("QuanLyKinhDoanh", dataFileLocation));
+            //sqlRestore.RelocateFiles.Add(new RelocateFile("QuanLyKinhDoanh" + "_log", logFileLocation));
+
+            System.Data.DataTable logicalRestoreFiles = sqlRestore.ReadFileList(sqlServer);
+            sqlRestore.RelocateFiles.Add(new RelocateFile(logicalRestoreFiles.Rows[0][0].ToString(), dataFileLocation));
+            sqlRestore.RelocateFiles.Add(new RelocateFile(logicalRestoreFiles.Rows[1][0].ToString(), logFileLocation));
+
+            sqlRestore.ReplaceDatabase = true;
+            //sqlRestore.Complete += new ServerMessageEventHandler(sqlRestore_Complete);
+            sqlRestore.PercentCompleteNotification = 10;
+            //sqlRestore.PercentComplete +=
+               //new PercentCompleteEventHandler(sqlRestore_PercentComplete);
+
+            //sqlServer.ConnectionContext.Disconnect();
+
+            sqlRestore.SqlRestore(sqlServer);
+            db = sqlServer.Databases["QuanLyKinhDoanh"];
+            db.SetOnline();
+            sqlServer.Refresh();
+        }
         #endregion
+
+
+
+        private void pbBackup_Click(object sender, EventArgs e)
+        {
+            BackupDB("test");
+        }
+
+        private void pbBackup_MouseEnter(object sender, EventArgs e)
+        {
+            pbBackup.Image = Image.FromFile(ConstantResource.TOOL_ICON_DB_BACKUP_MOUSEOVER);
+            lbBackup.ForeColor = Constant.COLOR_MOUSEOVER;
+        }
+
+        private void pbBackup_MouseLeave(object sender, EventArgs e)
+        {
+            pbBackup.Image = Image.FromFile(ConstantResource.TOOL_ICON_DB_BACKUP);
+            lbBackup.ForeColor = Constant.COLOR_NORMAL;
+        }
+
+        private void pbRestore_Click(object sender, EventArgs e)
+        {
+            //Restore();
+            RS();
+        }
+
+        private void pbRestore_MouseEnter(object sender, EventArgs e)
+        {
+            pbRestore.Image = Image.FromFile(ConstantResource.TOOL_ICON_DB_RESTORE_MOUSEOVER);
+            lbRestore.ForeColor = Constant.COLOR_MOUSEOVER;
+        }
+
+        private void pbRestore_MouseLeave(object sender, EventArgs e)
+        {
+            pbRestore.Image = Image.FromFile(ConstantResource.TOOL_ICON_DB_RESTORE);
+            lbRestore.ForeColor = Constant.COLOR_NORMAL;
+        }
     }
 }

@@ -44,9 +44,21 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Smo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.SmoExtended.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -308,6 +320,12 @@
     <Compile Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.Designer.cs">
       <DependentUpon>UcSanPhamGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcSanPham.Designer.cs">
+      <DependentUpon>UcSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\SanPham\UcSanPhamIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -499,6 +517,9 @@
     <EmbeddedResource Include="Main\SanPham\SanPhamGroup\UcSanPhamGroup.resx">
       <DependentUpon>UcSanPhamGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
+      <DependentUpon>UcSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,7 +568,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

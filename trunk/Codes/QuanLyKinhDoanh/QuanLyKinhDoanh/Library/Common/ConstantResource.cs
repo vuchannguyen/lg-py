@@ -151,5 +151,11 @@ namespace Library
         public const string TOOL_ICON_TOOL_MOUSEOVER = @"Resources\Tool\icon_tool_mouseover.png";
         public const string TOOL_ICON_DB_INDEX = @"Resources\Tool\icon_db_index.png";
         public const string TOOL_ICON_DB_INDEX_MOUSEOVER = @"Resources\Tool\icon_db_index_mouseover.png";
+        public const string TOOL_ICON_DB_BACKUP = @"Resources\Tool\icon_db_backup.png";
+        public const string TOOL_ICON_DB_BACKUP_MOUSEOVER = @"Resources\Tool\icon_db_backup_mouseover.png";
+        public const string TOOL_ICON_DB_BACKUP_DISABLE = @"Resources\Tool\icon_db_backup_disable.png";
+        public const string TOOL_ICON_DB_RESTORE = @"Resources\Tool\icon_db_restore.png";
+        public const string TOOL_ICON_DB_RESTORE_MOUSEOVER = @"Resources\Tool\icon_db_restore_mouseover.png";
+        public const string TOOL_ICON_DB_RESTORE_DISABLE = @"Resources\Tool\icon_db_restore_disable.png";
     }
 }
