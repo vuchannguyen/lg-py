@@ -64,46 +64,43 @@ namespace QuanLyKinhDoanh
 
 
         #region Function
-        private void BackupDB(string fileName)
+        private void BackupDB(string databaseName, string serverName, string path)
         {
-            // create instance of SMO Server object
-            Server myServer = new Server("(local)");
+            try
+            {
+                Backup sqlBackup = new Backup();
 
-            Backup sqlBackup = new Backup();
+                sqlBackup.Action = BackupActionType.Database;
+                sqlBackup.BackupSetDescription = "ArchiveDataBase:" + DateTime.Now.ToShortDateString();
+                sqlBackup.BackupSetName = "Archive";
 
-            sqlBackup.Action = BackupActionType.Database;
+                sqlBackup.Database = databaseName;
 
-            sqlBackup.BackupSetDescription = "ArchiveDataBase:" + DateTime.Now.ToShortDateString();
+                BackupDeviceItem deviceItem = new BackupDeviceItem(path, DeviceType.File);
+                ServerConnection connection = new ServerConnection(serverName);
+                Server sqlServer = new Server(connection);
 
-            sqlBackup.BackupSetName = "Archive";
+                Database db = sqlServer.Databases[databaseName];
 
-            sqlBackup.Database = "QuanLyKinhDoanh";
+                sqlBackup.Initialize = true;
+                sqlBackup.Checksum = true;
+                sqlBackup.ContinueAfterError = true;
 
-            BackupDeviceItem deviceItem = new BackupDeviceItem(fileName, DeviceType.File);
+                sqlBackup.Devices.Add(deviceItem);
+                sqlBackup.Incremental = false;
 
-            ServerConnection connection = new ServerConnection(@".\SQLEXPRESS");
+                //sqlBackup.ExpirationDate = DateTime.Now.AddDays(3);
+                sqlBackup.LogTruncation = BackupTruncateLogType.Truncate;
 
-            Server sqlServer = new Server(connection);
+                sqlBackup.FormatMedia = false;
 
-            Database db = sqlServer.Databases["QuanLyKinhDoanh"];
-
-            sqlBackup.Initialize = true;
-
-            sqlBackup.Checksum = true;
-
-            sqlBackup.ContinueAfterError = true;
-
-            sqlBackup.Devices.Add(deviceItem);
-
-            sqlBackup.Incremental = false;
-
-            //sqlBackup.ExpirationDate = DateTime.Now.AddDays(3);
-
-            sqlBackup.LogTruncation = BackupTruncateLogType.Truncate;
-
-            sqlBackup.FormatMedia = false;
-
-            sqlBackup.SqlBackup(sqlServer);
+                sqlBackup.SqlBackup(sqlServer);
+            }
+            catch
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_BACKUP + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_ERROR_BACKUP_PATH,
+                    Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Restore()
@@ -180,7 +177,12 @@ namespace QuanLyKinhDoanh
 
         private void pbBackup_Click(object sender, EventArgs e)
         {
-            BackupDB("test");
+            string path = File_Function.SaveDialog("QLKD", "Backup SQL", "bak");
+
+            if (path != null)
+            {
+                BackupDB(Constant.DEFAULT_DB_NAME, Constant.DEFAULT_SERVER, path);
+            }
         }
 
         private void pbBackup_MouseEnter(object sender, EventArgs e)

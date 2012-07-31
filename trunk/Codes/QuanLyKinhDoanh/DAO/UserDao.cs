@@ -129,16 +129,25 @@ namespace DAO
 
         public static bool Delete(User data, User user)
         {
-            if (data != null)
+            try
             {
-                data.UpdateBy = user.UserName;
-                data.UpdateDate = DateTime.Now;
+                if (data != null)
+                {
+                    data.UpdateBy = user.UserName;
+                    data.UpdateDate = DateTime.Now;
 
-                data.DeleteFlag = true;
-                dbContext.SubmitChanges();
+                    data.DeleteFlag = true;
+                    dbContext.SubmitChanges();
 
-                return true;
+                    return true;
+                }
             }
+            catch
+            { 
+                
+            }
+
+            CreateSQlConnection();
 
             return false;
         }
@@ -146,6 +155,8 @@ namespace DAO
         public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
+            bool isDone = true;
+
             try
             {
                 if (dbContext.Connection.State != System.Data.ConnectionState.Open)
@@ -153,8 +164,16 @@ namespace DAO
                     dbContext.Connection.Open();
                 }
 
-                trans = dbContext.Connection.BeginTransaction();
-                dbContext.Transaction = trans;
+                if (dbContext.Transaction == null || dbContext.Transaction.Connection == null)
+                {
+                    trans = dbContext.Connection.BeginTransaction();
+                    dbContext.Transaction = trans;
+                }
+                else
+                {
+                    trans = dbContext.Transaction;
+                    dbContext.Transaction = trans;
+                }
 
                 if (!string.IsNullOrEmpty(ids))
                 {
@@ -169,30 +188,46 @@ namespace DAO
 
                             if (!Delete(data, user))
                             {
-                                return false;
+                                isDone = false;
+
+                                break;
                             }
                         }
                         else
                         {
-                            return false;
+                            isDone = false;
+
+                            break;
                         }
                     }
-
-                    trans.Commit();
-                    dbContext.Connection.Close();
-
-                    return true;
                 }
-
-                dbContext.Connection.Close();
-
-                return false;
+                else
+                {
+                    isDone = false;
+                }
             }
             catch
             {
-                if (trans != null) trans.Rollback();
-                return false;
+                isDone = false;
             }
+
+            if (trans != null)
+            {
+                if (isDone)
+                {
+                    trans.Commit();
+                }
+                else
+                {
+                    trans.Rollback();
+                }
+
+                trans.Dispose();
+            }
+
+            dbContext.Connection.Close();
+
+            return isDone;
         }
 
         public static bool Update(User data, User user)

@@ -203,39 +203,48 @@ namespace DAO
 
         public static bool Delete(SanPham data, User user)
         {
-            if (data != null)
+            try
             {
-                List<HoaDonDetail> listHoaDonDetail = HoaDonDetailDao.GetList(string.Empty, CommonDao.ID_TYPE_MUA, string.Empty, DateTime.Now,
-                    string.Empty, string.Empty, 0, 0);
-
-                if (listHoaDonDetail != null)
+                if (data != null)
                 {
-                    listHoaDonDetail = listHoaDonDetail.Where(p => p.HoaDon.IdType == CommonDao.ID_TYPE_MUA &&
-                        p.IdSanPham == data.Id && p.SanPham.DeleteFlag == false).ToList();
-                    int total = 0;
+                    List<HoaDonDetail> listHoaDonDetail = HoaDonDetailDao.GetList(string.Empty, CommonDao.ID_TYPE_MUA, string.Empty, DateTime.Now,
+                        string.Empty, string.Empty, 0, 0);
 
-                    foreach (HoaDonDetail detail in listHoaDonDetail)
+                    if (listHoaDonDetail != null)
                     {
-                        total += detail.SoLuong;
-                    }
+                        listHoaDonDetail = listHoaDonDetail.Where(p => p.HoaDon.IdType == CommonDao.ID_TYPE_MUA &&
+                            p.IdSanPham == data.Id && p.SanPham.DeleteFlag == false).ToList();
+                        int total = 0;
 
-                    if (total == data.SoLuong)
-                    {
-                        SanPham objDb = GetById(data.Id);
-
-                        if (objDb != null)
+                        foreach (HoaDonDetail detail in listHoaDonDetail)
                         {
-                            data.UpdateBy = user.UserName;
-                            data.UpdateDate = DateTime.Now;
+                            total += detail.SoLuong;
+                        }
 
-                            objDb.DeleteFlag = true;
-                            dbContext.SubmitChanges();
+                        if (total == data.SoLuong)
+                        {
+                            SanPham objDb = GetById(data.Id);
 
-                            return true;
+                            if (objDb != null)
+                            {
+                                data.UpdateBy = user.UserName;
+                                data.UpdateDate = DateTime.Now;
+
+                                objDb.DeleteFlag = true;
+                                dbContext.SubmitChanges();
+
+                                return true;
+                            }
                         }
                     }
                 }
             }
+            catch
+            { 
+                
+            }
+
+            CreateSQlConnection();
 
             return false;
         }
@@ -243,6 +252,8 @@ namespace DAO
         public static bool DeleteList(string ids, User user)
         {
             DbTransaction trans = null;
+            bool isDone = true;
+
             try
             {
                 if (dbContext.Connection.State != System.Data.ConnectionState.Open)
@@ -250,8 +261,16 @@ namespace DAO
                     dbContext.Connection.Open();
                 }
 
-                trans = dbContext.Connection.BeginTransaction();
-                dbContext.Transaction = trans;
+                if (dbContext.Transaction == null || dbContext.Transaction.Connection == null)
+                {
+                    trans = dbContext.Connection.BeginTransaction();
+                    dbContext.Transaction = trans;
+                }
+                else
+                {
+                    trans = dbContext.Transaction;
+                    dbContext.Transaction = trans;
+                }
 
                 if (!string.IsNullOrEmpty(ids))
                 {
@@ -266,28 +285,46 @@ namespace DAO
 
                             if (!Delete(data, user))
                             {
-                                return false;
+                                isDone = false;
+
+                                break;
                             }
                         }
                         else
                         {
-                            return false;
+                            isDone = false;
+
+                            break;
                         }
                     }
-
-                    trans.Commit();
-                    dbContext.Connection.Close();
-
-                    return true;
                 }
-
-                return false;
+                else
+                {
+                    isDone = false;
+                }
             }
             catch
             {
-                if (trans != null) trans.Rollback();
-                return false;
+                isDone = false;
             }
+
+            if (trans != null)
+            {
+                if (isDone)
+                {
+                    trans.Commit();
+                }
+                else
+                {
+                    trans.Rollback();
+                }
+
+                trans.Dispose();
+            }
+
+            dbContext.Connection.Close();
+
+            return isDone;
         }
 
         public static bool Update(SanPham data, User user)
