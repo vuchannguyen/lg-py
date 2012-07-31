@@ -336,7 +336,7 @@ namespace QuanLyKinhDoanh
             {
                 ScaleNormalControls();
 
-                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcToolIndex());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcSanPhamIndex());
 
                 Init();
                 isMainMenuClickSP = true;

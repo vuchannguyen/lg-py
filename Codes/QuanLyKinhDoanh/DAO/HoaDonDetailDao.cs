@@ -161,17 +161,26 @@ namespace DAO
 
         public static bool Delete(HoaDonDetail data)
         {
-            if (data != null)
+            try
             {
-                HoaDonDetail objDb = GetById(data.Id);
-
-                if (objDb != null)
+                if (data != null)
                 {
-                    dbContext.HoaDonDetails.DeleteOnSubmit(objDb);
+                    HoaDonDetail objDb = GetById(data.Id);
 
-                    return true;
+                    if (objDb != null)
+                    {
+                        dbContext.HoaDonDetails.DeleteOnSubmit(objDb);
+
+                        return true;
+                    }
                 }
             }
+            catch
+            { 
+                
+            }
+
+            CreateSQlConnection();
 
             return false;
         }
@@ -179,6 +188,8 @@ namespace DAO
         public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
+            bool isDone = true;
+
             try
             {
                 if (dbContext.Connection.State != System.Data.ConnectionState.Open)
@@ -186,8 +197,16 @@ namespace DAO
                     dbContext.Connection.Open();
                 }
 
-                trans = dbContext.Connection.BeginTransaction();
-                dbContext.Transaction = trans;
+                if (dbContext.Transaction == null || dbContext.Transaction.Connection == null)
+                {
+                    trans = dbContext.Connection.BeginTransaction();
+                    dbContext.Transaction = trans;
+                }
+                else
+                {
+                    trans = dbContext.Transaction;
+                    dbContext.Transaction = trans;
+                }
 
                 if (!string.IsNullOrEmpty(ids))
                 {
@@ -202,32 +221,46 @@ namespace DAO
 
                             if (!Delete(data))
                             {
-                                CreateSQlConnection();
+                                isDone = false;
 
-                                if (trans != null) trans.Rollback();
-
-                                return false;
+                                break;
                             }
                         }
                         else
                         {
-                            return false;
+                            isDone = false;
+
+                            break;
                         }
                     }
-
-                    trans.Commit();
-                    dbContext.Connection.Close();
-
-                    return true;
                 }
-
-                return false;
+                else
+                {
+                    isDone = false;
+                }
             }
             catch
             {
-                if (trans != null) trans.Rollback();
-                return false;
+                isDone = false;
             }
+
+            if (trans != null)
+            {
+                if (isDone)
+                {
+                    trans.Commit();
+                }
+                else
+                {
+                    trans.Rollback();
+                }
+
+                trans.Dispose();
+            }
+
+            dbContext.Connection.Close();
+
+            return isDone;
         }
 
         public static bool Update(HoaDonDetail data)

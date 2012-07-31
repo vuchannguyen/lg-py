@@ -42,6 +42,9 @@ namespace Library
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
         public static Size DEFAULT_SIZE_LISTVIEWEX_EXPORT = new Size(770, 485);
 
+        public const string DEFAULT_DB_NAME = "QuanLyKinhDoanh";
+        public const string DEFAULT_SERVER = @".\SQLEXPRESS";
+
         public const string DEFAULT_TITLE_ADD = "THÊM";
         public const string DEFAULT_TITLE_EDIT = "SỬA";
 
@@ -249,6 +252,10 @@ namespace Library
         public const string MESSAGE_ERROR_OPEN_AVATAR = "Không thể mở hình!";
         public const string MESSAGE_ERROR_TOO_SMALL_AVATAR = "Kích thước ảnh quá nhỏ!";
         public const string MESSAGE_ERROR_SAVE_AVATAR = "Không lưu được hình! Vui lòng thử lại.";
+
+        public const string MESSAGE_ERROR_BACKUP = "Không thể lưu dữ liệu!";
+        public const string MESSAGE_ERROR_BACKUP_PATH = "Vui lòng lưu vào thư mục khác.";
+        public const string MESSAGE_ERROR_RESTORE = "Không thể phục hồi dữ liệu!";
 
         public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
         public const string SEARCH_KHACHHANG_TIP = "Mã KH - Họ tên - Điện thoại - Email";

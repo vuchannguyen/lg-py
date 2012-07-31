@@ -581,9 +581,6 @@
   <ItemGroup>
     <Content Include="iconCD.ico" />
     <Content Include="iconND.ico" />
-    <Content Include="iconND2.ico" />
-    <Content Include="iconND3.ico" />
-    <Content Include="iconND4.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BUS\BUS.csproj">
