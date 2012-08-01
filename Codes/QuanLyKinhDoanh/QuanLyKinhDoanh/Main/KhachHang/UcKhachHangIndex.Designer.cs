@@ -31,19 +31,19 @@
             this.pnSelect = new System.Windows.Forms.Panel();
             this.lbNhomSanPham = new System.Windows.Forms.Label();
             this.lbSanPham = new System.Windows.Forms.Label();
-            this.pbSanPham = new System.Windows.Forms.PictureBox();
-            this.pbNhomSanPham = new System.Windows.Forms.PictureBox();
+            this.pbKhachHang = new System.Windows.Forms.PictureBox();
+            this.pbKhachHangGroup = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachHangGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
             // 
             this.pnSelect.Controls.Add(this.lbNhomSanPham);
             this.pnSelect.Controls.Add(this.lbSanPham);
-            this.pnSelect.Controls.Add(this.pbSanPham);
-            this.pnSelect.Controls.Add(this.pbNhomSanPham);
+            this.pnSelect.Controls.Add(this.pbKhachHang);
+            this.pnSelect.Controls.Add(this.pbKhachHangGroup);
             this.pnSelect.Location = new System.Drawing.Point(230, 228);
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(520, 140);
@@ -71,31 +71,31 @@
             this.lbSanPham.TabIndex = 4;
             this.lbSanPham.Text = "KHÁCH HÀNG";
             // 
-            // pbSanPham
+            // pbKhachHang
             // 
-            this.pbSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSanPham.Location = new System.Drawing.Point(30, 10);
-            this.pbSanPham.Name = "pbSanPham";
-            this.pbSanPham.Size = new System.Drawing.Size(100, 100);
-            this.pbSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSanPham.TabIndex = 0;
-            this.pbSanPham.TabStop = false;
-            this.pbSanPham.Click += new System.EventHandler(this.pbSanPham_Click);
-            this.pbSanPham.MouseEnter += new System.EventHandler(this.pbSanPham_MouseEnter);
-            this.pbSanPham.MouseLeave += new System.EventHandler(this.pbSanPham_MouseLeave);
+            this.pbKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbKhachHang.Location = new System.Drawing.Point(30, 10);
+            this.pbKhachHang.Name = "pbKhachHang";
+            this.pbKhachHang.Size = new System.Drawing.Size(100, 100);
+            this.pbKhachHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbKhachHang.TabIndex = 0;
+            this.pbKhachHang.TabStop = false;
+            this.pbKhachHang.Click += new System.EventHandler(this.pbKhachHang_Click);
+            this.pbKhachHang.MouseEnter += new System.EventHandler(this.pbKhachHang_MouseEnter);
+            this.pbKhachHang.MouseLeave += new System.EventHandler(this.pbKhachHang_MouseLeave);
             // 
-            // pbNhomSanPham
+            // pbKhachHangGroup
             // 
-            this.pbNhomSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNhomSanPham.Location = new System.Drawing.Point(390, 10);
-            this.pbNhomSanPham.Name = "pbNhomSanPham";
-            this.pbNhomSanPham.Size = new System.Drawing.Size(100, 100);
-            this.pbNhomSanPham.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNhomSanPham.TabIndex = 2;
-            this.pbNhomSanPham.TabStop = false;
-            this.pbNhomSanPham.Click += new System.EventHandler(this.pbNhomSanPham_Click);
-            this.pbNhomSanPham.MouseEnter += new System.EventHandler(this.pbNhomSanPham_MouseEnter);
-            this.pbNhomSanPham.MouseLeave += new System.EventHandler(this.pbNhomSanPham_MouseLeave);
+            this.pbKhachHangGroup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbKhachHangGroup.Location = new System.Drawing.Point(390, 10);
+            this.pbKhachHangGroup.Name = "pbKhachHangGroup";
+            this.pbKhachHangGroup.Size = new System.Drawing.Size(100, 100);
+            this.pbKhachHangGroup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbKhachHangGroup.TabIndex = 2;
+            this.pbKhachHangGroup.TabStop = false;
+            this.pbKhachHangGroup.Click += new System.EventHandler(this.pbKhachHangGroup_Click);
+            this.pbKhachHangGroup.MouseEnter += new System.EventHandler(this.pbKhachHangGroup_MouseEnter);
+            this.pbKhachHangGroup.MouseLeave += new System.EventHandler(this.pbKhachHangGroup_MouseLeave);
             // 
             // UcKhachHangIndex
             // 
@@ -108,8 +108,8 @@
             this.Load += new System.EventHandler(this.UcKhachHangIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNhomSanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhachHangGroup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -119,7 +119,7 @@
         private System.Windows.Forms.Panel pnSelect;
         private System.Windows.Forms.Label lbNhomSanPham;
         private System.Windows.Forms.Label lbSanPham;
-        private System.Windows.Forms.PictureBox pbSanPham;
-        private System.Windows.Forms.PictureBox pbNhomSanPham;
+        private System.Windows.Forms.PictureBox pbKhachHang;
+        private System.Windows.Forms.PictureBox pbKhachHangGroup;
     }
 }

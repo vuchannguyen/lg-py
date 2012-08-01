@@ -44,6 +44,7 @@ namespace Library
 
         public const string DEFAULT_DB_NAME = "QuanLyKinhDoanh";
         public const string DEFAULT_SERVER = @".\SQLEXPRESS";
+        public const string DEFAULT_CONNECTION_STRING = "Data Source=" + DEFAULT_SERVER + ";Initial Catalog=" + DEFAULT_DB_NAME + ";Integrated Security=True";
 
         public const string DEFAULT_TITLE_ADD = "THÊM";
         public const string DEFAULT_TITLE_EDIT = "SỬA";
@@ -252,6 +253,11 @@ namespace Library
         public const string MESSAGE_ERROR_OPEN_AVATAR = "Không thể mở hình!";
         public const string MESSAGE_ERROR_TOO_SMALL_AVATAR = "Kích thước ảnh quá nhỏ!";
         public const string MESSAGE_ERROR_SAVE_AVATAR = "Không lưu được hình! Vui lòng thử lại.";
+
+        public const string MESSAGE_SUCCESS_BACKUP = "Dữ liệu đã được sao lưu.";
+        public const string MESSAGE_SUCCESS_RESTORE = "Dữ liệu đã được phục hồi.";
+
+        public const string MESSAGE_WARNING_RESTORE = "Tài khoản sẽ tự động thoát sau khi phục hồi!";
 
         public const string MESSAGE_ERROR_BACKUP = "Không thể lưu dữ liệu!";
         public const string MESSAGE_ERROR_BACKUP_PATH = "Vui lòng lưu vào thư mục khác.";

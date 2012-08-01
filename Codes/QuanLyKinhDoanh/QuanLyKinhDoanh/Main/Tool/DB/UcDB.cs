@@ -59,12 +59,26 @@ namespace QuanLyKinhDoanh
 
             this.BringToFront();
 
+            InitPermission();
+
             this.Visible = true;
         }
 
 
 
         #region Function
+        private void InitPermission()
+        {
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                pbRestore.Visible = false;
+                lbRestore.Visible = false;
+
+                pbBackup.Location = CommonFunc.SetWidthCenter(pnSelect.Size, pbBackup.Size, pbBackup.Top);
+                lbBackup.Location = CommonFunc.SetWidthCenter(pnSelect.Size, lbBackup.Size, lbBackup.Top);
+            }
+        }
+
         private void BackupDB(string databaseName, string serverName, string path)
         {
             try
@@ -96,6 +110,9 @@ namespace QuanLyKinhDoanh
                 sqlBackup.FormatMedia = false;
 
                 sqlBackup.SqlBackup(sqlServer);
+
+                MessageBox.Show(Constant.MESSAGE_SUCCESS_BACKUP,
+                    Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
@@ -104,7 +121,7 @@ namespace QuanLyKinhDoanh
             }
         }
 
-        private void Restore()
+        private void RestoreDB(string databaseName, string serverName, string path)
         {
             try
             {
@@ -113,23 +130,58 @@ namespace QuanLyKinhDoanh
                 // Set the restore type to a database restore
                 rstDatabase.Action = RestoreActionType.Database;
                 // Set the database that we want to perform the restore on
-                rstDatabase.Database = "QuanLyKinhDoanh";
+                rstDatabase.Database = databaseName;
 
                 // Set the backup device from which we want to restore, to a file
-                BackupDeviceItem bkpDevice = new BackupDeviceItem(@"C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\Backup\test.bak", DeviceType.File);
+                BackupDeviceItem deviceItem = new BackupDeviceItem(path, DeviceType.File);
                 // Add the backup device to the restore type
-                rstDatabase.Devices.Add(bkpDevice);
+                rstDatabase.Devices.Add(deviceItem);
                 // If the database already exists, replace it
                 rstDatabase.ReplaceDatabase = true;
 
-                Server myServer = new Server("(local)");
+                ServerConnection connection = new ServerConnection(serverName);
+                Server sqlServer = new Server(connection);
 
                 // Perform the restore
-                rstDatabase.SqlRestore(myServer);
+                rstDatabase.SqlRestore(sqlServer);
+
+                MessageBox.Show(Constant.MESSAGE_SUCCESS_RESTORE,
+                    Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                FormMain.isRestored = true;
+                Application.Exit();
             }
             catch (Exception ex)
-            { 
-                //
+            {
+                MessageBox.Show(Constant.MESSAGE_ERROR_RESTORE + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_ERROR_BACKUP_PATH,
+                    Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool DetachData()
+        {
+            SqlConnection cnn;
+            SqlCommand cmd;
+            string sql = null;
+
+            sql = "USE [master] " +
+                    "ALTER DATABASE [QuanLyKinhDoanh] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE " +
+                    "USE [master] " +
+                    "EXEC master.dbo.sp_detach_db @dbname = N'QuanLyKinhDoanh' ";
+
+            cnn = new SqlConnection(Constant.DEFAULT_CONNECTION_STRING);
+
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(sql, cnn);
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -178,7 +230,7 @@ namespace QuanLyKinhDoanh
 
         private void pbBackup_Click(object sender, EventArgs e)
         {
-            string path = File_Function.SaveDialog("QLKD", "Backup SQL", "bak");
+            string path = File_Function.SaveDialog("QLKD" + DateTime.Now.ToString(Constant.DEFAULT_DATE_TIME_AVATAR_FORMAT), "Backup SQL", "bak");
 
             if (path != null)
             {
@@ -200,31 +252,17 @@ namespace QuanLyKinhDoanh
 
         private void pbRestore_Click(object sender, EventArgs e)
         {
-            SqlConnection cnn;
-            SqlCommand cmd;
-            string sql = null;
-            SqlDataReader reader;
-
-            sql = "USE [master] " +
-                    "ALTER DATABASE [QuanLyKinhDoanh] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE " +
-                    "USE [master] " +
-                    "EXEC master.dbo.sp_detach_db @dbname = N'QuanLyKinhDoanh' ";
-
-            cnn = new SqlConnection(@".\SQLEXPRESS");
-
-            try
+            if (MessageBox.Show(Constant.MESSAGE_WARNING_RESTORE + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE,
+                    Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes &&
+                DetachData())
             {
-                cnn.Open();
-                cmd = new SqlCommand(sql, cnn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection ! ");
-            }
+                string path = File_Function.OpenDialog("Backup SQL", "bak");
 
-            //Restore();
-            RS();
+                if (path != null)
+                {
+                    RestoreDB(Constant.DEFAULT_DB_NAME, Constant.DEFAULT_SERVER, path);
+                }
+            }
         }
 
         private void pbRestore_MouseEnter(object sender, EventArgs e)
