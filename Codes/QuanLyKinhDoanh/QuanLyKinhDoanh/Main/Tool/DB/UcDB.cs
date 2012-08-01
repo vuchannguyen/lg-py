@@ -12,6 +12,7 @@ using DTO;
 using BUS;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
+using System.Data.SqlClient;
 
 namespace QuanLyKinhDoanh
 {
@@ -136,7 +137,7 @@ namespace QuanLyKinhDoanh
         {
             Restore sqlRestore = new Restore();
 
-            BackupDeviceItem deviceItem = new BackupDeviceItem(@"C:\Program Files\Microsoft SQL Server\MSSQL10.SQLEXPRESS\MSSQL\Backup\test.bak", DeviceType.File);
+            BackupDeviceItem deviceItem = new BackupDeviceItem(@"D:\Bakup\QLKD.bak", DeviceType.File);
             sqlRestore.Devices.Add(deviceItem);
             sqlRestore.Database = "QuanLyKinhDoanh";
 
@@ -199,6 +200,29 @@ namespace QuanLyKinhDoanh
 
         private void pbRestore_Click(object sender, EventArgs e)
         {
+            SqlConnection cnn;
+            SqlCommand cmd;
+            string sql = null;
+            SqlDataReader reader;
+
+            sql = "USE [master] " +
+                    "ALTER DATABASE [QuanLyKinhDoanh] SET  SINGLE_USER WITH ROLLBACK IMMEDIATE " +
+                    "USE [master] " +
+                    "EXEC master.dbo.sp_detach_db @dbname = N'QuanLyKinhDoanh' ";
+
+            cnn = new SqlConnection(@".\SQLEXPRESS");
+
+            try
+            {
+                cnn.Open();
+                cmd = new SqlCommand(sql, cnn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection ! ");
+            }
+
             //Restore();
             RS();
         }
