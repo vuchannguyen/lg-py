@@ -40,7 +40,7 @@ namespace DAO
             set { sPassword = value; }
         }
 
-        private static readonly string serverName = ".\\SQLEXPRESS";
+        private static readonly string serverName = @".\SQLEXPRESS";
 
         private static readonly string CONNECTION_STRING = "Data Source=" + serverName + ";Initial Catalog=QuanLyKinhDoanh;Integrated Security=True";
         // CRM Data Context

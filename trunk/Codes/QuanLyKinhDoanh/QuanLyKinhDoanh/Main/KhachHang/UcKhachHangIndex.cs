@@ -23,8 +23,8 @@ namespace QuanLyKinhDoanh
         {
             try
             {
-                pbSanPham.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_INDEX);
-                pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_GROUP_INDEX);
+                pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_INDEX);
+                pbKhachHangGroup.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_GROUP_INDEX);
             }
             catch
             {
@@ -49,40 +49,43 @@ namespace QuanLyKinhDoanh
 
         private void InitPermission()
         {
-            //
+            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            {
+                CommonFunc.NewControl(this.Controls, ref uc, new UcKhachHang());
+            }
         }
 
-        private void pbSanPham_Click(object sender, EventArgs e)
+        private void pbKhachHang_Click(object sender, EventArgs e)
         {
             CommonFunc.NewControl(this.Controls, ref uc, new UcKhachHang());
         }
 
-        private void pbSanPham_MouseEnter(object sender, EventArgs e)
+        private void pbKhachHang_MouseEnter(object sender, EventArgs e)
         {
-            pbSanPham.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_INDEX_MOUSEOVER);
+            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_INDEX_MOUSEOVER);
             lbSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
-        private void pbSanPham_MouseLeave(object sender, EventArgs e)
+        private void pbKhachHang_MouseLeave(object sender, EventArgs e)
         {
-            pbSanPham.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_INDEX);
+            pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_INDEX);
             lbSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
 
-        private void pbNhomSanPham_Click(object sender, EventArgs e)
+        private void pbKhachHangGroup_Click(object sender, EventArgs e)
         {
             CommonFunc.NewControl(this.Controls, ref uc, new UcKhachHangGroup());
         }
 
-        private void pbNhomSanPham_MouseEnter(object sender, EventArgs e)
+        private void pbKhachHangGroup_MouseEnter(object sender, EventArgs e)
         {
-            pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_GROUP_INDEX_MOUSEOVER);
+            pbKhachHangGroup.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_GROUP_INDEX_MOUSEOVER);
             lbNhomSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
-        private void pbNhomSanPham_MouseLeave(object sender, EventArgs e)
+        private void pbKhachHangGroup_MouseLeave(object sender, EventArgs e)
         {
-            pbNhomSanPham.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_GROUP_INDEX);
+            pbKhachHangGroup.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_GROUP_INDEX);
             lbNhomSanPham.ForeColor = Constant.COLOR_NORMAL;
         }
     }

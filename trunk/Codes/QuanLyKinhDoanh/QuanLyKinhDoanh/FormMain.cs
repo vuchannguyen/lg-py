@@ -18,6 +18,7 @@ namespace QuanLyKinhDoanh
         public static DTO.User user;
         public static bool isPrintUsing;
         public static bool isEditing;
+        public static bool isRestored;
 
         private bool isMainMenuClickUser;
         private bool isMainMenuClickKhachHang;
@@ -25,6 +26,7 @@ namespace QuanLyKinhDoanh
         private bool isMainMenuClickKho;
         private bool isMainMenuClickThuChi;
         private bool isMainMenuClickThanhToan;
+        private bool isMainMenuClickTool;
 
         UserControl uc;
 
@@ -98,6 +100,23 @@ namespace QuanLyKinhDoanh
             frm.ShowDialog();
         }
 
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isRestored)
+            {
+                e.Cancel = true;
+
+                Exit();
+            }
+            else
+            {
+                if (MessageBox.Show(Constant.MESSAGE_EXIT_APP, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
         private void FormLogin_Closed(object sender, FormClosedEventArgs e)
         {
             if (user != null)
@@ -124,23 +143,26 @@ namespace QuanLyKinhDoanh
             lbUser.ForeColor = Constant.COLOR_NORMAL;
             lbKhachHang.ForeColor = Constant.COLOR_NORMAL;
             lbSanPham.ForeColor = Constant.COLOR_NORMAL;
-            lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
             lbKhoHang.ForeColor = Constant.COLOR_NORMAL;
             lbThuChi.ForeColor = Constant.COLOR_NORMAL;
+            lbThanhToan.ForeColor = Constant.COLOR_NORMAL;
+            lbTool.ForeColor = Constant.COLOR_NORMAL;
 
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
             pbKhachHang.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
             pbKhoHang.Image = Image.FromFile(ConstantResource.KHOHANG_ICON_KHOHANG);
             pbThuChi.Image = Image.FromFile(ConstantResource.THUCHI_ICON_THUCHI);
+            pbThanhToan.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_THANHTOAN);
+            pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL);
 
             pbUser.Enabled = true;
             pbKhachHang.Enabled = true;
             pbSanPham.Enabled = true;
-            pbThanhToan.Enabled = true;
             pbKhoHang.Enabled = true;
             pbThuChi.Enabled = true;
+            pbThanhToan.Enabled = true;
+            pbTool.Enabled = true;
 
             isMainMenuClickUser = false;
             isMainMenuClickKhachHang = false;
@@ -148,6 +170,7 @@ namespace QuanLyKinhDoanh
             isMainMenuClickKho = false;
             isMainMenuClickThuChi = false;
             isMainMenuClickThanhToan = false;
+            isMainMenuClickTool = false;
         }
 
         private string GetDayOfWeek()
@@ -497,7 +520,7 @@ namespace QuanLyKinhDoanh
                 ScaleNormalControls();
 
                 Init();
-                isMainMenuClickThanhToan = true;
+                isMainMenuClickTool = true;
 
                 pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL_MOUSEOVER);
                 lbTool.ForeColor = Constant.COLOR_IN_USE;
@@ -513,12 +536,12 @@ namespace QuanLyKinhDoanh
             pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL_MOUSEOVER);
             lbTool.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_TOOL);
+            ttDetail.SetToolTip(pbTool, Constant.TOOLTIP_TOOL);
         }
 
         private void pbTool_MouseLeave(object sender, EventArgs e)
         {
-            if (!isMainMenuClickUser)
+            if (!isMainMenuClickTool)
             {
                 pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL);
                 lbTool.ForeColor = Constant.COLOR_NORMAL;
@@ -626,14 +649,6 @@ namespace QuanLyKinhDoanh
         private void lbAboutCD_Click(object sender, EventArgs e)
         {
             new AboutCD().ShowDialog();
-        }
-
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show(Constant.MESSAGE_EXIT_APP, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
-            {
-                e.Cancel = true;
-            }
         }
 
         private void lbAboutSoftware_MouseEnter(object sender, EventArgs e)

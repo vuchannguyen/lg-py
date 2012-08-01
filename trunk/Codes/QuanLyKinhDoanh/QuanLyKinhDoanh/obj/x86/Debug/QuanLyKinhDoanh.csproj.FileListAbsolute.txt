@@ -89,12 +89,9 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\Q
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhapKho.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcNhapKho.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhoHangIndex.resources
-C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhomSanPham.UcDetail.resources
-C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.NhomSanPham.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPham.UcDetail.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPham.UcInfo.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPham.resources
-C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcNhomSanPham.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPhamIndex.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.GiaoDich.UcThanhToan.resources
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.Thu.UcThu.resources
@@ -111,7 +108,6 @@ C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\G
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.KhachHang.UcHistory.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.KhachHang.UcHistory.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.XuatXu.UcHistory.resources
-C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\bin\Debug\DocumentFormat.OpenXml.dll
 C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.XuatXu.UcHistory.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPhamGroup.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPhamGroup.UcInfo.resources
@@ -123,3 +119,12 @@ C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKin
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcToolIndex.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPhamIndex.resources
 C:\Documents and Settings\tuc.nguyen\Desktop\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcDB.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.KhachHangGroup.UcDetail.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.KhachHangGroup.UcInfo.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhachHangGroup.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcKhachHangIndex.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPhamGroup.UcDetail.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.SanPhamGroup.UcInfo.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcSanPhamGroup.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcDB.resources
+C:\Users\CONAN\Desktop\Quan Ly Kinh Doanh Source\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcToolIndex.resources
