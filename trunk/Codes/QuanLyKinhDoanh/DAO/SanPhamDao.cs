@@ -51,10 +51,6 @@ namespace DAO
                 case CommonDao.DEFAULT_STATUS_SP_ZERO:
                     sql = sql.Where(p => p.SoLuong == 0);
                     break;
-
-                default:
-                    sql = sql.Where(p => p.SoLuong >= 0);
-                    break;
             }
 
             if (isExpired)

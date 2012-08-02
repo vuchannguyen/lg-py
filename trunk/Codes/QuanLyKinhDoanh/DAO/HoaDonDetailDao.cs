@@ -46,10 +46,6 @@ namespace DAO
                 case CommonDao.DEFAULT_TYPE_YEAR:
                     sql = sql.Where(p => p.HoaDon.CreateDate.Year == date.Year);
                     break;
-
-                default:
-                    sql = sql.Where(p => p.HoaDon.CreateDate.Day == date.Day && p.HoaDon.CreateDate.Month == date.Month && p.HoaDon.CreateDate.Year == date.Year);
-                    break;
             }
 
             return sql;

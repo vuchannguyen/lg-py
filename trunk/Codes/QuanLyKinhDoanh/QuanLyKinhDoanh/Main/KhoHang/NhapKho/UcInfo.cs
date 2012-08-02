@@ -107,8 +107,7 @@ namespace QuanLyKinhDoanh.NhapKho
                 tbGiaBan.Text = dataSP.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
                 tbGhiChu.Text = dataHoaDon.GhiChu;
 
-                tbChietKhau.Text = ChietKhauBus.GetByIdSP(data.IdSanPham) == null ? string.Empty :
-                    ChietKhauBus.GetByIdSP(data.IdSanPham).Value.ToString();
+                tbChietKhau.Text = dataChietKhau == null ? string.Empty : dataChietKhau.Value.ToString();
 
                 //avatarPath = Path.Combine(File_Function.getFinalFolder(listFolderAvatar), CommonFunc.setAvatarPath(dataSP.MaSanPham, dataSP.CreateDate));
 

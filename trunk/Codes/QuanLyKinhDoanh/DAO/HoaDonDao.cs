@@ -36,10 +36,6 @@ namespace DAO
                 case CommonDao.ID_TYPE_MUA_CHI:
                     sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_MUA || p.IdType == CommonDao.ID_TYPE_CHI);
                     break;
-
-                default:
-                    sql = sql.Where(p => p.IdType == type);
-                    break;
             }
 
             if (idKH != 0)
