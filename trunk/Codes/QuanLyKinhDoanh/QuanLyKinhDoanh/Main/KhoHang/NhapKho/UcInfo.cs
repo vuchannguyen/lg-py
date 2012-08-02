@@ -152,12 +152,15 @@ namespace QuanLyKinhDoanh.NhapKho
         {
             LoadResource();
 
-            pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
+            pnInfo.Location = CommonFunc.SetWidthCenter(this.Size, pnInfo.Size, pnInfo.Top);
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
             this.BringToFront();
 
             FormMain.isEditing = true;
+
+            RefreshListView(string.Empty, Constant.ID_TYPE_MUA, string.Empty, DateTime.Now,
+                "Ngày nhập", Constant.SORT_DESCENDING, 0);
 
             ValidateInput();
         }
@@ -198,6 +201,34 @@ namespace QuanLyKinhDoanh.NhapKho
             cbDonViThoiHan.SelectedIndex = 1;
 
             isFixedMoney = false;
+        }
+
+        private void RefreshListView(string text, int type, string timeType, DateTime date,
+            string sortColumn, string sortOrder, int page)
+        {
+            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type, timeType, date,
+                sortColumn, sortOrder, 0, 3);
+
+            CommonFunc.ClearlvItem(lvThongTin);
+
+            foreach (DTO.HoaDonDetail data in list)
+            {
+                ListViewItem lvi = new ListViewItem();
+
+                lvi.SubItems.Add(data.Id.ToString());
+                lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
+                lvi.SubItems.Add(data.HoaDon.MaHoaDon.ToString());
+                lvi.SubItems.Add(data.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
+                lvi.SubItems.Add(data.HoaDon.User == null ? string.Empty : data.HoaDon.User.UserName);
+                lvi.SubItems.Add(data.HoaDon.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
+                lvi.SubItems.Add(data.SoLuong.ToString());
+                lvi.SubItems.Add(data.SanPham.DonViTinh);
+                lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
+
+                lvThongTin.Items.Add(lvi);
+            }
         }
 
         private void ValidateInput()
@@ -877,6 +908,9 @@ namespace QuanLyKinhDoanh.NhapKho
                         CreateNewIdSP();
                         CreateNewId();
 
+                        RefreshListView(string.Empty, Constant.ID_TYPE_MUA, string.Empty, DateTime.Now,
+                            "Ngày nhập", Constant.SORT_DESCENDING, 0);
+
                         pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
                         isNewAvatar = false;
                     }
@@ -1162,6 +1196,35 @@ namespace QuanLyKinhDoanh.NhapKho
         private void pbAvatar_MouseLeave(object sender, EventArgs e)
         {
             pbBrowse.Focus();
+        }
+
+        private void lvThongTin_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                e.NewWidth = 0;
+                e.Cancel = true;
+            }
+
+            if (e.ColumnIndex == 1)
+            {
+                e.NewWidth = 0;
+                e.Cancel = true;
+            }
+        }
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(HoaDonDetailBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
         }
     }
 }

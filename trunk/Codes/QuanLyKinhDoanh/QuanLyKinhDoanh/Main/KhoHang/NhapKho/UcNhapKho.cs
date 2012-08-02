@@ -16,8 +16,7 @@ namespace QuanLyKinhDoanh
     public partial class UcNhapKho : UserControl
     {
         private UserControl uc;
-        //private const int row = Constant.DEFAULT_ROW;
-        private const int row = 15;
+        private const int row = Constant.DEFAULT_ROW;
         private string sortColumn;
         private string sortOrder;
 
@@ -75,9 +74,6 @@ namespace QuanLyKinhDoanh
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
-            RefreshListViewNew(string.Empty, Constant.ID_TYPE_MUA, string.Empty, dtpFilter.Value,
-                        "Ngày nhập", Constant.SORT_DESCENDING, 0);
-
             dtpFilter.CustomFormat = Constant.DEFAULT_DATE_FORMAT;
 
             this.Visible = true;
@@ -93,9 +89,6 @@ namespace QuanLyKinhDoanh
             RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
-
-            RefreshListViewNew(string.Empty, Constant.ID_TYPE_MUA, string.Empty, dtpFilter.Value,
-                "Ngày nhập", Constant.SORT_DESCENDING, 0);
 
             if (tbSearch.Focused)
             {
@@ -172,34 +165,6 @@ namespace QuanLyKinhDoanh
             }
 
             CheckListViewItemsIsChecked();
-        }
-
-        private void RefreshListViewNew(string text, int type, string timeType, DateTime date,
-            string sortColumn, string sortOrder, int page)
-        {
-            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(text, type, timeType, date,
-                sortColumn, sortOrder, 0, 3);
-
-            CommonFunc.ClearlvItem(lvThongTinNew);
-
-            foreach (DTO.HoaDonDetail data in list)
-            {
-                ListViewItem lvi = new ListViewItem();
-
-                lvi.SubItems.Add(data.Id.ToString());
-                lvi.SubItems.Add((lvThongTinNew.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.HoaDon.MaHoaDon.ToString());
-                lvi.SubItems.Add(data.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + data.SanPham.Ten);
-                lvi.SubItems.Add(data.HoaDon.User == null ? string.Empty : data.HoaDon.User.UserName);
-                lvi.SubItems.Add(data.HoaDon.UpdateDate.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
-                lvi.SubItems.Add(data.SoLuong.ToString());
-                lvi.SubItems.Add(data.SanPham.DonViTinh);
-                lvi.SubItems.Add(data.SanPham.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY));
-                lvi.SubItems.Add(data.SanPham.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY));
-                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
-
-                lvThongTinNew.Items.Add(lvi);
-            }
         }
 
         private void CheckListViewItemsIsChecked()
@@ -301,9 +266,6 @@ namespace QuanLyKinhDoanh
                     RefreshListView(tbSearch.Text, Constant.ID_TYPE_MUA, cbFilter.Text, dtpFilter.Value,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                     SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
-
-                    RefreshListViewNew(string.Empty, Constant.ID_TYPE_MUA, string.Empty, dtpFilter.Value,
-                        "Ngày nhập", Constant.SORT_DESCENDING, 0);
                 }
                 else
                 {
@@ -406,6 +368,20 @@ namespace QuanLyKinhDoanh
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
             CheckListViewItemsIsChecked();
+        }
+
+        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (lvThongTin.SelectedItems.Count > 0)
+                {
+                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
+
+                    UserControl uc = new UcDetail(HoaDonDetailBus.GetById(id));
+                    this.Controls.Add(uc);
+                }
+            }
         }
 
         private void lbPage_Click(object sender, EventArgs e)
@@ -553,33 +529,5 @@ namespace QuanLyKinhDoanh
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
-
-        private void lvThongTin_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (lvThongTin.SelectedItems.Count > 0)
-                {
-                    int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
-
-                    UserControl uc = new UcDetail(HoaDonDetailBus.GetById(id));
-                    this.Controls.Add(uc);
-                }
-            }
-        }
-
-        private void lvThongTinNew_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
-            {
-                if (lvThongTinNew.SelectedItems.Count > 0)
-                {
-                    int id = ConvertUtil.ConvertToInt(lvThongTinNew.SelectedItems[0].SubItems[1].Text);
-
-                    UserControl uc = new UcDetail(HoaDonDetailBus.GetById(id));
-                    this.Controls.Add(uc);
-                }
-            }
-        }
     }
 }
