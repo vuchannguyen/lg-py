@@ -193,6 +193,12 @@
     <Compile Include="Main\KhoHang\KhoHang\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\KhoHang\NhapKho\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\NhapKho\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\KhoHang\TonKho\UcTonKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,6 +470,9 @@
       <DependentUpon>UcKhachHangIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\NhapKho\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\TonKho\UcTonKho.resx">

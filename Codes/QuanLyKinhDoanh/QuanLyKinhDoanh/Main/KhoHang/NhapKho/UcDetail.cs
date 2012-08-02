@@ -9,9 +9,8 @@ using System.Windows.Forms;
 using Library;
 using DTO;
 using BUS;
-using System.IO;
 
-namespace QuanLyKinhDoanh.KhoHang
+namespace QuanLyKinhDoanh.NhapKho
 {
     public partial class UcDetail : UserControl
     {
@@ -22,13 +21,15 @@ namespace QuanLyKinhDoanh.KhoHang
             InitializeComponent();
         }
 
-        public UcDetail(DTO.SanPham data)
+        public UcDetail(DTO.HoaDonDetail data)
         {
             InitializeComponent();
 
-            Init();
+            InitSP();
+            InitNhapKho();
 
-            LoadData(data);
+            LoadDataSP(data.SanPham);
+            LoadDataNhapKho(data);
         }
 
         private void LoadResource()
@@ -56,7 +57,7 @@ namespace QuanLyKinhDoanh.KhoHang
             this.BringToFront();
         }
 
-        private void Init()
+        private void InitSP()
         {
             lbMa.Text = string.Empty;
             lbGroup.Text = string.Empty;
@@ -64,7 +65,6 @@ namespace QuanLyKinhDoanh.KhoHang
             lbMoTa.Text = string.Empty;
             lbSoLuong.Text = string.Empty;
             lbDVT.Text = string.Empty;
-            lbGiaBan.Text = string.Empty;
             lbChietKhau.Text = string.Empty;
             lbSize.Text = string.Empty;
             lbHieu.Text = string.Empty;
@@ -74,7 +74,18 @@ namespace QuanLyKinhDoanh.KhoHang
             lbNgayHetHan.Text = string.Empty;
         }
 
-        private void LoadData(DTO.SanPham data)
+        private void InitNhapKho()
+        {
+            lbMaNhap.Text = string.Empty;
+            lbGiaNhap.Text = string.Empty;
+            lbSoLuongNhap.Text = string.Empty;
+            lbThanhTien.Text = string.Empty;
+            lbChietKhau.Text = string.Empty;
+            lbGiaBan.Text = string.Empty;
+            lbGhiChu.Text = string.Empty;
+        }
+
+        private void LoadDataSP(DTO.SanPham data)
         {
             lbMa.Text = data.MaSanPham;
             lbGroup.Text = data.SanPhamGroup.Ten;
@@ -82,7 +93,6 @@ namespace QuanLyKinhDoanh.KhoHang
             lbMoTa.Text = data.MoTa;
             lbSoLuong.Text = data.SoLuong.ToString();
             lbDVT.Text = data.DonViTinh;
-            lbGiaBan.Text = data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
 
             DTO.ChietKhau dataCK = ChietKhauBus.GetByIdSP(data.Id);
 
@@ -150,6 +160,21 @@ namespace QuanLyKinhDoanh.KhoHang
             {
                 pbAvatar.Image = Image.FromFile(ConstantResource.SANPHAM_DEFAULT_SP);
             }
+        }
+
+        private void LoadDataNhapKho(DTO.HoaDonDetail data)
+        {
+            DTO.SanPham dataSP = data.SanPham;
+            DTO.HoaDon dataHD = data.HoaDon;
+            DTO.ChietKhau dataCK = ChietKhauBus.GetByIdSP(data.IdSanPham);
+
+            lbMaNhap.Text = dataHD.MaHoaDon;
+            lbGiaNhap.Text = dataSP.GiaMua.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbSoLuongNhap.Text = data.SoLuong.ToString();
+            lbThanhTien.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbChietKhau.Text = dataCK == null ? string.Empty : dataCK.Value.ToString() + Constant.SYMBOL_DISCOUNT;
+            lbGiaBan.Text = dataSP.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbGhiChu.Text = dataHD.GhiChu;
         }
 
         private void lbXuatXu_MouseEnter(object sender, EventArgs e)
