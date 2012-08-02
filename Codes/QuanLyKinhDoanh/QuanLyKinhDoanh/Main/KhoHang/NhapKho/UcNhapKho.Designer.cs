@@ -43,19 +43,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.pbXoa = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
-            this.lvThongTinNew = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lvThongTin = new System.Windows.Forms.ListView();
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -244,112 +231,12 @@
             // 
             // pnQuanLy
             // 
-            this.pnQuanLy.Controls.Add(this.lvThongTinNew);
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
             this.pnQuanLy.Location = new System.Drawing.Point(20, 87);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Size = new System.Drawing.Size(960, 480);
             this.pnQuanLy.TabIndex = 48;
-            // 
-            // lvThongTinNew
-            // 
-            this.lvThongTinNew.CheckBoxes = true;
-            this.lvThongTinNew.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12});
-            this.lvThongTinNew.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvThongTinNew.FullRowSelect = true;
-            this.lvThongTinNew.GridLines = true;
-            this.lvThongTinNew.Location = new System.Drawing.Point(3, 3);
-            this.lvThongTinNew.MultiSelect = false;
-            this.lvThongTinNew.Name = "lvThongTinNew";
-            this.lvThongTinNew.Size = new System.Drawing.Size(950, 94);
-            this.lvThongTinNew.TabIndex = 89;
-            this.lvThongTinNew.UseCompatibleStateImageBehavior = false;
-            this.lvThongTinNew.View = System.Windows.Forms.View.Details;
-            this.lvThongTinNew.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTinNew_ColumnWidthChanging);
-            this.lvThongTinNew.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvThongTinNew_MouseClick);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "All";
-            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader1.Width = 0;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Id";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 0;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "STT";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 39;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Mã Nhập";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 71;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Sản phẩm";
-            this.columnHeader5.Width = 202;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Người nhập";
-            this.columnHeader6.Width = 106;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Ngày nhập";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 152;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "SL";
-            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader8.Width = 58;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "ĐVT";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader9.Width = 78;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Giá nhập";
-            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader10.Width = 80;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Giá bán";
-            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader11.Width = 80;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.Text = "Tổng nhập";
-            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader12.Width = 80;
             // 
             // lvThongTin
             // 
@@ -370,10 +257,10 @@
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
-            this.lvThongTin.Location = new System.Drawing.Point(3, 103);
+            this.lvThongTin.Location = new System.Drawing.Point(3, 3);
             this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(950, 330);
+            this.lvThongTin.Size = new System.Drawing.Size(950, 430);
             this.lvThongTin.TabIndex = 88;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -733,19 +620,6 @@
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chId;
         private System.Windows.Forms.ColumnHeader chGiaBan;
-        private System.Windows.Forms.ListView lvThongTinNew;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
 
     }
 }
