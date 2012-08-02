@@ -139,6 +139,12 @@
     <Compile Include="Main\BaoCao\CongNo\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\BaoCao\ThuChi\UcThuChi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\BaoCao\ThuChi\UcThuChi.Designer.cs">
+      <DependentUpon>UcThuChi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\BaoCao\Thu\UcDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,12 +259,6 @@
     </Compile>
     <Compile Include="Main\BaoCao\Chi\UcChi.Designer.cs">
       <DependentUpon>UcChi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.Designer.cs">
-      <DependentUpon>UcLoiNhuan.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhachHang\KhachHang\UcInfo.cs">
       <SubType>UserControl</SubType>
@@ -445,6 +445,9 @@
     <EmbeddedResource Include="Main\BaoCao\CongNo\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\BaoCao\ThuChi\UcThuChi.resx">
+      <DependentUpon>UcThuChi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Thu\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,9 +492,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\BaoCao\Chi\UcChi.resx">
       <DependentUpon>UcChi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\BaoCao\LoiNhuan\UcLoiNhuan.resx">
-      <DependentUpon>UcLoiNhuan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\KhachHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>

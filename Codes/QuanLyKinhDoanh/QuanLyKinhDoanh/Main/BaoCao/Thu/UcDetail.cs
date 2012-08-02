@@ -15,6 +15,7 @@ namespace QuanLyKinhDoanh.Thu
     public partial class UcDetail : UserControl
     {
         private List<DTO.HoaDonDetail> listHoaDonDetail;
+        private DTO.HoaDon dataHD;
         private DTO.User dataUser;
         private DTO.KhachHang dataKH;
 
@@ -30,12 +31,15 @@ namespace QuanLyKinhDoanh.Thu
             Init();
 
             LoadData(data);
+
+            this.dataHD = data;
         }
 
         private void LoadResource()
         {
             try
             {
+                pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL);
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
             }
             catch
@@ -179,6 +183,60 @@ namespace QuanLyKinhDoanh.Thu
             else
             {
                 ttDetail.RemoveAll();
+            }
+        }
+
+        private void pbExcel_Click(object sender, EventArgs e)
+        {
+            ExportBill();
+        }
+
+        private void pbExcel_MouseEnter(object sender, EventArgs e)
+        {
+            pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL_MOUSEOVER);
+        }
+
+        private void pbExcel_MouseLeave(object sender, EventArgs e)
+        {
+            pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL);
+        }
+
+        private void ExportBill()
+        {
+            string path = File_Function.SaveDialog("HoaDon_" + lbMaHD.Text + "_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+
+            if (path != null)
+            {
+                ListView lvInfoNew = new ListView();
+
+                for (int i = 2; i < lvThongTin.Columns.Count; i++)
+                {
+                    lvInfoNew.Columns.Add((ColumnHeader)lvThongTin.Columns[i].Clone());
+                }
+
+                for (int i = 0; i < lvThongTin.Items.Count; i++)
+                {
+                    ListViewItem lviInfo = new ListViewItem();
+
+                    lviInfo.SubItems[0].Text = lvThongTin.Items[i].SubItems[2].Text; //STT
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[3].Text); //SP
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[4].Text); //CK
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[5].Text); //tien CK
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[6].Text); //SL
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[7].Text); //DVT
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[8].Text); //don gia
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[9].Text); //thanh tien
+
+                    lvInfoNew.Items.Add(lviInfo);
+                }
+
+                ExportExcel.InitWorkBook("Hóa đơn bán hàng");
+                ExportExcel.CreateSummaryHoaDon(lbMaHD.Text, FormMain.user.Ten, dataKH.Ten,
+                    dataHD.CreateDate, lbTongCK.Text, lbTongHD.Text);
+
+                ExportExcel.CreateDetailsTableHoaDon(lvInfoNew);
+
+                ExportExcel.SaveExcel(path);
             }
         }
     }

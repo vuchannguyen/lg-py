@@ -519,73 +519,40 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void ExportBill()
         {
-            List<ListView> list = new List<ListView>();
+            string path = File_Function.SaveDialog("HoaDon_" + tbMaHD.Text + "_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
-            ListView lvInfoBill = new ListView();
-            lvInfoBill.CheckBoxes = true;
-            lvInfoBill.Columns.Add("");
-            lvInfoBill.Columns.Add("Hóa đơn: " + tbMaHD.Text);
-
-            ListViewItem lvi = new ListViewItem();
-
-            lvi = new ListViewItem();
-            lvi.SubItems.Add("Ngày: " + lbNgayGio.Text);
-            lvInfoBill.Items.Add(lvi);
-
-            lvi = new ListViewItem();
-            lvi.SubItems.Add("Nhân viên: " + tbNguoiBan.Text);
-            lvInfoBill.Items.Add(lvi);
-
-            lvi = new ListViewItem();
-            lvi.SubItems.Add("Khách: " + cbMaKH.Text);
-            lvInfoBill.Items.Add(lvi);
-
-            lvi = new ListViewItem();
-            lvi.SubItems.Add("Tổng CK: " + tbTongCK.Text + Constant.DEFAULT_MONEY_SUBFIX);
-            lvInfoBill.Items.Add(lvi);
-
-            lvi = new ListViewItem();
-            lvi.SubItems.Add("Tổng HĐ: " + tbTongHoaDon.Text + Constant.DEFAULT_MONEY_SUBFIX);
-            lvInfoBill.Items.Add(lvi);
-
-            ListView lvInfoNew = new ListView();
-
-            for (int i = 2; i < lvThongTin.Columns.Count; i++)
+            if (path != null)
             {
-                lvInfoNew.Columns.Add((ColumnHeader)lvThongTin.Columns[i].Clone());
-            }
+                ListView lvInfoNew = new ListView();
 
-            for (int i = 0; i < lvThongTin.Items.Count; i++)
-            {
-                ListViewItem lviInfo = new ListViewItem();
-
-                lviInfo.SubItems[0].Text = lvThongTin.Items[i].SubItems[2].Text; //STT
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[3].Text); //SP
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[4].Text); //CK
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[5].Text); //tien CK
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[6].Text); //SL
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[7].Text); //DVT
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[8].Text + Constant.DEFAULT_MONEY_SUBFIX); //don gia
-                lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[9].Text + Constant.DEFAULT_MONEY_SUBFIX); //thanh tien
-
-                lvInfoNew.Items.Add(lviInfo);
-            }
-
-            list.Add(lvInfoBill);
-            list.Add(lvInfoNew);
-
-            string sPath = File_Function.SaveDialog("HoaDon_" + tbMaHD.Text + "_" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
-
-            if (sPath != null)
-            {
-                if (Office_Function.ExportListViews2Excel("Hóa đơn", sPath, list))
+                for (int i = 2; i < lvThongTin.Columns.Count; i++)
                 {
-                    MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL, Constant.CAPTION_CONFIRM, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lvInfoNew.Columns.Add((ColumnHeader)lvThongTin.Columns[i].Clone());
                 }
-                else
+
+                for (int i = 0; i < lvThongTin.Items.Count; i++)
                 {
-                    MessageBox.Show(Constant.MESSAGE_ERROR_EXPORT_EXCEL, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ListViewItem lviInfo = new ListViewItem();
+
+                    lviInfo.SubItems[0].Text = lvThongTin.Items[i].SubItems[2].Text; //STT
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[3].Text); //SP
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[4].Text); //CK
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[5].Text); //tien CK
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[6].Text); //SL
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[7].Text); //DVT
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[8].Text); //don gia
+                    lviInfo.SubItems.Add(lvThongTin.Items[i].SubItems[9].Text); //thanh tien
+
+                    lvInfoNew.Items.Add(lviInfo);
                 }
+
+                ExportExcel.InitWorkBook("Hóa đơn bán hàng");
+                ExportExcel.CreateSummaryHoaDon(tbMaHD.Text, FormMain.user.Ten, dataKH.Ten,
+                    dtpNgayGio.Value, tbTongCK.Text, tbTongHoaDon.Text);
+
+                ExportExcel.CreateDetailsTableHoaDon(lvInfoNew);
+
+                ExportExcel.SaveExcel(path);
             }
         }
 
@@ -1093,7 +1060,6 @@ namespace QuanLyKinhDoanh.GiaoDich
 
             tbTienSuDung.Text = (ConvertUtil.ConvertToLong(tbSuDung.Text) * Constant.DEFAULT_CHANGE_RATE).ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
-        #endregion
 
         private void tbTongCK_TextChanged(object sender, EventArgs e)
         {
@@ -1191,5 +1157,6 @@ namespace QuanLyKinhDoanh.GiaoDich
         {
             AddToBillWhenPressEnter(sender, e);
         }
+        #endregion
     }
 }

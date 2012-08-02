@@ -13,7 +13,7 @@ namespace Library
         private static XLWorkbook workbook;
         private static IXLWorksheet ws;
 
-        public static void SaveExcel(string fileName, string path)
+        public static void SaveExcel(string path)
         {
             workbook.SaveAs(path);
         }
@@ -112,6 +112,7 @@ namespace Library
             ws.Cell("A4").Value = soSP;
             ws.Cell("B4").Value = tongSoLuong;
             ws.Cell("C4").Value = soSPHetHan;
+
             ws.Cell("C4").Style.Font.Bold = true;
             ws.Cell("C4").Style.Font.FontColor = XLColor.Red;
             ws.Cell("D4").Value = tongSoLuongHetHan;
@@ -193,6 +194,88 @@ namespace Library
                 var excelTableDetails = rngTableDetails.CreateTable();
 
                 ws.Columns().AdjustToContents(3, 8);
+            }
+        }
+
+        public static void CreateSummaryHoaDon(string maHD, string tenNV, string tenKH, DateTime ngay, string tongCK, string tongHD)
+        {
+            ws.Cell("B1").Value = "CỬA HÀNG NGỌC ĐĂNG";
+            ws.Cell("B1").Style.Font.FontSize = 16;
+            ws.Cell("B1").Style.Font.Bold = true;
+
+            ws.Cell("B2").Value = "Hóa đơn:";
+            ws.Cell("B3").Value = "Nhân viên:";
+            ws.Cell("B4").Value = "Khách:";
+
+            ws.Cell("C2").Value = maHD;
+            ws.Cell("C3").Value = tenNV;
+            ws.Cell("C4").Value = tenKH;
+
+            ws.Cell("B2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("B2").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            ws.Cell("B3").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("B3").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            ws.Cell("B4").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("B4").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            ws.Cell("G2").Value = "Ngày:";
+            ws.Cell("G3").Value = "Tổng CK:";
+            ws.Cell("G4").Value = "Tổng HĐ:";
+
+            ws.Cell("H2").Value = ngay.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
+            ws.Cell("H3").Value = tongCK;
+            ws.Cell("H4").Value = tongHD;
+
+            ws.Cell("G2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("G2").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            ws.Cell("G3").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("G3").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+            ws.Cell("G4").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Right;
+            ws.Cell("G4").Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
+
+            ws.Cell("H3").Style.NumberFormat.Format = "#,###";
+            ws.Cell("H4").Style.NumberFormat.Format = "#,###";
+
+            ws.Columns().AdjustToContents(1, 6);
+        }
+
+        public static void CreateDetailsTableHoaDon(ListView lv)
+        {
+            if (lv.Items.Count > 0)
+            {
+                int firstRow = 6;
+                int firstCol = 1;
+                int lastRow = firstRow + lv.Items.Count;
+                int lastCol = lv.Columns.Count;
+
+                // From worksheet
+                var rngTableDetails = ws.Range(firstRow, firstCol, lastRow, lastCol);
+
+                var rngHeadersDetails = rngTableDetails.Range(1, firstCol, 1, lastCol); // The address is relative to rngTable (NOT the worksheet)
+                rngHeadersDetails.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
+                rngHeadersDetails.Style.Font.FontColor = XLColor.White;
+
+                for (int colNum = 0; colNum < lv.Columns.Count; colNum++)
+                {
+                    ws.Cell(firstRow, colNum + 1).Value = lv.Columns[colNum].Text.ToString();
+                }
+
+                for (int rowNum = 0; rowNum < lv.Items.Count; rowNum++)
+                {
+                    for (int colNum = 0; colNum < lv.Columns.Count; colNum++)
+                    {
+                        ws.Cell(firstRow + 1 + rowNum, colNum + 1).Value = lv.Items[rowNum].SubItems[colNum].Text;
+                    }
+                }
+
+                var rngDataDetails = ws.Range(firstRow + 1, firstCol, lastRow, lastCol);
+                rngDataDetails.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+                rngDataDetails.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                rngDataDetails.Style.NumberFormat.Format = "#,###";
+
+                var excelTableDetails = rngTableDetails.CreateTable();
+
+                ws.Columns().AdjustToContents(1, firstRow);
             }
         }
     }

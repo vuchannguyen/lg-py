@@ -102,7 +102,7 @@ namespace QuanLyKinhDoanh
 
         private void pbLoiNhuan_Click(object sender, EventArgs e)
         {
-            this.Controls.Add(new UcLoiNhuan());
+            this.Controls.Add(new UcThuChi());
         }
 
         private void pbLoiNhuan_MouseEnter(object sender, EventArgs e)
