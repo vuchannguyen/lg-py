@@ -33,6 +33,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbTienSuDung = new System.Windows.Forms.Label();
+            this.lbTienThanhToan = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbStatusCK = new System.Windows.Forms.Label();
             this.lbTongCK = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,16 +69,17 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbTienThanhToan = new System.Windows.Forms.Label();
-            this.lbTienSuDung = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pbExcel = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).BeginInit();
             this.SuspendLayout();
             // 
             // lbMaHD
@@ -112,6 +117,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.lbTienSuDung);
             this.groupBox1.Controls.Add(this.lbTienThanhToan);
             this.groupBox1.Controls.Add(this.label13);
@@ -136,10 +142,52 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Orange;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(790, 520);
+            this.groupBox1.Size = new System.Drawing.Size(790, 525);
             this.groupBox1.TabIndex = 132;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // lbTienSuDung
+            // 
+            this.lbTienSuDung.AutoSize = true;
+            this.lbTienSuDung.ForeColor = System.Drawing.Color.Black;
+            this.lbTienSuDung.Location = new System.Drawing.Point(449, 111);
+            this.lbTienSuDung.Name = "lbTienSuDung";
+            this.lbTienSuDung.Size = new System.Drawing.Size(97, 18);
+            this.lbTienSuDung.TabIndex = 161;
+            this.lbTienSuDung.Text = "999,999,999";
+            // 
+            // lbTienThanhToan
+            // 
+            this.lbTienThanhToan.AutoSize = true;
+            this.lbTienThanhToan.ForeColor = System.Drawing.Color.Red;
+            this.lbTienThanhToan.Location = new System.Drawing.Point(668, 110);
+            this.lbTienThanhToan.Name = "lbTienThanhToan";
+            this.lbTienThanhToan.Size = new System.Drawing.Size(97, 18);
+            this.lbTienThanhToan.TabIndex = 160;
+            this.lbTienThanhToan.Text = "999,999,999";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(361, 110);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(82, 19);
+            this.label13.TabIndex = 159;
+            this.label13.Text = "Sử dụng:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(560, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 19);
+            this.label2.TabIndex = 158;
+            this.label2.Text = "Thanh toán:";
             // 
             // lbStatusCK
             // 
@@ -432,52 +480,43 @@
             // pnInfo
             // 
             this.pnInfo.Controls.Add(this.groupBox1);
-            this.pnInfo.Location = new System.Drawing.Point(100, 47);
+            this.pnInfo.Location = new System.Drawing.Point(100, 40);
             this.pnInfo.Name = "pnInfo";
-            this.pnInfo.Size = new System.Drawing.Size(800, 530);
+            this.pnInfo.Size = new System.Drawing.Size(800, 535);
             this.pnInfo.TabIndex = 133;
             // 
-            // label13
+            // panel1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(361, 110);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 19);
-            this.label13.TabIndex = 159;
-            this.label13.Text = "Sử dụng:";
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.pbExcel);
+            this.panel1.Location = new System.Drawing.Point(30, 451);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(70, 70);
+            this.panel1.TabIndex = 162;
             // 
-            // label2
+            // label8
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(560, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 19);
-            this.label2.TabIndex = 158;
-            this.label2.Text = "Thanh toán:";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 10F);
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(-1, 53);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 16);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Xuất Excel";
             // 
-            // lbTienThanhToan
+            // pbExcel
             // 
-            this.lbTienThanhToan.AutoSize = true;
-            this.lbTienThanhToan.ForeColor = System.Drawing.Color.Red;
-            this.lbTienThanhToan.Location = new System.Drawing.Point(668, 110);
-            this.lbTienThanhToan.Name = "lbTienThanhToan";
-            this.lbTienThanhToan.Size = new System.Drawing.Size(97, 18);
-            this.lbTienThanhToan.TabIndex = 160;
-            this.lbTienThanhToan.Text = "999,999,999";
-            // 
-            // lbTienSuDung
-            // 
-            this.lbTienSuDung.AutoSize = true;
-            this.lbTienSuDung.ForeColor = System.Drawing.Color.Black;
-            this.lbTienSuDung.Location = new System.Drawing.Point(449, 111);
-            this.lbTienSuDung.Name = "lbTienSuDung";
-            this.lbTienSuDung.Size = new System.Drawing.Size(97, 18);
-            this.lbTienSuDung.TabIndex = 161;
-            this.lbTienSuDung.Text = "999,999,999";
+            this.pbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbExcel.Location = new System.Drawing.Point(10, 0);
+            this.pbExcel.Name = "pbExcel";
+            this.pbExcel.Size = new System.Drawing.Size(50, 50);
+            this.pbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbExcel.TabIndex = 1;
+            this.pbExcel.TabStop = false;
+            this.pbExcel.Click += new System.EventHandler(this.pbExcel_Click);
+            this.pbExcel.MouseEnter += new System.EventHandler(this.pbExcel_MouseEnter);
+            this.pbExcel.MouseLeave += new System.EventHandler(this.pbExcel_MouseLeave);
             // 
             // UcDetail
             // 
@@ -499,6 +538,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnInfo.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,5 +587,8 @@
         private System.Windows.Forms.Label lbTienThanhToan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox pbExcel;
     }
 }

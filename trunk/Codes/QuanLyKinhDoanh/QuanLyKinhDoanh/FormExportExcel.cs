@@ -139,7 +139,7 @@ namespace QuanLyKinhDoanh
                             break;
                     }
 
-                    ExportExcel.SaveExcel(fileName, path);
+                    ExportExcel.SaveExcel(path);
 
                     if (MessageBox.Show(Constant.MESSAGE_SUCCESS_EXPORT_EXCEL + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_SUCCESS_EXPORT_EXCEL_OPEN,
                         Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
