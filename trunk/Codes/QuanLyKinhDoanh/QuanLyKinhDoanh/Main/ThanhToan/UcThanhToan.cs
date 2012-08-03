@@ -45,6 +45,8 @@ namespace QuanLyKinhDoanh.GiaoDich
                 pbAdd.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_CART_ADD);
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
+
+                pbLuuTam.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_PENDING);
             }
             catch
             {
@@ -1158,5 +1160,20 @@ namespace QuanLyKinhDoanh.GiaoDich
             AddToBillWhenPressEnter(sender, e);
         }
         #endregion
+
+        private void pbLuuTam_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbLuuTam_MouseEnter(object sender, EventArgs e)
+        {
+            pbLuuTam.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_PENDING_MOUSEOVER);
+        }
+
+        private void pbLuuTam_MouseLeave(object sender, EventArgs e)
+        {
+            pbLuuTam.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_PENDING);
+        }
     }
 }

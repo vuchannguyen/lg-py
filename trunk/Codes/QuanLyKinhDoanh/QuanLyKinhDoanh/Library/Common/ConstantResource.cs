@@ -116,6 +116,9 @@ namespace Library
         public const string GIAODICH_ICON_CART_DELETE = @"Resources\GiaoDich\icon_cart_delete.png";
         public const string GIAODICH_ICON_CART_DELETE_MOUSEOVER = @"Resources\GiaoDich\icon_cart_delete_mouseover.png";
         public const string GIAODICH_ICON_CART_DELETE_DISABLE = @"Resources\GiaoDich\icon_cart_delete_disable.png";
+        public const string GIAODICH_ICON_PENDING = @"Resources\GiaoDich\icon_pending.png";
+        public const string GIAODICH_ICON_PENDING_MOUSEOVER = @"Resources\GiaoDich\icon_pending_mouseover.png";
+        public const string GIAODICH_ICON_PENDING_DISABLE = @"Resources\GiaoDich\icon_pending_disable.png";
 
         public const string KHOHANG_ICON_KHOHANG = @"Resources\KhoHang\icon_khohang.png";
         public const string KHOHANG_ICON_KHOHANG_MOUSEOVER = @"Resources\KhoHang\icon_khohang_mouseover.png";
