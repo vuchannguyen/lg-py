@@ -5,6 +5,7 @@ using System.Text;
 using ClosedXML.Excel;
 using System.Windows.Forms;
 using System.IO;
+using System.Globalization;
 
 namespace Library
 {
@@ -170,7 +171,7 @@ namespace Library
 
                     if (!string.IsNullOrEmpty(lv.Items[rowNum].SubItems[lastCol - 1].Text))
                     {
-                        DateTime usedDay = DateTime.Parse(lv.Items[rowNum].SubItems[lastCol - 1].Text);
+                        DateTime usedDay = DateTime.ParseExact(lv.Items[rowNum].SubItems[lastCol - 1].Text, Constant.DEFAULT_DATE_FORMAT, CultureInfo.CurrentCulture);
 
                         if (DateTime.Now.AddDays(Constant.DEFAULT_WARNING_DAYS_EXPIRED) >= usedDay &&
                                 DateTime.Now.AddDays(-1) <= usedDay)

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Library;
 using BUS;
 using System.Diagnostics;
+using System.IO;
 
 namespace QuanLyKinhDoanh
 {
@@ -122,6 +123,20 @@ namespace QuanLyKinhDoanh
 
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
+            if (!File.Exists(Constant.DEFAULT_CLOSEXML_FILE_NAME))
+            {
+                MessageBox.Show(Constant.DEFAULT_CLOSEXML_FILE_NAME, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            if (!File.Exists(Constant.DEFAULT_OPENXML_FILE_NAME))
+            {
+                MessageBox.Show(Constant.DEFAULT_OPENXML_FILE_NAME, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
             string path = File_Function.SaveDialog(fileName + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
             if (path != null)

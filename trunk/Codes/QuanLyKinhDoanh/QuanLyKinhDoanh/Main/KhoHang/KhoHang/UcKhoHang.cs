@@ -465,7 +465,7 @@ namespace QuanLyKinhDoanh
 
                 if (lvEx.Columns[colNum].Visible)
                 {
-                    lvi.SubItems.Add(list[i].ThoiHan.ToString() + " " + list[i].DonViThoiHan);
+                    lvi.SubItems.Add(list[i].ThoiHan.Value == 0 ? string.Empty : list[i].ThoiHan.ToString() + " " + list[i].DonViThoiHan);
                 }
 
                 colNum++; //13

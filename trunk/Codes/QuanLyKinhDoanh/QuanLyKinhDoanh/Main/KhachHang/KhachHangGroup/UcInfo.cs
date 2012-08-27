@@ -116,7 +116,7 @@ namespace QuanLyKinhDoanh.KhachHangGroup
 
             if (KhachHangGroupBus.Insert(data, FormMain.user))
             {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn " + data.Ma) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Nhóm KH " + data.Ma) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRM, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.No)
                 {
                     this.Dispose();
                 }

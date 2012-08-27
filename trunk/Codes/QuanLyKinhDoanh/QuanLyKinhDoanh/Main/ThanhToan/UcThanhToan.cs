@@ -46,7 +46,7 @@ namespace QuanLyKinhDoanh.GiaoDich
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK_DISABLE);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
 
-                pbLuuTam.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_PENDING);
+                //pbLuuTam.Image = Image.FromFile(ConstantResource.GIAODICH_ICON_PENDING);
             }
             catch
             {
