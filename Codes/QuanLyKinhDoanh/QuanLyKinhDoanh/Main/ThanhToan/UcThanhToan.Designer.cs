@@ -72,6 +72,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnDetail = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pbLuuTam = new System.Windows.Forms.PictureBox();
             this.chbCKTongHD = new System.Windows.Forms.CheckBox();
             this.tbSuDung = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -109,9 +112,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.cbListHoaDon = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pbLuuTam = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -119,6 +119,8 @@
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnDetail.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLuuTam)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -127,8 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbAvatar)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLuuTam)).BeginInit();
             this.SuspendLayout();
             // 
             // pnInfo
@@ -585,6 +585,39 @@
             this.pnDetail.Size = new System.Drawing.Size(950, 350);
             this.pnDetail.TabIndex = 57;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.pbLuuTam);
+            this.panel3.Location = new System.Drawing.Point(870, 66);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(70, 70);
+            this.panel3.TabIndex = 130;
+            this.panel3.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(6, 53);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 16);
+            this.label19.TabIndex = 145;
+            this.label19.Text = "Lưu tạm";
+            // 
+            // pbLuuTam
+            // 
+            this.pbLuuTam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLuuTam.Location = new System.Drawing.Point(10, 0);
+            this.pbLuuTam.Name = "pbLuuTam";
+            this.pbLuuTam.Size = new System.Drawing.Size(50, 50);
+            this.pbLuuTam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLuuTam.TabIndex = 1;
+            this.pbLuuTam.TabStop = false;
+            this.pbLuuTam.Click += new System.EventHandler(this.pbLuuTam_Click);
+            this.pbLuuTam.MouseEnter += new System.EventHandler(this.pbLuuTam_MouseEnter);
+            this.pbLuuTam.MouseLeave += new System.EventHandler(this.pbLuuTam_MouseLeave);
+            // 
             // chbCKTongHD
             // 
             this.chbCKTongHD.AutoSize = true;
@@ -828,7 +861,7 @@
             // 
             // cbMaSP
             // 
-            this.cbMaSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cbMaSP.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbMaSP.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbMaSP.FormattingEnabled = true;
             this.cbMaSP.Location = new System.Drawing.Point(90, 20);
@@ -1003,38 +1036,7 @@
             this.cbListHoaDon.Name = "cbListHoaDon";
             this.cbListHoaDon.Size = new System.Drawing.Size(95, 24);
             this.cbListHoaDon.TabIndex = 125;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label19);
-            this.panel3.Controls.Add(this.pbLuuTam);
-            this.panel3.Location = new System.Drawing.Point(870, 66);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(70, 70);
-            this.panel3.TabIndex = 130;
-            // 
-            // pbLuuTam
-            // 
-            this.pbLuuTam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbLuuTam.Location = new System.Drawing.Point(10, 0);
-            this.pbLuuTam.Name = "pbLuuTam";
-            this.pbLuuTam.Size = new System.Drawing.Size(50, 50);
-            this.pbLuuTam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbLuuTam.TabIndex = 1;
-            this.pbLuuTam.TabStop = false;
-            this.pbLuuTam.Click += new System.EventHandler(this.pbLuuTam_Click);
-            this.pbLuuTam.MouseEnter += new System.EventHandler(this.pbLuuTam_MouseEnter);
-            this.pbLuuTam.MouseLeave += new System.EventHandler(this.pbLuuTam_MouseLeave);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(6, 53);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 16);
-            this.label19.TabIndex = 145;
-            this.label19.Text = "Lưu tạm";
+            this.cbListHoaDon.Visible = false;
             // 
             // UcThanhToan
             // 
@@ -1062,6 +1064,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnDetail.ResumeLayout(false);
             this.pnDetail.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLuuTam)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -1072,9 +1077,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLuuTam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
