@@ -36,7 +36,7 @@
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTienCK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDiemCK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -79,7 +79,7 @@
             this.tbSuDung = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tbTongCK = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lbTongCK = new System.Windows.Forms.Label();
             this.tbTongHoaDon = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -149,7 +149,7 @@
             this.chSTT,
             this.chSanPham,
             this.chChietKhau,
-            this.chTienCK,
+            this.chDiemCK,
             this.chSoLuong,
             this.chDVT,
             this.chDonGia,
@@ -189,7 +189,7 @@
             // chSanPham
             // 
             this.chSanPham.Text = "Sản phẩm";
-            this.chSanPham.Width = 358;
+            this.chSanPham.Width = 249;
             // 
             // chChietKhau
             // 
@@ -197,11 +197,11 @@
             this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chChietKhau.Width = 50;
             // 
-            // chTienCK
+            // chDiemCK
             // 
-            this.chTienCK.Text = "Tiền CK";
-            this.chTienCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chTienCK.Width = 100;
+            this.chDiemCK.Text = "Điểm CK";
+            this.chDiemCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chDiemCK.Width = 100;
             // 
             // chSoLuong
             // 
@@ -568,7 +568,7 @@
             this.pnDetail.Controls.Add(this.tbTichLuy);
             this.pnDetail.Controls.Add(this.tbTongCK);
             this.pnDetail.Controls.Add(this.label13);
-            this.pnDetail.Controls.Add(this.label18);
+            this.pnDetail.Controls.Add(this.lbTongCK);
             this.pnDetail.Controls.Add(this.tbTienSuDung);
             this.pnDetail.Controls.Add(this.label15);
             this.pnDetail.Controls.Add(this.tbTongHoaDon);
@@ -665,15 +665,15 @@
             this.tbTongCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbTongCK.TextChanged += new System.EventHandler(this.tbTongCK_TextChanged);
             // 
-            // label18
+            // lbTongCK
             // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(336, 13);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 16);
-            this.label18.TabIndex = 130;
-            this.label18.Text = "Tổng CK:";
+            this.lbTongCK.AutoSize = true;
+            this.lbTongCK.ForeColor = System.Drawing.Color.Black;
+            this.lbTongCK.Location = new System.Drawing.Point(336, 13);
+            this.lbTongCK.Name = "lbTongCK";
+            this.lbTongCK.Size = new System.Drawing.Size(67, 16);
+            this.lbTongCK.TabIndex = 130;
+            this.lbTongCK.Text = "Điểm CK:";
             // 
             // tbTongHoaDon
             // 
@@ -1148,11 +1148,11 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ColumnHeader chThanhTien;
         private System.Windows.Forms.Label lbNgayGio;
-        private System.Windows.Forms.ColumnHeader chTienCK;
+        private System.Windows.Forms.ColumnHeader chDiemCK;
         private System.Windows.Forms.Label lbTienStatus;
         private System.Windows.Forms.TextBox tbTienHoiLai;
         private System.Windows.Forms.TextBox tbTongCK;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lbTongCK;
         private System.Windows.Forms.TextBox tbTienCK;
         private System.Windows.Forms.ToolTip ttDetail;
         private System.Windows.Forms.Panel panel1;
