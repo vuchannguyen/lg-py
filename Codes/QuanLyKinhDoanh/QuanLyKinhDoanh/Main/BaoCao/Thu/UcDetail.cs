@@ -88,6 +88,8 @@ namespace QuanLyKinhDoanh.Thu
             lbStatusCK.Text = data.IsCKTichLuy ? Constant.DEFAULT_INDIRECT_DISCOUNT : Constant.DEFAULT_DIRECT_DISCOUNT;
             lbGhiChu.Text = data.GhiChu;
 
+            lvThongTin.Columns[5].Text = data.IsCKTichLuy ? "Điểm CK" : "Tiền CK";
+
             long totalDiscount = 0;
 
             foreach (DTO.HoaDonDetail detail in listHoaDonDetail)

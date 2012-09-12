@@ -32,7 +32,10 @@
             this.lbMaHD = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbStatusCK = new System.Windows.Forms.Label();
+            this.lbTongCK = new System.Windows.Forms.Label();
             this.lbKhachHang = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lbConLai = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +52,8 @@
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chTienCK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDonGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,11 +67,6 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.pnInfo = new System.Windows.Forms.Panel();
-            this.lbTongCK = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbStatusCK = new System.Windows.Forms.Label();
-            this.chChietKhau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTienCK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -126,6 +126,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // lbStatusCK
+            // 
+            this.lbStatusCK.AutoSize = true;
+            this.lbStatusCK.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatusCK.ForeColor = System.Drawing.Color.Black;
+            this.lbStatusCK.Location = new System.Drawing.Point(482, 30);
+            this.lbStatusCK.Name = "lbStatusCK";
+            this.lbStatusCK.Size = new System.Drawing.Size(82, 19);
+            this.lbStatusCK.TabIndex = 159;
+            this.lbStatusCK.Text = "StatusCK";
+            // 
+            // lbTongCK
+            // 
+            this.lbTongCK.AutoSize = true;
+            this.lbTongCK.ForeColor = System.Drawing.Color.Black;
+            this.lbTongCK.Location = new System.Drawing.Point(663, 30);
+            this.lbTongCK.Name = "lbTongCK";
+            this.lbTongCK.Size = new System.Drawing.Size(97, 18);
+            this.lbTongCK.TabIndex = 155;
+            this.lbTongCK.Text = "999,999,999";
+            // 
             // lbKhachHang
             // 
             this.lbKhachHang.AutoSize = true;
@@ -137,6 +158,17 @@
             this.lbKhachHang.TabIndex = 158;
             this.lbKhachHang.Text = "Khách hàng";
             this.lbKhachHang.MouseEnter += new System.EventHandler(this.lbKhachHang_MouseEnter);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(580, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 19);
+            this.label2.TabIndex = 154;
+            this.label2.Text = "Tổng CK:";
             // 
             // label7
             // 
@@ -199,10 +231,9 @@
             this.lbGhiChu.Location = new System.Drawing.Point(401, 70);
             this.lbGhiChu.MaximumSize = new System.Drawing.Size(180, 0);
             this.lbGhiChu.Name = "lbGhiChu";
-            this.lbGhiChu.Size = new System.Drawing.Size(180, 72);
+            this.lbGhiChu.Size = new System.Drawing.Size(60, 18);
             this.lbGhiChu.TabIndex = 149;
-            this.lbGhiChu.Text = "Ghi chúfsdjhfsjflsdjflsdjflsj ljsklafjs lkfjsdlf\r\nsfjlsdkjfklsjflksjflsdkfjklsdjf" +
-                "klsdjfklsdjflksjfklsdj";
+            this.lbGhiChu.Text = "Ghi chú";
             // 
             // label5
             // 
@@ -243,9 +274,9 @@
             this.lbNguoiBan.Location = new System.Drawing.Point(123, 70);
             this.lbNguoiBan.MaximumSize = new System.Drawing.Size(200, 0);
             this.lbNguoiBan.Name = "lbNguoiBan";
-            this.lbNguoiBan.Size = new System.Drawing.Size(200, 54);
+            this.lbNguoiBan.Size = new System.Drawing.Size(84, 18);
             this.lbNguoiBan.TabIndex = 134;
-            this.lbNguoiBan.Text = "Người bánfdsfsdklfjksdlkfjsdkljfklsdjfa";
+            this.lbNguoiBan.Text = "Người bán";
             this.lbNguoiBan.MouseEnter += new System.EventHandler(this.lbNguoiBan_MouseEnter);
             // 
             // label12
@@ -307,6 +338,18 @@
             // 
             this.chSanPham.Text = "Sản phẩm";
             this.chSanPham.Width = 249;
+            // 
+            // chChietKhau
+            // 
+            this.chChietKhau.Text = "CK";
+            this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chChietKhau.Width = 40;
+            // 
+            // chTienCK
+            // 
+            this.chTienCK.Text = "Tiền CK";
+            this.chTienCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chTienCK.Width = 90;
             // 
             // chSoLuong
             // 
@@ -410,50 +453,6 @@
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(800, 530);
             this.pnInfo.TabIndex = 133;
-            // 
-            // lbTongCK
-            // 
-            this.lbTongCK.AutoSize = true;
-            this.lbTongCK.ForeColor = System.Drawing.Color.Black;
-            this.lbTongCK.Location = new System.Drawing.Point(663, 30);
-            this.lbTongCK.Name = "lbTongCK";
-            this.lbTongCK.Size = new System.Drawing.Size(97, 18);
-            this.lbTongCK.TabIndex = 155;
-            this.lbTongCK.Text = "999,999,999";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(580, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 19);
-            this.label2.TabIndex = 154;
-            this.label2.Text = "Tổng CK:";
-            // 
-            // lbStatusCK
-            // 
-            this.lbStatusCK.AutoSize = true;
-            this.lbStatusCK.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatusCK.ForeColor = System.Drawing.Color.Black;
-            this.lbStatusCK.Location = new System.Drawing.Point(482, 30);
-            this.lbStatusCK.Name = "lbStatusCK";
-            this.lbStatusCK.Size = new System.Drawing.Size(82, 19);
-            this.lbStatusCK.TabIndex = 159;
-            this.lbStatusCK.Text = "StatusCK";
-            // 
-            // chChietKhau
-            // 
-            this.chChietKhau.Text = "CK";
-            this.chChietKhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chChietKhau.Width = 40;
-            // 
-            // chTienCK
-            // 
-            this.chTienCK.Text = "Tiền CK";
-            this.chTienCK.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chTienCK.Width = 90;
             // 
             // UcDetail
             // 
