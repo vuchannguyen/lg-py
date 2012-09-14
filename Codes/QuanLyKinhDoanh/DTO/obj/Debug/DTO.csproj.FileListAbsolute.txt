@@ -16,3 +16,9 @@ C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DTO\bi
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\DTO.dll
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DTO\obj\Debug\DTO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DTO\bin\Debug\DTO.dll.config
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DTO\bin\Debug\DTO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DTO\bin\Debug\DTO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DTO\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DTO\obj\Debug\DTO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DTO\obj\Debug\DTO.pdb

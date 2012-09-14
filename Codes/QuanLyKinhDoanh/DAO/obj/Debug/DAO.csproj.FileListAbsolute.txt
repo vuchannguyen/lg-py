@@ -19,3 +19,10 @@ C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DAO\bi
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DAO.pdb
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DTO.dll
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\DAO\bin\Debug\DTO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DAO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DAO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DTO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\bin\Debug\DTO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\obj\Debug\DAO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\DAO\obj\Debug\DAO.pdb

@@ -25,3 +25,12 @@ C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\BUS\bi
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\BUS.dll
 C:\Documents and Settings\Administrator\Desktop\Quan Ly Kinh Doanh Source\BUS\obj\Debug\BUS.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\BUS.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\BUS.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DAO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DTO.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DAO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\bin\Debug\DTO.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\BUS.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\BUS\obj\Debug\BUS.pdb
