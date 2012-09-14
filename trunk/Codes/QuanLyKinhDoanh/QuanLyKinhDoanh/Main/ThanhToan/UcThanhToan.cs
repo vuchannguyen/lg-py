@@ -779,6 +779,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void cbMaSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetInfoSP();
+            CalculateCK();
         }
 
         private void cbMaSP_TextChanged(object sender, EventArgs e)
