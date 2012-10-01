@@ -99,10 +99,10 @@ namespace QuanLyKinhDoanh.CongNo
                 {
                     long money = (detail.ChietKhau * detail.SanPham.GiaBan / 100) * detail.SoLuong;
 
-                    totalDiscount += money;
+                    totalDiscount += data.IsCKTichLuy ? money / 100 : money;
 
                     lvi.SubItems.Add(detail.ChietKhau.ToString() + Constant.SYMBOL_DISCOUNT);
-                    lvi.SubItems.Add(money.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                    lvi.SubItems.Add((data.IsCKTichLuy ? money / 100 : money).ToString(Constant.DEFAULT_FORMAT_MONEY));
                 }
                 else
                 {
@@ -118,7 +118,7 @@ namespace QuanLyKinhDoanh.CongNo
                 lvThongTin.Items.Add(lvi);
             }
 
-            lbTongCK.Text = data.IsCKTichLuy ? totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY) : data.TienChietKhau.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            lbTongCK.Text = data.IsCKTongHD ? data.TienChietKhau.ToString(Constant.DEFAULT_FORMAT_MONEY) : totalDiscount.ToString(Constant.DEFAULT_FORMAT_MONEY);
             lbTongHD.Text = data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY);
             lbConLai.Text = data.ConLai.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
