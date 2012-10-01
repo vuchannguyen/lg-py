@@ -112,7 +112,7 @@ namespace QuanLyKinhDoanh
                 text = string.Empty;
             }
 
-            int total = SanPhamBus.GetCount(text, idGroup, false, status, false, 0);
+            int total = SanPhamBus.GetCount(text, idGroup, false, status, true, Constant.DEFAULT_WARNING_DAYS_EXPIRED);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -249,7 +249,7 @@ namespace QuanLyKinhDoanh
         {
             if (e.ColumnIndex == 0)
             {
-                e.NewWidth = 30;
+                e.NewWidth = 0;
                 e.Cancel = true;
             }
 

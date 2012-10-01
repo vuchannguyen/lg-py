@@ -30,6 +30,7 @@ namespace QuanLyKinhDoanh
             try
             {
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
+                pbXuat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
@@ -175,11 +176,15 @@ namespace QuanLyKinhDoanh
                 {
                     pbSua.Enabled = true;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
+                    pbXuat.Enabled = true;
+                    pbXuat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
                 }
                 else
                 {
                     pbSua.Enabled = false;
                     pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                    pbXuat.Enabled = false;
+                    pbXuat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
                 }
 
                 pbXoa.Enabled = true;
@@ -191,6 +196,8 @@ namespace QuanLyKinhDoanh
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Enabled = false;
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                pbXuat.Enabled = false;
+                pbXuat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_DISABLE);
             }
         }
 
@@ -529,5 +536,29 @@ namespace QuanLyKinhDoanh
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
         #endregion
+
+        private void pbXuat_Click(object sender, EventArgs e)
+        {
+            HoaDonDetail detail = HoaDonDetailBus.GetById(ConvertUtil.ConvertToInt(lvThongTin.CheckedItems[0].SubItems[1].Text));
+
+            if (detail != null)
+            {
+                uc = new XuatKho.UcInfo(SanPhamBus.GetById(detail.IdSanPham));
+                uc.Disposed += new EventHandler(uc_Disposed);
+                this.Controls.Add(uc);
+            }
+        }
+
+        private void pbXuat_MouseEnter(object sender, EventArgs e)
+        {
+            pbXuat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK_MOUSEOVER);
+
+            ttDetail.SetToolTip(pbXuat, Constant.TOOLTIP_XUAT_KHO);
+        }
+
+        private void pbXuat_MouseLeave(object sender, EventArgs e)
+        {
+            pbXuat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEND_BACK);
+        }
     }
 }

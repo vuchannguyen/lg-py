@@ -1,6 +1,6 @@
 ﻿namespace QuanLyKinhDoanh
 {
-    partial class UcKhoHang
+    partial class UcThongKeKho
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,9 +32,6 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnFind = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pbExcel = new System.Windows.Forms.PictureBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbGroup = new System.Windows.Forms.ComboBox();
@@ -52,11 +49,12 @@
             this.chMaSP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chXuatXu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chSLNhap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGiaBan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chXuatKho = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chChi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chSLBan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chThucThu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chThongKe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -65,11 +63,15 @@
             this.pbTotalPage = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.tbTongThucThu = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbTongChi = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbThongKe = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnFind.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFind)).BeginInit();
             this.pnQuanLy.SuspendLayout();
@@ -96,9 +98,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(111, 22);
+            this.lbTitle.Size = new System.Drawing.Size(158, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "KHO HÀNG";
+            this.lbTitle.Text = "THỐNG KÊ KHO";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -112,7 +114,6 @@
             // 
             // pnFind
             // 
-            this.pnFind.Controls.Add(this.panel1);
             this.pnFind.Controls.Add(this.cbStatus);
             this.pnFind.Controls.Add(this.label3);
             this.pnFind.Controls.Add(this.cbGroup);
@@ -122,40 +123,8 @@
             this.pnFind.Controls.Add(this.panel2);
             this.pnFind.Location = new System.Drawing.Point(43, 3);
             this.pnFind.Name = "pnFind";
-            this.pnFind.Size = new System.Drawing.Size(542, 78);
+            this.pnFind.Size = new System.Drawing.Size(450, 78);
             this.pnFind.TabIndex = 52;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pbExcel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(70, 70);
-            this.panel1.TabIndex = 103;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(-1, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Xuất Excel";
-            // 
-            // pbExcel
-            // 
-            this.pbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbExcel.Location = new System.Drawing.Point(10, 0);
-            this.pbExcel.Name = "pbExcel";
-            this.pbExcel.Size = new System.Drawing.Size(50, 50);
-            this.pbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbExcel.TabIndex = 1;
-            this.pbExcel.TabStop = false;
-            this.pbExcel.Click += new System.EventHandler(this.pbExcel_Click);
-            this.pbExcel.MouseEnter += new System.EventHandler(this.pbExcel_MouseEnter);
-            this.pbExcel.MouseLeave += new System.EventHandler(this.pbExcel_MouseLeave);
             // 
             // cbStatus
             // 
@@ -165,7 +134,7 @@
             "Tất cả",
             "Còn",
             "Hết"});
-            this.cbStatus.Location = new System.Drawing.Point(410, 40);
+            this.cbStatus.Location = new System.Drawing.Point(320, 40);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(125, 24);
             this.cbStatus.TabIndex = 102;
@@ -174,7 +143,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(326, 43);
+            this.label3.Location = new System.Drawing.Point(236, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 101;
@@ -190,7 +159,7 @@
             "Vd1: Giày",
             "Vd2: Dép",
             "Vd3: Nón"});
-            this.cbGroup.Location = new System.Drawing.Point(410, 10);
+            this.cbGroup.Location = new System.Drawing.Point(320, 10);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(125, 24);
             this.cbGroup.TabIndex = 100;
@@ -201,7 +170,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(334, 13);
+            this.label2.Location = new System.Drawing.Point(244, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 16);
             this.label2.TabIndex = 99;
@@ -209,7 +178,7 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(170, 40);
+            this.tbSearch.Location = new System.Drawing.Point(79, 40);
             this.tbSearch.MaxLength = 200;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(150, 23);
@@ -220,7 +189,7 @@
             // 
             this.lbMa.AutoSize = true;
             this.lbMa.ForeColor = System.Drawing.Color.Black;
-            this.lbMa.Location = new System.Drawing.Point(167, 13);
+            this.lbMa.Location = new System.Drawing.Point(76, 13);
             this.lbMa.Name = "lbMa";
             this.lbMa.Size = new System.Drawing.Size(153, 16);
             this.lbMa.TabIndex = 92;
@@ -230,7 +199,7 @@
             // 
             this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.pbFind);
-            this.panel2.Location = new System.Drawing.Point(90, 3);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(70, 70);
             this.panel2.TabIndex = 27;
@@ -262,7 +231,7 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(40, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(40, 95);
             this.pnQuanLy.Name = "pnQuanLy";
             this.pnQuanLy.Size = new System.Drawing.Size(910, 480);
             this.pnQuanLy.TabIndex = 51;
@@ -276,11 +245,12 @@
             this.chMaSP,
             this.chTen,
             this.chMoTa,
-            this.chXuatXu,
-            this.chSoLuong,
+            this.chSLNhap,
             this.chDVT,
-            this.chGiaBan,
-            this.chXuatKho});
+            this.chChi,
+            this.chSLBan,
+            this.chThucThu,
+            this.chThongKe});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -326,23 +296,18 @@
             // chTen
             // 
             this.chTen.Text = "Tên";
-            this.chTen.Width = 180;
+            this.chTen.Width = 138;
             // 
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 202;
+            this.chMoTa.Width = 180;
             // 
-            // chXuatXu
+            // chSLNhap
             // 
-            this.chXuatXu.Text = "Xuất xứ";
-            this.chXuatXu.Width = 99;
-            // 
-            // chSoLuong
-            // 
-            this.chSoLuong.Text = "SL";
-            this.chSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chSoLuong.Width = 52;
+            this.chSLNhap.Text = "SL-N";
+            this.chSLNhap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chSLNhap.Width = 52;
             // 
             // chDVT
             // 
@@ -350,17 +315,29 @@
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chDVT.Width = 69;
             // 
-            // chGiaBan
+            // chChi
             // 
-            this.chGiaBan.Text = "Giá bán";
-            this.chGiaBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.chGiaBan.Width = 90;
+            this.chChi.Text = "Chi";
+            this.chChi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chChi.Width = 90;
             // 
-            // chXuatKho
+            // chSLBan
             // 
-            this.chXuatKho.Text = "Xuất kho";
-            this.chXuatKho.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chXuatKho.Width = 70;
+            this.chSLBan.Text = "SL-B";
+            this.chSLBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chSLBan.Width = 52;
+            // 
+            // chThucThu
+            // 
+            this.chThucThu.Text = "Thực thu";
+            this.chThucThu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chThucThu.Width = 90;
+            // 
+            // chThongKe
+            // 
+            this.chThongKe.Text = "Thống kê";
+            this.chThongKe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.chThongKe.Width = 90;
             // 
             // pnTraCuu
             // 
@@ -452,15 +429,85 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
-            // UcKhoHang
+            // tbTongThucThu
+            // 
+            this.tbTongThucThu.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbTongThucThu.Location = new System.Drawing.Point(822, 45);
+            this.tbTongThucThu.MaxLength = 10;
+            this.tbTongThucThu.Name = "tbTongThucThu";
+            this.tbTongThucThu.ReadOnly = true;
+            this.tbTongThucThu.Size = new System.Drawing.Size(121, 23);
+            this.tbTongThucThu.TabIndex = 55;
+            this.tbTongThucThu.Text = "999,999,999";
+            this.tbTongThucThu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(715, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 16);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "Tổng thực thu:";
+            // 
+            // tbTongChi
+            // 
+            this.tbTongChi.Font = new System.Drawing.Font("Arial", 10F);
+            this.tbTongChi.Location = new System.Drawing.Point(573, 45);
+            this.tbTongChi.MaxLength = 10;
+            this.tbTongChi.Name = "tbTongChi";
+            this.tbTongChi.ReadOnly = true;
+            this.tbTongChi.Size = new System.Drawing.Size(121, 23);
+            this.tbTongChi.TabIndex = 57;
+            this.tbTongChi.Text = "999,999,999";
+            this.tbTongChi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(500, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Tổng chi:";
+            // 
+            // tbThongKe
+            // 
+            this.tbThongKe.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbThongKe.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.tbThongKe.Location = new System.Drawing.Point(822, 68);
+            this.tbThongKe.MaxLength = 10;
+            this.tbThongKe.Name = "tbThongKe";
+            this.tbThongKe.ReadOnly = true;
+            this.tbThongKe.Size = new System.Drawing.Size(121, 26);
+            this.tbThongKe.TabIndex = 59;
+            this.tbThongKe.Text = "999,999,999";
+            this.tbThongKe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(744, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 16);
+            this.label5.TabIndex = 58;
+            this.label5.Text = "Thống kê:";
+            // 
+            // UcThongKeKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tbThongKe);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbTongChi);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbTongThucThu);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnFind);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UcKhoHang";
+            this.Name = "UcThongKeKho";
             this.Size = new System.Drawing.Size(1000, 600);
             this.Load += new System.EventHandler(this.UcKhoHang_Load);
             this.pnTitle.ResumeLayout(false);
@@ -468,9 +515,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnFind.ResumeLayout(false);
             this.pnFind.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFind)).EndInit();
@@ -483,6 +527,7 @@
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -497,7 +542,7 @@
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chMaSP;
         private System.Windows.Forms.ColumnHeader chDVT;
-        private System.Windows.Forms.ColumnHeader chGiaBan;
+        private System.Windows.Forms.ColumnHeader chThongKe;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
@@ -506,7 +551,7 @@
         private System.Windows.Forms.PictureBox pbTotalPage;
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lbPage;
-        private System.Windows.Forms.ColumnHeader chSoLuong;
+        private System.Windows.Forms.ColumnHeader chSLNhap;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbFind;
@@ -516,15 +561,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ColumnHeader chXuatKho;
         private System.Windows.Forms.ColumnHeader chId;
         private System.Windows.Forms.ColumnHeader chTen;
-        private System.Windows.Forms.ColumnHeader chMoTa;
         private System.Windows.Forms.ColumnHeader chCheckBox;
-        private System.Windows.Forms.ColumnHeader chXuatXu;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox tbTongThucThu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbExcel;
+        private System.Windows.Forms.TextBox tbTongChi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader chChi;
+        private System.Windows.Forms.ColumnHeader chSLBan;
+        private System.Windows.Forms.ColumnHeader chThucThu;
+        private System.Windows.Forms.ColumnHeader chMoTa;
+        private System.Windows.Forms.TextBox tbThongKe;
+        private System.Windows.Forms.Label label5;
 
     }
 }

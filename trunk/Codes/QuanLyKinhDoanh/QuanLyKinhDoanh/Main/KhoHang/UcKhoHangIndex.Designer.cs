@@ -32,14 +32,14 @@
             this.lbTonKho = new System.Windows.Forms.Label();
             this.pbTonKho = new System.Windows.Forms.PictureBox();
             this.lbXuatKho = new System.Windows.Forms.Label();
-            this.pbXuatKho = new System.Windows.Forms.PictureBox();
+            this.pbThongKeKho = new System.Windows.Forms.PictureBox();
             this.lbKhoHang = new System.Windows.Forms.Label();
             this.lbNhapKho = new System.Windows.Forms.Label();
             this.pbNhapKho = new System.Windows.Forms.PictureBox();
             this.pbKhoHang = new System.Windows.Forms.PictureBox();
             this.pnSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTonKho)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThongKeKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.pnSelect.Controls.Add(this.lbTonKho);
             this.pnSelect.Controls.Add(this.pbTonKho);
             this.pnSelect.Controls.Add(this.lbXuatKho);
-            this.pnSelect.Controls.Add(this.pbXuatKho);
+            this.pnSelect.Controls.Add(this.pbThongKeKho);
             this.pnSelect.Controls.Add(this.lbKhoHang);
             this.pnSelect.Controls.Add(this.lbNhapKho);
             this.pnSelect.Controls.Add(this.pbNhapKho);
@@ -88,24 +88,25 @@
             this.lbXuatKho.AutoSize = true;
             this.lbXuatKho.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbXuatKho.ForeColor = System.Drawing.Color.Gray;
-            this.lbXuatKho.Location = new System.Drawing.Point(221, 120);
+            this.lbXuatKho.Location = new System.Drawing.Point(204, 120);
             this.lbXuatKho.Name = "lbXuatKho";
-            this.lbXuatKho.Size = new System.Drawing.Size(79, 16);
+            this.lbXuatKho.Size = new System.Drawing.Size(116, 16);
             this.lbXuatKho.TabIndex = 8;
-            this.lbXuatKho.Text = "XUẤT KHO";
+            this.lbXuatKho.Text = "THỐNG KÊ KHO";
+            this.lbXuatKho.Click += new System.EventHandler(this.lbXuatKho_Click);
             // 
-            // pbXuatKho
+            // pbThongKeKho
             // 
-            this.pbXuatKho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbXuatKho.Location = new System.Drawing.Point(211, 10);
-            this.pbXuatKho.Name = "pbXuatKho";
-            this.pbXuatKho.Size = new System.Drawing.Size(100, 100);
-            this.pbXuatKho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbXuatKho.TabIndex = 7;
-            this.pbXuatKho.TabStop = false;
-            this.pbXuatKho.Click += new System.EventHandler(this.pbXuatKho_Click);
-            this.pbXuatKho.MouseEnter += new System.EventHandler(this.pbXuatKho_MouseEnter);
-            this.pbXuatKho.MouseLeave += new System.EventHandler(this.pbXuatKho_MouseLeave);
+            this.pbThongKeKho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbThongKeKho.Location = new System.Drawing.Point(211, 10);
+            this.pbThongKeKho.Name = "pbThongKeKho";
+            this.pbThongKeKho.Size = new System.Drawing.Size(100, 100);
+            this.pbThongKeKho.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbThongKeKho.TabIndex = 7;
+            this.pbThongKeKho.TabStop = false;
+            this.pbThongKeKho.Click += new System.EventHandler(this.pbThongKeKho_Click);
+            this.pbThongKeKho.MouseEnter += new System.EventHandler(this.pbThongKeKho_MouseEnter);
+            this.pbThongKeKho.MouseLeave += new System.EventHandler(this.pbThongKeKho_MouseLeave);
             // 
             // lbKhoHang
             // 
@@ -168,7 +169,7 @@
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTonKho)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXuatKho)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThongKeKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNhapKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhoHang)).EndInit();
             this.ResumeLayout(false);
@@ -183,7 +184,7 @@
         private System.Windows.Forms.PictureBox pbNhapKho;
         private System.Windows.Forms.PictureBox pbKhoHang;
         private System.Windows.Forms.Label lbXuatKho;
-        private System.Windows.Forms.PictureBox pbXuatKho;
+        private System.Windows.Forms.PictureBox pbThongKeKho;
         private System.Windows.Forms.Label lbTonKho;
         private System.Windows.Forms.PictureBox pbTonKho;
     }

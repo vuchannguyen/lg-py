@@ -74,6 +74,9 @@
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tbTong = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pbXuat = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -92,6 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).BeginInit();
             this.pnPage.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuat)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -126,12 +131,13 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.panel5);
             this.pnSelect.Controls.Add(this.panel2);
             this.pnSelect.Controls.Add(this.panel3);
             this.pnSelect.Controls.Add(this.panel4);
-            this.pnSelect.Location = new System.Drawing.Point(140, 3);
+            this.pnSelect.Location = new System.Drawing.Point(60, 3);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(235, 78);
+            this.pnSelect.Size = new System.Drawing.Size(315, 78);
             this.pnSelect.TabIndex = 49;
             // 
             // panel2
@@ -169,7 +175,7 @@
             // 
             this.panel3.Controls.Add(this.label30);
             this.panel3.Controls.Add(this.pbSua);
-            this.panel3.Location = new System.Drawing.Point(158, 3);
+            this.panel3.Location = new System.Drawing.Point(234, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(70, 70);
             this.panel3.TabIndex = 28;
@@ -201,7 +207,7 @@
             // 
             this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.pbXoa);
-            this.panel4.Location = new System.Drawing.Point(82, 3);
+            this.panel4.Location = new System.Drawing.Point(158, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(70, 70);
             this.panel4.TabIndex = 27;
@@ -374,7 +380,7 @@
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
             this.lbTotalPage.Location = new System.Drawing.Point(765, 6);
             this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
             this.lbTotalPage.Text = "??? Trang";
             // 
@@ -529,6 +535,37 @@
             this.tbTong.Text = "999,999,999";
             this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.pbXuat);
+            this.panel5.Location = new System.Drawing.Point(82, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(70, 70);
+            this.panel5.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(14, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "XUẤT";
+            // 
+            // pbXuat
+            // 
+            this.pbXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXuat.Location = new System.Drawing.Point(10, 0);
+            this.pbXuat.Name = "pbXuat";
+            this.pbXuat.Size = new System.Drawing.Size(50, 50);
+            this.pbXuat.TabIndex = 1;
+            this.pbXuat.TabStop = false;
+            this.pbXuat.Click += new System.EventHandler(this.pbXuat_Click);
+            this.pbXuat.MouseEnter += new System.EventHandler(this.pbXuat_MouseEnter);
+            this.pbXuat.MouseLeave += new System.EventHandler(this.pbXuat_MouseLeave);
+            // 
             // UcNhapKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -568,6 +605,9 @@
             this.pnPage.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -620,6 +660,9 @@
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chId;
         private System.Windows.Forms.ColumnHeader chGiaBan;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pbXuat;
 
     }
 }
