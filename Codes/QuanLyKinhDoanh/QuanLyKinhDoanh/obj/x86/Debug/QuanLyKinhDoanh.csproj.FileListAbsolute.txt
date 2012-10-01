@@ -265,3 +265,5 @@ D:\Project\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\DTO.pdb
 D:\Project\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\DAO.pdb
 D:\Project\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.exe
 D:\Project\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.pdb
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\bin\Debug\DocumentFormat.OpenXml.dll
+D:\Project\Tuc\Codes\QuanLyKinhDoanh\QuanLyKinhDoanh\obj\x86\Debug\QuanLyKinhDoanh.UcThongKeKho.resources

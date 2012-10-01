@@ -199,11 +199,23 @@
     <Compile Include="Main\KhoHang\KhoHang\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.Designer.cs">
+      <DependentUpon>UcKhoHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\KhoHang\NhapKho\UcDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\KhoHang\NhapKho\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\KhoHang\ThongKeKho\UcThongKeKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\KhoHang\ThongKeKho\UcThongKeKho.Designer.cs">
+      <DependentUpon>UcThongKeKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhoHang\TonKho\UcTonKho.cs">
       <SubType>UserControl</SubType>
@@ -211,16 +223,16 @@
     <Compile Include="Main\KhoHang\TonKho\UcTonKho.Designer.cs">
       <DependentUpon>UcTonKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhoHang\XuatKho\UcInfo.cs">
+    <Compile Include="Main\KhoHang\NhapKho\XuatKho\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhoHang\XuatKho\UcInfo.Designer.cs">
+    <Compile Include="Main\KhoHang\NhapKho\XuatKho\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\KhoHang\XuatKho\UcXuatKho.cs">
+    <Compile Include="Main\KhoHang\NhapKho\XuatKho\UcXuatKho.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\KhoHang\XuatKho\UcXuatKho.Designer.cs">
+    <Compile Include="Main\KhoHang\NhapKho\XuatKho\UcXuatKho.Designer.cs">
       <DependentUpon>UcXuatKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\FormPrintPrice.cs">
@@ -271,12 +283,6 @@
     </Compile>
     <Compile Include="Main\KhachHang\KhachHang\UcKhachHang.Designer.cs">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\KhoHang\KhoHang\UcKhoHang.Designer.cs">
-      <DependentUpon>UcKhoHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\KhoHang\NhapKho\UcInfo.cs">
       <SubType>UserControl</SubType>
@@ -475,16 +481,22 @@
     <EmbeddedResource Include="Main\KhoHang\KhoHang\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\KhoHang\UcKhoHang.resx">
+      <DependentUpon>UcKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\NhapKho\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\KhoHang\ThongKeKho\UcThongKeKho.resx">
+      <DependentUpon>UcThongKeKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\TonKho\UcTonKho.resx">
       <DependentUpon>UcTonKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhoHang\XuatKho\UcInfo.resx">
+    <EmbeddedResource Include="Main\KhoHang\NhapKho\XuatKho\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhoHang\XuatKho\UcXuatKho.resx">
+    <EmbeddedResource Include="Main\KhoHang\NhapKho\XuatKho\UcXuatKho.resx">
       <DependentUpon>UcXuatKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\FormPrintPrice.resx">
@@ -498,9 +510,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\KhachHang\UcKhachHang.resx">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\KhoHang\KhoHang\UcKhoHang.resx">
-      <DependentUpon>UcKhoHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhoHang\NhapKho\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>

@@ -189,7 +189,7 @@
             // 
             this.chCheckBox.Text = "All";
             this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chCheckBox.Width = 30;
+            this.chCheckBox.Width = 0;
             // 
             // chId
             // 
@@ -217,7 +217,7 @@
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 170;
+            this.chMoTa.Width = 200;
             // 
             // chXuatXu
             // 
@@ -282,7 +282,7 @@
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
             this.lbTotalPage.Location = new System.Drawing.Point(715, 6);
             this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
             this.lbTotalPage.Text = "??? Trang";
             // 
