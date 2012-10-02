@@ -191,9 +191,9 @@
             this.lbMa.ForeColor = System.Drawing.Color.Black;
             this.lbMa.Location = new System.Drawing.Point(76, 13);
             this.lbMa.Name = "lbMa";
-            this.lbMa.Size = new System.Drawing.Size(153, 16);
+            this.lbMa.Size = new System.Drawing.Size(139, 16);
             this.lbMa.TabIndex = 92;
-            this.lbMa.Text = "Mã-Tên-Xuất xứ-Mô tả:";
+            this.lbMa.Text = "Mã SP - Tên - Mô tả:";
             // 
             // panel2
             // 
@@ -263,8 +263,6 @@
             this.lvThongTin.View = System.Windows.Forms.View.Details;
             this.lvThongTin.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvThongTin_ColumnClick);
             this.lvThongTin.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTin_ColumnWidthChanging);
-            this.lvThongTin.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.lvThongTin_DrawColumnHeader);
-            this.lvThongTin.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.lvThongTin_DrawSubItem);
             this.lvThongTin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseClick);
             this.lvThongTin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseMove);
             this.lvThongTin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseUp);
@@ -313,7 +311,7 @@
             // 
             this.chDVT.Text = "ĐVT";
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDVT.Width = 69;
+            this.chDVT.Width = 70;
             // 
             // chChi
             // 

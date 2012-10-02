@@ -33,6 +33,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pbXuat = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThem = new System.Windows.Forms.PictureBox();
@@ -74,12 +77,11 @@
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tbTong = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pbXuat = new System.Windows.Forms.PictureBox();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuat)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
             this.panel3.SuspendLayout();
@@ -95,8 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTraCuu)).BeginInit();
             this.pnPage.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXuat)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTitle
@@ -139,6 +139,37 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(315, 78);
             this.pnSelect.TabIndex = 49;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.pbXuat);
+            this.panel5.Location = new System.Drawing.Point(82, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(70, 70);
+            this.panel5.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(14, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "XUẤT";
+            // 
+            // pbXuat
+            // 
+            this.pbXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbXuat.Location = new System.Drawing.Point(10, 0);
+            this.pbXuat.Name = "pbXuat";
+            this.pbXuat.Size = new System.Drawing.Size(50, 50);
+            this.pbXuat.TabIndex = 1;
+            this.pbXuat.TabStop = false;
+            this.pbXuat.Click += new System.EventHandler(this.pbXuat_Click);
+            this.pbXuat.MouseEnter += new System.EventHandler(this.pbXuat_MouseEnter);
+            this.pbXuat.MouseLeave += new System.EventHandler(this.pbXuat_MouseLeave);
             // 
             // panel2
             // 
@@ -535,37 +566,6 @@
             this.tbTong.Text = "999,999,999";
             this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.pbXuat);
-            this.panel5.Location = new System.Drawing.Point(82, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(70, 70);
-            this.panel5.TabIndex = 27;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(14, 53);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "XUẤT";
-            // 
-            // pbXuat
-            // 
-            this.pbXuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbXuat.Location = new System.Drawing.Point(10, 0);
-            this.pbXuat.Name = "pbXuat";
-            this.pbXuat.Size = new System.Drawing.Size(50, 50);
-            this.pbXuat.TabIndex = 1;
-            this.pbXuat.TabStop = false;
-            this.pbXuat.Click += new System.EventHandler(this.pbXuat_Click);
-            this.pbXuat.MouseEnter += new System.EventHandler(this.pbXuat_MouseEnter);
-            this.pbXuat.MouseLeave += new System.EventHandler(this.pbXuat_MouseLeave);
-            // 
             // UcNhapKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -584,6 +584,9 @@
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbXuat)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
@@ -605,9 +608,6 @@
             this.pnPage.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbXuat)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
