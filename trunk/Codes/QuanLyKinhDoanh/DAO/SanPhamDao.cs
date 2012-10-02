@@ -72,7 +72,7 @@ namespace DAO
             return GetQuery(text, idGroup, isHavePrice, status, isExpired, warningDays).Count();
         }
 
-        public static List<SanPham> GetList(string text, int idGroup, bool isHaveGiaBan, string status,
+        public static List<SanPham> GetList(string text, int idGroup, bool isHavePrice, string status,
             bool isExpired, int warningDays,
             string sortColumn, string sortOrder, int skip, int take)
         {
@@ -125,13 +125,13 @@ namespace DAO
 
             if (sortColumn != "Ngày hết hạn")
             {
-                sql = GetQuery(text, idGroup, isHaveGiaBan, status, isExpired, warningDays).OrderBy(sortSQL);
+                sql = GetQuery(text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(sortSQL);
             }
             else
             {
                 if (sortOrder == CommonDao.SORT_ASCENDING)
                 {
-                    sql = GetQuery(text, idGroup, isHaveGiaBan, status, isExpired, warningDays).OrderBy(
+                    sql = GetQuery(text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(
                         p => p.ThoiHan.Value != 0 &&
                         p.DonViThoiHan == CommonDao.DEFAULT_TYPE_DAY ?
                         p.CreateDate.AddDays(p.ThoiHan.Value) : p.DonViThoiHan == CommonDao.DEFAULT_TYPE_MONTH ?
@@ -139,7 +139,7 @@ namespace DAO
                 }
                 else
                 {
-                    sql = GetQuery(text, idGroup, isHaveGiaBan, status, isExpired, warningDays).OrderByDescending(
+                    sql = GetQuery(text, idGroup, isHavePrice, status, isExpired, warningDays).OrderByDescending(
                         p => p.ThoiHan.Value != 0 &&
                         p.DonViThoiHan == CommonDao.DEFAULT_TYPE_DAY ?
                         p.CreateDate.AddDays(p.ThoiHan.Value) : p.DonViThoiHan == CommonDao.DEFAULT_TYPE_MONTH ?

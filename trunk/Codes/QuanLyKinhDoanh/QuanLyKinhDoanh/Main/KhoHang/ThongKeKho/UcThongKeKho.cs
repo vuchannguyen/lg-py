@@ -19,8 +19,6 @@ namespace QuanLyKinhDoanh
 
         private string sortColumn;
         private string sortOrder;
-        private Image imgCheck;
-        private Image imgWarning;
         private int lvWidth;
         private int centerX;
         private int idGroup;
@@ -28,7 +26,6 @@ namespace QuanLyKinhDoanh
         private string search;
 
         private ListViewEx lvEx;
-        private int columnCount;
 
         private int soSP;
         private int tongSoLuong;
@@ -98,20 +95,6 @@ namespace QuanLyKinhDoanh
             }
             else
             {
-                imgCheck = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CHECK);
-                imgWarning = Image.FromFile(ConstantResource.CHUC_NANG_ICON_WARNING);
-
-                lvWidth = 0;
-
-                for (int i = 0; i < lvThongTin.Columns.Count; i++)
-                {
-                    lvWidth += lvThongTin.Columns[i].Width;
-                }
-
-                centerX = lvThongTin.Columns[lvThongTin.Columns.Count - 1].Width / 2;
-
-                lvThongTin.OwnerDraw = true;
-
                 sortColumn = string.Empty;
                 sortOrder = Constant.SORT_ASCENDING;
 
@@ -155,7 +138,7 @@ namespace QuanLyKinhDoanh
         private void RefreshListView(string text, int idGroup, string status,
             string sortColumn, string sortOrder, int page)
         {
-            int total = SanPhamBus.GetCount(text, idGroup, false, status, false, 0);
+            int total = HoaDonDetailBus.GetCount(Constant.ID_TYPE_MUA, text, idGroup, false, status, false, 0);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -166,55 +149,61 @@ namespace QuanLyKinhDoanh
                 return;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, idGroup, false, status,
+            List<DTO.HoaDonDetail> listTotal = HoaDonDetailBus.GetList(Constant.ID_TYPE_MUA, text, idGroup, false, status,
+                false, 0,
+                string.Empty, string.Empty, 0, 0);
+
+            long tongChi = 0;
+            long tongThucThu = 0;
+            long thongKe = 0;
+
+            foreach (DTO.HoaDonDetail data in listTotal)
+            {
+                int soLuongBan = data.SoLuong - data.SanPham.SoLuong;
+                long thucThu = data.SanPham.GiaBan * soLuongBan;
+                long thongKeSP = thucThu - data.ThanhTien;
+
+                tongChi += data.ThanhTien;
+                tongThucThu += thucThu;
+                thongKe += thongKeSP;
+            }
+
+            tbTongChi.Text = tongChi.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTongThucThu.Text = tongThucThu.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbThongKe.Text = thongKe.ToString(Constant.DEFAULT_FORMAT_MONEY);
+
+            List<DTO.HoaDonDetail> list = HoaDonDetailBus.GetList(Constant.ID_TYPE_MUA, text, idGroup, false, status,
                 false, 0,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
 
-            foreach (DTO.SanPham data in list)
+            foreach (DTO.HoaDonDetail data in list)
             {
                 Color color = Color.Black;
                 ListViewItem lvi = new ListViewItem();
                 lvi.UseItemStyleForSubItems = false;
 
-                if (data.SoLuong == 0)
+                int soLuongBan = data.SoLuong - data.SanPham.SoLuong;
+                long thucThu = data.SanPham.GiaBan * soLuongBan;
+                long thongKeSP = thucThu - data.ThanhTien;
+
+                if (thongKeSP <= 0)
                 {
                     color = Color.Red;
-                }
-                else if (data.ThoiHan.Value != 0)
-                {
-                    switch (CommonFunc.IsExpired(data.CreateDate, Constant.DEFAULT_WARNING_DAYS_EXPIRED,
-                        data.ThoiHan.Value, data.DonViThoiHan))
-                    { 
-                        case Constant.DEFAULT_STATUS_USED_DATE_NEAR:
-                            color = Color.Orange;
-                            break;
-
-                        case Constant.DEFAULT_STATUS_USED_DATE_END:
-                            color = Color.Red;
-                            break;
-                    }
                 }
 
                 lvi.SubItems.Add(data.Id.ToString(), color, Color.Transparent, this.Font);
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString(), color, Color.Transparent, this.Font);
-                lvi.SubItems.Add(data.MaSanPham, color, Color.Transparent, this.Font);
-                lvi.SubItems.Add(data.Ten, color, Color.Transparent, this.Font);
-                lvi.SubItems.Add(data.MoTa, color, Color.Transparent, this.Font);
-                lvi.SubItems.Add(data.XuatXu == null ? string.Empty : data.XuatXu.Ten, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.SanPham.MaSanPham, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.SanPham.Ten, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.SanPham.MoTa, color, Color.Transparent, this.Font);
                 lvi.SubItems.Add(data.SoLuong.ToString(), color, Color.Transparent, this.Font);
-                lvi.SubItems.Add(data.DonViTinh, color, Color.Transparent, this.Font);
-                lvi.SubItems.Add(data.GiaBan.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
-
-                if (data.IsSold)
-                {
-                    lvi.SubItems.Add(Constant.IS_SOLD, color, Color.Transparent, this.Font);
-                }
-                else
-                {
-                    lvi.SubItems.Add(string.Empty);
-                }
+                lvi.SubItems.Add(data.SanPham.DonViTinh, color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(soLuongBan.ToString(), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(thucThu.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
+                lvi.SubItems.Add(thongKeSP.ToString(Constant.DEFAULT_FORMAT_MONEY), color, Color.Transparent, this.Font);
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -579,30 +568,6 @@ namespace QuanLyKinhDoanh
                 RefreshListView(search, idGroup, status,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
                 SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
-            }
-        }
-
-        private void lvThongTin_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
-        {
-            e.DrawDefault = true;
-        }
-
-        private void lvThongTin_DrawSubItem(object sender, DrawListViewSubItemEventArgs e)
-        {
-            if (e.ColumnIndex == lvThongTin.Columns.Count - 1)
-            {
-                if (e.SubItem.Text == Constant.IS_SOLD)
-                {
-                    e.Graphics.DrawImage(imgWarning, new System.Drawing.RectangleF(lvWidth - centerX - 6, e.Item.Position.Y, imgWarning.Width * 1f, imgWarning.Height * 1f));
-                }
-                else
-                {
-                    e.Graphics.DrawImage(imgCheck, new System.Drawing.RectangleF(lvWidth - centerX - 6, e.Item.Position.Y, imgCheck.Width * 1f, imgCheck.Height * 1f));
-                }
-            }
-            else
-            {
-                e.DrawDefault = true;
             }
         }
 
