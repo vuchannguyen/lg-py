@@ -126,6 +126,8 @@ namespace Library
         public const string KHOHANG_ICON_KHOHANG_NHAP_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_nhap_index_mouseover.png";
         public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX = @"Resources\KhoHang\icon_khohang_search_index.png";
         public const string KHOHANG_ICON_KHOHANG_SEARCH_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_khohang_search_index_mouseover.png";
+        public const string KHOHANG_ICON_CHECK_REPOSITORY_INDEX = @"Resources\KhoHang\icon_check_repository_index.png";
+        public const string KHOHANG_ICON_CHECK_REPOSITORY_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_check_repository_index_mouseover.png";
         public const string KHOHANG_ICON_XUAT_KHO_INDEX = @"Resources\KhoHang\icon_xuat_kho_index.png";
         public const string KHOHANG_ICON_XUAT_KHO_INDEX_MOUSEOVER = @"Resources\KhoHang\icon_xuat_kho_index_mouseover.png";
         public const string KHOHANG_ICON_HANG_HET_HAN_INDEX = @"Resources\KhoHang\icon_recycle.png";
