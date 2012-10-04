@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using QuanLyKinhDoanh.KhoHang;
+using QuanLyKinhDoanh.NhapKho;
 using Library;
 using DTO;
 using BUS;
@@ -609,7 +609,7 @@ namespace QuanLyKinhDoanh
                 {
                     int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
 
-                    UserControl uc = new UcDetail(SanPhamBus.GetById(id));
+                    UserControl uc = new UcDetail(HoaDonDetailBus.GetById(id));
                     this.Controls.Add(uc);
                 }
             }

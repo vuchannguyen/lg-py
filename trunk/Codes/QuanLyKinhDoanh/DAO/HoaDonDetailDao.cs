@@ -261,7 +261,7 @@ namespace DAO
                     sortSQL += "SanPham.MaSanPham " + sortOrder;
                     break;
 
-                case "Sản phẩm":
+                case "Tên":
                     sortSQL += "SanPham.Ten " + sortOrder;
                     break;
 
@@ -282,7 +282,7 @@ namespace DAO
                     break;
 
                 case "SL-B":
-                    sortSQL += "SanPham.SoLuong " + sortOrder;
+                    //sortSQL += "SanPham.SoLuong " + sortOrder;
                     break;
 
                 //case "Thực thu":
@@ -294,7 +294,53 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(sortSQL);
+            IQueryable<HoaDonDetail> sql = null;
+
+            switch (sortColumn)
+            {
+                case "SL-B":
+                    if (sortOrder == CommonDao.SORT_ASCENDING)
+                    {
+                        sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(
+                            p => p.SoLuong - p.SanPham.SoLuong);
+                    }
+                    else
+                    {
+                        sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderByDescending(
+                            p => p.SoLuong - p.SanPham.SoLuong);
+                    }
+                    break;
+
+                case "Thực thu":
+                    if (sortOrder == CommonDao.SORT_ASCENDING)
+                    {
+                        sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(
+                            p => p.SanPham.GiaBan * (p.SoLuong - p.SanPham.SoLuong));
+                    }
+                    else
+                    {
+                        sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderByDescending(
+                            p => p.SanPham.GiaBan * (p.SoLuong - p.SanPham.SoLuong));
+                    }
+                    break;
+
+                case "Thống kê":
+                    if (sortOrder == CommonDao.SORT_ASCENDING)
+                    {
+                        sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(
+                            p => p.SanPham.GiaBan * (p.SoLuong - p.SanPham.SoLuong) - p.ThanhTien);
+                    }
+                    else
+                    {
+                        sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderByDescending(
+                            p => p.SanPham.GiaBan * (p.SoLuong - p.SanPham.SoLuong) - p.ThanhTien);
+                    }
+                    break;
+
+                default:
+                    sql = GetQuery(type, text, idGroup, isHavePrice, status, isExpired, warningDays).OrderBy(sortSQL);
+                    break;
+            }
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
