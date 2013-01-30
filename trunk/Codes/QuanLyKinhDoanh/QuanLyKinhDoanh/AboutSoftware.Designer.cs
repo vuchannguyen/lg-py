@@ -92,9 +92,9 @@
             this.lbVersion.Location = new System.Drawing.Point(9, 58);
             this.lbVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbVersion.Name = "lbVersion";
-            this.lbVersion.Size = new System.Drawing.Size(84, 16);
+            this.lbVersion.Size = new System.Drawing.Size(83, 16);
             this.lbVersion.TabIndex = 2;
-            this.lbVersion.Text = "Version: 4.4";
+            this.lbVersion.Text = "Version: 4.5";
             // 
             // lbCopyright
             // 
