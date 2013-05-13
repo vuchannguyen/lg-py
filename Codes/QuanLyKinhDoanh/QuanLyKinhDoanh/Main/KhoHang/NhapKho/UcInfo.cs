@@ -425,6 +425,7 @@ namespace QuanLyKinhDoanh.NhapKho
                 dataXuatXu = null;
             }
 
+            dataSP.XuatXu = dataXuatXu;
             dataSP.MoTa = tbMoTa.Text;
             dataSP.DonViTinh = tbDonViTinh.Text;
             dataSP.Hieu = tbHieu.Text;
