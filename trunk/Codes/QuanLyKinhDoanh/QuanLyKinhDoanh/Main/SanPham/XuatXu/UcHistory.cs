@@ -134,7 +134,7 @@ namespace QuanLyKinhDoanh.XuatXu
                 return;
             }
 
-            List<DTO.HoaDon> listTotal = HoaDonBus.GetListXuatXu(text, type, status, idKH,idXuatXu, timeType, date,
+            List<DTO.HoaDon> listTotal = HoaDonBus.GetListXuatXu(text, type, status, idKH, idXuatXu, timeType, date,
                 string.Empty, string.Empty, 0, 0);
             long totalMoney = 0;
 

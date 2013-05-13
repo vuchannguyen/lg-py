@@ -19,6 +19,7 @@ namespace QuanLyKinhDoanh
         private const int row = Constant.DEFAULT_ROW;
         private string sortColumn;
         private string sortOrder;
+        private bool isBirthDay;
 
         public UcKhachHang()
         {
@@ -301,7 +302,8 @@ namespace QuanLyKinhDoanh
 
         private void pbBirthDay_Click(object sender, EventArgs e)
         {
-            RefreshListView(tbSearch.Text, true,
+            isBirthDay = !isBirthDay;
+            RefreshListView(tbSearch.Text, isBirthDay,
                     sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
         }
