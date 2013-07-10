@@ -202,6 +202,7 @@ namespace Library
         public const string MESSAGE_SEND_BACK_CONFIRM = "Hoàn trả sản phẩm?";
         public const string MESSAGE_SEND_BACK_SUCCESS = "Sản phẩm đã được hoàn trả vào kho.";
         public const string MESSAGE_SEND_BACK_ERROR = "Quá trình hoàn trả thất bại!";
+        public const string MESSAGE_SEND_BACK_EMPTY = "Vui lòng nhập số lượng SP!";
 
         public const string MESSAGE_DELETE_CONFIRM = "Xóa dữ liệu đã chọn?";
         public const string MESSAGE_DELETE_SUCCESS = "{0} đã xóa thành công.";

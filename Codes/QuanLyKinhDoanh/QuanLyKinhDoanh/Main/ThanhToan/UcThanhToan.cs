@@ -243,8 +243,7 @@ namespace QuanLyKinhDoanh.GiaoDich
         private void CalculateCK()
         {
             long money = 0;
-
-            money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / 100) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
+            money = (ConvertUtil.ConvertToInt(tbChietKhau.Text) * dataSP.GiaBan / Constant.DEFAULT_CHANGE_RATE) * ConvertUtil.ConvertToInt(tbSoLuong.Text);
 
             if (rbTichLuy.Checked)
             {
@@ -479,7 +478,6 @@ namespace QuanLyKinhDoanh.GiaoDich
                 if (!chbCKTongHD.Checked && !isDuplicated)
                 {
                     tbChietKhau.ReadOnly = false;
-
                     tbChietKhau.Text = dataKH == null ? string.Empty : dataKH.KhachHangGroup.ChietKhau.ToString();
 
                     if (dataCK != null && dataCK.Value != 0)
@@ -1029,6 +1027,8 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void rbTichLuy_CheckedChanged(object sender, EventArgs e)
         {
+            chbCKTongHD.Enabled = false;
+
             CalculateCK();
 
             CalculateMoney();
@@ -1036,6 +1036,8 @@ namespace QuanLyKinhDoanh.GiaoDich
 
         private void rbTrucTiep_CheckedChanged(object sender, EventArgs e)
         {
+            chbCKTongHD.Enabled = true;
+
             CalculateCK();
 
             CalculateMoney();
