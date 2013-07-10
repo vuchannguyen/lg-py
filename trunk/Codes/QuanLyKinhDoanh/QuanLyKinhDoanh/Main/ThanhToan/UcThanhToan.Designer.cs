@@ -621,6 +621,7 @@
             // chbCKTongHD
             // 
             this.chbCKTongHD.AutoSize = true;
+            this.chbCKTongHD.Enabled = false;
             this.chbCKTongHD.Font = new System.Drawing.Font("Arial", 9F);
             this.chbCKTongHD.ForeColor = System.Drawing.Color.Black;
             this.chbCKTongHD.Location = new System.Drawing.Point(339, 39);
