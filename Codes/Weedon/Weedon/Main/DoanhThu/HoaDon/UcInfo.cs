@@ -243,7 +243,7 @@ namespace Weedon.HoaDon
                 data.DonGia = ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 data.SoLuong = ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
                 data.ThanhTien = ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                data.GhiChu = row.Cells[colGhiChu.Name].Value.ToString();
+                data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
 
                 if (!HoaDonDetailBus.Insert(data, FormMain.user))
                 {
@@ -282,7 +282,7 @@ namespace Weedon.HoaDon
 
                     data.SoLuong = ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
                     data.ThanhTien = ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                    data.GhiChu = row.Cells[colGhiChu.Name].Value.ToString();
+                    data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
 
                     if (!HoaDonDetailBus.Update(data, FormMain.user))
                     {
@@ -298,7 +298,7 @@ namespace Weedon.HoaDon
                     data.DonGia = ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     data.SoLuong = ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
                     data.ThanhTien = ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                    data.GhiChu = row.Cells[colGhiChu.Name].Value.ToString();
+                    data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
 
                     if (!HoaDonDetailBus.Insert(data, FormMain.user))
                     {
@@ -355,7 +355,7 @@ namespace Weedon.HoaDon
                 {
                     if (UpdateDataHoaDon())
                     {
-                        MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Hóa đơn", Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information));
+                        MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Hóa đơn"), Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();
                     }
                     else
@@ -462,7 +462,7 @@ namespace Weedon.HoaDon
         {
             if (e.ColumnIndex == dgvThongTin.Columns[colRemove.Name].Index)
             {
-                if (!string.IsNullOrEmpty(dgvThongTin[colId.Name, e.RowIndex].Value.ToString()))
+                if (dgvThongTin[colId.Name, e.RowIndex].Value != null && !string.IsNullOrEmpty(dgvThongTin[colId.Name, e.RowIndex].Value.ToString()))
                 {
                     idsHoaDonDetailRemoved += dgvThongTin[colId.Name, e.RowIndex].Value + Constant.SEPERATE_STRING;
                 }
@@ -474,6 +474,11 @@ namespace Weedon.HoaDon
 
         private void dgvThongTin_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (ConvertUtil.ConvertToInt(dgvThongTin[colSoLuong.Name, e.RowIndex].Value) <= 1)
+            {
+                dgvThongTin[colSoLuong.Name, e.RowIndex].Value = 1;
+            }
+
             int soLuong = ConvertUtil.ConvertToInt(dgvThongTin[colSoLuong.Name, e.RowIndex].Value);
             long price = ConvertUtil.ConvertToLong(dgvThongTin[colGia.Name, e.RowIndex].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             long money = price * soLuong;

@@ -32,9 +32,7 @@ namespace Weedon
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED);
-
-                //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
+                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED_DISABLE);
 
                 pbTraCuu.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEARCH);
                 pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
@@ -200,7 +198,7 @@ namespace Weedon
                 pbXoa.Enabled = true;
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
                 pbDuyet.Enabled = true;
-                //pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED);
             }
             else
             {
@@ -209,7 +207,7 @@ namespace Weedon
                 pbSua.Enabled = false;
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
                 pbDuyet.Enabled = false;
-                //pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
+                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED_DISABLE);
             }
         }
 
@@ -563,11 +561,11 @@ namespace Weedon
             {
                 if (UpdateDataHoaDon())
                 {
-                    MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Hóa đơn", Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information));
+                    MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Hóa đơn"), Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_ERROR, "Hóa đơn", Constant.CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning));
+                    MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_ERROR, "Hóa đơn"), Constant.CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 RefreshListView(tbSearch.Text, 0, 0, dtpFilter.Value, sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

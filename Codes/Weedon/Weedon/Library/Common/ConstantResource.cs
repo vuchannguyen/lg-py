@@ -76,6 +76,8 @@ namespace Library
         public const string CHUC_NANG_ICON_DELETE_COMPONENT = @"Resources\ChucNang\delete.png";
         public const string CHUC_NANG_ICON_APPROVED = @"Resources\ChucNang\icon_approved.png";
         public const string CHUC_NANG_ICON_APPROVED_MOUSEOVER = @"Resources\ChucNang\icon_approved_mouseover.png";
+        public const string CHUC_NANG_ICON_APPROVED_DISABLE = @"Resources\ChucNang\icon_approved_disable.png";
+        public const string CHUC_NANG_ADD = @"Resources\ChucNang\add.png";
         #endregion
 
 
