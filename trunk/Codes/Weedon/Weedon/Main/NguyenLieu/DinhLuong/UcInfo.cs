@@ -15,21 +15,13 @@ namespace Weedon.DinhLuong
     public partial class UcInfo : UserControl
     {
         private DTO.SanPham data;
-        private List<DTO.DinhLuong> listDataDL;
         private bool isUpdate;
-
-        private List<UcNguyenLieuDinhLuong> listUcNguyenLieu;
-        private List<UcNguyenLieuDinhLuong> listUcNguyenLieuInsert;
-        private List<int> listUcNguyenLieuDelete;
-        private List<UcNguyenLieuDinhLuong> listUcNguyenLieuUpdate;
-
-        private const int ucNguyenLieuWidth = 170;
+        private string idsDinhLuongRemoved;
 
         public UcInfo()
         {
             InitializeComponent();
 
-            data = new DTO.SanPham();
             data = new DTO.SanPham();
             isUpdate = false;
 
@@ -80,8 +72,7 @@ namespace Weedon.DinhLuong
             {
                 pbHuy.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_CANCEL);
                 pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
-
-                pbAdd.Image = Image.FromFile(@"Resources\ChucNang\add.png");
+                pbAdd.Image = Image.FromFile(ConstantResource.CHUC_NANG_ADD);
             }
             catch
             {
@@ -98,12 +89,15 @@ namespace Weedon.DinhLuong
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
-            listUcNguyenLieu = new List<UcNguyenLieuDinhLuong>();
-            listUcNguyenLieuInsert = new List<UcNguyenLieuDinhLuong>();
-            listUcNguyenLieuDelete = new List<int>();
-            listUcNguyenLieuUpdate = new List<UcNguyenLieuDinhLuong>();
+            if (isUpdate)
+            {
+                LoadData(data.Id);
+            }
 
-            GetListDinhLuong(data.Id);
+            if (dgvThongTin.RowCount == 0)
+            {
+                AddNewRow();
+            }
 
             this.BringToFront();
 
@@ -146,27 +140,9 @@ namespace Weedon.DinhLuong
             return true;
         }
 
-        private void GetListDinhLuong(int id)
-        {
-            List<DTO.DinhLuong> listData = DinhLuongBus.GetListByIdSP(id);
-
-            foreach (DTO.DinhLuong dataTemp in listData)
-            {
-                UcNguyenLieuDinhLuong ucNguyenLieu = new UcNguyenLieuDinhLuong(dataTemp, true);
-
-                int iNewLocation = listUcNguyenLieu.Count * ucNguyenLieuWidth + pn_gbNguyenLieu.AutoScrollPosition.Y;
-                ucNguyenLieu.Location = CommonFunc.SetWidthCenter(pn_gbNguyenLieu.Size, ucNguyenLieu.Size, iNewLocation);
-
-                listUcNguyenLieu.Add(ucNguyenLieu);
-                pn_gbNguyenLieu.Controls.Add(listUcNguyenLieu[listUcNguyenLieu.Count - 1]);
-                listUcNguyenLieu[listUcNguyenLieu.Count - 1].VisibleChanged += new EventHandler(AfterDeleteUc);
-
-                listUcNguyenLieuUpdate.Add(ucNguyenLieu);
-            }
-        }
-
         private void RefreshData()
         {
+            idsDinhLuongRemoved = string.Empty;
             tbMa.Text = string.Empty;
             tbTen.Text = string.Empty;
             tbMoTa.Text = string.Empty;
@@ -190,71 +166,121 @@ namespace Weedon.DinhLuong
             }
         }
 
-        private bool InsertDinhLuong(List<UcNguyenLieuDinhLuong> listUcNL)
+        private void AddNewRow()
         {
-            for (int i = 0; i < listUcNL.Count; i++)
+            dgvThongTin.Rows.Add();
+            List<DTO.NguyenLieu> listData = NguyenLieuBus.GetList(string.Empty, null, string.Empty, string.Empty, 0, 0);
+            DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colTen.Name];
+
+            cell.DataSource = listData;
+            cell.Value = listData.FirstOrDefault().Id;
+            cell.ValueMember = "Id";
+            cell.DisplayMember = "Ten";
+
+            dgvThongTin.CurrentCell = cell;
+            UpdateRowData();
+            dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colUocLuong.Name].Value = 1;
+        }
+
+        private void UpdateRowData()
+        {
+            int rowIndex = dgvThongTin.CurrentCell.RowIndex;
+
+            if (dgvThongTin.CurrentCell.ColumnIndex == dgvThongTin.Columns[colTen.Name].Index)
             {
-                DTO.DinhLuong dataDL = new DTO.DinhLuong();
-
-                dataDL.IdSanPham = data.Id;
-                dataDL.IdNguyenLieu = listUcNL[i].DataNL.Id;
-                dataDL.SoLuong = listUcNL[i].SoLuong;
-                dataDL.GhiChu = listUcNL[i].GhiChu;
-
-                if (!DinhLuongBus.Insert(dataDL, FormMain.user))
-                {
-                    if (MessageBox.Show(Constant.MESSAGE_INSERT_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                    {
-                        this.Dispose();
-                    }
-
-                    return false;
-                }
+                DTO.NguyenLieu data = NguyenLieuBus.GetById(ConvertUtil.ConvertToInt(dgvThongTin[colTen.Name, rowIndex].Value));
+                dgvThongTin[colIdNL.Name, rowIndex].Value = data.Id;
+                dgvThongTin[colMa.Name, rowIndex].Value = data.MaNguyenLieu;
+                dgvThongTin[colDonVi.Name, rowIndex].Value = data.DonViTinh;
+                dgvThongTin.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
+        }
 
-            return true;
+        private void LoadData(int idSP)
+        {
+            List<DTO.DinhLuong> listData = DinhLuongBus.GetListByIdSP(idSP);
+            List<DTO.NguyenLieu> listNL = NguyenLieuBus.GetList(string.Empty, null, string.Empty, string.Empty, 0, 0);
+
+            foreach (DTO.DinhLuong data in listData)
+            {
+                dgvThongTin.Rows.Add();
+                DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colTen.Name];
+
+                cell.DataSource = listNL;
+                cell.Value = data.IdNguyenLieu;
+                cell.ValueMember = "Id";
+                cell.DisplayMember = "Ten";
+
+                dgvThongTin.CurrentCell = cell;
+                UpdateRowData();
+                dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colId.Name].Value = data.Id;
+                dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colUocLuong.Name].Value = data.SoLuong;
+                dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colGhiChu.Name].Value = data.GhiChu;
+            }
         }
 
         private void UpdateDinhLuong()
         {
-            if (!InsertDinhLuong(listUcNguyenLieuInsert))
+            if (!DeleteDataHoaDonDetail())
             {
                 return;
             }
 
-            for (int i = 0; i < listUcNguyenLieuDelete.Count; i++)
+            for (int i = 0; i < dgvThongTin.RowCount; i++)
             {
-                if (!DinhLuongBus.Delete(DinhLuongBus.GetById(listUcNguyenLieuDelete[i]), FormMain.user))
+                if (dgvThongTin[colId.Name, i].Value != null && !string.IsNullOrEmpty(dgvThongTin[colId.Name, i].Value.ToString()))
                 {
-                    if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    DTO.DinhLuong dataDL = DinhLuongBus.GetById(ConvertUtil.ConvertToInt(dgvThongTin[colId.Name, i].Value));
+
+                    dataDL.IdNguyenLieu = ConvertUtil.ConvertToInt(dgvThongTin[colIdNL.Name, i].Value);
+                    dataDL.SoLuong = ConvertUtil.ConvertToDouble(dgvThongTin[colUocLuong.Name, i].Value);
+                    dataDL.GhiChu = dgvThongTin[colGhiChu.Name, i].Value == null ? string.Empty : dgvThongTin[colGhiChu.Name, i].Value.ToString();
+
+                    if (!DinhLuongBus.Update(dataDL, FormMain.user))
                     {
-                        this.Dispose();
+                        if (MessageBox.Show(Constant.MESSAGE_UPDATE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            this.Dispose();
+                        }
+
+                        return;
                     }
-                }
-            }
-
-            for (int i = 0; i < listUcNguyenLieuUpdate.Count; i++)
-            {
-                DTO.DinhLuong dataDL = DinhLuongBus.GetById(listUcNguyenLieuUpdate[i].IdDL);
-
-                dataDL.NguyenLieu = listUcNguyenLieuUpdate[i].DataNL;
-                dataDL.SoLuong = listUcNguyenLieuUpdate[i].SoLuong;
-                dataDL.GhiChu = listUcNguyenLieuUpdate[i].GhiChu;
-
-                if (DinhLuongBus.Update(dataDL, FormMain.user))
-                {
-                    //this.Dispose();
                 }
                 else
                 {
-                    if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    DTO.DinhLuong dataDL = new DTO.DinhLuong();
+
+                    dataDL.IdSanPham = data.Id;
+                    dataDL.IdNguyenLieu = ConvertUtil.ConvertToInt(dgvThongTin[colIdNL.Name, i].Value);
+                    dataDL.SoLuong = ConvertUtil.ConvertToDouble(dgvThongTin[colUocLuong.Name, i].Value);
+                    dataDL.GhiChu = dgvThongTin[colGhiChu.Name, i].Value == null ? string.Empty : dgvThongTin[colGhiChu.Name, i].Value.ToString();
+
+                    if (!DinhLuongBus.Insert(dataDL, FormMain.user))
                     {
-                        this.Dispose();
+                        if (MessageBox.Show(Constant.MESSAGE_UPDATE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            this.Dispose();
+                        }
+
+                        return;
                     }
                 }
             }
 
-            this.Dispose();
+            if (MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Sản phẩm " + data.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+        }
+
+        private bool DeleteDataHoaDonDetail()
+        {
+            if (!string.IsNullOrEmpty(idsDinhLuongRemoved))
+            {
+                return DinhLuongBus.DeleteList(idsDinhLuongRemoved, FormMain.user);
+            }
+
+            return true;
         }
         #endregion
 
@@ -283,16 +309,22 @@ namespace Weedon.DinhLuong
         {
             pbHoanTat.Focus();
 
+            for (int i = 0; i < dgvThongTin.RowCount; i++)
+            {
+                for (int j = 0; j < dgvThongTin.RowCount; j++)
+                {
+                    if (i != j && Equals(dgvThongTin[colIdNL.Name, i].Value, dgvThongTin[colIdNL.Name, j].Value))
+                    {
+                        MessageBox.Show(Constant.MESSAGE_ERROR_DUPLICATED + Constant.MESSAGE_NEW_LINE + "Dòng " + (i + 1).ToString() + " và " + (j + 1).ToString(),
+                            Constant.CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+            }
+
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (!isUpdate)
-                {
-                    //Insert();
-                }
-                else
-                {
-                    UpdateDinhLuong();
-                }
+                UpdateDinhLuong();
             }
         }
 
@@ -310,11 +342,6 @@ namespace Weedon.DinhLuong
 
 
         #region Controls
-        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void tbTen_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
@@ -329,49 +356,37 @@ namespace Weedon.DinhLuong
         {
             CommonFunc.ValidateNumeric(e);
         }
-        #endregion
-
-
 
         private void pbAdd_Click(object sender, EventArgs e)
         {
-            //pnThem_HL.Top = pnThem_HL.Location.Y + 130;
-            int iNewLocation = listUcNguyenLieu.Count * ucNguyenLieuWidth + pn_gbNguyenLieu.AutoScrollPosition.Y;
-
-            UcNguyenLieuDinhLuong ucNguyenLieu = new UcNguyenLieuDinhLuong();
-            ucNguyenLieu.Location = CommonFunc.SetWidthCenter(pn_gbNguyenLieu.Size, ucNguyenLieu.Size, iNewLocation);
-            ucNguyenLieu.VisibleChanged += new EventHandler(AfterDeleteUc);
-
-            listUcNguyenLieu.Add(ucNguyenLieu); //dung de hien thi
-            pn_gbNguyenLieu.Controls.Add(listUcNguyenLieu[listUcNguyenLieu.Count - 1]);
-
-            listUcNguyenLieuInsert.Add(ucNguyenLieu); //dung de insert
+            AddNewRow();
         }
 
-        private void AfterDeleteUc(object sender, EventArgs e)
+        private void dgvThongTin_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            UcNguyenLieuDinhLuong uc_Temp = (UcNguyenLieuDinhLuong)sender;
+            UpdateRowData();
+        }
 
-            if (!uc_Temp.Visible)
+        private void dgvThongTin_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvThongTin.Columns[colRemove.Name].Index)
             {
-                if (lbSelect.Text == "SỬA")
+                if (dgvThongTin[colId.Name, e.RowIndex].Value != null && !string.IsNullOrEmpty(dgvThongTin[colId.Name, e.RowIndex].Value.ToString()))
                 {
-                    if (listUcNguyenLieuUpdate.Remove(uc_Temp))
-                    {
-                        listUcNguyenLieuDelete.Add(uc_Temp.IdDL);
-                    }
+                    idsDinhLuongRemoved += dgvThongTin[colId.Name, e.RowIndex].Value + Constant.SEPERATE_STRING;
                 }
 
-                listUcNguyenLieu.Remove(uc_Temp);
-                listUcNguyenLieuInsert.Remove(uc_Temp);
-
-                for (int i = 0; i < listUcNguyenLieu.Count; i++)
-                {
-                    int iNewLocation = i * ucNguyenLieuWidth + pn_gbNguyenLieu.AutoScrollPosition.Y;
-                    //listUcNguyenLieu[i].Location = new Point(8, iNewLocation);
-                    listUcNguyenLieu[i].Location = CommonFunc.SetWidthCenter(pn_gbNguyenLieu.Size, listUcNguyenLieu[i].Size, iNewLocation);
-                }
+                dgvThongTin.Rows.RemoveAt(e.RowIndex);
             }
         }
+
+        private void dgvThongTin_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ConvertUtil.ConvertToDouble(dgvThongTin[colUocLuong.Name, e.RowIndex].Value) <= 0)
+            {
+                dgvThongTin[colUocLuong.Name, e.RowIndex].Value = 1;
+            }
+        }
+        #endregion
     }
 }

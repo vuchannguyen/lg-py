@@ -363,7 +363,7 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(118, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(112, 22);
+            this.lbTitle.Size = new System.Drawing.Size(111, 22);
             this.lbTitle.TabIndex = 2;
             this.lbTitle.Text = "KHO HÀNG";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;

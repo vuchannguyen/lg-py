@@ -182,23 +182,11 @@
     <Compile Include="Main\NguyenLieu\DinhLuong\UcDetail.Designer.cs">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\NguyenLieu\DinhLuong\UcInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NguyenLieu\DinhLuong\UcInfo.Designer.cs">
-      <DependentUpon>UcInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main\NguyenLieu\DinhLuong\UcDinhLuong.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\NguyenLieu\DinhLuong\UcDinhLuong.Designer.cs">
       <DependentUpon>UcDinhLuong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\NguyenLieu\DinhLuong\UcNguyenLieuDinhLuong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NguyenLieu\DinhLuong\UcNguyenLieuDinhLuong.Designer.cs">
-      <DependentUpon>UcNguyenLieuDinhLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\Common\CommonComboBoxItems.cs" />
     <Compile Include="Library\Common\Constant.cs" />
@@ -236,6 +224,12 @@
     </Compile>
     <Compile Include="Main\KhachHang\KhachHang\UcKhachHang.Designer.cs">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NguyenLieu\DinhLuong\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NguyenLieu\DinhLuong\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\NguyenLieu\NguyenLieu\UcDetail.cs">
       <SubType>UserControl</SubType>
@@ -431,20 +425,17 @@
     <EmbeddedResource Include="Main\NguyenLieu\DinhLuong\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\NguyenLieu\DinhLuong\UcInfo.resx">
-      <DependentUpon>UcInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main\NguyenLieu\DinhLuong\UcDinhLuong.resx">
       <DependentUpon>UcDinhLuong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\NguyenLieu\DinhLuong\UcNguyenLieuDinhLuong.resx">
-      <DependentUpon>UcNguyenLieuDinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\KhachHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\KhachHang\KhachHang\UcKhachHang.resx">
       <DependentUpon>UcKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NguyenLieu\DinhLuong\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\NguyenLieu\NguyenLieu\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>

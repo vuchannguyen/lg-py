@@ -15,26 +15,13 @@ namespace Weedon.DinhLuong
     public partial class UcDetail : UserControl
     {
         private DTO.SanPham data;
-        private List<DTO.DinhLuong> listDataDL;
-
-        private List<UcNguyenLieuDinhLuong> listUcNguyenLieu;
-        private List<UcNguyenLieuDinhLuong> listUcNguyenLieuInsert;
-        private List<int> listUcNguyenLieuDelete;
-        private List<UcNguyenLieuDinhLuong> listUcNguyenLieuUpdate;
-
-        private const int ucNguyenLieuWidth = 170;
-
-        public UcDetail()
-        {
-            InitializeComponent();
-        }
+        private string idsDinhLuongRemoved;
 
         public UcDetail(DTO.SanPham data)
         {
             InitializeComponent();
 
             this.data = data;
-            lbSelect.Text = Constant.DEFAULT_TITLE_EDIT;
 
             if (Init())
             {
@@ -80,16 +67,16 @@ namespace Weedon.DinhLuong
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
 
-            listUcNguyenLieu = new List<UcNguyenLieuDinhLuong>();
-            listUcNguyenLieuInsert = new List<UcNguyenLieuDinhLuong>();
-            listUcNguyenLieuDelete = new List<int>();
-            listUcNguyenLieuUpdate = new List<UcNguyenLieuDinhLuong>();
-
-            GetListDinhLuong(data.Id);
+            LoadData(data.Id);
 
             this.BringToFront();
+
+            FormMain.isEditing = true;
         }
 
+
+
+        #region Function
         private bool Init()
         {
             if (!GetListGroupSP())
@@ -121,24 +108,72 @@ namespace Weedon.DinhLuong
             return true;
         }
 
-        private void GetListDinhLuong(int id)
+        private void RefreshData()
         {
-            List<DTO.DinhLuong> listData = DinhLuongBus.GetListByIdSP(id);
+            idsDinhLuongRemoved = string.Empty;
+            tbMa.Text = string.Empty;
+            tbTen.Text = string.Empty;
+            tbMoTa.Text = string.Empty;
 
-            foreach (DTO.DinhLuong dataTemp in listData)
+            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
+        }
+
+        private void AddNewRow()
+        {
+            dgvThongTin.Rows.Add();
+            List<DTO.NguyenLieu> listData = NguyenLieuBus.GetList(string.Empty, null, string.Empty, string.Empty, 0, 0);
+            DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colTen.Name];
+
+            cell.DataSource = listData;
+            cell.Value = listData.FirstOrDefault().Id;
+            cell.ValueMember = "Id";
+            cell.DisplayMember = "Ten";
+
+            dgvThongTin.CurrentCell = cell;
+            UpdateRowData();
+            dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colUocLuong.Name].Value = 1;
+        }
+
+        private void UpdateRowData()
+        {
+            int rowIndex = dgvThongTin.CurrentCell.RowIndex;
+
+            if (dgvThongTin.CurrentCell.ColumnIndex == dgvThongTin.Columns[colTen.Name].Index)
             {
-                UcNguyenLieuDinhLuong ucNguyenLieu = new UcNguyenLieuDinhLuong(dataTemp, false);
-
-                int iNewLocation = listUcNguyenLieu.Count * ucNguyenLieuWidth + pn_gbNguyenLieu.AutoScrollPosition.Y;
-                ucNguyenLieu.Location = CommonFunc.SetWidthCenter(pn_gbNguyenLieu.Size, ucNguyenLieu.Size, iNewLocation);
-
-                listUcNguyenLieu.Add(ucNguyenLieu);
-                pn_gbNguyenLieu.Controls.Add(listUcNguyenLieu[listUcNguyenLieu.Count - 1]);
-
-                listUcNguyenLieuUpdate.Add(ucNguyenLieu);
+                DTO.NguyenLieu data = NguyenLieuBus.GetById(ConvertUtil.ConvertToInt(dgvThongTin[colTen.Name, rowIndex].Value));
+                dgvThongTin[colIdNL.Name, rowIndex].Value = data.Id;
+                dgvThongTin[colMa.Name, rowIndex].Value = data.MaNguyenLieu;
+                dgvThongTin[colDonVi.Name, rowIndex].Value = data.DonViTinh;
+                dgvThongTin.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-        
+
+        private void LoadData(int idSP)
+        {
+            List<DTO.DinhLuong> listData = DinhLuongBus.GetListByIdSP(idSP);
+            List<DTO.NguyenLieu> listNL = NguyenLieuBus.GetList(string.Empty, null, string.Empty, string.Empty, 0, 0);
+
+            foreach (DTO.DinhLuong data in listData)
+            {
+                dgvThongTin.Rows.Add();
+                DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colTen.Name];
+
+                cell.DataSource = listNL;
+                cell.Value = data.IdNguyenLieu;
+                cell.ValueMember = "Id";
+                cell.DisplayMember = "Ten";
+
+                dgvThongTin.CurrentCell = cell;
+                UpdateRowData();
+                dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colId.Name].Value = data.Id;
+                dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colUocLuong.Name].Value = data.SoLuong;
+            }
+        }
+        #endregion
+
+
+
+        #region Ok Cancel
         private void pbHoanTat_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -153,5 +188,6 @@ namespace Weedon.DinhLuong
         {
             pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
         }
+        #endregion
     }
 }

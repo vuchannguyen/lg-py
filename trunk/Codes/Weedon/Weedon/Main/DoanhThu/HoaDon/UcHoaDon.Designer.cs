@@ -155,6 +155,7 @@
             this.pbDuyet.Location = new System.Drawing.Point(10, 0);
             this.pbDuyet.Name = "pbDuyet";
             this.pbDuyet.Size = new System.Drawing.Size(50, 50);
+            this.pbDuyet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbDuyet.TabIndex = 1;
             this.pbDuyet.TabStop = false;
             this.pbDuyet.Click += new System.EventHandler(this.pbDuyet_Click);
