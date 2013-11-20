@@ -161,6 +161,7 @@
     <Content Include="Resource\Chu thich dong vat\door.png" />
     <Content Include="Resource\Chu thich dong vat\gau.png" />
     <Content Include="Resource\Chu thich dong vat\ha ma.png" />
+    <Content Include="Resource\Chu thich dong vat\heo rung.png" />
     <Content Include="Resource\Chu thich dong vat\ho.png" />
     <Content Include="Resource\Chu thich dong vat\huou cao co.png" />
     <Content Include="Resource\Chu thich dong vat\khi.png" />
@@ -178,6 +179,8 @@
     <Content Include="Resource\Chu thich dong vat\thien nga.png" />
     <Content Include="Resource\Chu thich dong vat\voi.png" />
     <Content Include="Resource\Chu thich dong vat\wc.png" />
+    <Content Include="Resource\Chu_Thich_1\flower.png" />
+    <Content Include="Resource\Chu_Thich_1\parking.png" />
     <None Include="Resource\StartArrow.png" />
     <None Include="Resource\NoteClick\erase_on.png" />
     <None Include="Resource\NoteClick\erase.png" />
