@@ -90,15 +90,16 @@
             this.chbNumber = new System.Windows.Forms.CheckBox();
             this.tabStatistics = new System.Windows.Forms.TabPage();
             this.lvStatistics = new System.Windows.Forms.ListView();
-            this.clhSTT = new System.Windows.Forms.ColumnHeader();
-            this.clhDistance = new System.Windows.Forms.ColumnHeader();
-            this.clhRad = new System.Windows.Forms.ColumnHeader();
+            this.clhSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhDistance = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clhRad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gbTotal = new System.Windows.Forms.GroupBox();
             this.lbTotalM = new System.Windows.Forms.Label();
             this.tbTotalM = new System.Windows.Forms.TextBox();
             this.picbStartup = new System.Windows.Forms.PictureBox();
             this.picbGWL = new System.Windows.Forms.PictureBox();
             this.picbNorthArrow = new System.Windows.Forms.PictureBox();
+            this.imageCombo1 = new System.Windows.Forms.ImageCombo();
             this.menuStrip1.SuspendLayout();
             this.gbQuyUoc.SuspendLayout();
             this.gbThongTin.SuspendLayout();
@@ -415,8 +416,8 @@
             this.tbThucHien.Size = new System.Drawing.Size(174, 20);
             this.tbThucHien.TabIndex = 13;
             this.tbThucHien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbThucHien_KeyDown);
-            this.tbThucHien.Leave += new System.EventHandler(this.tbThucHien_Leave);
             this.tbThucHien.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbThucHien_KeyUp);
+            this.tbThucHien.Leave += new System.EventHandler(this.tbThucHien_Leave);
             // 
             // lbNguoiVe
             // 
@@ -435,8 +436,8 @@
             this.tbTenHoaDo.Size = new System.Drawing.Size(174, 20);
             this.tbTenHoaDo.TabIndex = 12;
             this.tbTenHoaDo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbTenHoaDo_KeyDown);
-            this.tbTenHoaDo.Leave += new System.EventHandler(this.tbTenHoaDo_Leave);
             this.tbTenHoaDo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbTenHoaDo_KeyUp);
+            this.tbTenHoaDo.Leave += new System.EventHandler(this.tbTenHoaDo_Leave);
             // 
             // lbTenHoaDo
             // 
@@ -477,9 +478,9 @@
             this.cbCachTinh.Name = "cbCachTinh";
             this.cbCachTinh.Size = new System.Drawing.Size(38, 21);
             this.cbCachTinh.TabIndex = 4;
-            this.cbCachTinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbCachTinh_KeyUp);
             this.cbCachTinh.DropDownClosed += new System.EventHandler(this.cbCachTinh_DropDownClosed);
             this.cbCachTinh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbCachTinh_KeyDown);
+            this.cbCachTinh.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbCachTinh_KeyUp);
             // 
             // btDraw
             // 
@@ -542,9 +543,9 @@
             this.cbColor.Size = new System.Drawing.Size(79, 21);
             this.cbColor.TabIndex = 2;
             this.cbColor.Tag = "";
-            this.cbColor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbColor_KeyUp);
             this.cbColor.DropDownClosed += new System.EventHandler(this.cbColor_DropDownClosed);
             this.cbColor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbColor_KeyDown);
+            this.cbColor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbColor_KeyUp);
             // 
             // tbRad
             // 
@@ -580,8 +581,8 @@
             this.tabcAll.SelectedIndex = 0;
             this.tabcAll.Size = new System.Drawing.Size(200, 574);
             this.tabcAll.TabIndex = 16;
-            this.tabcAll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabcAll_KeyPress);
             this.tabcAll.SelectedIndexChanged += new System.EventHandler(this.tabcAll_SelectedIndexChanged);
+            this.tabcAll.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabcAll_KeyPress);
             // 
             // tabDraw
             // 
@@ -613,7 +614,7 @@
             // 
             this.gbNoteName.Controls.Add(this.btAddName);
             this.gbNoteName.Controls.Add(this.tbAddName);
-            this.gbNoteName.Location = new System.Drawing.Point(3, 175);
+            this.gbNoteName.Location = new System.Drawing.Point(3, 215);
             this.gbNoteName.Name = "gbNoteName";
             this.gbNoteName.Size = new System.Drawing.Size(186, 90);
             this.gbNoteName.TabIndex = 21;
@@ -644,13 +645,14 @@
             // 
             // gbNote
             // 
+            this.gbNote.Controls.Add(this.imageCombo1);
             this.gbNote.Controls.Add(this.picbNoteErase);
             this.gbNote.Controls.Add(this.picbNoteDraw);
             this.gbNote.Controls.Add(this.cbNote);
             this.gbNote.Enabled = false;
             this.gbNote.Location = new System.Drawing.Point(3, 79);
             this.gbNote.Name = "gbNote";
-            this.gbNote.Size = new System.Drawing.Size(186, 90);
+            this.gbNote.Size = new System.Drawing.Size(186, 130);
             this.gbNote.TabIndex = 20;
             this.gbNote.TabStop = false;
             this.gbNote.Text = "Chú thích mặc định";
@@ -675,8 +677,8 @@
             this.picbNoteDraw.Size = new System.Drawing.Size(20, 20);
             this.picbNoteDraw.TabIndex = 1;
             this.picbNoteDraw.TabStop = false;
-            this.picbNoteDraw.MouseLeave += new System.EventHandler(this.picbNoteDraw_MouseLeave);
             this.picbNoteDraw.Click += new System.EventHandler(this.picbNoteDraw_Click);
+            this.picbNoteDraw.MouseLeave += new System.EventHandler(this.picbNoteDraw_MouseLeave);
             // 
             // cbNote
             // 
@@ -824,8 +826,8 @@
             this.picbGWL.TabStop = false;
             this.picbGWL.Click += new System.EventHandler(this.picbGWL_Click);
             this.picbGWL.DragDrop += new System.Windows.Forms.DragEventHandler(this.picbGWL_DragDrop);
-            this.picbGWL.Paint += new System.Windows.Forms.PaintEventHandler(this.picbGWL_Paint);
             this.picbGWL.DragEnter += new System.Windows.Forms.DragEventHandler(this.picbGWL_DragEnter);
+            this.picbGWL.Paint += new System.Windows.Forms.PaintEventHandler(this.picbGWL_Paint);
             // 
             // picbNorthArrow
             // 
@@ -836,6 +838,18 @@
             this.picbNorthArrow.TabIndex = 15;
             this.picbNorthArrow.TabStop = false;
             this.picbNorthArrow.Visible = false;
+            // 
+            // imageCombo1
+            // 
+            this.imageCombo1.BackColor = System.Drawing.SystemColors.Window;
+            this.imageCombo1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.imageCombo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.imageCombo1.FormattingEnabled = true;
+            this.imageCombo1.ImageList = this.imageList;
+            this.imageCombo1.Location = new System.Drawing.Point(22, 94);
+            this.imageCombo1.Name = "imageCombo1";
+            this.imageCombo1.Size = new System.Drawing.Size(139, 21);
+            this.imageCombo1.TabIndex = 3;
             // 
             // Form1
             // 
@@ -858,10 +872,10 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GWL 3.0";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gbQuyUoc.ResumeLayout(false);
@@ -962,6 +976,7 @@
         private System.Windows.Forms.ColumnHeader clhDistance;
         private System.Windows.Forms.ColumnHeader clhRad;
         private System.Windows.Forms.ComboBox cbCachTinh;
+        private System.Windows.Forms.ImageCombo imageCombo1;
     }
 }
 
