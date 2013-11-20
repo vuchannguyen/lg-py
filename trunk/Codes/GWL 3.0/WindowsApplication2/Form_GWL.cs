@@ -132,6 +132,35 @@ namespace WindowsApplication2
                 imageList.Images.Add(Gilwell.Properties.Resources.nhatho);
                 imageList.Images.Add(Gilwell.Properties.Resources.rung);
                 imageList.Images.Add(Gilwell.Properties.Resources.song);
+                imageList.Images.Add(Gilwell.Properties.Resources.door);
+                imageList.Images.Add(Gilwell.Properties.Resources.canteen);
+                imageList.Images.Add(Gilwell.Properties.Resources.wc);
+
+                imageList.Images.Add(Gilwell.Properties.Resources.ca_sau);
+                imageList.Images.Add(Gilwell.Properties.Resources.chim);
+                imageList.Images.Add(Gilwell.Properties.Resources.chim2);
+                imageList.Images.Add(Gilwell.Properties.Resources.co);
+                imageList.Images.Add(Gilwell.Properties.Resources.cuu);
+                imageList.Images.Add(Gilwell.Properties.Resources.da_dieu);
+                imageList.Images.Add(Gilwell.Properties.Resources.de);
+                imageList.Images.Add(Gilwell.Properties.Resources.gau);
+                imageList.Images.Add(Gilwell.Properties.Resources.ha_ma);
+                imageList.Images.Add(Gilwell.Properties.Resources.ho);
+                imageList.Images.Add(Gilwell.Properties.Resources.huou_cao_co);
+                imageList.Images.Add(Gilwell.Properties.Resources.khi);
+                imageList.Images.Add(Gilwell.Properties.Resources.nai);
+                imageList.Images.Add(Gilwell.Properties.Resources.nai2);
+                imageList.Images.Add(Gilwell.Properties.Resources.ngua_van);
+                imageList.Images.Add(Gilwell.Properties.Resources.ngua);
+                imageList.Images.Add(Gilwell.Properties.Resources.nhim);
+                imageList.Images.Add(Gilwell.Properties.Resources.ran);
+                imageList.Images.Add(Gilwell.Properties.Resources.rua);
+                imageList.Images.Add(Gilwell.Properties.Resources.soc);
+                imageList.Images.Add(Gilwell.Properties.Resources.soi);
+                imageList.Images.Add(Gilwell.Properties.Resources.su_tu);
+                imageList.Images.Add(Gilwell.Properties.Resources.te_giac);
+                imageList.Images.Add(Gilwell.Properties.Resources.thien_nga);
+                imageList.Images.Add(Gilwell.Properties.Resources.voi);
 
                 cbNote.Items.Add(new ImageComboItem("Bệnh viện", 0));
                 cbNote.Items.Add(new ImageComboItem("Cầu", 1));
@@ -144,6 +173,13 @@ namespace WindowsApplication2
                 cbNote.Items.Add(new ImageComboItem("Nhà thờ", 8));
                 cbNote.Items.Add(new ImageComboItem("Rừng", 9));
                 cbNote.Items.Add(new ImageComboItem("Sông", 10));
+                cbNote.Items.Add(new ImageComboItem("Cửa", 8));
+                cbNote.Items.Add(new ImageComboItem("Canteen", 9));
+                cbNote.Items.Add(new ImageComboItem("Nhà vệ sinh", 10));
+
+                cbNote.Items.Add(new ImageComboItem("Hươu cao cổ", 11));
+                cbNote.Items.Add(new ImageComboItem("Ngựa", 12));
+                cbNote.Items.Add(new ImageComboItem("Tê giác", 13));
                 cbNote.SelectedIndex = -1;
                 cbNote.Enabled = false;
             }

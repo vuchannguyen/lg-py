@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,7 +14,7 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <ApplicationIcon>GWL.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
@@ -53,6 +54,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -61,6 +63,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -147,6 +150,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="GWL.ico" />
+    <Content Include="Resource\Chu thich dong vat\ca sau.png" />
+    <Content Include="Resource\Chu thich dong vat\canteen.png" />
+    <Content Include="Resource\Chu thich dong vat\chim.png" />
+    <Content Include="Resource\Chu thich dong vat\chim2.png" />
+    <Content Include="Resource\Chu thich dong vat\co.png" />
+    <Content Include="Resource\Chu thich dong vat\cuu.png" />
+    <Content Include="Resource\Chu thich dong vat\da dieu.png" />
+    <Content Include="Resource\Chu thich dong vat\de.png" />
+    <Content Include="Resource\Chu thich dong vat\door.png" />
+    <Content Include="Resource\Chu thich dong vat\gau.png" />
+    <Content Include="Resource\Chu thich dong vat\ha ma.png" />
+    <Content Include="Resource\Chu thich dong vat\ho.png" />
+    <Content Include="Resource\Chu thich dong vat\huou cao co.png" />
+    <Content Include="Resource\Chu thich dong vat\khi.png" />
+    <Content Include="Resource\Chu thich dong vat\nai2.png" />
+    <Content Include="Resource\Chu thich dong vat\nai.png" />
+    <Content Include="Resource\Chu thich dong vat\ngua van.png" />
+    <Content Include="Resource\Chu thich dong vat\ngua.png" />
+    <Content Include="Resource\Chu thich dong vat\nhim.png" />
+    <Content Include="Resource\Chu thich dong vat\ran.png" />
+    <Content Include="Resource\Chu thich dong vat\rua.png" />
+    <Content Include="Resource\Chu thich dong vat\soc.png" />
+    <Content Include="Resource\Chu thich dong vat\soi.png" />
+    <Content Include="Resource\Chu thich dong vat\su tu.png" />
+    <Content Include="Resource\Chu thich dong vat\te giac.png" />
+    <Content Include="Resource\Chu thich dong vat\thien nga.png" />
+    <Content Include="Resource\Chu thich dong vat\voi.png" />
+    <Content Include="Resource\Chu thich dong vat\wc.png" />
     <None Include="Resource\StartArrow.png" />
     <None Include="Resource\NoteClick\erase_on.png" />
     <None Include="Resource\NoteClick\erase.png" />
@@ -168,6 +199,7 @@
     <None Include="Resource\Chu_Thich_1\cau.png" />
     <None Include="Resource\Chu_Thich_1\benhvien.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
