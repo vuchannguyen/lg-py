@@ -99,7 +99,6 @@
             this.picbStartup = new System.Windows.Forms.PictureBox();
             this.picbGWL = new System.Windows.Forms.PictureBox();
             this.picbNorthArrow = new System.Windows.Forms.PictureBox();
-            this.imageCombo1 = new System.Windows.Forms.ImageCombo();
             this.menuStrip1.SuspendLayout();
             this.gbQuyUoc.SuspendLayout();
             this.gbThongTin.SuspendLayout();
@@ -614,7 +613,7 @@
             // 
             this.gbNoteName.Controls.Add(this.btAddName);
             this.gbNoteName.Controls.Add(this.tbAddName);
-            this.gbNoteName.Location = new System.Drawing.Point(3, 215);
+            this.gbNoteName.Location = new System.Drawing.Point(3, 175);
             this.gbNoteName.Name = "gbNoteName";
             this.gbNoteName.Size = new System.Drawing.Size(186, 90);
             this.gbNoteName.TabIndex = 21;
@@ -645,14 +644,13 @@
             // 
             // gbNote
             // 
-            this.gbNote.Controls.Add(this.imageCombo1);
             this.gbNote.Controls.Add(this.picbNoteErase);
             this.gbNote.Controls.Add(this.picbNoteDraw);
             this.gbNote.Controls.Add(this.cbNote);
             this.gbNote.Enabled = false;
             this.gbNote.Location = new System.Drawing.Point(3, 79);
             this.gbNote.Name = "gbNote";
-            this.gbNote.Size = new System.Drawing.Size(186, 130);
+            this.gbNote.Size = new System.Drawing.Size(186, 90);
             this.gbNote.TabIndex = 20;
             this.gbNote.TabStop = false;
             this.gbNote.Text = "Chú thích mặc định";
@@ -661,7 +659,7 @@
             // 
             this.picbNoteErase.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbNoteErase.Image = global::Gilwell.Properties.Resources.e_d;
-            this.picbNoteErase.Location = new System.Drawing.Point(96, 19);
+            this.picbNoteErase.Location = new System.Drawing.Point(96, 20);
             this.picbNoteErase.Name = "picbNoteErase";
             this.picbNoteErase.Size = new System.Drawing.Size(20, 20);
             this.picbNoteErase.TabIndex = 2;
@@ -672,7 +670,7 @@
             // 
             this.picbNoteDraw.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picbNoteDraw.Image = global::Gilwell.Properties.Resources.d_d;
-            this.picbNoteDraw.Location = new System.Drawing.Point(66, 19);
+            this.picbNoteDraw.Location = new System.Drawing.Point(66, 20);
             this.picbNoteDraw.Name = "picbNoteDraw";
             this.picbNoteDraw.Size = new System.Drawing.Size(20, 20);
             this.picbNoteDraw.TabIndex = 1;
@@ -687,7 +685,7 @@
             this.cbNote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNote.FormattingEnabled = true;
             this.cbNote.ImageList = this.imageList;
-            this.cbNote.Location = new System.Drawing.Point(22, 56);
+            this.cbNote.Location = new System.Drawing.Point(22, 55);
             this.cbNote.Name = "cbNote";
             this.cbNote.Size = new System.Drawing.Size(139, 21);
             this.cbNote.TabIndex = 0;
@@ -839,18 +837,6 @@
             this.picbNorthArrow.TabStop = false;
             this.picbNorthArrow.Visible = false;
             // 
-            // imageCombo1
-            // 
-            this.imageCombo1.BackColor = System.Drawing.SystemColors.Window;
-            this.imageCombo1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.imageCombo1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.imageCombo1.FormattingEnabled = true;
-            this.imageCombo1.ImageList = this.imageList;
-            this.imageCombo1.Location = new System.Drawing.Point(22, 94);
-            this.imageCombo1.Name = "imageCombo1";
-            this.imageCombo1.Size = new System.Drawing.Size(139, 21);
-            this.imageCombo1.TabIndex = 3;
-            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -976,7 +962,6 @@
         private System.Windows.Forms.ColumnHeader clhDistance;
         private System.Windows.Forms.ColumnHeader clhRad;
         private System.Windows.Forms.ComboBox cbCachTinh;
-        private System.Windows.Forms.ImageCombo imageCombo1;
     }
 }
 
