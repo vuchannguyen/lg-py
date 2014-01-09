@@ -94,10 +94,20 @@ namespace DAO
             return dbContext.NguyenLieus.Where(p => p.Id == id).FirstOrDefault<NguyenLieu>();
         }
 
+        public static NguyenLieu GetByName(string text)
+        {
+            return dbContext.NguyenLieus.Where(p => p.Ten == text && p.DeleteFlag == false).FirstOrDefault<NguyenLieu>();
+        }
+
         public static bool Insert(NguyenLieu data, User user)
         {
             try
             {
+                if (GetByName(data.Ten) != null)
+                {
+                    return false;
+                }
+
                 dbContext.NguyenLieus.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 

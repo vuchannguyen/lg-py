@@ -119,12 +119,19 @@ namespace DAO
             return dbContext.SanPhams.Where(p => p.Id == id).FirstOrDefault<SanPham>();
         }
 
+        public static SanPham GetByName(string text)
+        {
+            return dbContext.SanPhams.Where(p => p.Ten == text && p.DeleteFlag == false).FirstOrDefault<SanPham>();
+        }
+
         public static bool Insert(SanPham data, User user)
         {
             try
             {
-                
-                
+                if (GetByName(data.Ten) != null)
+                {
+                    return false;
+                }
 
                 dbContext.SanPhams.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
