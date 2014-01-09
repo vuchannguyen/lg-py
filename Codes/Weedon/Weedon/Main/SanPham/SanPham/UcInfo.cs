@@ -299,17 +299,17 @@ namespace Weedon.SanPham
 
 
         #region Controls
-        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //CreateNewIdSP();
-        }
-
-        private void tbTen_TextChanged(object sender, EventArgs e)
+        private void tbMa_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
         }
 
-        private void cbDVT_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void tbTen_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
         }
@@ -319,6 +319,5 @@ namespace Weedon.SanPham
             CommonFunc.ValidateNumeric(e);
         }
         #endregion
-
     }
 }

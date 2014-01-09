@@ -283,6 +283,7 @@
             this.tbMa.Name = "tbMa";
             this.tbMa.Size = new System.Drawing.Size(100, 23);
             this.tbMa.TabIndex = 0;
+            this.tbMa.TextChanged += new System.EventHandler(this.tbMa_TextChanged);
             // 
             // lbMa
             // 
