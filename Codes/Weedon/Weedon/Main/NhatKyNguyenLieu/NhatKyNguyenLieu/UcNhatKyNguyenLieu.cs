@@ -533,6 +533,11 @@ namespace Weedon
 
         private void btUp_Click(object sender, EventArgs e)
         {
+            if (dgvThongTin.SelectedRows.Count == 0 && dgvThongTin.CurrentCell != null)
+            {
+                dgvThongTin.Rows[dgvThongTin.CurrentCell.RowIndex].Selected = true;
+            }
+
             if (dgvThongTin.SelectedRows.Count > 0 && dgvThongTin.SelectedRows[0].Index - 1 >= 0)
             {
                 SwapRow(dgvThongTin.SelectedRows[0].Index, dgvThongTin.SelectedRows[0].Index - 1);
@@ -541,6 +546,11 @@ namespace Weedon
 
         private void btDown_Click(object sender, EventArgs e)
         {
+            if (dgvThongTin.SelectedRows.Count == 0 && dgvThongTin.CurrentCell != null)
+            {
+                dgvThongTin.Rows[dgvThongTin.CurrentCell.RowIndex].Selected = true;
+            }
+
             if (dgvThongTin.SelectedRows.Count > 0 && dgvThongTin.SelectedRows[0].Index + 1 < dgvThongTin.Rows.Count)
             {
                 SwapRow(dgvThongTin.SelectedRows[0].Index, dgvThongTin.SelectedRows[0].Index + 1);
