@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DTO;
 using Library;
+using System.IO;
 
 namespace Weedon
 {
@@ -90,8 +91,44 @@ namespace Weedon
             else
             {
                 FormMain.isConnected = true;
+                WriteConfiguration();
 
                 this.Close();
+            }
+        }
+
+        private void WriteConfiguration()
+        {
+            StreamWriter swWriter = null;
+
+            try
+            {
+                swWriter = new StreamWriter(Constant.DEFAULT_DATABASE_CONFIGURATION_FILE_NAME);
+
+                if (rbWindowsAu.Checked)
+                {
+                    swWriter.WriteLine(rbWindowsAu.Text);
+                }
+                else
+                {
+                    swWriter.WriteLine(rbSQLServerAu.Text);
+                }
+
+                swWriter.WriteLine(tbServerName.Text);
+                swWriter.WriteLine(tbUserName.Text);
+                swWriter.WriteLine(CryptoFunction.Crypto.EncryptDBPassText(tbPassword.Text));
+                swWriter.Flush();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (swWriter != null)
+                {
+                    swWriter.Close();
+                }
             }
         }
 

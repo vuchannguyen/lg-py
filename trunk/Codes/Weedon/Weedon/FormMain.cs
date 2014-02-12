@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Library;
 using DTO;
 using BUS;
+using System.IO;
 
 namespace Weedon
 {
@@ -99,16 +100,7 @@ namespace Weedon
             pbStartup.Size = new System.Drawing.Size(1000, 413);
             pbStartup.Location = CommonFunc.SetCenterLocation(pnBody.Size, pbStartup.Size);
 
-            FormConnection frmConnection = new FormConnection();
-            frmConnection.FormClosed += new FormClosedEventHandler(FormConnection_FormClosed);
-            frmConnection.ShowDialog();
-
-            if (isConnected)
-            {
-                FormLogin frm = new FormLogin();
-                frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
-                frm.ShowDialog();
-            }
+            AutoConnecting();
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -156,6 +148,72 @@ namespace Weedon
             lbNgay.Text = string.Format(Constant.DEFAULT_WELCOME_DATE_TIME_FORMAT,
                 GetDayOfWeek(), DateTime.Now.ToString(Constant.DEFAULT_DATE_FORMAT));
             lbAccount.Text = user.UserName;
+        }
+
+        private void AutoConnecting()
+        {
+            if (File.Exists(Constant.DEFAULT_DATABASE_CONFIGURATION_FILE_NAME))
+            {
+                StreamReader srReader = null;
+
+                try
+                {
+                    srReader = new StreamReader(Constant.DEFAULT_DATABASE_CONFIGURATION_FILE_NAME);
+
+                    if (srReader.ReadLine() == "WA")
+                    {
+                        SQLConnection.windowsAuthentication = true;
+                        SQLConnection.serverName = srReader.ReadLine();
+                    }
+                    else
+                    {
+                        SQLConnection.windowsAuthentication = false;
+                        SQLConnection.serverName = srReader.ReadLine();
+                        SQLConnection.userName = srReader.ReadLine();
+                        SQLConnection.password = CryptoFunction.Crypto.DecryptDBPassText(srReader.ReadLine());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (srReader != null)
+                    {
+                        srReader.Close();
+                    }
+                }
+
+                if (SQLConnection.CreateSQlConnection())
+                {
+                    FormLogin frm = new FormLogin();
+                    frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    OpenConnectionDialog();
+                }
+            }
+            else
+            {
+                OpenConnectionDialog();
+            }
+        }
+
+        private void OpenConnectionDialog()
+        {
+            FormConnection frmConnection = new FormConnection();
+            frmConnection.FormClosed += new FormClosedEventHandler(FormConnection_FormClosed);
+            frmConnection.ShowDialog();
+
+            if (isConnected)
+            {
+                FormLogin frm = new FormLogin();
+                frm.FormClosed += new FormClosedEventHandler(FormLogin_Closed);
+                frm.ShowDialog();
+            }
         }
 
         private void Init()
