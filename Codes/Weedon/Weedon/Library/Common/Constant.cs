@@ -42,6 +42,7 @@ namespace Library
         public static Size DEFAULT_SIZE_DECAL = new Size(79, 53);
         public static Size DEFAULT_SIZE_LISTVIEWEX_EXPORT = new Size(770, 485);
 
+        public const string DEFAULT_DATABASE_CONFIGURATION_FILE_NAME = "db.cf";
         public const string DEFAULT_CLOSEXML_FILE_NAME = "ClosedXML.dll";
         public const string DEFAULT_OPENXML_FILE_NAME = "DocumentFormat.OpenXml.dll";
 
