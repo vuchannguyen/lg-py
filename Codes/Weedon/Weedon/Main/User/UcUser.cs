@@ -152,10 +152,10 @@ namespace Weedon
                 lvi.SubItems.Add(data.UserGroup.Ten);
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.UserName);
-                lvi.SubItems.Add(data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT));
-                lvi.SubItems.Add(data.DienThoai);
-                lvi.SubItems.Add(data.DTDD);
-                lvi.SubItems.Add(data.Email);
+                lvi.SubItems.Add(data.DOB == null ? string.Empty : data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT));
+                lvi.SubItems.Add(data.DienThoai == null ? string.Empty : data.DienThoai);
+                lvi.SubItems.Add(data.DTDD == null ? string.Empty : data.DTDD);
+                lvi.SubItems.Add(data.Email == null ? string.Empty : data.Email);
 
                 lvThongTin.Items.Add(lvi);
             }
