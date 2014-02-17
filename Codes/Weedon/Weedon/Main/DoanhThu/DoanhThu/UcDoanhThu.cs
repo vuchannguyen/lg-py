@@ -119,7 +119,7 @@ namespace Weedon
                                 money += ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value);
 
                                 row.Cells[colSoLuong.Name].Value = soLuong;
-                                row.Cells[colThanhTien.Name].Value = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                                row.Cells[colThanhTien.Name].Value = money == 0 ? "0" : money.ToString(Constant.DEFAULT_FORMAT_MONEY);
                                 isNew = false;
                                 break;
                             }
