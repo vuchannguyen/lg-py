@@ -34,6 +34,8 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbHanMuc = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tbTen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rbTamNgung = new System.Windows.Forms.RadioButton();
@@ -114,6 +116,8 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbHanMuc);
+            this.gbInfo.Controls.Add(this.label1);
             this.gbInfo.Controls.Add(this.tbTen);
             this.gbInfo.Controls.Add(this.label3);
             this.gbInfo.Controls.Add(this.rbTamNgung);
@@ -135,6 +139,25 @@
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
             // 
+            // tbHanMuc
+            // 
+            this.tbHanMuc.Location = new System.Drawing.Point(103, 130);
+            this.tbHanMuc.MaxLength = 11;
+            this.tbHanMuc.Name = "tbHanMuc";
+            this.tbHanMuc.Size = new System.Drawing.Size(137, 23);
+            this.tbHanMuc.TabIndex = 125;
+            this.tbHanMuc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHanMuc_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(29, 133);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.TabIndex = 126;
+            this.label1.Text = "Hạn mức:";
+            // 
             // tbTen
             // 
             this.tbTen.Location = new System.Drawing.Point(398, 30);
@@ -147,7 +170,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(19, 132);
+            this.label3.Location = new System.Drawing.Point(19, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 16);
             this.label3.TabIndex = 124;
@@ -157,7 +180,7 @@
             // 
             this.rbTamNgung.AutoSize = true;
             this.rbTamNgung.ForeColor = System.Drawing.Color.Black;
-            this.rbTamNgung.Location = new System.Drawing.Point(103, 160);
+            this.rbTamNgung.Location = new System.Drawing.Point(103, 210);
             this.rbTamNgung.Name = "rbTamNgung";
             this.rbTamNgung.Size = new System.Drawing.Size(99, 20);
             this.rbTamNgung.TabIndex = 123;
@@ -170,7 +193,7 @@
             this.rbSuDung.AutoSize = true;
             this.rbSuDung.Checked = true;
             this.rbSuDung.ForeColor = System.Drawing.Color.Black;
-            this.rbSuDung.Location = new System.Drawing.Point(103, 130);
+            this.rbSuDung.Location = new System.Drawing.Point(103, 180);
             this.rbSuDung.Name = "rbSuDung";
             this.rbSuDung.Size = new System.Drawing.Size(80, 20);
             this.rbSuDung.TabIndex = 122;
@@ -363,5 +386,7 @@
         private System.Windows.Forms.RadioButton rbTamNgung;
         private System.Windows.Forms.RadioButton rbSuDung;
         private System.Windows.Forms.TextBox tbTen;
+        private System.Windows.Forms.TextBox tbHanMuc;
+        private System.Windows.Forms.Label label1;
     }
 }

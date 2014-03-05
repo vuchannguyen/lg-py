@@ -153,5 +153,61 @@ namespace Library
                 ws.Columns().AdjustToContents(1, 4);
             }
         }
+
+        public static void CreateSummaryNKNL(DateTime date)
+        {
+            ws.Cell("B1").Value = "NHẬT KÝ NGUYÊN LIỆU";
+            ws.Cell("B1").Style.Font.FontSize = 16;
+            ws.Cell("B1").Style.Font.Bold = true;
+
+            ws.Columns().AdjustToContents(1, 2);
+        }
+
+        public static void CreateDetailsTableNKNL(ListView lv)
+        {
+            if (lv.Items.Count > 0)
+            {
+                int firstRow = 3;
+                int firstCol = 1;
+                int lastRow = firstRow + lv.Items.Count;
+                int lastCol = lv.Columns.Count;
+
+                // From worksheet
+                var rngTableDetails = ws.Range(firstRow, firstCol, lastRow, lastCol);
+
+                var rngHeadersDetails = rngTableDetails.Range(1, firstCol, 1, lastCol); // The address is relative to rngTable (NOT the worksheet)
+                rngHeadersDetails.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
+                rngHeadersDetails.Style.Font.FontColor = XLColor.White;
+
+                for (int colNum = 0; colNum < lv.Columns.Count; colNum++)
+                {
+                    ws.Cell(firstRow, colNum + 1).Value = lv.Columns[colNum].Text.ToString();
+                }
+
+                for (int rowNum = 0; rowNum < lv.Items.Count; rowNum++)
+                {
+                    for (int colNum = 0; colNum < lv.Columns.Count; colNum++)
+                    {
+                        ws.Cell(firstRow + 1 + rowNum, colNum + 1).Value = lv.Items[rowNum].SubItems[colNum].Text;
+                        double tonCuoi = ConvertUtil.ConvertToDouble(lv.Items[rowNum].SubItems["colTonCuoi"].Text);
+                        double hanMuc = ConvertUtil.ConvertToDouble(lv.Items[rowNum].SubItems["colHanMuc"].Text);
+
+                        if (tonCuoi < hanMuc)
+                        {
+                            var rngHanMuc = ws.Range(firstRow + 1 + rowNum, firstCol, firstRow + 1 + rowNum, lv.Columns.Count);
+                            rngHanMuc.Style.Fill.BackgroundColor = XLColor.Red;
+                        }
+                    }
+                }
+
+                var rngDataDetails = ws.Range(firstRow + 1, firstCol, lastRow, lastCol);
+                rngDataDetails.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+                rngDataDetails.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+
+                var excelTableDetails = rngTableDetails.CreateTable();
+
+                ws.Columns().AdjustToContents(1, 4);
+            }
+        }
     }
 }
