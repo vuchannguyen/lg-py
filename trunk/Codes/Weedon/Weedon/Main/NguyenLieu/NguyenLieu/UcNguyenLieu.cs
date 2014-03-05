@@ -150,6 +150,7 @@ namespace Weedon
                 lvi.SubItems.Add(data.MaNguyenLieu);
                 lvi.SubItems.Add(data.Ten);
                 lvi.SubItems.Add(data.DonViTinh);
+                lvi.SubItems.Add(data.HanMuc == 0 ? string.Empty : data.HanMuc.ToString());
                 lvi.SubItems.Add(data.MoTa);
 
                 lvThongTin.Items.Add(lvi);

@@ -64,6 +64,7 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.chHanMuc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -273,6 +274,7 @@
             this.chMaNL,
             this.chTen,
             this.chDVT,
+            this.chHanMuc,
             this.chMoTa});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
@@ -323,12 +325,12 @@
             // 
             this.chDVT.Text = "ĐVT";
             this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDVT.Width = 132;
+            this.chDVT.Width = 114;
             // 
             // chMoTa
             // 
             this.chMoTa.Text = "Mô tả";
-            this.chMoTa.Width = 303;
+            this.chMoTa.Width = 247;
             // 
             // pnTraCuu
             // 
@@ -364,7 +366,7 @@
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
             this.lbTotalPage.Location = new System.Drawing.Point(655, 6);
             this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
             this.lbTotalPage.Text = "??? Trang";
             // 
@@ -456,6 +458,12 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
+            // chHanMuc
+            // 
+            this.chHanMuc.Text = "Hạn mức";
+            this.chHanMuc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chHanMuc.Width = 74;
+            // 
             // UcNguyenLieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -535,5 +543,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExcel;
+        private System.Windows.Forms.ColumnHeader chHanMuc;
     }
 }

@@ -103,7 +103,13 @@ namespace Weedon
                         if (data != null)
                         {
                             dgvThongTin.Rows.Add(data.Id, data.IdNguyenLieu, data.NguyenLieu.Ten, data.NguyenLieu.DonViTinh,
+                                data.NguyenLieu.HanMuc == 0 ? string.Empty : data.NguyenLieu.HanMuc.ToString(),
                                 data.TonDau, data.Nhap, data.Huy, data.TonCuoi, data.SuDung, data.GhiChu);
+
+                            if (data.TonCuoi < data.NguyenLieu.HanMuc)
+                            {
+                                dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.BackColor = Color.Red;
+                            }
                         }
                     }
 
@@ -112,7 +118,13 @@ namespace Weedon
                         if (arrayId.Where(p => p == data.IdNguyenLieu.ToString()).Count() == 0)
                         {
                             dgvThongTin.Rows.Add(data.Id, data.IdNguyenLieu, data.NguyenLieu.Ten, data.NguyenLieu.DonViTinh,
+                                data.NguyenLieu.HanMuc == 0 ? string.Empty : data.NguyenLieu.HanMuc.ToString(),
                                 data.TonDau, data.Nhap, data.Huy, data.TonCuoi, data.SuDung, data.GhiChu);
+
+                            if (data.TonCuoi < data.NguyenLieu.HanMuc)
+                            {
+                                dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.BackColor = Color.Red;
+                            }
                         }
                     }
                 }
@@ -121,7 +133,13 @@ namespace Weedon
                     foreach (DTO.NhatKyNguyenLieu data in list)
                     {
                         dgvThongTin.Rows.Add(data.Id, data.IdNguyenLieu, data.NguyenLieu.Ten, data.NguyenLieu.DonViTinh,
+                            data.NguyenLieu.HanMuc == 0 ? string.Empty : data.NguyenLieu.HanMuc.ToString(),
                             data.TonDau, data.Nhap, data.Huy, data.TonCuoi, data.SuDung, data.GhiChu);
+
+                        if (data.TonCuoi < data.NguyenLieu.HanMuc)
+                        {
+                            dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.BackColor = Color.Red;
+                        }
                     }
                 }
 
@@ -145,6 +163,7 @@ namespace Weedon
                         if (data != null)
                         {
                             dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, data.DonViTinh,
+                                data.HanMuc == 0 ? string.Empty : data.HanMuc.ToString(),
                                 string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
                         }
                     }
@@ -154,6 +173,7 @@ namespace Weedon
                         if (arrayId.Where(p => p == data.Id.ToString()).Count() == 0)
                         {
                             dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, data.DonViTinh,
+                                data.HanMuc == 0 ? string.Empty : data.HanMuc.ToString(),
                                 string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
                         }
                     }
@@ -162,7 +182,7 @@ namespace Weedon
                 {
                     foreach (DTO.NguyenLieu data in list)
                     {
-                        dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, data.DonViTinh,
+                        dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, data.DonViTinh, data.HanMuc == 0 ? string.Empty : data.HanMuc.ToString(),
                             string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
                     }
                 }
@@ -444,15 +464,12 @@ namespace Weedon
         {
             if (dgvThongTin.Rows.Count > 0)
             {
-                NewLvEx(Constant.DEFAULT_SIZE_LISTVIEWEX_EXPORT.Width, Constant.DEFAULT_SIZE_LISTVIEWEX_EXPORT.Height);
-                LoadLvExLData();
-                HideColumn();
+                string path = File_Function.SaveDialog("NKNL " + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
-                //RefreshLvEx(tbSearch.Text);
-
-                //FormExportExcel frm = new FormExportExcel(Constant.DEFAULT_TYPE_EXPORT_NGUYENLIEU, Constant.DEFAULT_SHEET_NAME_EXPORT_NGUYENLIEU, Constant.DEFAULT_TYPE_EXPORT_NGUYENLIEU,
-                //    lvEx, soSP);
-                //frm.ShowDialog();
+                if (path != null)
+                {
+                    ExportDay(path);
+                }
             }
             else
             {
@@ -479,7 +496,7 @@ namespace Weedon
             pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
         }
 
-        
+
 
         #region Controls
         private void dgvThongTin_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -589,6 +606,53 @@ namespace Weedon
         private void btSaveSetting_Click(object sender, EventArgs e)
         {
             UpdateSetting();
+        }
+
+        private void ExportDay(string path)
+        {
+            ExportExcel.InitWorkBook();
+            Export(path, dtpFilter.Value, GetListView(string.Empty, true, dtpFilter.Value));
+            ExportExcel.SaveExcel(path);
+        }
+
+        private void Export(string path, DateTime date, ListView lv)
+        {
+            if (lv.Items.Count > 0)
+            {
+                ExportExcel.InitNewSheet("NKNL " + date.ToString(Constant.DEFAULT_DATE_FORMAT_EXPORT));
+                ExportExcel.CreateSummaryNKNL(date);
+                ExportExcel.CreateDetailsTableNKNL(lv);
+            }
+        }
+
+        private ListView GetListView(string text, bool? isActive, DateTime date)
+        {
+            ListView lv = new ListView();
+            lv.Columns.Add("STT");
+
+            for (int i = 2; i < dgvThongTin.Columns.Count; i++)
+            {
+                lv.Columns.Add(dgvThongTin.Columns[i].Name, dgvThongTin.Columns[i].HeaderText);
+            }
+
+            foreach (DataGridViewRow row in dgvThongTin.Rows)
+            {
+                //if (row.DefaultCellStyle.BackColor.Equals(Color.Red))
+                //{
+                    ListViewItem lvi = new ListViewItem();
+                    lvi.Text = (lv.Items.Count + 1).ToString();
+
+                    for (int i = 2; i < dgvThongTin.Columns.Count; i++)
+                    {
+                        lvi.SubItems.Add(row.Cells[i].Value.ToString());
+                        lvi.SubItems[lvi.SubItems.Count - 1].Name = dgvThongTin.Columns[i].Name;
+                    }
+
+                    lv.Items.Add(lvi);
+                //}
+            }
+
+            return lv;
         }
     }
 }

@@ -11,14 +11,6 @@
       <Association Name="SanPham_DinhLuong" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.UserGroup" Member="UserGroups">
-    <Type Name="UserGroup">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="UserGroup_User" Member="Users" ThisKey="Id" OtherKey="IdGroup" Type="User" />
-    </Type>
-  </Table>
   <Table Name="dbo.GiaChinhThuc" Member="GiaChinhThucs">
     <Type Name="GiaChinhThuc">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -89,6 +81,7 @@
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="DonViTinh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="HanMuc" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="NguyenLieu_DinhLuong" Member="DinhLuongs" ThisKey="Id" OtherKey="IdNguyenLieu" Type="DinhLuong" />
@@ -163,6 +156,14 @@
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="User_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdUser" Type="HoaDon" />
       <Association Name="UserGroup_User" Member="UserGroup" ThisKey="IdGroup" OtherKey="Id" Type="UserGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserGroup" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="UserGroup_User" Member="Users" ThisKey="Id" OtherKey="IdGroup" Type="User" />
     </Type>
   </Table>
 </Database>

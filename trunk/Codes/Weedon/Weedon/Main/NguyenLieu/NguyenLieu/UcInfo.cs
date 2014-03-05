@@ -180,6 +180,7 @@ namespace Weedon.NguyenLieu
             data.MaNguyenLieu = tbMaNL.Text;
             data.Ten = tbTen.Text;
             data.DonViTinh = cbDVTNL.Text;
+            data.HanMuc = ConvertUtil.ConvertToDouble(tbHanMuc.Text);
             data.IsActive = rbSuDung.Checked;
             data.MoTa = tbMoTa.Text;
 
@@ -202,6 +203,7 @@ namespace Weedon.NguyenLieu
             data.MaNguyenLieu = tbMaNL.Text;
             data.Ten = tbTen.Text;
             data.DonViTinh = cbDVTNL.Text;
+            data.HanMuc = ConvertUtil.ConvertToDouble(tbHanMuc.Text);
             data.IsActive = rbSuDung.Checked;
             data.MoTa = tbMoTa.Text;
 
@@ -295,6 +297,11 @@ namespace Weedon.NguyenLieu
         private void cbDVTNL_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
+        }
+
+        private void tbHanMuc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CommonFunc.ValidateNumeric(e);
         }
     }
 }
