@@ -254,7 +254,7 @@ namespace Weedon
 
         private void pbExcel_Click(object sender, EventArgs e)
         {
-            string path = File_Function.SaveDialog("KTCL " + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+            string path = File_Function.SaveDialog("KTCL" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
             if (path != null)
             {

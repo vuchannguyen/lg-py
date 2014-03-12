@@ -220,9 +220,7 @@ namespace Weedon
         private void ExportDay(string path)
         {
             ExportExcel.InitWorkBook();
-
             Export(path, dtpNgayTruoc.Value, GetListView(string.Empty, true, dtpNgayTruoc.Value, dtpNgaySau.Value));
-
             ExportExcel.SaveExcel(path);
         }
 
@@ -232,8 +230,6 @@ namespace Weedon
 
             for (int day = 0; day < 7; day++)
             {
-                ListView lv = GetListView(string.Empty, true, dtpNgayTruoc.Value.AddDays(day), dtpNgaySau.Value.AddDays(day));
-
                 Export(path, dtpNgayTruoc.Value.AddDays(day), GetListView(string.Empty, true, dtpNgayTruoc.Value.AddDays(day), dtpNgaySau.Value.AddDays(day)));
             }
 
@@ -248,8 +244,6 @@ namespace Weedon
 
             for (int day = 0; day < GetDaysInMonth(dtpNgayTruoc.Value.Year, dtpNgayTruoc.Value.Month); day++)
             {
-                ListView lv = GetListView(string.Empty, true, dateBefore.AddDays(day), dateAfter.AddDays(day));
-
                 Export(path, dateBefore.AddDays(day), GetListView(string.Empty, true, dateBefore.AddDays(day), dateAfter.AddDays(day)));
             }
 
@@ -398,7 +392,7 @@ namespace Weedon
 
         private void pbExcel_Click(object sender, EventArgs e)
         {
-            string path = File_Function.SaveDialog("KTNK " + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+            string path = File_Function.SaveDialog("KTNK" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
             if (path != null)
             {
