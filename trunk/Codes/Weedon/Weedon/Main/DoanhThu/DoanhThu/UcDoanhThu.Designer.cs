@@ -43,17 +43,17 @@
             this.pbSua = new System.Windows.Forms.PictureBox();
             this.pnQuanLy = new System.Windows.Forms.Panel();
             this.dgvThongTin = new System.Windows.Forms.DataGridView();
-            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
-            this.tbTong = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbGhiChu = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIdSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.tbTong = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbGhiChu = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -103,7 +103,6 @@
             this.pnSelect.Name = "pnSelect";
             this.pnSelect.Size = new System.Drawing.Size(310, 78);
             this.pnSelect.TabIndex = 49;
-            this.pnSelect.Visible = false;
             // 
             // panel1
             // 
@@ -113,7 +112,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(70, 70);
             this.panel1.TabIndex = 29;
-            this.panel1.Visible = false;
             // 
             // label1
             // 
@@ -146,6 +144,7 @@
             this.pnSua.Name = "pnSua";
             this.pnSua.Size = new System.Drawing.Size(70, 70);
             this.pnSua.TabIndex = 28;
+            this.pnSua.Visible = false;
             // 
             // label30
             // 
@@ -198,55 +197,6 @@
             this.dgvThongTin.Size = new System.Drawing.Size(894, 404);
             this.dgvThongTin.TabIndex = 0;
             this.dgvThongTin.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTin_CellEndEdit);
-            // 
-            // dtpFilter
-            // 
-            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFilter.Location = new System.Drawing.Point(601, 98);
-            this.dtpFilter.Name = "dtpFilter";
-            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
-            this.dtpFilter.TabIndex = 51;
-            this.dtpFilter.ValueChanged += new System.EventHandler(this.dtpFilter_ValueChanged);
-            // 
-            // tbTong
-            // 
-            this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTong.Location = new System.Drawing.Point(826, 98);
-            this.tbTong.MaxLength = 10;
-            this.tbTong.Name = "tbTong";
-            this.tbTong.ReadOnly = true;
-            this.tbTong.Size = new System.Drawing.Size(121, 26);
-            this.tbTong.TabIndex = 61;
-            this.tbTong.Text = "999.999.999";
-            this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(775, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "Tổng:";
-            // 
-            // tbGhiChu
-            // 
-            this.tbGhiChu.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGhiChu.Location = new System.Drawing.Point(118, 98);
-            this.tbGhiChu.Name = "tbGhiChu";
-            this.tbGhiChu.ReadOnly = true;
-            this.tbGhiChu.Size = new System.Drawing.Size(449, 26);
-            this.tbGhiChu.TabIndex = 63;
-            this.tbGhiChu.TextChanged += new System.EventHandler(this.tbGhiChu_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
-            this.label2.TabIndex = 62;
-            this.label2.Text = "Ghi chú:";
             // 
             // colId
             // 
@@ -313,6 +263,55 @@
             this.colThanhTien.Name = "colThanhTien";
             this.colThanhTien.ReadOnly = true;
             this.colThanhTien.Width = 120;
+            // 
+            // dtpFilter
+            // 
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFilter.Location = new System.Drawing.Point(601, 98);
+            this.dtpFilter.Name = "dtpFilter";
+            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
+            this.dtpFilter.TabIndex = 51;
+            this.dtpFilter.ValueChanged += new System.EventHandler(this.dtpFilter_ValueChanged);
+            // 
+            // tbTong
+            // 
+            this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTong.Location = new System.Drawing.Point(826, 98);
+            this.tbTong.MaxLength = 10;
+            this.tbTong.Name = "tbTong";
+            this.tbTong.ReadOnly = true;
+            this.tbTong.Size = new System.Drawing.Size(121, 26);
+            this.tbTong.TabIndex = 61;
+            this.tbTong.Text = "999.999.999";
+            this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(775, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "Tổng:";
+            // 
+            // tbGhiChu
+            // 
+            this.tbGhiChu.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGhiChu.Location = new System.Drawing.Point(118, 98);
+            this.tbGhiChu.Name = "tbGhiChu";
+            this.tbGhiChu.ReadOnly = true;
+            this.tbGhiChu.Size = new System.Drawing.Size(449, 26);
+            this.tbGhiChu.TabIndex = 63;
+            this.tbGhiChu.TextChanged += new System.EventHandler(this.tbGhiChu_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(51, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.TabIndex = 62;
+            this.label2.Text = "Ghi chú:";
             // 
             // UcDoanhThu
             // 
