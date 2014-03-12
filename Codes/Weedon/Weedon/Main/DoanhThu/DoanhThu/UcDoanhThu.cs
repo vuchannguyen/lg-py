@@ -403,17 +403,14 @@ namespace Weedon
 
         private void pbExcel_Click(object sender, EventArgs e)
         {
-            if (dgvThongTin.Rows.Count > 0)
+            if (dtpFilter.Value != null)
             {
-                NewLvEx(Constant.DEFAULT_SIZE_LISTVIEWEX_EXPORT.Width, Constant.DEFAULT_SIZE_LISTVIEWEX_EXPORT.Height);
-                LoadLvExLData();
-                HideColumn();
+                string path = File_Function.SaveDialog("NKBH" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
-                //RefreshLvEx(tbSearch.Text);
-
-                //FormExportExcel frm = new FormExportExcel(Constant.DEFAULT_TYPE_EXPORT_NGUYENLIEU, Constant.DEFAULT_SHEET_NAME_EXPORT_NGUYENLIEU, Constant.DEFAULT_TYPE_EXPORT_NGUYENLIEU,
-                //    lvEx, soSP);
-                //frm.ShowDialog();
+                if (path != null)
+                {
+                    ExportMonth(path);
+                }
             }
             else
             {
@@ -438,6 +435,162 @@ namespace Weedon
 
             pbSua.Enabled = false;
             pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+        }
+
+        private ListView GetListView(DateTime date)
+        {
+            ListView lv = new ListView();
+
+            try
+            {
+                lv.Columns.Add("barcode", "BARCODE");
+                lv.Columns.Add("PLU NAME");
+                lv.Columns.Add("PRICE");
+
+                bool firstRow = true;
+                int idGroup = 0;
+                int days = GetDaysInMonth(date.Year, date.Month);
+                List<DTO.SanPham> listSP = SanPhamBus.GetList(string.Empty, 0, string.Empty, string.Empty, 0, 0);
+
+                if (listSP != null && listSP.Count > 0)
+                {
+                    foreach (DTO.SanPham data in listSP)
+                    {
+                        if (data.IdGroup != 7 && data.IdGroup != 9)
+                        {
+                            if (idGroup != data.IdGroup && !firstRow)
+                            {
+                                //add new blank row between 2 different group for export only
+                                lv.Items.Add(new ListViewItem(new string[] { "black", string.Empty, string.Empty }));
+                            }
+
+                            firstRow = false;
+                            idGroup = data.IdGroup;
+                            ListViewItem lvi = new ListViewItem();
+                            lvi.Text = data.MaSanPham;
+                            lvi.SubItems.Add(data.Ten);
+                            lvi.SubItems.Add(GiaChinhThucBus.GetByIdSanPham(data.Id) == null ? string.Empty : GiaChinhThucBus.GetByIdSanPham(data.Id).Gia.ToString());
+                            lv.Items.Add(lvi);
+                        }
+                    }
+
+                    lv.Items.Add(new ListViewItem(new string[] { string.Empty, string.Empty, string.Empty }));
+                    lv.Items.Add(new ListViewItem(new string[] { "orange", string.Empty, string.Empty }));
+
+                    foreach (DTO.SanPham data in listSP)
+                    {
+                        if (data.IdGroup == 9)
+                        {
+                            ListViewItem lvi = new ListViewItem();
+                            lvi.Text = data.MaSanPham;
+                            lvi.SubItems.Add(data.Ten);
+                            lvi.SubItems.Add(GiaChinhThucBus.GetByIdSanPham(data.Id) == null ? string.Empty : GiaChinhThucBus.GetByIdSanPham(data.Id).Gia.ToString());
+                            lv.Items.Add(lvi);
+                        }
+                    }
+
+                    lv.Items.Add(new ListViewItem(new string[] { "red", string.Empty, string.Empty }));
+
+                    for (int i = 1; i <= days; i++)
+                    {
+                        DateTime dateInMonth = new DateTime(date.Year, date.Month, i);
+                        List<DTO.HoaDon> listHoaDon = HoaDonBus.GetList(string.Empty, 0, 0, dateInMonth, string.Empty, string.Empty, 0, 0);
+
+                        if (listHoaDon.Count > 0)
+                        {
+                            foreach (DTO.HoaDon hoaDon in listHoaDon)
+                            {
+                                AddNewColumn(lv, dateInMonth.ToShortDateString());
+                                int lastSubItemCount = lv.Columns.Count - 1;
+                                long money = ConvertUtil.ConvertToLong(hoaDon.ThanhTien);
+                                money += ConvertUtil.ConvertToLong(lv.Items[lv.Items.Count - 1].SubItems[lastSubItemCount]);
+                                lv.Items[lv.Items.Count - 1].SubItems[lastSubItemCount].Text = money.ToString();
+                                List<DTO.HoaDonDetail> listDetail = HoaDonDetailBus.GetListByIdHoaDon(hoaDon.Id);
+
+                                foreach (DTO.HoaDonDetail detail in listDetail)
+                                {
+                                    int soLuong = ConvertUtil.ConvertToInt(detail.SoLuong);
+
+                                    foreach (ListViewItem item in lv.Items)
+                                    {
+                                        if (item.Text == detail.SanPham.MaSanPham)
+                                        {
+                                            soLuong += ConvertUtil.ConvertToInt(item.SubItems[lastSubItemCount]);
+                                            item.SubItems[lastSubItemCount].Text = soLuong.ToString();
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            AddNewColumn(lv, dateInMonth.ToShortDateString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return lv;
+        }
+
+        private void AddNewColumn(ListView lv, string name)
+        {
+            lv.Columns.Add(name);
+
+            foreach (ListViewItem item in lv.Items)
+            {
+                item.SubItems.Add(string.Empty);
+            }
+        }
+
+        private int GetDaysInMonth(int year, int month)
+        {
+            DateTime date1 = new DateTime(year, month, 1);
+            DateTime date2 = date1.AddMonths(1);
+            TimeSpan ts = date2 - date1;
+
+            return (int)ts.TotalDays;
+        }
+
+        private void Export(string path, DateTime date, ListView lv)
+        {
+            if (lv.Items.Count > 0)
+            {
+                ExportExcel.InitNewSheet("NKBH " + date.ToString(Constant.DEFAULT_DATE_FORMAT_EXPORT));
+                ExportExcel.CreateSummaryNKBH(date);
+                ExportExcel.CreateDetailsTableNKBH(lv);
+            }
+        }
+
+        //private void ExportDay(string path)
+        //{
+        //    ExportExcel.InitWorkBook();
+        //    Export(path, dtpFilter.Value, GetListView(dtpFilter.Value));
+        //    ExportExcel.SaveExcel(path);
+        //}
+
+        //private void ExportWeek(string path)
+        //{
+        //    ExportExcel.InitWorkBook();
+
+        //    for (int day = 0; day < 7; day++)
+        //    {
+        //        Export(path, dtpFilter.Value.AddDays(day), GetListView(dtpFilter.Value.AddDays(day)));
+        //    }
+
+        //    ExportExcel.SaveExcel(path);
+        //}
+
+        private void ExportMonth(string path)
+        {
+            ExportExcel.InitWorkBook();
+            Export(path, dtpFilter.Value, GetListView(dtpFilter.Value));
+            ExportExcel.SaveExcel(path);
         }
 
         
