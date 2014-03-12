@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutSoftware));
             this.btOK = new System.Windows.Forms.Button();
             this.gbAbout = new System.Windows.Forms.GroupBox();
             this.lbARR = new System.Windows.Forms.Label();
@@ -94,7 +93,7 @@
             this.lbVersion.Name = "lbVersion";
             this.lbVersion.Size = new System.Drawing.Size(91, 16);
             this.lbVersion.TabIndex = 2;
-            this.lbVersion.Text = "Version: 1.16";
+            this.lbVersion.Text = "Version: 1.17";
             // 
             // lbCopyright
             // 
@@ -127,7 +126,6 @@
             this.Controls.Add(this.gbAbout);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AboutSoftware";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
