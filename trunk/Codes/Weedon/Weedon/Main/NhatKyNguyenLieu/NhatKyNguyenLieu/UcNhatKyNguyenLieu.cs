@@ -222,6 +222,7 @@ namespace Weedon
             }
 
             MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Nhật ký"), Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            RefreshData(string.Empty, true, dtpFilter.Value);
         }
 
         private void UpdateData()
@@ -464,7 +465,7 @@ namespace Weedon
         {
             if (dgvThongTin.Rows.Count > 0)
             {
-                string path = File_Function.SaveDialog("NKNL " + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
+                string path = File_Function.SaveDialog("NKNL" + DateTime.Now.ToString(Constant.DEFAULT_EXPORT_EXCEL_DATE_FORMAT), Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE_NAME, Constant.DEFAULT_EXPORT_EXCEL_FILE_TYPE);
 
                 if (path != null)
                 {
