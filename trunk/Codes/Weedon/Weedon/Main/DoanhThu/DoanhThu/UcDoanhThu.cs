@@ -474,7 +474,7 @@ namespace Weedon
                         }
                     }
 
-                    lv.Items.Add(new ListViewItem(new string[] { string.Empty, string.Empty, string.Empty }));
+                    lv.Items.Add(new ListViewItem(new string[] { "total", string.Empty, string.Empty }));
                     lv.Items.Add(new ListViewItem(new string[] { "orange", string.Empty, string.Empty }));
 
                     foreach (DTO.SanPham data in listSP)

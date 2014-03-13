@@ -250,10 +250,6 @@ namespace Library
 
         public static void CreateSummaryNKBH(DateTime date)
         {
-            //ws.Cell("A2").Value = "BARCODE";
-            //ws.Cell("B2").Value = "PLU NAME";
-            //ws.Cell("C2").Value = "PRICE";
-
             ws.Row(1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             ws.Row(2).Style.Font.FontColor = XLColor.Blue;
             ws.Columns().AdjustToContents(1, 2);
@@ -276,10 +272,6 @@ namespace Library
                     rngDataDetails.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
 
                     // From worksheet
-                    //var rngTableDetails = ws.Range(firstRow, firstCol, lastRow, lastCol);
-                    //var rngHeadersDetails = rngTableDetails.Range(1, firstCol, 1, lastCol); // The address is relative to rngTable (NOT the worksheet)
-                    //rngHeadersDetails.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Left;
-                    //rngHeadersDetails.Style.Font.FontColor = XLColor.White;
                     string date = string.Empty;
                     int shiftTime = 1;
 
@@ -334,6 +326,13 @@ namespace Library
                             case "red":
                                 ws.Row(firstRow + 1 + rowNum).Style.Fill.BackgroundColor = XLColor.Red;
                                 continue;
+                            case "total":
+                                //cell calculate total quantity in a month
+                                var rngTotalMonth = ws.Range(firstRow + 1, lastCol + 4, firstRow + rowNum, lastCol + 4);
+                                ws.Cell(firstRow + 1 + rowNum, lastCol + 4).FormulaA1 = string.Format("=SUM({0})", rngTotalMonth.RangeAddress.ToString());
+                                ws.Cell(firstRow + 1 + rowNum, lastCol + 4).Style.Font.Bold = true;
+                                ws.Cell(firstRow + 1 + rowNum, lastCol + 4).Style.Font.FontColor = XLColor.Red;
+                                continue;
                         }
 
                         for (int colNum = 0; colNum < lv.Columns.Count; colNum++)
@@ -350,8 +349,6 @@ namespace Library
                     var rngTotal = ws.Range(lastRow + 1, firstCol + 3, lastRow, lastCol);
                     ws.Cell(lastRow + 1, lastCol + 1).FormulaA1 = string.Format("=SUM({0})", rngTotal.RangeAddress.ToStringFixed());
                     ws.Cell(lastRow + 1, lastCol + 1).Style.NumberFormat.Format = "#,##0";
-
-                    //var excelTableDetails = rngTableDetails.CreateTable();
                     ws.Columns().AdjustToContents(1, lastRow);
                 }
             }
