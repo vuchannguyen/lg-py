@@ -96,5 +96,20 @@ namespace Weedon
             pbGiaChinhThuc.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_PRICE_INDEX);
             lbGiaChinhThuc.ForeColor = Constant.COLOR_NORMAL;
         }
+
+        private void pbBanHang_Click(object sender, EventArgs e)
+        {
+            //CommonFunc.NewControl(this.Controls, ref uc, new UcHoaDon());
+        }
+
+        private void pbBanHang_MouseEnter(object sender, EventArgs e)
+        {
+            lbBanHang.ForeColor = Constant.COLOR_MOUSEOVER;
+        }
+
+        private void pbBanHang_MouseLeave(object sender, EventArgs e)
+        {
+            lbBanHang.ForeColor = Constant.COLOR_NORMAL;
+        }
     }
 }
