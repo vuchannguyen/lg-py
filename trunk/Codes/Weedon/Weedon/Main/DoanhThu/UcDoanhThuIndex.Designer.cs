@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.pbBanHang = new System.Windows.Forms.PictureBox();
+            this.lbBanHang = new System.Windows.Forms.Label();
             this.pbHoaDon = new System.Windows.Forms.PictureBox();
             this.lbHoaDon = new System.Windows.Forms.Label();
             this.pbGiaChinhThuc = new System.Windows.Forms.PictureBox();
@@ -36,6 +38,7 @@
             this.pbDoanhThu = new System.Windows.Forms.PictureBox();
             this.lbDoanhThu = new System.Windows.Forms.Label();
             this.pnSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGiaChinhThuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoanhThu)).BeginInit();
@@ -43,6 +46,8 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.pbBanHang);
+            this.pnSelect.Controls.Add(this.lbBanHang);
             this.pnSelect.Controls.Add(this.pbHoaDon);
             this.pnSelect.Controls.Add(this.lbHoaDon);
             this.pnSelect.Controls.Add(this.pbGiaChinhThuc);
@@ -54,10 +59,34 @@
             this.pnSelect.Size = new System.Drawing.Size(710, 140);
             this.pnSelect.TabIndex = 23;
             // 
+            // pbBanHang
+            // 
+            this.pbBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBanHang.Location = new System.Drawing.Point(571, 10);
+            this.pbBanHang.Name = "pbBanHang";
+            this.pbBanHang.Size = new System.Drawing.Size(100, 100);
+            this.pbBanHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBanHang.TabIndex = 17;
+            this.pbBanHang.TabStop = false;
+            this.pbBanHang.Click += new System.EventHandler(this.pbBanHang_Click);
+            this.pbBanHang.MouseEnter += new System.EventHandler(this.pbBanHang_MouseEnter);
+            this.pbBanHang.MouseLeave += new System.EventHandler(this.pbBanHang_MouseLeave);
+            // 
+            // lbBanHang
+            // 
+            this.lbBanHang.AutoSize = true;
+            this.lbBanHang.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBanHang.ForeColor = System.Drawing.Color.Gray;
+            this.lbBanHang.Location = new System.Drawing.Point(580, 120);
+            this.lbBanHang.Name = "lbBanHang";
+            this.lbBanHang.Size = new System.Drawing.Size(83, 16);
+            this.lbBanHang.TabIndex = 18;
+            this.lbBanHang.Text = "BÁN HÀNG";
+            // 
             // pbHoaDon
             // 
             this.pbHoaDon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHoaDon.Location = new System.Drawing.Point(305, 7);
+            this.pbHoaDon.Location = new System.Drawing.Point(226, 10);
             this.pbHoaDon.Name = "pbHoaDon";
             this.pbHoaDon.Size = new System.Drawing.Size(100, 100);
             this.pbHoaDon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -72,7 +101,7 @@
             this.lbHoaDon.AutoSize = true;
             this.lbHoaDon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHoaDon.ForeColor = System.Drawing.Color.Gray;
-            this.lbHoaDon.Location = new System.Drawing.Point(317, 117);
+            this.lbHoaDon.Location = new System.Drawing.Point(238, 120);
             this.lbHoaDon.Name = "lbHoaDon";
             this.lbHoaDon.Size = new System.Drawing.Size(73, 16);
             this.lbHoaDon.TabIndex = 16;
@@ -81,7 +110,7 @@
             // pbGiaChinhThuc
             // 
             this.pbGiaChinhThuc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbGiaChinhThuc.Location = new System.Drawing.Point(569, 10);
+            this.pbGiaChinhThuc.Location = new System.Drawing.Point(402, 10);
             this.pbGiaChinhThuc.Name = "pbGiaChinhThuc";
             this.pbGiaChinhThuc.Size = new System.Drawing.Size(100, 100);
             this.pbGiaChinhThuc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -96,7 +125,7 @@
             this.lbGiaChinhThuc.AutoSize = true;
             this.lbGiaChinhThuc.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbGiaChinhThuc.ForeColor = System.Drawing.Color.Gray;
-            this.lbGiaChinhThuc.Location = new System.Drawing.Point(558, 120);
+            this.lbGiaChinhThuc.Location = new System.Drawing.Point(391, 120);
             this.lbGiaChinhThuc.Name = "lbGiaChinhThuc";
             this.lbGiaChinhThuc.Size = new System.Drawing.Size(125, 16);
             this.lbGiaChinhThuc.TabIndex = 14;
@@ -137,6 +166,7 @@
             this.Load += new System.EventHandler(this.UcDoanhThuIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoaDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGiaChinhThuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoanhThu)).EndInit();
@@ -153,6 +183,8 @@
         private System.Windows.Forms.Label lbGiaChinhThuc;
         private System.Windows.Forms.PictureBox pbHoaDon;
         private System.Windows.Forms.Label lbHoaDon;
+        private System.Windows.Forms.PictureBox pbBanHang;
+        private System.Windows.Forms.Label lbBanHang;
 
     }
 }
