@@ -26,6 +26,7 @@ namespace Weedon
                 pbDoanhThu.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_DOANHTHU_INDEX);
                 pbHoaDon.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX);
                 pbGiaChinhThuc.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_PRICE_INDEX);
+                pbNhatKyMuaHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX);
             }
             catch
             {
@@ -97,19 +98,21 @@ namespace Weedon
             lbGiaChinhThuc.ForeColor = Constant.COLOR_NORMAL;
         }
 
-        private void pbBanHang_Click(object sender, EventArgs e)
+        private void pbNhatKyMuaHang_Click(object sender, EventArgs e)
         {
-            //CommonFunc.NewControl(this.Controls, ref uc, new UcHoaDon());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcNhatKyMuaHang());
         }
 
-        private void pbBanHang_MouseEnter(object sender, EventArgs e)
+        private void pbNhatKyMuaHang_MouseEnter(object sender, EventArgs e)
         {
-            lbBanHang.ForeColor = Constant.COLOR_MOUSEOVER;
+            pbNhatKyMuaHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX_MOUSEOVER);
+            lbNhatKyMuaHang.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
-        private void pbBanHang_MouseLeave(object sender, EventArgs e)
+        private void pbNhatKyMuaHang_MouseLeave(object sender, EventArgs e)
         {
-            lbBanHang.ForeColor = Constant.COLOR_NORMAL;
+            pbNhatKyMuaHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX);
+            lbNhatKyMuaHang.ForeColor = Constant.COLOR_NORMAL;
         }
     }
 }

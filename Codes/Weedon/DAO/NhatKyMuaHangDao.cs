@@ -12,7 +12,7 @@ namespace DAO
 {
     public class NhatKyMuaHangDao : SQLConnection
     {
-        public static IQueryable<NhatKyMuaHang> GetQuery(string text, int idUser, DateTime date)
+        public static IQueryable<NhatKyMuaHang> GetQuery(string text, string timeType, DateTime date)
         {
             var sql = from data in dbContext.NhatKyMuaHangs
                       select data;
@@ -26,14 +26,23 @@ namespace DAO
                     );
             }
 
-            if (idUser != 0)
+            switch (timeType)
             {
-                sql = sql.Where(p => p.IdUser == idUser);
-            }
+                case CommonDao.DEFAULT_TYPE_DAY:
+                    sql = sql.Where(p => p.Date.Day == date.Day && p.Date.Month == date.Month && p.Date.Year == date.Year);
+                    break;
 
-            if (date != null)
-            {
-                sql = sql.Where(p => p.Date.Day == date.Day && p.Date.Month == date.Month && p.Date.Year == date.Year);
+                case CommonDao.DEFAULT_TYPE_WEEK:
+                    sql = sql.Where(p => p.Date.DayOfYear >= date.DayOfYear && p.Date.DayOfYear < (date.DayOfYear + 7));
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_MONTH:
+                    sql = sql.Where(p => p.Date.Month == date.Month && p.Date.Year == date.Year);
+                    break;
+
+                case CommonDao.DEFAULT_TYPE_YEAR:
+                    sql = sql.Where(p => p.Date.Year == date.Year);
+                    break;
             }
 
             sql = sql.Where(p => p.DeleteFlag == false);
@@ -41,12 +50,12 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text, int idUser, DateTime date)
+        public static int GetCount(string text, string timeType, DateTime date)
         {
-            return GetQuery(text, idUser, date).Count();
+            return GetQuery(text, timeType, date).Count();
         }
 
-        public static List<NhatKyMuaHang> GetList(string text, int idUser, DateTime date,
+        public static List<NhatKyMuaHang> GetList(string text, string timeType, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -69,7 +78,7 @@ namespace DAO
                     sortSQL += "Date " + sortOrder;
                     break;
 
-                case "Tổng tiền":
+                case "ThanhTien":
                     sortSQL += "ThanhTien " + sortOrder;
                     break;
 
@@ -78,11 +87,11 @@ namespace DAO
                     break;
 
                 default:
-                    sortSQL += "Id " + sortOrder;
+                    sortSQL += "Date " + sortOrder;
                     break;
             }
 
-            var sql = GetQuery(text, idUser, date).OrderBy(sortSQL);
+            var sql = GetQuery(text, timeType, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

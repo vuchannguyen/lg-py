@@ -134,6 +134,8 @@ namespace Library
         public const string DOANHTHU_ICON_HOADON_INDEX_MOUSEOVER = @"Resources\DoanhThu\icon_hoadon_index_mouseover.png";
         public const string DOANHTHU_ICON_PRICE_INDEX = @"Resources\DoanhThu\icon_price_index.png";
         public const string DOANHTHU_ICON_PRICE_INDEX_MOUSEOVER = @"Resources\DoanhThu\icon_price_index_mouseover.png";
+        public const string DOANHTHU_ICON_NHATKYMUAHANG_INDEX = @"Resources\DoanhThu\icon_nkmh_index.png";
+        public const string DOANHTHU_ICON_NHATKYMUAHANG_INDEX_MOUSEOVER = @"Resources\DoanhThu\icon_nkmh_index_mouseover.png";
 
         public const string SETTING_ICON_SETTING = @"Resources\Setting\icon_setting.png";
         public const string SETTING_ICON_SETTING_MOUSEOVER = @"Resources\Setting\icon_setting_mouseover.png";
