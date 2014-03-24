@@ -23,6 +23,7 @@ namespace Library
         public const int ID_STATUS_DEBT = 2;
 
         public const string DEFAULT_TYPE_DAY = "Ngày";
+        public const string DEFAULT_TYPE_WEEK = "Tuần";
         public const string DEFAULT_TYPE_MONTH = "Tháng";
         public const string DEFAULT_TYPE_YEAR = "Năm";
 
