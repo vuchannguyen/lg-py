@@ -109,6 +109,7 @@ namespace Weedon
                             if (data.TonCuoi < data.NguyenLieu.HanMuc)
                             {
                                 dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.BackColor = Color.Red;
+                                dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.ForeColor = Color.White;
                             }
                         }
                     }
@@ -124,6 +125,7 @@ namespace Weedon
                             if (data.TonCuoi < data.NguyenLieu.HanMuc)
                             {
                                 dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.BackColor = Color.Red;
+                                dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.ForeColor = Color.White;
                             }
                         }
                     }
@@ -139,6 +141,7 @@ namespace Weedon
                         if (data.TonCuoi < data.NguyenLieu.HanMuc)
                         {
                             dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.BackColor = Color.Red;
+                            dgvThongTin.Rows[dgvThongTin.RowCount - 1].DefaultCellStyle.ForeColor = Color.White;
                         }
                     }
                 }
