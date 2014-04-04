@@ -116,10 +116,10 @@ namespace Weedon
                             if (row.Cells[colIdSanPham.Name].Value.ToString() == detail.IdSanPham.ToString())
                             {
                                 soLuong += ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
-                                money += ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value);
+                                long totalThisCell = money + ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value);
 
                                 row.Cells[colSoLuong.Name].Value = soLuong;
-                                row.Cells[colThanhTien.Name].Value = money == 0 ? "0" : money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                                row.Cells[colThanhTien.Name].Value = totalThisCell == 0 ? "0" : totalThisCell.ToString(Constant.DEFAULT_FORMAT_MONEY);
                                 isNew = false;
                                 break;
                             }

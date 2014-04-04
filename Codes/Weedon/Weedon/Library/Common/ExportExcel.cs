@@ -414,7 +414,7 @@ namespace Library
                     cell.Style.Font.Bold = true;
                     cell.Style.Font.FontColor = XLColor.Red;
 
-                    ws.Columns().AdjustToContents(1, lastRow);
+                    ws.Columns().AdjustToContents(1, lastRow + 1);
                 }
             }
             catch (Exception ex)
