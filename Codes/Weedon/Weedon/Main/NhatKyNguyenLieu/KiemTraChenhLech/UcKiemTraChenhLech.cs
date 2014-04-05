@@ -113,7 +113,7 @@ namespace Weedon
                 List<DTO.NhatKyNguyenLieu> listNLLyThuyet = new List<DTO.NhatKyNguyenLieu>();
                 List<DTO.NhatKyNguyenLieu> listNLThucTe = NhatKyNguyenLieuBus.GetList(string.Empty, true, date,
                     string.Empty, string.Empty, 0, 0);
-                List<DTO.HoaDonDetail> listHoaDonDetail = HoaDonDetailBus.GetListByIdHoaDon(HoaDonBus.GetByDate(date).Id);
+                List<DTO.HoaDon> listHoaDon = HoaDonBus.GetList(string.Empty, 0, 0, date, string.Empty, string.Empty, 0, 0);
 
                 foreach (DTO.NhatKyNguyenLieu data in listNLThucTe)
                 {
@@ -125,13 +125,18 @@ namespace Weedon
                     listNLLyThuyet.Add(dataNKNL);
                 }
 
-                foreach (DTO.HoaDonDetail data in listHoaDonDetail)
+                foreach (DTO.HoaDon hoaDon in listHoaDon)
                 {
-                    List<DTO.DinhLuong> listDL = DinhLuongBus.GetListByIdSP(data.IdSanPham);
+                    List<DTO.HoaDonDetail> listHoaDonDetail = HoaDonDetailBus.GetListByIdHoaDon(hoaDon.Id);
 
-                    foreach (DTO.DinhLuong dataDL in listDL)
+                    foreach (DTO.HoaDonDetail data in listHoaDonDetail)
                     {
-                        listNLLyThuyet.Where(p => p.IdNguyenLieu == dataDL.IdNguyenLieu).FirstOrDefault().SuDung += dataDL.SoLuong * data.SoLuong;
+                        List<DTO.DinhLuong> listDL = DinhLuongBus.GetListByIdSP(data.IdSanPham);
+
+                        foreach (DTO.DinhLuong dataDL in listDL)
+                        {
+                            listNLLyThuyet.Where(p => p.IdNguyenLieu == dataDL.IdNguyenLieu).FirstOrDefault().SuDung += dataDL.SoLuong * data.SoLuong;
+                        }
                     }
                 }
 

@@ -63,15 +63,10 @@ namespace Weedon.DinhLuong
         private void UcDetail_Load(object sender, EventArgs e)
         {
             LoadResource();
-
             pnInfo.Location = CommonFunc.SetCenterLocation(this.Size, pnInfo.Size);
             pnTitle.Location = CommonFunc.SetWidthCenter(this.Size, pnTitle.Size, pnTitle.Top);
-
             LoadData(data.Id);
-
             this.BringToFront();
-
-            FormMain.isEditing = true;
         }
 
 
