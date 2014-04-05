@@ -48,13 +48,9 @@ namespace Weedon.HoaDon
         private void UcDetail_Load(object sender, EventArgs e)
         {
             LoadResource();
-
             pnInfo.Location = CommonFunc.SetWidthCenter(this.Size, pnInfo.Size, pnInfo.Top);
             pnDetail.Location = CommonFunc.SetWidthCenter(this.Size, pnDetail.Size, pnDetail.Top);
-
             this.BringToFront();
-
-            FormMain.isEditing = true;
         }
 
 
