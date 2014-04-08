@@ -16,12 +16,11 @@
       <Association Name="User_BanHang" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.UserNhom" Member="UserNhoms">
-    <Type Name="UserNhom">
+  <Table Name="dbo.UserGroup" Member="UserGroups">
+    <Type Name="UserGroup">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="UserNhom_User" Member="Users" ThisKey="Id" OtherKey="IdUserNhom" Type="User" />
     </Type>
   </Table>
   <Table Name="dbo.BanHang_MenhGiaTien" Member="BanHang_MenhGiaTiens">
@@ -82,11 +81,11 @@
     <Type Name="NguonCungCap">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="DiDong" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DTDD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Fax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="MaSoThue" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
@@ -139,24 +138,24 @@
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="IdUserNhom" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdUserGroup" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="[To]" Member="To" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="DiDong" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="CMND" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="NgaySinh" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="QueQuan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NgayCap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NoiCap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DTDD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="User_BanHang" Member="BanHangs" ThisKey="Id" OtherKey="IdUser" Type="BanHang" />
       <Association Name="User_NhapHang" Member="NhapHangs" ThisKey="Id" OtherKey="IdUser" Type="NhapHang" />
-      <Association Name="UserNhom_User" Member="UserNhom" ThisKey="IdUserNhom" OtherKey="Id" Type="UserNhom" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

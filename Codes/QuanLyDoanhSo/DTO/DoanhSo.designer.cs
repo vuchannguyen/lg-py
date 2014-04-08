@@ -33,9 +33,9 @@ namespace DTO
     partial void InsertBanHang(BanHang instance);
     partial void UpdateBanHang(BanHang instance);
     partial void DeleteBanHang(BanHang instance);
-    partial void InsertUserNhom(UserNhom instance);
-    partial void UpdateUserNhom(UserNhom instance);
-    partial void DeleteUserNhom(UserNhom instance);
+    partial void InsertUserGroup(UserGroup instance);
+    partial void UpdateUserGroup(UserGroup instance);
+    partial void DeleteUserGroup(UserGroup instance);
     partial void InsertBanHang_MenhGiaTien(BanHang_MenhGiaTien instance);
     partial void UpdateBanHang_MenhGiaTien(BanHang_MenhGiaTien instance);
     partial void DeleteBanHang_MenhGiaTien(BanHang_MenhGiaTien instance);
@@ -103,11 +103,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<UserNhom> UserNhoms
+		public System.Data.Linq.Table<UserGroup> UserGroups
 		{
 			get
 			{
-				return this.GetTable<UserNhom>();
+				return this.GetTable<UserGroup>();
 			}
 		}
 		
@@ -569,8 +569,8 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserNhom")]
-	public partial class UserNhom : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserGroup")]
+	public partial class UserGroup : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -580,8 +580,6 @@ namespace DTO
 		private string _Ten;
 		
 		private string _GhiChu;
-		
-		private EntitySet<User> _Users;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -595,9 +593,8 @@ namespace DTO
     partial void OnGhiChuChanged();
     #endregion
 		
-		public UserNhom()
+		public UserGroup()
 		{
-			this._Users = new EntitySet<User>(new Action<User>(this.attach_Users), new Action<User>(this.detach_Users));
 			OnCreated();
 		}
 		
@@ -661,19 +658,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserNhom_User", Storage="_Users", ThisKey="Id", OtherKey="IdUserNhom")]
-		public EntitySet<User> Users
-		{
-			get
-			{
-				return this._Users;
-			}
-			set
-			{
-				this._Users.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -692,18 +676,6 @@ namespace DTO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserNhom = this;
-		}
-		
-		private void detach_Users(User entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserNhom = null;
 		}
 	}
 	
@@ -1908,7 +1880,7 @@ namespace DTO
 		
 		private string _DienThoai;
 		
-		private string _DiDong;
+		private string _DTDD;
 		
 		private string _Email;
 		
@@ -1934,8 +1906,8 @@ namespace DTO
     partial void OnDiaChiChanged();
     partial void OnDienThoaiChanging(string value);
     partial void OnDienThoaiChanged();
-    partial void OnDiDongChanging(string value);
-    partial void OnDiDongChanged();
+    partial void OnDTDDChanging(string value);
+    partial void OnDTDDChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
     partial void OnFaxChanging(string value);
@@ -1994,7 +1966,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(200)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(100)")]
 		public string DiaChi
 		{
 			get
@@ -2014,7 +1986,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(30)")]
 		public string DienThoai
 		{
 			get
@@ -2034,22 +2006,22 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiDong", DbType="NVarChar(20)")]
-		public string DiDong
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DTDD", DbType="NVarChar(30)")]
+		public string DTDD
 		{
 			get
 			{
-				return this._DiDong;
+				return this._DTDD;
 			}
 			set
 			{
-				if ((this._DiDong != value))
+				if ((this._DTDD != value))
 				{
-					this.OnDiDongChanging(value);
+					this.OnDTDDChanging(value);
 					this.SendPropertyChanging();
-					this._DiDong = value;
-					this.SendPropertyChanged("DiDong");
-					this.OnDiDongChanged();
+					this._DTDD = value;
+					this.SendPropertyChanged("DTDD");
+					this.OnDTDDChanged();
 				}
 			}
 		}
@@ -2074,7 +2046,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fax", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fax", DbType="NVarChar(30)")]
 		public string Fax
 		{
 			get
@@ -3166,31 +3138,33 @@ namespace DTO
 		
 		private int _Id;
 		
-		private int _IdUserNhom;
+		private int _IdUserGroup;
+		
+		private string _Ten;
 		
 		private string _UserName;
 		
 		private string _Password;
 		
+		private string _GioiTinh;
+		
 		private System.Nullable<int> _To;
 		
-		private bool _GioiTinh;
-		
-		private string _Ten;
-		
-		private string _DiaChi;
-		
-		private string _Email;
-		
-		private string _DienThoai;
-		
-		private string _DiDong;
+		private System.Nullable<System.DateTime> _DOB;
 		
 		private string _CMND;
 		
-		private string _NgaySinh;
+		private System.Nullable<System.DateTime> _NgayCap;
 		
-		private string _QueQuan;
+		private string _NoiCap;
+		
+		private string _DiaChi;
+		
+		private string _DienThoai;
+		
+		private string _DTDD;
+		
+		private string _Email;
 		
 		private string _GhiChu;
 		
@@ -3200,40 +3174,40 @@ namespace DTO
 		
 		private EntitySet<NhapHang> _NhapHangs;
 		
-		private EntityRef<UserNhom> _UserNhom;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
-    partial void OnIdUserNhomChanging(int value);
-    partial void OnIdUserNhomChanged();
+    partial void OnIdUserGroupChanging(int value);
+    partial void OnIdUserGroupChanged();
+    partial void OnTenChanging(string value);
+    partial void OnTenChanged();
     partial void OnUserNameChanging(string value);
     partial void OnUserNameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
+    partial void OnGioiTinhChanging(string value);
+    partial void OnGioiTinhChanged();
     partial void OnToChanging(System.Nullable<int> value);
     partial void OnToChanged();
-    partial void OnGioiTinhChanging(bool value);
-    partial void OnGioiTinhChanged();
-    partial void OnTenChanging(string value);
-    partial void OnTenChanged();
-    partial void OnDiaChiChanging(string value);
-    partial void OnDiaChiChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnDienThoaiChanging(string value);
-    partial void OnDienThoaiChanged();
-    partial void OnDiDongChanging(string value);
-    partial void OnDiDongChanged();
+    partial void OnDOBChanging(System.Nullable<System.DateTime> value);
+    partial void OnDOBChanged();
     partial void OnCMNDChanging(string value);
     partial void OnCMNDChanged();
-    partial void OnNgaySinhChanging(string value);
-    partial void OnNgaySinhChanged();
-    partial void OnQueQuanChanging(string value);
-    partial void OnQueQuanChanged();
+    partial void OnNgayCapChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgayCapChanged();
+    partial void OnNoiCapChanging(string value);
+    partial void OnNoiCapChanged();
+    partial void OnDiaChiChanging(string value);
+    partial void OnDiaChiChanged();
+    partial void OnDienThoaiChanging(string value);
+    partial void OnDienThoaiChanged();
+    partial void OnDTDDChanging(string value);
+    partial void OnDTDDChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
     partial void OnDeleteFlagChanging(bool value);
@@ -3244,7 +3218,6 @@ namespace DTO
 		{
 			this._BanHangs = new EntitySet<BanHang>(new Action<BanHang>(this.attach_BanHangs), new Action<BanHang>(this.detach_BanHangs));
 			this._NhapHangs = new EntitySet<NhapHang>(new Action<NhapHang>(this.attach_NhapHangs), new Action<NhapHang>(this.detach_NhapHangs));
-			this._UserNhom = default(EntityRef<UserNhom>);
 			OnCreated();
 		}
 		
@@ -3268,26 +3241,42 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUserNhom", DbType="Int NOT NULL")]
-		public int IdUserNhom
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUserGroup", DbType="Int NOT NULL")]
+		public int IdUserGroup
 		{
 			get
 			{
-				return this._IdUserNhom;
+				return this._IdUserGroup;
 			}
 			set
 			{
-				if ((this._IdUserNhom != value))
+				if ((this._IdUserGroup != value))
 				{
-					if (this._UserNhom.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdUserNhomChanging(value);
+					this.OnIdUserGroupChanging(value);
 					this.SendPropertyChanging();
-					this._IdUserNhom = value;
-					this.SendPropertyChanged("IdUserNhom");
-					this.OnIdUserNhomChanged();
+					this._IdUserGroup = value;
+					this.SendPropertyChanged("IdUserGroup");
+					this.OnIdUserGroupChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Ten
+		{
+			get
+			{
+				return this._Ten;
+			}
+			set
+			{
+				if ((this._Ten != value))
+				{
+					this.OnTenChanging(value);
+					this.SendPropertyChanging();
+					this._Ten = value;
+					this.SendPropertyChanged("Ten");
+					this.OnTenChanged();
 				}
 			}
 		}
@@ -3332,6 +3321,26 @@ namespace DTO
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GioiTinh", DbType="NVarChar(3) NOT NULL", CanBeNull=false)]
+		public string GioiTinh
+		{
+			get
+			{
+				return this._GioiTinh;
+			}
+			set
+			{
+				if ((this._GioiTinh != value))
+				{
+					this.OnGioiTinhChanging(value);
+					this.SendPropertyChanging();
+					this._GioiTinh = value;
+					this.SendPropertyChanged("GioiTinh");
+					this.OnGioiTinhChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[To]", Storage="_To", DbType="Int")]
 		public System.Nullable<int> To
 		{
@@ -3352,127 +3361,27 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GioiTinh", DbType="Bit NOT NULL")]
-		public bool GioiTinh
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOB", DbType="Date")]
+		public System.Nullable<System.DateTime> DOB
 		{
 			get
 			{
-				return this._GioiTinh;
+				return this._DOB;
 			}
 			set
 			{
-				if ((this._GioiTinh != value))
+				if ((this._DOB != value))
 				{
-					this.OnGioiTinhChanging(value);
+					this.OnDOBChanging(value);
 					this.SendPropertyChanging();
-					this._GioiTinh = value;
-					this.SendPropertyChanged("GioiTinh");
-					this.OnGioiTinhChanged();
+					this._DOB = value;
+					this.SendPropertyChanged("DOB");
+					this.OnDOBChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ten", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Ten
-		{
-			get
-			{
-				return this._Ten;
-			}
-			set
-			{
-				if ((this._Ten != value))
-				{
-					this.OnTenChanging(value);
-					this.SendPropertyChanging();
-					this._Ten = value;
-					this.SendPropertyChanged("Ten");
-					this.OnTenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(200)")]
-		public string DiaChi
-		{
-			get
-			{
-				return this._DiaChi;
-			}
-			set
-			{
-				if ((this._DiaChi != value))
-				{
-					this.OnDiaChiChanging(value);
-					this.SendPropertyChanging();
-					this._DiaChi = value;
-					this.SendPropertyChanged("DiaChi");
-					this.OnDiaChiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NChar(10)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(20)")]
-		public string DienThoai
-		{
-			get
-			{
-				return this._DienThoai;
-			}
-			set
-			{
-				if ((this._DienThoai != value))
-				{
-					this.OnDienThoaiChanging(value);
-					this.SendPropertyChanging();
-					this._DienThoai = value;
-					this.SendPropertyChanged("DienThoai");
-					this.OnDienThoaiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiDong", DbType="NVarChar(20)")]
-		public string DiDong
-		{
-			get
-			{
-				return this._DiDong;
-			}
-			set
-			{
-				if ((this._DiDong != value))
-				{
-					this.OnDiDongChanging(value);
-					this.SendPropertyChanging();
-					this._DiDong = value;
-					this.SendPropertyChanged("DiDong");
-					this.OnDiDongChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="NVarChar(10)")]
 		public string CMND
 		{
 			get
@@ -3492,47 +3401,127 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgaySinh", DbType="NVarChar(20)")]
-		public string NgaySinh
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NgayCap", DbType="Date")]
+		public System.Nullable<System.DateTime> NgayCap
 		{
 			get
 			{
-				return this._NgaySinh;
+				return this._NgayCap;
 			}
 			set
 			{
-				if ((this._NgaySinh != value))
+				if ((this._NgayCap != value))
 				{
-					this.OnNgaySinhChanging(value);
+					this.OnNgayCapChanging(value);
 					this.SendPropertyChanging();
-					this._NgaySinh = value;
-					this.SendPropertyChanged("NgaySinh");
-					this.OnNgaySinhChanged();
+					this._NgayCap = value;
+					this.SendPropertyChanged("NgayCap");
+					this.OnNgayCapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QueQuan", DbType="NVarChar(50)")]
-		public string QueQuan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiCap", DbType="NVarChar(50)")]
+		public string NoiCap
 		{
 			get
 			{
-				return this._QueQuan;
+				return this._NoiCap;
 			}
 			set
 			{
-				if ((this._QueQuan != value))
+				if ((this._NoiCap != value))
 				{
-					this.OnQueQuanChanging(value);
+					this.OnNoiCapChanging(value);
 					this.SendPropertyChanging();
-					this._QueQuan = value;
-					this.SendPropertyChanged("QueQuan");
-					this.OnQueQuanChanged();
+					this._NoiCap = value;
+					this.SendPropertyChanged("NoiCap");
+					this.OnNoiCapChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DiaChi", DbType="NVarChar(100)")]
+		public string DiaChi
+		{
+			get
+			{
+				return this._DiaChi;
+			}
+			set
+			{
+				if ((this._DiaChi != value))
+				{
+					this.OnDiaChiChanging(value);
+					this.SendPropertyChanging();
+					this._DiaChi = value;
+					this.SendPropertyChanged("DiaChi");
+					this.OnDiaChiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="NVarChar(30)")]
+		public string DienThoai
+		{
+			get
+			{
+				return this._DienThoai;
+			}
+			set
+			{
+				if ((this._DienThoai != value))
+				{
+					this.OnDienThoaiChanging(value);
+					this.SendPropertyChanging();
+					this._DienThoai = value;
+					this.SendPropertyChanged("DienThoai");
+					this.OnDienThoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DTDD", DbType="NVarChar(30)")]
+		public string DTDD
+		{
+			get
+			{
+				return this._DTDD;
+			}
+			set
+			{
+				if ((this._DTDD != value))
+				{
+					this.OnDTDDChanging(value);
+					this.SendPropertyChanging();
+					this._DTDD = value;
+					this.SendPropertyChanged("DTDD");
+					this.OnDTDDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(200)")]
 		public string GhiChu
 		{
 			get
@@ -3595,40 +3584,6 @@ namespace DTO
 			set
 			{
 				this._NhapHangs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserNhom_User", Storage="_UserNhom", ThisKey="IdUserNhom", OtherKey="Id", IsForeignKey=true)]
-		public UserNhom UserNhom
-		{
-			get
-			{
-				return this._UserNhom.Entity;
-			}
-			set
-			{
-				UserNhom previousValue = this._UserNhom.Entity;
-				if (((previousValue != value) 
-							|| (this._UserNhom.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UserNhom.Entity = null;
-						previousValue.Users.Remove(this);
-					}
-					this._UserNhom.Entity = value;
-					if ((value != null))
-					{
-						value.Users.Add(this);
-						this._IdUserNhom = value.Id;
-					}
-					else
-					{
-						this._IdUserNhom = default(int);
-					}
-					this.SendPropertyChanged("UserNhom");
-				}
 			}
 		}
 		
