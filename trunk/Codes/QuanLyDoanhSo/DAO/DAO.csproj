@@ -40,9 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanHangChiTietDao.cs" />
+    <Compile Include="BanHangDao.cs" />
+    <Compile Include="BanHang_MenhGiaTienDao.cs" />
+    <Compile Include="MenhGiaTienDao.cs" />
+    <Compile Include="NhapHangChiTietDao.cs" />
+    <Compile Include="NhapHangDao.cs" />
     <Compile Include="NguonCungCap.cs" />
     <Compile Include="Library\CommonDao.cs" />
     <Compile Include="Library\DynamicLinq.cs" />
+    <Compile Include="KhuyenMaiDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamDao.cs" />
     <Compile Include="UserDao.cs" />

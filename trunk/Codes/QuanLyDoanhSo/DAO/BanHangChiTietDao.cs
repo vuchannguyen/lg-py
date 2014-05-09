@@ -10,88 +10,74 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class NhatKyMuaHangDao : SQLConnection
+    public class BanHangChiTietDao : SQLConnection
     {
-        public static IQueryable<NhatKyMuaHang> GetQuery(string text, string timeType, DateTime date)
+        public static IQueryable<BanHangChiTiet> GetQuery(string text)
         {
-            var sql = from data in dbContext.NhatKyMuaHangs
+            var sql = from data in dbContext.BanHangChiTiets
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.User.UserName, text) ||
-                    SqlMethods.Like(p.GhiChu, text)
+                sql = sql.Where(p => SqlMethods.Like(p.SanPham.Ten, text) ||
+                    SqlMethods.Like(p.SanPham1.Ten, text)
                     );
             }
-
-            switch (timeType)
-            {
-                case CommonDao.DEFAULT_TYPE_DAY:
-                    sql = sql.Where(p => p.Date.Day == date.Day && p.Date.Month == date.Month && p.Date.Year == date.Year);
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_WEEK:
-                    sql = sql.Where(p => p.Date.DayOfYear >= date.DayOfYear && p.Date.DayOfYear < (date.DayOfYear + 7));
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_MONTH:
-                    sql = sql.Where(p => p.Date.Month == date.Month && p.Date.Year == date.Year);
-                    break;
-
-                case CommonDao.DEFAULT_TYPE_YEAR:
-                    sql = sql.Where(p => p.Date.Year == date.Year);
-                    break;
-            }
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
 
-        public static int GetCount(string text, string timeType, DateTime date)
+        public static int GetCount(string text)
         {
-            return GetQuery(text, timeType, date).Count();
+            return GetQuery(text).Count();
         }
 
-        public static List<NhatKyMuaHang> GetList(string text, string timeType, DateTime date,
+        public static List<BanHangChiTiet> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
 
             switch (sortColumn)
             {
-                case "Id":
-                    sortSQL += "Id " + sortOrder;
+                case "Mã KH":
+                    sortSQL += "MaBanHangChiTiet " + sortOrder;
                     break;
 
-                case "Tên":
+                case "Họ và tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
 
-                case "Nhân viên":
-                    sortSQL += "User.UserName " + sortOrder;
+                case "Ngày sinh":
+                    sortSQL += "DOB " + sortOrder;
                     break;
 
-                case "Thời gian":
-                    sortSQL += "Date " + sortOrder;
+                case "Địa chỉ":
+                    sortSQL += "DiaChi " + sortOrder;
                     break;
 
-                case "ThanhTien":
-                    sortSQL += "ThanhTien " + sortOrder;
+                case "Điện thoại":
+                    sortSQL += "DienThoai " + sortOrder;
                     break;
 
-                case "Ghi chú":
-                    sortSQL += "GhiChu " + sortOrder;
+                case "ĐTDĐ":
+                    sortSQL += "DTDD " + sortOrder;
+                    break;
+
+                case "Email":
+                    sortSQL += "Email " + sortOrder;
+                    break;
+
+                case "Tích lũy":
+                    sortSQL += "TichLuy " + sortOrder;
                     break;
 
                 default:
-                    sortSQL += "Date " + sortOrder;
+                    sortSQL += "MaBanHangChiTiet " + sortOrder;
                     break;
             }
 
-            var sql = GetQuery(text, timeType, date).OrderBy(sortSQL);
+            var sql = GetQuery(text).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
@@ -101,29 +87,26 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static NhatKyMuaHang GetLastData()
+        public static List<BanHangChiTiet> GetListByIdBanHang(int idBanHang)
         {
-            var sql = dbContext.NhatKyMuaHangs.OrderBy("Id " + CommonDao.SORT_DESCENDING);
-
-            return sql.Skip(0).Take(1).ToList().FirstOrDefault();
+            return dbContext.BanHangChiTiets.Where(p => p.IdBanHang == idBanHang).ToList();
         }
 
-        public static NhatKyMuaHang GetById(int id)
+        public static BanHangChiTiet GetById(int id)
         {
-            return dbContext.NhatKyMuaHangs.Where(p => p.Id == id).FirstOrDefault<NhatKyMuaHang>();
+            return dbContext.BanHangChiTiets.Where(p => p.Id == id).FirstOrDefault<BanHangChiTiet>();
         }
 
-        public static NhatKyMuaHang GetByDate(DateTime date)
+        public static BanHangChiTiet GetLastData()
         {
-            return dbContext.NhatKyMuaHangs.Where(p => p.Date.Day == date.Day &&
-                p.Date.Month == date.Month && p.Date.Year == date.Year).FirstOrDefault<NhatKyMuaHang>();
+            return dbContext.BanHangChiTiets.OrderByDescending(p => p.Id).FirstOrDefault();
         }
 
-        public static bool Insert(NhatKyMuaHang data, User user)
+        public static bool Insert(BanHangChiTiet data)
         {
             try
             {
-                dbContext.NhatKyMuaHangs.InsertOnSubmit(data);
+                dbContext.BanHangChiTiets.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -134,26 +117,25 @@ namespace DAO
             }
         }
 
-        public static bool Delete(NhatKyMuaHang data, User user)
+        public static bool Delete(BanHangChiTiet data)
         {
             try
             {
                 if (data != null)
                 {
-                    NhatKyMuaHang objDb = GetById(data.Id);
+                    BanHangChiTiet objDb = GetById(data.Id);
 
                     if (objDb != null)
                     {
-                        objDb.DeleteFlag = true;
-                        dbContext.SubmitChanges();
+                        dbContext.BanHangChiTiets.DeleteOnSubmit(objDb);
 
                         return true;
                     }
                 }
             }
             catch
-            { 
-                
+            {
+
             }
 
             CreateSQlConnection();
@@ -161,7 +143,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids, User user)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             bool isDone = true;
@@ -193,9 +175,9 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            NhatKyMuaHang data = GetById(result);
+                            BanHangChiTiet data = GetById(result);
 
-                            if (!Delete(data, user))
+                            if (!Delete(data))
                             {
                                 isDone = false;
 
@@ -239,7 +221,7 @@ namespace DAO
             return isDone;
         }
 
-        public static bool Update(NhatKyMuaHang data, User user)
+        public static bool Update(BanHangChiTiet data)
         {
             try
             {

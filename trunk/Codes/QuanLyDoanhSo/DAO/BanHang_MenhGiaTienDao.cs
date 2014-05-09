@@ -10,83 +10,66 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class KhachHangDao : SQLConnection
+    public class BanHang_MenhGiaTienDao : SQLConnection
     {
-        public static IQueryable<KhachHang> GetQuery(string text, bool isBirthDay)
+        public static IQueryable<BanHang_MenhGiaTien> GetQuery(string text)
         {
-            var sql = from data in dbContext.KhachHangs
+            var sql = from data in dbContext.BanHang_MenhGiaTiens
                       select data;
 
-            if (isBirthDay)
-            {
-                sql = sql.Where(p => p.DOB.Value.AddYears(DateTime.Now.Year - p.DOB.Value.Year) >= DateTime.Now.AddDays(-1) &&
-                    p.DOB.Value.AddYears(DateTime.Now.Year - p.DOB.Value.Year) <= DateTime.Now.AddDays(7));
-            }
-            else if (!string.IsNullOrEmpty(text))
+            if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.MaKhachHang, text) ||
-                    SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.DTDD, text) ||
-                    SqlMethods.Like(p.Email, text)
+                sql = sql.Where(p => SqlMethods.Like(p.BanHang.User.Ten, text) ||
+                    SqlMethods.Like(p.GhiChu, text)
                     );
             }
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
 
-        public static int GetCount(string text, bool isBirthDay)
+        public static int GetCount(string text)
         {
-            return GetQuery(text, isBirthDay).Count();
+            return GetQuery(text).Count();
         }
 
-        public static List<KhachHang> GetList(string text, bool isBirthDay,
+        public static List<BanHang_MenhGiaTien> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
 
             switch (sortColumn)
             {
-                case "Mã KH":
-                    sortSQL += "MaKhachHang " + sortOrder;
+                case "Mã SP":
+                    sortSQL += "SanPham.Ma " + sortOrder;
                     break;
 
-                case "Họ và tên":
-                    sortSQL += "Ten " + sortOrder;
+                case "Nhóm SP":
+                    sortSQL += "SanPham.SanPhamGroup.Ten " + sortOrder;
                     break;
 
-                case "Ngày sinh":
-                    sortSQL += "DOB " + sortOrder;
+                case "Tên SP":
+                    sortSQL += "SanPham.Ten " + sortOrder;
                     break;
 
-                case "Địa chỉ":
-                    sortSQL += "DiaChi " + sortOrder;
+                case "SL-NL":
+                    sortSQL += "SanPham.BanHang_MenhGiaTiens.Count " + sortOrder;
                     break;
 
-                case "Điện thoại":
-                    sortSQL += "DienThoai " + sortOrder;
+                case "Giá gốc":
+                    sortSQL += "SanPham.GiaGoc " + sortOrder;
                     break;
 
-                case "ĐTDĐ":
-                    sortSQL += "DTDD " + sortOrder;
-                    break;
-
-                case "Email":
-                    sortSQL += "Email " + sortOrder;
-                    break;
-
-                case "Tích lũy":
-                    sortSQL += "TichLuy " + sortOrder;
+                case "Giá bán":
+                    sortSQL += "SanPham.GiaBan " + sortOrder;
                     break;
 
                 default:
-                    sortSQL += "MaKhachHang " + sortOrder;
+                    sortSQL += "SanPham.Ten " + sortOrder;
                     break;
             }
 
-            var sql = GetQuery(text, isBirthDay).OrderBy(sortSQL);
+            var sql = GetQuery(text).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
@@ -96,61 +79,46 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static List<KhachHang> GetListByIdGroup(int idGroup)
+        public static List<BanHang_MenhGiaTien> GetListByIdBanHang(int idBanHang)
         {
-            return dbContext.KhachHangs.Where(p => p.IdGroup == idGroup).ToList();
+            return dbContext.BanHang_MenhGiaTiens.Where(p => p.IdBanHang == idBanHang).ToList();
         }
 
-        public static KhachHang GetById(int id)
+        public static BanHang_MenhGiaTien GetById(int id)
         {
-            return dbContext.KhachHangs.Where(p => p.Id == id).FirstOrDefault<KhachHang>();
+            return dbContext.BanHang_MenhGiaTiens.Where(p => p.Id == id).FirstOrDefault<BanHang_MenhGiaTien>();
         }
 
-        public static KhachHang GetLastData()
-        {
-            return dbContext.KhachHangs.OrderByDescending(p => p.Id).FirstOrDefault();
-        }
-
-        public static KhachHang GetLastData(int idGroup)
-        {
-            return dbContext.KhachHangs.Where(p => p.IdGroup == idGroup).OrderByDescending(p => p.MaKhachHang).FirstOrDefault();
-        }
-
-        public static bool Insert(KhachHang data, User user)
+        public static bool Insert(BanHang_MenhGiaTien data)
         {
             try
-            {
-                dbContext.KhachHangs.InsertOnSubmit(data);
+            { 
+                dbContext.BanHang_MenhGiaTiens.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
-            }
+            }  
             catch
             {
                 return false;
             }
         }
 
-        public static bool Delete(KhachHang data, User user)
+        public static bool Delete(BanHang_MenhGiaTien data)
         {
             try
             {
                 if (data != null)
                 {
-                    KhachHang objDb = GetById(data.Id);
+                    dbContext.BanHang_MenhGiaTiens.DeleteOnSubmit(data);
+                    dbContext.SubmitChanges();
 
-                    if (objDb != null)
-                    {
-                        objDb.DeleteFlag = true;
-                        dbContext.SubmitChanges();
-
-                        return true;
-                    }
+                    return true;
                 }
             }
             catch
-            { 
-                
+            {
+                //return false;
             }
 
             CreateSQlConnection();
@@ -158,7 +126,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids, User user)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             bool isDone = true;
@@ -190,9 +158,9 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            KhachHang data = GetById(result);
+                            BanHang_MenhGiaTien data = GetById(result);
 
-                            if (!Delete(data, user))
+                            if (!Delete(data))
                             {
                                 isDone = false;
 
@@ -236,7 +204,7 @@ namespace DAO
             return isDone;
         }
 
-        public static bool Update(KhachHang data, User user)
+        public static bool Update(BanHang_MenhGiaTien data)
         {
             try
             {
