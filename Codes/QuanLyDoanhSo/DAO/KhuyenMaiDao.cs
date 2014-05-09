@@ -10,55 +10,67 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class NhatKyNguyenLieuDao : SQLConnection
+    public class KhuyenMaiDao : SQLConnection
     {
-        public static IQueryable<NhatKyNguyenLieu> GetQuery(string text, bool? isActive, DateTime date)
+        public static IQueryable<KhuyenMai> GetQuery(string text)
         {
-            var sql = from data in dbContext.NhatKyNguyenLieus
+            var sql = from data in dbContext.KhuyenMais
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.NguyenLieu.MaNguyenLieu, text) ||
-                    SqlMethods.Like(p.NguyenLieu.Ten, text) ||
-                    SqlMethods.Like(p.NguyenLieu.MoTa, text)
+                sql = sql.Where(p => SqlMethods.Like(p.SanPham.Ten, text) ||
+                    SqlMethods.Like(p.SanPham1.Ten, text) ||
+                    SqlMethods.Like(p.GhiChu, text)
                     );
             }
-
-            if (isActive != null)
-            {
-                sql = sql.Where(p => p.NguyenLieu.IsActive == isActive);
-            }
-
-            if (date != null)
-            {
-                sql = sql.Where(p => p.Date.Day == date.Day && p.Date.Month == date.Month && p.Date.Year == date.Year);
-            }
-
-            sql = sql.Where(p => p.DeleteFlag == false);
 
             return sql;
         }
 
-        public static int GetCount(string text, bool? isActive, DateTime date)
+        public static int GetCount(string text)
         {
-            return GetQuery(text, isActive, date).Count();
+            return GetQuery(text).Count();
         }
 
-        public static List<NhatKyNguyenLieu> GetList(string text, bool? isActive, DateTime date, 
+        public static List<KhuyenMai> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
 
             switch (sortColumn)
             {
+                case "Id":
+                    sortSQL += "Id " + sortOrder;
+                    break;
+
+                case "Tên":
+                    sortSQL += "Ten " + sortOrder;
+                    break;
+
+                case "Nhân viên":
+                    sortSQL += "User.UserName " + sortOrder;
+                    break;
+
+                case "Thời gian":
+                    sortSQL += "Date " + sortOrder;
+                    break;
+
+                case "ThanhTien":
+                    sortSQL += "ThanhTien " + sortOrder;
+                    break;
+
+                case "Ghi chú":
+                    sortSQL += "GhiChu " + sortOrder;
+                    break;
+
                 default:
-                    sortSQL += "NguyenLieu.Ten " + sortOrder;
+                    sortSQL += "Date " + sortOrder;
                     break;
             }
 
-            IQueryable<NhatKyNguyenLieu> sql = sql = GetQuery(text, isActive, date).OrderBy(sortSQL); ;
+            var sql = GetQuery(text).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {
@@ -68,21 +80,23 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static NhatKyNguyenLieu GetLastData()
+        public static KhuyenMai GetLastData()
         {
-            return dbContext.NhatKyNguyenLieus.OrderByDescending(p => p.Id).FirstOrDefault();
+            var sql = dbContext.KhuyenMais.OrderBy("Id " + CommonDao.SORT_DESCENDING);
+
+            return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
-        public static NhatKyNguyenLieu GetById(int id)
+        public static KhuyenMai GetById(int id)
         {
-            return dbContext.NhatKyNguyenLieus.Where(p => p.Id == id).FirstOrDefault<NhatKyNguyenLieu>();
+            return dbContext.KhuyenMais.Where(p => p.Id == id).FirstOrDefault<KhuyenMai>();
         }
 
-        public static bool Insert(NhatKyNguyenLieu data, User user)
+        public static bool Insert(KhuyenMai data)
         {
             try
             {
-                dbContext.NhatKyNguyenLieus.InsertOnSubmit(data);
+                dbContext.KhuyenMais.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -93,18 +107,17 @@ namespace DAO
             }
         }
 
-        public static bool Delete(NhatKyNguyenLieu data, User user)
+        public static bool Delete(KhuyenMai data)
         {
             try
             {
                 if (data != null)
                 {
-                    NhatKyNguyenLieu objDb = GetById(data.Id);
+                    KhuyenMai objDb = GetById(data.Id);
 
                     if (objDb != null)
                     {
-                        objDb.DeleteFlag = true;
-                        dbContext.SubmitChanges();
+                        dbContext.KhuyenMais.DeleteOnSubmit(objDb);
 
                         return true;
                     }
@@ -120,7 +133,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids, User user)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             bool isDone = true;
@@ -152,9 +165,9 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            NhatKyNguyenLieu data = GetById(result);
+                            KhuyenMai data = GetById(result);
 
-                            if (!Delete(data, user))
+                            if (!Delete(data))
                             {
                                 isDone = false;
 
@@ -198,14 +211,13 @@ namespace DAO
             return isDone;
         }
 
-        public static bool Update(NhatKyNguyenLieu data, User user)
+        public static bool Update(KhuyenMai data)
         {
             try
             {
                 if (data != null)
                 {
                     dbContext.SubmitChanges();
-
                     return true;
                 }
 

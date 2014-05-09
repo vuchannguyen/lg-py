@@ -116,7 +116,7 @@ namespace DAO
             return dbContext.Users.Where(p => p.UserName == text && p.DeleteFlag == false).FirstOrDefault<User>();
         }
 
-        public static bool Insert(User data, User user)
+        public static bool Insert(User data)
         {
             try
             {

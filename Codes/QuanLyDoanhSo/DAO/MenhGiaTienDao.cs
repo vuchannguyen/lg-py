@@ -10,19 +10,18 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class KhachHangGroupDao : SQLConnection
+    public class MenhGiaTienDao : SQLConnection
     {
-        public static IQueryable<KhachHangGroup> GetQuery(string text)
+        public static IQueryable<MenhGiaTien> GetQuery(string text)
         {
-            var sql = from data in dbContext.KhachHangGroups
+            var sql = from data in dbContext.MenhGiaTiens
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.Ma, text) ||
-                    SqlMethods.Like(p.Ten, text) ||
-                    SqlMethods.Like(p.MoTa, text)
+                sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
+                    SqlMethods.Like(p.GhiChu, text)
                     );
             }
 
@@ -34,19 +33,27 @@ namespace DAO
             return GetQuery(text).Count();
         }
 
-        public static List<KhachHangGroup> GetList(string text,
+        public static List<MenhGiaTien> GetList(string text,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
 
             switch (sortColumn)
             {
+                case "Mã SP":
+                    sortSQL += "SanPham.MaSanPham " + sortOrder;
+                    break;
+
                 case "Tên":
-                    sortSQL += "Ten " + sortOrder;
+                    sortSQL += "SanPham.Ten " + sortOrder;
+                    break;
+
+                case "Mô tả":
+                    sortSQL += "SanPham.MoTa " + sortOrder;
                     break;
 
                 default:
-                    sortSQL += "Id " + sortOrder;
+                    sortSQL += "SanPham.Ten " + sortOrder;
                     break;
             }
 
@@ -60,26 +67,16 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static KhachHangGroup GetById(int id)
+        public static MenhGiaTien GetById(int id)
         {
-            return dbContext.KhachHangGroups.Where(p => p.Id == id).FirstOrDefault<KhachHangGroup>();
+            return dbContext.MenhGiaTiens.Where(p => p.Id == id).FirstOrDefault<MenhGiaTien>();
         }
 
-        public static KhachHangGroup GetByMa(string text)
-        {
-            return dbContext.KhachHangGroups.Where(p => p.Ma == text).FirstOrDefault<KhachHangGroup>();
-        }
-
-        public static bool Insert(KhachHangGroup data, User user)
+        public static bool Insert(MenhGiaTien data)
         {
             try
             {
-                if (GetByMa(data.Ma) != null)
-                {
-                    return false;
-                }
-
-                dbContext.KhachHangGroups.InsertOnSubmit(data);
+                dbContext.MenhGiaTiens.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -90,13 +87,13 @@ namespace DAO
             }
         }
 
-        public static bool Delete(KhachHangGroup data, User user)
+        public static bool Delete(MenhGiaTien data)
         {
             try
             {
                 if (data != null)
                 {
-                    dbContext.KhachHangGroups.DeleteOnSubmit(data);
+                    dbContext.MenhGiaTiens.DeleteOnSubmit(data);
                     dbContext.SubmitChanges();
 
                     return true;
@@ -112,7 +109,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids, User user)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             bool isDone = true;
@@ -144,9 +141,9 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            KhachHangGroup data = GetById(result);
+                            MenhGiaTien data = GetById(result);
 
-                            if (!Delete(data, user))
+                            if (!Delete(data))
                             {
                                 isDone = false;
 
@@ -190,7 +187,7 @@ namespace DAO
             return isDone;
         }
 
-        public static bool Update(KhachHangGroup data, User user)
+        public static bool Update(MenhGiaTien data)
         {
             try
             {

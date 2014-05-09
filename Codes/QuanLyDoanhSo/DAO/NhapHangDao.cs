@@ -10,18 +10,18 @@ using System.Data.Common;
 
 namespace DAO
 {
-    public class HoaDonDao : SQLConnection
+    public class NhapHangDao : SQLConnection
     {
-        public static IQueryable<HoaDon> GetQuery(string text, int idUser, int idKH, DateTime date)
+        public static IQueryable<NhapHang> GetQuery(string text, int idUser, int idNguonCungCap, DateTime date)
         {
-            var sql = from data in dbContext.HoaDons
+            var sql = from data in dbContext.NhapHangs
                       select data;
 
             if (!string.IsNullOrEmpty(text))
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.User.UserName, text) ||
-                    SqlMethods.Like(p.KhachHang.MaKhachHang, text) ||
+                    SqlMethods.Like(p.NguonCungCap.Ten, text) ||
                     SqlMethods.Like(p.GhiChu, text)
                     );
             }
@@ -31,9 +31,9 @@ namespace DAO
                 sql = sql.Where(p => p.IdUser == idUser);
             }
 
-            if (idKH != 0)
+            if (idNguonCungCap != 0)
             {
-                sql = sql.Where(p => p.IdKhachHang == idKH);
+                sql = sql.Where(p => p.IdNguonCungCap == idNguonCungCap);
             }
 
             if (date != null)
@@ -51,7 +51,7 @@ namespace DAO
             return GetQuery(text, idUser, idKH, date).Count();
         }
 
-        public static List<HoaDon> GetList(string text, int idUser, int idKH, DateTime date,
+        public static List<NhapHang> GetList(string text, int idUser, int idKH, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -97,143 +97,29 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
-        public static IQueryable<HoaDon> GetQueryNhaCungCap(string text, int type, int status, int idKH, int idNhaCungCap, string timeType, DateTime date)
+        public static NhapHang GetLastData()
         {
-            var sql = from data in dbContext.HoaDons
-                      select data;
-
-            if (!string.IsNullOrEmpty(text))
-            {
-                text = CommonDao.GetFilterText(text);
-                sql = sql.Where(p => SqlMethods.Like(p.User.UserName, text) ||
-                    SqlMethods.Like(p.GhiChu, text)
-                    );
-            }
-
-            switch (type)
-            {
-                //case CommonDao.ID_TYPE_BAN_THU:
-                //    sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_BAN || p.IdType == CommonDao.ID_TYPE_THU);
-                //    break;
-
-                //case CommonDao.ID_TYPE_MUA_CHI:
-                //    sql = sql.Where(p => p.IdType == CommonDao.ID_TYPE_MUA || p.IdType == CommonDao.ID_TYPE_CHI);
-                //    break;
-
-                //default:
-                //    sql = sql.Where(p => p.IdType == type);
-                //    break;
-            }
-
-            if (idKH != 0)
-            {
-                sql = sql.Where(p => p.IdKhachHang == idKH);
-            }
-
-            sql = sql.Where(p => p.DeleteFlag == false);
-
-            switch (timeType)
-            {
-                //case CommonDao.DEFAULT_TYPE_DAY:
-                //    sql = sql.Where(p => p.CreateDate.Day == date.Day && p.CreateDate.Month == date.Month && p.CreateDate.Year == date.Year);
-                //    break;
-
-                //case CommonDao.DEFAULT_TYPE_MONTH:
-                //    sql = sql.Where(p => p.CreateDate.Month == date.Month && p.CreateDate.Year == date.Year);
-                //    break;
-
-                //case CommonDao.DEFAULT_TYPE_YEAR:
-                //    sql = sql.Where(p => p.CreateDate.Year == date.Year);
-                //    break;
-
-                //default:
-                //    sql = sql.Where(p => p.CreateDate.Day == date.Day && p.CreateDate.Month == date.Month && p.CreateDate.Year == date.Year);
-                //    break;
-            }
-
-            return sql;
-        }
-
-        public static int GetCountNhaCungCap(string text, int type, int status, int idKH, int idNhaCungCap, string timeType, DateTime date)
-        {
-            return GetQueryNhaCungCap(text, type, status, idKH, idNhaCungCap, timeType, date).Count();
-        }
-
-        public static List<HoaDon> GetListNhaCungCap(string text, int type, int status, int idKH, int idNhaCungCap, string timeType, DateTime date,
-            string sortColumn, string sortOrder, int skip, int take)
-        {
-            string sortSQL = string.Empty;
-
-            switch (sortColumn)
-            {
-                case "Id":
-                    sortSQL += "Id " + sortOrder;
-                    break;
-
-                case "Nhân viên":
-                    sortSQL += "User.UserName " + sortOrder;
-                    break;
-
-                case "Thời gian":
-                    sortSQL += "Date " + sortOrder;
-                    break;
-
-                case "Tổng tiền":
-                    sortSQL += "ThanhTien " + sortOrder;
-                    break;
-
-                case "Ghi chú":
-                    sortSQL += "GhiChu " + sortOrder;
-                    break;
-
-                case "Trạng thái":
-                    sortSQL += "Duyet " + sortOrder;
-                    break;
-
-                default:
-                    sortSQL += "Id " + sortOrder;
-                    break;
-            }
-
-            var sql = GetQueryNhaCungCap(text, type, status, idKH, idNhaCungCap, timeType, date).OrderBy(sortSQL);
-
-            if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
-            {
-                return sql.ToList();
-            }
-
-            return sql.Skip(skip).Take(take).ToList();
-        }
-
-        public static HoaDon GetLastData()
-        {
-            var sql = dbContext.HoaDons.OrderBy("Id " + CommonDao.SORT_DESCENDING);
+            var sql = dbContext.NhapHangs.OrderBy("Id " + CommonDao.SORT_DESCENDING);
 
             return sql.Skip(0).Take(1).ToList().FirstOrDefault();
         }
 
-        public static HoaDon GetLastData(int idType)
+        public static NhapHang GetById(int id)
         {
-            //return dbContext.HoaDons.Where(p => p.IdType == idType).OrderByDescending(p => p.MaHoaDon).FirstOrDefault();
-            return null;
+            return dbContext.NhapHangs.Where(p => p.Id == id).FirstOrDefault<NhapHang>();
         }
 
-        public static HoaDon GetById(int id)
+        public static NhapHang GetByDate(DateTime date)
         {
-            return dbContext.HoaDons.Where(p => p.Id == id).FirstOrDefault<HoaDon>();
+            return dbContext.NhapHangs.Where(p => p.Date.Day == date.Day &&
+                p.Date.Month == date.Month && p.Date.Year == date.Year).FirstOrDefault<NhapHang>();
         }
 
-        public static HoaDon GetByDate(DateTime date)
-        {
-            return dbContext.HoaDons.Where(p => p.Date.Day == date.Day &&
-                p.Date.Month == date.Month && p.Date.Year == date.Year).FirstOrDefault<HoaDon>();
-        }
-
-        public static bool Insert(HoaDon data, User user)
+        public static bool Insert(NhapHang data)
         {
             try
             {
-                dbContext.HoaDons.InsertOnSubmit(data);
+                dbContext.NhapHangs.InsertOnSubmit(data);
                 dbContext.SubmitChanges();
 
                 return true;
@@ -244,13 +130,13 @@ namespace DAO
             }
         }
 
-        public static bool Delete(HoaDon data, User user)
+        public static bool Delete(NhapHang data)
         {
             try
             {
                 if (data != null)
                 {
-                    HoaDon objDb = GetById(data.Id);
+                    NhapHang objDb = GetById(data.Id);
 
                     if (objDb != null)
                     {
@@ -271,7 +157,7 @@ namespace DAO
             return false;
         }
 
-        public static bool DeleteList(string ids, User user)
+        public static bool DeleteList(string ids)
         {
             DbTransaction trans = null;
             bool isDone = true;
@@ -303,9 +189,9 @@ namespace DAO
                     {
                         if (int.TryParse(id, out result))
                         {
-                            HoaDon data = GetById(result);
+                            NhapHang data = GetById(result);
 
-                            if (!Delete(data, user))
+                            if (!Delete(data))
                             {
                                 isDone = false;
 
@@ -349,7 +235,7 @@ namespace DAO
             return isDone;
         }
 
-        public static bool Update(HoaDon data, User user)
+        public static bool Update(NhapHang data)
         {
             try
             {
