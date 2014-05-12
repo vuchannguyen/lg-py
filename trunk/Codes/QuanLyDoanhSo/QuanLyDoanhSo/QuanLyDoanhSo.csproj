@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B63700D-5F8C-4ECE-B1A0-B42DA597E715}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QuanLyDoanhSo</RootNamespace>
+    <AssemblyName>QuanLyDoanhSo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.65.2.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.SmoExtended.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutCD.Designer.cs">
+      <DependentUpon>AboutCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutSoftware.Designer.cs">
+      <DependentUpon>AboutSoftware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnection.Designer.cs">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExportExcel.Designer.cs">
+      <DependentUpon>FormExportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Common\ExportExcel.cs" />
+    <Compile Include="Main\DoanhThu\DoanhThu\UcDoanhThu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\DoanhThu\UcDoanhThu.Designer.cs">
+      <DependentUpon>UcDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\HoaDon\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\HoaDon\UcDetail.designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\HoaDon\UcHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\HoaDon\UcHoaDon.Designer.cs">
+      <DependentUpon>UcHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\HoaDon\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\HoaDon\UcInfo.designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcNhatKyMuaHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcNhatKyMuaHang.Designer.cs">
+      <DependentUpon>UcNhatKyMuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\UcDoanhThuIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\UcDoanhThuIndex.Designer.cs">
+      <DependentUpon>UcDoanhThuIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\NguonCungCap\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\NguonCungCap\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\UcNguonCungCapIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\UcNguonCungCapIndex.Designer.cs">
+      <DependentUpon>UcNguonCungCapIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Common\CommonComboBoxItems.cs" />
+    <Compile Include="Library\Common\Constant.cs" />
+    <Compile Include="Library\Common\ConstantResource.cs" />
+    <Compile Include="Library\Common\ConvertUtil.cs" />
+    <Compile Include="Library\Common\Convert_Function.cs" />
+    <Compile Include="Library\Common\Fade.cs" />
+    <Compile Include="Library\Common\File_Function.cs" />
+    <Compile Include="Library\Common\Image_Function.cs" />
+    <Compile Include="Library\Common\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\Common\ListViewSortColumn.cs" />
+    <Compile Include="Library\Common\MyReturnCode.cs" />
+    <Compile Include="Library\Common\Office_Function.cs" />
+    <Compile Include="Library\Common\SQL_Funtion.cs" />
+    <Compile Include="Library\Common\Startup.cs" />
+    <Compile Include="Library\Common\CommonFunction.cs" />
+    <Compile Include="Library\Common\XML_Function.cs" />
+    <Compile Include="Library\Crypto\Crypto.cs" />
+    <Compile Include="Library\Crypto\MyFileCryptography.cs" />
+    <Compile Include="Library\Crypto\MyHashAlgorithm.cs" />
+    <Compile Include="Library\Crypto\MyHexHash.cs" />
+    <Compile Include="Library\Crypto\MyRSAAlgorithm.cs" />
+    <Compile Include="Library\Crypto\MyTripleDES.cs" />
+    <Compile Include="Library\Crypto\PrivateKeyCrypto.cs" />
+    <Compile Include="Main\NguonCungCap\NguonCungCap\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\NguonCungCap\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.Designer.cs">
+      <DependentUpon>UcNguonCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NhapHang\KiemTraChenhLech\UcKiemTraChenhLech.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\KiemTraChenhLech\UcKiemTraChenhLech.Designer.cs">
+      <DependentUpon>UcKiemTraChenhLech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NhapHang\KiemTraNhatKy\UcKiemTraNhatKy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\KiemTraNhatKy\UcKiemTraNhatKy.Designer.cs">
+      <DependentUpon>UcKiemTraNhatKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhatKyNguyenLieu\UcNhatKyNguyenLieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhatKyNguyenLieu\UcNhatKyNguyenLieu.Designer.cs">
+      <DependentUpon>UcNhatKyNguyenLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NhapHang\UcNhatKyNguyenLieuIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\UcNhatKyNguyenLieuIndex.Designer.cs">
+      <DependentUpon>UcNhatKyNguyenLieuIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\SanPham\UcSanPham.Designer.cs">
+      <DependentUpon>UcSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\SanPham\UcSanPhamIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\SanPham\UcSanPhamIndex.Designer.cs">
+      <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.Designer.cs">
+      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Tool\DB\UcDB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Tool\DB\UcDB.Designer.cs">
+      <DependentUpon>UcDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Tool\UcToolIndex.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Tool\UcToolIndex.Designer.cs">
+      <DependentUpon>UcToolIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\User\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\User\UcDetail.Designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\User\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\User\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\User\UcUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\User\UcUser.Designer.cs">
+      <DependentUpon>UcUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutCD.resx">
+      <DependentUpon>AboutCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutSoftware.resx">
+      <DependentUpon>AboutSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnection.resx">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExportExcel.resx">
+      <DependentUpon>FormExportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\DoanhThu\UcDoanhThu.resx">
+      <DependentUpon>UcDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\HoaDon\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\HoaDon\UcHoaDon.resx">
+      <DependentUpon>UcHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\HoaDon\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\NhatKyMuaHang\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\NhatKyMuaHang\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\NhatKyMuaHang\UcNhatKyMuaHang.resx">
+      <DependentUpon>UcNhatKyMuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\UcDoanhThuIndex.resx">
+      <DependentUpon>UcDoanhThuIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NguonCungCap\NguonCungCap\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NguonCungCap\UcNguonCungCapIndex.resx">
+      <DependentUpon>UcNguonCungCapIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NguonCungCap\NguonCungCap\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.resx">
+      <DependentUpon>UcNguonCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\KiemTraChenhLech\UcKiemTraChenhLech.resx">
+      <DependentUpon>UcKiemTraChenhLech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\KiemTraNhatKy\UcKiemTraNhatKy.resx">
+      <DependentUpon>UcKiemTraNhatKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\NhatKyNguyenLieu\UcNhatKyNguyenLieu.resx">
+      <DependentUpon>UcNhatKyNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\UcNhatKyNguyenLieuIndex.resx">
+      <DependentUpon>UcNhatKyNguyenLieuIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\SanPham\UcSanPham.resx">
+      <DependentUpon>UcSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
+      <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.resx">
+      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Tool\DB\UcDB.resx">
+      <DependentUpon>UcDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Tool\UcToolIndex.resx">
+      <DependentUpon>UcToolIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\User\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\User\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\User\UcUser.resx">
+      <DependentUpon>UcUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iconCD.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{43D5ACE3-32A3-4E07-A04A-25AD681BF2CE}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2C4D3ED8-16CD-46F1-A599-E121F5B0F7C6}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
