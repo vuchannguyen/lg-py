@@ -46,12 +46,12 @@ namespace DAO
             return sql;
         }
 
-        public static int GetCount(string text, int idUser, int idKH, DateTime date)
+        public static int GetCount(string text, int idUser, int idNguonCungCap, DateTime date)
         {
-            return GetQuery(text, idUser, idKH, date).Count();
+            return GetQuery(text, idUser, idNguonCungCap, date).Count();
         }
 
-        public static List<NhapHang> GetList(string text, int idUser, int idKH, DateTime date,
+        public static List<NhapHang> GetList(string text, int idUser, int idNguonCungCap, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
             string sortSQL = string.Empty;
@@ -87,7 +87,7 @@ namespace DAO
                     break;
             }
 
-            var sql = GetQuery(text, idUser, idKH, date).OrderBy(sortSQL);
+            var sql = GetQuery(text, idUser, idNguonCungCap, date).OrderBy(sortSQL);
 
             if ((skip <= 0 && take <= 0) || (skip < 0 && take > 0) || (skip > 0 && take < 0))
             {

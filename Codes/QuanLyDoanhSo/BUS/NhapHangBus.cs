@@ -9,15 +9,15 @@ namespace BUS
 {
     public class NhapHangBus
     {
-        public static int GetCount(string text, int idUser, int idKH, DateTime date)
+        public static int GetCount(string text, int idUser, int idNguonCungCap, DateTime date)
         {
-            return NhapHangDao.GetCount(text, idUser, idKH, date);
+            return NhapHangDao.GetCount(text, idUser, idNguonCungCap, date);
         }
 
-        public static List<NhapHang> GetList(string text, int idUser, int idKH, DateTime date,
+        public static List<NhapHang> GetList(string text, int idUser, int idNguonCungCap, DateTime date,
             string sortColumn, string sortOrder, int skip, int take)
         {
-            return NhapHangDao.GetList(text, idUser, idKH, date, sortColumn, sortOrder, skip, take);
+            return NhapHangDao.GetList(text, idUser, idNguonCungCap, date, sortColumn, sortOrder, skip, take);
         }
 
         public static NhapHang GetLastData()
