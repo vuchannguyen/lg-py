@@ -32,7 +32,6 @@ namespace Weedon
                 pbThem.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_ADD);
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED_DISABLE);
 
                 pbTraCuu.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_SEARCH);
                 pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE);
@@ -53,28 +52,19 @@ namespace Weedon
         {
             this.Visible = false;
             LoadResource();
-
             //pnQuanLy.Size = new System.Drawing.Size(710, 480);
             pnQuanLy.Location = CommonFunc.SetWidthCenter(this.Size, pnQuanLy.Size, pnSelect.Bottom);
-
             tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
             tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
-
             this.BringToFront();
-
             FormMain.isEditing = false;
-
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_ASCENDING;
-
             tbSearch.Text = Constant.SEARCH_HOADON_TIP;
-
             RefreshListView(tbSearch.Text, 0, 0, dtpFilter.Value,
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
-
             InitPermission();
-
             this.Visible = true;
         }
 
@@ -83,10 +73,9 @@ namespace Weedon
         #region Function
         private void InitPermission()
         {
-            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            if (FormMain.user.IdUserGroup != Constant.ID_GROUP_ADMIN)
             {
                 pnXoa.Visible = false;
-                pnDuyet.Visible = false;
             }
         }
 
@@ -139,40 +128,29 @@ namespace Weedon
 
             List<DTO.NhapHang> list = NhapHangBus.GetList(text, idUser, idKH, date,
                 sortColumn, sortOrder, row * (page - 1), row);
-
             CommonFunc.ClearlvItem(lvThongTin);
 
             foreach (DTO.NhapHang data in list)
             {
                 ListViewItem lvi = new ListViewItem();
-                
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add(data.Date.ToString(Constant.DEFAULT_DATE_TIME_FORMAT));
                 lvi.SubItems.Add(data.User.Ten);
-                lvi.SubItems.Add(data.ThanhTien.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
+                int money = 0;
                 int soLuong = 0;
-                List<DTO.NhapHangDetail> listDetail = NhapHangDetailBus.GetListByIdNhapHang(data.Id);
+                List<DTO.NhapHangChiTiet> listDetail = NhapHangChiTietBus.GetListByIdNhapHang(data.Id);
 
-                foreach (DTO.NhapHangDetail detail in listDetail)
+                foreach (DTO.NhapHangChiTiet detail in listDetail)
                 {
+                    money += detail.ThanhTien;
                     soLuong += detail.SoLuong;
                 }
 
+                lvi.SubItems.Add(money.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 lvi.SubItems.Add(soLuong.ToString());
                 lvi.SubItems.Add(data.GhiChu);
-
-                if (data.Duyet)
-                {
-                    lvi.SubItems.Add(Constant.APPROVED);
-                }
-                else
-                {
-                    lvi.SubItems.Add(Constant.NOT_APPROVED);
-                    lvi.UseItemStyleForSubItems = false;
-                    lvi.SubItems[8].ForeColor = Color.Red;
-                }
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -197,8 +175,6 @@ namespace Weedon
 
                 pbXoa.Enabled = true;
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE);
-                pbDuyet.Enabled = true;
-                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED);
             }
             else
             {
@@ -206,8 +182,6 @@ namespace Weedon
                 pbXoa.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_DELETE_DISABLE);
                 pbSua.Enabled = false;
                 pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-                pbDuyet.Enabled = false;
-                pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED_DISABLE);
             }
         }
 
@@ -245,8 +219,8 @@ namespace Weedon
 
                 return false;
             }
-            else if (data.IdGroup == Constant.ID_GROUP_ADMIN &&
-                FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN)
+            else if (data.IdUserGroup == Constant.ID_GROUP_ADMIN &&
+                FormMain.user.IdUserGroup == Constant.ID_GROUP_ADMIN)
             {
                 MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_PROFILE_ADMIN, Constant.CAPTION_ERROR,
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -259,8 +233,8 @@ namespace Weedon
 
         private bool ValidateEditPermission(DTO.User data)
         {
-            if (data.IdGroup == Constant.ID_GROUP_ADMIN &&
-                FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN &&
+            if (data.IdUserGroup == Constant.ID_GROUP_ADMIN &&
+                FormMain.user.IdUserGroup == Constant.ID_GROUP_ADMIN &&
                 data.Id != FormMain.user.Id)
             {
                 MessageBox.Show(Constant.MESSAGE_ERROR_EDIT_PROFILE_ADMIN, Constant.CAPTION_ERROR,
@@ -269,7 +243,8 @@ namespace Weedon
                 return false;
             }
 
-            if (data.IdGroup == Constant.ID_GROUP_ADMIN && FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            if (data.IdUserGroup == Constant.ID_GROUP_ADMIN &&
+                FormMain.user.IdUserGroup != Constant.ID_GROUP_ADMIN)
             {
                 MessageBox.Show(Constant.MESSAGE_ERROR_DO_NOT_HAVE_PERMISSION, Constant.CAPTION_ERROR,
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -314,7 +289,7 @@ namespace Weedon
                     ids += (item.SubItems[2].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (NhapHangBus.DeleteList(ids, FormMain.user))
+                if (NhapHangBus.DeleteList(ids))
                 {
                     RefreshListView(tbSearch.Text, 0, 0, dtpFilter.Value,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
@@ -555,56 +530,12 @@ namespace Weedon
         }
         #endregion
 
-        private void pbDuyet_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(Constant.MESSAGE_UPDATE_CONFIRM, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (UpdateDataNhapHang())
-                {
-                    MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Hóa đơn"), Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_ERROR, "Hóa đơn"), Constant.CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                RefreshListView(tbSearch.Text, 0, 0, dtpFilter.Value, sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
-            }
-        }
-
-        private bool UpdateDataNhapHang()
-        {
-            foreach (ListViewItem item in lvThongTin.CheckedItems)
-            {
-                DTO.NhapHang data = NhapHangBus.GetById(ConvertUtil.ConvertToInt(item.SubItems[2].Text));
-
-                data.Duyet = true;
-
-                if (!NhapHangBus.Update(data, FormMain.user))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
         {
             RefreshListView(tbSearch.Text, 0, 0, dtpFilter.Value, sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
 
             pbSua.Enabled = false;
             pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
-        }
-
-        private void pbDuyet_MouseEnter(object sender, EventArgs e)
-        {
-            pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED_MOUSEOVER);
-        }
-
-        private void pbDuyet_MouseLeave(object sender, EventArgs e)
-        {
-            pbDuyet.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_APPROVED);
         }
     }
 }

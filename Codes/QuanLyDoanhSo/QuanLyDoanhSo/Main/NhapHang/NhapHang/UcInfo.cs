@@ -10,12 +10,12 @@ using Library;
 using DTO;
 using BUS;
 
-namespace Weedon.HoaDon
+namespace Weedon.NhapHang
 {
     public partial class UcInfo : UserControl
     {
-        private DTO.HoaDon dataHoaDon;
-        string idsHoaDonDetailRemoved;
+        private DTO.NhapHang dataNhapHang;
+        string idsNhapHangChiTietRemoved;
 
         public UcInfo()
         {
@@ -31,17 +31,17 @@ namespace Weedon.HoaDon
             }
         }
 
-        public UcInfo(DTO.HoaDon data)
+        public UcInfo(DTO.NhapHang data)
         {
             InitializeComponent();
 
-            dataHoaDon = data;
+            dataNhapHang = data;
 
             if (Init())
             {
                 RefreshData();
                 AddToBill(data.Id);
-                tbMaHD.Text = data.Id.ToString();
+                tbMa.Text = data.Id.ToString();
                 tbGhiChu.Text = data.GhiChu;
                 dtpFilter.Value = data.Date;
                 lbNgayGio.Text = dtpFilter.Value.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
@@ -93,8 +93,8 @@ namespace Weedon.HoaDon
 
         private void RefreshData()
         {
-            idsHoaDonDetailRemoved = string.Empty;
-            tbTongHoaDon.Text = string.Empty;
+            idsNhapHangChiTietRemoved = string.Empty;
+            tbTong.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
             dgvThongTin.Rows.Clear();
             dtpFilter.Value = DateTime.Now;
@@ -126,7 +126,7 @@ namespace Weedon.HoaDon
                 money += ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             }
 
-            tbTongHoaDon.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTong.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
 
         private void AddToBill()
@@ -135,7 +135,7 @@ namespace Weedon.HoaDon
             {
                 DTO.SanPham data = SanPhamBus.GetById(ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text));
                 int soLuong = 1;
-                long price = GiaChinhThucBus.GetByIdSanPham(data.Id) == null ? 0 : GiaChinhThucBus.GetByIdSanPham(data.Id).Gia;
+                long price = data.Gia == null ? 0 : data.Gia;
                 long money = price * soLuong;
 
                 foreach (DataGridViewRow row in dgvThongTin.Rows)
@@ -157,9 +157,9 @@ namespace Weedon.HoaDon
                     }
                 }
 
-                dgvThongTin.Rows.Add(string.Empty, data.Id, data.MaSanPham + Constant.SYMBOL_LINK_STRING + data.Ten,
+                dgvThongTin.Rows.Add(string.Empty, data.Id, Constant.SYMBOL_LINK_STRING + data.Ten,
                     price.ToString(Constant.DEFAULT_FORMAT_MONEY), soLuong,
-                    money.ToString(Constant.DEFAULT_FORMAT_MONEY), string.Empty);
+                    money.ToString(Constant.DEFAULT_FORMAT_MONEY));
 
                 CalculateMoney();
                 ValidateHoanTat();
@@ -168,19 +168,19 @@ namespace Weedon.HoaDon
             }
         }
 
-        private void AddToBill(int idHoaDon)
+        private void AddToBill(int idNhapHang)
         {
-            List<DTO.HoaDonDetail> listDetail = HoaDonDetailBus.GetListByIdHoaDon(idHoaDon);
+            List<DTO.NhapHangChiTiet> listDetail = NhapHangChiTietBus.GetListByIdNhapHang(idNhapHang);
 
-            foreach (DTO.HoaDonDetail detail in listDetail)
+            foreach (DTO.NhapHangChiTiet detail in listDetail)
             {
                 int soLuong = detail.SoLuong;
-                long price = detail.DonGia;
+                long price = detail.SanPham.Gia;
                 long money = price * soLuong;
 
-                dgvThongTin.Rows.Add(detail.Id, detail.IdSanPham, detail.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten,
+                dgvThongTin.Rows.Add(detail.Id, detail.IdSanPham, Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten,
                     price.ToString(Constant.DEFAULT_FORMAT_MONEY), soLuong,
-                    money.ToString(Constant.DEFAULT_FORMAT_MONEY), detail.GhiChu);
+                    money.ToString(Constant.DEFAULT_FORMAT_MONEY));
             }
 
             CalculateMoney();
@@ -189,42 +189,37 @@ namespace Weedon.HoaDon
 
         private void GetListSP()
         {
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, 0,
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty,
                 string.Empty, string.Empty, 0, 0);
             lvThongTin.Items.Clear();
 
             foreach (DTO.SanPham data in listData)
             {
                 ListViewItem lvi = new ListViewItem();
-
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.MaSanPham + Constant.SYMBOL_LINK_STRING + data.Ten);
-
-                long price = GiaChinhThucBus.GetByIdSanPham(data.Id) == null ? 0 : GiaChinhThucBus.GetByIdSanPham(data.Id).Gia;
+                lvi.SubItems.Add(Constant.SYMBOL_LINK_STRING + data.Ten);
+                long price = data.Gia == null ? 0 : data.Gia;
                 lvi.SubItems.Add(price.ToString(Constant.DEFAULT_FORMAT_MONEY));
-
                 lvThongTin.Items.Add(lvi);
             }
         }
 
         private void InsertData()
         {
-            InsertDataHoaDon();
+            InsertDataNhapHang();
         }
 
-        private bool InsertDataHoaDon()
+        private bool InsertDataNhapHang()
         {
-            DTO.HoaDon data = new DTO.HoaDon();
-
+            DTO.NhapHang data = new DTO.NhapHang();
             data.Date = dtpFilter.Value;
             data.IdUser = FormMain.user.Id;
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
-            if (HoaDonBus.Insert(data, FormMain.user))
+            if (NhapHangBus.Insert(data))
             {
-                return InsertDataHoaDonDetail(data);
+                return InsertDataNhapHangChiTiet(data);
             }
             else
             {
@@ -232,20 +227,18 @@ namespace Weedon.HoaDon
             }
         }
 
-        private bool InsertDataHoaDonDetail(DTO.HoaDon dataHoaDon)
+        private bool InsertDataNhapHangChiTiet(DTO.NhapHang dataNhapHang)
         {
             foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
-                DTO.HoaDonDetail data = new DTO.HoaDonDetail();
-
-                data.IdHoaDon = dataHoaDon.Id;
+                DTO.NhapHangChiTiet data = new DTO.NhapHangChiTiet();
+                data.IdNhapHang = dataNhapHang.Id;
                 data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
-                data.DonGia = ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                data.Gia = ConvertUtil.ConvertToInt(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 data.SoLuong = ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
-                data.ThanhTien = ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
+                data.ThanhTien = ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
-                if (!HoaDonDetailBus.Insert(data, FormMain.user))
+                if (!NhapHangChiTietBus.Insert(data))
                 {
                     return false;
                 }
@@ -254,17 +247,15 @@ namespace Weedon.HoaDon
             return true;
         }
 
-        private bool UpdateDataHoaDon()
+        private bool UpdateDataNhapHang()
         {
-            DTO.HoaDon data = HoaDonBus.GetById(ConvertUtil.ConvertToInt(tbMaHD.Text));
-
+            DTO.NhapHang data = NhapHangBus.GetById(ConvertUtil.ConvertToInt(tbMa.Text));
             data.IdUser = FormMain.user.Id;
-            data.ThanhTien = ConvertUtil.ConvertToLong(tbTongHoaDon.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
-            if (HoaDonBus.Update(data, FormMain.user))
+            if (NhapHangBus.Update(data))
             {
-                return (DeleteDataHoaDonDetail() && UpdateDataHoaDonDetail(data));
+                return (DeleteDataNhapHangChiTiet() && UpdateDataNhapHangChiTiet(data));
             }
             else
             {
@@ -272,35 +263,31 @@ namespace Weedon.HoaDon
             }
         }
 
-        private bool UpdateDataHoaDonDetail(DTO.HoaDon dataHoaDon)
+        private bool UpdateDataNhapHangChiTiet(DTO.NhapHang dataNhapHang)
         {
             foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
                 if (!string.IsNullOrEmpty(row.Cells[colId.Name].Value.ToString()))
                 {
-                    DTO.HoaDonDetail data = HoaDonDetailBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
-
+                    DTO.NhapHangChiTiet data = NhapHangChiTietBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
                     data.SoLuong = ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
-                    data.ThanhTien = ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                    data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
+                    data.ThanhTien = ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
-                    if (!HoaDonDetailBus.Update(data, FormMain.user))
+                    if (!NhapHangChiTietBus.Update(data))
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    DTO.HoaDonDetail data = new DTO.HoaDonDetail();
-
-                    data.IdHoaDon = dataHoaDon.Id;
+                    DTO.NhapHangChiTiet data = new DTO.NhapHangChiTiet();
+                    data.IdNhapHang = dataNhapHang.Id;
                     data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
-                    data.DonGia = ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    data.Gia = ConvertUtil.ConvertToInt(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     data.SoLuong = ConvertUtil.ConvertToInt(row.Cells[colSoLuong.Name].Value);
-                    data.ThanhTien = ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                    data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
+                    data.ThanhTien = ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
-                    if (!HoaDonDetailBus.Insert(data, FormMain.user))
+                    if (!NhapHangChiTietBus.Insert(data))
                     {
                         return false;
                     }
@@ -310,11 +297,11 @@ namespace Weedon.HoaDon
             return true;
         }
 
-        private bool DeleteDataHoaDonDetail()
+        private bool DeleteDataNhapHangChiTiet()
         {
-            if (!string.IsNullOrEmpty(idsHoaDonDetailRemoved))
+            if (!string.IsNullOrEmpty(idsNhapHangChiTietRemoved))
             {
-                return HoaDonDetailBus.DeleteList(idsHoaDonDetailRemoved, FormMain.user);
+                return NhapHangChiTietBus.DeleteList(idsNhapHangChiTietRemoved);
             }
 
             return true;
@@ -330,9 +317,9 @@ namespace Weedon.HoaDon
 
             if (MessageBox.Show("Cập nhật hóa đơn?", Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (string.IsNullOrEmpty(tbMaHD.Text))
+                if (string.IsNullOrEmpty(tbMa.Text))
                 {
-                    if (InsertDataHoaDon())
+                    if (InsertDataNhapHang())
                     {
                         if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Hóa đơn") + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                         {
@@ -353,7 +340,7 @@ namespace Weedon.HoaDon
                 }
                 else
                 {
-                    if (UpdateDataHoaDon())
+                    if (UpdateDataNhapHang())
                     {
                         MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Hóa đơn"), Constant.CAPTION_INFORMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();
@@ -464,7 +451,7 @@ namespace Weedon.HoaDon
             {
                 if (dgvThongTin[colId.Name, e.RowIndex].Value != null && !string.IsNullOrEmpty(dgvThongTin[colId.Name, e.RowIndex].Value.ToString()))
                 {
-                    idsHoaDonDetailRemoved += dgvThongTin[colId.Name, e.RowIndex].Value + Constant.SEPERATE_STRING;
+                    idsNhapHangChiTietRemoved += dgvThongTin[colId.Name, e.RowIndex].Value + Constant.SEPERATE_STRING;
                 }
 
                 dgvThongTin.Rows.RemoveAt(e.RowIndex);

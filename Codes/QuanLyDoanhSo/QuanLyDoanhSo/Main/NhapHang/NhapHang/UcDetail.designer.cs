@@ -1,4 +1,4 @@
-﻿namespace Weedon.HoaDon
+﻿namespace Weedon.NhapHang
 {
     partial class UcDetail
     {
@@ -34,13 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.dgvThongTin = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lbNgayGio = new System.Windows.Forms.Label();
@@ -54,12 +47,18 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnDetail = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbMaHD = new System.Windows.Forms.TextBox();
+            this.tbMa = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.tbTongHoaDon = new System.Windows.Forms.TextBox();
+            this.tbTong = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTin)).BeginInit();
             this.panel12.SuspendLayout();
@@ -91,8 +90,7 @@
             this.colSanPham,
             this.colGia,
             this.colSoLuong,
-            this.colThanhTien,
-            this.colGhiChu});
+            this.colThanhTien});
             this.dgvThongTin.Location = new System.Drawing.Point(3, 3);
             this.dgvThongTin.MultiSelect = false;
             this.dgvThongTin.Name = "dgvThongTin";
@@ -102,81 +100,6 @@
             this.dgvThongTin.ShowCellToolTips = false;
             this.dgvThongTin.Size = new System.Drawing.Size(944, 324);
             this.dgvThongTin.TabIndex = 1;
-            // 
-            // colId
-            // 
-            this.colId.Frozen = true;
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
-            this.colId.Width = 5;
-            // 
-            // colIdSanPham
-            // 
-            this.colIdSanPham.Frozen = true;
-            this.colIdSanPham.HeaderText = "IdSanPham";
-            this.colIdSanPham.Name = "colIdSanPham";
-            this.colIdSanPham.ReadOnly = true;
-            this.colIdSanPham.Visible = false;
-            this.colIdSanPham.Width = 5;
-            // 
-            // colSanPham
-            // 
-            this.colSanPham.Frozen = true;
-            this.colSanPham.HeaderText = "Sản phẩm";
-            this.colSanPham.MaxInputLength = 50;
-            this.colSanPham.MinimumWidth = 300;
-            this.colSanPham.Name = "colSanPham";
-            this.colSanPham.ReadOnly = true;
-            this.colSanPham.Width = 300;
-            // 
-            // colGia
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.colGia.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colGia.HeaderText = "Giá";
-            this.colGia.MaxInputLength = 11;
-            this.colGia.MinimumWidth = 120;
-            this.colGia.Name = "colGia";
-            this.colGia.ReadOnly = true;
-            this.colGia.Width = 120;
-            // 
-            // colSoLuong
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colSoLuong.HeaderText = "Số lượng";
-            this.colSoLuong.MaxInputLength = 3;
-            this.colSoLuong.MinimumWidth = 100;
-            this.colSoLuong.Name = "colSoLuong";
-            this.colSoLuong.ReadOnly = true;
-            // 
-            // colThanhTien
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N0";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colThanhTien.HeaderText = "Thành tiền";
-            this.colThanhTien.MaxInputLength = 11;
-            this.colThanhTien.MinimumWidth = 120;
-            this.colThanhTien.Name = "colThanhTien";
-            this.colThanhTien.ReadOnly = true;
-            this.colThanhTien.Width = 120;
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.HeaderText = "Ghi chú";
-            this.colGhiChu.MaxInputLength = 200;
-            this.colGhiChu.MinimumWidth = 250;
-            this.colGhiChu.Name = "colGhiChu";
-            this.colGhiChu.ReadOnly = true;
-            this.colGhiChu.Width = 250;
             // 
             // tbGhiChu
             // 
@@ -264,9 +187,9 @@
             this.lbSelect.ForeColor = System.Drawing.Color.Orange;
             this.lbSelect.Location = new System.Drawing.Point(50, 8);
             this.lbSelect.Name = "lbSelect";
-            this.lbSelect.Size = new System.Drawing.Size(98, 22);
+            this.lbSelect.Size = new System.Drawing.Size(122, 22);
             this.lbSelect.TabIndex = 1;
-            this.lbSelect.Text = "HÓA ĐƠN";
+            this.lbSelect.Text = "NHẬP HÀNG";
             // 
             // lbTitle
             // 
@@ -301,9 +224,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tbMaHD);
+            this.groupBox1.Controls.Add(this.tbMa);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.tbTongHoaDon);
+            this.groupBox1.Controls.Add(this.tbTong);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.tbGhiChu);
             this.groupBox1.Controls.Add(this.label4);
@@ -316,47 +239,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết";
             // 
-            // tbMaHD
+            // tbMa
             // 
-            this.tbMaHD.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaHD.Location = new System.Drawing.Point(87, 30);
-            this.tbMaHD.MaxLength = 10;
-            this.tbMaHD.Name = "tbMaHD";
-            this.tbMaHD.ReadOnly = true;
-            this.tbMaHD.Size = new System.Drawing.Size(73, 26);
-            this.tbMaHD.TabIndex = 4;
-            this.tbMaHD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbMa.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMa.Location = new System.Drawing.Point(87, 30);
+            this.tbMa.MaxLength = 10;
+            this.tbMa.Name = "tbMa";
+            this.tbMa.ReadOnly = true;
+            this.tbMa.Size = new System.Drawing.Size(73, 26);
+            this.tbMa.TabIndex = 4;
+            this.tbMa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(27, 35);
+            this.label14.Location = new System.Drawing.Point(50, 35);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 16);
+            this.label14.Size = new System.Drawing.Size(31, 16);
             this.label14.TabIndex = 4;
-            this.label14.Text = "Mã HĐ:";
+            this.label14.Text = "Mã:";
             // 
-            // tbTongHoaDon
+            // tbTong
             // 
-            this.tbTongHoaDon.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTongHoaDon.Location = new System.Drawing.Point(87, 70);
-            this.tbTongHoaDon.MaxLength = 11;
-            this.tbTongHoaDon.Name = "tbTongHoaDon";
-            this.tbTongHoaDon.ReadOnly = true;
-            this.tbTongHoaDon.Size = new System.Drawing.Size(127, 26);
-            this.tbTongHoaDon.TabIndex = 6;
-            this.tbTongHoaDon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbTong.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTong.Location = new System.Drawing.Point(87, 70);
+            this.tbTong.MaxLength = 11;
+            this.tbTong.Name = "tbTong";
+            this.tbTong.ReadOnly = true;
+            this.tbTong.Size = new System.Drawing.Size(127, 26);
+            this.tbTong.TabIndex = 6;
+            this.tbTong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(13, 75);
+            this.label10.Location = new System.Drawing.Point(36, 75);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 16);
+            this.label10.Size = new System.Drawing.Size(45, 16);
             this.label10.TabIndex = 106;
-            this.label10.Text = "Tổng HĐ:";
+            this.label10.Text = "Tổng:";
             // 
             // ttDetail
             // 
@@ -372,6 +295,72 @@
             this.dtpFilter.Size = new System.Drawing.Size(150, 23);
             this.dtpFilter.TabIndex = 141;
             this.dtpFilter.Visible = false;
+            // 
+            // colId
+            // 
+            this.colId.Frozen = true;
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            this.colId.Width = 5;
+            // 
+            // colIdSanPham
+            // 
+            this.colIdSanPham.Frozen = true;
+            this.colIdSanPham.HeaderText = "IdSanPham";
+            this.colIdSanPham.Name = "colIdSanPham";
+            this.colIdSanPham.ReadOnly = true;
+            this.colIdSanPham.Visible = false;
+            this.colIdSanPham.Width = 5;
+            // 
+            // colSanPham
+            // 
+            this.colSanPham.Frozen = true;
+            this.colSanPham.HeaderText = "Sản phẩm";
+            this.colSanPham.MaxInputLength = 50;
+            this.colSanPham.MinimumWidth = 300;
+            this.colSanPham.Name = "colSanPham";
+            this.colSanPham.ReadOnly = true;
+            this.colSanPham.Width = 300;
+            // 
+            // colGia
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.colGia.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colGia.HeaderText = "Giá";
+            this.colGia.MaxInputLength = 11;
+            this.colGia.MinimumWidth = 120;
+            this.colGia.Name = "colGia";
+            this.colGia.ReadOnly = true;
+            this.colGia.Width = 120;
+            // 
+            // colSoLuong
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colSoLuong.HeaderText = "Số lượng";
+            this.colSoLuong.MaxInputLength = 3;
+            this.colSoLuong.MinimumWidth = 100;
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            // 
+            // colThanhTien
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colThanhTien.HeaderText = "Thành tiền";
+            this.colThanhTien.MaxInputLength = 11;
+            this.colThanhTien.MinimumWidth = 120;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.ReadOnly = true;
+            this.colThanhTien.Width = 120;
             // 
             // UcDetail
             // 
@@ -416,7 +405,7 @@
         private System.Windows.Forms.Panel pnDetail;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbTongHoaDon;
+        private System.Windows.Forms.TextBox tbTong;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label47;
@@ -424,7 +413,7 @@
         private System.Windows.Forms.Label lbNgayGio;
         private System.Windows.Forms.ToolTip ttDetail;
         private System.Windows.Forms.DataGridView dgvThongTin;
-        private System.Windows.Forms.TextBox tbMaHD;
+        private System.Windows.Forms.TextBox tbMa;
         private System.Windows.Forms.DateTimePicker dtpFilter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdSanPham;
@@ -432,7 +421,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
 
     }
 }
