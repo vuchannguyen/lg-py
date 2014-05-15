@@ -95,9 +95,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(99, 22);
+            this.lbTitle.Size = new System.Drawing.Size(154, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "CẤU HÌNH";
+            this.lbTitle.Text = "MỆNH GIÁ TIỀN";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -316,7 +316,7 @@
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
             this.lbTotalPage.Location = new System.Drawing.Point(515, 6);
             this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
             this.lbTotalPage.Text = "??? Trang";
             // 

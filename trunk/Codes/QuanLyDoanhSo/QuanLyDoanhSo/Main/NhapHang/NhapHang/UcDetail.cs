@@ -10,7 +10,7 @@ using Library;
 using DTO;
 using BUS;
 
-namespace Weedon.HoaDon
+namespace Weedon.NhapHang
 {
     public partial class UcDetail : UserControl
     {
@@ -19,13 +19,13 @@ namespace Weedon.HoaDon
             InitializeComponent();
         }
 
-        public UcDetail(DTO.HoaDon data)
+        public UcDetail(DTO.NhapHang data)
         {
             InitializeComponent();
 
             RefreshData();
             AddToBill(data.Id);
-            tbMaHD.Text = data.Id.ToString();
+            tbMa.Text = data.Id.ToString();
             tbGhiChu.Text = data.GhiChu;
             dtpFilter.Value = data.Date;
             lbNgayGio.Text = dtpFilter.Value.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
@@ -58,26 +58,26 @@ namespace Weedon.HoaDon
         #region Function
         private void RefreshData()
         {
-            tbTongHoaDon.Text = string.Empty;
+            tbTong.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
             dgvThongTin.Rows.Clear();
             dtpFilter.Value = DateTime.Now;
             lbNgayGio.Text = dtpFilter.Value.ToString(Constant.DEFAULT_DATE_TIME_FORMAT);
         }
 
-        private void AddToBill(int idHoaDon)
+        private void AddToBill(int idNhapHang)
         {
-            List<DTO.HoaDonDetail> listDetail = HoaDonDetailBus.GetListByIdHoaDon(idHoaDon);
+            List<DTO.NhapHangChiTiet> listDetail = NhapHangChiTietBus.GetListByIdNhapHang(idNhapHang);
 
-            foreach (DTO.HoaDonDetail detail in listDetail)
+            foreach (DTO.NhapHangChiTiet detail in listDetail)
             {
                 int soLuong = detail.SoLuong;
-                long price = detail.DonGia;
+                long price = detail.SanPham.Gia;
                 long money = price * soLuong;
 
-                dgvThongTin.Rows.Add(detail.Id, detail.IdSanPham, detail.SanPham.MaSanPham + Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten,
+                dgvThongTin.Rows.Add(detail.Id, detail.IdSanPham, Constant.SYMBOL_LINK_STRING + detail.SanPham.Ten,
                     price.ToString(Constant.DEFAULT_FORMAT_MONEY), soLuong,
-                    money.ToString(Constant.DEFAULT_FORMAT_MONEY), detail.GhiChu);
+                    money.ToString(Constant.DEFAULT_FORMAT_MONEY));
             }
 
             CalculateMoney();
@@ -92,7 +92,7 @@ namespace Weedon.HoaDon
                 money += ConvertUtil.ConvertToLong(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             }
 
-            tbTongHoaDon.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            tbTong.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
         }
         #endregion
 

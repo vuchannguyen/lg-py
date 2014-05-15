@@ -207,18 +207,6 @@
     <Compile Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.Designer.cs">
       <DependentUpon>UcNguonCungCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\NhapHang\KiemTraChenhLech\UcKiemTraChenhLech.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NhapHang\KiemTraChenhLech\UcKiemTraChenhLech.Designer.cs">
-      <DependentUpon>UcKiemTraChenhLech.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\NhapHang\KiemTraNhatKy\UcKiemTraNhatKy.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NhapHang\KiemTraNhatKy\UcKiemTraNhatKy.Designer.cs">
-      <DependentUpon>UcKiemTraNhatKy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main\NhapHang\UcNhapHangIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -352,12 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.resx">
       <DependentUpon>UcNguonCungCap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\NhapHang\KiemTraChenhLech\UcKiemTraChenhLech.resx">
-      <DependentUpon>UcKiemTraChenhLech.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\NhapHang\KiemTraNhatKy\UcKiemTraNhatKy.resx">
-      <DependentUpon>UcKiemTraNhatKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\NhapHang\UcNhapHangIndex.resx">
       <DependentUpon>UcNhapHangIndex.cs</DependentUpon>

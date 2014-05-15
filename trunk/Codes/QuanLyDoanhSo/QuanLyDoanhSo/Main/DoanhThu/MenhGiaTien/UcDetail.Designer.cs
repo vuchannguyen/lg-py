@@ -173,7 +173,7 @@
             this.pnTitle.Controls.Add(this.pbTitle);
             this.pnTitle.Location = new System.Drawing.Point(351, 3);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(297, 38);
+            this.pnTitle.Size = new System.Drawing.Size(339, 38);
             this.pnTitle.TabIndex = 132;
             // 
             // lbSelect
@@ -194,9 +194,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(147, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(99, 22);
+            this.lbTitle.Size = new System.Drawing.Size(154, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "CẤU HÌNH";
+            this.lbTitle.Text = "MỆNH GIÁ TIỀN";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
