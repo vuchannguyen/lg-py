@@ -116,6 +116,12 @@
     <Compile Include="Main\DoanhThu\DoanhThu\UcDoanhThu.Designer.cs">
       <DependentUpon>UcDoanhThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.Designer.cs">
+      <DependentUpon>UcKhuyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\NhapHang\NhapHang\UcDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,24 +139,6 @@
     </Compile>
     <Compile Include="Main\NhapHang\NhapHang\UcInfo.designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcDetail.Designer.cs">
-      <DependentUpon>UcDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcInfo.Designer.cs">
-      <DependentUpon>UcInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcNhatKyMuaHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\NhatKyMuaHang\UcNhatKyMuaHang.Designer.cs">
-      <DependentUpon>UcNhatKyMuaHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\DoanhThu\UcDoanhThuIndex.cs">
       <SubType>UserControl</SubType>
@@ -308,6 +296,9 @@
     <EmbeddedResource Include="Main\DoanhThu\DoanhThu\UcDoanhThu.resx">
       <DependentUpon>UcDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.resx">
+      <DependentUpon>UcKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\NhapHang\NhapHang\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,15 +307,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\NhapHang\NhapHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\NhatKyMuaHang\UcDetail.resx">
-      <DependentUpon>UcDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\NhatKyMuaHang\UcInfo.resx">
-      <DependentUpon>UcInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\NhatKyMuaHang\UcNhatKyMuaHang.resx">
-      <DependentUpon>UcNhatKyMuaHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\DoanhThu\UcDoanhThuIndex.resx">
       <DependentUpon>UcDoanhThuIndex.cs</DependentUpon>

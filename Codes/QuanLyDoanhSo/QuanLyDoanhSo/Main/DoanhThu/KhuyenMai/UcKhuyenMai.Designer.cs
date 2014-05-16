@@ -44,7 +44,11 @@
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIdSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuongSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSanPhamKhuyenMai = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colSoLuongSanPhamKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonViLamTron = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
@@ -72,9 +76,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(167, 22);
+            this.lbTitle.Size = new System.Drawing.Size(130, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "GIÁ CHÍNH THỨC";
+            this.lbTitle.Text = "KHUYẾN MÃI";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -177,7 +181,11 @@
             this.colId,
             this.colIdSanPham,
             this.colSanPham,
-            this.colGia});
+            this.colSoLuongSanPham,
+            this.colSanPhamKhuyenMai,
+            this.colSoLuongSanPhamKhuyenMai,
+            this.colDonViLamTron,
+            this.colGhiChu});
             this.dgvThongTin.Location = new System.Drawing.Point(3, 3);
             this.dgvThongTin.Name = "dgvThongTin";
             this.dgvThongTin.Size = new System.Drawing.Size(894, 474);
@@ -211,15 +219,41 @@
             this.colSanPham.ReadOnly = true;
             this.colSanPham.Width = 300;
             // 
-            // colGia
+            // colSoLuongSanPham
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle1.Format = "N0";
             dataGridViewCellStyle1.NullValue = "0";
-            this.colGia.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colGia.HeaderText = "Giá";
-            this.colGia.MaxInputLength = 11;
-            this.colGia.Name = "colGia";
+            this.colSoLuongSanPham.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colSoLuongSanPham.HeaderText = "SL";
+            this.colSoLuongSanPham.MaxInputLength = 11;
+            this.colSoLuongSanPham.Name = "colSoLuongSanPham";
+            this.colSoLuongSanPham.Width = 70;
+            // 
+            // colSanPhamKhuyenMai
+            // 
+            this.colSanPhamKhuyenMai.HeaderText = "Sản phẩm khuyến mãi";
+            this.colSanPhamKhuyenMai.Name = "colSanPhamKhuyenMai";
+            this.colSanPhamKhuyenMai.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSanPhamKhuyenMai.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colSanPhamKhuyenMai.Width = 200;
+            // 
+            // colSoLuongSanPhamKhuyenMai
+            // 
+            this.colSoLuongSanPhamKhuyenMai.HeaderText = "SL KM";
+            this.colSoLuongSanPhamKhuyenMai.Name = "colSoLuongSanPhamKhuyenMai";
+            this.colSoLuongSanPhamKhuyenMai.Width = 70;
+            // 
+            // colDonViLamTron
+            // 
+            this.colDonViLamTron.HeaderText = "Làm tròn";
+            this.colDonViLamTron.Name = "colDonViLamTron";
+            this.colDonViLamTron.Width = 70;
+            // 
+            // colGhiChu
+            // 
+            this.colGhiChu.HeaderText = "Ghi chú";
+            this.colGhiChu.Name = "colGhiChu";
             // 
             // UcGiaChinhThuc
             // 
@@ -265,6 +299,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSanPham;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuongSanPham;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colSanPhamKhuyenMai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuongSanPhamKhuyenMai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonViLamTron;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
     }
 }
