@@ -71,7 +71,7 @@ namespace Weedon
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
 
-            tbSearch.Text = Constant.SEARCH_MenhGiaTien_TIP;
+            tbSearch.Text = Constant.SEARCH_MENHGIATIEN_TIP;
 
             InitPermission();
 
@@ -83,7 +83,7 @@ namespace Weedon
         #region Function
         private void InitPermission()
         {
-            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            if (FormMain.user.IdUserGroup != Constant.ID_GROUP_ADMIN)
             {
                 pnSua.Visible = false;
             }
@@ -91,7 +91,7 @@ namespace Weedon
 
         private void uc_Disposed(object sender, EventArgs e)
         {
-            tbSearch.Text = Constant.SEARCH_MenhGiaTien_TIP;
+            tbSearch.Text = Constant.SEARCH_MENHGIATIEN_TIP;
 
             RefreshListView(tbSearch.Text,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
@@ -120,7 +120,7 @@ namespace Weedon
         private void RefreshListView(string text,
             string sortColumn, string sortOrder, int page)
         {
-            if (text == Constant.SEARCH_MenhGiaTien_TIP)
+            if (text == Constant.SEARCH_MENHGIATIEN_TIP)
             {
                 text = string.Empty;
             }
@@ -147,8 +147,8 @@ namespace Weedon
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
                 lvi.SubItems.Add(data.Ten);
-                lvi.SubItems.Add(data.Value);
-                lvi.SubItems.Add(data.MoTa);
+                lvi.SubItems.Add(data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.GhiChu);
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -242,7 +242,7 @@ namespace Weedon
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (MenhGiaTienBus.DeleteList(ids, FormMain.user))
+                if (MenhGiaTienBus.DeleteList(ids))
                 {
                     RefreshListView(tbSearch.Text,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
@@ -344,8 +344,8 @@ namespace Weedon
                 {
                     int id = ConvertUtil.ConvertToInt(lvThongTin.SelectedItems[0].SubItems[1].Text);
 
-                    UserControl uc = new UcDetail(MenhGiaTienBus.GetById(id));
-                    this.Controls.Add(uc);
+                    //UserControl uc = new UcDetail(MenhGiaTienBus.GetById(id));
+                    //this.Controls.Add(uc);
                 }
             }
         }
@@ -428,7 +428,7 @@ namespace Weedon
 
         private void tbSearch_Enter(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_MenhGiaTien_TIP)
+            if (tbSearch.Text == Constant.SEARCH_MENHGIATIEN_TIP)
             {
                 tbSearch.Text = string.Empty;
             }
@@ -438,7 +438,7 @@ namespace Weedon
         {
             if (tbSearch.Text == string.Empty)
             {
-                tbSearch.Text = Constant.SEARCH_MenhGiaTien_TIP;
+                tbSearch.Text = Constant.SEARCH_MENHGIATIEN_TIP;
             }
         }
 
@@ -452,7 +452,7 @@ namespace Weedon
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (tbSearch.Text == Constant.SEARCH_MenhGiaTien_TIP)
+            if (tbSearch.Text == Constant.SEARCH_MENHGIATIEN_TIP)
             {
                 pbOk.Enabled = false;
                 pbOk.Image = Image.FromFile(ConstantResource.CHUC_NANG_BUTTON_OK_PAGE_DISABLE);

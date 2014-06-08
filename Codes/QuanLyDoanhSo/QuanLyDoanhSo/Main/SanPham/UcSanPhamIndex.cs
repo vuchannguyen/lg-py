@@ -49,11 +49,11 @@ namespace Weedon
 
         private void InitPermission()
         {
-            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
-            {
-                pbNhomSanPham.Location = CommonFunc.SetWidthCenter(pnSelect.Size, pbNhomSanPham.Size, pbNhomSanPham.Top);
-                lbNhomSanPham.Location = CommonFunc.SetWidthCenter(pnSelect.Size, lbNhomSanPham.Size, lbNhomSanPham.Top);
-            }
+            //if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            //{
+            //    pbNhomSanPham.Location = CommonFunc.SetWidthCenter(pnSelect.Size, pbNhomSanPham.Size, pbNhomSanPham.Top);
+            //    lbNhomSanPham.Location = CommonFunc.SetWidthCenter(pnSelect.Size, lbNhomSanPham.Size, lbNhomSanPham.Top);
+            //}
         }
 
         private void pbSanPham_Click(object sender, EventArgs e)

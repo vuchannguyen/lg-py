@@ -1,6 +1,6 @@
 ﻿namespace Weedon
 {
-    partial class UcMenhGiaTien
+    partial class UcBanHang
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,10 +32,13 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnSelect = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbExcel = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.pbThem = new System.Windows.Forms.PictureBox();
-            this.pnSua = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label30 = new System.Windows.Forms.Label();
             this.pbSua = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -46,9 +49,9 @@
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGiaTri = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chTenNV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -60,12 +63,16 @@
             this.pbTraCuu = new System.Windows.Forms.PictureBox();
             this.pnPage = new System.Windows.Forms.Panel();
             this.lbPage = new System.Windows.Forms.Label();
+            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
+            this.chTo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnSelect.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).BeginInit();
-            this.pnSua.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbXoa)).BeginInit();
@@ -83,10 +90,10 @@
             // 
             this.pnTitle.Controls.Add(this.lbTitle);
             this.pnTitle.Controls.Add(this.pbTitle);
-            this.pnTitle.Location = new System.Drawing.Point(561, 6);
+            this.pnTitle.Location = new System.Drawing.Point(591, 6);
             this.pnTitle.Name = "pnTitle";
-            this.pnTitle.Size = new System.Drawing.Size(300, 38);
-            this.pnTitle.TabIndex = 53;
+            this.pnTitle.Size = new System.Drawing.Size(270, 38);
+            this.pnTitle.TabIndex = 50;
             // 
             // lbTitle
             // 
@@ -95,9 +102,9 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Gray;
             this.lbTitle.Location = new System.Drawing.Point(52, 8);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(154, 22);
+            this.lbTitle.Size = new System.Drawing.Size(111, 22);
             this.lbTitle.TabIndex = 2;
-            this.lbTitle.Text = "MỆNH GIÁ TIỀN";
+            this.lbTitle.Text = "BÁN HÀNG";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // pbTitle
@@ -111,13 +118,47 @@
             // 
             // pnSelect
             // 
+            this.pnSelect.Controls.Add(this.panel1);
             this.pnSelect.Controls.Add(this.panel2);
-            this.pnSelect.Controls.Add(this.pnSua);
+            this.pnSelect.Controls.Add(this.panel3);
             this.pnSelect.Controls.Add(this.panel4);
             this.pnSelect.Location = new System.Drawing.Point(140, 3);
             this.pnSelect.Name = "pnSelect";
-            this.pnSelect.Size = new System.Drawing.Size(235, 78);
-            this.pnSelect.TabIndex = 52;
+            this.pnSelect.Size = new System.Drawing.Size(310, 78);
+            this.pnSelect.TabIndex = 49;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pbExcel);
+            this.panel1.Location = new System.Drawing.Point(234, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(70, 70);
+            this.panel1.TabIndex = 29;
+            this.panel1.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(-1, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Xuất Excel";
+            // 
+            // pbExcel
+            // 
+            this.pbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbExcel.Location = new System.Drawing.Point(10, 0);
+            this.pbExcel.Name = "pbExcel";
+            this.pbExcel.Size = new System.Drawing.Size(50, 50);
+            this.pbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbExcel.TabIndex = 1;
+            this.pbExcel.TabStop = false;
+            this.pbExcel.Click += new System.EventHandler(this.pbExcel_Click);
+            this.pbExcel.MouseEnter += new System.EventHandler(this.pbExcel_MouseEnter);
+            this.pbExcel.MouseLeave += new System.EventHandler(this.pbExcel_MouseLeave);
             // 
             // panel2
             // 
@@ -150,14 +191,14 @@
             this.pbThem.MouseEnter += new System.EventHandler(this.pbThem_MouseEnter);
             this.pbThem.MouseLeave += new System.EventHandler(this.pbThem_MouseLeave);
             // 
-            // pnSua
+            // panel3
             // 
-            this.pnSua.Controls.Add(this.label30);
-            this.pnSua.Controls.Add(this.pbSua);
-            this.pnSua.Location = new System.Drawing.Point(158, 3);
-            this.pnSua.Name = "pnSua";
-            this.pnSua.Size = new System.Drawing.Size(70, 70);
-            this.pnSua.TabIndex = 28;
+            this.panel3.Controls.Add(this.label30);
+            this.panel3.Controls.Add(this.pbSua);
+            this.panel3.Location = new System.Drawing.Point(158, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(70, 70);
+            this.panel3.TabIndex = 28;
             // 
             // label30
             // 
@@ -218,10 +259,10 @@
             // 
             this.pnQuanLy.Controls.Add(this.lvThongTin);
             this.pnQuanLy.Controls.Add(this.pnTraCuu);
-            this.pnQuanLy.Location = new System.Drawing.Point(146, 87);
+            this.pnQuanLy.Location = new System.Drawing.Point(80, 87);
             this.pnQuanLy.Name = "pnQuanLy";
-            this.pnQuanLy.Size = new System.Drawing.Size(710, 480);
-            this.pnQuanLy.TabIndex = 51;
+            this.pnQuanLy.Size = new System.Drawing.Size(850, 480);
+            this.pnQuanLy.TabIndex = 48;
             // 
             // lvThongTin
             // 
@@ -230,16 +271,17 @@
             this.chCheckBox,
             this.chMa,
             this.chSTT,
-            this.chTen,
-            this.chGiaTri,
-            this.chMoTa});
+            this.chTenNV,
+            this.chTo,
+            this.chThanhTien,
+            this.chGhiChu});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
             this.lvThongTin.Location = new System.Drawing.Point(3, 3);
             this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(700, 430);
+            this.lvThongTin.Size = new System.Drawing.Size(840, 430);
             this.lvThongTin.TabIndex = 86;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
@@ -252,6 +294,7 @@
             // chCheckBox
             // 
             this.chCheckBox.Text = "All";
+            this.chCheckBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chCheckBox.Width = 30;
             // 
             // chMa
@@ -266,21 +309,20 @@
             this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chSTT.Width = 39;
             // 
-            // chTen
+            // chTenNV
             // 
-            this.chTen.Text = "Tên";
-            this.chTen.Width = 174;
+            this.chTenNV.Text = "Tên NV";
+            this.chTenNV.Width = 231;
             // 
-            // chGiaTri
+            // chThanhTien
             // 
-            this.chGiaTri.Text = "Giá trị";
-            this.chGiaTri.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chGiaTri.Width = 220;
+            this.chThanhTien.Text = "Thành tiền";
+            this.chThanhTien.Width = 132;
             // 
-            // chMoTa
+            // chGhiChu
             // 
-            this.chMoTa.Text = "Ghi chú";
-            this.chMoTa.Width = 233;
+            this.chGhiChu.Text = "Ghi chú";
+            this.chGhiChu.Width = 303;
             // 
             // pnTraCuu
             // 
@@ -295,12 +337,12 @@
             this.pnTraCuu.Controls.Add(this.pnPage);
             this.pnTraCuu.Location = new System.Drawing.Point(3, 439);
             this.pnTraCuu.Name = "pnTraCuu";
-            this.pnTraCuu.Size = new System.Drawing.Size(700, 33);
+            this.pnTraCuu.Size = new System.Drawing.Size(840, 33);
             this.pnTraCuu.TabIndex = 85;
             // 
             // tbPage
             // 
-            this.tbPage.Location = new System.Drawing.Point(421, 6);
+            this.tbPage.Location = new System.Drawing.Point(561, 6);
             this.tbPage.MaxLength = 3;
             this.tbPage.Name = "tbPage";
             this.tbPage.Size = new System.Drawing.Size(40, 23);
@@ -314,7 +356,7 @@
             this.lbTotalPage.AutoSize = true;
             this.lbTotalPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbTotalPage.Location = new System.Drawing.Point(515, 6);
+            this.lbTotalPage.Location = new System.Drawing.Point(655, 6);
             this.lbTotalPage.Name = "lbTotalPage";
             this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
@@ -323,7 +365,7 @@
             // pbNextPage
             // 
             this.pbNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNextPage.Location = new System.Drawing.Point(675, 0);
+            this.pbNextPage.Location = new System.Drawing.Point(815, 0);
             this.pbNextPage.Name = "pbNextPage";
             this.pbNextPage.Size = new System.Drawing.Size(25, 32);
             this.pbNextPage.TabIndex = 88;
@@ -335,7 +377,7 @@
             // pbBackPage
             // 
             this.pbBackPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBackPage.Location = new System.Drawing.Point(610, 0);
+            this.pbBackPage.Location = new System.Drawing.Point(750, 0);
             this.pbBackPage.Name = "pbBackPage";
             this.pbBackPage.Size = new System.Drawing.Size(25, 32);
             this.pbBackPage.TabIndex = 87;
@@ -347,7 +389,7 @@
             // pbTotalPage
             // 
             this.pbTotalPage.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pbTotalPage.Location = new System.Drawing.Point(477, 0);
+            this.pbTotalPage.Location = new System.Drawing.Point(617, 0);
             this.pbTotalPage.Name = "pbTotalPage";
             this.pbTotalPage.Size = new System.Drawing.Size(32, 33);
             this.pbTotalPage.TabIndex = 86;
@@ -389,7 +431,7 @@
             // pnPage
             // 
             this.pnPage.Controls.Add(this.lbPage);
-            this.pnPage.Location = new System.Drawing.Point(633, 5);
+            this.pnPage.Location = new System.Drawing.Point(773, 5);
             this.pnPage.Name = "pnPage";
             this.pnPage.Size = new System.Drawing.Size(45, 22);
             this.pnPage.TabIndex = 86;
@@ -399,7 +441,7 @@
             this.lbPage.AutoSize = true;
             this.lbPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbPage.Location = new System.Drawing.Point(13, 1);
+            this.lbPage.Location = new System.Drawing.Point(12, 1);
             this.lbPage.Name = "lbPage";
             this.lbPage.Size = new System.Drawing.Size(18, 19);
             this.lbPage.TabIndex = 89;
@@ -408,26 +450,44 @@
             this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
             this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
             // 
-            // UcMenhGiaTien
+            // dtpFilter
+            // 
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFilter.Location = new System.Drawing.Point(456, 53);
+            this.dtpFilter.Name = "dtpFilter";
+            this.dtpFilter.Size = new System.Drawing.Size(150, 23);
+            this.dtpFilter.TabIndex = 53;
+            // 
+            // chTo
+            // 
+            this.chTo.Text = "Tổ";
+            this.chTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chTo.Width = 50;
+            // 
+            // UcBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dtpFilter);
             this.Controls.Add(this.pnTitle);
             this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UcMenhGiaTien";
+            this.Name = "UcBanHang";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.Load += new System.EventHandler(this.UcMenhGiaTien_Load);
+            this.Load += new System.EventHandler(this.UcBanHang_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();
             this.pnSelect.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbExcel)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbThem)).EndInit();
-            this.pnSua.ResumeLayout(false);
-            this.pnSua.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSua)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -455,7 +515,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.PictureBox pbThem;
-        private System.Windows.Forms.Panel pnSua;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.PictureBox pbSua;
         private System.Windows.Forms.Panel panel4;
@@ -465,8 +525,8 @@
         private System.Windows.Forms.ListView lvThongTin;
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chSTT;
-        private System.Windows.Forms.ColumnHeader chTen;
-        private System.Windows.Forms.ColumnHeader chMoTa;
+        private System.Windows.Forms.ColumnHeader chTenNV;
+        private System.Windows.Forms.ColumnHeader chThanhTien;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
@@ -478,7 +538,12 @@
         private System.Windows.Forms.PictureBox pbTraCuu;
         private System.Windows.Forms.Panel pnPage;
         private System.Windows.Forms.Label lbPage;
+        private System.Windows.Forms.ColumnHeader chGhiChu;
         private System.Windows.Forms.ColumnHeader chCheckBox;
-        private System.Windows.Forms.ColumnHeader chGiaTri;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbExcel;
+        private System.Windows.Forms.DateTimePicker dtpFilter;
+        private System.Windows.Forms.ColumnHeader chTo;
     }
 }

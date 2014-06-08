@@ -24,9 +24,9 @@ namespace Weedon
             try
             {
                 pbDoanhThu.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_DOANHTHU_INDEX);
-                pbHoaDon.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX);
+                pbBanHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX);
                 pbMenhGiaTien.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_PRICE_INDEX);
-                pbNhatKyMuaHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX);
+                pbKhuyenMai.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX);
             }
             catch
             {
@@ -49,7 +49,7 @@ namespace Weedon
 
         private void pbDoanhThu_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcDoanhThu());
+            //CommonFunc.NewControl(this.Controls, ref uc, new UcDoanhThu());
         }
 
         private void pbGiaChinhThuc_Click(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace Weedon
 
         private void pbHoaDon_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcHoaDon());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcBanHang());
         }
 
         private void pbDoanhThu_MouseEnter(object sender, EventArgs e)
@@ -76,14 +76,14 @@ namespace Weedon
 
         private void pbHoaDon_MouseEnter(object sender, EventArgs e)
         {
-            pbHoaDon.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX_MOUSEOVER);
-            lbHoaDon.ForeColor = Constant.COLOR_MOUSEOVER;
+            pbBanHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX_MOUSEOVER);
+            lbBanHang.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbHoaDon_MouseLeave(object sender, EventArgs e)
         {
-            pbHoaDon.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX);
-            lbHoaDon.ForeColor = Constant.COLOR_NORMAL;
+            pbBanHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_HOADON_INDEX);
+            lbBanHang.ForeColor = Constant.COLOR_NORMAL;
         }
 
         private void pbGiaChinhThuc_MouseEnter(object sender, EventArgs e)
@@ -100,18 +100,18 @@ namespace Weedon
 
         private void pbNhatKyMuaHang_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcNhatKyMuaHang());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcKhuyenMai());
         }
 
         private void pbNhatKyMuaHang_MouseEnter(object sender, EventArgs e)
         {
-            pbNhatKyMuaHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX_MOUSEOVER);
+            pbKhuyenMai.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX_MOUSEOVER);
             lbNhatKyMuaHang.ForeColor = Constant.COLOR_MOUSEOVER;
         }
 
         private void pbNhatKyMuaHang_MouseLeave(object sender, EventArgs e)
         {
-            pbNhatKyMuaHang.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX);
+            pbKhuyenMai.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_NHATKYMUAHANG_INDEX);
             lbNhatKyMuaHang.ForeColor = Constant.COLOR_NORMAL;
         }
     }

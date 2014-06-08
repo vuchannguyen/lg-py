@@ -1,6 +1,6 @@
 ﻿namespace Weedon
 {
-    partial class UcGiaChinhThuc
+    partial class UcKhuyenMai
     {
         /// <summary> 
         /// Required designer variable.
@@ -255,7 +255,7 @@
             this.colGhiChu.HeaderText = "Ghi chú";
             this.colGhiChu.Name = "colGhiChu";
             // 
-            // UcGiaChinhThuc
+            // UcKhuyenMai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -263,9 +263,9 @@
             this.Controls.Add(this.pnSelect);
             this.Controls.Add(this.pnQuanLy);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "UcGiaChinhThuc";
+            this.Name = "UcKhuyenMai";
             this.Size = new System.Drawing.Size(1000, 600);
-            this.Load += new System.EventHandler(this.UcGiaChinhThuc_Load);
+            this.Load += new System.EventHandler(this.UcKhuyenMai_Load);
             this.pnTitle.ResumeLayout(false);
             this.pnTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).EndInit();

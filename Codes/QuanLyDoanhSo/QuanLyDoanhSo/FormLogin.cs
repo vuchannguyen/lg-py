@@ -163,12 +163,12 @@ namespace Weedon
             {
                 DTO.User data = new DTO.User();
 
-                data.IdGroup = UserGroupBus.GetList(Constant.DEFAULT_USER_GROUP_ADMIN_NAME, string.Empty, string.Empty, 0, 0)[0].Id;
+                data.IdUserGroup = UserGroupBus.GetList(Constant.DEFAULT_USER_GROUP_ADMIN_NAME, string.Empty, string.Empty, 0, 0)[0].Id;
                 data.Ten = Constant.DEFAULT_USER_ADMIN_NAME;
                 data.UserName = Constant.DEFAULT_USER_ADMIN_NAME;
                 data.Password = Crypto.EncryptText(Constant.DEFAULT_USER_ADMIN_PASSWORD);
 
-                if (!UserBus.Insert(data, data))
+                if (!UserBus.Insert(data))
                 {
                     MessageBox.Show(Constant.MESSAGE_ERROR, Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();

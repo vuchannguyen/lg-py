@@ -12,15 +12,15 @@ using BUS;
 
 namespace Weedon
 {
-    public partial class UcGiaChinhThuc : UserControl
+    public partial class UcKhuyenMai : UserControl
     {
         private const int row = Constant.DEFAULT_ROW;
 
         private ListViewEx lvEx;
 
-        private List<DTO.GiaChinhThuc> listData;
+        private List<DTO.KhuyenMai> listData;
 
-        public UcGiaChinhThuc()
+        public UcKhuyenMai()
         {
             InitializeComponent();
         }
@@ -42,7 +42,7 @@ namespace Weedon
             }
         }
 
-        private void UcGiaChinhThuc_Load(object sender, EventArgs e)
+        private void UcKhuyenMai_Load(object sender, EventArgs e)
         {
             this.Visible = false;
 
@@ -66,14 +66,14 @@ namespace Weedon
         #region Function
         private void Init()
         {
-            listData = new List<DTO.GiaChinhThuc>();
+            listData = new List<DTO.KhuyenMai>();
 
             RefreshData(string.Empty, 0);
         }
 
         private void InitPermission()
         {
-            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            if (FormMain.user.IdUserGroup != Constant.ID_GROUP_ADMIN)
             {
                 dgvThongTin.ReadOnly = true;
                 pnSua.Visible = false;
@@ -88,19 +88,25 @@ namespace Weedon
         private void RefreshData(string text, int idGroup)
         {
             dgvThongTin.Rows.Clear();
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, idGroup, string.Empty, string.Empty, 0, 0);
+            List<DTO.SanPham> list = SanPhamBus.GetList(text, string.Empty, string.Empty, 0, 0);
 
             foreach (DTO.SanPham data in list)
             {
-                DTO.GiaChinhThuc dataGia = GiaChinhThucBus.GetByIdSanPham(data.Id);
+                DTO.KhuyenMai dataKM = KhuyenMaiBus.GetByIdSanPham(data.Id);
 
-                if (dataGia != null)
+                if (dataKM != null)
                 {
-                    dgvThongTin.Rows.Add(dataGia.Id, data.Id, data.Ten, dataGia.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                    dgvThongTin.Rows.Add(string.Empty, dataKM.Id, dataKM.SanPham.Ten,
+                        dataKM.SanPham1.Ten, dataKM.SoLuongSanPhamKhuyenMai,
+                        dataKM.DonViLamTron,
+                        dataKM.GhiChu);
                 }
                 else
                 {
-                    dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, string.Empty);
+                    dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
+                        string.Empty, 0,
+                        0,
+                        string.Empty);
                 }
             }
         }
@@ -111,53 +117,53 @@ namespace Weedon
             {
                 if (row.Cells[colId.Name].Value != null && !string.IsNullOrEmpty(row.Cells[colId.Name].Value.ToString()))
                 {
-                    DTO.GiaChinhThuc data = GiaChinhThucBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
+                    //DTO.KhuyenMai data = KhuyenMaiBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
 
-                    data.Gia = row.Cells[colGia.Name].Value == null ? 0 :
-                        ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    //data.Gia = row.Cells[colGia.Name].Value == null ? 0 :
+                    //    ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
-                    if (GiaChinhThucBus.Update(data, FormMain.user))
-                    {
-                        //this.Dispose();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                        {
-                            //this.Dispose();
+                    //if (KhuyenMaiBus.Update(data, FormMain.user))
+                    //{
+                    //    //this.Dispose();
+                    //}
+                    //else
+                    //{
+                    //    if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    //    {
+                    //        //this.Dispose();
 
-                            return;
-                        }
-                    }
+                    //        return;
+                    //    }
+                    //}
                 }
                 else
                 {
-                    DTO.GiaChinhThuc data = new DTO.GiaChinhThuc();
+                    //DTO.KhuyenMai data = new DTO.KhuyenMai();
 
-                    data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
-                    data.Gia = row.Cells[colGia.Name].Value == null ? 0 :
-                        ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    //data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
+                    //data.Gia = row.Cells[colGia.Name].Value == null ? 0 :
+                    //    ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
 
-                    if (GiaChinhThucBus.Insert(data, FormMain.user))
-                    {
-                        //this.Dispose();
-                    }
-                    else
-                    {
-                        if (MessageBox.Show(Constant.MESSAGE_UPDATE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                        {
-                            //this.Dispose();
+                    //if (KhuyenMaiBus.Insert(data, FormMain.user))
+                    //{
+                    //    //this.Dispose();
+                    //}
+                    //else
+                    //{
+                    //    if (MessageBox.Show(Constant.MESSAGE_UPDATE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    //    {
+                    //        //this.Dispose();
 
-                            return;
-                        }
-                    }
+                    //        return;
+                    //    }
+                    //}
                 }
             }
 
             pbSua.Enabled = false;
             pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
-            MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Giá chính thức"), Constant.CAPTION_CONFIRMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Khuyến mãi"), Constant.CAPTION_CONFIRMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 
@@ -210,70 +216,70 @@ namespace Weedon
 
         private void RefreshLvEx(string text)
         {
-            lvEx.Items.Clear();
+            //lvEx.Items.Clear();
 
-            if (text == Constant.SEARCH_NGUYENLIEU_TIP)
-            {
-                text = string.Empty;
-            }
+            //if (text == Constant.SEARCH_NGUYENLIEU_TIP)
+            //{
+            //    text = string.Empty;
+            //}
 
-            List<DTO.NguyenLieu> list = NguyenLieuBus.GetList(string.Empty, null,
-                string.Empty, string.Empty, 0, 0);
+            //List<DTO.NguyenLieu> list = NguyenLieuBus.GetList(string.Empty, null,
+            //    string.Empty, string.Empty, 0, 0);
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                ListViewItem lvi = new ListViewItem();
-                int colNum = 0;
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    ListViewItem lvi = new ListViewItem();
+            //    int colNum = 0;
 
-                //if (lvEx.Columns[0].Visible)
-                //{
-                //    lvi.Text = list_dto[i].Ma;
-                //}
+            //    //if (lvEx.Columns[0].Visible)
+            //    //{
+            //    //    lvi.Text = list_dto[i].Ma;
+            //    //}
 
-                colNum++; //1
+            //    colNum++; //1
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.Text = (i + 1).ToString();
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.Text = (i + 1).ToString();
+            //    }
 
-                colNum++; //2
+            //    colNum++; //2
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    if (!lvEx.Columns[1].Visible)
-                    {
-                        lvi.Text = list[i].MaNguyenLieu;
-                    }
-                    else
-                    {
-                        lvi.SubItems.Add(list[i].MaNguyenLieu);
-                    }
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        if (!lvEx.Columns[1].Visible)
+            //        {
+            //            lvi.Text = list[i].MaNguyenLieu;
+            //        }
+            //        else
+            //        {
+            //            lvi.SubItems.Add(list[i].MaNguyenLieu);
+            //        }
+            //    }
 
-                colNum++; //3
+            //    colNum++; //3
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.SubItems.Add(list[i].Ten);
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.SubItems.Add(list[i].Ten);
+            //    }
 
-                colNum++; //4
+            //    colNum++; //4
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.SubItems.Add(list[i].DonViTinh);
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.SubItems.Add(list[i].DonViTinh);
+            //    }
 
-                colNum++; //5
+            //    colNum++; //5
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.SubItems.Add(list[i].MoTa);
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.SubItems.Add(list[i].MoTa);
+            //    }
 
-                lvEx.Items.Add(lvi);
-            }
+            //    lvEx.Items.Add(lvi);
+            //}
         }
 
         private void LvEx_ColumnVisibleChanged(object sender, EventArgs e)
@@ -289,7 +295,7 @@ namespace Weedon
         {
             pbSua.Focus();
 
-            if (MessageBox.Show("Cập nhật giá?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Cập nhật khuyến mãi?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 UpdateData();
             }
@@ -341,39 +347,39 @@ namespace Weedon
         #region Controls
         private void dgvThongTin_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            if (dgvThongTin[colGia.Name, e.RowIndex].Value != null)
-            {
-                dgvThongTin[colGia.Name, e.RowIndex].Value = dgvThongTin[colGia.Name, e.RowIndex].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty);
-            }
+            //if (dgvThongTin[colGia.Name, e.RowIndex].Value != null)
+            //{
+            //    dgvThongTin[colGia.Name, e.RowIndex].Value = dgvThongTin[colGia.Name, e.RowIndex].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty);
+            //}
         }
 
         private void dgvThongTin_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvThongTin[colGia.Name, e.RowIndex].Value != null)
-            {
-                long money = ConvertUtil.ConvertToLong(dgvThongTin[colGia.Name, e.RowIndex].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                dgvThongTin[colGia.Name, e.RowIndex].Value = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
-            }
+            //if (dgvThongTin[colGia.Name, e.RowIndex].Value != null)
+            //{
+            //    long money = ConvertUtil.ConvertToLong(dgvThongTin[colGia.Name, e.RowIndex].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            //    dgvThongTin[colGia.Name, e.RowIndex].Value = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            //}
 
-            bool isValidated = true;
+            //bool isValidated = true;
 
-            if (ConvertUtil.ConvertToDouble(dgvThongTin[colGia.Name, e.RowIndex].Value) < 0)
-            {
-                MessageBox.Show("Giá thấp hơn quy định!", Constant.CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //if (ConvertUtil.ConvertToDouble(dgvThongTin[colGia.Name, e.RowIndex].Value) < 0)
+            //{
+            //    MessageBox.Show("Giá thấp hơn quy định!", Constant.CAPTION_WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                isValidated = false;
-            }
+            //    isValidated = false;
+            //}
 
-            if (!isValidated)
-            {
-                pbSua.Enabled = false;
-                pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+            //if (!isValidated)
+            //{
+            //    pbSua.Enabled = false;
+            //    pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
-                return;
-            }
+            //    return;
+            //}
 
-            pbSua.Enabled = true;
-            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
+            //pbSua.Enabled = true;
+            //pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
         }
         #endregion
     }

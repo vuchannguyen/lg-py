@@ -51,7 +51,6 @@
             this.chTongTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTrangThai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
             this.tbPage = new System.Windows.Forms.TextBox();
             this.lbTotalPage = new System.Windows.Forms.Label();
@@ -238,8 +237,7 @@
             this.chNhanVien,
             this.chTongTien,
             this.chSoLuong,
-            this.chGhiChu,
-            this.chTrangThai});
+            this.chGhiChu});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
@@ -300,12 +298,6 @@
             // 
             this.chGhiChu.Text = "Ghi chú";
             this.chGhiChu.Width = 150;
-            // 
-            // chTrangThai
-            // 
-            this.chTrangThai.Text = "Trạng thái";
-            this.chTrangThai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chTrangThai.Width = 100;
             // 
             // pnTraCuu
             // 
@@ -516,7 +508,6 @@
         private System.Windows.Forms.ColumnHeader chGhiChu;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chTongTien;
-        private System.Windows.Forms.ColumnHeader chTrangThai;
         private System.Windows.Forms.ColumnHeader chSoLuong;
         private System.Windows.Forms.DateTimePicker dtpFilter;
     }

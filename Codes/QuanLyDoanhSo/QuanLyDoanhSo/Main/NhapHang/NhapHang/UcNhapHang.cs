@@ -376,10 +376,10 @@ namespace Weedon
 
         private void lvThongTin_ItemChecked(object sender, ItemCheckedEventArgs e)
         {
-            if (e.Item.SubItems[8].Text == Constant.APPROVED)
-            {
-                e.Item.Checked = false;
-            }
+            //if (e.Item.SubItems[8].Text == Constant.APPROVED)
+            //{
+            //    e.Item.Checked = false;
+            //}
 
             CheckListViewItemsIsChecked();
         }

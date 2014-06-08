@@ -34,13 +34,16 @@
             this.pbTitle = new System.Windows.Forms.PictureBox();
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.cbDVT = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbGia = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.rbTamNgung = new System.Windows.Forms.RadioButton();
             this.rbBan = new System.Windows.Forms.RadioButton();
-            this.tbMoTa = new System.Windows.Forms.TextBox();
+            this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.tbTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbGroup = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label47 = new System.Windows.Forms.Label();
@@ -50,7 +53,6 @@
             this.pbHuy = new System.Windows.Forms.PictureBox();
             this.tbMa = new System.Windows.Forms.TextBox();
             this.lbMa = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTitle)).BeginInit();
             this.pnInfo.SuspendLayout();
@@ -114,19 +116,21 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.cbDVT);
+            this.gbInfo.Controls.Add(this.label5);
+            this.gbInfo.Controls.Add(this.tbGia);
+            this.gbInfo.Controls.Add(this.label6);
             this.gbInfo.Controls.Add(this.label3);
             this.gbInfo.Controls.Add(this.rbTamNgung);
             this.gbInfo.Controls.Add(this.rbBan);
-            this.gbInfo.Controls.Add(this.tbMoTa);
+            this.gbInfo.Controls.Add(this.tbGhiChu);
             this.gbInfo.Controls.Add(this.tbTen);
             this.gbInfo.Controls.Add(this.label1);
-            this.gbInfo.Controls.Add(this.cbGroup);
             this.gbInfo.Controls.Add(this.label4);
             this.gbInfo.Controls.Add(this.panel12);
             this.gbInfo.Controls.Add(this.panel8);
             this.gbInfo.Controls.Add(this.tbMa);
             this.gbInfo.Controls.Add(this.lbMa);
-            this.gbInfo.Controls.Add(this.label2);
             this.gbInfo.ForeColor = System.Drawing.Color.Orange;
             this.gbInfo.Location = new System.Drawing.Point(7, 3);
             this.gbInfo.Name = "gbInfo";
@@ -134,6 +138,51 @@
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // cbDVT
+            // 
+            this.cbDVT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbDVT.DisplayMember = "1";
+            this.cbDVT.FormattingEnabled = true;
+            this.cbDVT.Items.AddRange(new object[] {
+            "Bao",
+            "Cái"});
+            this.cbDVT.Location = new System.Drawing.Point(420, 70);
+            this.cbDVT.MaxLength = 20;
+            this.cbDVT.Name = "cbDVT";
+            this.cbDVT.Size = new System.Drawing.Size(150, 24);
+            this.cbDVT.TabIndex = 126;
+            this.cbDVT.SelectedIndexChanged += new System.EventHandler(this.cbDVT_SelectedIndexChanged);
+            this.cbDVT.TextChanged += new System.EventHandler(this.cbDVT_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(328, 73);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 16);
+            this.label5.TabIndex = 125;
+            this.label5.Text = "*Đơn vị tính:";
+            // 
+            // tbGia
+            // 
+            this.tbGia.Location = new System.Drawing.Point(110, 70);
+            this.tbGia.MaxLength = 11;
+            this.tbGia.Name = "tbGia";
+            this.tbGia.Size = new System.Drawing.Size(100, 23);
+            this.tbGia.TabIndex = 122;
+            this.tbGia.TextChanged += new System.EventHandler(this.tbGia_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(65, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.TabIndex = 124;
+            this.label6.Text = "*Giá:";
             // 
             // label3
             // 
@@ -170,18 +219,18 @@
             this.rbBan.Text = "Bán";
             this.rbBan.UseVisualStyleBackColor = true;
             // 
-            // tbMoTa
+            // tbGhiChu
             // 
-            this.tbMoTa.Location = new System.Drawing.Point(420, 70);
-            this.tbMoTa.MaxLength = 200;
-            this.tbMoTa.Multiline = true;
-            this.tbMoTa.Name = "tbMoTa";
-            this.tbMoTa.Size = new System.Drawing.Size(227, 104);
-            this.tbMoTa.TabIndex = 9;
+            this.tbGhiChu.Location = new System.Drawing.Point(420, 110);
+            this.tbGhiChu.MaxLength = 200;
+            this.tbGhiChu.Multiline = true;
+            this.tbGhiChu.Name = "tbGhiChu";
+            this.tbGhiChu.Size = new System.Drawing.Size(227, 64);
+            this.tbGhiChu.TabIndex = 9;
             // 
             // tbTen
             // 
-            this.tbTen.Location = new System.Drawing.Point(110, 70);
+            this.tbTen.Location = new System.Drawing.Point(420, 30);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
             this.tbTen.Size = new System.Drawing.Size(210, 23);
@@ -192,31 +241,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(62, 73);
+            this.label1.Location = new System.Drawing.Point(372, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 16);
             this.label1.TabIndex = 100;
             this.label1.Text = "*Tên:";
             // 
-            // cbGroup
-            // 
-            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(420, 30);
-            this.cbGroup.Name = "cbGroup";
-            this.cbGroup.Size = new System.Drawing.Size(227, 24);
-            this.cbGroup.TabIndex = 2;
-            this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.cbGroup_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(367, 73);
+            this.label4.Location = new System.Drawing.Point(353, 112);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 16);
+            this.label4.Size = new System.Drawing.Size(61, 16);
             this.label4.TabIndex = 97;
-            this.label4.Text = "Mô tả:";
+            this.label4.Text = "Ghi chú:";
             // 
             // panel12
             // 
@@ -281,6 +320,7 @@
             this.tbMa.Location = new System.Drawing.Point(110, 30);
             this.tbMa.MaxLength = 10;
             this.tbMa.Name = "tbMa";
+            this.tbMa.ReadOnly = true;
             this.tbMa.Size = new System.Drawing.Size(100, 23);
             this.tbMa.TabIndex = 0;
             this.tbMa.TextChanged += new System.EventHandler(this.tbMa_TextChanged);
@@ -294,16 +334,6 @@
             this.lbMa.Size = new System.Drawing.Size(36, 16);
             this.lbMa.TabIndex = 90;
             this.lbMa.Text = "*Mã:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(361, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "*Nhóm:";
             // 
             // UcInfo
             // 
@@ -341,7 +371,6 @@
         private System.Windows.Forms.GroupBox gbInfo;
         private System.Windows.Forms.TextBox tbTen;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label47;
@@ -351,10 +380,13 @@
         private System.Windows.Forms.PictureBox pbHuy;
         private System.Windows.Forms.TextBox tbMa;
         private System.Windows.Forms.Label lbMa;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbMoTa;
+        private System.Windows.Forms.TextBox tbGhiChu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbTamNgung;
         private System.Windows.Forms.RadioButton rbBan;
+        private System.Windows.Forms.ComboBox cbDVT;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbGia;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -21,7 +21,7 @@ namespace Weedon
         {
             try
             {
-                pbHeader.Image = Image.FromFile(ConstantResource.MAIN_LOGO);
+                //pbHeader.Image = Image.FromFile(ConstantResource.MAIN_LOGO);
             }
             catch
             {

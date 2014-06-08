@@ -49,8 +49,8 @@
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chSTT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chMaSanPham = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chDVT = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chMoTa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
@@ -270,9 +270,9 @@
             this.chCheckBox,
             this.chMa,
             this.chSTT,
-            this.chMaSanPham,
-            this.chGroup,
             this.chTen,
+            this.chGia,
+            this.chDVT,
             this.chMoTa});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
@@ -308,16 +308,16 @@
             this.chSTT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chSTT.Width = 39;
             // 
-            // chMaSanPham
+            // chDVT
             // 
-            this.chMaSanPham.Text = "Mã SP";
-            this.chMaSanPham.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chMaSanPham.Width = 99;
+            this.chDVT.Text = "ĐVT";
+            this.chDVT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chDVT.Width = 132;
             // 
-            // chGroup
+            // chGia
             // 
-            this.chGroup.Text = "Nhóm";
-            this.chGroup.Width = 132;
+            this.chGia.Text = "Giá";
+            this.chGia.Width = 132;
             // 
             // chTen
             // 
@@ -363,7 +363,7 @@
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
             this.lbTotalPage.Location = new System.Drawing.Point(655, 6);
             this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
             this.lbTotalPage.Text = "??? Trang";
             // 
@@ -516,7 +516,7 @@
         private System.Windows.Forms.ColumnHeader chMa;
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chTen;
-        private System.Windows.Forms.ColumnHeader chGroup;
+        private System.Windows.Forms.ColumnHeader chGia;
         private System.Windows.Forms.Panel pnTraCuu;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
@@ -530,7 +530,7 @@
         private System.Windows.Forms.Label lbPage;
         private System.Windows.Forms.ColumnHeader chMoTa;
         private System.Windows.Forms.ColumnHeader chCheckBox;
-        private System.Windows.Forms.ColumnHeader chMaSanPham;
+        private System.Windows.Forms.ColumnHeader chDVT;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbExcel;

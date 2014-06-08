@@ -23,9 +23,9 @@ namespace Weedon
         {
             try
             {
-                pbNKNL.Image = Image.FromFile(ConstantResource.NKNL_ICON_NKNL_INDEX);
+                //pbNKNL.Image = Image.FromFile(ConstantResource.NKNL_ICON_NKNL_INDEX);
                 pbNhapHang.Image = Image.FromFile(ConstantResource.NKNL_ICON_KTCL_INDEX);
-                pbKTNK.Image = Image.FromFile(ConstantResource.NKNL_ICON_KTNK_INDEX);
+                //pbKTNK.Image = Image.FromFile(ConstantResource.NKNL_ICON_KTNK_INDEX);
             }
             catch
             {
@@ -48,7 +48,7 @@ namespace Weedon
 
         private void pbNKNL_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcNhapHang());
+            //CommonFunc.NewControl(this.Controls, ref uc, new UcNhapHang());
         }
 
         private void pbNKNL_MouseEnter(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace Weedon
 
         private void pbNhapHang_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcKiemTraChenhLech());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcNhapHang());
         }
 
         private void pbNhapHang_MouseEnter(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace Weedon
 
         private void pbKTNK_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcKiemTraNhatKy());
+            //CommonFunc.NewControl(this.Controls, ref uc, new UcKiemTraNhatKy());
         }
 
         private void pbKTNK_MouseEnter(object sender, EventArgs e)

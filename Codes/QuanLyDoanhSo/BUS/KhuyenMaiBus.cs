@@ -25,6 +25,11 @@ namespace BUS
             return KhuyenMaiDao.GetById(id);
         }
 
+        public static KhuyenMai GetByIdSanPham(int idSanPham)
+        {
+            return KhuyenMaiDao.GetByIdSanPham(idSanPham);
+        }
+
         public static bool Insert(KhuyenMai data)
         {
             return KhuyenMaiDao.Insert(data);

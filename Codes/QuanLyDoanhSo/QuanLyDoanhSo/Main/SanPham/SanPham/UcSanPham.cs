@@ -125,7 +125,7 @@ namespace Weedon
                 text = string.Empty;
             }
 
-            int total = SanPhamBus.GetCount(text, idGroup);
+            int total = SanPhamBus.GetCount(text);
             int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
             lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
@@ -136,7 +136,7 @@ namespace Weedon
                 return;
             }
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0,
+            List<DTO.SanPham> list = SanPhamBus.GetList(text,
                 sortColumn, sortOrder, row * (page - 1), row);
 
             CommonFunc.ClearlvItem(lvThongTin);
@@ -147,10 +147,10 @@ namespace Weedon
 
                 lvi.SubItems.Add(data.Id.ToString());
                 lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                lvi.SubItems.Add(data.MaSanPham);
-                lvi.SubItems.Add(data.SanPhamGroup.Ten);
                 lvi.SubItems.Add(data.Ten);
-                lvi.SubItems.Add(data.MoTa);
+                lvi.SubItems.Add(data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                lvi.SubItems.Add(data.DonViTinh);
+                lvi.SubItems.Add(data.GhiChu);
 
                 lvThongTin.Items.Add(lvi);
             }
@@ -214,7 +214,7 @@ namespace Weedon
         {
             DTO.SanPham data = SanPhamBus.GetById(id);
 
-            if (SanPhamBus.Update(data, FormMain.user))
+            if (SanPhamBus.Update(data))
             {
                 return true;
             }
@@ -285,71 +285,71 @@ namespace Weedon
 
         private void RefreshLvEx(string text)
         {
-            lvEx.Items.Clear();
+            //lvEx.Items.Clear();
 
-            if (text == Constant.SEARCH_SANPHAM_TIP)
-            {
-                text = string.Empty;
-            }
+            //if (text == Constant.SEARCH_SANPHAM_TIP)
+            //{
+            //    text = string.Empty;
+            //}
 
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, 0,
-                string.Empty, string.Empty, 0, 0);
-            soSP = lvEx.Items.Count;
+            //List<DTO.SanPham> list = SanPhamBus.GetList(text,
+            //    string.Empty, string.Empty, 0, 0);
+            //soSP = lvEx.Items.Count;
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                ListViewItem lvi = new ListViewItem();
-                int colNum = 0;
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    ListViewItem lvi = new ListViewItem();
+            //    int colNum = 0;
 
-                //if (lvEx.Columns[0].Visible)
-                //{
-                //    lvi.Text = list_dto[i].Ma;
-                //}
+            //    //if (lvEx.Columns[0].Visible)
+            //    //{
+            //    //    lvi.Text = list_dto[i].Ma;
+            //    //}
 
-                colNum++; //1
+            //    colNum++; //1
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.Text = (i + 1).ToString();
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.Text = (i + 1).ToString();
+            //    }
 
-                colNum++; //2
+            //    colNum++; //2
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    if (!lvEx.Columns[1].Visible)
-                    {
-                        lvi.Text = list[i].MaSanPham;
-                    }
-                    else
-                    {
-                        lvi.SubItems.Add(list[i].MaSanPham);
-                    }
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        if (!lvEx.Columns[1].Visible)
+            //        {
+            //            lvi.Text = list[i].MaSanPham;
+            //        }
+            //        else
+            //        {
+            //            lvi.SubItems.Add(list[i].MaSanPham);
+            //        }
+            //    }
 
-                colNum++; //3
+            //    colNum++; //3
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.SubItems.Add(list[i].SanPhamGroup.Ten);
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.SubItems.Add(list[i].SanPhamGroup.Ten);
+            //    }
 
-                colNum++; //4
+            //    colNum++; //4
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.SubItems.Add(list[i].Ten);
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.SubItems.Add(list[i].Ten);
+            //    }
 
-                colNum++; //5
+            //    colNum++; //5
 
-                if (lvEx.Columns[colNum].Visible)
-                {
-                    lvi.SubItems.Add(list[i].MoTa);
-                }
+            //    if (lvEx.Columns[colNum].Visible)
+            //    {
+            //        lvi.SubItems.Add(list[i].MoTa);
+            //    }
 
-                lvEx.Items.Add(lvi);
-            }
+            //    lvEx.Items.Add(lvi);
+            //}
         }
 
         private void LvEx_ColumnVisibleChanged(object sender, EventArgs e)
@@ -391,7 +391,7 @@ namespace Weedon
                     ids += (item.SubItems[1].Text + Constant.SEPERATE_STRING);
                 }
 
-                if (SanPhamBus.DeleteList(ids, FormMain.user))
+                if (SanPhamBus.DeleteList(ids))
                 {
                     RefreshListView(tbSearch.Text, 0,
                         sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));

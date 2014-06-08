@@ -92,6 +92,11 @@ namespace DAO
             return dbContext.KhuyenMais.Where(p => p.Id == id).FirstOrDefault<KhuyenMai>();
         }
 
+        public static KhuyenMai GetByIdSanPham(int idSanPham)
+        {
+            return dbContext.KhuyenMais.Where(p => p.IdSanPham == idSanPham).FirstOrDefault<KhuyenMai>();
+        }
+
         public static bool Insert(KhuyenMai data)
         {
             try

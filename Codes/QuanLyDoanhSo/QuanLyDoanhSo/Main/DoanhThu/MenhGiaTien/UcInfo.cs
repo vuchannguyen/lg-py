@@ -129,7 +129,7 @@ namespace Weedon.MenhGiaTien
 
             if (MenhGiaTienBus.Insert(data))
             {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Cấu hình " + data.Ten) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Mệnh giá tiền " + data.Ten) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     this.Dispose();
                 }
