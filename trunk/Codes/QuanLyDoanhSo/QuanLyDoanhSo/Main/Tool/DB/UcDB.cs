@@ -55,7 +55,7 @@ namespace Weedon
         #region Function
         private void InitPermission()
         {
-            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            if (FormMain.user.IdUserGroup != Constant.ID_GROUP_ADMIN)
             {
                 pbRestore.Visible = false;
                 lbRestore.Visible = false;

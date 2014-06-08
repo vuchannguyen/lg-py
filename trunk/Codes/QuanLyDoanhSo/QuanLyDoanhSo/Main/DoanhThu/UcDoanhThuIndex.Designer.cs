@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.pnSelect = new System.Windows.Forms.Panel();
-            this.pbNhatKyMuaHang = new System.Windows.Forms.PictureBox();
+            this.pbKhuyenMai = new System.Windows.Forms.PictureBox();
             this.lbNhatKyMuaHang = new System.Windows.Forms.Label();
-            this.pbHoaDon = new System.Windows.Forms.PictureBox();
-            this.lbHoaDon = new System.Windows.Forms.Label();
+            this.pbBanHang = new System.Windows.Forms.PictureBox();
+            this.lbBanHang = new System.Windows.Forms.Label();
             this.pbMenhGiaTien = new System.Windows.Forms.PictureBox();
             this.lbMenhGiaTien = new System.Windows.Forms.Label();
             this.pbDoanhThu = new System.Windows.Forms.PictureBox();
             this.lbDoanhThu = new System.Windows.Forms.Label();
             this.pnSelect.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNhatKyMuaHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHoaDon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhuyenMai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenhGiaTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoanhThu)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSelect
             // 
-            this.pnSelect.Controls.Add(this.pbNhatKyMuaHang);
+            this.pnSelect.Controls.Add(this.pbKhuyenMai);
             this.pnSelect.Controls.Add(this.lbNhatKyMuaHang);
-            this.pnSelect.Controls.Add(this.pbHoaDon);
-            this.pnSelect.Controls.Add(this.lbHoaDon);
+            this.pnSelect.Controls.Add(this.pbBanHang);
+            this.pnSelect.Controls.Add(this.lbBanHang);
             this.pnSelect.Controls.Add(this.pbMenhGiaTien);
             this.pnSelect.Controls.Add(this.lbMenhGiaTien);
             this.pnSelect.Controls.Add(this.pbDoanhThu);
@@ -59,53 +59,53 @@
             this.pnSelect.Size = new System.Drawing.Size(710, 140);
             this.pnSelect.TabIndex = 23;
             // 
-            // pbNhatKyMuaHang
+            // pbKhuyenMai
             // 
-            this.pbNhatKyMuaHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNhatKyMuaHang.Location = new System.Drawing.Point(571, 10);
-            this.pbNhatKyMuaHang.Name = "pbNhatKyMuaHang";
-            this.pbNhatKyMuaHang.Size = new System.Drawing.Size(100, 100);
-            this.pbNhatKyMuaHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbNhatKyMuaHang.TabIndex = 17;
-            this.pbNhatKyMuaHang.TabStop = false;
-            this.pbNhatKyMuaHang.Click += new System.EventHandler(this.pbNhatKyMuaHang_Click);
-            this.pbNhatKyMuaHang.MouseEnter += new System.EventHandler(this.pbNhatKyMuaHang_MouseEnter);
-            this.pbNhatKyMuaHang.MouseLeave += new System.EventHandler(this.pbNhatKyMuaHang_MouseLeave);
+            this.pbKhuyenMai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbKhuyenMai.Location = new System.Drawing.Point(571, 10);
+            this.pbKhuyenMai.Name = "pbKhuyenMai";
+            this.pbKhuyenMai.Size = new System.Drawing.Size(100, 100);
+            this.pbKhuyenMai.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbKhuyenMai.TabIndex = 17;
+            this.pbKhuyenMai.TabStop = false;
+            this.pbKhuyenMai.Click += new System.EventHandler(this.pbNhatKyMuaHang_Click);
+            this.pbKhuyenMai.MouseEnter += new System.EventHandler(this.pbNhatKyMuaHang_MouseEnter);
+            this.pbKhuyenMai.MouseLeave += new System.EventHandler(this.pbNhatKyMuaHang_MouseLeave);
             // 
             // lbNhatKyMuaHang
             // 
             this.lbNhatKyMuaHang.AutoSize = true;
             this.lbNhatKyMuaHang.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNhatKyMuaHang.ForeColor = System.Drawing.Color.Gray;
-            this.lbNhatKyMuaHang.Location = new System.Drawing.Point(548, 120);
+            this.lbNhatKyMuaHang.Location = new System.Drawing.Point(572, 120);
             this.lbNhatKyMuaHang.Name = "lbNhatKyMuaHang";
-            this.lbNhatKyMuaHang.Size = new System.Drawing.Size(148, 16);
+            this.lbNhatKyMuaHang.Size = new System.Drawing.Size(98, 16);
             this.lbNhatKyMuaHang.TabIndex = 18;
-            this.lbNhatKyMuaHang.Text = "NHẬT KÝ MUA HÀNG";
+            this.lbNhatKyMuaHang.Text = "KHUYẾN MÃI";
             // 
-            // pbHoaDon
+            // pbBanHang
             // 
-            this.pbHoaDon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbHoaDon.Location = new System.Drawing.Point(226, 10);
-            this.pbHoaDon.Name = "pbHoaDon";
-            this.pbHoaDon.Size = new System.Drawing.Size(100, 100);
-            this.pbHoaDon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbHoaDon.TabIndex = 15;
-            this.pbHoaDon.TabStop = false;
-            this.pbHoaDon.Click += new System.EventHandler(this.pbHoaDon_Click);
-            this.pbHoaDon.MouseEnter += new System.EventHandler(this.pbHoaDon_MouseEnter);
-            this.pbHoaDon.MouseLeave += new System.EventHandler(this.pbHoaDon_MouseLeave);
+            this.pbBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBanHang.Location = new System.Drawing.Point(226, 10);
+            this.pbBanHang.Name = "pbBanHang";
+            this.pbBanHang.Size = new System.Drawing.Size(100, 100);
+            this.pbBanHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBanHang.TabIndex = 15;
+            this.pbBanHang.TabStop = false;
+            this.pbBanHang.Click += new System.EventHandler(this.pbHoaDon_Click);
+            this.pbBanHang.MouseEnter += new System.EventHandler(this.pbHoaDon_MouseEnter);
+            this.pbBanHang.MouseLeave += new System.EventHandler(this.pbHoaDon_MouseLeave);
             // 
-            // lbHoaDon
+            // lbBanHang
             // 
-            this.lbHoaDon.AutoSize = true;
-            this.lbHoaDon.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoaDon.ForeColor = System.Drawing.Color.Gray;
-            this.lbHoaDon.Location = new System.Drawing.Point(238, 120);
-            this.lbHoaDon.Name = "lbHoaDon";
-            this.lbHoaDon.Size = new System.Drawing.Size(73, 16);
-            this.lbHoaDon.TabIndex = 16;
-            this.lbHoaDon.Text = "HÓA ĐƠN";
+            this.lbBanHang.AutoSize = true;
+            this.lbBanHang.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBanHang.ForeColor = System.Drawing.Color.Gray;
+            this.lbBanHang.Location = new System.Drawing.Point(236, 120);
+            this.lbBanHang.Name = "lbBanHang";
+            this.lbBanHang.Size = new System.Drawing.Size(83, 16);
+            this.lbBanHang.TabIndex = 16;
+            this.lbBanHang.Text = "BÁN HÀNG";
             // 
             // pbMenhGiaTien
             // 
@@ -166,8 +166,8 @@
             this.Load += new System.EventHandler(this.UcDoanhThuIndex_Load);
             this.pnSelect.ResumeLayout(false);
             this.pnSelect.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNhatKyMuaHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHoaDon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbKhuyenMai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenhGiaTien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoanhThu)).EndInit();
             this.ResumeLayout(false);
@@ -181,9 +181,9 @@
         private System.Windows.Forms.Label lbDoanhThu;
         private System.Windows.Forms.PictureBox pbMenhGiaTien;
         private System.Windows.Forms.Label lbMenhGiaTien;
-        private System.Windows.Forms.PictureBox pbHoaDon;
-        private System.Windows.Forms.Label lbHoaDon;
-        private System.Windows.Forms.PictureBox pbNhatKyMuaHang;
+        private System.Windows.Forms.PictureBox pbBanHang;
+        private System.Windows.Forms.Label lbBanHang;
+        private System.Windows.Forms.PictureBox pbKhuyenMai;
         private System.Windows.Forms.Label lbNhatKyMuaHang;
 
     }

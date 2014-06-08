@@ -4,15 +4,12 @@
     <Type Name="BanHang">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IdUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdSanPham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdSanPhamKhuyenMai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ThanhTien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="BanHang_BanHang_MenhGiaTien" Member="BanHang_MenhGiaTiens" ThisKey="Id" OtherKey="IdBanHang" Type="BanHang_MenhGiaTien" />
       <Association Name="BanHang_BanHangChiTiet" Member="BanHangChiTiets" ThisKey="Id" OtherKey="IdBanHang" Type="BanHangChiTiet" />
-      <Association Name="SanPham_BanHang" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
-      <Association Name="SanPham_BanHang1" Member="SanPham1" ThisKey="IdSanPhamKhuyenMai" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
       <Association Name="User_BanHang" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
@@ -41,17 +38,12 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IdBanHang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdSanPham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TonDau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LuongNhan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="LuongBan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TonCuoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IdSanPhamKhuyenMai" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SoLuongKhuyenMai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ban" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ThuHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Gia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ThanhTien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="BanHang_BanHangChiTiet" Member="BanHang" ThisKey="IdBanHang" OtherKey="Id" Type="BanHang" IsForeignKey="true" />
       <Association Name="SanPham_BanHangChiTiet" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
-      <Association Name="SanPham_BanHangChiTiet1" Member="SanPham1" ThisKey="IdSanPhamKhuyenMai" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.KhuyenMai" Member="KhuyenMais">
@@ -127,10 +119,7 @@
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="IsActived" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="SanPham_BanHang" Member="BanHangs" ThisKey="Id" OtherKey="IdSanPham" Type="BanHang" />
-      <Association Name="SanPham_BanHang1" Member="BanHangs1" ThisKey="Id" OtherKey="IdSanPhamKhuyenMai" Type="BanHang" />
       <Association Name="SanPham_BanHangChiTiet" Member="BanHangChiTiets" ThisKey="Id" OtherKey="IdSanPham" Type="BanHangChiTiet" />
-      <Association Name="SanPham_BanHangChiTiet1" Member="BanHangChiTiets1" ThisKey="Id" OtherKey="IdSanPhamKhuyenMai" Type="BanHangChiTiet" />
       <Association Name="SanPham_KhuyenMai" Member="KhuyenMais" ThisKey="Id" OtherKey="IdSanPham" Type="KhuyenMai" />
       <Association Name="SanPham_KhuyenMai1" Member="KhuyenMais1" ThisKey="Id" OtherKey="IdSanPhamKhuyenMai" Type="KhuyenMai" />
       <Association Name="SanPham_NhapHangChiTiet" Member="NhapHangChiTiets" ThisKey="Id" OtherKey="IdSanPham" Type="NhapHangChiTiet" />

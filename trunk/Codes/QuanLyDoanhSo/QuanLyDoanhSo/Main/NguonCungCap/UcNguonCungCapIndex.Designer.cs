@@ -59,6 +59,7 @@
             this.lbNhomSanPham.Size = new System.Drawing.Size(151, 16);
             this.lbNhomSanPham.TabIndex = 6;
             this.lbNhomSanPham.Text = "NHÓM KHÁCH HÀNG";
+            this.lbNhomSanPham.Visible = false;
             // 
             // lbNguonCungCap
             // 

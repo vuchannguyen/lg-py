@@ -294,6 +294,8 @@ namespace Library
         public const string SEARCH_SETTING_TIP = "Tên - Mô tả";
         public const string SEARCH_GIACHINHTHUC_TIP = "Mã SP - Tên - Mô tả";
         public const string SEARCH_HOADON_TIP = "Họ tên NV - Mã KH - Ghi chú";
+        public const string SEARCH_BANHANG_TIP = "Họ tên NV - Ghi chú";
         public const string SEARCH_NHATKYMUAHANG_TIP = "Tên - Tên đăng nhập - Ghi chú";
+        public const string SEARCH_MENHGIATIEN_TIP = "Tên - Ghi chú";
     }
 }

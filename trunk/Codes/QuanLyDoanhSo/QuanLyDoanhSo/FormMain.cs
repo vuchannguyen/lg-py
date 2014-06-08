@@ -53,13 +53,13 @@ namespace Weedon
                 //this.BackgroundImage = Image.FromFile(@"Resources\background.jpg");
                 pnTopBar.BackgroundImage = Image.FromFile(ConstantResource.MAIN_TOP_BAR);
 
-                pbHeader.Image = Image.FromFile(ConstantResource.MAIN_LOGO);
+                //pbHeader.Image = Image.FromFile(ConstantResource.MAIN_LOGO);
                 pbHorizonline.Image = Image.FromFile(ConstantResource.MAIN_HORIZONLINE);
 
                 pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
                 pbNguonCungCap.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
                 pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-                pbNguyenLieu.Image = Image.FromFile(ConstantResource.NGUYENLIEU_ICON_NGUYENLIEU);
+                //pbNguyenLieu.Image = Image.FromFile(ConstantResource.NGUYENLIEU_ICON_NGUYENLIEU);
                 pbNhapHang.Image = Image.FromFile(ConstantResource.NKNL_ICON_NKNL);
                 pbDoanhThu.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_DOANHTHU);
                 //pbSetting.Image = Image.FromFile(ConstantResource.SETTING_ICON_SETTING);
@@ -67,7 +67,7 @@ namespace Weedon
 
                 pnBottom.BackgroundImage = Image.FromFile(ConstantResource.MAIN_BOTTOM_HORIZONLINE);
 
-                pbStartup.BackgroundImage = Image.FromFile(ConstantResource.MAIN_STARTUP);
+                //pbStartup.BackgroundImage = Image.FromFile(ConstantResource.MAIN_STARTUP);
             }
             catch
             {
@@ -221,7 +221,7 @@ namespace Weedon
             lbUser.ForeColor = Constant.COLOR_NORMAL;
             lbNguonCungCap.ForeColor = Constant.COLOR_NORMAL;
             lbSanPham.ForeColor = Constant.COLOR_NORMAL;
-            lbNguyenLieu.ForeColor = Constant.COLOR_NORMAL;
+            //lbNguyenLieu.ForeColor = Constant.COLOR_NORMAL;
             lbNhapHang.ForeColor = Constant.COLOR_NORMAL;
             lbDoanhThu.ForeColor = Constant.COLOR_NORMAL;
             //lbSetting.ForeColor = Constant.COLOR_NORMAL;
@@ -230,7 +230,7 @@ namespace Weedon
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER);
             pbNguonCungCap.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG);
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM);
-            pbNguyenLieu.Image = Image.FromFile(ConstantResource.NGUYENLIEU_ICON_NGUYENLIEU);
+            //pbNguyenLieu.Image = Image.FromFile(ConstantResource.NGUYENLIEU_ICON_NGUYENLIEU);
             pbNhapHang.Image = Image.FromFile(ConstantResource.NKNL_ICON_NKNL);
             pbDoanhThu.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_DOANHTHU);
             //pbSetting.Image = Image.FromFile(ConstantResource.SETTING_ICON_SETTING);
@@ -239,7 +239,7 @@ namespace Weedon
             pbUser.Enabled = true;
             pbNguonCungCap.Enabled = true;
             pbSanPham.Enabled = true;
-            pbNguyenLieu.Enabled = true;
+            //pbNguyenLieu.Enabled = true;
             pbNhapHang.Enabled = true;
             pbDoanhThu.Enabled = true;
             //pbSetting.Enabled = true;
@@ -259,7 +259,7 @@ namespace Weedon
 
         private void InitPermission()
         {
-            if (FormMain.user.IdGroup != Constant.ID_GROUP_ADMIN)
+            if (FormMain.user.IdUserGroup != Constant.ID_GROUP_ADMIN)
             {
                 pbTool.Enabled = false;
             }
@@ -388,7 +388,7 @@ namespace Weedon
             pbUser.Image = Image.FromFile(ConstantResource.USER_ICON_USER_MOUSEOVER);
             lbUser.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_USER);
+            ////ttDetail.SetToolTip(pbUser, Constant.TOOLTIP_USER);
         }
 
         private void pbUser_MouseLeave(object sender, EventArgs e)
@@ -428,7 +428,7 @@ namespace Weedon
             pbNguonCungCap.Image = Image.FromFile(ConstantResource.KHACHHANG_ICON_KHACHHANG_MOUSEOVER);
             lbNguonCungCap.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbNguonCungCap, Constant.TOOLTIP_KHACHHANG);
+            //ttDetail.SetToolTip(pbNguonCungCap, Constant.TOOLTIP_KHACHHANG);
         }
 
         private void pbNguonCungCap_MouseLeave(object sender, EventArgs e)
@@ -468,7 +468,7 @@ namespace Weedon
             pbSanPham.Image = Image.FromFile(ConstantResource.SANPHAM_ICON_SANPHAM_MOUSEOVER);
             lbSanPham.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbSanPham, Constant.TOOLTIP_SANPHAM);
+            //ttDetail.SetToolTip(pbSanPham, Constant.TOOLTIP_SANPHAM);
         }
 
         private void pbSanPham_MouseLeave(object sender, EventArgs e)
@@ -508,7 +508,7 @@ namespace Weedon
         //    pbNguyenLieu.Image = Image.FromFile(ConstantResource.NGUYENLIEU_ICON_NGUYENLIEU_MOUSEOVER);
         //    lbNguyenLieu.ForeColor = Constant.COLOR_MOUSEOVER;
 
-        //    ttDetail.SetToolTip(pbNguyenLieu, Constant.TOOLTIP_NGUYENLIEU);
+        //    //ttDetail.SetToolTip(pbNguyenLieu, Constant.TOOLTIP_NGUYENLIEU);
         //}
 
         //private void pbNguyenLieu_MouseLeave(object sender, EventArgs e)
@@ -531,7 +531,7 @@ namespace Weedon
             {
                 ScaleNormalControls();
 
-                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcNhatKyNguyenLieuIndex());
+                CommonFunc.NewControl(pnBody.Controls, ref uc, new UcNhapHangIndex());
 
                 Init();
                 isMainMenuClickNKNL = true;
@@ -548,7 +548,7 @@ namespace Weedon
             pbNhapHang.Image = Image.FromFile(ConstantResource.NKNL_ICON_NKNL_MOUSEOVER);
             lbNhapHang.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbNhapHang, Constant.TOOLTIP_NKNL);
+            //ttDetail.SetToolTip(pbNhapHang, Constant.TOOLTIP_NKNL);
         }
 
         private void pbNhatKyNguyenLieu_MouseLeave(object sender, EventArgs e)
@@ -588,7 +588,7 @@ namespace Weedon
             pbTool.Image = Image.FromFile(ConstantResource.TOOL_ICON_TOOL_MOUSEOVER);
             lbTool.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbTool, Constant.TOOLTIP_TOOL);
+            //ttDetail.SetToolTip(pbTool, Constant.TOOLTIP_TOOL);
         }
 
         private void pbTool_MouseLeave(object sender, EventArgs e)
@@ -657,7 +657,7 @@ namespace Weedon
         {
             if (MessageBox.Show(Constant.MESSAGE_CONFIRM_SELF_DESTRUCTION, Constant.CAPTION_WARNING, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if (!UserBus.Delete(user, user))
+                if (!UserBus.Delete(user))
                 {
                     MessageBox.Show(Constant.MESSAGE_ERROR, Constant.CAPTION_ERROR,
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -746,7 +746,7 @@ namespace Weedon
             pbDoanhThu.Image = Image.FromFile(ConstantResource.DOANHTHU_ICON_DOANHTHU_MOUSEOVER);
             lbDoanhThu.ForeColor = Constant.COLOR_MOUSEOVER;
 
-            ttDetail.SetToolTip(pbDoanhThu, Constant.TOOLTIP_DOANHTHU);
+            //ttDetail.SetToolTip(pbDoanhThu, Constant.TOOLTIP_DOANHTHU);
         }
 
         private void pbBanHang_MouseLeave(object sender, EventArgs e)
@@ -786,7 +786,7 @@ namespace Weedon
         //    pbSetting.Image = Image.FromFile(ConstantResource.SETTING_ICON_SETTING_MOUSEOVER);
         //    lbSetting.ForeColor = Constant.COLOR_MOUSEOVER;
 
-        //    ttDetail.SetToolTip(pbSetting, Constant.TOOLTIP_SETTING);
+        //    //ttDetail.SetToolTip(pbSetting, Constant.TOOLTIP_SETTING);
         //}
 
         //private void pbSetting_MouseLeave(object sender, EventArgs e)

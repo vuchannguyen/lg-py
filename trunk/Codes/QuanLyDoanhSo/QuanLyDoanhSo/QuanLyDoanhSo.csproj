@@ -110,11 +110,11 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\Common\ExportExcel.cs" />
-    <Compile Include="Main\DoanhThu\DoanhThu\UcDoanhThu.cs">
+    <Compile Include="Main\DoanhThu\BanHang\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\DoanhThu\DoanhThu\UcDoanhThu.Designer.cs">
-      <DependentUpon>UcDoanhThu.cs</DependentUpon>
+    <Compile Include="Main\DoanhThu\BanHang\UcInfo.designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.cs">
       <SubType>UserControl</SubType>
@@ -122,35 +122,17 @@
     <Compile Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.Designer.cs">
       <DependentUpon>UcKhuyenMai.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\NhapHang\NhapHang\UcDetail.cs">
+    <Compile Include="Main\DoanhThu\BanHang\UcBanHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\NhapHang\NhapHang\UcDetail.designer.cs">
-      <DependentUpon>UcDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\NhapHang\NhapHang\UcNhapHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NhapHang\NhapHang\UcNhapHang.Designer.cs">
-      <DependentUpon>UcNhapHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\NhapHang\NhapHang\UcInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NhapHang\NhapHang\UcInfo.designer.cs">
-      <DependentUpon>UcInfo.cs</DependentUpon>
+    <Compile Include="Main\DoanhThu\BanHang\UcBanHang.Designer.cs">
+      <DependentUpon>UcBanHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\DoanhThu\UcDoanhThuIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\DoanhThu\UcDoanhThuIndex.Designer.cs">
       <DependentUpon>UcDoanhThuIndex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\NguonCungCap\NguonCungCap\UcDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\NguonCungCap\NguonCungCap\UcDetail.Designer.cs">
-      <DependentUpon>UcDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\NguonCungCap\UcNguonCungCapIndex.cs">
       <SubType>UserControl</SubType>
@@ -195,11 +177,41 @@
     <Compile Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.Designer.cs">
       <DependentUpon>UcNguonCungCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\NhapHang\NhapHang\UcDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhapHang\UcDetail.designer.cs">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhapHang\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhapHang\UcInfo.designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhapHang\UcNhapHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\NhapHang\NhapHang\UcNhapHang.Designer.cs">
+      <DependentUpon>UcNhapHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\NhapHang\UcNhapHangIndex.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Main\NhapHang\UcNhapHangIndex.Designer.cs">
       <DependentUpon>UcNhapHangIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.Designer.cs">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.Designer.cs">
+      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\SanPham\UcDetail.cs">
       <SubType>UserControl</SubType>
@@ -224,24 +236,6 @@
     </Compile>
     <Compile Include="Main\SanPham\UcSanPhamIndex.Designer.cs">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcDetail.Designer.cs">
-      <DependentUpon>UcDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.Designer.cs">
-      <DependentUpon>UcInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.Designer.cs">
-      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Tool\DB\UcDB.cs">
       <SubType>UserControl</SubType>
@@ -293,26 +287,17 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\DoanhThu\UcDoanhThu.resx">
-      <DependentUpon>UcDoanhThu.cs</DependentUpon>
+    <EmbeddedResource Include="Main\DoanhThu\BanHang\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.resx">
       <DependentUpon>UcKhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\NhapHang\NhapHang\UcDetail.resx">
-      <DependentUpon>UcDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\NhapHang\NhapHang\UcNhapHang.resx">
-      <DependentUpon>UcNhapHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\NhapHang\NhapHang\UcInfo.resx">
-      <DependentUpon>UcInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Main\DoanhThu\BanHang\UcBanHang.resx">
+      <DependentUpon>UcBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\DoanhThu\UcDoanhThuIndex.resx">
       <DependentUpon>UcDoanhThuIndex.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\NguonCungCap\NguonCungCap\UcDetail.resx">
-      <DependentUpon>UcDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\NguonCungCap\UcNguonCungCapIndex.resx">
       <DependentUpon>UcNguonCungCapIndex.cs</DependentUpon>
@@ -323,8 +308,23 @@
     <EmbeddedResource Include="Main\NguonCungCap\NguonCungCap\UcNguonCungCap.resx">
       <DependentUpon>UcNguonCungCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\NhapHang\UcDetail.resx">
+      <DependentUpon>UcDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\NhapHang\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\NhapHang\NhapHang\UcNhapHang.resx">
+      <DependentUpon>UcNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\NhapHang\UcNhapHangIndex.resx">
       <DependentUpon>UcNhapHangIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcInfo.resx">
+      <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.resx">
+      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPham\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
@@ -337,15 +337,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\UcSanPhamIndex.resx">
       <DependentUpon>UcSanPhamIndex.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcDetail.resx">
-      <DependentUpon>UcDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcInfo.resx">
-      <DependentUpon>UcInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.resx">
-      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Tool\DB\UcDB.resx">
       <DependentUpon>UcDB.cs</DependentUpon>

@@ -21,8 +21,7 @@ namespace DAO
             {
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.User.Ten, text) ||
-                    SqlMethods.Like(p.SanPham.Ten, text) ||
-                    SqlMethods.Like(p.SanPham1.Ten, text)
+                    SqlMethods.Like(p.GhiChu, text)
                     );
             }
 
@@ -43,6 +42,14 @@ namespace DAO
             {
                 case "Tên":
                     sortSQL += "Ten " + sortOrder;
+                    break;
+
+                case "Tổ":
+                    sortSQL += "User.To " + sortOrder;
+                    break;
+
+                case "Ghi chú":
+                    sortSQL += "GhiChu " + sortOrder;
                     break;
 
                 default:

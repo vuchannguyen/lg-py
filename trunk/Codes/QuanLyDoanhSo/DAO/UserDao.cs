@@ -113,7 +113,7 @@ namespace DAO
 
         public static User GetByUserName(string text)
         {
-            return dbContext.Users.Where(p => p.UserName == text && p.DeleteFlag == false).FirstOrDefault<User>();
+            return dbContext.Users.Where(p => p.Ten == text && p.DeleteFlag == false).FirstOrDefault<User>();
         }
 
         public static bool Insert(User data)

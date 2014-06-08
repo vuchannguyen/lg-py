@@ -184,7 +184,7 @@ namespace Weedon.User
                 !string.IsNullOrEmpty(tbUserName.Text)
                 )
                 {
-                    if (FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN && data.IdGroup != Constant.ID_GROUP_ADMIN)
+                    if (FormMain.user.IdUserGroup == Constant.ID_GROUP_ADMIN && data.IdUserGroup != Constant.ID_GROUP_ADMIN)
                     {
                         pbHoanTat.Enabled = true;
                         pbHoanTat.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_OK);
@@ -209,7 +209,8 @@ namespace Weedon.User
         private void InsertData()
         {
             data.Ten = tbTen.Text;
-            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            data.IdUserGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
+            data.To = ConvertUtil.ConvertToInt(textBox1.Text);
             data.UserName = tbUserName.Text;
             data.Password = Crypto.EncryptText(tbPassword.Text);
             data.GioiTinh = cbGioiTinh.Text;
@@ -223,7 +224,7 @@ namespace Weedon.User
             data.NgayCap = dtpNgayCap.Value;
             data.GhiChu = tbGhiChu.Text;
 
-            if (UserBus.Insert(data, FormMain.user))
+            if (UserBus.Insert(data))
             {
                 FormMain.isEditing = false;
 
@@ -245,6 +246,7 @@ namespace Weedon.User
         {
             data.Ten = tbTen.Text;
             data.UserGroup = UserGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
+            data.To = ConvertUtil.ConvertToInt(textBox1.Text);
             //data.UserName = tbUserName.Text;
 
             if (!string.IsNullOrEmpty(tbPassword.Text))
@@ -263,7 +265,7 @@ namespace Weedon.User
             data.NgayCap = dtpNgayCap.Value;
             data.GhiChu = tbGhiChu.Text;
 
-            if (UserBus.Update(data, FormMain.user))
+            if (UserBus.Update(data))
             {
                 FormMain.isEditing = false;
 
@@ -330,7 +332,7 @@ namespace Weedon.User
                         return;
                     }
 
-                    if (FormMain.user.IdGroup == Constant.ID_GROUP_ADMIN && data.IdGroup != Constant.ID_GROUP_ADMIN)
+                    if (FormMain.user.IdUserGroup == Constant.ID_GROUP_ADMIN && data.IdUserGroup != Constant.ID_GROUP_ADMIN)
                     {
                         UpdateData();
                     }
@@ -414,6 +416,11 @@ namespace Weedon.User
         private void tbOldPassword_TextChanged(object sender, EventArgs e)
         {
             ValidateInput();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

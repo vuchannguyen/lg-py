@@ -44,10 +44,12 @@ namespace Weedon.SanPham
 
             if (Init())
             {
-                tbMa.Text = data.MaSanPham;
+                tbMa.Text = data.Id.ToString();
                 tbTen.Text = data.Ten;
+                tbGia.Text = data.Gia.ToString();
+                cbDVT.Text = data.DonViTinh;
 
-                if (data.IsActive)
+                if (data.IsActived)
                 {
                     rbBan.Checked = true;
                 }
@@ -56,9 +58,7 @@ namespace Weedon.SanPham
                     rbTamNgung.Checked = true;
                 }
 
-                tbMoTa.Text = data.MoTa;
-
-                cbGroup.Text = data.SanPhamGroup.Ten;
+                tbGhiChu.Text = data.GhiChu;
             }
             else
             {
@@ -101,10 +101,10 @@ namespace Weedon.SanPham
         #region Function
         private bool Init()
         {
-            if (!GetListGroupSP())
-            {
-                return false;
-            }
+            //if (!GetListGroupSP())
+            //{
+            //    return false;
+            //}
 
             return true;
         }
@@ -113,18 +113,17 @@ namespace Weedon.SanPham
         {
             tbMa.Text = string.Empty;
             tbTen.Text = string.Empty;
-            tbMoTa.Text = string.Empty;
-
+            tbGia.Text = string.Empty;
+            cbDVT.SelectedIndex = 0;
+            tbGhiChu.Text = string.Empty;
             rbBan.Checked = true;
-
-            cbGroup.SelectedIndex = cbGroup.Items.Count > 0 ? 0 : -1;
         }
 
         private void ValidateInput()
         {
-            if (!string.IsNullOrEmpty(tbMa.Text) &&
-                !string.IsNullOrEmpty(cbGroup.Text) &&
-                !string.IsNullOrEmpty(tbTen.Text)
+            if (!string.IsNullOrEmpty(tbTen.Text) &&
+                !string.IsNullOrEmpty(tbGia.Text) &&
+                !string.IsNullOrEmpty(cbDVT.Text)
                 )
             {
                 pbHoanTat.Enabled = true;
@@ -161,47 +160,47 @@ namespace Weedon.SanPham
         //    ValidateInput();
         //}
 
-        private bool GetListGroupSP()
-        {
-            List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+        //private bool GetListGroupSP()
+        //{
+        //    List<DTO.SanPhamGroup> listData = SanPhamGroupBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
-            if (listData.Count == 0)
-            {
-                MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm sản phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    if (listData.Count == 0)
+        //    {
+        //        MessageBox.Show(string.Format(Constant.MESSAGE_ERROR_MISSING_DATA, "Nhóm sản phẩm"), Constant.CAPTION_ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                return false;
-            }
+        //        return false;
+        //    }
 
-            cbGroup.Items.Clear();
+        //    cbGroup.Items.Clear();
 
-            foreach (DTO.SanPhamGroup data in listData)
-            {
-                cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
-            }
+        //    foreach (DTO.SanPhamGroup data in listData)
+        //    {
+        //        cbGroup.Items.Add(new CommonComboBoxItems(data.Ten, data.Id));
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         private bool IsDuplicated()
         {
-            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, 0, string.Empty, string.Empty, 0, 0);
+            List<DTO.SanPham> listData = SanPhamBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
 
-            return listData.Exists(p => p.MaSanPham != data.MaSanPham && p.MaSanPham == tbMa.Text);
+            return listData.Exists(p => p.Ten == tbTen.Text);
         }
 
         private void InsertData()
         {
             data = new DTO.SanPham();
 
-            data.MaSanPham = tbMa.Text;
             data.Ten = tbTen.Text;
-            data.IdGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
-            data.MoTa = tbMoTa.Text;
-            data.IsActive = rbBan.Checked;
+            data.Gia = ConvertUtil.ConvertToInt(tbGia.Text);
+            data.DonViTinh = cbDVT.Text;
+            data.GhiChu = tbGhiChu.Text;
+            data.IsActived = rbBan.Checked;
 
-            if (SanPhamBus.Insert(data, FormMain.user))
+            if (SanPhamBus.Insert(data))
             {
-                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + data.MaSanPham) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                if (MessageBox.Show(string.Format(Constant.MESSAGE_INSERT_SUCCESS, "Sản phẩm " + data.Ten) + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_CONTINUE, Constant.CAPTION_CONFIRMATION, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     this.Dispose();
                 }
@@ -229,13 +228,13 @@ namespace Weedon.SanPham
             }
             else
             {
-                data.MaSanPham = tbMa.Text;
                 data.Ten = tbTen.Text;
-                data.SanPhamGroup = SanPhamGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
-                data.MoTa = tbMoTa.Text;
-                data.IsActive = rbBan.Checked;
+                data.Gia = ConvertUtil.ConvertToInt(tbGia.Text);
+                data.DonViTinh = cbDVT.Text;
+                data.GhiChu = tbGhiChu.Text;
+                data.IsActived = rbBan.Checked;
 
-                if (SanPhamBus.Update(data, FormMain.user))
+                if (SanPhamBus.Update(data))
                 {
                     this.Dispose();
                 }
@@ -320,5 +319,20 @@ namespace Weedon.SanPham
             CommonFunc.ValidateNumeric(e);
         }
         #endregion
+
+        private void tbGia_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void cbDVT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
+
+        private void cbDVT_TextChanged(object sender, EventArgs e)
+        {
+            ValidateInput();
+        }
     }
 }

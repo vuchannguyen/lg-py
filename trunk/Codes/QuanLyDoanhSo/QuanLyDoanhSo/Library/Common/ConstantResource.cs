@@ -14,8 +14,8 @@ namespace Library
         public const string MAIN_ICON_KEY = @"Resources\Main\icon_key.png";
         public const string MAIN_ICON_KEY_MOUSEOVER = @"Resources\Main\icon_key_mouseover.png";
         public const string MAIN_ICON_KEY_DISABLE = @"Resources\Main\icon_key_disable.png";
-        public const string MAIN_LOGO = @"Resources\Main\logo.png";
-        public const string MAIN_STARTUP = @"Resources\Main\startup.png";
+        //public const string MAIN_LOGO = @"Resources\Main\logo.png";
+        //public const string MAIN_STARTUP = @"Resources\Main\startup.png";
 
 
 
