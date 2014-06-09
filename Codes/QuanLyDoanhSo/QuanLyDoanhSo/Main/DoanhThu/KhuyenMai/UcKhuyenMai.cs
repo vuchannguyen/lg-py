@@ -29,7 +29,7 @@ namespace Weedon
         {
             try
             {
-                pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+                pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT);
                 pbExcel.Image = Image.FromFile(ConstantResource.CHUC_NANG_EXPORT_EXCEL);
 
                 //pbTitle.Image = Image.FromFile(@"Resources\NhanSu\icon_quanlyma_title.png");
@@ -96,72 +96,129 @@ namespace Weedon
 
                 if (dataKM != null)
                 {
-                    dgvThongTin.Rows.Add(string.Empty, dataKM.Id, dataKM.SanPham.Ten,
-                        dataKM.SanPham1.Ten, dataKM.SoLuongSanPhamKhuyenMai,
+                    dgvThongTin.Rows.Add(dataKM.Id, dataKM.IdSanPham, dataKM.SanPham.Ten, dataKM.SoLuongSanPham,
+                        null, dataKM.SoLuongSanPhamKhuyenMai,
                         dataKM.DonViLamTron,
                         dataKM.GhiChu);
                 }
                 else
                 {
-                    dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
-                        string.Empty, 0,
+                    dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, 0,
+                        null, 0,
                         0,
                         string.Empty);
                 }
+
+                List<DTO.SanPham> listDataSP = SanPhamBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+                DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colSanPhamKhuyenMai.Name];
+                cell.DataSource = listDataSP;
+                //cell.Value = listDataSP.FirstOrDefault().Id;
+                cell.ValueMember = "Id";
+                cell.DisplayMember = "Ten";
+                //dgvThongTin.CurrentCell = cell;
+
+                if (dataKM != null)
+                {
+                    cell.Value = dataKM.IdSanPhamKhuyenMai;
+                }
             }
+        }
+
+        private void AddNewRow()
+        {
+            //dgvThongTin.Rows.Add();
+            //List<DTO.NguyenLieu> listData = NguyenLieuBus.GetList(string.Empty, null, string.Empty, string.Empty, 0, 0);
+            //DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colTen.Name];
+
+            //cell.DataSource = listData;
+            //cell.Value = listData.FirstOrDefault().Id;
+            //cell.ValueMember = "Id";
+            //cell.DisplayMember = "Ten";
+
+            //dgvThongTin.CurrentCell = cell;
+            //UpdateRowData();
+            //dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colUocLuong.Name].Value = 1;
+        }
+
+        private void UpdateRowData()
+        {
+            //int rowIndex = dgvThongTin.CurrentCell.RowIndex;
+
+            //if (dgvThongTin.CurrentCell.ColumnIndex == dgvThongTin.Columns[colTen.Name].Index)
+            //{
+            //    DTO.NguyenLieu data = NguyenLieuBus.GetById(ConvertUtil.ConvertToInt(dgvThongTin[colTen.Name, rowIndex].Value));
+            //    dgvThongTin[colIdNL.Name, rowIndex].Value = data.Id;
+            //    dgvThongTin[colMa.Name, rowIndex].Value = data.MaNguyenLieu;
+            //    dgvThongTin[colDonVi.Name, rowIndex].Value = data.DonViTinh;
+            //    dgvThongTin.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            //}
         }
 
         private void UpdateData()
         {
             foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
-                if (row.Cells[colId.Name].Value != null && !string.IsNullOrEmpty(row.Cells[colId.Name].Value.ToString()))
+                if (ConvertUtil.ConvertToInt(row.Cells[colSoLuongSanPham.Name].Value) != 0 &&
+                    ConvertUtil.ConvertToInt(row.Cells[colSoLuongSanPhamKhuyenMai.Name].Value) != 0)
                 {
-                    //DTO.KhuyenMai data = KhuyenMaiBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
+                    if (row.Cells[colId.Name].Value != null && !string.IsNullOrEmpty(row.Cells[colId.Name].Value.ToString()))
+                    {
+                        DTO.KhuyenMai data = KhuyenMaiBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
+                        data.SoLuongSanPham = row.Cells[colSoLuongSanPham.Name].Value == null ? 0 :
+                            ConvertUtil.ConvertToInt(row.Cells[colSoLuongSanPham.Name].Value);
+                        data.SanPham1 = SanPhamBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colSanPhamKhuyenMai.Name].Value));
+                        data.SoLuongSanPhamKhuyenMai = row.Cells[colSoLuongSanPhamKhuyenMai.Name].Value == null ? 0 :
+                            ConvertUtil.ConvertToInt(row.Cells[colSoLuongSanPhamKhuyenMai.Name].Value);
+                        data.DonViLamTron = row.Cells[colDonViLamTron.Name].Value == null ? 0 :
+                            ConvertUtil.ConvertToDouble(row.Cells[colDonViLamTron.Name].Value);
+                        data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
 
-                    //data.Gia = row.Cells[colGia.Name].Value == null ? 0 :
-                    //    ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                        if (KhuyenMaiBus.Update(data))
+                        {
+                            //this.Dispose();
+                        }
+                        else
+                        {
+                            if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                            {
+                                //this.Dispose();
 
-                    //if (KhuyenMaiBus.Update(data, FormMain.user))
-                    //{
-                    //    //this.Dispose();
-                    //}
-                    //else
-                    //{
-                    //    if (MessageBox.Show(Constant.MESSAGE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                    //    {
-                    //        //this.Dispose();
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DTO.KhuyenMai data = new DTO.KhuyenMai();
+                        data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
+                        data.SoLuongSanPham = row.Cells[colSoLuongSanPham.Name].Value == null ? 0 :
+                            ConvertUtil.ConvertToInt(row.Cells[colSoLuongSanPham.Name].Value);
+                        data.IdSanPhamKhuyenMai = ConvertUtil.ConvertToInt(row.Cells[colSanPhamKhuyenMai.Name].Value);
+                        data.SoLuongSanPhamKhuyenMai = row.Cells[colSoLuongSanPhamKhuyenMai.Name].Value == null ? 0 :
+                            ConvertUtil.ConvertToInt(row.Cells[colSoLuongSanPhamKhuyenMai.Name].Value);
+                        data.DonViLamTron = row.Cells[colDonViLamTron.Name].Value == null ? 0 :
+                            ConvertUtil.ConvertToDouble(row.Cells[colDonViLamTron.Name].Value);
+                        data.GhiChu = row.Cells[colGhiChu.Name].Value == null ? string.Empty : row.Cells[colGhiChu.Name].Value.ToString();
 
-                    //        return;
-                    //    }
-                    //}
-                }
-                else
-                {
-                    //DTO.KhuyenMai data = new DTO.KhuyenMai();
+                        if (KhuyenMaiBus.Insert(data))
+                        {
+                            //this.Dispose();
+                        }
+                        else
+                        {
+                            if (MessageBox.Show(Constant.MESSAGE_UPDATE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                            {
+                                //this.Dispose();
 
-                    //data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
-                    //data.Gia = row.Cells[colGia.Name].Value == null ? 0 :
-                    //    ConvertUtil.ConvertToLong(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-
-                    //if (KhuyenMaiBus.Insert(data, FormMain.user))
-                    //{
-                    //    //this.Dispose();
-                    //}
-                    //else
-                    //{
-                    //    if (MessageBox.Show(Constant.MESSAGE_UPDATE_ERROR + Constant.MESSAGE_NEW_LINE + Constant.MESSAGE_EXIT, Constant.CAPTION_ERROR, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
-                    //    {
-                    //        //this.Dispose();
-
-                    //        return;
-                    //    }
-                    //}
+                                return;
+                            }
+                        }
+                    }
                 }
             }
 
-            pbSua.Enabled = false;
-            pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
+            //pbSua.Enabled = false;
+            //pbSua.Image = Image.FromFile(ConstantResource.CHUC_NANG_ICON_EDIT_DISABLE);
 
             MessageBox.Show(string.Format(Constant.MESSAGE_UPDATE_SUCCESS, "Khuyến mãi"), Constant.CAPTION_CONFIRMATION, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
