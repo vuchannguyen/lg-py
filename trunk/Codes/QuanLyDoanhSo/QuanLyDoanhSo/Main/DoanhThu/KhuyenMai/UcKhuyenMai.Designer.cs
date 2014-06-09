@@ -154,7 +154,6 @@
             // pbSua
             // 
             this.pbSua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbSua.Enabled = false;
             this.pbSua.Location = new System.Drawing.Point(10, 0);
             this.pbSua.Name = "pbSua";
             this.pbSua.Size = new System.Drawing.Size(50, 50);
