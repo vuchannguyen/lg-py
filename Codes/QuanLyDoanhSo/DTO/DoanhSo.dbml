@@ -38,7 +38,10 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="IdBanHang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdSanPham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TonDau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nhan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ban" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TonCuoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ThuHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Gia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ThanhTien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -142,6 +145,7 @@
       <Column Name="DienThoai" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="DTDD" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ton" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="User_BanHang" Member="BanHangs" ThisKey="Id" OtherKey="IdUser" Type="BanHang" />
