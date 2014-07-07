@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnInfo = new System.Windows.Forms.Panel();
+            this.dgvThongTin = new System.Windows.Forms.DataGridView();
             this.lvThongTin = new System.Windows.Forms.ListView();
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -64,16 +65,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.ttDetail = new System.Windows.Forms.ToolTip(this.components);
             this.dtpFilter = new System.Windows.Forms.DateTimePicker();
-            this.dgvThongTin = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIdSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTonDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNhan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colThuHoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pnInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThongTin)).BeginInit();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHoanTat)).BeginInit();
@@ -83,7 +86,6 @@
             this.groupBox1.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvThongTin)).BeginInit();
             this.SuspendLayout();
             // 
             // pnInfo
@@ -94,6 +96,34 @@
             this.pnInfo.Name = "pnInfo";
             this.pnInfo.Size = new System.Drawing.Size(950, 170);
             this.pnInfo.TabIndex = 56;
+            // 
+            // dgvThongTin
+            // 
+            this.dgvThongTin.AllowUserToAddRows = false;
+            this.dgvThongTin.AllowUserToDeleteRows = false;
+            this.dgvThongTin.AllowUserToResizeRows = false;
+            this.dgvThongTin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThongTin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colId,
+            this.colIdSanPham,
+            this.colSanPham,
+            this.colGia,
+            this.colTonDau,
+            this.colNhan,
+            this.colBan,
+            this.colThuHoi,
+            this.colThanhTien,
+            this.colRemove});
+            this.dgvThongTin.Location = new System.Drawing.Point(3, 4);
+            this.dgvThongTin.MultiSelect = false;
+            this.dgvThongTin.Name = "dgvThongTin";
+            this.dgvThongTin.RowHeadersVisible = false;
+            this.dgvThongTin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvThongTin.ShowCellToolTips = false;
+            this.dgvThongTin.Size = new System.Drawing.Size(944, 163);
+            this.dgvThongTin.TabIndex = 2;
+            this.dgvThongTin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTin_CellContentClick);
+            this.dgvThongTin.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTin_CellEndEdit);
             // 
             // lvThongTin
             // 
@@ -407,32 +437,6 @@
             this.dtpFilter.TabIndex = 141;
             this.dtpFilter.Visible = false;
             // 
-            // dgvThongTin
-            // 
-            this.dgvThongTin.AllowUserToAddRows = false;
-            this.dgvThongTin.AllowUserToDeleteRows = false;
-            this.dgvThongTin.AllowUserToResizeRows = false;
-            this.dgvThongTin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvThongTin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colId,
-            this.colIdSanPham,
-            this.colSanPham,
-            this.colGia,
-            this.colBan,
-            this.colThuHoi,
-            this.colThanhTien,
-            this.colRemove});
-            this.dgvThongTin.Location = new System.Drawing.Point(3, 4);
-            this.dgvThongTin.MultiSelect = false;
-            this.dgvThongTin.Name = "dgvThongTin";
-            this.dgvThongTin.RowHeadersVisible = false;
-            this.dgvThongTin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvThongTin.ShowCellToolTips = false;
-            this.dgvThongTin.Size = new System.Drawing.Size(944, 163);
-            this.dgvThongTin.TabIndex = 2;
-            this.dgvThongTin.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTin_CellContentClick);
-            this.dgvThongTin.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvThongTin_CellEndEdit);
-            // 
             // colId
             // 
             this.colId.Frozen = true;
@@ -463,10 +467,10 @@
             // 
             // colGia
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N0";
-            dataGridViewCellStyle7.NullValue = "0";
-            this.colGia.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.colGia.DefaultCellStyle = dataGridViewCellStyle1;
             this.colGia.HeaderText = "Giá";
             this.colGia.MaxInputLength = 11;
             this.colGia.MinimumWidth = 120;
@@ -474,12 +478,23 @@
             this.colGia.ReadOnly = true;
             this.colGia.Width = 120;
             // 
+            // colTonDau
+            // 
+            this.colTonDau.HeaderText = "Tồn đầu";
+            this.colTonDau.Name = "colTonDau";
+            this.colTonDau.ReadOnly = true;
+            // 
+            // colNhan
+            // 
+            this.colNhan.HeaderText = "Nhận";
+            this.colNhan.Name = "colNhan";
+            // 
             // colBan
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "N0";
-            dataGridViewCellStyle8.NullValue = "0";
-            this.colBan.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.colBan.DefaultCellStyle = dataGridViewCellStyle2;
             this.colBan.HeaderText = "Bán";
             this.colBan.MaxInputLength = 3;
             this.colBan.MinimumWidth = 100;
@@ -493,10 +508,10 @@
             // 
             // colThanhTien
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = "0";
-            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle3;
             this.colThanhTien.HeaderText = "Thành tiền";
             this.colThanhTien.MaxInputLength = 11;
             this.colThanhTien.MinimumWidth = 120;
@@ -528,6 +543,7 @@
             this.Size = new System.Drawing.Size(1000, 600);
             this.Load += new System.EventHandler(this.UcInfo_Load);
             this.pnInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThongTin)).EndInit();
             this.gbInfo.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
@@ -541,7 +557,6 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbHuy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvThongTin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -586,6 +601,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTonDau;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colThuHoi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;

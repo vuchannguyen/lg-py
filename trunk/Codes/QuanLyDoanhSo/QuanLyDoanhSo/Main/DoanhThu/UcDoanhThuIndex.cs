@@ -59,7 +59,7 @@ namespace Weedon
 
         private void pbHoaDon_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcBanHang());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcBanHang2());
         }
 
         private void pbDoanhThu_MouseEnter(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace Weedon
 
         private void pbNhatKyMuaHang_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcKhuyenMai());
+            CommonFunc.NewControl(this.Controls, ref uc, new UcBanHang2());
         }
 
         private void pbNhatKyMuaHang_MouseEnter(object sender, EventArgs e)

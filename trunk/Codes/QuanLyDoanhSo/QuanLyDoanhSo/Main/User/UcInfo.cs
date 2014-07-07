@@ -65,7 +65,7 @@ namespace Weedon.User
                 cbGioiTinh.Text = data.GioiTinh;
                 cbGroup.Text = data.UserGroup.Ten;
 
-                cbGroup.Enabled = false;
+                //cbGroup.Enabled = false;
                 tbUserName.ReadOnly = true;
 
                 if (data.Id != FormMain.user.Id)
