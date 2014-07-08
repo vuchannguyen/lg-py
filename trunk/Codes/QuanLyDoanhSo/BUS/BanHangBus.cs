@@ -25,6 +25,11 @@ namespace BUS
             return BanHangDao.GetById(id);
         }
 
+        public static BanHang GetByIdUserAndDate(int idUser, DateTime date)
+        {
+            return BanHangDao.GetByIdUserAndDate(idUser, date);
+        }
+
         public static bool Insert(BanHang data)
         {
             return BanHangDao.Insert(data);
