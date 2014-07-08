@@ -77,6 +77,11 @@ namespace DAO
             return sql.Skip(skip).Take(take).ToList();
         }
 
+        public static List<SanPham> GetListByGia()
+        {
+            return dbContext.SanPhams.Where(p => p.Gia > 0).ToList();
+        }
+
         public static SanPham GetLastData()
         {
             return dbContext.SanPhams.OrderByDescending(p => p.Id).FirstOrDefault();
