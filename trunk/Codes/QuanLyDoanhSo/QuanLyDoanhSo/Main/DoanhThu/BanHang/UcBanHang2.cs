@@ -134,6 +134,7 @@ namespace Weedon
                 }
             }
 
+            RefreshCongCu();
             dgvThongTin.Rows[0].Selected = true;
             dgvThongTin.FirstDisplayedScrollingRowIndex = dgvThongTin.RowCount - 1;
         }
@@ -200,6 +201,74 @@ namespace Weedon
                 }
             }
 
+            RefreshCongCu();
+            dgvThongTin.Rows[0].Selected = true;
+            dgvThongTin.FirstDisplayedScrollingRowIndex = dgvThongTin.RowCount - 1;
+        }
+
+        private void GetDataBanHangAll()
+        {
+            tbThanhTien.Text = string.Empty;
+            tbGhiChu.Text = string.Empty;
+            dgvThongTin.Rows.Clear();
+            List<DTO.User> listUser = UserBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+            foreach (DTO.User data1 in listUser)
+            {
+                DTO.BanHang banHang = null;
+
+                if (data1.IdUserGroup == 2)
+                {
+                    banHang = BanHangBus.GetByIdUserAndDate(data1.Id, dtpFilter.Value);
+                }
+
+                if (banHang != null)
+                {
+                    List<DTO.BanHangChiTiet> listData = BanHangChiTietBus.GetListByIdBanHang(banHang.Id);
+
+                    if (dgvThongTin.Rows.Count > 0)
+                    {
+                        for (int i = 0; i < listData.Count; i++)
+                        {
+                            dgvThongTin[colGia.Name, i].Value = listData[i].Gia;
+                            dgvThongTin[colTonDau.Name, i].Value = listData[i].TonDau + ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                            dgvThongTin[colNhan.Name, i].Value = listData[i].Nhan + ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
+                            dgvThongTin[colBan.Name, i].Value = listData[i].Ban + ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
+                            dgvThongTin[colThuHoi.Name, i].Value = listData[i].ThuHoi + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                            dgvThongTin[colTonCuoi.Name, i].Value = listData[i].TonCuoi + ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                            dgvThongTin[colThanhTien.Name, i].Value = listData[i].ThanhTien + ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                        }
+                    }
+                    else
+                    {
+                        foreach (DTO.BanHangChiTiet data in listData)
+                        {
+                            int soLuong = data.Ban;
+                            int price = data.Gia;
+                            int money = price * soLuong;
+                            dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
+                                price.ToString(Constant.DEFAULT_FORMAT_MONEY), data.TonDau, data.Nhan, soLuong, data.ThuHoi, data.TonCuoi,
+                                money.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                        }
+                    }
+
+                    CalculateMoney();
+                }
+            }
+
+            if (dgvThongTin.Rows.Count == 0)
+            {
+                List<DTO.SanPham> listData = SanPhamBus.GetListByGia();
+
+                foreach (DTO.SanPham data in listData)
+                {
+                    dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
+                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY), 0, 0, 0, 0, 0,
+                        0);
+                }
+            }
+
+            RefreshCongCu();
             dgvThongTin.Rows[0].Selected = true;
             dgvThongTin.FirstDisplayedScrollingRowIndex = dgvThongTin.RowCount - 1;
         }
@@ -233,7 +302,7 @@ namespace Weedon
                 root.Tag = "all";
                 tvUser.Nodes.Add(root);
 
-                List<DTO.User> listData = UserBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+                List<DTO.User> listData = UserBus.GetList(string.Empty, "Tổ", string.Empty, 0, 0);
                 int n = listData.Count;
 
                 foreach (DTO.User data in listData)
@@ -271,6 +340,7 @@ namespace Weedon
                 }
 
                 tvUser.ExpandAll();
+                tvUser.SelectedNode = root;
             }
             catch (Exception ex)
             {
@@ -341,6 +411,59 @@ namespace Weedon
             }
 
             tbThanhTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+        }
+
+        private void CalculateCongCu()
+        {
+            int result = 0;
+
+            foreach (DataGridViewRow row in dgvThongTin.Rows)
+            {
+                result += ConvertUtil.ConvertToInt(row.Cells[colQuet.Name].Value);
+                result += ConvertUtil.ConvertToInt(row.Cells[colTLB.Name].Value);
+            }
+
+            tbTongCongCu.Text = result.ToString(Constant.DEFAULT_FORMAT_MONEY);
+        }
+
+        private void RefreshCongCu()
+        {
+            for (int i = 0; i < dgvThongTin.Rows.Count; i++)
+            {
+                int soLuong = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
+                DTO.KhuyenMai khuyenMai = KhuyenMaiBus.GetByIdSanPham(ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, i].Value));
+                double soLuongSanPhamKhuyenMai = 0;
+
+                if (khuyenMai != null)
+                {
+                    soLuongSanPhamKhuyenMai = 1.0 * soLuong / khuyenMai.SoLuongSanPham * khuyenMai.SoLuongSanPhamKhuyenMai;
+                    soLuongSanPhamKhuyenMai = Math.Round(soLuongSanPhamKhuyenMai, 1);
+                    double soDu = soLuongSanPhamKhuyenMai % khuyenMai.DonViLamTron;
+
+                    if (soDu <= khuyenMai.DonViLamTron / 2)
+                    {
+                        soLuongSanPhamKhuyenMai = soLuongSanPhamKhuyenMai - soDu;
+                    }
+                    else
+                    {
+                        soLuongSanPhamKhuyenMai = soLuongSanPhamKhuyenMai - soDu + khuyenMai.DonViLamTron;
+                    }
+                }
+
+                if (soLuongSanPhamKhuyenMai != 0)
+                {
+                    if (khuyenMai.SanPham.Ten == "Quẹt")
+                    {
+                        dgvThongTin[colQuet.Name, i].Value = soLuongSanPhamKhuyenMai;
+                    }
+                    else
+                    {
+                        dgvThongTin[colTLB.Name, i].Value = soLuongSanPhamKhuyenMai;
+                    }
+                }
+            }
+
+            CalculateCongCu();
         }
 
         private void AddNewRow()
@@ -719,6 +842,42 @@ namespace Weedon
             int thuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, e.RowIndex].Value);
             dgvThongTin[colTonCuoi.Name, e.RowIndex].Value = tonDau + nhan - soLuong - thuHoi;
             CalculateMoney();
+
+            DTO.KhuyenMai khuyenMai = KhuyenMaiBus.GetByIdSanPham(ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, e.RowIndex].Value));
+            double soLuongSanPhamKhuyenMai = 0;
+
+            if (khuyenMai != null)
+            {
+                soLuongSanPhamKhuyenMai = 1.0 * soLuong / khuyenMai.SoLuongSanPham * khuyenMai.SoLuongSanPhamKhuyenMai;
+                soLuongSanPhamKhuyenMai = Math.Round(soLuongSanPhamKhuyenMai, 1);
+                double soDu = soLuongSanPhamKhuyenMai % khuyenMai.DonViLamTron;
+
+                if (khuyenMai.DonViLamTron > 0)
+                {
+                    if (soDu <= khuyenMai.DonViLamTron / 2)
+                    {
+                        soLuongSanPhamKhuyenMai = soLuongSanPhamKhuyenMai - soDu;
+                    }
+                    else
+                    {
+                        soLuongSanPhamKhuyenMai = soLuongSanPhamKhuyenMai - soDu + khuyenMai.DonViLamTron;
+                    }
+                }
+            }
+
+            if (soLuongSanPhamKhuyenMai != 0)
+            {
+                if (khuyenMai.SanPham.Ten == "Quẹt")
+                {
+                    dgvThongTin[colQuet.Name, e.RowIndex].Value = soLuongSanPhamKhuyenMai;
+                }
+                else
+                {
+                    dgvThongTin[colTLB.Name, e.RowIndex].Value = soLuongSanPhamKhuyenMai;
+                }
+            }
+
+            CalculateCongCu();
         }
         #endregion
 
@@ -740,29 +899,37 @@ namespace Weedon
         {
             if (tvUser.SelectedNode != null)
             {
-                DTO.User data = UserBus.GetById(ConvertUtil.ConvertToInt(tvUser.SelectedNode.Tag));
-
-                if (data != null)
+                if (tvUser.SelectedNode.Tag.ToString() == "all")
                 {
-                    tbTenNV.Text = data.Ten;
-
-                    if (data.IdUserGroup == 3)
-                    {
-                        GetDataBanHangToTruong(data);
-                        dgvThongTin.Enabled = false;
-                    }
-                    else
-                    {
-                        GetDataBanHang();
-                        dgvThongTin.Enabled = true;
-                    }
+                    tbTenNV.Text = string.Empty;
+                    GetDataBanHangAll();
                 }
                 else
                 {
-                    dgvThongTin.Rows.Clear();
-                    tbTenNV.Text = string.Empty;
-                    tbThanhTien.Text = string.Empty;
-                    tbGhiChu.Text = string.Empty;
+                    DTO.User data = UserBus.GetById(ConvertUtil.ConvertToInt(tvUser.SelectedNode.Tag));
+
+                    if (data != null)
+                    {
+                        tbTenNV.Text = data.Ten;
+
+                        if (data.IdUserGroup == 3)
+                        {
+                            GetDataBanHangToTruong(data);
+                            dgvThongTin.Enabled = false;
+                        }
+                        else
+                        {
+                            GetDataBanHang();
+                            dgvThongTin.Enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        dgvThongTin.Rows.Clear();
+                        tbTenNV.Text = string.Empty;
+                        tbThanhTien.Text = string.Empty;
+                        tbGhiChu.Text = string.Empty;
+                    }
                 }
             }
         }
