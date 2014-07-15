@@ -74,7 +74,10 @@ namespace DAO
 
         public static BanHang GetByIdUserAndDate(int idUser, DateTime date)
         {
-            return dbContext.BanHangs.Where(p => p.IdUser == idUser && p.Date.Date == date.Date).FirstOrDefault<BanHang>();
+            return dbContext.BanHangs.Where(p => p.IdUser == idUser &&
+                p.Date.Year == date.Year &&
+                p.Date.Month == date.Month &&
+                p.Date.Day == date.Day).FirstOrDefault<BanHang>();
         }
 
         public static bool Insert(BanHang data)

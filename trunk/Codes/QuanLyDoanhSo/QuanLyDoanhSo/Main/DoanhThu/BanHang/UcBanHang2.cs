@@ -107,7 +107,7 @@ namespace Weedon
                     dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
                         price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         data.TonDau,
-                        data.Nhan, soLuong, data.TonCuoi, data.ThuHoi,
+                        data.Nhan, soLuong, data.ThuHoi, data.TonCuoi,
                         money.ToString(Constant.DEFAULT_FORMAT_MONEY));
                 }
 
@@ -903,6 +903,7 @@ namespace Weedon
                 {
                     tbTenNV.Text = string.Empty;
                     GetDataBanHangAll();
+                    dgvThongTin.Enabled = false;
                 }
                 else
                 {

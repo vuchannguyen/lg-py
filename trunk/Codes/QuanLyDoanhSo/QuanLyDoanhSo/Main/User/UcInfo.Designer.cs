@@ -30,6 +30,8 @@
         {
             this.pnInfo = new System.Windows.Forms.Panel();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.tbTo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tbDiaChi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpNgayCap = new System.Windows.Forms.DateTimePicker();
@@ -71,8 +73,6 @@
             this.lbSelect = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -94,7 +94,7 @@
             // 
             // gbInfo
             // 
-            this.gbInfo.Controls.Add(this.textBox1);
+            this.gbInfo.Controls.Add(this.tbTo);
             this.gbInfo.Controls.Add(this.label10);
             this.gbInfo.Controls.Add(this.tbDiaChi);
             this.gbInfo.Controls.Add(this.label4);
@@ -136,6 +136,26 @@
             this.gbInfo.TabIndex = 15;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "Thông tin";
+            // 
+            // tbTo
+            // 
+            this.tbTo.Location = new System.Drawing.Point(420, 65);
+            this.tbTo.MaxLength = 2;
+            this.tbTo.Name = "tbTo";
+            this.tbTo.Size = new System.Drawing.Size(39, 23);
+            this.tbTo.TabIndex = 126;
+            this.tbTo.Text = "0";
+            this.tbTo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(385, 68);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 16);
+            this.label10.TabIndex = 127;
+            this.label10.Text = "Tổ:";
             // 
             // tbDiaChi
             // 
@@ -536,26 +556,6 @@
             this.pbTitle.TabIndex = 1;
             this.pbTitle.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(420, 65);
-            this.textBox1.MaxLength = 2;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(39, 23);
-            this.textBox1.TabIndex = 126;
-            this.textBox1.Text = "0";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(385, 68);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 16);
-            this.label10.TabIndex = 127;
-            this.label10.Text = "Tổ:";
-            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -627,7 +627,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbDiaChi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbTo;
         private System.Windows.Forms.Label label10;
 
     }
