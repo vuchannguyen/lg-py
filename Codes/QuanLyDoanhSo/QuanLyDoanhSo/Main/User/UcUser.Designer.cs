@@ -49,8 +49,8 @@
             this.chGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chHoTen = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDOB = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDienThoai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chQuan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chMaNV = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDTDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chEmail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnTraCuu = new System.Windows.Forms.Panel();
@@ -235,10 +235,10 @@
             this.chMa,
             this.chSTT,
             this.chGroup,
+            this.chMaNV,
             this.chHoTen,
             this.chUserName,
-            this.chDOB,
-            this.chDienThoai,
+            this.chQuan,
             this.chDTDD,
             this.chEmail});
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,16 +290,16 @@
             this.chUserName.Text = "Tên đăng nhập";
             this.chUserName.Width = 144;
             // 
-            // chDOB
+            // chQuan
             // 
-            this.chDOB.Text = "Ngày sinh";
-            this.chDOB.Width = 76;
+            this.chQuan.Text = "Quận";
+            this.chQuan.Width = 76;
             // 
-            // chDienThoai
+            // chMaNV
             // 
-            this.chDienThoai.Text = "Điện thoại";
-            this.chDienThoai.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chDienThoai.Width = 100;
+            this.chMaNV.Text = "Mã";
+            this.chMaNV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.chMaNV.Width = 100;
             // 
             // chDTDD
             // 
@@ -346,7 +346,7 @@
             this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
             this.lbTotalPage.Location = new System.Drawing.Point(705, 6);
             this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(88, 19);
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
             this.lbTotalPage.TabIndex = 2;
             this.lbTotalPage.Text = "??? Trang";
             // 
@@ -508,11 +508,11 @@
         private System.Windows.Forms.ColumnHeader chSTT;
         private System.Windows.Forms.ColumnHeader chHoTen;
         private System.Windows.Forms.ColumnHeader chGroup;
-        private System.Windows.Forms.ColumnHeader chDienThoai;
+        private System.Windows.Forms.ColumnHeader chMaNV;
         private System.Windows.Forms.ColumnHeader chEmail;
         private System.Windows.Forms.ColumnHeader chCheckBox;
         private System.Windows.Forms.ColumnHeader chUserName;
         private System.Windows.Forms.ColumnHeader chDTDD;
-        private System.Windows.Forms.ColumnHeader chDOB;
+        private System.Windows.Forms.ColumnHeader chQuan;
     }
 }

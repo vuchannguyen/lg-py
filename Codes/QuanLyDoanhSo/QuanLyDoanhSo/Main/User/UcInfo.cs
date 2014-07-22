@@ -48,9 +48,11 @@ namespace Weedon.User
 
             if (Init())
             {
+                tbMa.Text = data.Ma;
                 tbTen.Text = data.Ten;
                 tbUserName.Text = data.UserName;
                 tbTo.Text = data.To == null ? string.Empty : data.To.ToString();
+                tbQuan.Text = data.Quan == null ? string.Empty : data.Quan;
                 //tbPassword.Text = Constant.DEFAULT_PASSWORD;
                 tbDiaChi.Text = data.DiaChi;
                 tbDienThoai.Text = data.DienThoai;
@@ -146,9 +148,12 @@ namespace Weedon.User
 
         private void RefreshData()
         {
+            tbQuan.Text = string.Empty;
             tbTen.Text = string.Empty;
             tbUserName.Text = string.Empty;
             tbPassword.Text = string.Empty;
+            tbTo.Text = string.Empty;
+            tbQuan.Text = string.Empty;
             tbDiaChi.Text = string.Empty;
             tbDienThoai.Text = string.Empty;
             tbEmail.Text = string.Empty;
@@ -209,9 +214,11 @@ namespace Weedon.User
 
         private void InsertData()
         {
+            data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
             data.IdUserGroup = ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value);
             data.To = ConvertUtil.ConvertToInt(tbTo.Text);
+            data.Quan = tbQuan.Text;
             data.UserName = tbUserName.Text;
             data.Password = Crypto.EncryptText(tbPassword.Text);
             data.GioiTinh = cbGioiTinh.Text;
@@ -245,9 +252,11 @@ namespace Weedon.User
 
         private void UpdateData()
         {
+            data.Ma = tbMa.Text;
             data.Ten = tbTen.Text;
             data.UserGroup = UserGroupBus.GetById(ConvertUtil.ConvertToInt(((CommonComboBoxItems)cbGroup.SelectedItem).Value));
             data.To = ConvertUtil.ConvertToInt(tbTo.Text);
+            data.Quan = tbQuan.Text;
             //data.UserName = tbUserName.Text;
 
             if (!string.IsNullOrEmpty(tbPassword.Text))

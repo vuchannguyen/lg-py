@@ -73,7 +73,6 @@ namespace Weedon
 
         private void GetDataBanHang()
         {
-            tbThanhTien.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
             dgvThongTin.Rows.Clear();
             DTO.BanHang banHang = null;
@@ -105,14 +104,14 @@ namespace Weedon
                     int price = data.Gia;
                     int money = price * soLuong;
                     dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
+                        data.TonDau, data.Nhan, soLuong,  data.TonCuoi,
                         price.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                        data.TonDau,
-                        data.Nhan, soLuong, data.ThuHoi, data.TonCuoi,
-                        money.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                        money.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                        data.ThuHoi);
                 }
 
+                AddLastRow(dgvThongTin);
                 tbGhiChu.Text = banHang.GhiChu;
-                CalculateMoney();
             }
             else
             {
@@ -127,21 +126,72 @@ namespace Weedon
                 foreach (DTO.SanPham data in listData)
                 {
                     dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
-                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         listDataNgayTruoc == null ? 0 : listDataNgayTruoc.Where(p => p.IdSanPham == data.Id).FirstOrDefault().TonCuoi,
-                        0, 0, 0, 0,
+                        0, 0, 0,
+                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                        0,
                         0);
                 }
+
+                AddLastRow(dgvThongTin);
             }
 
+            GetDataLoaiTien(banHang);
             RefreshCongCu();
+            CalculateAll();
             dgvThongTin.Rows[0].Selected = true;
             dgvThongTin.FirstDisplayedScrollingRowIndex = dgvThongTin.RowCount - 1;
         }
 
+        private void GetDataLoaiTien(DTO.BanHang banHang)
+        {
+            if (banHang != null)
+            {
+                List<DTO.BanHang_LoaiTien> listData = BanHang_LoaiTienBus.GetListByIdBanHang(banHang.Id);
+
+                if (dgvLoaiTien.Rows.Count > 0)
+                {
+                    for (int i = 0; i < listData.Count; i++)
+                    {
+                        dgvLoaiTien[colSoLuong.Name, i].Value = listData[i].SoLuong + ConvertUtil.ConvertToInt(dgvLoaiTien[colSoLuong.Name, i].Value);
+                        dgvLoaiTien[colThanhTienTien.Name, i].Value = listData[i].ThanhTien + ConvertUtil.ConvertToInt(dgvLoaiTien[colThanhTienTien.Name, i].Value);
+                    }
+                }
+                else
+                {
+                    foreach (DTO.BanHang_LoaiTien data in listData)
+                    {
+                        dgvLoaiTien.Rows.Add(data.Id, data.IdLoaiTien, data.LoaiTien.Gia,
+                            data.SoLuong,
+                            data.ThanhTien);
+                    }
+
+                    if (dgvLoaiTien.Rows.Count > 0)
+                    {
+                        AddLastRow(dgvLoaiTien);
+                    }
+                }
+            }
+
+            if (dgvLoaiTien.Rows.Count == 0)
+            {
+                List<DTO.LoaiTien> listData = LoaiTienBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+
+                foreach (DTO.LoaiTien data in listData)
+                {
+                    dgvLoaiTien.Rows.Add(string.Empty, data.Id, data.Gia,
+                        0,
+                        0);
+                }
+
+                AddLastRow(dgvLoaiTien);
+            }
+
+            CalculateLoaiTien();
+        }
+
         private void GetDataBanHangToTruong(DTO.User toTruong)
         {
-            tbThanhTien.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
             dgvThongTin.Rows.Clear();
             List<DTO.User> listUser = UserBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
@@ -180,13 +230,19 @@ namespace Weedon
                             int price = data.Gia;
                             int money = price * soLuong;
                             dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
-                                price.ToString(Constant.DEFAULT_FORMAT_MONEY), data.TonDau, data.Nhan, soLuong, data.ThuHoi, data.TonCuoi,
-                                money.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                                data.TonDau, data.Nhan, soLuong, data.TonCuoi,
+                                price.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                                money.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                                data.ThuHoi);
                         }
+
+                        AddLastRow(dgvThongTin);
                     }
 
-                    CalculateMoney();
+                    CalculateAll();
                 }
+
+                GetDataLoaiTien(banHang);
             }
 
             if (dgvThongTin.Rows.Count == 0)
@@ -196,9 +252,13 @@ namespace Weedon
                 foreach (DTO.SanPham data in listData)
                 {
                     dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
-                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY), 0, 0, 0, 0, 0,
+                        0, 0, 0, 0,
+                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                        0,
                         0);
                 }
+
+                AddLastRow(dgvThongTin);
             }
 
             RefreshCongCu();
@@ -208,7 +268,6 @@ namespace Weedon
 
         private void GetDataBanHangAll()
         {
-            tbThanhTien.Text = string.Empty;
             tbGhiChu.Text = string.Empty;
             dgvThongTin.Rows.Clear();
             List<DTO.User> listUser = UserBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
@@ -247,13 +306,19 @@ namespace Weedon
                             int price = data.Gia;
                             int money = price * soLuong;
                             dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
-                                price.ToString(Constant.DEFAULT_FORMAT_MONEY), data.TonDau, data.Nhan, soLuong, data.ThuHoi, data.TonCuoi,
-                                money.ToString(Constant.DEFAULT_FORMAT_MONEY));
+                                data.TonDau, data.Nhan, soLuong, data.TonCuoi,
+                                price.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                                money.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                                data.ThuHoi);
                         }
+
+                        AddLastRow(dgvThongTin);
                     }
 
-                    CalculateMoney();
+                    CalculateAll();
                 }
+
+                GetDataLoaiTien(banHang);
             }
 
             if (dgvThongTin.Rows.Count == 0)
@@ -263,14 +328,25 @@ namespace Weedon
                 foreach (DTO.SanPham data in listData)
                 {
                     dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
-                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY), 0, 0, 0, 0, 0,
+                        0, 0, 0, 0,
+                        data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
+                        0,
                         0);
                 }
+
+                AddLastRow(dgvThongTin);
             }
 
             RefreshCongCu();
             dgvThongTin.Rows[0].Selected = true;
             dgvThongTin.FirstDisplayedScrollingRowIndex = dgvThongTin.RowCount - 1;
+        }
+
+        private void AddLastRow(DataGridView dgv)
+        {
+            dgv.Rows.Add();
+            dgv.Rows[dgv.Rows.Count - 1].ReadOnly = true;
+            dgv.Rows[dgv.Rows.Count - 1].DefaultCellStyle.ForeColor = Color.Red;
         }
 
         private void GetListUser()
@@ -364,66 +440,63 @@ namespace Weedon
 
         private void RefreshData(string text, int idGroup)
         {
-            //dgvThongTin.Rows.Clear();
-            //List<DTO.SanPham> list = SanPhamBus.GetList(text, string.Empty, string.Empty, 0, 0);
-
-            //foreach (DTO.SanPham data in list)
-            //{
-            //    DTO.KhuyenMai dataKM = KhuyenMaiBus.GetByIdSanPham(data.Id);
-
-            //    if (dataKM != null)
-            //    {
-            //        dgvThongTin.Rows.Add(dataKM.Id, dataKM.IdSanPham, dataKM.SanPham.Ten, dataKM.SoLuongSanPham,
-            //            null, dataKM.SoLuongSanPhamKhuyenMai,
-            //            dataKM.DonViLamTron,
-            //            dataKM.GhiChu);
-            //    }
-            //    else
-            //    {
-            //        dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten, 0,
-            //            null, 0,
-            //            0,
-            //            string.Empty);
-            //    }
-
-            //    List<DTO.SanPham> listDataSP = SanPhamBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
-            //    DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)dgvThongTin.Rows[dgvThongTin.RowCount - 1].Cells[colSanPhamKhuyenMai.Name];
-            //    cell.DataSource = listDataSP;
-            //    //cell.Value = listDataSP.FirstOrDefault().Id;
-            //    cell.ValueMember = "Id";
-            //    cell.DisplayMember = "Ten";
-            //    //dgvThongTin.CurrentCell = cell;
-
-            //    if (dataKM != null)
-            //    {
-            //        cell.Value = dataKM.IdSanPhamKhuyenMai;
-            //    }
-            //}
+            
         }
 
-        private void CalculateMoney()
+        private void CalculateAll()
         {
-            int money = 0;
+            int tonDau = 0;
+            int nhan = 0;
+            int ban = 0;
+            int tonCuoi = 0;
+            int tien = 0;
+            int thuHoi = 0;
+            double resultQuet = 0;
+            double resultTLB = 0;
 
-            foreach (DataGridViewRow row in dgvThongTin.Rows)
+            for (int i = 0; i < dgvThongTin.Rows.Count - 1; i++)
+            //foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
-                money += ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                tonDau += ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                nhan += ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
+                ban += ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
+                tonCuoi += ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                tien += dgvThongTin[colThanhTien.Name, i].Value == null ? 0 :
+                    ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                thuHoi += ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                resultQuet += ConvertUtil.ConvertToDouble(dgvThongTin[colQuet.Name, i].Value);
+                resultTLB += ConvertUtil.ConvertToDouble(dgvThongTin[colTLB.Name, i].Value);
             }
 
-            tbThanhTien.Text = money.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            if (dgvThongTin.Rows.Count > 0)
+            {
+                dgvThongTin[colTonDau.Name, dgvThongTin.Rows.Count - 1].Value = tonDau;
+                dgvThongTin[colNhan.Name, dgvThongTin.Rows.Count - 1].Value = nhan;
+                dgvThongTin[colBan.Name, dgvThongTin.Rows.Count - 1].Value = ban;
+                dgvThongTin[colTonCuoi.Name, dgvThongTin.Rows.Count - 1].Value = tonCuoi;
+                dgvThongTin[colThanhTien.Name, dgvThongTin.Rows.Count - 1].Value = tien.ToString(Constant.DEFAULT_FORMAT_MONEY);
+                dgvThongTin[colThuHoi.Name, dgvThongTin.Rows.Count - 1].Value = thuHoi;
+                dgvThongTin[colQuet.Name, dgvThongTin.Rows.Count - 1].Value = resultQuet;
+                dgvThongTin[colTLB.Name, dgvThongTin.Rows.Count - 1].Value = resultTLB;
+            }
         }
 
-        private void CalculateCongCu()
+        private void CalculateLoaiTien()
         {
-            int result = 0;
+            int soLuong = 0;
+            int tien = 0;
 
-            foreach (DataGridViewRow row in dgvThongTin.Rows)
+            for (int i = 0; i < dgvLoaiTien.Rows.Count - 1; i++)
             {
-                result += ConvertUtil.ConvertToInt(row.Cells[colQuet.Name].Value);
-                result += ConvertUtil.ConvertToInt(row.Cells[colTLB.Name].Value);
+                soLuong += ConvertUtil.ConvertToInt(dgvLoaiTien[colSoLuong.Name, i].Value);
+                tien += ConvertUtil.ConvertToInt(dgvLoaiTien[colThanhTienTien.Name, i].Value);
             }
 
-            tbTongCongCu.Text = result.ToString(Constant.DEFAULT_FORMAT_MONEY);
+            if (dgvLoaiTien.Rows.Count > 0)
+            {
+                dgvLoaiTien[colSoLuong.Name, dgvLoaiTien.Rows.Count - 1].Value = soLuong;
+                dgvLoaiTien[colThanhTienTien.Name, dgvLoaiTien.Rows.Count - 1].Value = tien;
+            }
         }
 
         private void RefreshCongCu()
@@ -452,7 +525,7 @@ namespace Weedon
 
                 if (soLuongSanPhamKhuyenMai != 0)
                 {
-                    if (khuyenMai.SanPham.Ten == "Quẹt")
+                    if (khuyenMai.SanPham1.Ten == "Quẹt")
                     {
                         dgvThongTin[colQuet.Name, i].Value = soLuongSanPhamKhuyenMai;
                     }
@@ -463,7 +536,7 @@ namespace Weedon
                 }
             }
 
-            CalculateCongCu();
+            CalculateAll();
         }
 
         private void AddNewRow()
@@ -507,7 +580,7 @@ namespace Weedon
 
             data.Date = dtpFilter.Value;
             data.IdUser = ConvertUtil.ConvertToInt(tvUser.SelectedNode.Tag);
-            data.ThanhTien = ConvertUtil.ConvertToInt(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, dgvThongTin.Rows.Count - 1].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
             if (BanHangBus.Insert(data))
@@ -522,33 +595,37 @@ namespace Weedon
 
         private bool InsertDataBanHangChiTiet(DTO.BanHang dataBanHang)
         {
-            foreach (DataGridViewRow row in dgvThongTin.Rows)
+            for (int i = 0; i < dgvThongTin.Rows.Count - 1; i++)
+            //foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
                 DTO.BanHangChiTiet data = new DTO.BanHangChiTiet();
                 data.IdBanHang = dataBanHang.Id;
-                data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
-                data.Gia = ConvertUtil.ConvertToInt(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                data.TonDau = ConvertUtil.ConvertToInt(row.Cells[colTonDau.Name].Value);
-                data.Nhan = ConvertUtil.ConvertToInt(row.Cells[colNhan.Name].Value);
-                data.Ban = ConvertUtil.ConvertToInt(row.Cells[colBan.Name].Value);
-                data.ThuHoi = ConvertUtil.ConvertToInt(row.Cells[colThuHoi.Name].Value);
-                data.TonCuoi = ConvertUtil.ConvertToInt(row.Cells[colTonCuoi.Name].Value);
-                data.ThanhTien = ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                data.IdSanPham = ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, i].Value);
+                data.TonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                data.Nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
+                data.Ban = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
+                data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                data.Gia = ConvertUtil.ConvertToInt(dgvThongTin[colGia.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                data.ThuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
 
                 if (!BanHangChiTietBus.Insert(data))
                 {
                     return false;
+                }
+                else
+                {
+                    dgvThongTin[colId.Name, i].Value = data.Id;
                 }
             }
 
             return true;
         }
 
-        private bool UpdateDataBanHang()
+        private bool UpdateDataBanHang(DTO.BanHang data)
         {
-            DTO.BanHang data = BanHangBus.GetByIdUserAndDate(ConvertUtil.ConvertToInt(tvUser.SelectedNode.Tag), dtpFilter.Value);
-            data.IdUser = FormMain.user.Id;
-            data.ThanhTien = ConvertUtil.ConvertToInt(tbThanhTien.Text.Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            //data.IdUser = FormMain.user.Id;
+            data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, dgvThongTin.Rows.Count - 1].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
             data.GhiChu = tbGhiChu.Text;
 
             if (BanHangBus.Update(data))
@@ -563,18 +640,18 @@ namespace Weedon
 
         private bool UpdateDataBanHangChiTiet(DTO.BanHang dataBanHang)
         {
-            foreach (DataGridViewRow row in dgvThongTin.Rows)
+            for (int i = 0; i < dgvThongTin.Rows.Count - 1; i++)
+            //foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
-                if (!string.IsNullOrEmpty(row.Cells[colId.Name].Value.ToString()))
+                if (!string.IsNullOrEmpty(dgvThongTin[colId.Name, i].Value.ToString()))
                 {
-                    DTO.BanHangChiTiet data = BanHangChiTietBus.GetById(ConvertUtil.ConvertToInt(row.Cells[colId.Name].Value));
-                    data.Ban = ConvertUtil.ConvertToInt(row.Cells[colBan.Name].Value);
-                    data.TonDau = ConvertUtil.ConvertToInt(row.Cells[colTonDau.Name].Value);
-                    data.Nhan = ConvertUtil.ConvertToInt(row.Cells[colNhan.Name].Value);
-                    data.Ban = ConvertUtil.ConvertToInt(row.Cells[colBan.Name].Value);
-                    data.ThuHoi = ConvertUtil.ConvertToInt(row.Cells[colThuHoi.Name].Value);
-                    data.TonCuoi = ConvertUtil.ConvertToInt(row.Cells[colTonCuoi.Name].Value);
-                    data.ThanhTien = ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    DTO.BanHangChiTiet data = BanHangChiTietBus.GetById(ConvertUtil.ConvertToInt(dgvThongTin[colId.Name, i].Value));
+                    data.TonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                    data.Nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
+                    data.Ban = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
+                    data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                    data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    data.ThuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
 
                     if (!BanHangChiTietBus.Update(data))
                     {
@@ -584,16 +661,15 @@ namespace Weedon
                 else
                 {
                     DTO.BanHangChiTiet data = new DTO.BanHangChiTiet();
-
                     data.IdBanHang = dataBanHang.Id;
-                    data.IdSanPham = ConvertUtil.ConvertToInt(row.Cells[colIdSanPham.Name].Value);
-                    data.Gia = ConvertUtil.ConvertToInt(row.Cells[colGia.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
-                    data.TonDau = ConvertUtil.ConvertToInt(row.Cells[colTonDau.Name].Value);
-                    data.Nhan = ConvertUtil.ConvertToInt(row.Cells[colNhan.Name].Value);
-                    data.Ban = ConvertUtil.ConvertToInt(row.Cells[colBan.Name].Value);
-                    data.ThuHoi = ConvertUtil.ConvertToInt(row.Cells[colThuHoi.Name].Value);
-                    data.TonCuoi = ConvertUtil.ConvertToInt(row.Cells[colTonCuoi.Name].Value);
-                    data.ThanhTien = ConvertUtil.ConvertToInt(row.Cells[colThanhTien.Name].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    data.IdSanPham = ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, i].Value);
+                    data.TonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                    data.Nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
+                    data.Ban = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
+                    data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                    data.Gia = ConvertUtil.ConvertToInt(dgvThongTin[colGia.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                    data.ThuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
 
                     if (!BanHangChiTietBus.Insert(data))
                     {
@@ -605,15 +681,54 @@ namespace Weedon
             return true;
         }
 
-        private void UpdateData()
+        private bool UpdateDataBanHangLoaiTien(DTO.BanHang dataBanHang)
+        {
+            for (int i = 0; i < dgvLoaiTien.Rows.Count - 1; i++)
+            {
+                if (!string.IsNullOrEmpty(dgvLoaiTien[colIdTien.Name, i].Value.ToString()))
+                {
+                    DTO.BanHang_LoaiTien data = BanHang_LoaiTienBus.GetById(ConvertUtil.ConvertToInt(dgvLoaiTien[colIdTien.Name, i].Value));
+                    data.SoLuong = ConvertUtil.ConvertToInt(dgvLoaiTien[colSoLuong.Name, i].Value);
+                    data.ThanhTien = ConvertUtil.ConvertToInt(dgvLoaiTien[colThanhTienTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
+                    if (!BanHang_LoaiTienBus.Update(data))
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    DTO.BanHang_LoaiTien data = new DTO.BanHang_LoaiTien();
+
+                    data.IdBanHang = dataBanHang.Id;
+                    data.IdLoaiTien = ConvertUtil.ConvertToInt(dgvLoaiTien[colIdLoaiTien.Name, i].Value);
+                    data.SoLuong = ConvertUtil.ConvertToInt(dgvLoaiTien[colSoLuong.Name, i].Value);
+                    data.ThanhTien = ConvertUtil.ConvertToInt(dgvLoaiTien[colThanhTienTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+
+                    if (!BanHang_LoaiTienBus.Insert(data))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        dgvLoaiTien[colIdTien.Name, i].Value = data.Id;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private void UpdateData(bool isBanHang)
         {
             DTO.BanHang banHang = BanHangBus.GetByIdUserAndDate(ConvertUtil.ConvertToInt(tvUser.SelectedNode.Tag), dtpFilter.Value);
 
             if (banHang != null)
             {
-                UpdateDataBanHang();
+                UpdateDataBanHang(banHang);
+                UpdateDataBanHangLoaiTien(banHang);
             }
-            else
+            else if (isBanHang)
             {
                 InsertDataBanHang();
             }
@@ -750,10 +865,10 @@ namespace Weedon
         {
             pbSua.Focus();
 
-            if (MessageBox.Show("Cập nhật?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                UpdateData();
-            }
+            //if (MessageBox.Show("Cập nhật?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+                UpdateData(true);
+            //}
         }
 
         private void pbSua_MouseEnter(object sender, EventArgs e)
@@ -841,8 +956,6 @@ namespace Weedon
             int nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, e.RowIndex].Value);
             int thuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, e.RowIndex].Value);
             dgvThongTin[colTonCuoi.Name, e.RowIndex].Value = tonDau + nhan - soLuong - thuHoi;
-            CalculateMoney();
-
             DTO.KhuyenMai khuyenMai = KhuyenMaiBus.GetByIdSanPham(ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, e.RowIndex].Value));
             double soLuongSanPhamKhuyenMai = 0;
 
@@ -867,7 +980,7 @@ namespace Weedon
 
             if (soLuongSanPhamKhuyenMai != 0)
             {
-                if (khuyenMai.SanPham.Ten == "Quẹt")
+                if (khuyenMai.SanPham1.Ten == "Quẹt")
                 {
                     dgvThongTin[colQuet.Name, e.RowIndex].Value = soLuongSanPhamKhuyenMai;
                 }
@@ -877,31 +990,33 @@ namespace Weedon
                 }
             }
 
-            CalculateCongCu();
+            CalculateAll();
+
+            try
+            {
+                UpdateData(true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi trong quá trình lưu trữ dữ liệu!\n" + ex.Message);
+            }
         }
         #endregion
 
         private void dgvThongTin_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == dgvThongTin.Columns[colRemove.Name].Index)
-            //{
-            //    if (dgvThongTin[colId.Name, e.RowIndex].Value != null && !string.IsNullOrEmpty(dgvThongTin[colId.Name, e.RowIndex].Value.ToString()))
-            //    {
-            //        idsBanHangChiTietRemoved += dgvThongTin[colId.Name, e.RowIndex].Value + Constant.SEPERATE_STRING;
-            //    }
-
-            //    dgvThongTin.Rows.RemoveAt(e.RowIndex);
-            //    CalculateMoney();
-            //}
+            
         }
 
         private void tvUser_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (tvUser.SelectedNode != null)
             {
+                dgvLoaiTien.Rows.Clear();
+
                 if (tvUser.SelectedNode.Tag.ToString() == "all")
                 {
-                    tbTenNV.Text = string.Empty;
+                    tbTenNV.Text = "---Tất cả---";
                     GetDataBanHangAll();
                     dgvThongTin.Enabled = false;
                 }
@@ -911,7 +1026,7 @@ namespace Weedon
 
                     if (data != null)
                     {
-                        tbTenNV.Text = data.Ten;
+                        tbTenNV.Text = data.Ma + "-" + data.Ten;
 
                         if (data.IdUserGroup == 3)
                         {
@@ -928,7 +1043,6 @@ namespace Weedon
                     {
                         dgvThongTin.Rows.Clear();
                         tbTenNV.Text = string.Empty;
-                        tbThanhTien.Text = string.Empty;
                         tbGhiChu.Text = string.Empty;
                     }
                 }
@@ -938,6 +1052,50 @@ namespace Weedon
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
         {
             GetDataBanHang();
+        }
+
+        private void dgvThongTin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                UpdateData(true);
+            }
+        }
+
+        private void dgvLoaiTien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvLoaiTien_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ConvertUtil.ConvertToInt(dgvLoaiTien[colSoLuong.Name, e.RowIndex].Value) <= 0)
+            {
+                dgvLoaiTien[colSoLuong.Name, e.RowIndex].Value = 0;
+            }
+
+            int soLuong = ConvertUtil.ConvertToInt(dgvLoaiTien[colSoLuong.Name, e.RowIndex].Value);
+            int price = ConvertUtil.ConvertToInt(dgvLoaiTien[colLoaiTien.Name, e.RowIndex].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+            int money = price * soLuong;
+            dgvLoaiTien[colThanhTienTien.Name, e.RowIndex].Value = price * soLuong;
+            CalculateLoaiTien();
+
+            try
+            {
+                UpdateData(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi trong quá trình lưu trữ dữ liệu!\n" + ex.Message);
+            }
+        }
+
+        private void dgvLoaiTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                UpdateData(false);
+            }
         }
     }
 }

@@ -73,6 +73,10 @@
             this.lbSelect = new System.Windows.Forms.Label();
             this.lbTitle = new System.Windows.Forms.Label();
             this.pbTitle = new System.Windows.Forms.PictureBox();
+            this.tbMa = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbQuan = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.pnInfo.SuspendLayout();
             this.gbInfo.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -94,6 +98,10 @@
             // 
             // gbInfo
             // 
+            this.gbInfo.Controls.Add(this.tbQuan);
+            this.gbInfo.Controls.Add(this.label13);
+            this.gbInfo.Controls.Add(this.tbMa);
+            this.gbInfo.Controls.Add(this.label12);
             this.gbInfo.Controls.Add(this.tbTo);
             this.gbInfo.Controls.Add(this.label10);
             this.gbInfo.Controls.Add(this.tbDiaChi);
@@ -142,9 +150,9 @@
             this.tbTo.Location = new System.Drawing.Point(420, 65);
             this.tbTo.MaxLength = 2;
             this.tbTo.Name = "tbTo";
-            this.tbTo.Size = new System.Drawing.Size(39, 23);
+            this.tbTo.Size = new System.Drawing.Size(28, 23);
             this.tbTo.TabIndex = 126;
-            this.tbTo.Text = "0";
+            this.tbTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbTo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label10
@@ -471,7 +479,7 @@
             this.tbTen.Location = new System.Drawing.Point(129, 25);
             this.tbTen.MaxLength = 50;
             this.tbTen.Name = "tbTen";
-            this.tbTen.Size = new System.Drawing.Size(382, 23);
+            this.tbTen.Size = new System.Drawing.Size(186, 23);
             this.tbTen.TabIndex = 0;
             this.tbTen.TextChanged += new System.EventHandler(this.tbTen_TextChanged);
             // 
@@ -556,6 +564,42 @@
             this.pbTitle.TabIndex = 1;
             this.pbTitle.TabStop = false;
             // 
+            // tbMa
+            // 
+            this.tbMa.Location = new System.Drawing.Point(420, 25);
+            this.tbMa.MaxLength = 10;
+            this.tbMa.Name = "tbMa";
+            this.tbMa.Size = new System.Drawing.Size(86, 23);
+            this.tbMa.TabIndex = 128;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(383, 28);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 16);
+            this.label12.TabIndex = 129;
+            this.label12.Text = "Mã:";
+            // 
+            // tbQuan
+            // 
+            this.tbQuan.Location = new System.Drawing.Point(520, 65);
+            this.tbQuan.MaxLength = 30;
+            this.tbQuan.Name = "tbQuan";
+            this.tbQuan.Size = new System.Drawing.Size(86, 23);
+            this.tbQuan.TabIndex = 130;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(467, 68);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 16);
+            this.label13.TabIndex = 131;
+            this.label13.Text = "Quận:";
+            // 
             // UcInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -629,6 +673,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbTo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbMa;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbQuan;
+        private System.Windows.Forms.Label label13;
 
     }
 }

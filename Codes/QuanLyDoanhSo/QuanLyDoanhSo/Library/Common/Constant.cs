@@ -285,7 +285,7 @@ namespace Library
         public const string MESSAGE_ERROR_BACKUP_PATH = "Vui lòng lưu vào thư mục khác.";
         public const string MESSAGE_ERROR_RESTORE = "Không thể phục hồi dữ liệu!";
 
-        public const string SEARCH_USER_TIP = "Họ tên - Tên đăng nhập - Email";
+        public const string SEARCH_USER_TIP = "Mã - Họ tên - Tên đăng nhập";
         public const string SEARCH_KHACHHANG_TIP = "Mã - Họ tên - Điện thoại - Email";
         public const string SEARCH_SANPHAMGROUP_TIP = "Mã nhóm SP - Tên - Mô tả";
         public const string SEARCH_KHACHHANGGROUP_TIP = "Mã nhóm KH - Tên - Mô tả";
@@ -296,6 +296,6 @@ namespace Library
         public const string SEARCH_HOADON_TIP = "Họ tên NV - Mã KH - Ghi chú";
         public const string SEARCH_BANHANG_TIP = "Họ tên NV - Ghi chú";
         public const string SEARCH_NHATKYMUAHANG_TIP = "Tên - Tên đăng nhập - Ghi chú";
-        public const string SEARCH_MENHGIATIEN_TIP = "Tên - Ghi chú";
+        public const string SEARCH_LOAITIEN_TIP = "Tên";
     }
 }

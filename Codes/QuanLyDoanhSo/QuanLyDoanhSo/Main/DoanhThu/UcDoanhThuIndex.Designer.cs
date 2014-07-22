@@ -33,14 +33,14 @@
             this.lbNhatKyMuaHang = new System.Windows.Forms.Label();
             this.pbBanHang = new System.Windows.Forms.PictureBox();
             this.lbBanHang = new System.Windows.Forms.Label();
-            this.pbMenhGiaTien = new System.Windows.Forms.PictureBox();
-            this.lbMenhGiaTien = new System.Windows.Forms.Label();
+            this.pbLoaiTien = new System.Windows.Forms.PictureBox();
+            this.lbLoaiTien = new System.Windows.Forms.Label();
             this.pbDoanhThu = new System.Windows.Forms.PictureBox();
             this.lbDoanhThu = new System.Windows.Forms.Label();
             this.pnSelect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhuyenMai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMenhGiaTien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoaiTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoanhThu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,8 +50,8 @@
             this.pnSelect.Controls.Add(this.lbNhatKyMuaHang);
             this.pnSelect.Controls.Add(this.pbBanHang);
             this.pnSelect.Controls.Add(this.lbBanHang);
-            this.pnSelect.Controls.Add(this.pbMenhGiaTien);
-            this.pnSelect.Controls.Add(this.lbMenhGiaTien);
+            this.pnSelect.Controls.Add(this.pbLoaiTien);
+            this.pnSelect.Controls.Add(this.lbLoaiTien);
             this.pnSelect.Controls.Add(this.pbDoanhThu);
             this.pnSelect.Controls.Add(this.lbDoanhThu);
             this.pnSelect.Location = new System.Drawing.Point(145, 230);
@@ -107,29 +107,29 @@
             this.lbBanHang.TabIndex = 16;
             this.lbBanHang.Text = "BÁN HÀNG";
             // 
-            // pbMenhGiaTien
+            // pbLoaiTien
             // 
-            this.pbMenhGiaTien.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbMenhGiaTien.Location = new System.Drawing.Point(402, 10);
-            this.pbMenhGiaTien.Name = "pbMenhGiaTien";
-            this.pbMenhGiaTien.Size = new System.Drawing.Size(100, 100);
-            this.pbMenhGiaTien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbMenhGiaTien.TabIndex = 13;
-            this.pbMenhGiaTien.TabStop = false;
-            this.pbMenhGiaTien.Click += new System.EventHandler(this.pbGiaChinhThuc_Click);
-            this.pbMenhGiaTien.MouseEnter += new System.EventHandler(this.pbGiaChinhThuc_MouseEnter);
-            this.pbMenhGiaTien.MouseLeave += new System.EventHandler(this.pbGiaChinhThuc_MouseLeave);
+            this.pbLoaiTien.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLoaiTien.Location = new System.Drawing.Point(402, 10);
+            this.pbLoaiTien.Name = "pbLoaiTien";
+            this.pbLoaiTien.Size = new System.Drawing.Size(100, 100);
+            this.pbLoaiTien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLoaiTien.TabIndex = 13;
+            this.pbLoaiTien.TabStop = false;
+            this.pbLoaiTien.Click += new System.EventHandler(this.pbGiaChinhThuc_Click);
+            this.pbLoaiTien.MouseEnter += new System.EventHandler(this.pbGiaChinhThuc_MouseEnter);
+            this.pbLoaiTien.MouseLeave += new System.EventHandler(this.pbGiaChinhThuc_MouseLeave);
             // 
-            // lbMenhGiaTien
+            // lbLoaiTien
             // 
-            this.lbMenhGiaTien.AutoSize = true;
-            this.lbMenhGiaTien.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMenhGiaTien.ForeColor = System.Drawing.Color.Gray;
-            this.lbMenhGiaTien.Location = new System.Drawing.Point(396, 120);
-            this.lbMenhGiaTien.Name = "lbMenhGiaTien";
-            this.lbMenhGiaTien.Size = new System.Drawing.Size(114, 16);
-            this.lbMenhGiaTien.TabIndex = 14;
-            this.lbMenhGiaTien.Text = "MỆNH GIÁ TIỀN";
+            this.lbLoaiTien.AutoSize = true;
+            this.lbLoaiTien.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLoaiTien.ForeColor = System.Drawing.Color.Gray;
+            this.lbLoaiTien.Location = new System.Drawing.Point(415, 120);
+            this.lbLoaiTien.Name = "lbLoaiTien";
+            this.lbLoaiTien.Size = new System.Drawing.Size(75, 16);
+            this.lbLoaiTien.TabIndex = 14;
+            this.lbLoaiTien.Text = "LOẠI TIỀN";
             // 
             // pbDoanhThu
             // 
@@ -168,7 +168,7 @@
             this.pnSelect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbKhuyenMai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBanHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbMenhGiaTien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoaiTien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDoanhThu)).EndInit();
             this.ResumeLayout(false);
 
@@ -179,8 +179,8 @@
         private System.Windows.Forms.Panel pnSelect;
         private System.Windows.Forms.PictureBox pbDoanhThu;
         private System.Windows.Forms.Label lbDoanhThu;
-        private System.Windows.Forms.PictureBox pbMenhGiaTien;
-        private System.Windows.Forms.Label lbMenhGiaTien;
+        private System.Windows.Forms.PictureBox pbLoaiTien;
+        private System.Windows.Forms.Label lbLoaiTien;
         private System.Windows.Forms.PictureBox pbBanHang;
         private System.Windows.Forms.Label lbBanHang;
         private System.Windows.Forms.PictureBox pbKhuyenMai;

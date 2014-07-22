@@ -36,18 +36,18 @@ namespace DTO
     partial void InsertUserGroup(UserGroup instance);
     partial void UpdateUserGroup(UserGroup instance);
     partial void DeleteUserGroup(UserGroup instance);
-    partial void InsertBanHang_MenhGiaTien(BanHang_MenhGiaTien instance);
-    partial void UpdateBanHang_MenhGiaTien(BanHang_MenhGiaTien instance);
-    partial void DeleteBanHang_MenhGiaTien(BanHang_MenhGiaTien instance);
+    partial void InsertBanHang_LoaiTien(BanHang_LoaiTien instance);
+    partial void UpdateBanHang_LoaiTien(BanHang_LoaiTien instance);
+    partial void DeleteBanHang_LoaiTien(BanHang_LoaiTien instance);
     partial void InsertBanHangChiTiet(BanHangChiTiet instance);
     partial void UpdateBanHangChiTiet(BanHangChiTiet instance);
     partial void DeleteBanHangChiTiet(BanHangChiTiet instance);
     partial void InsertKhuyenMai(KhuyenMai instance);
     partial void UpdateKhuyenMai(KhuyenMai instance);
     partial void DeleteKhuyenMai(KhuyenMai instance);
-    partial void InsertMenhGiaTien(MenhGiaTien instance);
-    partial void UpdateMenhGiaTien(MenhGiaTien instance);
-    partial void DeleteMenhGiaTien(MenhGiaTien instance);
+    partial void InsertLoaiTien(LoaiTien instance);
+    partial void UpdateLoaiTien(LoaiTien instance);
+    partial void DeleteLoaiTien(LoaiTien instance);
     partial void InsertNguonCungCap(NguonCungCap instance);
     partial void UpdateNguonCungCap(NguonCungCap instance);
     partial void DeleteNguonCungCap(NguonCungCap instance);
@@ -111,11 +111,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<BanHang_MenhGiaTien> BanHang_MenhGiaTiens
+		public System.Data.Linq.Table<BanHang_LoaiTien> BanHang_LoaiTiens
 		{
 			get
 			{
-				return this.GetTable<BanHang_MenhGiaTien>();
+				return this.GetTable<BanHang_LoaiTien>();
 			}
 		}
 		
@@ -135,11 +135,11 @@ namespace DTO
 			}
 		}
 		
-		public System.Data.Linq.Table<MenhGiaTien> MenhGiaTiens
+		public System.Data.Linq.Table<LoaiTien> LoaiTiens
 		{
 			get
 			{
-				return this.GetTable<MenhGiaTien>();
+				return this.GetTable<LoaiTien>();
 			}
 		}
 		
@@ -202,7 +202,7 @@ namespace DTO
 		
 		private bool _DeleteFlag;
 		
-		private EntitySet<BanHang_MenhGiaTien> _BanHang_MenhGiaTiens;
+		private EntitySet<BanHang_LoaiTien> _BanHang_LoaiTiens;
 		
 		private EntitySet<BanHangChiTiet> _BanHangChiTiets;
 		
@@ -228,7 +228,7 @@ namespace DTO
 		
 		public BanHang()
 		{
-			this._BanHang_MenhGiaTiens = new EntitySet<BanHang_MenhGiaTien>(new Action<BanHang_MenhGiaTien>(this.attach_BanHang_MenhGiaTiens), new Action<BanHang_MenhGiaTien>(this.detach_BanHang_MenhGiaTiens));
+			this._BanHang_LoaiTiens = new EntitySet<BanHang_LoaiTien>(new Action<BanHang_LoaiTien>(this.attach_BanHang_LoaiTiens), new Action<BanHang_LoaiTien>(this.detach_BanHang_LoaiTiens));
 			this._BanHangChiTiets = new EntitySet<BanHangChiTiet>(new Action<BanHangChiTiet>(this.attach_BanHangChiTiets), new Action<BanHangChiTiet>(this.detach_BanHangChiTiets));
 			this._User = default(EntityRef<User>);
 			OnCreated();
@@ -358,16 +358,16 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanHang_BanHang_MenhGiaTien", Storage="_BanHang_MenhGiaTiens", ThisKey="Id", OtherKey="IdBanHang")]
-		public EntitySet<BanHang_MenhGiaTien> BanHang_MenhGiaTiens
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanHang_BanHang_LoaiTien", Storage="_BanHang_LoaiTiens", ThisKey="Id", OtherKey="IdBanHang")]
+		public EntitySet<BanHang_LoaiTien> BanHang_LoaiTiens
 		{
 			get
 			{
-				return this._BanHang_MenhGiaTiens;
+				return this._BanHang_LoaiTiens;
 			}
 			set
 			{
-				this._BanHang_MenhGiaTiens.Assign(value);
+				this._BanHang_LoaiTiens.Assign(value);
 			}
 		}
 		
@@ -438,13 +438,13 @@ namespace DTO
 			}
 		}
 		
-		private void attach_BanHang_MenhGiaTiens(BanHang_MenhGiaTien entity)
+		private void attach_BanHang_LoaiTiens(BanHang_LoaiTien entity)
 		{
 			this.SendPropertyChanging();
 			entity.BanHang = this;
 		}
 		
-		private void detach_BanHang_MenhGiaTiens(BanHang_MenhGiaTien entity)
+		private void detach_BanHang_LoaiTiens(BanHang_LoaiTien entity)
 		{
 			this.SendPropertyChanging();
 			entity.BanHang = null;
@@ -601,8 +601,8 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BanHang_MenhGiaTien")]
-	public partial class BanHang_MenhGiaTien : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BanHang_LoaiTien")]
+	public partial class BanHang_LoaiTien : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -611,17 +611,15 @@ namespace DTO
 		
 		private int _IdBanHang;
 		
-		private int _IdMenhGiaTien;
+		private int _IdLoaiTien;
 		
 		private int _SoLuong;
 		
 		private int _ThanhTien;
 		
-		private string _GhiChu;
-		
 		private EntityRef<BanHang> _BanHang;
 		
-		private EntityRef<MenhGiaTien> _MenhGiaTien;
+		private EntityRef<LoaiTien> _LoaiTien;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -631,20 +629,18 @@ namespace DTO
     partial void OnIdChanged();
     partial void OnIdBanHangChanging(int value);
     partial void OnIdBanHangChanged();
-    partial void OnIdMenhGiaTienChanging(int value);
-    partial void OnIdMenhGiaTienChanged();
+    partial void OnIdLoaiTienChanging(int value);
+    partial void OnIdLoaiTienChanged();
     partial void OnSoLuongChanging(int value);
     partial void OnSoLuongChanged();
     partial void OnThanhTienChanging(int value);
     partial void OnThanhTienChanged();
-    partial void OnGhiChuChanging(string value);
-    partial void OnGhiChuChanged();
     #endregion
 		
-		public BanHang_MenhGiaTien()
+		public BanHang_LoaiTien()
 		{
 			this._BanHang = default(EntityRef<BanHang>);
-			this._MenhGiaTien = default(EntityRef<MenhGiaTien>);
+			this._LoaiTien = default(EntityRef<LoaiTien>);
 			OnCreated();
 		}
 		
@@ -692,26 +688,26 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMenhGiaTien", DbType="Int NOT NULL")]
-		public int IdMenhGiaTien
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLoaiTien", DbType="Int NOT NULL")]
+		public int IdLoaiTien
 		{
 			get
 			{
-				return this._IdMenhGiaTien;
+				return this._IdLoaiTien;
 			}
 			set
 			{
-				if ((this._IdMenhGiaTien != value))
+				if ((this._IdLoaiTien != value))
 				{
-					if (this._MenhGiaTien.HasLoadedOrAssignedValue)
+					if (this._LoaiTien.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnIdMenhGiaTienChanging(value);
+					this.OnIdLoaiTienChanging(value);
 					this.SendPropertyChanging();
-					this._IdMenhGiaTien = value;
-					this.SendPropertyChanged("IdMenhGiaTien");
-					this.OnIdMenhGiaTienChanged();
+					this._IdLoaiTien = value;
+					this.SendPropertyChanged("IdLoaiTien");
+					this.OnIdLoaiTienChanged();
 				}
 			}
 		}
@@ -756,27 +752,7 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GhiChu", DbType="NVarChar(200)")]
-		public string GhiChu
-		{
-			get
-			{
-				return this._GhiChu;
-			}
-			set
-			{
-				if ((this._GhiChu != value))
-				{
-					this.OnGhiChuChanging(value);
-					this.SendPropertyChanging();
-					this._GhiChu = value;
-					this.SendPropertyChanged("GhiChu");
-					this.OnGhiChuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanHang_BanHang_MenhGiaTien", Storage="_BanHang", ThisKey="IdBanHang", OtherKey="Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BanHang_BanHang_LoaiTien", Storage="_BanHang", ThisKey="IdBanHang", OtherKey="Id", IsForeignKey=true)]
 		public BanHang BanHang
 		{
 			get
@@ -793,12 +769,12 @@ namespace DTO
 					if ((previousValue != null))
 					{
 						this._BanHang.Entity = null;
-						previousValue.BanHang_MenhGiaTiens.Remove(this);
+						previousValue.BanHang_LoaiTiens.Remove(this);
 					}
 					this._BanHang.Entity = value;
 					if ((value != null))
 					{
-						value.BanHang_MenhGiaTiens.Add(this);
+						value.BanHang_LoaiTiens.Add(this);
 						this._IdBanHang = value.Id;
 					}
 					else
@@ -810,36 +786,36 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MenhGiaTien_BanHang_MenhGiaTien", Storage="_MenhGiaTien", ThisKey="IdMenhGiaTien", OtherKey="Id", IsForeignKey=true)]
-		public MenhGiaTien MenhGiaTien
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiTien_BanHang_LoaiTien", Storage="_LoaiTien", ThisKey="IdLoaiTien", OtherKey="Id", IsForeignKey=true)]
+		public LoaiTien LoaiTien
 		{
 			get
 			{
-				return this._MenhGiaTien.Entity;
+				return this._LoaiTien.Entity;
 			}
 			set
 			{
-				MenhGiaTien previousValue = this._MenhGiaTien.Entity;
+				LoaiTien previousValue = this._LoaiTien.Entity;
 				if (((previousValue != value) 
-							|| (this._MenhGiaTien.HasLoadedOrAssignedValue == false)))
+							|| (this._LoaiTien.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._MenhGiaTien.Entity = null;
-						previousValue.BanHang_MenhGiaTiens.Remove(this);
+						this._LoaiTien.Entity = null;
+						previousValue.BanHang_LoaiTiens.Remove(this);
 					}
-					this._MenhGiaTien.Entity = value;
+					this._LoaiTien.Entity = value;
 					if ((value != null))
 					{
-						value.BanHang_MenhGiaTiens.Add(this);
-						this._IdMenhGiaTien = value.Id;
+						value.BanHang_LoaiTiens.Add(this);
+						this._IdLoaiTien = value.Id;
 					}
 					else
 					{
-						this._IdMenhGiaTien = default(int);
+						this._IdLoaiTien = default(int);
 					}
-					this.SendPropertyChanged("MenhGiaTien");
+					this.SendPropertyChanged("LoaiTien");
 				}
 			}
 		}
@@ -885,11 +861,11 @@ namespace DTO
 		
 		private int _TonCuoi;
 		
-		private int _ThuHoi;
-		
 		private int _Gia;
 		
 		private int _ThanhTien;
+		
+		private int _ThuHoi;
 		
 		private EntityRef<BanHang> _BanHang;
 		
@@ -913,12 +889,12 @@ namespace DTO
     partial void OnBanChanged();
     partial void OnTonCuoiChanging(int value);
     partial void OnTonCuoiChanged();
-    partial void OnThuHoiChanging(int value);
-    partial void OnThuHoiChanged();
     partial void OnGiaChanging(int value);
     partial void OnGiaChanged();
     partial void OnThanhTienChanging(int value);
     partial void OnThanhTienChanged();
+    partial void OnThuHoiChanging(int value);
+    partial void OnThuHoiChanged();
     #endregion
 		
 		public BanHangChiTiet()
@@ -1076,26 +1052,6 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThuHoi", DbType="Int NOT NULL")]
-		public int ThuHoi
-		{
-			get
-			{
-				return this._ThuHoi;
-			}
-			set
-			{
-				if ((this._ThuHoi != value))
-				{
-					this.OnThuHoiChanging(value);
-					this.SendPropertyChanging();
-					this._ThuHoi = value;
-					this.SendPropertyChanged("ThuHoi");
-					this.OnThuHoiChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gia", DbType="Int NOT NULL")]
 		public int Gia
 		{
@@ -1132,6 +1088,26 @@ namespace DTO
 					this._ThanhTien = value;
 					this.SendPropertyChanged("ThanhTien");
 					this.OnThanhTienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThuHoi", DbType="Int NOT NULL")]
+		public int ThuHoi
+		{
+			get
+			{
+				return this._ThuHoi;
+			}
+			set
+			{
+				if ((this._ThuHoi != value))
+				{
+					this.OnThuHoiChanging(value);
+					this.SendPropertyChanging();
+					this._ThuHoi = value;
+					this.SendPropertyChanged("ThuHoi");
+					this.OnThuHoiChanged();
 				}
 			}
 		}
@@ -1513,8 +1489,8 @@ namespace DTO
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MenhGiaTien")]
-	public partial class MenhGiaTien : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LoaiTien")]
+	public partial class LoaiTien : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1531,7 +1507,7 @@ namespace DTO
 		
 		private bool _DeleteFlag;
 		
-		private EntitySet<BanHang_MenhGiaTien> _BanHang_MenhGiaTiens;
+		private EntitySet<BanHang_LoaiTien> _BanHang_LoaiTiens;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1551,9 +1527,9 @@ namespace DTO
     partial void OnDeleteFlagChanged();
     #endregion
 		
-		public MenhGiaTien()
+		public LoaiTien()
 		{
-			this._BanHang_MenhGiaTiens = new EntitySet<BanHang_MenhGiaTien>(new Action<BanHang_MenhGiaTien>(this.attach_BanHang_MenhGiaTiens), new Action<BanHang_MenhGiaTien>(this.detach_BanHang_MenhGiaTiens));
+			this._BanHang_LoaiTiens = new EntitySet<BanHang_LoaiTien>(new Action<BanHang_LoaiTien>(this.attach_BanHang_LoaiTiens), new Action<BanHang_LoaiTien>(this.detach_BanHang_LoaiTiens));
 			OnCreated();
 		}
 		
@@ -1677,16 +1653,16 @@ namespace DTO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MenhGiaTien_BanHang_MenhGiaTien", Storage="_BanHang_MenhGiaTiens", ThisKey="Id", OtherKey="IdMenhGiaTien")]
-		public EntitySet<BanHang_MenhGiaTien> BanHang_MenhGiaTiens
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiTien_BanHang_LoaiTien", Storage="_BanHang_LoaiTiens", ThisKey="Id", OtherKey="IdLoaiTien")]
+		public EntitySet<BanHang_LoaiTien> BanHang_LoaiTiens
 		{
 			get
 			{
-				return this._BanHang_MenhGiaTiens;
+				return this._BanHang_LoaiTiens;
 			}
 			set
 			{
-				this._BanHang_MenhGiaTiens.Assign(value);
+				this._BanHang_LoaiTiens.Assign(value);
 			}
 		}
 		
@@ -1710,16 +1686,16 @@ namespace DTO
 			}
 		}
 		
-		private void attach_BanHang_MenhGiaTiens(BanHang_MenhGiaTien entity)
+		private void attach_BanHang_LoaiTiens(BanHang_LoaiTien entity)
 		{
 			this.SendPropertyChanging();
-			entity.MenhGiaTien = this;
+			entity.LoaiTien = this;
 		}
 		
-		private void detach_BanHang_MenhGiaTiens(BanHang_MenhGiaTien entity)
+		private void detach_BanHang_LoaiTiens(BanHang_LoaiTien entity)
 		{
 			this.SendPropertyChanging();
-			entity.MenhGiaTien = null;
+			entity.LoaiTien = null;
 		}
 	}
 	
@@ -2911,6 +2887,8 @@ namespace DTO
 		
 		private int _Id;
 		
+		private string _Ma;
+		
 		private int _IdUserGroup;
 		
 		private string _Ten;
@@ -2922,6 +2900,8 @@ namespace DTO
 		private string _GioiTinh;
 		
 		private System.Nullable<int> _To;
+		
+		private string _Quan;
 		
 		private System.Nullable<System.DateTime> _DOB;
 		
@@ -2939,8 +2919,6 @@ namespace DTO
 		
 		private string _Email;
 		
-		private int _Ton;
-		
 		private string _GhiChu;
 		
 		private bool _DeleteFlag;
@@ -2957,6 +2935,8 @@ namespace DTO
     partial void OnCreated();
     partial void OnIdChanging(int value);
     partial void OnIdChanged();
+    partial void OnMaChanging(string value);
+    partial void OnMaChanged();
     partial void OnIdUserGroupChanging(int value);
     partial void OnIdUserGroupChanged();
     partial void OnTenChanging(string value);
@@ -2969,6 +2949,8 @@ namespace DTO
     partial void OnGioiTinhChanged();
     partial void OnToChanging(System.Nullable<int> value);
     partial void OnToChanged();
+    partial void OnQuanChanging(string value);
+    partial void OnQuanChanged();
     partial void OnDOBChanging(System.Nullable<System.DateTime> value);
     partial void OnDOBChanged();
     partial void OnCMNDChanging(string value);
@@ -2985,8 +2967,6 @@ namespace DTO
     partial void OnDTDDChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnTonChanging(int value);
-    partial void OnTonChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
     partial void OnDeleteFlagChanging(bool value);
@@ -3017,6 +2997,26 @@ namespace DTO
 					this._Id = value;
 					this.SendPropertyChanged("Id");
 					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ma", DbType="NVarChar(10)")]
+		public string Ma
+		{
+			get
+			{
+				return this._Ma;
+			}
+			set
+			{
+				if ((this._Ma != value))
+				{
+					this.OnMaChanging(value);
+					this.SendPropertyChanging();
+					this._Ma = value;
+					this.SendPropertyChanged("Ma");
+					this.OnMaChanged();
 				}
 			}
 		}
@@ -3141,6 +3141,26 @@ namespace DTO
 					this._To = value;
 					this.SendPropertyChanged("To");
 					this.OnToChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quan", DbType="NVarChar(30)")]
+		public string Quan
+		{
+			get
+			{
+				return this._Quan;
+			}
+			set
+			{
+				if ((this._Quan != value))
+				{
+					this.OnQuanChanging(value);
+					this.SendPropertyChanging();
+					this._Quan = value;
+					this.SendPropertyChanged("Quan");
+					this.OnQuanChanged();
 				}
 			}
 		}
@@ -3301,26 +3321,6 @@ namespace DTO
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ton", DbType="Int NOT NULL")]
-		public int Ton
-		{
-			get
-			{
-				return this._Ton;
-			}
-			set
-			{
-				if ((this._Ton != value))
-				{
-					this.OnTonChanging(value);
-					this.SendPropertyChanging();
-					this._Ton = value;
-					this.SendPropertyChanged("Ton");
-					this.OnTonChanged();
 				}
 			}
 		}
