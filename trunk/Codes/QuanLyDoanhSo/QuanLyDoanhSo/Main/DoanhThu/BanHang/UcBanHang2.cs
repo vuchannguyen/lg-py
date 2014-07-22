@@ -107,7 +107,8 @@ namespace Weedon
                         data.TonDau, data.Nhan, soLuong,  data.TonCuoi,
                         price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         money.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                        data.ThuHoi);
+                        data.ThuHoi, 0, 0,
+                        data.DiemMoi, data.LuotBan);
                 }
 
                 AddLastRow(dgvThongTin);
@@ -130,7 +131,8 @@ namespace Weedon
                         0, 0, 0,
                         data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         0,
-                        0);
+                        0, 0, 0,
+                        0, 0);
                 }
 
                 AddLastRow(dgvThongTin);
@@ -213,13 +215,15 @@ namespace Weedon
                     {
                         for (int i = 0; i < listData.Count; i++)
                         {
-                            dgvThongTin[colGia.Name, i].Value = listData[i].Gia;
                             dgvThongTin[colTonDau.Name, i].Value = listData[i].TonDau + ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
                             dgvThongTin[colNhan.Name, i].Value = listData[i].Nhan + ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                             dgvThongTin[colBan.Name, i].Value = listData[i].Ban + ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
-                            dgvThongTin[colThuHoi.Name, i].Value = listData[i].ThuHoi + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
                             dgvThongTin[colTonCuoi.Name, i].Value = listData[i].TonCuoi + ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                            dgvThongTin[colGia.Name, i].Value = listData[i].Gia;
                             dgvThongTin[colThanhTien.Name, i].Value = listData[i].ThanhTien + ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                            dgvThongTin[colThuHoi.Name, i].Value = listData[i].ThuHoi + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                            dgvThongTin[colDiemMoi.Name, i].Value = listData[i].DiemMoi + ConvertUtil.ConvertToInt(dgvThongTin[colDiemMoi.Name, i].Value);
+                            dgvThongTin[colLuotBan.Name, i].Value = listData[i].LuotBan + ConvertUtil.ConvertToInt(dgvThongTin[colLuotBan.Name, i].Value);
                         }
                     }
                     else
@@ -233,7 +237,8 @@ namespace Weedon
                                 data.TonDau, data.Nhan, soLuong, data.TonCuoi,
                                 price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                                 money.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                                data.ThuHoi);
+                                data.ThuHoi, 0, 0,
+                                data.DiemMoi, data.LuotBan);
                         }
 
                         AddLastRow(dgvThongTin);
@@ -255,7 +260,8 @@ namespace Weedon
                         0, 0, 0, 0,
                         data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         0,
-                        0);
+                        0, 0, 0,
+                        0, 0);
                 }
 
                 AddLastRow(dgvThongTin);
@@ -289,13 +295,15 @@ namespace Weedon
                     {
                         for (int i = 0; i < listData.Count; i++)
                         {
-                            dgvThongTin[colGia.Name, i].Value = listData[i].Gia;
                             dgvThongTin[colTonDau.Name, i].Value = listData[i].TonDau + ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
                             dgvThongTin[colNhan.Name, i].Value = listData[i].Nhan + ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                             dgvThongTin[colBan.Name, i].Value = listData[i].Ban + ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
-                            dgvThongTin[colThuHoi.Name, i].Value = listData[i].ThuHoi + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
                             dgvThongTin[colTonCuoi.Name, i].Value = listData[i].TonCuoi + ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
+                            dgvThongTin[colGia.Name, i].Value = listData[i].Gia;
                             dgvThongTin[colThanhTien.Name, i].Value = listData[i].ThanhTien + ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
+                            dgvThongTin[colThuHoi.Name, i].Value = listData[i].ThuHoi + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                            dgvThongTin[colDiemMoi.Name, i].Value = listData[i].DiemMoi + ConvertUtil.ConvertToInt(dgvThongTin[colDiemMoi.Name, i].Value);
+                            dgvThongTin[colLuotBan.Name, i].Value = listData[i].LuotBan + ConvertUtil.ConvertToInt(dgvThongTin[colLuotBan.Name, i].Value);
                         }
                     }
                     else
@@ -309,7 +317,8 @@ namespace Weedon
                                 data.TonDau, data.Nhan, soLuong, data.TonCuoi,
                                 price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                                 money.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                                data.ThuHoi);
+                                data.ThuHoi, 0, 0,
+                                data.DiemMoi, data.LuotBan);
                         }
 
                         AddLastRow(dgvThongTin);
@@ -331,7 +340,8 @@ namespace Weedon
                         0, 0, 0, 0,
                         data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         0,
-                        0);
+                        0, 0, 0,
+                        0, 0);
                 }
 
                 AddLastRow(dgvThongTin);
@@ -453,6 +463,8 @@ namespace Weedon
             int thuHoi = 0;
             double resultQuet = 0;
             double resultTLB = 0;
+            int diemMoi = 0;
+            int luotBan = 0;
 
             for (int i = 0; i < dgvThongTin.Rows.Count - 1; i++)
             //foreach (DataGridViewRow row in dgvThongTin.Rows)
@@ -466,6 +478,8 @@ namespace Weedon
                 thuHoi += ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
                 resultQuet += ConvertUtil.ConvertToDouble(dgvThongTin[colQuet.Name, i].Value);
                 resultTLB += ConvertUtil.ConvertToDouble(dgvThongTin[colTLB.Name, i].Value);
+                diemMoi += ConvertUtil.ConvertToInt(dgvThongTin[colDiemMoi.Name, i].Value);
+                luotBan += ConvertUtil.ConvertToInt(dgvThongTin[colLuotBan.Name, i].Value);
             }
 
             if (dgvThongTin.Rows.Count > 0)
@@ -478,6 +492,8 @@ namespace Weedon
                 dgvThongTin[colThuHoi.Name, dgvThongTin.Rows.Count - 1].Value = thuHoi;
                 dgvThongTin[colQuet.Name, dgvThongTin.Rows.Count - 1].Value = resultQuet;
                 dgvThongTin[colTLB.Name, dgvThongTin.Rows.Count - 1].Value = resultTLB;
+                dgvThongTin[colDiemMoi.Name, dgvThongTin.Rows.Count - 1].Value = diemMoi;
+                dgvThongTin[colLuotBan.Name, dgvThongTin.Rows.Count - 1].Value = luotBan;
             }
         }
 
@@ -608,6 +624,8 @@ namespace Weedon
                 data.Gia = ConvertUtil.ConvertToInt(dgvThongTin[colGia.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                 data.ThuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                data.DiemMoi = ConvertUtil.ConvertToInt(dgvThongTin[colDiemMoi.Name, i].Value);
+                data.LuotBan = ConvertUtil.ConvertToInt(dgvThongTin[colLuotBan.Name, i].Value);
 
                 if (!BanHangChiTietBus.Insert(data))
                 {
@@ -652,6 +670,8 @@ namespace Weedon
                     data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
                     data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     data.ThuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                    data.DiemMoi = ConvertUtil.ConvertToInt(dgvThongTin[colDiemMoi.Name, i].Value);
+                    data.LuotBan = ConvertUtil.ConvertToInt(dgvThongTin[colLuotBan.Name, i].Value);
 
                     if (!BanHangChiTietBus.Update(data))
                     {
@@ -670,6 +690,8 @@ namespace Weedon
                     data.Gia = ConvertUtil.ConvertToInt(dgvThongTin[colGia.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     data.ThanhTien = ConvertUtil.ConvertToInt(dgvThongTin[colThanhTien.Name, i].Value.ToString().Replace(Constant.SYMBOL_LINK_MONEY, string.Empty));
                     data.ThuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, i].Value);
+                    data.DiemMoi = ConvertUtil.ConvertToInt(dgvThongTin[colDiemMoi.Name, i].Value);
+                    data.LuotBan = ConvertUtil.ConvertToInt(dgvThongTin[colLuotBan.Name, i].Value);
 
                     if (!BanHangChiTietBus.Insert(data))
                     {
