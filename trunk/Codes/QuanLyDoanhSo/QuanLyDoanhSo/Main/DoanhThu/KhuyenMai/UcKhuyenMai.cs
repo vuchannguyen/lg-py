@@ -88,7 +88,7 @@ namespace Weedon
         private void RefreshData(string text, int idGroup)
         {
             dgvThongTin.Rows.Clear();
-            List<DTO.SanPham> list = SanPhamBus.GetList(text, string.Empty, string.Empty, 0, 0);
+            List<DTO.SanPham> list = SanPhamBus.GetListByGia();
 
             foreach (DTO.SanPham data in list)
             {

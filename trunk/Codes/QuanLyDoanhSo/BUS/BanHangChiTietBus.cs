@@ -25,7 +25,6 @@ namespace BUS
             return BanHangChiTietDao.GetListByIdBanHang(idBanHang);
         }
 
-
         public static BanHangChiTiet GetById(int id)
         {
             return BanHangChiTietDao.GetById(id);

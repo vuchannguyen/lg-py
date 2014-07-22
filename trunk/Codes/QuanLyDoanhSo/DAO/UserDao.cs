@@ -22,7 +22,7 @@ namespace DAO
                 text = CommonDao.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
                     SqlMethods.Like(p.UserName, text) ||
-                    SqlMethods.Like(p.Email, text)
+                    SqlMethods.Like(p.Ma, text)
                     );
             }
 
@@ -43,6 +43,10 @@ namespace DAO
 
             switch (sortColumn)
             {
+                case "Mã":
+                    sortSQL += "Ma " + sortOrder;
+                    break;
+
                 case "Tên":
                     sortSQL += "Ten " + sortOrder;
                     break;
@@ -61,6 +65,10 @@ namespace DAO
 
                 case "Tổ":
                     sortSQL += "To " + sortOrder;
+                    break;
+
+                case "Quận":
+                    sortSQL += "Quan " + sortOrder;
                     break;
 
                 case "Ngày sinh":

@@ -40,12 +40,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="KhuyenMaiBus.cs" />
-    <Compile Include="MenhGiaTienBus.cs" />
+    <Compile Include="LoaiTienBus.cs" />
     <Compile Include="NhapHangBus.cs" />
     <Compile Include="NhapHangChiTietBus.cs" />
     <Compile Include="BanHangChiTietBus.cs" />
     <Compile Include="BanHangBus.cs" />
-    <Compile Include="BanHang_MenhGiaTienBus.cs" />
+    <Compile Include="BanHang_LoaiTienBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPhamBus.cs" />
     <Compile Include="NguonCungCapBus.cs" />

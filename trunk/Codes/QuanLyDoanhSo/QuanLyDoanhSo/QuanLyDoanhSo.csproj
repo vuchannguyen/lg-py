@@ -207,17 +207,17 @@
     <Compile Include="Main\NhapHang\UcNhapHangIndex.Designer.cs">
       <DependentUpon>UcNhapHangIndex.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.cs">
+    <Compile Include="Main\DoanhThu\LoaiTien\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcInfo.Designer.cs">
+    <Compile Include="Main\DoanhThu\LoaiTien\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.cs">
+    <Compile Include="Main\DoanhThu\LoaiTien\UcLoaiTien.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.Designer.cs">
-      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
+    <Compile Include="Main\DoanhThu\LoaiTien\UcLoaiTien.Designer.cs">
+      <DependentUpon>UcLoaiTien.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\SanPham\SanPham\UcDetail.cs">
       <SubType>UserControl</SubType>
@@ -329,11 +329,11 @@
     <EmbeddedResource Include="Main\NhapHang\UcNhapHangIndex.resx">
       <DependentUpon>UcNhapHangIndex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcInfo.resx">
+    <EmbeddedResource Include="Main\DoanhThu\LoaiTien\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\MenhGiaTien\UcMenhGiaTien.resx">
-      <DependentUpon>UcMenhGiaTien.cs</DependentUpon>
+    <EmbeddedResource Include="Main\DoanhThu\LoaiTien\UcLoaiTien.resx">
+      <DependentUpon>UcLoaiTien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\SanPham\SanPham\UcDetail.resx">
       <DependentUpon>UcDetail.cs</DependentUpon>
