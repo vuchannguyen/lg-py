@@ -44,6 +44,8 @@
       <Column Name="Gia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ThanhTien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ThuHoi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DiemMoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LuotBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="BanHang_BanHangChiTiet" Member="BanHang" ThisKey="IdBanHang" OtherKey="Id" Type="BanHang" IsForeignKey="true" />
       <Association Name="SanPham_BanHangChiTiet" Member="SanPham" ThisKey="IdSanPham" OtherKey="Id" Type="SanPham" IsForeignKey="true" />
     </Type>
