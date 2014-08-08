@@ -40,9 +40,9 @@ namespace DAO
 
             switch (sortColumn)
             {
-                //case "Mã SP":
-                //    sortSQL += "SanPham.MaSanPham " + sortOrder;
-                //    break;
+                case "Giá":
+                    sortSQL += "Gia " + sortOrder;
+                    break;
 
                 //case "Tên":
                 //    sortSQL += "SanPham.Ten " + sortOrder;

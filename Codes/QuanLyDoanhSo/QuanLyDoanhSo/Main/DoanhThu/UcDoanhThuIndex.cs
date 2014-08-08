@@ -59,7 +59,9 @@ namespace Weedon
 
         private void pbHoaDon_Click(object sender, EventArgs e)
         {
-            CommonFunc.NewControl(this.Controls, ref uc, new UcBanHang2());
+            //CommonFunc.NewControl(this.Controls, ref uc, new UcBanHang2());
+            QuanLyDoanhSo.Main.DoanhThu.BanHang.BanHang frm = new QuanLyDoanhSo.Main.DoanhThu.BanHang.BanHang();
+            frm.ShowDialog();
         }
 
         private void pbDoanhThu_MouseEnter(object sender, EventArgs e)
