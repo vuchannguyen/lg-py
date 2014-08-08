@@ -104,10 +104,10 @@ namespace Weedon
                     int price = data.Gia;
                     int money = price * soLuong;
                     dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
-                        data.TonDau, data.Nhan, soLuong,  data.TonCuoi,
+                        data.TonDau, data.ThuHoiNgayTruoc, data.Nhan, soLuong, data.ThuHoi,
                         price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         money.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                        data.ThuHoi, 0, 0,
+                        data.TonCuoi, 0, 0,
                         data.DiemMoi, data.LuotBan);
                 }
 
@@ -128,6 +128,7 @@ namespace Weedon
                 {
                     dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
                         listDataNgayTruoc == null ? 0 : listDataNgayTruoc.Where(p => p.IdSanPham == data.Id).FirstOrDefault().TonCuoi,
+                        listDataNgayTruoc == null ? 0 : listDataNgayTruoc.Where(p => p.IdSanPham == data.Id).FirstOrDefault().ThuHoi,
                         0, 0, 0,
                         data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         0,
@@ -177,7 +178,7 @@ namespace Weedon
 
             if (dgvLoaiTien.Rows.Count == 0)
             {
-                List<DTO.LoaiTien> listData = LoaiTienBus.GetList(string.Empty, string.Empty, string.Empty, 0, 0);
+                List<DTO.LoaiTien> listData = LoaiTienBus.GetList(string.Empty, "Giá", Constant.SORT_DESCENDING, 0, 0);
 
                 foreach (DTO.LoaiTien data in listData)
                 {
@@ -216,6 +217,7 @@ namespace Weedon
                         for (int i = 0; i < listData.Count; i++)
                         {
                             dgvThongTin[colTonDau.Name, i].Value = listData[i].TonDau + ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                            dgvThongTin[colThuHoiNgayTruoc.Name, i].Value = listData[i].ThuHoiNgayTruoc + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, i].Value);
                             dgvThongTin[colNhan.Name, i].Value = listData[i].Nhan + ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                             dgvThongTin[colBan.Name, i].Value = listData[i].Ban + ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
                             dgvThongTin[colTonCuoi.Name, i].Value = listData[i].TonCuoi + ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
@@ -234,10 +236,10 @@ namespace Weedon
                             int price = data.Gia;
                             int money = price * soLuong;
                             dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
-                                data.TonDau, data.Nhan, soLuong, data.TonCuoi,
+                                data.TonDau, data.ThuHoiNgayTruoc, data.Nhan, soLuong, data.ThuHoi,
                                 price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                                 money.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                                data.ThuHoi, 0, 0,
+                                data.TonCuoi, 0, 0,
                                 data.DiemMoi, data.LuotBan);
                         }
 
@@ -257,7 +259,7 @@ namespace Weedon
                 foreach (DTO.SanPham data in listData)
                 {
                     dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
-                        0, 0, 0, 0,
+                        0, 0, 0, 0, 0,
                         data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         0,
                         0, 0, 0,
@@ -296,6 +298,7 @@ namespace Weedon
                         for (int i = 0; i < listData.Count; i++)
                         {
                             dgvThongTin[colTonDau.Name, i].Value = listData[i].TonDau + ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                            dgvThongTin[colThuHoiNgayTruoc.Name, i].Value = listData[i].ThuHoiNgayTruoc + ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, i].Value);
                             dgvThongTin[colNhan.Name, i].Value = listData[i].Nhan + ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                             dgvThongTin[colBan.Name, i].Value = listData[i].Ban + ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
                             dgvThongTin[colTonCuoi.Name, i].Value = listData[i].TonCuoi + ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
@@ -314,10 +317,10 @@ namespace Weedon
                             int price = data.Gia;
                             int money = price * soLuong;
                             dgvThongTin.Rows.Add(data.Id, data.IdSanPham, data.SanPham.Ten,
-                                data.TonDau, data.Nhan, soLuong, data.TonCuoi,
+                                data.TonDau, data.ThuHoiNgayTruoc, data.Nhan, soLuong, data.ThuHoi,
                                 price.ToString(Constant.DEFAULT_FORMAT_MONEY),
                                 money.ToString(Constant.DEFAULT_FORMAT_MONEY),
-                                data.ThuHoi, 0, 0,
+                                data.TonCuoi, 0, 0,
                                 data.DiemMoi, data.LuotBan);
                         }
 
@@ -337,7 +340,7 @@ namespace Weedon
                 foreach (DTO.SanPham data in listData)
                 {
                     dgvThongTin.Rows.Add(string.Empty, data.Id, data.Ten,
-                        0, 0, 0, 0,
+                        0, 0, 0, 0, 0,
                         data.Gia.ToString(Constant.DEFAULT_FORMAT_MONEY),
                         0,
                         0, 0, 0,
@@ -456,6 +459,7 @@ namespace Weedon
         private void CalculateAll()
         {
             int tonDau = 0;
+            int thuHoiNgayTruoc = 0;
             int nhan = 0;
             int ban = 0;
             int tonCuoi = 0;
@@ -470,6 +474,7 @@ namespace Weedon
             //foreach (DataGridViewRow row in dgvThongTin.Rows)
             {
                 tonDau += ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                thuHoiNgayTruoc += ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, i].Value);
                 nhan += ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                 ban += ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
                 tonCuoi += ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
@@ -485,6 +490,7 @@ namespace Weedon
             if (dgvThongTin.Rows.Count > 0)
             {
                 dgvThongTin[colTonDau.Name, dgvThongTin.Rows.Count - 1].Value = tonDau;
+                dgvThongTin[colThuHoiNgayTruoc.Name, dgvThongTin.Rows.Count - 1].Value = thuHoiNgayTruoc;
                 dgvThongTin[colNhan.Name, dgvThongTin.Rows.Count - 1].Value = nhan;
                 dgvThongTin[colBan.Name, dgvThongTin.Rows.Count - 1].Value = ban;
                 dgvThongTin[colTonCuoi.Name, dgvThongTin.Rows.Count - 1].Value = tonCuoi;
@@ -618,6 +624,7 @@ namespace Weedon
                 data.IdBanHang = dataBanHang.Id;
                 data.IdSanPham = ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, i].Value);
                 data.TonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                data.ThuHoiNgayTruoc = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, i].Value);
                 data.Nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                 data.Ban = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
                 data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
@@ -665,6 +672,7 @@ namespace Weedon
                 {
                     DTO.BanHangChiTiet data = BanHangChiTietBus.GetById(ConvertUtil.ConvertToInt(dgvThongTin[colId.Name, i].Value));
                     data.TonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                    data.ThuHoiNgayTruoc = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, i].Value);
                     data.Nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                     data.Ban = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
                     data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
@@ -684,6 +692,7 @@ namespace Weedon
                     data.IdBanHang = dataBanHang.Id;
                     data.IdSanPham = ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, i].Value);
                     data.TonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, i].Value);
+                    data.ThuHoiNgayTruoc = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, i].Value);
                     data.Nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, i].Value);
                     data.Ban = ConvertUtil.ConvertToInt(dgvThongTin[colBan.Name, i].Value);
                     data.TonCuoi = ConvertUtil.ConvertToInt(dgvThongTin[colTonCuoi.Name, i].Value);
@@ -975,9 +984,10 @@ namespace Weedon
             dgvThongTin[colThanhTien.Name, e.RowIndex].Value = price * soLuong;
 
             int tonDau = ConvertUtil.ConvertToInt(dgvThongTin[colTonDau.Name, e.RowIndex].Value);
+            int thuHoiNgayTruoc = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoiNgayTruoc.Name, e.RowIndex].Value);
             int nhan = ConvertUtil.ConvertToInt(dgvThongTin[colNhan.Name, e.RowIndex].Value);
             int thuHoi = ConvertUtil.ConvertToInt(dgvThongTin[colThuHoi.Name, e.RowIndex].Value);
-            dgvThongTin[colTonCuoi.Name, e.RowIndex].Value = tonDau + nhan - soLuong - thuHoi;
+            dgvThongTin[colTonCuoi.Name, e.RowIndex].Value = tonDau + thuHoiNgayTruoc + nhan - soLuong - thuHoi;
             DTO.KhuyenMai khuyenMai = KhuyenMaiBus.GetByIdSanPham(ConvertUtil.ConvertToInt(dgvThongTin[colIdSanPham.Name, e.RowIndex].Value));
             double soLuongSanPhamKhuyenMai = 0;
 
@@ -1040,7 +1050,8 @@ namespace Weedon
                 {
                     tbTenNV.Text = "---Tất cả---";
                     GetDataBanHangAll();
-                    dgvThongTin.Enabled = false;
+                    //dgvThongTin.Enabled = false;
+                    DisableDataGridEdit();
                 }
                 else
                 {
@@ -1053,12 +1064,14 @@ namespace Weedon
                         if (data.IdUserGroup == 3)
                         {
                             GetDataBanHangToTruong(data);
-                            dgvThongTin.Enabled = false;
+                            //dgvThongTin.Enabled = false;
+                            DisableDataGridEdit();
                         }
                         else
                         {
                             GetDataBanHang();
-                            dgvThongTin.Enabled = true;
+                            //dgvThongTin.Enabled = true;
+                            EnableDataGridEdit();
                         }
                     }
                     else
@@ -1066,9 +1079,50 @@ namespace Weedon
                         dgvThongTin.Rows.Clear();
                         tbTenNV.Text = string.Empty;
                         tbGhiChu.Text = string.Empty;
+                        DisableDataGridEdit();
                     }
                 }
+
+                tvUser.SelectedNode.ForeColor = Color.Red;
             }
+        }
+
+        private void EnableDataGridEdit()
+        {
+            dgvThongTin.Columns[colNhan.Name].ReadOnly = false;
+            dgvThongTin.Columns[colBan.Name].ReadOnly = false;
+            dgvThongTin.Columns[colThuHoi.Name].ReadOnly = false;
+            dgvThongTin.Columns[colQuet.Name].ReadOnly = false;
+            dgvThongTin.Columns[colTLB.Name].ReadOnly = false;
+            dgvThongTin.Columns[colDiemMoi.Name].ReadOnly = false;
+            dgvThongTin.Columns[colLuotBan.Name].ReadOnly = false;
+
+            dgvThongTin.Columns[colNhan.Name].DefaultCellStyle.BackColor = Color.White;
+            dgvThongTin.Columns[colBan.Name].DefaultCellStyle.BackColor = Color.White;
+            dgvThongTin.Columns[colThuHoi.Name].DefaultCellStyle.BackColor = Color.White;
+            dgvThongTin.Columns[colQuet.Name].DefaultCellStyle.BackColor = Color.White;
+            dgvThongTin.Columns[colTLB.Name].DefaultCellStyle.BackColor = Color.White;
+            dgvThongTin.Columns[colDiemMoi.Name].DefaultCellStyle.BackColor = Color.White;
+            dgvThongTin.Columns[colLuotBan.Name].DefaultCellStyle.BackColor = Color.White;
+        }
+
+        private void DisableDataGridEdit()
+        {
+            dgvThongTin.Columns[colNhan.Name].ReadOnly = true;
+            dgvThongTin.Columns[colBan.Name].ReadOnly = true;
+            dgvThongTin.Columns[colThuHoi.Name].ReadOnly = true;
+            dgvThongTin.Columns[colQuet.Name].ReadOnly = true;
+            dgvThongTin.Columns[colTLB.Name].ReadOnly = true;
+            dgvThongTin.Columns[colDiemMoi.Name].ReadOnly = true;
+            dgvThongTin.Columns[colLuotBan.Name].ReadOnly = true;
+
+            dgvThongTin.Columns[colNhan.Name].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvThongTin.Columns[colBan.Name].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvThongTin.Columns[colThuHoi.Name].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvThongTin.Columns[colQuet.Name].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvThongTin.Columns[colTLB.Name].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvThongTin.Columns[colDiemMoi.Name].DefaultCellStyle.BackColor = Color.LightGray;
+            dgvThongTin.Columns[colLuotBan.Name].DefaultCellStyle.BackColor = Color.LightGray;
         }
 
         private void dtpFilter_ValueChanged(object sender, EventArgs e)
@@ -1081,6 +1135,11 @@ namespace Weedon
             if (e.KeyChar == (char)Keys.Enter)
             {
                 UpdateData(true);
+            }
+
+            if (ModifierKeys == Keys.Control)
+            {
+                e.Handled = false;
             }
         }
 
@@ -1118,6 +1177,134 @@ namespace Weedon
             {
                 UpdateData(false);
             }
+        }
+
+        private void dgvThongTin_KeyDown(object sender, KeyEventArgs e)
+        {
+            Move(e);
+        }
+
+        private void Move(KeyEventArgs e)
+        {
+            if (ModifierKeys == Keys.Control)
+            {
+                tvUser.SelectedNode.ForeColor = Color.Black;
+
+                if (e.KeyCode == Keys.Right)
+                {
+                    if (tvUser.SelectedNode.GetNodeCount(false) == 0 && tvUser.SelectedNode.NextNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.NextNode;
+                        return;
+                    }
+
+                    if (tvUser.SelectedNode.GetNodeCount(false) > 0)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.Nodes[0];
+                        return;
+                    }
+
+                    if (tvUser.SelectedNode.Parent != null && tvUser.SelectedNode.Parent.NextNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.Parent.NextNode;
+                    }
+                }
+
+                if (e.KeyCode == Keys.Left)
+                {
+                    if (tvUser.SelectedNode.Nodes.Count == 0 && tvUser.SelectedNode.PrevNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.PrevNode;
+                        return;
+                    }
+
+                    if (tvUser.SelectedNode.PrevNode != null && tvUser.SelectedNode.PrevNode.GetNodeCount(false) > 0)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.PrevNode.Nodes[tvUser.SelectedNode.PrevNode.GetNodeCount(false) - 1];
+                        return;
+                    }
+
+                    if (tvUser.SelectedNode.Parent != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.Parent;
+                    }
+                }
+
+                if (e.KeyCode == Keys.Up)
+                {
+                    if (tvUser.SelectedNode.Parent != null && tvUser.SelectedNode.Parent.Text.StartsWith("Tổ ") &&
+                        tvUser.SelectedNode.Parent.PrevNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.Parent.PrevNode;
+                        return;
+                    }
+
+                    if (tvUser.SelectedNode.Text.StartsWith("Tổ ") &&
+                        tvUser.SelectedNode.PrevNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.PrevNode;
+                    }
+                }
+
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (tvUser.SelectedNode.Parent != null && tvUser.SelectedNode.Parent.Text.StartsWith("Tổ ") &&
+                        tvUser.SelectedNode.Parent.NextNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.Parent.NextNode;
+                        return;
+                    }
+
+                    if (tvUser.SelectedNode.Text.StartsWith("Tổ ") &&
+                        tvUser.SelectedNode.NextNode != null)
+                    {
+                        tvUser.SelectedNode = tvUser.SelectedNode.NextNode;
+                    }
+                }
+
+                tvUser.SelectedNode.ForeColor = Color.Red;
+            }
+
+            if (ModifierKeys == Keys.Alt)
+            {
+                if (e.KeyCode == Keys.Right)
+                {
+                    dtpFilter.Value = dtpFilter.Value.AddDays(1);
+                }
+
+                if (e.KeyCode == Keys.Left)
+                {
+                    dtpFilter.Value = dtpFilter.Value.AddDays(-1);
+                }
+
+                if (e.KeyCode == Keys.Up)
+                {
+                    dtpFilter.Value = dtpFilter.Value.AddMonths(1);
+                }
+
+                if (e.KeyCode == Keys.Down)
+                {
+                    dtpFilter.Value = dtpFilter.Value.AddMonths(-1);
+                }
+            }
+        }
+
+        private void tvUser_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            if (tvUser.SelectedNode != null)
+            {
+                tvUser.SelectedNode.ForeColor = Color.Black;
+            }
+        }
+
+        private void tvUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            Move(e);
+        }
+
+        private void dgvLoaiTien_KeyDown(object sender, KeyEventArgs e)
+        {
+            Move(e);
         }
     }
 }

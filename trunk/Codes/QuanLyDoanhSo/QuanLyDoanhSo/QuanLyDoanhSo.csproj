@@ -110,6 +110,18 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Library\Common\ExportExcel.cs" />
+    <Compile Include="Main\DoanhThu\BanHang\BanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\BanHang\BanHang.Designer.cs">
+      <DependentUpon>BanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\DoanhThu\BanHang\UcBanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\DoanhThu\BanHang\UcBanHang.Designer.cs">
+      <DependentUpon>UcBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\DoanhThu\BanHang\UcInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,12 +133,6 @@
     </Compile>
     <Compile Include="Main\DoanhThu\BanHang\UcBanHang2.Designer.cs">
       <DependentUpon>UcBanHang2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\DoanhThu\BanHang\UcBanHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Main\DoanhThu\BanHang\UcBanHang.Designer.cs">
-      <DependentUpon>UcBanHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.cs">
       <SubType>UserControl</SubType>
@@ -293,14 +299,17 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\BanHang\BanHang.resx">
+      <DependentUpon>BanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DoanhThu\BanHang\UcBanHang.resx">
+      <DependentUpon>UcBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\DoanhThu\BanHang\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\DoanhThu\BanHang\UcBanHang2.resx">
       <DependentUpon>UcBanHang2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\DoanhThu\BanHang\UcBanHang.resx">
-      <DependentUpon>UcBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\DoanhThu\KhuyenMai\UcKhuyenMai.resx">
       <DependentUpon>UcKhuyenMai.cs</DependentUpon>
