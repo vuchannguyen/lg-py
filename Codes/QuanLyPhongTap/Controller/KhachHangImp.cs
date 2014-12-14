@@ -101,9 +101,10 @@ namespace Controller
         /// Insert new data
         /// </summary>
         /// <returns>Return id of the new data if success</returns>
-        public static int? Insert(byte idGroup, string ten, string KhachHangName, string Password, string gioiTinh = "Nam",
-            DateTime? DOB = null, DateTime? ngayCap = null, string ma = "", string soXe = "", string CMND = "", string noiCap = "",
-            string diaChi = "", string dienThoai = "", string DTDD = "", string email = "", string ghiChu = "")
+        public static int? Insert(byte idGroup, string ten, string KhachHangName, string gioiTinh = "Nam", string ma = "",
+            DateTime? ngayHetHan = null, string soXe = "", double dien = 0, double nuoc = 0,
+            DateTime? DOB = null, string CMND = "", DateTime? ngayCap = null, string noiCap = "",
+            string diaChi = "", string dtdd = "", string email = "", string ghiChu = "")
         {
             int? res = null;
 
@@ -112,20 +113,24 @@ namespace Controller
                 if (GetByMa(ma) == null)
                 {
                     KhachHang data = new KhachHang();
+                    data.Ma = ma;
                     data.IdGroup = idGroup;
                     data.Ten = ten;
-                    data.KhachHangName = KhachHangName;
-                    data.Password = Crypto.EncryptText(Password);
                     data.GioiTinh = gioiTinh;
+                    data.NgayHetHan = ngayHetHan;
+                    data.SoXe = soXe;
+                    data.Dien = dien;
+                    data.Nuoc = nuoc;
                     data.DOB = DOB;
-                    data.NgayCap = ngayCap;
                     data.CMND = CMND;
+                    data.NgayCap = ngayCap;
                     data.NoiCap = noiCap;
                     data.DiaChi = diaChi;
-                    data.DienThoai = dienThoai;
-                    data.DTDD = DTDD;
+                    data.DTDD = dtdd;
                     data.Email = email;
                     data.GhiChu = ghiChu;
+                    data.UpdateDate = DateTime.Now;
+                    data.UpdateBy = UserImp.currentUser.Id;
 
                     if (Insert(data))
                     {
@@ -145,7 +150,7 @@ namespace Controller
         {
             try
             {
-                if (data != null && CheckDeletePermission(data))
+                if (data != null)
                 {
                     data.DeleteFlag = true;
                     dbContext.SubmitChanges();
@@ -225,9 +230,10 @@ namespace Controller
             }
         }
 
-        public static bool Update(int id, byte idKhachHangGroup, string ten, string KhachHangName, string Password, string gioiTinh = "Nam",
-            DateTime? DOB = null, DateTime? ngayCap = null, string ma = "", string soXe ="", string CMND = "", string noiCap = "",
-            string diaChi = "", string dienThoai = "", string DTDD = "", string email = "", string ghiChu = "")
+        public static bool Update(int id, byte idGroup, string ten, string KhachHangName, string gioiTinh = "Nam", string ma = "",
+            DateTime? ngayHetHan = null, string soXe = "", double dien = 0, double nuoc = 0,
+            DateTime? DOB = null, string CMND = "", DateTime? ngayCap = null, string noiCap = "",
+            string diaChi = "", string dtdd = "", string email = "", string ghiChu = "")
         {
             bool res = false;
 
@@ -237,21 +243,25 @@ namespace Controller
 
                 if (data != null)
                 {
-                    data.KhachHangGroup = KhachHangGroupImp.GetById(idKhachHangGroup);
+                    data.KhachHangGroup = KhachHangGroupImp.GetById(idGroup);
+                    data.Ma = ma;
+                    data.IdGroup = idGroup;
                     data.Ten = ten;
-                    data.KhachHangName = KhachHangName;
-                    data.Password = Crypto.EncryptText(Password);
                     data.GioiTinh = gioiTinh;
+                    data.NgayHetHan = ngayHetHan;
+                    data.SoXe = soXe;
+                    data.Dien = dien;
+                    data.Nuoc = nuoc;
                     data.DOB = DOB;
-                    data.NgayCap = ngayCap;
                     data.CMND = CMND;
                     data.NgayCap = ngayCap;
                     data.NoiCap = noiCap;
                     data.DiaChi = diaChi;
-                    data.DienThoai = dienThoai;
-                    data.DTDD = DTDD;
+                    data.DTDD = dtdd;
                     data.Email = email;
                     data.GhiChu = ghiChu;
+                    data.UpdateDate = DateTime.Now;
+                    data.User = UserImp.currentUser;
 
                     res = Update(data);
                 }

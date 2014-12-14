@@ -44,6 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CommonComboBoxItems.cs" />
+    <Compile Include="Common\CommonFunction.cs" />
+    <Compile Include="Common\Constant.cs" />
+    <Compile Include="Common\ConstantResource.cs" />
+    <Compile Include="Common\ConvertUtil.cs" />
+    <Compile Include="Common\Convert_Function.cs" />
+    <Compile Include="Common\ExportExcel.cs" />
+    <Compile Include="Common\Fade.cs" />
+    <Compile Include="Common\File_Function.cs" />
+    <Compile Include="Common\Image_Function.cs" />
+    <Compile Include="Common\ListViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\ListViewSortColumn.cs" />
+    <Compile Include="Common\MyReturnCode.cs" />
+    <Compile Include="Common\Office_Function.cs" />
+    <Compile Include="Common\SQL_Funtion.cs" />
+    <Compile Include="Common\Startup.cs" />
+    <Compile Include="Common\XML_Function.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +71,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcPhongTap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcPhongTap.Designer.cs">
+      <DependentUpon>UcPhongTap.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UcPhongTap.resx">
+      <DependentUpon>UcPhongTap.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -73,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{b2e37232-b470-40df-8913-948115c0b0e6}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{4afea659-a1d8-4f26-a9af-5d5b04df2d7b}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

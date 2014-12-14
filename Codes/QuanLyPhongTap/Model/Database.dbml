@@ -10,8 +10,52 @@
       <Column Name="Tien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="User_HoaDon" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
       <Association Name="KhachHang_HoaDon" Member="KhachHang" ThisKey="IdKhachHang" OtherKey="Id" Type="KhachHang" IsForeignKey="true" />
+      <Association Name="User_HoaDon" Member="User" ThisKey="IdUser" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserGroup" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="UserGroup_User" Member="Users" ThisKey="Id" OtherKey="IdGroup" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IdGroup" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayHetHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SoXe" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Dien" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Nuoc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="NgayCap" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NoiCap" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DTDD" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdKhachHang" Type="HoaDon" />
+      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangGroup" ThisKey="IdGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
+      <Association Name="User_KhachHang" Member="User" ThisKey="UpdateBy" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHangGroup" Member="KhachHangGroups">
+    <Type Name="KhachHangGroup">
+      <Column Name="Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ma" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangs" ThisKey="Id" OtherKey="IdGroup" Type="KhachHang" />
     </Type>
   </Table>
   <Table Name="dbo.[User]" Member="Users">
@@ -35,46 +79,6 @@
       <Association Name="User_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdUser" Type="HoaDon" />
       <Association Name="User_KhachHang" Member="KhachHangs" ThisKey="Id" OtherKey="UpdateBy" Type="KhachHang" />
       <Association Name="UserGroup_User" Member="UserGroup" ThisKey="IdGroup" OtherKey="Id" Type="UserGroup" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.KhachHang" Member="KhachHangs">
-    <Type Name="KhachHang">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ma" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="IdGroup" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="NgayHetHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="SoXe" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="DTDD" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Facebook" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DeleteFlag" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="KhachHang_HoaDon" Member="HoaDons" ThisKey="Id" OtherKey="IdKhachHang" Type="HoaDon" />
-      <Association Name="User_KhachHang" Member="User" ThisKey="UpdateBy" OtherKey="Id" Type="User" IsForeignKey="true" />
-      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangGroup" ThisKey="IdGroup" OtherKey="Id" Type="KhachHangGroup" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.KhachHangGroup" Member="KhachHangGroups">
-    <Type Name="KhachHangGroup">
-      <Column Name="Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ma" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="KhachHangGroup_KhachHang" Member="KhachHangs" ThisKey="Id" OtherKey="IdGroup" Type="KhachHang" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserGroup" Member="UserGroups">
-    <Type Name="UserGroup">
-      <Column Name="Id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Ten" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="UserGroup_User" Member="Users" ThisKey="Id" OtherKey="IdGroup" Type="User" />
     </Type>
   </Table>
 </Database>
