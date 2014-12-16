@@ -29,23 +29,6 @@
         private void InitializeComponent()
         {
             this.tlAll = new System.Windows.Forms.TableLayoutPanel();
-            this.tlTop = new System.Windows.Forms.TableLayoutPanel();
-            this.pnActions = new System.Windows.Forms.Panel();
-            this.btThem = new System.Windows.Forms.Button();
-            this.btXoa = new System.Windows.Forms.Button();
-            this.btSua = new System.Windows.Forms.Button();
-            this.tbBottom = new System.Windows.Forms.TableLayoutPanel();
-            this.pnSearch = new System.Windows.Forms.Panel();
-            this.pnPage = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btSearch = new System.Windows.Forms.Button();
-            this.tbPage = new System.Windows.Forms.TextBox();
-            this.lbTotalPage = new System.Windows.Forms.Label();
-            this.pbBackPage = new System.Windows.Forms.PictureBox();
-            this.lbPage = new System.Windows.Forms.Label();
-            this.pbNextPage = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lvThongTin = new System.Windows.Forms.ListView();
             this.chCheckBox = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,15 +39,30 @@
             this.chSoXe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chDTDD = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chGhiChu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tlTop = new System.Windows.Forms.TableLayoutPanel();
+            this.pnActions = new System.Windows.Forms.Panel();
+            this.btSua = new System.Windows.Forms.Button();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.btThem = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbBottom = new System.Windows.Forms.TableLayoutPanel();
+            this.pnPage = new System.Windows.Forms.Panel();
+            this.btNextPage = new System.Windows.Forms.Button();
+            this.btBackPage = new System.Windows.Forms.Button();
+            this.tbPage = new System.Windows.Forms.TextBox();
+            this.lbTotalPage = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbPage = new System.Windows.Forms.Label();
+            this.pnSearch = new System.Windows.Forms.Panel();
+            this.btSearch = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.tlAll.SuspendLayout();
             this.tlTop.SuspendLayout();
             this.pnActions.SuspendLayout();
             this.tbBottom.SuspendLayout();
-            this.pnSearch.SuspendLayout();
             this.pnPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBackPage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNextPage)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pnSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlAll
@@ -79,193 +77,11 @@
             this.tlAll.Location = new System.Drawing.Point(0, 0);
             this.tlAll.Name = "tlAll";
             this.tlAll.RowCount = 3;
-            this.tlAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tlAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83F));
-            this.tlAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.tlAll.Size = new System.Drawing.Size(800, 600);
+            this.tlAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tlAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tlAll.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tlAll.Size = new System.Drawing.Size(800, 550);
             this.tlAll.TabIndex = 0;
-            // 
-            // tlTop
-            // 
-            this.tlTop.ColumnCount = 2;
-            this.tlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlTop.Controls.Add(this.pnActions, 0, 0);
-            this.tlTop.Controls.Add(this.label1, 1, 0);
-            this.tlTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlTop.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tlTop.Location = new System.Drawing.Point(3, 3);
-            this.tlTop.Name = "tlTop";
-            this.tlTop.RowCount = 1;
-            this.tlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlTop.Size = new System.Drawing.Size(794, 54);
-            this.tlTop.TabIndex = 0;
-            // 
-            // pnActions
-            // 
-            this.pnActions.Controls.Add(this.btSua);
-            this.pnActions.Controls.Add(this.btXoa);
-            this.pnActions.Controls.Add(this.btThem);
-            this.pnActions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnActions.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnActions.Location = new System.Drawing.Point(3, 3);
-            this.pnActions.Name = "pnActions";
-            this.pnActions.Size = new System.Drawing.Size(391, 48);
-            this.pnActions.TabIndex = 0;
-            // 
-            // btThem
-            // 
-            this.btThem.Location = new System.Drawing.Point(3, 3);
-            this.btThem.Name = "btThem";
-            this.btThem.Size = new System.Drawing.Size(70, 42);
-            this.btThem.TabIndex = 0;
-            this.btThem.Text = "Thêm";
-            this.btThem.UseVisualStyleBackColor = true;
-            // 
-            // btXoa
-            // 
-            this.btXoa.Location = new System.Drawing.Point(155, 3);
-            this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(70, 42);
-            this.btXoa.TabIndex = 1;
-            this.btXoa.Text = "Xóa";
-            this.btXoa.UseVisualStyleBackColor = true;
-            // 
-            // btSua
-            // 
-            this.btSua.Location = new System.Drawing.Point(79, 3);
-            this.btSua.Name = "btSua";
-            this.btSua.Size = new System.Drawing.Size(70, 42);
-            this.btSua.TabIndex = 2;
-            this.btSua.Text = "Sửa";
-            this.btSua.UseVisualStyleBackColor = true;
-            // 
-            // tbBottom
-            // 
-            this.tbBottom.ColumnCount = 2;
-            this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.Controls.Add(this.pnPage, 1, 0);
-            this.tbBottom.Controls.Add(this.pnSearch, 0, 0);
-            this.tbBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBottom.Location = new System.Drawing.Point(3, 561);
-            this.tbBottom.Name = "tbBottom";
-            this.tbBottom.RowCount = 1;
-            this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbBottom.Size = new System.Drawing.Size(794, 36);
-            this.tbBottom.TabIndex = 1;
-            // 
-            // pnSearch
-            // 
-            this.pnSearch.Controls.Add(this.btSearch);
-            this.pnSearch.Controls.Add(this.tbSearch);
-            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnSearch.Location = new System.Drawing.Point(3, 3);
-            this.pnSearch.Name = "pnSearch";
-            this.pnSearch.Size = new System.Drawing.Size(391, 30);
-            this.pnSearch.TabIndex = 0;
-            // 
-            // pnPage
-            // 
-            this.pnPage.Controls.Add(this.tbPage);
-            this.pnPage.Controls.Add(this.lbTotalPage);
-            this.pnPage.Controls.Add(this.pbBackPage);
-            this.pnPage.Controls.Add(this.pbNextPage);
-            this.pnPage.Controls.Add(this.panel1);
-            this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnPage.Location = new System.Drawing.Point(400, 3);
-            this.pnPage.Name = "pnPage";
-            this.pnPage.Size = new System.Drawing.Size(391, 30);
-            this.pnPage.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(702, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 54);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PHÒNG TẬP";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(3, 4);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(304, 23);
-            this.tbSearch.TabIndex = 0;
-            // 
-            // btSearch
-            // 
-            this.btSearch.Location = new System.Drawing.Point(313, 4);
-            this.btSearch.Name = "btSearch";
-            this.btSearch.Size = new System.Drawing.Size(75, 23);
-            this.btSearch.TabIndex = 1;
-            this.btSearch.Text = "Tìm";
-            this.btSearch.UseVisualStyleBackColor = true;
-            // 
-            // tbPage
-            // 
-            this.tbPage.Location = new System.Drawing.Point(112, 5);
-            this.tbPage.MaxLength = 3;
-            this.tbPage.Name = "tbPage";
-            this.tbPage.Size = new System.Drawing.Size(40, 23);
-            this.tbPage.TabIndex = 94;
-            this.tbPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbPage.Visible = false;
-            // 
-            // lbTotalPage
-            // 
-            this.lbTotalPage.AutoSize = true;
-            this.lbTotalPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbTotalPage.Location = new System.Drawing.Point(206, 5);
-            this.lbTotalPage.Name = "lbTotalPage";
-            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
-            this.lbTotalPage.TabIndex = 90;
-            this.lbTotalPage.Text = "??? Trang";
-            // 
-            // pbBackPage
-            // 
-            this.pbBackPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbBackPage.Location = new System.Drawing.Point(301, -1);
-            this.pbBackPage.Name = "pbBackPage";
-            this.pbBackPage.Size = new System.Drawing.Size(25, 32);
-            this.pbBackPage.TabIndex = 92;
-            this.pbBackPage.TabStop = false;
-            // 
-            // lbPage
-            // 
-            this.lbPage.AutoSize = true;
-            this.lbPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPage.ForeColor = System.Drawing.Color.Gray;
-            this.lbPage.Location = new System.Drawing.Point(12, 1);
-            this.lbPage.Name = "lbPage";
-            this.lbPage.Size = new System.Drawing.Size(18, 19);
-            this.lbPage.TabIndex = 89;
-            this.lbPage.Text = "1";
-            this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbNextPage
-            // 
-            this.pbNextPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbNextPage.Location = new System.Drawing.Point(366, -1);
-            this.pbNextPage.Name = "pbNextPage";
-            this.pbNextPage.Size = new System.Drawing.Size(25, 32);
-            this.pbNextPage.TabIndex = 93;
-            this.pbNextPage.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.lbPage);
-            this.panel1.Location = new System.Drawing.Point(324, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(45, 22);
-            this.panel1.TabIndex = 91;
             // 
             // lvThongTin
             // 
@@ -284,13 +100,17 @@
             this.lvThongTin.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvThongTin.FullRowSelect = true;
             this.lvThongTin.GridLines = true;
-            this.lvThongTin.Location = new System.Drawing.Point(3, 63);
+            this.lvThongTin.Location = new System.Drawing.Point(3, 69);
             this.lvThongTin.MultiSelect = false;
             this.lvThongTin.Name = "lvThongTin";
-            this.lvThongTin.Size = new System.Drawing.Size(794, 492);
+            this.lvThongTin.Size = new System.Drawing.Size(794, 434);
             this.lvThongTin.TabIndex = 87;
             this.lvThongTin.UseCompatibleStateImageBehavior = false;
             this.lvThongTin.View = System.Windows.Forms.View.Details;
+            this.lvThongTin.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvThongTin_ColumnWidthChanging);
+            this.lvThongTin.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvThongTin_ItemChecked);
+            this.lvThongTin.SelectedIndexChanged += new System.EventHandler(this.lvThongTin_SelectedIndexChanged);
+            this.lvThongTin.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvThongTin_MouseClick);
             // 
             // chCheckBox
             // 
@@ -341,27 +161,212 @@
             this.chGhiChu.Text = "Ghi chú";
             this.chGhiChu.Width = 143;
             // 
+            // tlTop
+            // 
+            this.tlTop.ColumnCount = 2;
+            this.tlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlTop.Controls.Add(this.pnActions, 0, 0);
+            this.tlTop.Controls.Add(this.label1, 1, 0);
+            this.tlTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlTop.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlTop.Location = new System.Drawing.Point(3, 3);
+            this.tlTop.Name = "tlTop";
+            this.tlTop.RowCount = 1;
+            this.tlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlTop.Size = new System.Drawing.Size(794, 60);
+            this.tlTop.TabIndex = 0;
+            // 
+            // pnActions
+            // 
+            this.pnActions.Controls.Add(this.btSua);
+            this.pnActions.Controls.Add(this.btXoa);
+            this.pnActions.Controls.Add(this.btThem);
+            this.pnActions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnActions.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnActions.Location = new System.Drawing.Point(3, 3);
+            this.pnActions.Name = "pnActions";
+            this.pnActions.Size = new System.Drawing.Size(391, 54);
+            this.pnActions.TabIndex = 0;
+            // 
+            // btSua
+            // 
+            this.btSua.Location = new System.Drawing.Point(79, 3);
+            this.btSua.Name = "btSua";
+            this.btSua.Size = new System.Drawing.Size(70, 40);
+            this.btSua.TabIndex = 2;
+            this.btSua.Text = "Sửa";
+            this.btSua.UseVisualStyleBackColor = true;
+            // 
+            // btXoa
+            // 
+            this.btXoa.Location = new System.Drawing.Point(155, 3);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(70, 40);
+            this.btXoa.TabIndex = 1;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = true;
+            // 
+            // btThem
+            // 
+            this.btThem.Location = new System.Drawing.Point(3, 3);
+            this.btThem.Name = "btThem";
+            this.btThem.Size = new System.Drawing.Size(70, 40);
+            this.btThem.TabIndex = 0;
+            this.btThem.Text = "Thêm";
+            this.btThem.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(702, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 60);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "PHÒNG TẬP";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbBottom
+            // 
+            this.tbBottom.ColumnCount = 2;
+            this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbBottom.Controls.Add(this.pnPage, 1, 0);
+            this.tbBottom.Controls.Add(this.pnSearch, 0, 0);
+            this.tbBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbBottom.Location = new System.Drawing.Point(3, 509);
+            this.tbBottom.Name = "tbBottom";
+            this.tbBottom.RowCount = 1;
+            this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tbBottom.Size = new System.Drawing.Size(794, 38);
+            this.tbBottom.TabIndex = 1;
+            // 
+            // pnPage
+            // 
+            this.pnPage.Controls.Add(this.btNextPage);
+            this.pnPage.Controls.Add(this.btBackPage);
+            this.pnPage.Controls.Add(this.tbPage);
+            this.pnPage.Controls.Add(this.lbTotalPage);
+            this.pnPage.Controls.Add(this.panel1);
+            this.pnPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnPage.Location = new System.Drawing.Point(400, 3);
+            this.pnPage.Name = "pnPage";
+            this.pnPage.Size = new System.Drawing.Size(391, 32);
+            this.pnPage.TabIndex = 1;
+            // 
+            // btNextPage
+            // 
+            this.btNextPage.Location = new System.Drawing.Point(368, 4);
+            this.btNextPage.Name = "btNextPage";
+            this.btNextPage.Size = new System.Drawing.Size(23, 23);
+            this.btNextPage.TabIndex = 96;
+            this.btNextPage.Text = ">";
+            this.btNextPage.UseVisualStyleBackColor = true;
+            this.btNextPage.Click += new System.EventHandler(this.btNextPage_Click);
+            // 
+            // btBackPage
+            // 
+            this.btBackPage.Location = new System.Drawing.Point(302, 4);
+            this.btBackPage.Name = "btBackPage";
+            this.btBackPage.Size = new System.Drawing.Size(23, 23);
+            this.btBackPage.TabIndex = 95;
+            this.btBackPage.Text = "<";
+            this.btBackPage.UseVisualStyleBackColor = true;
+            this.btBackPage.Click += new System.EventHandler(this.btBackPage_Click);
+            // 
+            // tbPage
+            // 
+            this.tbPage.Location = new System.Drawing.Point(112, 5);
+            this.tbPage.MaxLength = 3;
+            this.tbPage.Name = "tbPage";
+            this.tbPage.Size = new System.Drawing.Size(40, 23);
+            this.tbPage.TabIndex = 94;
+            this.tbPage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbPage.Visible = false;
+            this.tbPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPage_KeyPress);
+            // 
+            // lbTotalPage
+            // 
+            this.lbTotalPage.AutoSize = true;
+            this.lbTotalPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalPage.ForeColor = System.Drawing.Color.Gray;
+            this.lbTotalPage.Location = new System.Drawing.Point(206, 5);
+            this.lbTotalPage.Name = "lbTotalPage";
+            this.lbTotalPage.Size = new System.Drawing.Size(87, 19);
+            this.lbTotalPage.TabIndex = 90;
+            this.lbTotalPage.Text = "??? Trang";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbPage);
+            this.panel1.Location = new System.Drawing.Point(324, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(45, 22);
+            this.panel1.TabIndex = 91;
+            // 
+            // lbPage
+            // 
+            this.lbPage.AutoSize = true;
+            this.lbPage.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPage.ForeColor = System.Drawing.Color.Gray;
+            this.lbPage.Location = new System.Drawing.Point(12, 1);
+            this.lbPage.Name = "lbPage";
+            this.lbPage.Size = new System.Drawing.Size(18, 19);
+            this.lbPage.TabIndex = 89;
+            this.lbPage.Text = "1";
+            this.lbPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbPage.TextChanged += new System.EventHandler(this.lbPage_TextChanged);
+            this.lbPage.Click += new System.EventHandler(this.lbPage_Click);
+            // 
+            // pnSearch
+            // 
+            this.pnSearch.Controls.Add(this.btSearch);
+            this.pnSearch.Controls.Add(this.tbSearch);
+            this.pnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnSearch.Location = new System.Drawing.Point(3, 3);
+            this.pnSearch.Name = "pnSearch";
+            this.pnSearch.Size = new System.Drawing.Size(391, 32);
+            this.pnSearch.TabIndex = 0;
+            // 
+            // btSearch
+            // 
+            this.btSearch.Location = new System.Drawing.Point(3, 4);
+            this.btSearch.Name = "btSearch";
+            this.btSearch.Size = new System.Drawing.Size(75, 23);
+            this.btSearch.TabIndex = 1;
+            this.btSearch.Text = "Tìm";
+            this.btSearch.UseVisualStyleBackColor = true;
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(84, 4);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(304, 23);
+            this.tbSearch.TabIndex = 0;
+            // 
             // UcPhongTap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlAll);
             this.Name = "UcPhongTap";
-            this.Size = new System.Drawing.Size(800, 600);
+            this.Size = new System.Drawing.Size(800, 550);
             this.Load += new System.EventHandler(this.UcPhongTap_Load);
             this.tlAll.ResumeLayout(false);
             this.tlTop.ResumeLayout(false);
             this.tlTop.PerformLayout();
             this.pnActions.ResumeLayout(false);
             this.tbBottom.ResumeLayout(false);
-            this.pnSearch.ResumeLayout(false);
-            this.pnSearch.PerformLayout();
             this.pnPage.ResumeLayout(false);
             this.pnPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBackPage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNextPage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnSearch.ResumeLayout(false);
+            this.pnSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -382,8 +387,6 @@
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.TextBox tbPage;
         private System.Windows.Forms.Label lbTotalPage;
-        private System.Windows.Forms.PictureBox pbBackPage;
-        private System.Windows.Forms.PictureBox pbNextPage;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbPage;
         private System.Windows.Forms.ListView lvThongTin;
@@ -396,5 +399,7 @@
         private System.Windows.Forms.ColumnHeader chSoXe;
         private System.Windows.Forms.ColumnHeader chDTDD;
         private System.Windows.Forms.ColumnHeader chGhiChu;
+        private System.Windows.Forms.Button btNextPage;
+        private System.Windows.Forms.Button btBackPage;
     }
 }

@@ -50,7 +50,6 @@
     <Compile Include="Common\ConstantResource.cs" />
     <Compile Include="Common\ConvertUtil.cs" />
     <Compile Include="Common\Convert_Function.cs" />
-    <Compile Include="Common\ExportExcel.cs" />
     <Compile Include="Common\Fade.cs" />
     <Compile Include="Common\File_Function.cs" />
     <Compile Include="Common\Image_Function.cs" />
@@ -59,10 +58,21 @@
     </Compile>
     <Compile Include="Common\ListViewSortColumn.cs" />
     <Compile Include="Common\MyReturnCode.cs" />
-    <Compile Include="Common\Office_Function.cs" />
     <Compile Include="Common\SQL_Funtion.cs" />
     <Compile Include="Common\Startup.cs" />
     <Compile Include="Common\XML_Function.cs" />
+    <Compile Include="FormConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnection.Designer.cs">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +87,12 @@
     <Compile Include="UcPhongTap.Designer.cs">
       <DependentUpon>UcPhongTap.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormConnection.resx">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
