@@ -19,7 +19,19 @@ namespace QuanLyPhongTap
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            tabMain_SelectedIndexChanged(sender, e);
+        }
 
+        private void tabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabMain.SelectedIndex)
+            { 
+                case 0:
+                    tabPhongTap.Controls.Add(new UcPhongTap());
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
