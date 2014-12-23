@@ -23,7 +23,7 @@ namespace QuanLyPhongTap
         private void FormLogin_Load(object sender, EventArgs e)
         {
             lbError.Text = string.Empty;
-            this.BackColor = Color.White;
+            //this.BackColor = Color.White;
             ValidateInput();
         }
 
@@ -41,20 +41,26 @@ namespace QuanLyPhongTap
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private bool Login()
+        private void Login()
         {
-            bool res = false;
-
             try
             {
-                res = UserImp.Login(tbUserName.Text, tbPassword.Text);
+                if (UserImp.Login(tbUserName.Text, tbPassword.Text))
+                {
+                    this.Hide();
+                    FormMain frm = new FormMain();
+                    frm.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    lbError.Text = Constant.MESSAGE_LOGIN_WRONG_PASS;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            return res;
         }
 
         private void ValidateInput()

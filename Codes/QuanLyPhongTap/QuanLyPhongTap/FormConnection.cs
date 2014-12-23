@@ -26,8 +26,9 @@ namespace QuanLyPhongTap
 
             if (CommonFunction.AutoConnect())
             {
+                this.Hide();
                 FormLogin frm = new FormLogin();
-                frm.Show();
+                frm.ShowDialog();
                 this.Close();
             }
             else
@@ -94,21 +95,18 @@ namespace QuanLyPhongTap
             }
             else
             {
+                this.Hide();
                 WriteConfiguration();
                 FormLogin frm = new FormLogin();
-                frm.Show();
+                frm.ShowDialog();
                 this.Close();
             }
         }
 
         private void WriteConfiguration()
         {
-            StreamWriter swWriter = null;
-
             try
             {
-                swWriter = new StreamWriter(Constant.DEFAULT_DATABASE_CONFIGURATION_FILE_NAME);
-
                 if (rbWindowsAu.Checked)
                 {
                     CommonFunction.WriteConfiguration(true, tbServerName.Text, tbUserName.Text, tbPassword.Text);
@@ -121,13 +119,6 @@ namespace QuanLyPhongTap
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (swWriter != null)
-                {
-                    swWriter.Close();
-                }
             }
         }
 

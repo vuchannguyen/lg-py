@@ -79,6 +79,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUpdatePhongTap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePhongTap.Designer.cs">
+      <DependentUpon>FormUpdatePhongTap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UcPhongTap.cs">
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePhongTap.resx">
+      <DependentUpon>FormUpdatePhongTap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
