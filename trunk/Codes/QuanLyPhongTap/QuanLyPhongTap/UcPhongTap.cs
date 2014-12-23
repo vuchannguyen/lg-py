@@ -28,12 +28,12 @@ namespace QuanLyPhongTap
         {
             this.Visible = false;
             this.Dock = DockStyle.Fill;
-            tbPage.Location = new Point(pnPage.Left + 2, pnPage.Top - 1);
+            tbPage.BringToFront();
             tbPage.LostFocus += new EventHandler(tbPage_LostFocus);
             this.BringToFront();
             sortColumn = string.Empty;
             sortOrder = Constant.SORT_ASCENDING;
-            tbSearch.Text = Constant.SEARCH_USER_TIP;
+            tbSearch.Text = Constant.SEARCH_KHACHHANG_TIP;
             RefreshListView(tbSearch.Text,
                 sortColumn, sortOrder, 1);
             SetStatusButtonPage(1);
@@ -52,7 +52,7 @@ namespace QuanLyPhongTap
 
         private void uc_Disposed(object sender, EventArgs e)
         {
-            tbSearch.Text = Constant.SEARCH_USER_TIP;
+            tbSearch.Text = Constant.SEARCH_KHACHHANG_TIP;
             RefreshListView(tbSearch.Text,
                 sortColumn, sortOrder, ConvertUtil.ConvertToInt(lbPage.Text));
             SetStatusButtonPage(ConvertUtil.ConvertToInt(lbPage.Text));
@@ -80,40 +80,39 @@ namespace QuanLyPhongTap
         {
             try
             {
-                if (text == Constant.SEARCH_USER_TIP)
+                if (text == Constant.SEARCH_KHACHHANG_TIP)
                 {
                     text = string.Empty;
                 }
 
-                int total = UserImp.GetCount(text);
+                int total = KhachHangImp.GetCount(text);
                 int maxPage = GetTotalPage(total) == 0 ? 1 : GetTotalPage(total);
                 lbTotalPage.Text = maxPage.ToString() + Constant.PAGE_TEXT;
 
-                if (ConvertUtil.ConvertToInt(lbPage.Text) > maxPage)
+                if (ConvertUtil.ConvertToInt(lbPage.Text) > maxPage || total == 0)
                 {
                     lbPage.Text = maxPage.ToString();
-
                     return;
                 }
 
-                List<User> list = UserImp.GetList(text,
+                List<KhachHang> list = KhachHangImp.GetList(text,
                     sortColumn, sortOrder, row * (page - 1), row);
                 CommonFunc.ClearlvItem(lvThongTin);
 
                 if (list != null)
                 {
-                    foreach (User data in list)
+                    foreach (KhachHang data in list)
                     {
                         ListViewItem lvi = new ListViewItem();
                         lvi.SubItems.Add(data.Id.ToString());
                         lvi.SubItems.Add((row * (page - 1) + lvThongTin.Items.Count + 1).ToString());
-                        lvi.SubItems.Add(data.UserGroup.Ten);
+                        lvi.SubItems.Add(data.Ma);
                         lvi.SubItems.Add(data.Ten);
-                        lvi.SubItems.Add(data.UserName);
-                        lvi.SubItems.Add(data.DOB == null ? string.Empty : data.DOB.Value.ToString(Constant.DEFAULT_DATE_FORMAT));
-                        lvi.SubItems.Add(data.DienThoai == null ? string.Empty : data.DienThoai);
+                        lvi.SubItems.Add(data.NgayHetHan.HasValue ? data.NgayHetHan.Value.ToString(Constant.DEFAULT_DATE_FORMAT) : string.Empty);
+                        lvi.SubItems.Add(data.SoXe == null ? string.Empty : data.SoXe);
                         lvi.SubItems.Add(data.DTDD == null ? string.Empty : data.DTDD);
                         lvi.SubItems.Add(data.Email == null ? string.Empty : data.Email);
+                        lvi.SubItems.Add(data.GhiChu == null ? string.Empty : data.GhiChu);
                         lvThongTin.Items.Add(lvi);
                     }
 
@@ -234,7 +233,6 @@ namespace QuanLyPhongTap
         {
             btBackPage.Enabled = false;
             btNextPage.Enabled = false;
-
             tbPage.Visible = true;
             tbPage.Text = "";
             tbPage.Focus();

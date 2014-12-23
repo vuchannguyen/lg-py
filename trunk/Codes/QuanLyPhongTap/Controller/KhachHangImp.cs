@@ -24,6 +24,7 @@ namespace Controller
                 text = CommonFunction.GetFilterText(text);
                 sql = sql.Where(p => SqlMethods.Like(p.Ten, text) ||
                     SqlMethods.Like(p.Ma, text) ||
+                    SqlMethods.Like(p.DTDD, text) ||
                     SqlMethods.Like(p.Email, text)
                     );
             }
